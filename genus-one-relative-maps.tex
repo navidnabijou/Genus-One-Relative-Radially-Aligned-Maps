@@ -172,13 +172,13 @@ Since the log structures only come into play when the source curve is reducible,
 
 We now want to show that the relative space in the radially aligned setting is equal to the closure of the nice locus; irreducibility follows immediately. One direction is clear: [WHY?]
 
-It thus remains to show that, given a relative radially aligned map, we can smooth it to one in the nice locus. This is done by considering different cases locally, then glueing.
+It thus remains to show that, given a relative radially aligned map, we can smooth it to one in the nice locus. This is done by considering different cases locally, then gluing.
 
 \subsection*{Case 1: non-contracted genus one internal component} Assume that the curve takes the form
 \begin{equation*} C = C_0 \cup C_1 \cup \ldots \cup C_k \end{equation*}
 where all the $C_i$ are smooth, $C_0$ has genus one, all the other $C_i$ have genus zero, and for $i = 1,\ldots,k$, $C_i$ intersects $C_0$ at a single node (denoted $q_i$) and does not intersect any other components.
 
-Suppose furthermore that $C_0$ is an \emph{internal component}, meaning that it is mapped into $H$ via $f$, and that $C_1$,\ldots,$C_k$ are \emph{external components}, meaning that they are not mapped into $H$ via $f$. Finally, suppose that $f$ is not constant on $C_0$. The picture is:
+Suppose furthermore that $C_0$ is a non-contracted \emph{internal component}, meaning that it is mapped into $H$ via $f$, and that $C_1$,\ldots,$C_k$ are \emph{external components}, meaning that they are not mapped into $H$ via $f$. The picture is:
 
 [FIGURE]
 
@@ -188,9 +188,34 @@ We start with $W = C_0 \times \Aaff^1_t$ (where $t$ denotes a fixed co-ordinate 
 
 Fix $i =1,\ldots,k$ and let $m_i$ be the multiplicity of $f$ with $H$ at $q_i \in C_i$. We define:
 \begin{equation*} \beta = \prod_{i=1}^k m_i \qquad r_i = \beta/m_i \end{equation*}
+We now blow-up the surface $W$ at the points $(q_i,0)$ with weight $r_i$ in the horizontal direction and weight $1$ in the vertical direction: if $x_i$ is a local co-ordinate for the fibre around $q_i$, this means that we blow-up in the ideal $(x_i,t^{r_i})$.
 
+The result is a fibred surface $W^\prime \to \Aaff^1_t$ with general fibre isomorphic to $C_0$ and central fibre isomorphic to $C$. The total space of $W^\prime$ is no longer smooth, but this is fine; the projection to $\Aaff^1_t$ is still flat. The central fibre is a linearly trivial Cartier divisor:
+\begin{equation*} W^\prime_0 = C_0 + C_1 + \ldots + C_k = 0 \in \Pic W^\prime \end{equation*}
+The $C_i$ are not themselves Cartier, but $r_i  C_i$ is Cartier for $i=1,\ldots,k$. We have:
+\begin{equation*} r_i C_i \cdot C_0 = 1 \end{equation*}
+Now, let $x_1,\ldots,x_n$ denote the marked points of $C$. These are divisors on the central fibre $W^\prime_0$, and hence can be extended to divisors $\tilde{x}_1,\ldots,\tilde{x}_n$ on $W^\prime$. Consider the line bundle:
+\begin{equation*} \tilde{L} = \OO_{W^\prime}(\beta C_0 + \Sigma_{i=1}^n \alpha_i \tilde{x}_i) \end{equation*}
+Note that $\beta C_0$ is indeed a Cartier divisor, since
+\begin{equation*} \beta C_0 = - \sum_{i=1}^k \beta C_i = - \sum_{i=1}^k m_i (r_i C_i) \end{equation*}
+and the $r_i C_i$ are Cartier. We claim that when we restrict $\tilde{L}$ to the central fibre we recover the line bundle $L = f^* \OO(1)$ that we started with.
 
+For $i=1,\ldots,k$, we have:
+\begin{align*} \tilde{L}|_{C_i} & = \OO_{C_i} \left( \beta (C_0 \cdot C_i) q_i + \Sigma_{x_j \in C_i} \alpha_j x_j \right) \\
+& = \OO_{C_i} \left( (\beta/r_i) q_i + \Sigma_{x_j \in C_i} \alpha_j x_j \right)\\
+& = \OO_{C_i} \left( m_i q_i + \Sigma_{x_j \in C_i} \alpha_j x_j \right) \\
+& = L|_{C_i} \end{align*}
+On the other hand
+\begin{align*} \tilde{L}|_{C_0} & = \OO_{C_0} \left( - \sum_{i=1}^k \beta (C_i \cdot C_0) q_i + \sum_{x_j \in C_0} \alpha_j x_j \right) \\
+& = \OO_{C_0} \left( - \sum_{i=1}^k m_i q_i + \sum_{x_j \in C_0} \alpha_j x_j \right) \\
+& = L|_{C_0} \end{align*}
+and the fact that $\tilde{L}|_{W^\prime_0} = L$ follows from the fact that the dual intersection graph of $C$ has genus zero.
 
+Now, $\tilde{L}$ comes with a unique section whose restriction to $W^\prime_0 \cong C$ is $s_0$. After we extend the sections $s_1,\ldots,s_N$, it is clear that the resulting stable map is in the nice locus (i.e. that it is not mapped into $H$).
+
+Now, to extend the sections $s_1,\ldots,s_N$, we simply check that they are unobstructed. The space containing the obstructions is:
+\begin{equation*} \HH^1(C,L) \end{equation*} \marginpar{Is this true even when $C$ is reducible}
+By taking the normalisation exact sequence for $C$, tensoring with $L$ and passing to cohomology, we obtain:
 
 \newpage
 \bibliographystyle{alpha}
