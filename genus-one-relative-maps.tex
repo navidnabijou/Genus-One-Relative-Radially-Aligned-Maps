@@ -190,9 +190,9 @@ Fix $i \in \{1,\ldots,k\}$ and let $m_i$ be the multiplicity of $f$ with $H$ at 
 \begin{equation*} l = \operatorname{lcm}(m_1,\ldots,m_k) \qquad r_i = l/m_i \end{equation*}
 We now blow-up the surface $W$ at the points $(q_i,0)$ with weight $r_i$ in the horizontal direction and weight $1$ in the vertical direction: if $x_i$ is a local co-ordinate for the fibre around $q_i$, this means that we blow-up in the ideal $(x_i,t^{r_i})$.
 
-The result is a fibred surface $W^\prime \to \Aaff^1_t$ with general fibre isomorphic to $C_0$ and central fibre isomorphic to $C$. The total space of $W^\prime$ is no longer smooth, but this is fine; the projection to $\Aaff^1_t$ is still flat. The central fibre is a linearly trivial Cartier divisor:
+The result is a fibred surface $W^\prime \to \Aaff^1_t$ with general fibre equal to $C_0$ and central fibre $W^\prime_0 \cong C$. The total space of $W^\prime$ is no longer smooth (its singular points are [BLAH]), but this is not a problem since the projection to $\Aaff^1_t$ is still flat. The central fibre is a linearly trivial Cartier divisor:
 \begin{equation*} W^\prime_0 = C_0 + C_1 + \ldots + C_k = 0 \in \Pic W^\prime \end{equation*}
-Fix $i \in \{1,\ldots,k\}$; then $r_i C_i$ is Cartier, although $C_i$ may not necessarily be. Furthermore, since
+For $i \in \{1,\ldots,k\}$ we have that $r_i C_i$ is Cartier, although the same is not necessarily true of $C_i$. Furthermore, since
 \begin{equation*} l C_0 = - \sum_{i=1}^k l C_i = - \sum_{i=1}^k m_i (r_i C_i) \end{equation*}
 in $A_1(W^\prime)$, it follows that $lC_0$ is Cartier. Finally, a local computation shows that
 \begin{equation*} r_i C_i \cdot C_0 = 1 \end{equation*}
@@ -207,9 +207,23 @@ Finally the fact that $\tilde{L}|_{W^\prime_0} = L$ follows from the fact that t
 
 Now, $\tilde{L}$ comes with a unique section whose restriction to $W^\prime_0 \cong C$ is $s_0$. After we extend the sections $s_1,\ldots,s_N$, it is clear that the resulting stable map is in the nice locus (i.e. that it is not mapped into $H$).
 
-Now, to extend the sections $s_1,\ldots,s_N$, we simply check that they are unobstructed. The space containing the obstructions is:
-\begin{equation*} \HH^1(C,L) \end{equation*} \marginpar{Is this true even when $C$ is reducible}
-By taking the normalisation exact sequence for $C$, tensoring with $L$ and passing to cohomology, we obtain:
+In order to extend the sections $s_1,\ldots,s_N$, we simply check that they are unobstructed. The space containing the obstructions to extending the sections is:
+\begin{equation*} \HH^1(C,L) \end{equation*}
+\marginpar{Is this true even when $C$ is reducible}By taking the normalisation exact sequence for $C$, tensoring with $L$ and passing to cohomology, we obtain an exact sequence:
+\begin{align*} 0 \to & \HH^0(C,L) \to \bigoplus_{i=0}^k \HH^0(C_i,L) \xrightarrow{\theta} \bigoplus_{i=1}^k L_{q_i} \to \\
+\to & \HH^1(C,L) \to \bigoplus_{i=0}^k \HH^1(C_i,L) \to 0 \end{align*}
+Now, each of $C_1,\ldots,C_k$ is isomorphic to $\PP^1$ and $L|_{C_i}$ has non-negative degree. Hence the map $\theta$ is surjective. Thus the map
+\begin{equation*} \HH^1(C,L) \to \bigoplus_{i=0}^k \HH^1(C_i,L) \end{equation*}
+is an isomorphism. But $\HH^1(C_i,L)=0$ for $i \in \{1,\ldots,k\}$ since $C_i \cong \PP^1$ and $L|_{C_i}$ has non-negative degree, and by Serre duality
+\begin{equation*} \HH^1(C_0,L) \cong \HH^0(C_0, L^\vee \otimes \omega_{C_0}) = \HH^0(C_0,L^\vee) = 0 \end{equation*}
+where the penultimate equality holds because $\operatorname{g}(C_0)=1$ and the last equality holds because $L|_{C_0}$ has \emph{strictly} positive degree (here we are using the fact that $f|_{C_0}$ is non-constant).
+
+To conclude, we have a family $\tilde{C} = W^\prime$ of nodal curves and a map from this family to $\PP^N$
+\bcd
+\tilde{C} \ar[r,"\tilde{f}"] \ar[d,"\pi"] & \PP^N \\
+\Aaff^1_t & \,
+\ecd
+such that when we restrict to $0 \in \Aaff^1_t$ we get $C \to \PP^N$ and such that the general fibre is an element of the nice locus.
 
 \newpage
 \bibliographystyle{alpha}
