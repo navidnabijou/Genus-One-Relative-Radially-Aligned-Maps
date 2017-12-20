@@ -205,9 +205,33 @@ and, in case the numerical equality holds, the following equality of line bundle
 \end{itemize}
 \end{dfn}
 
+Here is one example where we show by a dimensional computation that the novel condition must be included if we hope to determine the closure of the nice locus.
+\begin{example}
+Consider $\M{1}{(3)}{\PP^1|H}{3}$. The virtual dimension is $7-3=4$. Here is a parametrisation of the nice locus: choose an element $(E,p)$ of $\oM_{1,1}\setminus\partial\oM_{1,1}$ (which has dimension $1$), let then $s_0\colon\OO_E\hookrightarrow\OO_E(3p)$ and $s_1$ be any section of $\OO_E(3p)$ not vanishing at $p$ (notice that $h^0(E,\OO_E(3p))=3$). Consider now the following weighted graph for a map in the boundary:
+\begin{center}
+\begin{tikzpicture}
+\draw[color=brown] (0,0) node[left]{$E$} -- (4,0);
+\draw[fill=black] (1,0) circle[radius=2pt] node[above]{$x_1$};
+\draw[fill=black] (2,0) circle[radius=2pt] node[below right]{$y_1$};
+\draw[fill=black] (3,0) circle[radius=2pt] node[below right]{$y_2$};
+\draw (2,1.5) node[left]{$R_1$} (3,1.5) node[left]{$R_2$};
+\draw (2,-1) -- (2,2) node[above]{$2$} (3,-1) -- (3,2) node[above]{$1$};
+\draw[->] (5,0.5) -- (8,0.5);
+\draw (9,-1) -- (9,2) node[above]{$\PP^1$};
+\draw[fill=black] (9,0) circle[radius=2pt] node[right]{$H$};
+\end{tikzpicture}
+\end{center}
+where the brown line represents a contracted genus $1$ curve. Now $(E,x_1,y_1,y_2)$ is a point of $\oM_{1,3}$ subject to the divisorial condition $3x_1-2y_1-y_2=0\in A_0(E)$; furthermore we have to choose the second ramification value of the $2\colon 1$ map from $R_1$ to $\PP^1$. This already makes up for a $3$-dimensional moduli space of degenerate relative maps corresponding to such a graph. The minimal log structure for this curve has a chart from $\-mathbb N^2$, with generators $e_1$ and $e_2$ corresponding to the smoothing parameters of the two nodes. If we allowed $e_1$ and $e_2$ to be identified in the characteristic sheaf, then we would get an extra $\Gm$ of choices for the log structure, so in total a $4$-dimensional moduli space. There is no chance this could live in the closure of the nice locus.
+\end{example}
 
+Thanks to the compatibility of $\delta$ (the contraction radius) with the stable map, namely the subcurve $C_0$ where $\lambda<\delta$ is the maximal connected subcurve of genus $1$ contracted by $f$, when the source curve is irreducible we have $\delta=0$, which is already ordered in every path to infinity. Hence the log structures only come into play when the source curve is reducible. We see then the nice locus in the radially aligned setting is the same as the nice locus in the ordinary setting. In particular, it is irreducible.
 
-Since the log structures only come into play when the source curve is reducible, it follows that the nice locus in the radially aligned setting is the same as the nice locus in the ordinary setting. In particular, it is irreducible.
+\begin{lem}
+The nice locus is irreducible.
+\end{lem}
+\begin{proof}
+A parametrisation is given by
+\end{proof}
 
 We now want to show that the relative space in the radially aligned setting is equal to the closure of the nice locus; irreducibility follows immediately. One direction is clear: [WHY?]
 
