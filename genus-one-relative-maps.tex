@@ -52,6 +52,7 @@
 \newcommand{\A}{\mathcal A}
 \newcommand{\B}{\mathcal B}
 \newcommand{\C}{\mathfrak C}
+\newcommand{\cC}{\mathcal C}
 \newcommand{\EE}{\mathbf{E}}
 \renewcommand{\L}{\mathcal L}
 \newcommand{\LL}{\mathbf{L}}
@@ -205,13 +206,105 @@ and, in case the numerical equality holds, the following equality of line bundle
 \end{itemize}
 \end{dfn}
 
+Here is one example where we show by a dimensional computation that the novel condition must be included if we hope to determine the closure of the nice locus.
+\begin{example}
+Consider $\M{1}{(3)}{\PP^1|H}{3}$. The virtual dimension is $7-3=4$. Here is a parametrisation of the nice locus: choose an element $(E,p)$ of $\oM_{1,1}\setminus\partial\oM_{1,1}$ (which has dimension $1$), let then $s_0\colon\OO_E\hookrightarrow\OO_E(3p)$ and $s_1$ be any section of $\OO_E(3p)$ not vanishing at $p$ (notice that $h^0(E,\OO_E(3p))=3$). Consider now the following weighted graph for a map in the boundary:
+\begin{center}
+\begin{tikzpicture}
+\draw[color=brown] (0,0) node[left]{$E$} -- (4,0);
+\draw[fill=black] (1,0) circle[radius=2pt] node[above]{$x_1$};
+\draw[fill=black] (2,0) circle[radius=2pt] node[below right]{$y_1$};
+\draw[fill=black] (3,0) circle[radius=2pt] node[below right]{$y_2$};
+\draw (2,1.5) node[left]{$R_1$} (3,1.5) node[left]{$R_2$};
+\draw (2,-1) -- (2,2) node[above]{$2$} (3,-1) -- (3,2) node[above]{$1$};
+\draw[->] (5,0.5) -- (8,0.5);
+\draw (9,-1) -- (9,2) node[above]{$\PP^1$};
+\draw[fill=black] (9,0) circle[radius=2pt] node[right]{$H$};
+\end{tikzpicture}
+\end{center}
+where the brown line represents a contracted genus $1$ curve. Now $(E,x_1,y_1,y_2)$ is a point of $\oM_{1,3}$ subject to the divisorial condition $3x_1-2y_1-y_2=0\in A_0(E)$; furthermore we have to choose the second ramification value of the $2\colon 1$ map from $R_1$ to $\PP^1$. This already makes up for a $3$-dimensional moduli space of degenerate relative maps corresponding to such a graph. The minimal log structure for this curve has a chart from $\-mathbb N^2$, with generators $e_1$ and $e_2$ corresponding to the smoothing parameters of the two nodes. If we allowed $e_1$ and $e_2$ to be identified in the characteristic sheaf, then we would get an extra $\Gm$ of choices for the log structure, so in total a $4$-dimensional moduli space. There is no chance this could live in the closure of the nice locus.
+\end{example}
 
+Thanks to the compatibility of $\delta$ (the contraction radius) with the stable map, namely the subcurve $C_0$ where $\lambda<\delta$ is the maximal connected subcurve of genus $1$ contracted by $f$, when the source curve is irreducible we have $\delta=0$, which is already ordered in every path to infinity. Hence the log structures only come into play when the source curve is reducible. We see then the nice locus in the radially aligned setting is the same as the nice locus in the ordinary setting. In particular, it is irreducible.
 
-Since the log structures only come into play when the source curve is reducible, it follows that the nice locus in the radially aligned setting is the same as the nice locus in the ordinary setting. In particular, it is irreducible.
+\begin{lem}
+The nice locus is irreducible.
+\end{lem}
+\begin{proof}
+A parametrisation can be given from the vector bundle:
+\[ \operatorname{Vb}\left(\pi_*\OO_{\mathcal E}(\sum_{j=n+1}^{n+\delta}\sigma_j)\oplus\pi_*\OO_{\mathcal E}(\sum_{j=1}^{n+\delta}\sigma_j)^{\oplus r}\right) \quad \text{on} \quad \mathcal{M}_{1,n+\delta}\]
+where $\pi\colon\mathcal E\to\mathcal M$ is the universal curve and $\delta=d-\sum\alpha_i$.
+\end{proof}
 
-We now want to show that the relative space in the radially aligned setting is equal to the closure of the nice locus; irreducibility follows immediately. One direction is clear: [WHY?]
+We now want to show that the relative space in the radially aligned setting is equal to the closure of the nice locus; irreducibility follows immediately.
 
-It thus remains to show that, given a relative radially aligned map, we can smooth it to one in the nice locus. This is done by considering different cases locally, then gluing.
+\begin{lem}
+The closure of the nice locus is contained in the relative space.
+\end{lem}
+\begin{proof}
+We address the relative conditions one at a time. Notice that they are all obviuously satisfied on the nice locus.
+\begin{itemize}
+\item The factorisation property is closed: see \cite[Theorem 4.3]{RSPW}.
+\item Gathmann's relative condition is closed: see \cite[Proposition 4.9]{Vre}.
+\item The novel condition is satisfied on the closure of the nice locus. Here is no proof but some heuristics. Consider for example a map similar to the one above:
+\begin{center}
+\begin{tikzpicture}
+\draw[color=brown] (0,0) node[left]{$E$} -- (4,0);
+\draw[fill=black] (1,0) circle[radius=2pt] node[above]{$x_1$};
+\draw[fill=black] (2,0) circle[radius=2pt] node[below right]{$y_1$};
+\draw[fill=black] (3,0) circle[radius=2pt] node[below right]{$y_2$};
+\draw (2,1.5) node[left]{$R_1$} (3,1.5) node[left]{$R_2$};
+\draw (2,-1) -- (2,2) node[above]{$3$} (3,-1) -- (3,2) node[above]{$2$};
+\draw[->] (5,0.5) -- (8,0.5);
+\draw (9,-1) -- (9,2) node[above]{$\PP^1$};
+\draw[fill=black] (9,0) circle[radius=2pt] node[right]{$H$};
+\draw[fill=black] (9,1.5) circle[radius=2pt] node[right]{$H'$};
+\end{tikzpicture}
+\end{center}
+and assume that it is in the closure of the nice locus; I want to argue that the two smoothing parameters cannot be identified. By the previous points I may assume that the factorisation property and Gathmann's relative conditions hold. I have a diagram:
+\bcd
+\cC^{\rm{ss}}\ar[r]\ar[dr] & \widetilde \cC\ar[r]\ar[d] & \overline \cC\ar[d,"\bar f"] \\
+& \cC\ar[r,"f"] & X
+\ecd
+where I have included the semistable model of $\cC$ (and $\widetilde \cC$), thought of as a curve marked with $f^{-1}(H')$ as well, where $H\neq H'\in\PP^1$.
+
+Notice that $\cC$ is a normal surface with at worst singular points at the nodes of $C=\cC_0$ (a variety is smooth at any smooth point of a Cartier divisor) and the singularities are of type $A_{n_i},\ i=1,2$ (from the deformation theory of nodal curves).
+
+I assume maximal multiplicity $\sum\alpha=d$, i.e. I am looking at the moduli space $\M{1}{(5)}{\PP^1|H}{5}$. Hence the line bundle and $s_0$ are determined as $f^*\OO_{\PP^1}(1)=\OO_{\cC}(5x_1)\otimes\OO_{\cC}(\beta E)$ for some (positive rational) $\beta$ and $s_0$ is the natural inclusion of $\OO_{\cC}$ (up to $\Gm$). 
+
+The map is totally ramified at $y_i$ by Gathmann's condition. We conclude:
+\[ \frac{\beta}{n_i+1}=(\beta E)\cdot R_i=m^{(i)}\]
+Hence, having fixed the multiplicities, the two possible singularities of $\cC$ determine each other. In our example we may pick $n_1=1,\ n_2=2,\ \beta=6$. But knowing the singularity determines the semistable model: in our case $y_1$ is replaced by a $(-2)$-curve and $y_2$ by a chain of two $(-2)$-curves. Now we know from the work of Smyth \cite[Proposition 2.12]{SMY1} that the exceptional locus of $\cC^{\rm{ss}}\to\overline\cC$ is balanced, therefore we may deduce that $\bar f$ is constant on the branch of the genus $1$ singularity to which $R_2$ is joined, so $\overline C$ looks like this:
+
+\begin{center}
+\begin{tikzpicture}
+\draw (-1,0) -- (1,0) node[right]{$\overline R_1$};
+\draw[color=gray!50] (-1,-1) -- (1,1);
+\draw[fill=black] (-.75,-.75) circle[radius=2pt] node[left]{$x_1$};
+\draw[color=gray!50] (0,-1) -- (0,1);
+\draw (-1,1.5) node[above left]{$\overline R_2$} -- (.25,.5);
+\end{tikzpicture}
+\end{center}
+where a gray line is contracted by the map. On the other hand if $\delta=\lambda(v_1)=\lambda(v_2)$ then the prescription of \cite[Proposition 3.6.1]{RSPW} implies that $\tilde C\to \overline C$ looks like:
+\begin{center}
+\begin{tikzpicture}
+\draw[color=brown] (0,0) node[left]{$E$} -- (4,0);
+\draw[color=gray!50] (1,-1) -- (1,2);
+\draw[fill=black] (1,1) circle[radius=2pt] node[left]{$x_1$};
+\draw (2,1.5) node[left]{$R_1$} (3,1.5) node[left]{$R_2$};
+\draw (2,-1) -- (2,2) node[above]{$3$} (3,-1) -- (3,2) node[above]{$2$};
+\draw[->] (5,0.5) -- (7,0.5);
+\draw (8,0.5) -- (10,0.5) node[right]{$\overline R_1$};
+\draw[color=gray!50] (8,-.5) -- (10,1.5);
+\draw[fill=black] (8.25,-.25) circle[radius=2pt] node[left]{$x_1$};
+\draw (9,-.5) -- (9,1.5) node[above left]{$\overline R_2$};
+\end{tikzpicture}
+\end{center}
+Contradiction!
+\end{itemize}
+\end{proof}
+
+It thus remains to show that, given a relative radially aligned map, we can smooth it to one in the nice locus. \textcolor{red}{This is done by considering different cases locally, then gluing. \marginpar{what do we mean?}}
 
 \subsection*{Case 1: non-contracted genus one internal component} Assume that the curve takes the form
 \begin{equation*} C = C_0 \cup C_1 \cup \ldots \cup C_k \end{equation*}
@@ -264,6 +357,20 @@ To conclude, we have a family $\tilde{C} = W^\prime$ of nodal curves and a map f
 \ecd
 such that when we restrict to $0 \in \Aaff^1_t$ we recover the map $f\colon C \to \PP^N$ and such that the general fibre is an element of the nice locus.
 
+\textcolor{red}{Address the case that $C_0$ is not irreducible, and that $C_i,\ i\neq 0$ are chains of $\PP^1$'s.}
+
+\subsection*{Case 2: contracted genus one internal component} This is similar to the previous one but slightly more delicate.
+
+Pick the smoothing $W'$, the line bundle $\tilde L$ and the section $s_0$ as before. Now $H^1(C,L)\neq 0$, so we need to argue that we can extend the other sections.
+
+Let us first extend the centrally aligned log structure: this is done by sending $e_i\mapsto t^{r_i}$; by the novel condition, if $e_i=e_j$ in the minimal centrally aligned structure that we start with on $C$, then $r_i=r_j$, so the chart that we have just defined factors indeed through the sharpening of $\mathbb N^r$. We declare the contraction radius $\delta$ to be $e_i$ for those $i$'s corresponding to branches of the genus $1$ singularity on which $\bar f$ is non-constant. \marginpar{actually this sounds like bs and I probably have $\delta$ already?}
+
+The central alignment provides us with a diagram:
+\bcd
+\widetilde \cC\ar[r]\ar[d] & \overline \cC \\
+\cC & 
+\ecd
+We can now extend the sections $\bar s_1,\ldots,\bar s_N$ onto $\overline \cC$ because $H^1(\overline C,\bar L)=0$, so we get a map $\bar F\colon\overline\cC\to\PP^N$ deforming $\bar f$. Finally we claim that $F\colon\cC\to\PP^N$ is the stable model of $\bar F$.
 \newpage
 \bibliographystyle{alpha}
 \bibliography{relqm}
