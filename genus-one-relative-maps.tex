@@ -52,6 +52,7 @@
 \newcommand{\A}{\mathcal A}
 \newcommand{\B}{\mathcal B}
 \newcommand{\C}{\mathfrak C}
+\newcommand{\cC}{\mathcal C}
 \newcommand{\EE}{\mathbf{E}}
 \renewcommand{\L}{\mathcal L}
 \newcommand{\LL}{\mathbf{L}}
@@ -230,12 +231,80 @@ Thanks to the compatibility of $\delta$ (the contraction radius) with the stable
 The nice locus is irreducible.
 \end{lem}
 \begin{proof}
-A parametrisation is given by
+A parametrisation can be given from the vector bundle:
+\[ \operatorname{Vb}\left(\pi_*\OO_{\mathcal E}(\sum_{j=n+1}^{n+\delta}\sigma_j)\oplus\pi_*\OO_{\mathcal E}(\sum_{j=1}^{n+\delta}\sigma_j)^{\oplus r}\right) \quad \text{on} \quad \mathcal{M}_{1,n+\delta}\]
+where $\pi\colon\mathcal E\to\mathcal M$ is the universal curve and $\delta=d-\sum\alpha_i$.
 \end{proof}
 
-We now want to show that the relative space in the radially aligned setting is equal to the closure of the nice locus; irreducibility follows immediately. One direction is clear: [WHY?]
+We now want to show that the relative space in the radially aligned setting is equal to the closure of the nice locus; irreducibility follows immediately.
 
-It thus remains to show that, given a relative radially aligned map, we can smooth it to one in the nice locus. This is done by considering different cases locally, then gluing.
+\begin{lem}
+The closure of the nice locus is contained in the relative space.
+\end{lem}
+\begin{proof}
+We address the relative conditions one at a time. Notice that they are all obviuously satisfied on the nice locus.
+\begin{itemize}
+\item The factorisation property is closed: see \cite[Theorem 4.3]{RSPW}.
+\item Gathmann's relative condition is closed: see \cite[Proposition 4.9]{Vre}.
+\item The novel condition is satisfied on the closure of the nice locus. Here is no proof but some heuristics. Consider for example a map similar to the one above:
+\begin{center}
+\begin{tikzpicture}
+\draw[color=brown] (0,0) node[left]{$E$} -- (4,0);
+\draw[fill=black] (1,0) circle[radius=2pt] node[above]{$x_1$};
+\draw[fill=black] (2,0) circle[radius=2pt] node[below right]{$y_1$};
+\draw[fill=black] (3,0) circle[radius=2pt] node[below right]{$y_2$};
+\draw (2,1.5) node[left]{$R_1$} (3,1.5) node[left]{$R_2$};
+\draw (2,-1) -- (2,2) node[above]{$3$} (3,-1) -- (3,2) node[above]{$2$};
+\draw[->] (5,0.5) -- (8,0.5);
+\draw (9,-1) -- (9,2) node[above]{$\PP^1$};
+\draw[fill=black] (9,0) circle[radius=2pt] node[right]{$H$};
+\draw[fill=black] (9,1.5) circle[radius=2pt] node[right]{$H'$};
+\end{tikzpicture}
+\end{center}
+and assume that it is in the closure of the nice locus; I want to argue that the two smoothing parameters cannot be identified. By the previous points I may assume that the factorisation property and Gathmann's relative conditions hold. I have a diagram:
+\bcd
+\cC^{\rm{ss}}\ar[r]\ar[dr] & \widetilde \cC\ar[r]\ar[d] & \overline \cC\ar[d,"\bar f"] \\
+& \cC\ar[r,"f"] & X
+\ecd
+where I have included the semistable model of $\cC$ (and $\widetilde \cC$), thought of as a curve marked with $f^{-1}(H')$ as well, where $H\neq H'\in\PP^1$.
+
+Notice that $\cC$ is a normal surface with at worst singular points at the nodes of $C=\cC_0$ (a variety is smooth at any smooth point of a Cartier divisor) and the singularities are of type $A_{n_i},\ i=1,2$ (from the deformation theory of nodal curves).
+
+I assume maximal multiplicity $\sum\alpha=d$, i.e. I am looking at the moduli space $\M{1}{(5)}{\PP^1|H}{5}$. Hence the line bundle and $s_0$ are determined as $f^*\OO_{\PP^1}(1)=\OO_{\cC}(5x_1)\otimes\OO_{\cC}(\beta E)$ for some (positive rational) $\beta$ and $s_0$ is the natural inclusion of $\OO_{\cC}$ (up to $\Gm$). 
+
+The map is totally ramified at $y_i$ by Gathmann's condition. We conclude:
+\[ \frac{\beta}{n_i+1}=(\beta E)\cdot R_i=m^{(i)}\]
+Hence, having fixed the multiplicities, the two possible singularities of $\cC$ determine each other. In our example we may pick $n_1=1,\ n_2=2,\ \beta=6$. But knowing the singularity determines the semistable model: in our case $y_1$ is replaced by a $(-2)$-curve and $y_2$ by a chain of two $(-2)$-curves. Now we know from the work of Smyth \cite[Proposition 2.12]{SMY1} that the exceptional locus of $\cC^{\rm{ss}}\to\overline\cC$ is balanced, therefore we may deduce that $\bar f$ is constant on the branch of the genus $1$ singularity to which $R_2$ is joined, so $\overline C$ looks like this:
+
+\begin{center}
+\begin{tikzpicture}
+\draw (-1,0) -- (1,0) node[right]{$\overline R_1$};
+\draw[color=gray!50] (-1,-1) -- (1,1);
+\draw[fill=black] (-.75,-.75) circle[radius=2pt] node[left]{$x_1$};
+\draw[color=gray!50] (0,-1) -- (0,1);
+\draw (-1,1.5) node[above left]{$\overline R_2$} -- (.25,.5);
+\end{tikzpicture}
+\end{center}
+where a gray line is contracted by the map. On the other hand if $\delta=\lambda(v_1)=\lambda(v_2)$ then the prescription of \cite[Proposition 3.6.1]{RSPW} implies that $\tilde C\to \overline C$ looks like:
+\begin{center}
+\begin{tikzpicture}
+\draw[color=brown] (0,0) node[left]{$E$} -- (4,0);
+\draw[color=gray!50] (1,-1) -- (1,2);
+\draw[fill=black] (1,1) circle[radius=2pt] node[left]{$x_1$};
+\draw (2,1.5) node[left]{$R_1$} (3,1.5) node[left]{$R_2$};
+\draw (2,-1) -- (2,2) node[above]{$3$} (3,-1) -- (3,2) node[above]{$2$};
+\draw[->] (5,0.5) -- (7,0.5);
+\draw (8,0.5) -- (10,0.5) node[right]{$\overline R_1$};
+\draw[color=gray!50] (8,-.5) -- (10,1.5);
+\draw[fill=black] (8.25,-.25) circle[radius=2pt] node[left]{$x_1$};
+\draw (9,-.5) -- (9,1.5) node[above left]{$\overline R_2$};
+\end{tikzpicture}
+\end{center}
+Contradiction!
+\end{itemize}
+\end{proof}
+
+It thus remains to show that, given a relative radially aligned map, we can smooth it to one in the nice locus. \textcolor{red}{This is done by considering different cases locally, then gluing. \marginpar{what do we mean?}}
 
 \subsection*{Case 1: non-contracted genus one internal component} Assume that the curve takes the form
 \begin{equation*} C = C_0 \cup C_1 \cup \ldots \cup C_k \end{equation*}
