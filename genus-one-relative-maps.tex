@@ -210,7 +210,9 @@ together with the following equality of line bundles in $\Pic(Z)$:
 
 Remember that we are trying to impose conditions which determine the closure of the nice locus inside the moduli space of centrally aligned maps. Here is one example where we show by a dimensional computation that the novel condition must be included if we hope to determine the closure of the nice locus.
 \begin{example}
-Consider $\M{1}{(3)}{\PP^1|H}{3}$. The virtual dimension is $7-3=4$. Here is a parametrisation of the nice locus: choose an element $(E,p)$ of $\oM_{1,1}\setminus\partial\oM_{1,1}$ (which has dimension $1$), let then $s_0\colon\OO_E\hookrightarrow\OO_E(3p)$ and $s_1$ be any section of $\OO_E(3p)$ not vanishing at $p$ (notice that $h^0(E,\OO_E(3p))=3$). Consider now the following weighted graph for a map in the boundary:
+Consider $\M{1}{(3)}{\PP^1|H}{3}$. The virtual dimension is $7-3=4$. Here is a parametrisation of the nice locus: choose an element $(E,p)$ of $\oM_{1,1}\setminus\partial\oM_{1,1}$ (which has dimension $1$), and let $s_0$ be the natural section $s_0 \colon\OO_E\hookrightarrow\OO_E(3p)$ and $s_1$ any other section of $\OO_E(3p)$ not vanishing at $p$ (notice that $\h^0(E,\OO_E(3p))=3$). Then $(E,p,[\lambda s_0,s_1])$ gives a well-defined element of the nice locus for $\lambda \neq 0$.
+
+Consider now the following weighted graph for a map in the boundary
 \begin{center}
 \begin{tikzpicture}
 \draw[color=brown] (0,0) node[left]{$E$} -- (4,0);
@@ -224,10 +226,10 @@ Consider $\M{1}{(3)}{\PP^1|H}{3}$. The virtual dimension is $7-3=4$. Here is a p
 \draw[fill=black] (9,0) circle[radius=2pt] node[right]{$H$};
 \end{tikzpicture}
 \end{center}
-where the brown line represents a contracted genus $1$ curve. Now $(E,x_1,y_1,y_2)$ is a point of $\oM_{1,3}$ subject to the divisorial condition $3x_1-2y_1-y_2=0\in A_0(E)$; furthermore we have to choose the second ramification value of the $2\colon 1$ map from $R_1$ to $\PP^1$. This already makes up for a $3$-dimensional moduli space of degenerate relative maps corresponding to such a graph. The minimal log structure for this curve has a chart from $\-mathbb N^2$, with generators $e_1$ and $e_2$ corresponding to the smoothing parameters of the two nodes. If we allowed $e_1$ and $e_2$ to be identified in the characteristic sheaf, then we would get an extra $\Gm$ of choices for the log structure, so in total a $4$-dimensional moduli space. There is no chance this could live in the closure of the nice locus.
+where the brown line represents a contracted genus $1$ curve. Now $(E,x_1,y_1,y_2)$ is a point of $\oM_{1,3}$ subject to the divisorial condition $3x_1-2y_1-y_2=0\in \Achow_0(E)$; furthermore we have to choose the second branch point of the $2\colon 1$ map from $R_1$ to $\PP^1$. This already makes up for a $3$-dimensional moduli space of degenerate relative maps corresponding to such a graph. The minimal log structure for this curve has a chart from $\mathbb N^2$, with generators $e_1$ and $e_2$ corresponding to the smoothing parameters of the two nodes. If we allowed $e_1$ and $e_2$ to be identified in the characteristic sheaf, then we would get an extra $\Gm$ of choices for the log structure, so in total a $4$-dimensional moduli space. Thus if we don't impose the novel condition then we get a whole other component of the relative space, which of course for dimensional reasons cannot be contained in the closure of the nice locus.
 \end{example}
 
-Thanks to the compatibility of $\delta$ (the contraction radius) with the stable map, namely the subcurve $C_0$ where $\lambda<\delta$ is the maximal connected subcurve of genus $1$ contracted by $f$, when the source curve is irreducible we have $\delta=0$, which is already ordered in every path to infinity. Hence the log structures only come into play when the source curve is reducible. We see then the nice locus in the radially aligned setting is the same as the nice locus in the ordinary setting. In particular, it is irreducible.
+Thanks to the compatibility of $\delta$ (the contraction radius) with the stable map, namely the fact that the subcurve $C_0$ where $\lambda<\delta$ is the maximal connected subcurve of genus $1$ contracted by $f$, when the source curve is irreducible we have $\delta=0$, which is already ordered in every path to infinity. Hence the log structures only come into play when the source curve is reducible. We see then the nice locus in the radially aligned setting is the same as the nice locus in the ordinary setting. In particular, it is irreducible.
 
 \begin{lem}
 The nice locus is irreducible.
@@ -238,17 +240,19 @@ A parametrisation can be given from the vector bundle:
 where $\pi\colon\mathcal E\to\mathcal M$ is the universal curve and $\delta=d-\sum\alpha_i$.
 \end{proof}
 
-We now want to show that the relative space in the radially aligned setting is equal to the closure of the nice locus; irreducibility follows immediately.
+We now want to show that the relative space in the centrally aligned setting is equal to the closure of the nice locus; irreducibility then follows immediately. We start with one direction.
 
 \begin{lem}
 The closure of the nice locus is contained in the relative space.
 \end{lem}
 \begin{proof}
-We address the relative conditions one at a time. Notice that they are all obviuously satisfied on the nice locus.
-\begin{itemize}
-\item The factorisation property is closed: see \cite[Theorem 4.3]{RSPW}.
-\item Gathmann's relative condition is closed: see \cite[Proposition 4.9]{Vre}.
-\item The novel condition is satisfied on the closure of the nice locus. Here is no proof but some heuristics. Consider for example a map similar to the one above:
+We address the relative conditions one at a time. Notice that they are all obviously satisfied on the nice locus.
+
+The factorisation property is closed: see \cite[Theorem 4.3]{RSPW}.
+
+Gathmann's relative condition is closed: see \cite[Proposition 4.9]{Vre}.
+
+It remains to show that the novel condition is satisfied on the closure of the nice locus. Here is no proof but rather some heuristics. Consider for example a map similar to the one above
 \begin{center}
 \begin{tikzpicture}
 \draw[color=brown] (0,0) node[left]{$E$} -- (4,0);
@@ -303,7 +307,6 @@ where a gray line is contracted by the map. On the other hand if $\delta=\lambda
 \end{tikzpicture}
 \end{center}
 Contradiction!
-\end{itemize}
 \end{proof}
 
 It thus remains to show that, given a relative radially aligned map, we can smooth it to one in the nice locus. \textcolor{red}{This is done by considering different cases locally, then gluing. \marginpar{what do we mean?}}
