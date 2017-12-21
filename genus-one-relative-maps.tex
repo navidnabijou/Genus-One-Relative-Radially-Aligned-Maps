@@ -357,6 +357,20 @@ To conclude, we have a family $\tilde{C} = W^\prime$ of nodal curves and a map f
 \ecd
 such that when we restrict to $0 \in \Aaff^1_t$ we recover the map $f\colon C \to \PP^N$ and such that the general fibre is an element of the nice locus.
 
+\textcolor{red}{Address the case that $C_0$ is not irreducible, and that $C_i,\ i\neq 0$ are chains of $\PP^1$'s.}
+
+\subsection*{Case 2: contracted genus one internal component} This is similar to the previous one but slightly more delicate.
+
+Pick the smoothing $W'$, the line bundle $\tilde L$ and the section $s_0$ as before. Now $H^1(C,L)\neq 0$, so we need to argue that we can extend the other sections.
+
+Let us first extend the centrally aligned log structure: this is done by sending $e_i\mapsto t^{r_i}$; by the novel condition, if $e_i=e_j$ in the minimal centrally aligned structure that we start with on $C$, then $r_i=r_j$, so the chart that we have just defined factors indeed through the sharpening of $\mathbb N^r$. We declare the contraction radius $\delta$ to be $e_i$ for those $i$'s corresponding to branches of the genus $1$ singularity on which $\bar f$ is non-constant. \marginpar{actually this sounds like bs and I probably have $\delta$ already?}
+
+The central alignment provides us with a diagram:
+\bcd
+\widetilde \cC\ar[r]\ar[d] & \overline \cC \\
+\cC & 
+\ecd
+We can now extend the sections $\bar s_1,\ldots,\bar s_N$ onto $\overline \cC$ because $H^1(\overline C,\bar L)=0$, so we get a map $\bar F\colon\overline\cC\to\PP^N$ deforming $\bar f$. Finally we claim that $F\colon\cC\to\PP^N$ is the stable model of $\bar F$.
 \newpage
 \bibliographystyle{alpha}
 \bibliography{relqm}
