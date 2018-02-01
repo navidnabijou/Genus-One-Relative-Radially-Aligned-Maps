@@ -157,7 +157,7 @@
 
 \newcommand{\ilemph}[1]{\emph{#1}}
 
-\setcounter{tocdepth}{1}
+\setcounter{tocdepth}{2}
 
 \newcommand{\todo}[1]{\vspace{5mm}\par \noindent
 \framebox{\begin{minipage}[c]{0.95 \textwidth} \tt #1\end{minipage}} \vspace{5mm} \par}
@@ -185,8 +185,8 @@
 \appendixtitletocoff
 \tableofcontents
 
-\section{Identifying the closure of the nice locus for $(\PP^N,H)$}
-Recall \cite{RSPW} that the moduli space of maps from centrally aligned curves is obtained by first considering the Cartesian diagram
+\section{The space of relative centrally aligned maps}
+\noindent Recall \cite{RSPW} that the moduli space of maps from centrally aligned curves is obtained by first considering the Cartesian diagram
 \bcd
 \tVZc(X,\beta)\ar[d]\ar[r]\ar[dr,phantom,"\Box"] & \M{1}{n}{X}{\beta}\ar[d] \\
 \MM_{1,n}^{\rm{ctr}}\ar[r] & \MM_{1,n}^{\dagger}
@@ -220,6 +220,33 @@ together with the additional requirement that, when the above is an equality, th
 \end{enumerate}
 \end{dfn}
 
+\section{The relative space is equal to the closure of the nice locus for $(\PP^N,H)$}
+\noindent In general we do not know very much about the space we have just defined. The aim of this section is to show that, in the case where $X=\PP^N$ and $Y=H$ is a hyperplane, the space is proper and irreducible of the expected dimension. As such it has a fundamental class, which we can use to define reduced relative Gromov--Witten invariants in genus one.
+
+\begin{remark} In the case of a general pair $(X,Y)$ we will see that the moduli space is still proper, but is not in general irreducible or even equidimensional. Nevertheless, we can equip it with a virtual class by `pulling back'' from the case of $(\PP^N,H)$; for details, see \S [REF]. \end{remark}
+
+The strategy is as follows. We define (Definition \ref{Definition of nice locus})an open subspace
+\begin{equation*}\VZcrel(\PP^N|H,d)^{\circ} \subseteq \VZcrel(\PP^N|H,d)\end{equation*}
+called the \emph{nice locus}, on which the source curve and the map take a particularly simple form. Because of this simplicity, it is easy to show that the nice locus is irreducible (Lemma \ref{Nice locus is irreducible}). We then prove that $\VZcrel(\PP^N|H,d)$ is equal to the closure of the nice locus inside $\VZc(\PP^N,d)$. Thus it is proper, since it is a closed space of a proper space, and it is irreducible, since it is the closure of an irreducible space inside an irreducible space.
+
+\begin{definition} \label{Definition of nice locus} The \emph{nice locus} is defined as the open substack
+\begin{equation*}\VZcrel(\PP^N|H,d)^{\circ} \subseteq \VZcrel(\PP^N|H,d)\end{equation*}
+of centrally aligned maps satisfying the following two conditions:
+\begin{enumerate}
+\item the source curve $C$ is irreducible;
+\item $f$ does not map $C$ inside $H$.
+\end{enumerate}
+\end{definition}
+
+\begin{lem}\label{Nice locus is irreducible}
+The nice locus $\VZcrel(\PP^N|H,d)^{\circ}$ is irreducible.
+\end{lem}
+\begin{proof}
+By definition the contraction radius $\delta$ is compatible with the map, i.e. the subcurve $C_0\subseteq C$ where $\lambda<\delta$ is equal to the maximal connected genus one subcurve contracted by $f$. Hence when the source curve is irreducible we must have $\delta=0$, and we see that the central alignment on $C$ is uniquely and trivially determined. Thus to specify a point in the nice locus we only need to specify the source curve $C$ (as a scheme) and the map $f$. A parametrisation can be given from the vector bundle:\marginnote{I'm sure there's a simpler way to say this - Navid}
+\[ \operatorname{Vb}\left(\pi_*\OO_{\mathcal E}(\sum_{j=n+1}^{n+\delta}\sigma_j)\oplus\pi_*\OO_{\mathcal E}(\sum_{j=1}^{n+\delta}\sigma_j)^{\oplus r}\right) \quad \text{on} \quad \mathcal{M}_{1,n+\delta}\]
+where $\pi\colon\mathcal E\to\mathcal M$ is the universal curve and $\delta=d-\sum\alpha_i$.
+\end{proof}
+
 \subsection{Justifying the novel condition}
 Remember that we are trying to impose conditions which determine the closure of the nice locus inside the moduli space of centrally aligned maps. Here is one example where we show by a dimensional computation that the novel condition must be included if we hope to determine the closure of the nice locus.
 \begin{example}
@@ -242,18 +269,11 @@ Consider now the following weighted graph for a map in the boundary
 where the brown line represents a contracted genus $1$ curve. Now $(E,x_1,y_1,y_2)$ is a point of $\oM_{1,3}$ subject to the divisorial condition $3x_1-2y_1-y_2=0\in \Achow_0(E)$; furthermore we have to choose the second branch point of the $2\colon 1$ map from $R_1$ to $\PP^1$. This already makes up for a $3$-dimensional moduli space of degenerate relative maps corresponding to such a graph. The minimal log structure for this curve has a chart from $\mathbb N^2$, with generators $e_1$ and $e_2$ corresponding to the smoothing parameters of the two nodes. If we allowed $e_1$ and $e_2$ to be identified in the characteristic sheaf, then we would get an extra $\Gm$ of choices for the log structure, so in total a $4$-dimensional moduli space. Thus if we don't impose the novel condition then we get a whole other component of the relative space, which of course for dimensional reasons cannot be contained in the closure of the nice locus.
 \end{example}
 
+\begin{example} In this example we will give further justification for the novel condition, using as motivation the expanded degeneration approach to relative stable maps.
+
+\end{example}
+
 \subsection{Proof}
-Thanks to the compatibility of $\delta$ (the contraction radius) with the stable map, namely the fact that the subcurve $C_0$ where $\lambda<\delta$ is the maximal connected subcurve of genus $1$ contracted by $f$, when the source curve is irreducible we have $\delta=0$, which is already ordered in every path to infinity. Hence the log structures only come into play when the source curve is reducible. We see then the nice locus in the radially aligned setting is the same as the nice locus in the ordinary setting. In particular, it is irreducible.
-
-\begin{lem}
-The nice locus is irreducible.
-\end{lem}
-\begin{proof}
-A parametrisation can be given from the vector bundle:
-\[ \operatorname{Vb}\left(\pi_*\OO_{\mathcal E}(\sum_{j=n+1}^{n+\delta}\sigma_j)\oplus\pi_*\OO_{\mathcal E}(\sum_{j=1}^{n+\delta}\sigma_j)^{\oplus r}\right) \quad \text{on} \quad \mathcal{M}_{1,n+\delta}\]
-where $\pi\colon\mathcal E\to\mathcal M$ is the universal curve and $\delta=d-\sum\alpha_i$.
-\end{proof}
-
 We now want to show that the relative space in the centrally aligned setting is equal to the closure of the nice locus; irreducibility then follows immediately. We start with one direction.
 
 \begin{lem}
