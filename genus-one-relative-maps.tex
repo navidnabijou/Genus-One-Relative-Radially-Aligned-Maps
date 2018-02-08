@@ -175,12 +175,14 @@
 \date{\thismonthyear}
 
 \begin{document}
-\maketitle
+
 
 \begin{abstract} For a smooth projective variety $X$ and a smooth very ample hypersurface $Y \subseteq X$, we define moduli spaces of relative stable maps to $(X,Y)$ in genus one, as closed substacks of the moduli space of maps from centrally aligned curves, constructed in \cite{RSPW}. We construct virtual classes for these moduli spaces, which we use to define \emph{reduced relative Gromov--Witten invariants} in genus one.
 
 [GOALS: We prove a recursion formula which allows us to completely determine these invariants in terms of the reduced Gromov--Witten invariants, as defined in [REF]. We also prove a relative version of the Li--Zinger formula, relating our invariants to the usual relative Gromov--Witten invariants. Also say something about quasimaps.]
 \end{abstract}
+
+\maketitle
 
 \appendixtitletocoff
 \tableofcontents
@@ -216,15 +218,26 @@ is defined to be the closed substack of $\VZc(X,\beta)$ satisfying the following
 \item $Z$ is a single point of $C$, in which case if $Z=x_i$ is a marking then we require that the multiplicity of $f$ at $x_i$ along $Y$ is at least $\alpha_i$ (if $Z$ is not a marking then there is no condition);
 \item $Z$ is a subcurve $Z \subseteq C$, in which case we require that
 \begin{equation*} f^*[Y]|_Z -\sum_{x_i\in Z}\alpha_ix_i\end{equation*}
-is an effective class in $\Achow_1(Z)$. Since $Z$ is at most genus one and any line bundle of strictly positive degree on a Gorenstein genus one curve is effective, \marginpar{need to look at each irreducible component of $Z$ separately} this condition can be rephrased as the following numerical criterion
-\begin{equation*} f_*[Z]\cdot [Y]+\sum_{j=1}^r m^{(j)}\geq \sum_{x_i\in Z}\alpha_i \end{equation*}
-together with the additional requirement that, when the above is an equality, there is an isomorphism of line bundles:
-\begin{equation*} (f|_{Z})^*\OO_X(Y) \otimes \OO_Z\left(\sum_{j=1}^r m^{(j)}y_j\right)=\OO_Z\left(\sum_{x_i\in Z}\alpha_ix_i\right)\end{equation*}
+is an effective class in $\Achow_0(Z)$.
 \end{enumerate}
 
 \item \emph{Novel condition:} if $v_1,v_2$ are two vertices belonging to $R_\delta$, then the corresponding tangencies to the divisor $m^{(j_1)}$ and $m^{(j_2)}$ must be equal. Here $R_\delta$ is the set of vertices $v \in \plC$ with $\lambda(v)=\delta$.
 \end{enumerate}
 \end{dfn}
+
+\begin{remark}
+Trying to straighten out Gathmann's condition for a curve component of $f^{-1}(Y)$ into an easily verifiable criterion: if $Z$ is a smooth elliptic curve, recall that every line bundle of positive degree on it is effective, hence the relative condition can be rephrased as the following numerical criterion:
+\begin{equation*} f_*[Z]\cdot [Y]+\sum_{j=1}^r m^{(j)}\geq \sum_{x_i\in Z}\alpha_i \end{equation*}
+together with the additional requirement that, when the above is an equality, there is an isomorphism of line bundles:
+\begin{equation} \label{eqn:eq_in_Pic}
+(f|_{Z})^*\OO_X(Y) \otimes \OO_Z\left(\sum_{j=1}^r m^{(j)}y_j\right)=\OO_Z\left(\sum_{x_i\in Z}\alpha_ix_i\right) 
+\end{equation}
+ 
+ If $Z$ is reducible, the correct extension is not to impose the same condition componentwise; rather, we should ask the numerical condition for the total degree, and, if $Z$ is obtained by gluing a smooth elliptic curve $E$ with a forest of rational trees $R_i$ at roots $q^E_i$, then the line bundle equality \eqref{eqn:eq_in_Pic} should be required in $\Pic(E)$ after counting each $q^E_i$ towards the left hand side with multiplicity
+ \[f_*[R_i]\cdot [Y]+\sum_{\text{external components attached to $R_i$}} m^{(j)}- \sum_{x_j\in R_i}\alpha_j.\]
+ 
+ That this is the right thing to do follows from the proof that Gathmann's relative space is the projection of Jun Li's moduli space of maps to the expanded pair after contracting the higher levels of the accordion.
+\end{remark}
 
 \section{The relative space is equal to the closure of the nice locus for $(\PP^N,H)$}
 \noindent In general we do not know very much about the space we have just defined. The aim of this section is to show that, in the case where $X=\PP^N$ and $Y=H$ is a hyperplane, the space is proper and irreducible of the expected dimension. As such it has a fundamental class, which we can use to define reduced relative Gromov--Witten invariants in genus one.
@@ -272,8 +285,13 @@ Consider now the following weighted graph for a map in the boundary
 \draw[fill=black] (9,0) circle[radius=2pt] node[right]{$H$};
 \end{tikzpicture}
 \end{center}
-where the brown line represents a contracted genus $1$ curve. Now $(E,x_1,y_1,y_2)$ is a point of $\oM_{1,3}$ subject to the divisorial condition $3x_1-2y_1-y_2=0\in \Achow_0(E)$; furthermore we have to choose the second branch point of the $2\colon 1$ map from $R_1$ to $\PP^1$. This already makes up for a $3$-dimensional moduli space of degenerate relative maps corresponding to such a graph. The minimal log structure for this curve has a chart from $\mathbb N^2$, with generators $e_1$ and $e_2$ corresponding to the smoothing parameters of the two nodes. If we allowed $e_1$ and $e_2$ to be identified in the characteristic sheaf, then we would get an extra $\Gm$ of choices for the log structure, so in total a $4$-dimensional moduli space. Thus if we don't impose the novel condition then we get a whole other component of the relative space, which of course for dimensional reasons cannot be contained in the closure of the nice locus.\marginpar{maybe the Vakil-Zinger interpretation as iterated blowups make it clearer that sometimes we cannot take all the exceptional divisors inside the relative locus if we want it to be the closure of the nice locus}
+where the brown line represents a contracted genus $1$ curve. Now $(E,x_1,y_1,y_2)$ is a point of $\oM_{1,3}$ subject to the divisorial condition $3x_1-2y_1-y_2=0\in \Achow_0(E)$; furthermore we have to choose the second branch point of the $2\colon 1$ map from $R_1$ to $\PP^1$. This already makes up for a $3$-dimensional moduli space of degenerate relative maps corresponding to such a graph. The minimal log structure for this curve has a chart from $\mathbb N^2$, with generators $e_1$ and $e_2$ corresponding to the smoothing parameters of the two nodes. If we allowed $e_1$ and $e_2$ to be identified in the characteristic sheaf, then we would get an extra $\Gm$ of choices for the log structure, so in total a $4$-dimensional moduli space. Thus if we don't impose the novel condition then we get a whole other component of the relative space, which of course for dimensional reasons cannot be contained in the closure of the nice locus.
 \end{example}
+
+\begin{remark}
+ For the non-expert reader, it might be convenient to recall that the extra data of a centrally aligned log structure on the curves gives a modular interpretation to the iterated blow-up procedure of Vakil and Zinger. In particular the novel condition on the log structure can be translated into a closed condition on the exceptional loci of these blow-ups. 
+\end{remark}
+
 
 \begin{example} In this example we will give further justification for the novel condition, using as motivation the expanded degeneration approach to relative stable maps.
 
