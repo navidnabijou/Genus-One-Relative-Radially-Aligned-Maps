@@ -54,9 +54,9 @@
 \newcommand{\E}[3]{\mathcal{E^Q}(#1,#2,#3)}
 \newcommand{\PP}{\mathbb P}
 \newcommand{\Z}{\mathbb{Z}}
-\newcommand{\tVZc}{\widetilde{\mathcal{V\!Z}}^{\rm{ctr}}_{1,n}}
-\newcommand{\VZc}{{\mathcal{V\!Z}}^{\rm{ctr}}_{1,n}}
-\newcommand{\VZcrel}{{\mathcal{V\!Z}}^{\rm{ctr}}_{1,\alpha}}
+\newcommand{\tVZc}[4]{\widetilde{\mathcal{V\!Z}}^{\rm{ctr}}_{#1,#2}(#3,#4)}
+\newcommand{\VZc}[4]{\mathcal{V\!Z}^{\rm{ctr}}_{#1,#2}(#3,#4)}
+\newcommand{\VZcLi}[4]{\mathcal{V\!Z}^{\rm{ctr, Li}}_{#1,#2}(#3,#4)}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\OO}{\mathcal{O}}
 \renewcommand{\to}{\rightarrow}
@@ -190,16 +190,16 @@
 \section{The space of relative centrally aligned maps}
 \noindent Recall \cite{RSPW} that the moduli space of maps from centrally aligned curves is obtained by first considering the  Cartesian diagram
 \bcd
-\tVZc(X,\beta)\ar[d]\ar[r]\ar[dr,phantom,"\Box"] & \M{1}{n}{X}{\beta}\ar[d] \\
+\tVZc{1}{n}{X}{\beta}\ar[d]\ar[r]\ar[dr,phantom,"\Box"] & \M{1}{n}{X}{\beta}\ar[d] \\
 \MM_{1,n}^{\rm{ctr}}\ar[r] & \MM_{1,n}^{\dagger}
 \ecd
-so that objects of $\tVZc(X,\beta)$ consist of
+so that objects of $\tVZc{1}{n}{X}{\beta}$ consist of
 \begin{enumerate}
 \item a centrally aligned curve $(C,M_C,\delta)$;
 \item a stable map $f\colon C \to X$;
 \end{enumerate}
 subject to the condition that the contraction radius $\delta$ of the central alignment is equal to $\delta_f$, the contraction radius of the stable map $f$. We then define
-\begin{equation*} \VZc(X,\beta) \subseteq \tVZc(X,\beta) \end{equation*}
+\begin{equation*} \VZc{1}{n}{X}{\beta} \subseteq \tVZc{1}{n}{X}{\beta} \end{equation*}
 to be the closed substack consisting of maps satisfying the \emph{factorisation condition}, namely that the map $f\colon C\to X$ factors through the associated contraction to a Smyth curve, i.e. there exists a map $\bar{f}$ making the following square commute:
 \bcd
 \widetilde C\ar[r]\ar[d] & \overline C\ar[d,"\bar f" left,dotted] \\
@@ -210,18 +210,21 @@ One should think of the factorisation condition as identifying the main componen
 \subsection{Definition of the relative space} We now give the central definition of this article.
 \begin{dfn}
 Fix a vector of tangency conditions $\alpha=(\alpha_1,\ldots,\alpha_n)$ with $\Sigma_{i=1}^n \alpha_i \leq Y \cdot \beta$. Then the \emph{centrally aligned relative space} 
-\begin{equation*}\VZcrel(X|Y,\beta) \end{equation*}
-is defined to be the closed substack of $\VZc(X,\beta)$ satisfying the following conditions:
+\begin{equation*}\VZc{1}{\alpha}{X|Y}{\beta} \end{equation*}
+is defined to be the closed substack of $\VZc{1}{n}{X}{\beta}$ satisfying the following conditions:
 \begin{enumerate}
 \item \emph{Gathmann's relative condition:} for each connected component $Z$ of $f^{-1}(Y)$, either:
 \begin{enumerate}
 \item $Z$ is a single point of $C$, in which case if $Z=x_i$ is a marking then we require that the multiplicity of $f$ at $x_i$ along $Y$ is at least $\alpha_i$ (if $Z$ is not a marking then there is no condition);
 \item $Z$ is a subcurve $Z \subseteq C$, in which case we require that
 \begin{equation*} f^*[Y]|_Z -\sum_{x_i\in Z}\alpha_ix_i\end{equation*}
-is an effective class in $\Achow_0(Z)$.
+is an effective class in $\Achow_0(Z)$. Since $Z$ is at most genus one and any line bundle of strictly positive degree on a Gorenstein genus one curve is effective, this condition can be rephrased as the following numerical criterion
+\begin{equation*} Y \cdot f_*[Z]+\sum_{j=1}^r m_j\geq \sum_{x_i\in Z}\alpha_i \end{equation*}
+where the $m_j$ denote the multiplicities of $f$ along $Y$ at the points $y_j \in Z \cap \overline{C \setminus Z}$ (necessarily a finite number of nodes), together with the requirement that, when we have equality in the above, there is an isomorphism of line bundles:
+\begin{equation*} (f|_{Z})^*\OO_X(Y) \otimes \OO_Z\left(\sum_{j=1}^r m_j y_j\right)=\OO_Z\left(\sum_{x_i\in Z}\alpha_ix_i\right)\end{equation*}
 \end{enumerate}
 
-\item \emph{Novel condition:} if $v_1,v_2$ are two vertices belonging to $R_\delta$, then the corresponding tangencies to the divisor $m^{(j_1)}$ and $m^{(j_2)}$ must be equal. Here $R_\delta$ is the set of vertices $v \in \plC$ with $\lambda(v)=\delta$.
+\item \emph{Novel condition:} if $v_1,v_2$ are two vertices belonging to $R_\delta$, then the corresponding tangencies to the divisor $m_{j_1}$ and $m_{j_2}$ must be equal. Here $R_\delta$ is the set of vertices $v \in \plC$ with $\lambda(v)=\delta$ equal to the contraction radius.
 \end{enumerate}
 \end{dfn}
 
@@ -245,11 +248,11 @@ together with the additional requirement that, when the above is an equality, th
 \begin{remark} In the case of a general pair $(X,Y)$ we will see that the moduli space is still proper, but is not in general irreducible or even equidimensional. Nevertheless, we can equip it with a virtual class by `pulling back'' from the case of $(\PP^N,H)$; for details, see \S [REF]. \end{remark}
 
 The strategy is as follows. We define (Definition \ref{Definition of nice locus})an open subspace
-\begin{equation*}\VZcrel(\PP^N|H,d)^{\circ} \subseteq \VZcrel(\PP^N|H,d)\end{equation*}
-called the \emph{nice locus}, on which the source curve and the map take a particularly simple form. Because of this simplicity, it is easy to show that the nice locus is irreducible (Lemma \ref{Nice locus is irreducible}). We then prove that $\VZcrel(\PP^N|H,d)$ is equal to the closure of the nice locus inside $\VZc(\PP^N,d)$. Thus it is proper, since it is a closed space of a proper space, and it is irreducible, since it is the closure of an irreducible space inside an irreducible space.
+\begin{equation*}\VZc{1}{\alpha}{\PP^N|H}{d}^{\circ} \subseteq \VZc{1}{\alpha}{\PP^N|H}{d}\end{equation*}
+called the \emph{nice locus}, on which the source curve and the map take a particularly simple form. Because of this simplicity, it is easy to show that the nice locus is irreducible (Lemma \ref{Nice locus is irreducible}). We then prove that $\VZc{1}{\alpha}{\PP^N|H}{d}$ is equal to the closure of the nice locus inside $\VZc{1}{n}{\PP^N}{d}$. Thus it is proper, since it is a closed space of a proper space, and it is irreducible, since it is the closure of an irreducible space inside an irreducible space.
 
 \begin{definition} \label{Definition of nice locus} The \emph{nice locus} is defined as the open substack
-\begin{equation*}\VZcrel(\PP^N|H,d)^{\circ} \subseteq \VZcrel(\PP^N|H,d)\end{equation*}
+\begin{equation*}\VZc{1}{\alpha}{\PP^N|H}{d}^{\circ} \subseteq \VZc{1}{\alpha}{\PP^N|H}{d}\end{equation*}
 of centrally aligned maps satisfying the following two conditions:
 \begin{enumerate}
 \item the source curve $C$ is irreducible;
@@ -258,7 +261,7 @@ of centrally aligned maps satisfying the following two conditions:
 \end{definition}
 
 \begin{lem}\label{Nice locus is irreducible}
-The nice locus $\VZcrel(\PP^N|H,d)^{\circ}$ is irreducible.
+The nice locus $\VZc{1}{\alpha}{\PP^N|H}{d}^{\circ}$ is irreducible.
 \end{lem}
 \begin{proof}
 By definition the contraction radius $\delta$ is compatible with the map, i.e. the subcurve $C_0\subseteq C$ where $\lambda<\delta$ is equal to the maximal connected genus one subcurve contracted by $f$. Hence when the source curve is irreducible we must have $\delta=0$, and we see that the central alignment on $C$ is uniquely and trivially determined. Thus to specify a point in the nice locus we only need to specify the source curve $C$ (as a scheme) and the map $f$. A parametrisation can be given from the vector bundle:\marginnote{I'm sure there's a simpler way to say this - Navid}
@@ -292,8 +295,59 @@ where the brown line represents a contracted genus $1$ curve. Now $(E,x_1,y_1,y_
  For the non-expert reader, it might be convenient to recall that the extra data of a centrally aligned log structure on the curves gives a modular interpretation to the iterated blow-up procedure of Vakil and Zinger. In particular the novel condition on the log structure can be translated into a closed condition on the exceptional loci of these blow-ups. 
 \end{remark}
 
+\begin{example} In this example we will give further moral justification for the novel condition, using as motivation the expanded degenerations approach to relative stable maps. This is not strictly necessary for what we want to do (since our spaces don't involve expanded degenerations), but it helps to explain where this condition comes from.
 
-\begin{example} In this example we will give further justification for the novel condition, using as motivation the expanded degeneration approach to relative stable maps.
+So, let us pretend that we have a good definition of the ``centrally aligned Li space'' of maps from centrally aligned curves to expanded degenerations:
+\begin{equation*} \VZcLi{1}{\alpha}{X|D}{\beta} \end{equation*}
+Objects of this moduli space should consist of maps $C \to \mathfrak{X}$ where $\mathfrak{X} \to X$ is an expansion of the pair $(X,D)$, together with a central alignment on $C$ which is compatible with this map. The factorisation property should say that the following diagram commutes:
+\bcd
+& \tilde{C} \ar[ld,"\nu" left] \ar[rd,"\tau"] & \\
+C \ar[d,"f" left] & & \overline{C} \ar[d,"\overline{f}", dotted] \\
+\mathfrak{X} \ar[rd,"\pi"] & & \mathfrak{X} \ar[ld,"\pi"] \\
+& X & 
+\ecd
+Morally speaking, the projection map
+\begin{equation*} \pi_* \colon \VZcLi{1}{\alpha}{X|D}{\beta} \to \VZc{1}{n}{X}{\beta} \end{equation*}
+should have as its image our space $\VZc{1}{\alpha}{X|D}{\beta}$. We will see that everything in the image of this space must satisfy the novel condition, thus providing further justification for us imposing it.
+
+We proceed by contradiction. Consider a genus one map $C \to \PP^1$ of the following form
+\begin{center}
+\begin{tikzpicture}
+\draw[fill=black] (0,0) node[left]{$E$} -- (4,0);
+\draw[fill=black] (0.7,0) circle[radius=2pt] node[below]{$5$};
+\draw[fill=black] (2,0) circle[radius=2pt] node[above right]{$2$};
+\draw[fill=black] (3,0) circle[radius=2pt] node[above right]{$3$};
+\draw (2,1.5) node[right]{$C_1$};
+\draw (3,1.5) node[right]{$C_2$};
+\draw (2,-1) -- (2,2) node[above]{$2$};
+\draw (3,-1) -- (3,2) node[above]{$3$};
+
+\draw[->] (4.5,0) -- (6.5,0);
+\draw (5.5,0) node[above]{$f$};
+\draw (7,-1) -- (7,2) node[above]{$\PP^1$};
+\draw[fill=black] (7,0) circle[radius=2pt] node[right]{$\infty$};
+\end{tikzpicture}
+\end{center}
+and equip the source curve $C$ with a central alignment which identifies the lengths of the components $C_1$ and $C_2$:
+\begin{center}
+\begin{tikzpicture}
+\draw[red,thick,dashed] (0,0) circle[radius=51pt];
+\draw[red] (-1.75,0) node[left]{$R_\delta$};
+\draw[fill=white] (0,0) circle[radius=4pt];
+\draw (0,0.1) node[above]{$E$};
+\draw[fill=black] (-1,-1.5) circle[radius=4pt];
+\draw (-1.1,-1.5) node[left]{$C_1$};
+\draw[fill=black] (-0.1,-0.1) -- (-1,-1.5);
+\draw[fill=black] (1,-1.5) circle[radius=4pt];
+\draw (1.1,-1.5) node[right]{$C_2$};
+\draw[fill=black] (0.1,-0.1) -- (1,-1.5);
+\end{tikzpicture}
+\end{center}
+This defines an ``object'' of $\VZc{1}{(5)}{\PP^1|\infty}{5}$, satisfying all the necessary conditions \emph{except for the novel condition}. We will show that this cannot belong to the image of $\pi_*$.
+
+First we have to identify what the possible lifts of this object to the centrally aligned Li space are.
+
+>>>>>>> navid
 
 \end{example}
 
