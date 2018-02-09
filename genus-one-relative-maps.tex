@@ -433,6 +433,29 @@ The central alignment provides us with a diagram:
 \ecd
 We can now extend the sections $\bar s_1,\ldots,\bar s_N$ onto $\overline \cC$ because $\HH^1(\overline C,\bar L)=0$, so we get a map $\bar F\colon\overline\cC\to\PP^N$ deforming $\bar f$. Finally we claim that $F\colon\cC\to\PP^N$ is the stable model of $\bar F$.
 
+\section{Novel Condition 2.0}
+
+This is done with $(\PP^1,H)$ in mind; in general it will need to be modified to account for internal components of positive degree.
+
+\textbf{Novel condition 2.0:} if $v_1,v_2$ are two vertices belonging to $R_\delta$, then the corresponding tangencies $m^{(j_1)}$ and $m^{(j_2)}$ to $H$ must be equal \emph{if the corresponding rational tails are attached to the same irreducible component of $\plC_0$}. Here $R_\delta$ is the set of vertices $v \in \plC$ with $\lambda(v)=\delta$ and $\plC_0$ is the set of vertices with $\lambda(v)<\delta$.
+
+\textbf{Sketch of ``sufficient'' direction}: Denote by $S_0=E,S_1,\ldots,S_k$ the irreducible components of $Z$ and assume $E$ is smooth elliptic (or the core). Every $S_i$ for $i\geq 0$ comes with a bunch of special points: divide them into $B^-(i)=$ the singleton representing the only node separating $S_i$ from $S_0$ (this is not defined for $i=0$); $B^+(i)=$ the set of remaining nodes; and $A(i)=$ the set of markings on $S_i$. Start with the trivial family $E\times\Aaff^1$, where $E$ is marked with the points of $B(0)=B^+(0)$ and $A(0)$. Now perform a weighted blow-up at the points $\{q\in B(0)\}\times\{0\in\Aaff^1\}$ of weight $r_q$; call each resulting rational tail $S_i$ correspondingly to the original picture. On $S_i$ we may mark points $B^+(i)$ and $A(i)$ in such a way that the resulting point of $\oM_{0,1+|B^+(i)|+|A(i)|}$ corresponds to the one we started with. Now blow up this family in all the $B^+(i)\times\{0\}$ with a weight. Keep going until you have recreated $C$. Call $R_j$ the first external components, namely those corresponding to the vertices with $\lambda(v)\geq\delta$, $\nexists v'$ with $\lambda(v)>\lambda(v')\geq\delta$.
+
+We define the line bundle $\mathcal L=\OO_{\cC}(\sum \beta_iS_i)(\sum \alpha_ix_i)$; let's look at the equations that it gives us, starting from the outside.
+\begin{enumerate}
+ \item $m^{(j)}=\mathcal L_{|R_j}=\frac{\beta^-(j)}{r_{q^-(j)}}$;
+ \item on every $S_i, i\geq1$ we can prove inductively that:
+ \[0=\mathcal L_{|S_i}=\frac{\beta^-(i)-\beta_i}{r_{q^-(i)}}+\sum_{x_h\in A(i)}\alpha_i+\sum_{y_h\in B^+(i)}M^{(h)},\]
+ where I have denoted by $M^{(h)}$ the sum of all the contributions (both $\alpha_l$ and $m^{(l)}$) coming from the rational tree attached to the corresponding point of $B^+(i)$;
+ \item it turns out that $\OO_{S_0}\simeq\mathcal L_{|S_0}$ is precisely Gathmann's condition (in the numeric form if $S_0$ is a circle of rational curves). 
+\end{enumerate}
+Now notice that $\lambda(v_j)=\lambda(v_j')$ may happen only at the first external components; \marginpar{is this true? if not, probably there are contributions $M^{(h)}$ and $M^{(h')}$ to equate} in this case $r_{q^-(j)}=r_{q^-(j')}$, and from the first equation we see that $m^{(j)}=m^{(j')}$ if they are attached to the same component ($\beta^-(j)=\beta^-(j')$).
+The second equation can be made to hold for every $S_i$ by appropriately choosing $\beta^-(i), r_{q^-(i)}$. The last equation is automatically satisfied.
+
+Extending sections is the usual business of exploiting the fatorisation through the elliptic $m$-fold.
+
+\textbf{Sketch of ``necessary'' direction}: pick a smoothing $\cC$ of $(C,f)$. Suppose that $\lambda(v)=\lambda(v')$ and the corresponding $R$, $R'$ are attached to the same $S_i$, i.e. they share the same the tree separating them from $C_0$. Notice that $R$ and $R'$ map to two branches of the Smyth singularity. Looking at the semistable model of $\cC$, it follows that (the strict transforms of) $R$ and $R'$ still share the same tree there. Then by writing $(f^{\rm{ss}})^*\OO_{\PP}(1)=\OO_{\cC^{\rm{ss}}}(\sum \beta_iS_i)(\sum \alpha_ix_i)$ and intersecting with $R$, $R'$, we see that they must have the same contact order to $H$.
+
 \appendix
 
 \section{Basic facts about centrally aligned curves}
