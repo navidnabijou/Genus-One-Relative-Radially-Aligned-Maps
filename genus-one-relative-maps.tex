@@ -200,7 +200,7 @@ so that objects of $\tVZc{1}{n}{X}{\beta}$ consist of
 \item a centrally aligned curve $(C,M_C,\delta)$;
 \item a stable map $f\colon C \to X$;
 \end{enumerate}
-subject to the condition that the contraction radius $\delta$ of the central alignment is equal to $\delta_f$, the contraction radius of the stable map $f$. We then define
+subject to the condition that the subcurve $C_0 \subseteq C$, consisting of those components $C_v$ for which $\lambda(v) < \delta$, coincides with the maximal connected genus one subcurve contracted by $f$. We then define
 \begin{equation*} \VZc{1}{n}{X}{\beta} \subseteq \tVZc{1}{n}{X}{\beta} \end{equation*}
 to be the closed substack consisting of maps satisfying the \emph{factorisation condition}, namely that the map $f\colon C\to X$ factors through the associated contraction to a Smyth curve, i.e. there exists a map $\bar{f}$ making the following square commute:
 \bcd
@@ -247,11 +247,11 @@ together with the additional requirement that, when the above is an equality, th
 \section{The relative space is equal to the closure of the nice locus for $(\PP^N,H)$}
 \noindent In general we do not know very much about the space we have just defined. The aim of this section is to show that, in the case where $X=\PP^N$ and $Y=H$ is a hyperplane, the space is proper and irreducible of the expected dimension. As such it has a fundamental class, which we can use to define reduced relative Gromov--Witten invariants in genus one.
 
-\begin{remark} In the case of a general pair $(X,Y)$ we will see that the moduli space is still proper, but is not in general irreducible or even equidimensional. Nevertheless, we can equip it with a virtual class by `pulling back'' from the case of $(\PP^N,H)$; for details, see \S [REF]. \end{remark}
+\begin{remark} In the case of a general pair $(X,Y)$ we will see that the moduli space is still proper, but is not in general irreducible or even equidimensional. Nevertheless, we can equip it with a virtual class by ``pulling back'' from the case of $(\PP^N,H)$; for details, see \S [REF]. \end{remark}
 
-The strategy is as follows. We define (Definition \ref{Definition of nice locus})an open subspace
+The strategy is as follows. We define (Definition \ref{Definition of nice locus}) an open subspace
 \begin{equation*}\VZc{1}{\alpha}{\PP^N|H}{d}^{\circ} \subseteq \VZc{1}{\alpha}{\PP^N|H}{d}\end{equation*}
-called the \emph{nice locus}, on which the source curve and the map take a particularly simple form. Because of this simplicity, it is easy to show that the nice locus is irreducible (Lemma \ref{Nice locus is irreducible}). We then prove that $\VZc{1}{\alpha}{\PP^N|H}{d}$ is equal to the closure of the nice locus inside $\VZc{1}{n}{\PP^N}{d}$. Thus it is proper, since it is a closed space of a proper space, and it is irreducible, since it is the closure of an irreducible space inside an irreducible space.
+called the \emph{nice locus}, on which the source curve and the map take a particularly simple form. Because of this simplicity, it is easy to show that the nice locus is irreducible (Lemma \ref{Nice locus is irreducible}). We then prove that $\VZc{1}{\alpha}{\PP^N|H}{d}$ is equal to the closure of the nice locus inside $\VZc{1}{n}{\PP^N}{d}$. Thus it is proper, since it is a closed subspace of a proper space, and it is irreducible, since it is the closure of an irreducible space.
 
 \begin{definition} \label{Definition of nice locus} The \emph{nice locus} is defined as the open substack
 \begin{equation*}\VZc{1}{\alpha}{\PP^N|H}{d}^{\circ} \subseteq \VZc{1}{\alpha}{\PP^N|H}{d}\end{equation*}
@@ -274,7 +274,7 @@ where $\pi\colon\mathcal E\to\mathcal M$ is the universal curve and $\delta=d-\s
 \subsection{Justifying the novel condition}
 Remember that we are trying to impose conditions which determine the closure of the nice locus inside the moduli space of centrally aligned maps. Here is one example where we show by a dimensional computation that the novel condition must be included if we hope to determine the closure of the nice locus.
 \begin{example}
-Consider $\M{1}{(3)}{\PP^1|H}{3}$. The virtual dimension is $7-3=4$. Here is a parametrisation of the nice locus: choose an element $(E,p)$ of $\oM_{1,1}\setminus\partial\oM_{1,1}$ (which has dimension $1$), and let $s_0$ be the natural section $s_0 \colon\OO_E\hookrightarrow\OO_E(3p)$ and $s_1$ any other section of $\OO_E(3p)$ not vanishing at $p$ (notice that $\h^0(E,\OO_E(3p))=3$). Then $(E,p,[\lambda s_0,s_1])$ gives a well-defined element of the nice locus for $\lambda \neq 0$.
+Consider $\M{1}{(3)}{\PP^1|H}{3}$. This moduli space has virtual dimension $6+1-3=4$. Here is a parametrisation of the nice locus: choose an object $(E,p) \in \mathcal{M}_{1,1}$, and let $s_0$ be the natural section $s_0 \colon\OO_E\hookrightarrow\OO_E(3p)$ and $s_1$ any other section of $\OO_E(3p)$ not vanishing at $p$ (notice that $\h^0(E,\OO_E(3p))=3$). Then $(E,p,[\lambda s_0,s_1])$ gives a well-defined element of the nice locus for $\lambda \neq 0$.
 
 Consider now the following weighted graph for a map in the boundary
 \begin{center}
@@ -290,7 +290,7 @@ Consider now the following weighted graph for a map in the boundary
 \draw[fill=black] (9,0) circle[radius=2pt] node[right]{$H$};
 \end{tikzpicture}
 \end{center}
-where the brown line represents a contracted genus $1$ curve. Now $(E,x_1,y_1,y_2)$ is a point of $\oM_{1,3}$ subject to the divisorial condition $3x_1-2y_1-y_2=0\in \Achow_0(E)$; furthermore we have to choose the second branch point of the $2\colon 1$ map from $R_1$ to $\PP^1$. This already makes up for a $3$-dimensional moduli space of degenerate relative maps corresponding to such a graph. The minimal log structure for this curve has a chart from $\mathbb N^2$, with generators $e_1$ and $e_2$ corresponding to the smoothing parameters of the two nodes. If we allowed $e_1$ and $e_2$ to be identified in the characteristic sheaf, then we would get an extra $\Gm$ of choices for the log structure, so in total a $4$-dimensional moduli space. Thus if we don't impose the novel condition then we get a whole other component of the relative space, which of course for dimensional reasons cannot be contained in the closure of the nice locus.\qed
+where the brown line represents a contracted genus $1$ curve. Now $(E,x_1,y_1,y_2)$ is a point of $\mathcal{M}_{1,3}$ subject to the divisorial condition $3x_1-2y_1-y_2=0\in \Achow_0(E)$; furthermore we have to choose the second branch point of the $2:1$ map from $R_1$ to $\PP^1$. This already makes up for a $3$-dimensional moduli space of degenerate relative maps corresponding to such a graph. The minimal log structure for this curve has a chart from $\mathbb N^2$, with generators $e_1$ and $e_2$ corresponding to the smoothing parameters of the two nodes. If we allowed $e_1$ and $e_2$ to be identified in the characteristic sheaf, then we would get an extra $\Gm$ of choices for the log structure, so in total a $4$-dimensional moduli space. Thus if we don't impose the novel condition then we get a whole other component of the relative space, which of course for dimensional reasons cannot be contained in the closure of the nice locus.\qed
 \end{example}
 
 \begin{remark}
