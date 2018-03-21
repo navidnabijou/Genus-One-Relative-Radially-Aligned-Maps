@@ -5,7 +5,7 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
-\usepackage{showlabels}
+%\usepackage{showlabels}
 \usepackage{hyperref}
 \usepackage{amsthm}
 \usepackage{marginnote}
@@ -108,6 +108,7 @@
 \newcommand{\bcd}{\begin{center}\begin{tikzcd}}
 \newcommand{\ecd}{\end{tikzcd}\end{center}}
 \newcommand{\R}{\operatorname{R}^{\bullet}}
+\newcommand{\dvr}{\Delta}
 %\newcommand{\sslash}{\mathbin{/\mkern-6mu/}}
 \newcommand{\tr}{{\rm tr}}
 \newcommand{\Isom}{\text{Isom}}
@@ -159,7 +160,7 @@
 
 \newcommand{\ilemph}[1]{\emph{#1}}
 
-\setcounter{tocdepth}{2}
+\setcounter{tocdepth}{1}
 
 \newcommand{\todo}[1]{\vspace{5mm}\par \noindent
 \framebox{\begin{minipage}[c]{0.95 \textwidth} \tt #1\end{minipage}} \vspace{5mm} \par}
@@ -190,7 +191,7 @@
 \tableofcontents
 
 \section{The space of relative centrally aligned maps}
-\noindent Recall \cite{RSPW} that the moduli space of maps from centrally aligned curves is obtained by first considering the  Cartesian diagram
+\noindent Recall \cite{RSPW} that the moduli space of maps from centrally aligned curves is obtained by considering the  Cartesian diagram
 \bcd
 \tVZc{1}{n}{X}{\beta}\ar[d]\ar[r]\ar[dr,phantom,"\Box"] & \M{1}{n}{X}{\beta}\ar[d] \\
 \MM_{1,n}^{\rm{ctr}}\ar[r] & \MM_{1,n}^{\dagger}
@@ -200,7 +201,7 @@ so that objects of $\tVZc{1}{n}{X}{\beta}$ consist of
 \item a centrally aligned curve $(C,M_C,\delta)$;
 \item a stable map $f\colon C \to X$;
 \end{enumerate}
-subject to the condition that the subcurve $C_0 \subseteq C$, consisting of those components $C_v$ for which $\lambda(v) < \delta$, coincides with the maximal connected genus one subcurve contracted by $f$. We then define
+subject to the condition that the subcurve $C_0 \subseteq C$, consisting of those components $C_v$ for which $\lambda(v) < \delta$, coincides with the maximal connected genus one subcurve contracted by $f$. They then define
 \begin{equation*} \VZc{1}{n}{X}{\beta} \subseteq \tVZc{1}{n}{X}{\beta} \end{equation*}
 to be the closed substack consisting of maps satisfying the \emph{factorisation condition}, namely that the map $f\colon C\to X$ factors through the associated contraction to a Smyth curve, i.e. there exists a map $\bar{f}$ making the following square commute:
 \bcd
@@ -209,9 +210,9 @@ C\ar[r,"f"] & X
 \ecd
 One should think of the factorisation condition as identifying the main component of the moduli space.
 
-\subsection{Definition of the relative space} We now give the central definition of this article.
+\subsection{Definition of the relative space} We now give a definition of the relative space inside the moduli space of centrally aligned stable maps.
 \begin{dfn}
-Fix a vector of tangency conditions $\alpha=(\alpha_1,\ldots,\alpha_n)$ with $\Sigma_{i=1}^n \alpha_i \leq Y \cdot \beta$. Then the \emph{centrally aligned relative space} 
+Let $X$ be a smooth projective variety with a smooth divisor $Y$. Fix a vector of tangency conditions $\alpha=(\alpha_1,\ldots,\alpha_n)$ with $\Sigma_{i=1}^n \alpha_i = Y \cdot \beta$. Then the \emph{centrally aligned relative space} 
 \begin{equation*}\VZc{1}{\alpha}{X|Y}{\beta} \end{equation*}
 is defined to be the closed substack of $\VZc{1}{n}{X}{\beta}$ satisfying the following conditions:
 \begin{enumerate}
@@ -220,31 +221,84 @@ is defined to be the closed substack of $\VZc{1}{n}{X}{\beta}$ satisfying the fo
 \item $Z$ is a single point of $C$, in which case if $Z=x_i$ is a marking then we require that the multiplicity of $f$ at $x_i$ along $Y$ is at least $\alpha_i$ (if $Z$ is not a marking then there is no condition);
 \item $Z$ is a subcurve $Z \subseteq C$, in which case we require that
 \begin{equation*} f^*[Y]|_Z -\sum_{x_i\in Z}\alpha_ix_i\end{equation*}
-is an effective class in $\Achow_0(Z)$. Since $Z$ is at most genus one and any line bundle of strictly positive degree on a Gorenstein genus one curve is effective, this condition can be rephrased as the following numerical criterion
-\begin{equation*} Y \cdot f_*[Z]+\sum_{j=1}^r m_j\geq \sum_{x_i\in Z}\alpha_i \end{equation*}
-where the $m_j$ denote the multiplicities of $f$ along $Y$ at the points $y_j \in Z \cap \overline{C \setminus Z}$ (necessarily a finite number of nodes), together with the requirement that, when we have equality in the above, there is an isomorphism of line bundles:
-\begin{equation*} (f|_{Z})^*\OO_X(Y) \otimes \OO_Z\left(\sum_{j=1}^r m_j y_j\right)=\OO_Z\left(\sum_{x_i\in Z}\alpha_ix_i\right)\end{equation*}
+is an effective class in $\Achow_0(Z)$.
 \end{enumerate}
 
-\item \emph{Novel condition:} if $v_1,v_2$ are two vertices belonging to $R_\delta$, then the corresponding tangencies to the divisor $m_{j_1}$ and $m_{j_2}$ must be equal. Here $R_\delta$ is the set of vertices $v \in \plC$ with $\lambda(v)=\delta$ equal to the contraction radius.
+\item \emph{Compatibility condition:} this applies when the minimal subcurve of genus one (the \emph{circuit} or \emph{core}) is contracted to a point in $Y$. In this case we require that the following diagram of solid arrows may be completed to a commutative diagram:
+\bcd
+Q_{\rm{min}}^{\rm{prestable}}\ar[r]\ar[d] & Q_{\rm{min}}^{\rm{log.map}} \\
+Q_{\rm{min}}^{\rm{cen.align}}\ar[dashed,ur]
+\ecd
 \end{enumerate}
 \end{dfn}
 
-\begin{remark}
-Trying to straighten out Gathmann's condition for a curve component of $f^{-1}(Y)$ into an easily verifiable criterion: if $Z$ is a smooth elliptic curve, recall that every line bundle of positive degree on it is effective, hence the relative condition can be rephrased as the following numerical criterion:
+\begin{remark}[Explaining Gathmann]
+Gathmann's condition is promptly extended to the case that $\Sigma_{i=1}^n \alpha_i \leq Y \cdot \beta$. \textcolor{red}{Question: what is the correct generalisation of the compatibility condition?} Here we try to make the condition for a curve component of $f^{-1}(Y)$ into an easily verifiable criterion: if $Z$ is a smooth elliptic curve, recall that every line bundle of positive degree on it is effective, hence the relative condition can be rephrased as the following numerical criterion:
 \begin{equation*} f_*[Z]\cdot [Y]+\sum_{j=1}^r m^{(j)}\geq \sum_{x_i\in Z}\alpha_i \end{equation*}
 together with the additional requirement that, when the above is an equality, there is an isomorphism of line bundles:
 \begin{equation}\label{eqn:eq_in_Pic}
 (f|_{Z})^*\OO_X(Y) \otimes \OO_Z\left(\sum_{j=1}^r m^{(j)}y_j\right)=\OO_Z\left(\sum_{x_i\in Z}\alpha_ix_i\right) 
 \end{equation}
  
- If $Z$ is reducible, the correct extension is not to impose the same condition componentwise; rather, we should ask the numerical condition for the total degree, and, if $Z$ is obtained by gluing a smooth elliptic curve $E$ with a forest of rational trees $R_i$ at roots $q^E_i$, then the line bundle equality \eqref{eqn:eq_in_Pic} should be required in $\Pic(E)$ after counting each $q^E_i$ towards the left hand side with multiplicity
- \[f_*[R_i]\cdot [Y]+\sum_{\text{external components attached to $R_i$}} m^{(j)}- \sum_{x_j\in R_i}\alpha_j.\]
+ If $Z$ is reducible, the correct extension is not to impose the same condition componentwise; rather, we should ask the numerical condition for the total degree, and, if $Z$ is obtained by gluing a smooth elliptic curve $E$ with a forest of rational trees $T_i$ at roots $q^E_i$, then the line bundle equality \eqref{eqn:eq_in_Pic} should be required in $\Pic(E)$ after counting each $q^E_i$ towards the left hand side with multiplicity
+ \[f_*[T_i]\cdot [Y]+\sum_{\text{external components attached to $T_i$}} m^{(j)}- \sum_{x_j\in T_i}\alpha_j.\]
  
- That this is the right thing to do follows from the proof that Gathmann's relative space is the projection of Jun Li's moduli space of maps to the expanded pair after contracting the higher levels of the accordion.
+ %That this is the right thing to do follows from the proof that Gathmann's relative space is the projection of Jun Li's moduli space of maps to the expanded pair after contracting the higher levels of the accordion.
 \end{remark}
 
-\section{The relative space is equal to the closure of the nice locus for $(\PP^N,H)$}
+\begin{remark}[Explaining compatibility]
+First we need to define the monoids and maps involved. We start with $Q_{\rm{min}}^{\rm{prestable}}\to Q_{\rm{min}}^{\rm{log.map}}$; when looking at a geometric point $\Spec(k=\bar k)$ it is well-known that \[ Q_{\rm{min}}^{\rm{prestable}}=\prod_{q\ \text{node}}\mathbb N_q.\]
+Let us assume that all the nodes are internal, i.e. map to $Y$, for all the action happens there, and also that there is only one internal connected component $Z$, which is a curve of arithmetic genus one. Then we define $Q_{\rm{min}}^{\rm{log.map}}$ as the saturation of the quotient of
+\begin{equation}\label{eq:logminmod} \prod_{q\ \text{node}}\mathbb N_q \times \prod_{S\ \text{internal irr. compo.}}\mathbb N_S\end{equation}
+by the relation generated in the groupification of the latter by
+\[\langle \rm{Rel}_q=(u_q,\ldots,1,\ldots,-1,\ldots),\ q\ \text{internal node} \rangle\]
+where $1$ is in position $S_q^+$ (adjacent to $q$ and further from the circuit), $-1$ in position $S_q^-$ (adjacent to $q$ and closer to the circuit), and $u_q$ in position $q$ is defined as to include the tropical balancing condition (I don't know whether this is standard):
+\[u_q=f_*[T_q]\cdot [Y]+\sum_{R_i \text{external compo. attached to }T_q} m^{(i)}- \sum_{x_j\in T_q}\alpha_j,\]
+where $T_q$ is the tree of internal components that $q$ separates from the circuit. Notice that the nodes between $Z$ and an external component $R_i$ have no $1$, so the corresponding relations look like \[(u_q,\ldots,-1,\ldots).\]
+The map $Q_{\rm{min}}^{\rm{prestable}}\to Q_{\rm{min}}^{\rm{log.map}}$ is induced by the inclusion of the node factors in \eqref{eq:logminmod}. If we call $e_q$ the image in $Q_{\rm{min}}^{\rm{log.map}}$ of the $q$-th basis vector, then we can verify that the following equations hold: chosen any internal component $S_i$ and any two external component $R_i^1, R_i^2$
+such that their path to the circuit goes through $S_i$, then
+\begin{equation}
+ \sum_{q\in[R_i^1,S_i]}u_qe_q=\sum_{q\in[R_i^2,S_i]}u_qe_q.
+\end{equation}
+\textcolor{red}{Question: is this monoid factorisation condition a closed one?}
+\end{remark}
+
+\begin{remark}
+ Here is a tidy example: start with an elliptic curve $E$ contracted to $Y$, with two external components $R_1, R_2$ attached to it and a single marking $x\in E$. The tropical picture would be:
+\begin{center}
+ \begin{tikzpicture}[radius=2pt,scale=0.5]
+ \draw[fill=black] (0,0) circle;
+ \draw (0,0) -- (4,0);
+ \draw[fill=black] (0,2) circle;
+ \draw[fill=black] (0,4) circle;
+ \draw (0,2) -- (2,3);
+ \draw (0,4) -- (2,3);
+ \draw (2,3) -- (4,3);
+ \draw[fill=white] (2,3) circle;
+ \draw[->] (2,1.5) -- (2,.5);
+ \end{tikzpicture}
+\end{center}
+The dual monoids in the compatibility condition give us the following nice picture:
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+ \draw (0,0) -- (0,2)  (0,0)--(2,0);
+ \draw[->] (1,-1.3) -- (1,-.5);
+ \fill[gray!30] (0,-4) -- (0,-2) -- (2,-2) -- (0,-4);
+ \fill[gray!50] (0,-4) -- (2,-4) -- (2,-2) -- (0,-4);
+ \draw (0,-4) -- (0,-2) (0,-4) -- (2,-4) (0,-4) -- (2,-2) node[above right]{$e_1=e_2$};
+ \draw (1,-2) node[above]{$e_2>e_1$} (2,-3) node[right]{$e_1>e_2$};
+ \draw[<-] (2.5,1)--(3.5,1);
+ \draw[gray!=30] (4,0) -- (4,2)  (4,0)--(6,0);
+ \draw (4,0) -- (4.6,2) node[above right]{$m_1/m_2$};
+ \draw[<-,dashed] (2.7,-1.3)--(3.5,-.5);
+\end{tikzpicture}
+\end{center}
+So, for example, the factorisation exists for the subcone $e_2>e_1$ only when $m_1>m_2$, which is compatible with the fact that $\mathbb N^2=Q_{\rm{min}}^{\rm{prestable}}\to Q_{\rm{min}}^{\rm{log.map}}=\mathbb N$ is given by
+$e_1\mapsto m_2, e_2\mapsto m_1$.
+\end{remark}
+
+
+\section{The relative space is the closure of the nice locus for $(\PP^N,H)$}
 \noindent In general we do not know very much about the space we have just defined. The aim of this section is to show that, in the case where $X=\PP^N$ and $Y=H$ is a hyperplane, the space is proper and irreducible of the expected dimension. As such it has a fundamental class, which we can use to define reduced relative Gromov--Witten invariants in genus one.
 
 \begin{remark} In the case of a general pair $(X,Y)$ we will see that the moduli space is still proper, but is not in general irreducible or even equidimensional. Nevertheless, we can equip it with a virtual class by ``pulling back'' from the case of $(\PP^N,H)$; for details, see \S [REF]. \end{remark}
@@ -266,13 +320,13 @@ of centrally aligned maps satisfying the following two conditions:
 The nice locus $\VZc{1}{\alpha}{\PP^N|H}{d}^{\circ}$ is irreducible.
 \end{lem}
 \begin{proof}
-By definition the contraction radius $\delta$ is compatible with the map, i.e. the subcurve $C_0\subseteq C$ where $\lambda<\delta$ is equal to the maximal connected genus one subcurve contracted by $f$. Hence when the source curve is irreducible we must have $\delta=0$, and we see that the central alignment on $C$ is uniquely and trivially determined. Thus to specify a point in the nice locus we only need to specify the source curve $C$ (as a scheme) and the map $f$. A parametrisation can be given from the vector bundle:\marginnote{I'm sure there's a simpler way to say this - Navid}
+By definition the contraction radius $\delta$ is compatible with the map, i.e. the subcurve $C_0\subseteq C$ where $\lambda<\delta$ is equal to the maximal connected genus one subcurve contracted by $f$. Hence when the source curve is irreducible we must have $\delta=0$, and we see that the central alignment on $C$ is uniquely and trivially determined. Thus to specify a point in the nice locus we only need to specify the source curve $C$ (as a scheme) and the map $f$. A parametrisation can be given from the vector bundle:
 \[ \operatorname{Vb}\left(\pi_*\OO_{\mathcal E}(\sum_{j=n+1}^{n+\delta}\sigma_j)\oplus\pi_*\OO_{\mathcal E}(\sum_{j=1}^{n+\delta}\sigma_j)^{\oplus r}\right) \quad \text{on} \quad \mathcal{M}_{1,n+\delta}\]
 where $\pi\colon\mathcal E\to\mathcal M$ is the universal curve and $\delta=d-\sum\alpha_i$.
 \end{proof}
 
-\subsection{Justifying the novel condition}
-Remember that we are trying to impose conditions which determine the closure of the nice locus inside the moduli space of centrally aligned maps. Here is one example where we show by a dimensional computation that the novel condition must be included if we hope to determine the closure of the nice locus.
+\subsection{Justifying the novel condition by dimensional reasons}
+Here is a dimensional computation in an explicit example which shows that being in the closure of the nice locus must impose some condition on the log structure.
 \begin{example}
 Consider $\M{1}{(3)}{\PP^1|H}{3}$. This moduli space has virtual dimension $6+1-3=4$. Here is a parametrisation of the nice locus: choose an object $(E,p) \in \mathcal{M}_{1,1}$, and let $s_0$ be the natural section $s_0 \colon\OO_E\hookrightarrow\OO_E(3p)$ and $s_1$ any other section of $\OO_E(3p)$ not vanishing at $p$ (notice that $\h^0(E,\OO_E(3p))=3$). Then $(E,p,[\lambda s_0,s_1])$ gives a well-defined element of the nice locus for $\lambda \neq 0$.
 
@@ -294,8 +348,38 @@ where the brown line represents a contracted genus $1$ curve. Now $(E,x_1,y_1,y_
 \end{example}
 
 \begin{remark}
- For the non-expert reader, it might be convenient to recall that the extra data of a centrally aligned log structure on the curves gives a modular interpretation to the iterated blow-up procedure of Vakil and Zinger. In particular the novel condition on the log structure can be translated into a closed condition on the exceptional loci of these blow-ups. 
+ For the reader who is unfamiliar with centrally aligned log curves, it might be convenient to recall that they provide a modular interpretation of the iterated blow-up procedure of Vakil and Zinger. In particular it is natural that not all of the exceptional divisors be contained in the closure of the nice locus for every $\alpha$; this geometric information is contained in the compatibility condition.
 \end{remark}
+
+\subsection{Proof sketch} \textcolor{red}{The compatibility condition should imply that the map admits a log-enhancement;} if we can prove that there is a smooth, connected and proper moduli space above, then we automatically get that the Gathmann-like relative space is closed and irreducible, and it obviously contains the nice locus; hence, if we can prove that the latter is dense, we win.
+
+It thus remains to show that, given a relative centrally aligned map, we can smooth it to one in the nice locus. The only interesting case \textcolor{red}{should be} that the core is contracted to a point of $Y$. Here is how we prove it:
+\begin{enumerate}
+ \item we consider the core (say it's a smooth elliptic curve) marked with all the special points (markings and nodes); consider $E\times\dvr$ and blow it up in all the points of the central fiber that originally corresponded to nodes; we carefully and iteratively blow up smooth points of the central fiber in order to reconstruct the curve $C$ that we started with. In fact we may perform weighted instead of ordinary blow-ups, picking the ideal $(z,t^r)$ where $z$ is a vertical coordinate; this has the effect of introducing an $A_{r-1}$ surface singularity at the corresponding node of the central fiber. We do so by choosing a homomorphism $Q_{\rm{min}}^{\rm{log.map}}\to\mathbb N$ and composing it with $Q_{\rm{min}}^{\rm{prestable}}\to Q_{\rm{min}}^{\rm{log.map}}$ to determine the relevant $r$ for every node.
+ \item Let $E,S_1,\ldots,S_k$ be the irreducible components of $f^{-1}(Y)$; we define a line bundle on the smoothing by
+ \[\mathcal L=\OO_{\cC}\left(\sum \gamma_iS_i\right)\left(\sum \alpha_ix_i\right).\]
+ Using intersection theory on the surface (recall that the local multiplicity of intersection of the two branches of the node underlying an $A_{r-1}$ singularity is $\frac{1}{r}$) we check that the compatibility condition is precisely what we need in order to be able to choose $\gamma_i$ adequately so that the following equations hold:
+ \begin{align*}
+  0&=\deg(\mathcal L_{|S_i}) \\
+  m^{(i)}&=\deg(\mathcal L_{|R_i}) \\
+  \mathcal O_E&\cong\mathcal L_{|E}
+ \end{align*}
+ the last from Gathmann's condition.
+ \item It is not clear that sections of $\mathcal L$ are unobstructed. In order to extend them we pass to $\overline{\mathcal C}$.
+\end{enumerate}
+
+\appendix
+
+\section{Old}
+
+\subsection{Basic facts about centrally aligned curves}
+\begin{prop}[{\cite[Proposition 4.6.2.2]{RSPW}}]
+The morphism $\MM^{\rm{ctr}}_{1,n}\to\MM^{\dagger}_{1,n}$ is a log-modification.
+\end{prop}
+
+Explanation: this is a local statement so I can probably reduce to an atomic neighbourhood $S$ of a point $p$. $S$ and the curve over it are endowed with the minimal log structure; let $P=\oM_p$ determine a chart for this log structure. Observe that the subcurve $\plC_0$ of the tropicalisation $\plC$ of $C_p$ determines a subset $\rm{MinPos}$ of the set of vertices, namely those adjacent to $\plC_0$. Perform the following log-blowups: consider the set of primitive values of the function $\lambda\colon \plC\to P$, and blow up the ideal that they generate; now locally the set of values of $\lambda$ is principal with generator $p$: blow up the ideal generated by $\{\lambda(v)-p\}\setminus\{-p\}$. Keep going until $\lambda(v_i)$ is reached for some $v_i\in\rm{MinPos}$; at this point stop and declare the contraction radius $\delta:=\lambda(v_i)$. Finish by adjoining $\lambda(v)-\delta$ for all the vertices untouched to this stage. This shows that the choice of $\delta$ is not an extra degree of freedom.\marginpar{do I sound like a physicist?}
+
+\subsection{Moral justification of the novel condition}
 
 \begin{example} In this example we will give further moral justification for the novel condition, using as motivation the expanded degenerations approach to relative stable maps. This is not strictly necessary for what we want to do (since our spaces don't involve expanded degenerations), but it helps to explain where this condition comes from.
 
@@ -590,7 +674,30 @@ where a gray line is contracted by the map. On the other hand if $\delta=\lambda
 which is a contradiction.
 \end{proof}
 
-It thus remains to show that, given a relative radially aligned map, we can smooth it to one in the nice locus. \textcolor{red}{This is done by considering different cases locally, then gluing. \marginpar{What do we exactly mean by this? How does gluing work in the centrally aligned setting?}}
+\subsection{Novel Condition 2.0}
+
+This is done with $(\PP^1,H)$ in mind; in general it will need to be modified to account for internal components of positive degree.
+
+\textbf{Novel condition 2.0:} if $v_1,v_2$ are two vertices belonging to $R_\delta$, then the corresponding tangencies $m^{(j_1)}$ and $m^{(j_2)}$ to $H$ must be equal \emph{if the corresponding rational tails are attached to the same irreducible component of $\plC_0$}. Here $R_\delta$ is the set of vertices $v \in \plC$ with $\lambda(v)=\delta$ and $\plC_0$ is the set of vertices with $\lambda(v)<\delta$.
+
+\textbf{Sketch of ``sufficient'' direction}: Denote by $S_0=E,S_1,\ldots,S_k$ the irreducible components of $Z$ and assume $E$ is smooth elliptic (or the core). Every $S_i$ for $i\geq 0$ comes with a bunch of special points: divide them into $B^-(i)=$ the singleton representing the only node separating $S_i$ from $S_0$ (this is not defined for $i=0$); $B^+(i)=$ the set of remaining nodes; and $A(i)=$ the set of markings on $S_i$. Start with the trivial family $E\times\Aaff^1$, where $E$ is marked with the points of $B(0)=B^+(0)$ and $A(0)$. Now perform a weighted blow-up at the points $\{q\in B(0)\}\times\{0\in\Aaff^1\}$ of weight $r_q$; call each resulting rational tail $S_i$ correspondingly to the original picture. On $S_i$ we may mark points $B^+(i)$ and $A(i)$ in such a way that the resulting point of $\oM_{0,1+|B^+(i)|+|A(i)|}$ corresponds to the one we started with. Now blow up this family in all the $B^+(i)\times\{0\}$ with a weight. Keep going until you have recreated $C$. Call $R_j$ the first external components, namely those corresponding to the vertices with $\lambda(v)\geq\delta$, $\nexists v'$ with $\lambda(v)>\lambda(v')\geq\delta$.
+
+We define the line bundle $\mathcal L=\OO_{\cC}(\sum \beta_iS_i)(\sum \alpha_ix_i)$; let's look at the equations that it gives us, starting from the outside.
+\begin{enumerate}
+ \item $m^{(j)}=\mathcal L_{|R_j}=\frac{\beta^-(j)}{r_{q^-(j)}}$;
+ \item on every $S_i, i\geq1$ we can prove inductively that:
+ \[0=\mathcal L_{|S_i}=\frac{\beta^-(i)-\beta_i}{r_{q^-(i)}}+\sum_{x_h\in A(i)}\alpha_i+\sum_{y_h\in B^+(i)}M^{(h)},\]
+ where I have denoted by $M^{(h)}$ the sum of all the contributions (both $\alpha_l$ and $m^{(l)}$) coming from the rational tree attached to the corresponding point of $B^+(i)$;
+ \item it turns out that $\OO_{S_0}\simeq\mathcal L_{|S_0}$ is precisely Gathmann's condition (in the numeric form if $S_0$ is a circle of rational curves). 
+\end{enumerate}
+Now notice that $\lambda(v_j)=\lambda(v_j')$ may happen only at the first external components; \marginpar{is this true? if not, probably there are contributions $M^{(h)}$ and $M^{(h')}$ to equate} in this case $r_{q^-(j)}=r_{q^-(j')}$, and from the first equation we see that $m^{(j)}=m^{(j')}$ if they are attached to the same component ($\beta^-(j)=\beta^-(j')$).
+The second equation can be made to hold for every $S_i$ by appropriately choosing $\beta^-(i), r_{q^-(i)}$. The last equation is automatically satisfied.
+
+Extending sections is the usual business of exploiting the fatorisation through the elliptic $m$-fold.
+
+\textbf{Sketch of ``necessary'' direction}: pick a smoothing $\cC$ of $(C,f)$. Suppose that $\lambda(v)=\lambda(v')$ and the corresponding $R$, $R'$ are attached to the same $S_i$, i.e. they share the same the tree separating them from $C_0$. Notice that $R$ and $R'$ map to two branches of the Smyth singularity. Looking at the semistable model of $\cC$, it follows that (the strict transforms of) $R$ and $R'$ still share the same tree there. Then by writing $(f^{\rm{ss}})^*\OO_{\PP}(1)=\OO_{\cC^{\rm{ss}}}(\sum \beta_iS_i)(\sum \alpha_ix_i)$ and intersecting with $R$, $R'$, we see that they must have the same contact order to $H$.
+
+\subsection{Details of the proof}
 
 \subsection*{Case 1: non-contracted genus one internal component} Assume that the curve takes the form
 \begin{equation*} C = C_0 \cup C_1 \cup \ldots \cup C_k \end{equation*}
@@ -656,37 +763,6 @@ The central alignment provides us with a diagram:
 \ecd
 We can now extend the sections $\bar s_1,\ldots,\bar s_N$ onto $\overline \cC$ because $\HH^1(\overline C,\bar L)=0$, so we get a map $\bar F\colon\overline\cC\to\PP^N$ deforming $\bar f$. Finally we claim that $F\colon\cC\to\PP^N$ is the stable model of $\bar F$.
 
-\section{Novel Condition 2.0}
-
-This is done with $(\PP^1,H)$ in mind; in general it will need to be modified to account for internal components of positive degree.
-
-\textbf{Novel condition 2.0:} if $v_1,v_2$ are two vertices belonging to $R_\delta$, then the corresponding tangencies $m^{(j_1)}$ and $m^{(j_2)}$ to $H$ must be equal \emph{if the corresponding rational tails are attached to the same irreducible component of $\plC_0$}. Here $R_\delta$ is the set of vertices $v \in \plC$ with $\lambda(v)=\delta$ and $\plC_0$ is the set of vertices with $\lambda(v)<\delta$.
-
-\textbf{Sketch of ``sufficient'' direction}: Denote by $S_0=E,S_1,\ldots,S_k$ the irreducible components of $Z$ and assume $E$ is smooth elliptic (or the core). Every $S_i$ for $i\geq 0$ comes with a bunch of special points: divide them into $B^-(i)=$ the singleton representing the only node separating $S_i$ from $S_0$ (this is not defined for $i=0$); $B^+(i)=$ the set of remaining nodes; and $A(i)=$ the set of markings on $S_i$. Start with the trivial family $E\times\Aaff^1$, where $E$ is marked with the points of $B(0)=B^+(0)$ and $A(0)$. Now perform a weighted blow-up at the points $\{q\in B(0)\}\times\{0\in\Aaff^1\}$ of weight $r_q$; call each resulting rational tail $S_i$ correspondingly to the original picture. On $S_i$ we may mark points $B^+(i)$ and $A(i)$ in such a way that the resulting point of $\oM_{0,1+|B^+(i)|+|A(i)|}$ corresponds to the one we started with. Now blow up this family in all the $B^+(i)\times\{0\}$ with a weight. Keep going until you have recreated $C$. Call $R_j$ the first external components, namely those corresponding to the vertices with $\lambda(v)\geq\delta$, $\nexists v'$ with $\lambda(v)>\lambda(v')\geq\delta$.
-
-We define the line bundle $\mathcal L=\OO_{\cC}(\sum \beta_iS_i)(\sum \alpha_ix_i)$; let's look at the equations that it gives us, starting from the outside.
-\begin{enumerate}
- \item $m^{(j)}=\mathcal L_{|R_j}=\frac{\beta^-(j)}{r_{q^-(j)}}$;
- \item on every $S_i, i\geq1$ we can prove inductively that:
- \[0=\mathcal L_{|S_i}=\frac{\beta^-(i)-\beta_i}{r_{q^-(i)}}+\sum_{x_h\in A(i)}\alpha_i+\sum_{y_h\in B^+(i)}M^{(h)},\]
- where I have denoted by $M^{(h)}$ the sum of all the contributions (both $\alpha_l$ and $m^{(l)}$) coming from the rational tree attached to the corresponding point of $B^+(i)$;
- \item it turns out that $\OO_{S_0}\simeq\mathcal L_{|S_0}$ is precisely Gathmann's condition (in the numeric form if $S_0$ is a circle of rational curves). 
-\end{enumerate}
-Now notice that $\lambda(v_j)=\lambda(v_j')$ may happen only at the first external components; \marginpar{is this true? if not, probably there are contributions $M^{(h)}$ and $M^{(h')}$ to equate} in this case $r_{q^-(j)}=r_{q^-(j')}$, and from the first equation we see that $m^{(j)}=m^{(j')}$ if they are attached to the same component ($\beta^-(j)=\beta^-(j')$).
-The second equation can be made to hold for every $S_i$ by appropriately choosing $\beta^-(i), r_{q^-(i)}$. The last equation is automatically satisfied.
-
-Extending sections is the usual business of exploiting the fatorisation through the elliptic $m$-fold.
-
-\textbf{Sketch of ``necessary'' direction}: pick a smoothing $\cC$ of $(C,f)$. Suppose that $\lambda(v)=\lambda(v')$ and the corresponding $R$, $R'$ are attached to the same $S_i$, i.e. they share the same the tree separating them from $C_0$. Notice that $R$ and $R'$ map to two branches of the Smyth singularity. Looking at the semistable model of $\cC$, it follows that (the strict transforms of) $R$ and $R'$ still share the same tree there. Then by writing $(f^{\rm{ss}})^*\OO_{\PP}(1)=\OO_{\cC^{\rm{ss}}}(\sum \beta_iS_i)(\sum \alpha_ix_i)$ and intersecting with $R$, $R'$, we see that they must have the same contact order to $H$.
-
-\appendix
-
-\section{Basic facts about centrally aligned curves}
-\begin{prop}[{\cite[Proposition 4.6.2.2]{RSPW}}]
-The morphism $\MM^{\rm{ctr}}_{1,n}\to\MM^{\dagger}_{1,n}$ is a log-modification.
-\end{prop}
-
-Explanation: this is a local statement so I can probably reduce to an atomic neighbourhood $S$ of a point $p$. $S$ and the curve over it are endowed with the minimal log structure; let $P=\oM_p$ determine a chart for this log structure. Observe that the subcurve $\plC_0$ of the tropicalisation $\plC$ of $C_p$ determines a subset $\rm{MinPos}$ of the set of vertices, namely those adjacent to $\plC_0$. Perform the following log-blowups: consider the set of primitive values of the function $\lambda\colon \plC\to P$, and blow up the ideal that they generate; now locally the set of values of $\lambda$ is principal with generator $p$: blow up the ideal generated by $\{\lambda(v)-p\}\setminus\{-p\}$. Keep going until $\lambda(v_i)$ is reached for some $v_i\in\rm{MinPos}$; at this point stop and declare the contraction radius $\delta:=\lambda(v_i)$. Finish by adjoining $\lambda(v)-\delta$ for all the vertices untouched to this stage. This shows that the choice of $\delta$ is not an extra degree of freedom.\marginpar{do I sound like a physicist?}
 
 \bibliographystyle{alpha}
 \bibliography{relqm}
