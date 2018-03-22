@@ -6,7 +6,7 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 %\usepackage{showlabels}
-\usepackage{hyperref}
+\usepackage[hidelinks]{hyperref}
 \usepackage{amsthm}
 \usepackage{marginnote}
 \usepackage{stmaryrd}
@@ -39,9 +39,12 @@
 \usepackage[baskervaldx,bigdelims,vvarbb]{newtxmath}
 \usepackage[cal=cm]{mathalfa}
 
+\newcommand{\sidenote}[1]{\marginpar{\textbf{\color{red}#1}}}
+\newcommand{\basenote}[1]{\footnote{\color{red}#1}}
 
 \newcommand{\plC}{\scalebox{0.8}[1.3]{$\sqsubset$}}
 
+\newcommand{\spec}{\operatorname{Spec}}
 \newcommand{\TT}{\operatorname{T}}
 \newcommand{\oM}{\overline{\mathcal{M}}}
 \newcommand{\M}[4]{\overline{\mathcal{M}}_{#1,#2}(#3,#4)}
@@ -56,6 +59,7 @@
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\tVZc}[4]{\widetilde{\mathcal{V\!Z}}^{\rm{ctr}}_{#1,#2}(#3,#4)}
 \newcommand{\VZc}[4]{\mathcal{V\!Z}^{\rm{ctr}}_{#1,#2}(#3,#4)}
+\newcommand{\VZco}[4]{\mathcal{V\!Z}^{\rm{ctr},\circ}_{#1,#2}(#3,#4)}
 \newcommand{\VZcLi}[4]{\mathcal{V\!Z}^{\rm{ctr, Li}}_{#1,#2}(#3,#4)}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\OO}{\mathcal{O}}
@@ -126,6 +130,11 @@
 \newcommand{\ovt}[1]{\widetilde{\mathcal{#1}}}
 \newcommand{\ov}[1]{\overline{#1}}
 
+\newcommand{\Ccal}{\mathcal{C}}
+\newcommand{\Mcal}{\mathcal{M}}
+\newcommand{\Lcal}{\mathcal{L}}
+\newcommand{\Mfrak}{\mathfrak{M}}
+
 \theoremstyle{definition}
 \newtheorem{thm}{Theorem}[section]
 \newtheorem{lem}[thm]{Lemma}
@@ -180,7 +189,7 @@
 \begin{document}
 
 
-\begin{abstract} For a smooth projective variety $X$ and a smooth very ample hypersurface $Y \subseteq X$, we define moduli spaces of relative stable maps to $(X,Y)$ in genus one, as closed substacks of the moduli space of maps from centrally aligned curves, constructed in \cite{RSPW}. We construct virtual classes for these moduli spaces, which we use to define \emph{reduced relative Gromov--Witten invariants} in genus one.
+\begin{abstract} For a smooth projective variety $X$ and a smooth very ample hypersurface $Y \subseteq X$, we define moduli spaces of relative stable maps to $(X,Y)$ in genus one, as closed substacks of the moduli space of maps from centrally aligned curves, as constructed in \cite{RSPW}. We construct virtual classes for these moduli spaces, which we use to define \emph{reduced relative Gromov--Witten invariants} in genus one.
 
 [GOALS: We prove a recursion formula which allows us to completely determine these invariants in terms of the reduced Gromov--Witten invariants, as defined in [REF]. We also prove a relative version of the Li--Zinger formula, relating our invariants to the usual relative Gromov--Witten invariants. Also say something about quasimaps.]
 \end{abstract}
@@ -191,14 +200,14 @@
 \tableofcontents
 
 \section{The space of relative centrally aligned maps}
-\noindent Recall \cite{RSPW} that the moduli space of maps from centrally aligned curves is obtained by considering the  Cartesian diagram
+\noindent Recall \cite{RSPW} that the moduli space of maps from centrally aligned curves is obtained by first considering the Cartesian diagram
 \bcd
 \tVZc{1}{n}{X}{\beta}\ar[d]\ar[r]\ar[dr,phantom,"\Box"] & \M{1}{n}{X}{\beta}\ar[d] \\
 \MM_{1,n}^{\rm{ctr}}\ar[r] & \MM_{1,n}^{\dagger}
 \ecd
 so that objects of $\tVZc{1}{n}{X}{\beta}$ consist of
 \begin{enumerate}
-\item a centrally aligned curve $(C,M_C,\delta)$;
+\item a centrally aligned curve $(C,\Mcal_C,\delta)$;
 \item a stable map $f\colon C \to X$;
 \end{enumerate}
 subject to the condition that the subcurve $C_0 \subseteq C$, consisting of those components $C_v$ for which $\lambda(v) < \delta$, coincides with the maximal connected genus one subcurve contracted by $f$. They then define
@@ -211,9 +220,121 @@ C\ar[r,"f"] & X
 One should think of the factorisation condition as identifying the main component of the moduli space.
 
 \section{Definition of centrally aligned relative space}
+Fix a vector $\alpha=(\alpha_1,\ldots,\alpha_n)$ of tangency conditions, and suppose for the moment that $\Sigma \alpha = d$. We consider the so-called \emph{nice locus} of relative centrally aligned maps. This is the locally closed substack of $\VZc{1}{n}{\PP^N}{d}$ consisting of centrally aligned maps $(C,x_1,\ldots,x_n,\Mcal_C,\delta,f)$ such that:
+\begin{enumerate}
+\item the source curve $C$ is smooth;
+\item $C$ is not mapped entirely into $H$ by $f$;
+\item the points of $C$ which are mapped into $H$ (necessarily a finite number by the previous condition) are all marked, with the map having tangency $\alpha_i$ to $H$ at the marking $x_i$.
+\end{enumerate}
+These conditions mean that $\delta=0$ and that the log structure $\Mcal_C$ (which is a minimal centrally aligned log structure) is equal to the minimal structure for a log smooth curve, which in this case (since there are no nodes) is just the divisorial log structure with respect to the markings $x_1,\ldots,x_n$.
+
+This is a locally closed substack of expected codimension $\Sigma \alpha=d$, and is denoted:
+\begin{equation*} \VZco{1}{\alpha}{\PP^N|H}{d} \end{equation*}
+It has a well-defined stack structure since it is a moduli space. Note that it is irreducible, since we can find a parametrisation for it over $\Mfrak_{1,n}$.
+
+We now define the \emph{centrally alined relative space} to be the closure of the nice locus:
+\begin{equation*} \VZc{1}{\alpha}{\PP^N|H}{d} := \overline{\VZco{1}{\alpha}{\PP^N|H}{d}} \subseteq \VZc{1}{n}{\PP^N}{d} \end{equation*}
+This inherits the natural structure of a stack from the stack structure of the nice locus. It is proper since it is a closed substack of a proper stack, and it is irreducible because it is the closure of an irreducible stack. Hence it admits a fundamental class, which we can use to define \emph{reduced relative Gromov--Witten invariants}:
+\begin{equation*} \langle \tau_{k_1}(\gamma_1), \ldots, \tau_{k_n}(\gamma_n) \rangle^{\PP^N|H, \operatorname{red}}_{0,\alpha,d} := \int_{[\VZc{1}{\alpha}{\PP^N|H}{d}]} \prod_{i=1}^n \ev_i^*(\gamma_i) \psi_i^{k_i} \end{equation*}
+
 \section{Characterisation of the closed points of the relative space}
+It will be important for our purposes to have an understanding of the boundary of the relative space, i.e. what we add in when we take the closure of the nice locus. In this section we will describe this boundary on the level of closed points.
+
+\begin{prop} \label{closed pts of relative space} A centrally aligned map over a closed point $\spec \mathbbm{k}$ is in the relative space if and only if the following two conditions are satisfied:
+\begin{enumerate}
+\item \emph{Gathmann's relative condition:} for each connected component $Z$ of $f^{-1}(Y)$, either:
+\begin{enumerate}
+\item $Z$ is a single point of $C$, in which case if $Z=x_i$ is a marking then we require that the multiplicity of $f$ at $x_i$ along $Y$ is at least $\alpha_i$ (if $Z$ is not a marking then there is no condition);
+\item $Z$ is a subcurve $Z \subseteq C$, in which case we require that
+\begin{equation*} f^*[Y]|_Z -\sum_{x_i\in Z}\alpha_ix_i\end{equation*}
+is an effective class in $\Achow_0(Z)$.
+\end{enumerate}
+
+\item \emph{Compatibility condition:} this applies when the minimal subcurve of genus one (the \emph{circuit}) is contracted to a point in $Y$. In this case we require that there is a local morphism of monoids:
+\begin{equation*} Q^{\operatorname{GS}} \to \N\end{equation*}
+such that the dashed arrow can be filled in to make the following square commutative:
+\bcd
+Q^{\operatorname{log}} \ar[r]\ar[d] & Q^{\operatorname{GS}} \ar[d] \\
+Q^{\operatorname{ctr}}\ar[r,dashed] & \N
+\ecd
+It is obvious from the construction that the map $Q^{\operatorname{ctr}} \to \N$ is unique if it exists
+\end{enumerate}
+\end{prop}
+
+
+\begin{remark} Gathmann's condition obviously extends to the case $\Sigma \alpha \leq d$. \basenote{What is the correct generalisation of the compatibility condition?} Here we try to make the condition for a curve component of $f^{-1}(Y)$ into an easily verifiable criterion: if $Z$ is a smooth elliptic curve, recall that every line bundle of positive degree on it is effective, hence the relative condition can be rephrased as the following numerical criterion:
+\begin{equation*} f_*[Z]\cdot [Y]+\sum_{j=1}^r m^{(j)}\geq \sum_{x_i\in Z}\alpha_i \end{equation*}
+together with the additional requirement that, when the above is an equality, there is an isomorphism of line bundles:
+\begin{equation}\label{eqn:eq_in_Pic}
+(f|_{Z})^*\OO_X(Y) \otimes \OO_Z\left(\sum_{j=1}^r m^{(j)}y_j\right)=\OO_Z\left(\sum_{x_i\in Z}\alpha_ix_i\right) 
+\end{equation}
+ 
+If $Z$ is reducible, the correct extension is not to impose the same condition componentwise; rather, we should ask the numerical condition for the total degree, and, if $Z$ is obtained by gluing a smooth elliptic curve $E$ with a forest of rational trees $T_i$ at roots $q^E_i$, then the line bundle equality \eqref{eqn:eq_in_Pic} should be required in $\Pic(E)$ after counting each $q^E_i$ towards the left hand side with multiplicity:
+\[f_*[T_i]\cdot [Y]+\sum_{\text{external components attached to $T_i$}} m^{(j)} \geq \sum_{x_j\in T_i}\alpha_j\]
+%That this is the right thing to do follows from the proof that Gathmann's relative space is the projection of Jun Li's moduli space of maps to the expanded pair after contracting the higher levels of the accordion.
+\end{remark}
+
+\begin{remark} The monoid $Q^{\operatorname{GS}}$ above is the minimal monoid for the moduli space of log stable maps, as constructed by Gross--Siebert. Its definition relies on a choice of \emph{type}, which in our setting is uniquely determined except when the source curve $C$ contains a wheel of $\PP^1$s. \end{remark}
+
+\begin{proof}[Proof of Proposition \ref{closed pts of relative space}]
+First suppose that Gathmann's condition is satisfied and that we have a factorisation:
+\bcd
+Q^{\operatorname{log}} \ar[r]\ar[d] & Q^{\operatorname{GS}} \ar[d] \\
+Q^{\operatorname{ctr}}\ar[r] & \N
+\ecd
+We will construct a smoothing of the centrally aligned map, i.e. a $1$-parameter family whose central fibre is the map we started with and whose general fibre is in the nice locus.
+
+The construction of the source curve $\Ccal \to \spec \mathbbm{k} \llbracket t \rrbracket$ is given in the usual way by starting with the circuit $E$ and performing a weighted blow-up to reconstruct the rest of the curve.\basenote{What do we do if $E$ is not smooth? We need to smooth $E$ itself, and we also need some node multiplicities at the nodes internal to $E$.} The weights are determined by the map $Q^{\operatorname{log}} \to \N$; this map is local since the map $Q^{\operatorname{log}} \to Q^{\operatorname{GS}}$ is local\basenote{Is this always true? Isn't this only true if there exists a log lifting? But maybe it's always true for Deligne--Faltings pairs.} and the map $Q^{\operatorname{GS}} \to \N$ is local by assumption. Thus each generator $e_q \in Q^{\operatorname{log}}$ maps to a positive integer $r_q$, and this is the weight we choose. This means that if $C_1$ and $C_2$ are the two branches of $C$ around $q$, then these are $\QQ$-Cartier divisors in the total space $\Ccal$, with:
+\begin{equation*} C_1 \cdot C_2 = 1/r_q \end{equation*}
+We now define the map $f \colon \Ccal \to \PP^N$ extending the map $f \colon C \to \PP^N$. We assume that $H=\{ z_0=0\}$ is a co-ordinate hyperplane. We have sections $u_0,\ldots,u_N$ of a line bundle $L$ on $C$ and we need to extend these to sections $\tilde{u}_0,\ldots,\tilde{u}_N$ of a line bundle $\Lcal$ on $\Ccal$.
+
+Let us write $C = C_1 \cup \ldots \cup C_m$ with $C_1,\ldots,C_r$ internal and the rest external. We define the line bundle $\Lcal$ as
+\begin{equation*} \Lcal = \OO_{\Ccal}\left(\sum_{i=1}^r \gamma_i C_i + \sum_{i=1}^n \alpha_i \tilde{x}_i \right) \end{equation*}
+where each $\gamma_i$ is a positive integer obtained as the image under $Q^{\operatorname{GS}} \to \N$ of the generator corresponding to $C_i$.
+
+This comes with a natural section (or rather, a $\CC^*$-equivalence class of sections) $\tilde{u}_0$ given by the divisor in brackets, and this can be chosen in a unique way so that it restricts to $u_0$ on the central fibre of $\Ccal$.
+
+For each external component $C_j$, we have
+\begin{equation*} \Lcal|_{C_j} = \OO_{C_j} \left( \sum_{x_i \in C_j} \alpha_i x_i + \sum_{q_i \in C_j} (\gamma_i/r_i) q_j \right) \end{equation*}
+where the latter sum is over nodes of $C_j$ which connect $C_j$ to an internal component $C_i$. We thus need:
+\begin{equation*} m_i = \gamma_i / r_i \end{equation*}
+But this is true, because in $Q^{\operatorname{GS}}$ the generator corresponding to the internal component $C_i$ is identified with $m_i$ times the generator corresponding to $q_i$; pushing forward this relation to $\N$ gives the equation above.
+ 
+\begin{comment} 
+Now let us consider an internal component $C_j$. We have
+\begin{align*} \Lcal|_{C_j} & = \OO_{C_j} \left( \sum_{x_i \in C_j} \alpha_i x_i + \sum_{q_i \in C_j} (\gamma_i/r_i) q_i \right) \otimes \OO_{\mathcal{C}}\left(- \gamma_j \sum_{i \neq j} C_i \right) \\
+& = \OO_{C_j}\left( \sum_{x_i \in C_j} \alpha_i x_i + \sum_{q_i \in C_j} \left(\frac{\gamma_i - \gamma_j}{r_i}\right) q_i - \sum_{\tilde{q}_i \in C_j} (\gamma_j/r_i) \tilde{q}_i \right)\end{align*}
+where the middle sum is over adjacent internal components and the final sum is over adjacent external components. The fact that $\gamma_j/r_i = m_i$ follows as in the previous case.
+
+It remains to verify the Gathmann-like condition for internal components. Let $Z \subseteq C$ be a connected component of $f^{-1}(H)$, and suppose wlog that $Z = C_1 \cup \ldots \cup C_k$ for some of the internal components $C_1,\ldots,C_k$. If $Z$ has genus zero then the condition is purely numerical, and we find from the above description that
+\begin{equation*} \deg \Lcal|_Z = \sum_{x_i \in Z} \alpha_i x_i - \sum_{\tilde{q}_i \in Z} m_i \end{equation*}
+where the sum is over external nodes $\tilde{q}_i$, i.e. those connecting to the rest of the curve. By the Gathmann condition, this is exactly $\deg f|_Z^* \OO_{\PP^N}(H)$, which is what we wanted.
+
+On the other hand suppose that $Z$ is genus one. Suppose first off that it has a smooth genus one component, say $C_1$.
+\end{comment}
+
+Let $Z$ be a connected component of $f^{-1}(H)$. Suppose wlog that $Z= C_1 \cup \ldots \cup C_k$. Then because $Z$ does not intersect $C_{k+1},\ldots,C_r$ we have
+\begin{align*} \Lcal|_Z & = \OO_Z \left( \sum_{x_i \in Z} \alpha_i x_i + \sum_{i=1}^k \gamma_i C_i \right) \\
+& = \OO_Z \left( \sum_{x_i \in Z} \alpha_i x_i - \sum_{q_i \in Z} (\gamma_i/r_i) q_i \right) \\
+& = \OO_Z \left( \sum_{x_i \in Z} \alpha_i x_i - \sum_{q_i \in Z} m_i q_i \right) \end{align*}
+where the sum is over external components of $C$ which are adjacent to $Z$ via $q_i$. By the Gathmann-like condition, this is exactly $f^* \OO(Y)|_Z$.
+
+We have thus shown that when we restrict $\Lcal$ to either an external component or an internal component (where here we mean a connected component of $f^{-1}(Y)$) we get the correct line bundle. Assuming that there is no wheel of $\PP^1$s, or more generally that any wheel of $\PP^1$s which does appear appears inside a connected component, this shows that $\Lcal_{\Ccal_0} = L$, as claimed.
+
+
+
+\end{proof}
+
+
+
+
+
+
+\newpage
+
 \section{Recursion formula for $\PP^1|\infty, \Sigma \alpha = d$}
 
+\newpage
 \appendix
 \section{Old}
 
@@ -304,8 +425,7 @@ So, for example, the factorisation exists for the subcone $e_2>e_1$ only when $m
 $e_1\mapsto m_2, e_2\mapsto m_1$.
 \end{remark}
 
-
-\section{The relative space is the closure of the nice locus for $(\PP^N,H)$}
+\subsection{The relative space is the closure of the nice locus for $(\PP^N,H)$}
 \noindent In general we do not know very much about the space we have just defined. The aim of this section is to show that, in the case where $X=\PP^N$ and $Y=H$ is a hyperplane, the space is proper and irreducible of the expected dimension. As such it has a fundamental class, which we can use to define reduced relative Gromov--Witten invariants in genus one.
 
 \begin{remark} In the case of a general pair $(X,Y)$ we will see that the moduli space is still proper, but is not in general irreducible or even equidimensional. Nevertheless, we can equip it with a virtual class by ``pulling back'' from the case of $(\PP^N,H)$; for details, see \S [REF]. \end{remark}
