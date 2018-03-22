@@ -41,6 +41,7 @@
 
 
 \newcommand{\plC}{\scalebox{0.8}[1.3]{$\sqsubset$}}
+\newcommand{\sidenote}[1]{\marginpar{\textbf{\color{red}#1}}}
 
 \newcommand{\TT}{\operatorname{T}}
 \newcommand{\oM}{\overline{\mathcal{M}}}
@@ -212,7 +213,51 @@ One should think of the factorisation condition as identifying the main componen
 
 \section{Definition of centrally aligned relative space}
 \section{Characterisation of the closed points of the relative space}
-\section{Recursion formula for $\PP^1|\infty, \Sigma \alpha = d$}
+\section{Recursion formula}
+
+\subsection{The case $\sum\alpha=d$}
+
+\subsection{Definition of the boundary components} According to Vakil's article there should be three sorts of boundary components.
+\begin{enumerate}[label=(\alph*)]
+ \item \[\mathcal Y^a=\M{0}{\lvert\alpha^{(0)}\rvert+r}{H}{d_0}\times_{H^r}\left(\VZc{1}{\alpha^{(1)}\cup\{m^{(1)}\}}{\PP^N|H}{d_1}\times\prod_{i=2}^r\M{0}{\alpha^{(i)}\cup\{m^{(i)}\}}{\PP^N|H}{d_i}\right)\]
+ \item \[\mathcal Y^b=\M{0}{\lvert\alpha^{(0)}\rvert+r}{H}{d_0}\times_{H^r}\left(\M{0}{\alpha^{(1)}\cup\{m^{(1)},m^{(2)}\}}{\PP^N|H}{d_1}\times\prod_{i=3}^r\M{0}{\alpha^{(i)}\cup\{m^{(i)}\}}{\PP^N|H}{d_i}\right)\]
+ \item \[\mathcal Y^c\subseteq \VZc{1}{\lvert\alpha^{(0)}\rvert+r}{H}{d_0}\times_{H^r}\prod_{i=1}^r\M{0}{\alpha^{(i)}\cup\{m^{(i)}\}}{\PP^N|H}{d_i}\]
+ $\mathcal Y^c$ is cut within the latter by Gathmann's condition on line bundles:
+ \[f_{|E}^*\mathcal O_H(1)\cong\mathcal O_E\left(\sum_{x_j\in E}\alpha_jx_j-\sum_{i=1}^r m^{(i)}y_i\right)\]\sidenote{Express the line bundle condition in terms of tautological classes?}
+ Notice that such condition depends on the choice of $m^{(i)}$ but is really just a condition on the first factor of the product, so $\mathcal Y^c$ itself can be expressed as a product.
+\end{enumerate}
+
+\begin{remark}
+ Notice that gluing does not present the subtleties to which log geometry has made us used, since we endow the curves with the minimal centrally aligned structure, possibly after prescribing that the smoothing parameters for the newly created nodes are \emph{bigger} than the contraction radius $\delta$.
+\end{remark}
+
+\begin{remark}
+ A dimensional computation shows that $\mathcal Y^b$ is never relevant to the purpose of the recursion formula. On the other hand the classes of $\mathcal Y^a$ and $\mathcal Y^c$ should be weighted with the coefficient $\frac{\prod m^{(i)}}{r!}$. Let $D_{1,\alpha,k}(\PP^N|H)$ be the union of all the $\mathcal Y^a$ and $\mathcal Y^c$ as above, for any choice of number of external components $r$, distribution of the markings $A$, and of the degree $D$, provided the marked point $x_k$ lies on the internal component $C^{(0)}$. Let each component be endowed with its fundamental class weighted as above and let $\virt{D_{1,\alpha,k}(\PP^N|H)}$ be the sum of all these classes.
+\end{remark}
+
+\begin{thm}
+ Assume $\sum\alpha=d$. Then \[(\alpha_k\psi_k+\ev_k^*H)[\VZc{1}{\alpha}{\PP^N|H}{d}]=\virt{D_{1,\alpha,k}(\PP^N|H)}.\]
+\end{thm}
+\begin{proof}
+We perform a number of reductions.
+ \begin{itemize}%[leftmargin=1cm]
+  \item \textbf{Reduction to the case of $\PP^1|\{\infty\}$:} by choosing a general $N-2$-plane $A\subseteq H$ and projecting away from it. Must show that the rational map $\rho_A\colon \VZc{1}{n}{\PP^N|H}{d}\dashrightarrow \VZc{1}{n}{\PP^1|\{\infty\}}{d}$ is defined and smooth at a general point of $D_{1,\alpha,k}(\PP^N|H)$.
+  
+  \item \textbf{Reduction to an \'etale neighbourhood of $C^{(0)}$:} the plan is to understand the global perfect obstruction theory of $\VZc{1}{n}{\PP^1}{d}$ and see that the tangent to the latter is a sum of contributions from the \emph{special loci}, namely contracted components, ramification points, markings and nodes.
+  
+  \begin{remark}
+   When we are studying the infinitesimal deformation theory of centrally aligned curves, notice that being centrally aligned must be checked on geometric points, and minimality is open, hence any deformation as a log smooth curve will automatically be minimal centrally aligned. The tangent space is then $H^1(C,T_C^{\rm{log}})$; notice that this is independent from the log structure on the base.
+  \end{remark}
+  
+  \begin{example}
+   There are non-trivial deformations that are trivial on the underlying marked prestable curve. If $(C,\mathcal M_C)\to (\Spec(k),Q^{\rm{cen}})$ is a centrally aligned curve, then in order to define a deformation over $\Spec(k[\epsilon])$ we need to extend the log structure on the base by choosing a map $Q^{\rm{cen}}\to k[\epsilon]$. Notice that if we want the underlying curve to be a trivial deformation we better send all the smoothing parameters to $0$ in $k[\epsilon]$; on the other hand, if $Q^{\rm{cen}}$ contains an element such as $e_i-e_j$ (making $R_i$ further from the circuit than $R_j$), then we are free to map it to an invertible element in $k[\epsilon]$, which will kill it in the associated log structure;\sidenote{Invertible elements of $k[\epsilon]$ remain invertible when setting $\epsilon=0$, which seems to kill $e_i-e_j$ on the central fiber too.} this will make $R_i$ and $R_j$ be \emph{at the same distance} from the circuit in the deformation. Importantly, $Q^{\rm{log}}\to Q^{\rm{cen}}$ is an epimorphism only in the category of integral monoid (of which the multiplicative monoid of a ring is never an object, because it has a sink).
+  \end{example}
+
+
+ \end{itemize}
+
+\end{proof}
+
 
 \appendix
 \section{Old}
