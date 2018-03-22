@@ -44,6 +44,8 @@
 
 \newcommand{\plC}{\scalebox{0.8}[1.3]{$\sqsubset$}}
 
+\newcommand{\formLine}{\spec \mathbbm{k}\llbracket t \rrbracket}
+
 \newcommand{\spec}{\operatorname{Spec}}
 \newcommand{\TT}{\operatorname{T}}
 \newcommand{\oM}{\overline{\mathcal{M}}}
@@ -261,6 +263,7 @@ It is obvious from the construction that the map $Q^{\operatorname{ctr}} \to \N$
 \end{enumerate}
 \end{prop}
 
+\begin{remark} The monoid $Q^{\operatorname{GS}}$ depends on a choice of \emph{type}, in this case a choice of the $u_q$ (the $u_p$ are already determined by the choice of $\alpha$). Here we are not allowed to choose a random type, but have to choose one which is compatible with the underlying stable map, in the sense that the modified tropical balancing condition is satisfied. Remember that we get one balancing condition for each generator of $\Gamma(C, f^* \overline{\Mcal}_H)$, so as well as there being a balancing condition for each internal component there is also one wherever the curve intersects the divisor in an isolate point (where for instance we get that $u_q = m_q$ at nodes connecting an external to an internal component). Also we require this condition to take place in $\Pic(C)$, but we are entitled at any point to restrict to components of $C$ or take degrees to get (in general weaker) conditions. \end{remark}
 
 \begin{remark} Gathmann's condition obviously extends to the case $\Sigma \alpha \leq d$. \basenote{What is the correct generalisation of the compatibility condition?} Here we try to make the condition for a curve component of $f^{-1}(Y)$ into an easily verifiable criterion: if $Z$ is a smooth elliptic curve, recall that every line bundle of positive degree on it is effective, hence the relative condition can be rephrased as the following numerical criterion:
 \begin{equation*} f_*[Z]\cdot [Y]+\sum_{j=1}^r m^{(j)}\geq \sum_{x_i\in Z}\alpha_i \end{equation*}
@@ -274,62 +277,91 @@ If $Z$ is reducible, the correct extension is not to impose the same condition c
 %That this is the right thing to do follows from the proof that Gathmann's relative space is the projection of Jun Li's moduli space of maps to the expanded pair after contracting the higher levels of the accordion.
 \end{remark}
 
-\begin{remark} The monoid $Q^{\operatorname{GS}}$ above is the minimal monoid for the moduli space of log stable maps, as constructed by Gross--Siebert. Its definition relies on a choice of \emph{type}, which in our setting is uniquely determined except when the source curve $C$ contains a wheel of $\PP^1$s. \end{remark}
-
 \begin{proof}[Proof of Proposition \ref{closed pts of relative space}]
-First suppose that Gathmann's condition is satisfied and that we have a factorisation:
+First suppose that the conditions (1) and (2) of the Proposition are satisfied; so we have Gathmann's condition on the level of line bundles and a factorisation:
 \bcd
 Q^{\operatorname{log}} \ar[r]\ar[d] & Q^{\operatorname{GS}} \ar[d] \\
 Q^{\operatorname{ctr}}\ar[r] & \N
 \ecd
-We will construct a smoothing of the centrally aligned map, i.e. a $1$-parameter family whose central fibre is the map we started with and whose general fibre is in the nice locus.
+We will construct a smoothing of the centrally aligned map, i.e. a $1$-parameter family whose central fibre is the map we started with and whose general fibre is in the nice locus. The construction proceeds in the following order:
+\begin{enumerate}
+\item construct the smoothing $\Ccal$ of the source curve $C$, as a scheme;
+\item construct the extension $(\Mcal_{\Ccal},\delta)$ of the central alignment on $C$;
+\item construct the extension $\Lcal$ of the line bundle $L=f^*\OO_{\PP^N}(H)$ from $C$ to $\Ccal$;
+\item construct the extension of the section $u_0 \in \HH^0(C,L)$;
+\item construct the extensions of the sections $u_1,\ldots,u_N$.
+\end{enumerate}
 
-The construction of the source curve $\Ccal \to \spec \mathbbm{k} \llbracket t \rrbracket$ is given in the usual way by starting with the circuit $E$ and performing a weighted blow-up to reconstruct the rest of the curve.\basenote{What do we do if $E$ is not smooth? We need to smooth $E$ itself, and we also need some node multiplicities at the nodes internal to $E$.} The weights are determined by the map $Q^{\operatorname{log}} \to \N$; this map is local since the map $Q^{\operatorname{log}} \to Q^{\operatorname{GS}}$ is local\basenote{Is this always true? Isn't this only true if there exists a log lifting? But maybe it's always true for Deligne--Faltings pairs.} and the map $Q^{\operatorname{GS}} \to \N$ is local by assumption. Thus each generator $e_q \in Q^{\operatorname{log}}$ maps to a positive integer $r_q$, and this is the weight we choose. This means that if $C_1$ and $C_2$ are the two branches of $C$ around $q$, then these are $\QQ$-Cartier divisors in the total space $\Ccal$, with:
+We start with (1), i.e. the construction of the source curve $\Ccal$ as a family over $\spec \mathbbm{k}\llbracket t \rrbracket$. Let $E \subseteq C$ be the circuit, i.e. the minimal genus one subcurve. This is either a smooth elliptic curve or a wheel of rational curves. Look at the corresponding moduli point $[E] \in \Mfrak_{1,n}$. Since this is a smooth stack, we may choose an \'etale chart which locally looks like the tangent space of the stack, which in this case is the deformation space of the elliptic curve. This contains a factor $\Aaff^p$ where $p$ is the number of nodes of $C$; the $i$th co-ordinate axis corresponds to a smoothing of the $i$th node, keeping the others fixed, while the generic point of the corresponding orthogonal hyperplane corresponds to a deformation which smooths all the nodes except the $i$th one.
+
+We need to choose a map $\formLine \to \Mfrak_{1,n}$ which sends the closed point to $[E]$ and the generic point to the locus of smooth curves. By the discussion of the previous paragraph, we can do this by choosing a map $\formLine \to \Aaff^p$ which sends the closed point to the origin and the generic point to the complmenet $\Gm^p \subseteq \Aaff^p$ of the co-ordinate axes. We can certainly choose such a map; furthermore, if for each node $q$ we choose a positive integer $r_q$, then we can choose the map so that it has tangency order $r_q$ to the hyperplane of $\Aaff^p$ corresponding to $q$. In terms of the resulting curve $\Ccal$ over $\formLine$, this means that if $C_1, C_2 \subseteq \Ccal$ are the two branches of $C$ around $q$, then these are $\QQ$-Cartier divisors in $\Ccal$, with:
 \begin{equation*} C_1 \cdot C_2 = 1/r_q \end{equation*}
-We now define the map $f \colon \Ccal \to \PP^N$ extending the map $f \colon C \to \PP^N$. We assume that $H=\{ z_0=0\}$ is a co-ordinate hyperplane. We have sections $u_0,\ldots,u_N$ of a line bundle $L$ on $C$ and we need to extend these to sections $\tilde{u}_0,\ldots,\tilde{u}_N$ of a line bundle $\Lcal$ on $\Ccal$.
+The weights $r_q$ are chosen by looking at the map $Q^{\operatorname{log}} \to \N$; this map is local since the map $Q^{\operatorname{log}} \to Q^{\operatorname{GS}}$ is local\basenote{Is this always true? Isn't this only true if there exists a log lifting? But maybe it's always true for Deligne--Faltings pairs.} and the map $Q^{\operatorname{GS}} \to \N$ is local by assumption. Thus each generator $e_q \in Q^{\operatorname{log}}$ maps to a positive integer $r_q$, and this is the weight we choose. We have thus constructed the smoothing $\Ccal$ of $C$.
 
-Let us write $C = C_1 \cup \ldots \cup C_m$ with $C_1,\ldots,C_r$ internal and the rest external. We define the line bundle $\Lcal$ as
+We now move on to step (2), which involves extending the central alignment from $C$ to $\Ccal$. This is a relative trivial step: since the general fibre of $\Ccal$ is smooth, there is no choice of ordering of the markings or of contraction radius, and its minimal centrally aligned monoid is trivial. We can thus take the log structures on the central fibre as charts for the log structures on the deformation. To be more precise, in the base we have a chart:
+\begin{align*} Q^{\operatorname{ctr}} & \to \mathbbm{k} \llbracket t \rrbracket \\
+e_q & \mapsto t^{r_q} \end{align*}
+Note that this is well-defined by the fact that we have the factorisation $Q^{\operatorname{ctr}} \to \N$. The log structure on $\Ccal$ is obtained by pushing forward the log structure on the central fibre $C$. This completes step (2).
+
+We now begin step (3), that of extending the line bundle $L=f^*\OO_{\PP^N}(H)$ on $C$ to a line bundle $\Lcal$ on $\Ccal$. In case it hasn't been mentioned already, we assume that $H=\{ z_0=0\}$ is a co-ordinate hyperplane.
+
+Let us write $C$ in terms of its irreducible components as $C = C_1 \cup \ldots \cup C_m$ with $C_1,\ldots,C_r$ internal and the rest external. We define the line bundle $\Lcal$ as
 \begin{equation*} \Lcal = \OO_{\Ccal}\left(\sum_{i=1}^r \gamma_i C_i + \sum_{i=1}^n \alpha_i \tilde{x}_i \right) \end{equation*}
-where each $\gamma_i$ is a positive integer obtained as the image under $Q^{\operatorname{GS}} \to \N$ of the generator corresponding to $C_i$.
+where each $\gamma_i$ is a positive integer obtained as the image under $Q^{\operatorname{GS}} \to \N$ of the generator corresponding to $C_i$, and the $\tilde{x}_i$ are extensions of the Cartier divisors $x_i$ to all of $\Ccal$.
 
-This comes with a natural section (or rather, a $\CC^*$-equivalence class of sections) $\tilde{u}_0$ given by the divisor in brackets, and this can be chosen in a unique way so that it restricts to $u_0$ on the central fibre of $\Ccal$.
+This comes with a natural section (or rather, a $\CC^*$-equivalence class of sections) $\tilde{u}_0$ given by the divisor in brackets above, and this can be chosen in a unique way so that it restricts to $u_0$ on the central fibre of $\Ccal$. This completes step (4).
 
-For each external component $C_j$, we have
+Now we must verify that $\Lcal|_C=L$. For each external component $C_j$, we have
 \begin{equation*} \Lcal|_{C_j} = \OO_{C_j} \left( \sum_{x_i \in C_j} \alpha_i x_i + \sum_{q_i \in C_j} (\gamma_i/r_i) q_j \right) \end{equation*}
-where the latter sum is over nodes of $C_j$ which connect $C_j$ to an internal component $C_i$. We thus need:
+where the latter sum is over nodes of $C_j$ which connect $C_j$ to an internal component $C_i$. We thus need
 \begin{equation*} m_i = \gamma_i / r_i \end{equation*}
-But this is true, because in $Q^{\operatorname{GS}}$ the generator corresponding to the internal component $C_i$ is identified with $m_i$ times the generator corresponding to $q_i$; pushing forward this relation to $\N$ gives the equation above.
- 
-\begin{comment} 
+in order to conclude that $\Lcal|_{C_j} = L|_{C_j}$. But this is true, because in $Q^{\operatorname{GS}}$ the generator corresponding to the internal component $C_i$ is identified with $u_{q_i}$ times the generator corresponding to $q_i$, and $u_{q_i}=m_i$ by the fact that the type we chose to define $Q^{\operatorname{GS}}$ must satisfy the tropical balancing condition. Pushing forward this relation from $Q^{\operatorname{GS}}$ to $\N$ gives the equation above. This argument also applies when we have an external subcurve $Z \subseteq C$ which is a wheel of rational components.
+
 Now let us consider an internal component $C_j$. We have
-\begin{align*} \Lcal|_{C_j} & = \OO_{C_j} \left( \sum_{x_i \in C_j} \alpha_i x_i + \sum_{q_i \in C_j} (\gamma_i/r_i) q_i \right) \otimes \OO_{\mathcal{C}}\left(- \gamma_j \sum_{i \neq j} C_i \right) \\
-& = \OO_{C_j}\left( \sum_{x_i \in C_j} \alpha_i x_i + \sum_{q_i \in C_j} \left(\frac{\gamma_i - \gamma_j}{r_i}\right) q_i - \sum_{\tilde{q}_i \in C_j} (\gamma_j/r_i) \tilde{q}_i \right)\end{align*}
+\begin{align*} \Lcal|_{C_j} & = \OO_{C_j} \left( \sum_{x_i \in C_j} \alpha_i x_i + \sum_{\tilde{q}_i \in C_j} (\gamma_i/r_i) \tilde{q}_i \right) \otimes \OO_{\mathcal{C}}\left(- \gamma_j \sum_{i \neq j} C_i \right) \\
+& = \OO_{C_j}\left( \sum_{x_i \in C_j} \alpha_i x_i + \sum_{q_i \in C_j} \left(\frac{\gamma_i - \gamma_j}{r_i}\right) q_i - \sum_{\tilde{q}_i \in C_j} m_i \tilde{q}_i \right)\end{align*}
 where the middle sum is over adjacent internal components and the final sum is over adjacent external components. The fact that $\gamma_j/r_i = m_i$ follows as in the previous case.
 
-It remains to verify the Gathmann-like condition for internal components. Let $Z \subseteq C$ be a connected component of $f^{-1}(H)$, and suppose wlog that $Z = C_1 \cup \ldots \cup C_k$ for some of the internal components $C_1,\ldots,C_k$. If $Z$ has genus zero then the condition is purely numerical, and we find from the above description that
-\begin{equation*} \deg \Lcal|_Z = \sum_{x_i \in Z} \alpha_i x_i - \sum_{\tilde{q}_i \in Z} m_i \end{equation*}
-where the sum is over external nodes $\tilde{q}_i$, i.e. those connecting to the rest of the curve. By the Gathmann condition, this is exactly $\deg f|_Z^* \OO_{\PP^N}(H)$, which is what we wanted.
+We must argue that $\Lcal|_{C_j} = L|_{C_j}$. Suppose for the moment that $C_j$ is genus zero, so that we only need to check the degrees. We must show:
+\begin{equation*} \deg L|_{C_j} = \sum_{x_i \in C_j} \alpha_i - \sum_{q_i \in C_j} \left( \dfrac{\gamma_j - \gamma_i}{r_i}\right) - \sum_{\tilde{q}_i \in C_j} u_{\tilde{q}_i}\end{equation*}
+But by the definition of $Q^{\operatorname{GS}}$ we have:
+\begin{equation*} (\gamma_j - \gamma_i)/r_i = u_{q_i} \end{equation*}
+From which the above formula holds because of the tropical balancing condition we imposed when choosing the type.
 
-On the other hand suppose that $Z$ is genus one. Suppose first off that it has a smooth genus one component, say $C_1$.
-\end{comment}
+Similarly if $C_j$ is smooth of genus one we must show:
+\begin{equation*} L|_{C_j} = \OO_{C_j} \left( \sum_{x_i \in C_j} \alpha_i x_i - \sum_{q_i \in C_j} u_{q_i} q_i - \sum_{\tilde{q}_i \in C_j} u_{\tilde{q}_i} \tilde{q}_i \right) \end{equation*}
+But this is just the balancing condition on the level of $\Pic(C_j)$. 
 
-Let $Z$ be a connected component of $f^{-1}(H)$. Suppose wlog that $Z= C_1 \cup \ldots \cup C_k$. Then because $Z$ does not intersect $C_{k+1},\ldots,C_r$ we have
-\begin{align*} \Lcal|_Z & = \OO_Z \left( \sum_{x_i \in Z} \alpha_i x_i + \sum_{i=1}^k \gamma_i C_i \right) \\
-& = \OO_Z \left( \sum_{x_i \in Z} \alpha_i x_i - \sum_{q_i \in Z} (\gamma_i/r_i) q_i \right) \\
-& = \OO_Z \left( \sum_{x_i \in Z} \alpha_i x_i - \sum_{q_i \in Z} m_i q_i \right) \end{align*}
-where the sum is over external components of $C$ which are adjacent to $Z$ via $q_i$. By the Gathmann-like condition, this is exactly $f^* \OO(Y)|_Z$.
+What about if $C_j$ is a wheel of rational components? Then it isn't irreducible, so let's write it as $Z= C_1 \cup \ldots \cup C_k$. So there are other internal components $C_{k+1},\ldots,C_r$ and external components $C_{r+1},\ldots,C_m$. We assume that $C_1,\ldots,C_k$ are ordered so that $C_i$ intersects $C_{i-1}$, $C_{i+1}$ and none others. Notice that this means that:
+\begin{equation*} C_i^2 = -1/r_{i-1} - 1/r_{i+1} - \sum_{q_j \in C_i} 1/r_j \end{equation*}
+for all $i \in \{1,\ldots,k\}$, where the sum is over all nodes $q_j$ which connect $Z$ to the rest of the curve. Thus we obtain:
+\begin{align*} \Lcal|_Z & = \OO_Z \left( \sum_{x_i \in Z} \alpha_i x_i\right) \otimes \OO_{\Ccal} \left( \sum_{i=1}^r \gamma_i C_i \right)\bigg|_Z \\
+& = \OO_Z \left( \sum_{x_i \in Z} \alpha_i x_i + \sum_{\substack{q_i \in Z \\ \text{$q_i$ joins $Z$} \\ \text{to int. cpt.}}} (\gamma_i/r_i) q_i \right) \otimes \OO_{\Ccal} \left( \sum_{i=1}^k \gamma_i C_i \right) \bigg|_Z \\
+& = \OO_Z \left( \sum_{x_i \in Z} \alpha_i x_i + \sum_{\substack{q_i \in Z \\ \text{$q_i$ joins $Z$} \\ \text{to int. cpt.}}} (\gamma_i/r_i) q_i + \sum_{i=1}^k \gamma_i \left( \frac{1}{r_{i,i-1}} q_{i-1} + \frac{1}{r_{i,i+1}} q_{i+1} + (C_i^2) s_i \right)\right)
+\end{align*}
+where $q_{i-1}$ is the node connecting $C_{i-1}$ and $C_i$ (and similarly for $q_{i+1}$) and $s_i$ is some point of $C_i$ (doesn't really matter which, since $C_i$ is rational).
 
-We have thus shown that when we restrict $\Lcal$ to either an external component or an internal component (where here we mean a connected component of $f^{-1}(Y)$) we get the correct line bundle. Assuming that there is no wheel of $\PP^1$s, or more generally that any wheel of $\PP^1$s which does appear appears inside a connected component, this shows that $\Lcal_{\Ccal_0} = L$, as claimed.\basenote{What about in general?}
+Using the description of $C_i^2$ given above, we see that the terms $q_{i-1}/r_{i,i-1}$ and $q_{i+1}/r_{i,i+1}$ cancel, and we are left with
+\begin{align*} \Lcal|_Z & = \OO_Z \left( \sum_{x_i \in Z} \alpha_i x_i + \sum_{\substack{q_i \in Z \\ \text{$q_i$ joins $Z$} \\ \text{to int. cpt.}}} (\gamma_i/r_i) q_i + \sum_{\substack{q_i \in Z \\ \text{$q_i$ joins $Z$} \\ \text{to rest of curve}}} (\gamma_i/r_i) q_i \right) \\
+& = \OO_Z \left( \sum_{x_i \in Z} \alpha_i x_i + \sum_{\substack{q_i \in Z \\ \text{$q_i$ joins $Z$} \\ \text{to int. cpt.}}} \left( \dfrac{\gamma_i-\gamma_j}{r_i} \right) q_i - \sum_{\substack{q_i \in Z \\ \text{$q_i$ joins $Z$} \\ \text{to ext. cpt}}} (\gamma_i/r_i) q_i \right)
+\end{align*}
+and this is precisely the balancing condition on the level of $\Pic(Z)$. This proves that $\Lcal|_C = L$, except for one case which we haven't yet considered, namely when there is a wheel of rational curves which is partially internal and partially external. In this case essentially the same argument as given above applies. 
+
+We have thus shown that we can break $C$ up into pieces (mostly into its irreducible components, unless there is a rational wheel in which case we treat this as a single piece) such that the corresponding intersection graph has genus zero and such that $\Lcal$ restricts to $L$ on each of the pieces. The fact that $\Lcal|_C = L$ then immediately follows (since the intersection graph has genus zero, so the Picard group of $C$ is equal to the direct sum of the Picard groups of the pieces). This completes the proof of step (3). 
+
+As mentioned above, step (4) is immediate by the construction of $\Lcal$. It remains to carry out step (5), i.e. to extend the sections $u_1,\ldots,u_N$. By standard results in deformation theory, obstructions to extending sections of a deformation of $L$ are contained in $\HH^1(C,L)$. If $L$ is non-trivial on the circuit, then this space vanishes and so the sections extend immediately.
+
+Thus the only case we need to check is when $L$ is trivial on the circuit, which means that the circuit $E$ (again, either a smooth elliptic curve or a wheel of rational components) is contracted by the map $f$. In this case we want to extend the sections by referring to the corresponding Smyth curve. From the centrally aligned curve $\Ccal$ we obtain a diagram:
+\bcd
+& \tilde{\Ccal} \ar[ld] \ar[rd] & \\
+\Ccal & & \overline{\Ccal}
+\ecd
+
+
 
 
 
 \end{proof}
-
-
-
-
-
-
 \newpage
 
 \section{Recursion formula for $\PP^1|\infty, \Sigma \alpha = d$}
