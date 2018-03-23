@@ -263,7 +263,9 @@ It is obvious from the construction that the map $Q^{\operatorname{ctr}} \to \N$
 \end{enumerate}
 \end{prop}
 
-\begin{remark} The monoid $Q^{\operatorname{GS}}$ depends on a choice of \emph{type}, in this case a choice of the $u_q$ (the $u_p$ are already determined by the choice of $\alpha$). Here we are not allowed to choose a random type, but have to choose one which is compatible with the underlying stable map, in the sense that the modified tropical balancing condition is satisfied. Remember that we get one balancing condition for each generator of $\Gamma(C, f^* \overline{\Mcal}_H)$, so as well as there being a balancing condition for each internal component there is also one wherever the curve intersects the divisor in an isolate point (where for instance we get that $u_q = m_q$ at nodes connecting an external to an internal component). Also we require this condition to take place in $\Pic(C)$, but we are entitled at any point to restrict to components of $C$ or take degrees to get (in general weaker) conditions. \end{remark}
+\begin{remark} The monoid $Q^{\operatorname{GS}}$ depends on a choice of \emph{type}, in this case a choice of the $u_q$ (the $u_p$ are already determined by the choice of $\alpha$). Here we are not allowed to choose a random type, but have to choose one which is compatible with the underlying stable map, in the sense that the modified tropical balancing condition is satisfied. The Gathmann-style condition (1) is a necessary condition for the existence of a compatible type (on the level of $\Pic C$).
+
+Remember that we get one balancing condition for each generator of $\Gamma(C, f^* \overline{\Mcal}_H)$, so as well as there being a balancing condition for each internal component there is also one wherever the curve intersects the divisor in an isolate point (where for instance we get that $u_q = m_q$ at nodes connecting an external to an internal component). Also we require this condition to take place in $\Pic(C)$, but we are entitled at any point to restrict to components of $C$ or take degrees to get (in general weaker) conditions. \end{remark}
 
 \begin{remark} Gathmann's condition obviously extends to the case $\Sigma \alpha \leq d$. \basenote{What is the correct generalisation of the compatibility condition?} Here we try to make the condition for a curve component of $f^{-1}(Y)$ into an easily verifiable criterion: if $Z$ is a smooth elliptic curve, recall that every line bundle of positive degree on it is effective, hence the relative condition can be rephrased as the following numerical criterion:
 \begin{equation*} f_*[Z]\cdot [Y]+\sum_{j=1}^r m^{(j)}\geq \sum_{x_i\in Z}\alpha_i \end{equation*}
@@ -356,8 +358,31 @@ Thus the only case we need to check is when $L$ is trivial on the circuit, which
 & \tilde{\Ccal} \ar[ld] \ar[rd] & \\
 \Ccal & & \overline{\Ccal}
 \ecd
+\basenote{Finish this}
 
+We have thus constructed the smoothing, which shows that conditions (1) and (2) above are sufficient to characterise points in the closure of the nice locus.
 
+We will now show that these conditions are necessary. Suppose therefore that there is a family $\Ccal \to \formLine$ and consider the central fibre $\Ccal_0 = C$. Condition (1) for $C$ follows immediately from continuity of intersection products.
+
+To show condition (2), let $u_0 = f^*(z_0) \in \HH^0(\Ccal,f^* \OO_{\PP^N}(H))$. For each component $C_i$ of the central fibre $C$, let $\gamma_i$ be the vanishing order of $u_0$ along the Weil divisor $C_i$. For each internal component of $C$ this defines a non-zero map $\gamma_i \colon \N \to \N$. On the other hand, for each node $q$ consider the corresponding generator $e_q \in Q^{\operatorname{ctr}}$. A chart for the log structure on the base is given by a map
+\begin{equation*} Q^{\operatorname{ctr}} \to \mathbbm{k} \llbracket t \rrbracket \end{equation*}
+which we can compose with the valuation on $\mathbbm{k} \llbracket t \rrbracket$ to get a map:
+\begin{equation*} Q^{\operatorname{ctr}} \to \N \end{equation*}
+Let $r_q$ be the image of $e_q$ along this map. This is always non-zero because every node is smoothed in the family $\Ccal$; thus we have a non-zero map $r_q \colon \N \to \N$. These, together with the $\gamma_i$ defined above, give a local morphism
+\begin{equation*} \prod_{q \in C} \N_q \times \prod_{C_i} \N_{\eta_i} \to \N \end{equation*}
+where the second product is over the internal components of $C$. We claim that this descends to the quotient $Q^{\operatorname{GS}}$ (recall again that this quotient depends on a choice of type). We have to check that for every node $q$ we have
+\begin{equation*} u_q r_q = \gamma_i - \gamma_j \end{equation*}
+where $C_i$ and $C_j$ are the adjacent components (this makes for all nodes, since $\gamma_i=0$ for any external component). Remember that the $u_q$ are not fixed a priori; thus we can think of the above formula as determining the $u_q$. What we then need to check is that the $u_q$ thus defined are all integers, and that they satisfy the tropical balancing condition on the level of $\Pic (C)$.
+
+Consider the dual graph of $C$, treating the circuit $E$ as a single node of this graph, so that the graph has genus zero. Start from a leaf $C_i$ of this graph, so that there is only one node $q$ of the corresponding component. Let $C_j$ be the unique component of $C$ which is adjacent to $C_i$ (via $q$). Then we have:
+\begin{equation*} \deg f|_{C_i} = \deg \Lcal|_{C_i} = (\gamma_i - \gamma_j)/r_q + \sum_{x_k \in C_i} \alpha_k \end{equation*}
+Rearranging, we see that $(\gamma_i - \gamma_i)/r_q$ is an integer. Substiting in $u_q$ for this value, we obtain precisely the balancing condition, which we can view as happening on the level of $\Pic (C_j)$ (if we refrain from taking the degree first).
+
+We now proceed by induction. The process is as follows: having determined $q$, we pass to the next component $C_j$. If this has only one other node $r$ besides $q$, we apply the same argument as before to show that $u_r$ is an integer and satisfies the balancing condition. If it contains more than one other node, we pick one of them and follow the resulting path through the dual graph until we arrive at a leaf with a single undetermined node (which must exist, since otherwise the node we started with would have been determined). We then start the process again from there.
+
+This procedure proves that all the $u_q$ are integers and that the balancing condition is satisfied on every component, except for those nodes and those components belonging to the circuit $E$. If the circuit is smooth there is nothing additional to prove, except to note that the Gathmann-like condition (1) ensures that the balancing condition will be satisfied on the level of $\Pic(E)$ (rather than just on the level of degree), so that it is satisfied for $\Pic(C)$.
+
+It remains to consider the case when $E$ is a wheel of rational components. Again the Gathmann-like condition (1) ensures we have balancing on the level of $\Pic(E)$, once we show that all the $u_q$ for the nodes internal to $E$ are integers.
 
 
 
