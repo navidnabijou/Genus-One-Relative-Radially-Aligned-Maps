@@ -303,7 +303,12 @@ The weights $r_q$ are chosen by looking at the map $Q^{\operatorname{log}} \to \
 We now move on to step (2), which involves extending the central alignment from $C$ to $\Ccal$. This is a relative trivial step: since the general fibre of $\Ccal$ is smooth, there is no choice of ordering of the markings or of contraction radius, and its minimal centrally aligned monoid is trivial. We can thus take the log structures on the central fibre as charts for the log structures on the deformation. To be more precise, in the base we have a chart:
 \begin{align*} Q^{\operatorname{ctr}} & \to \mathbbm{k} \llbracket t \rrbracket \\
 e_q & \mapsto t^{r_q} \end{align*}
-Note that this is well-defined by the fact that we have the factorisation $Q^{\operatorname{ctr}} \to \N$. The log structure on $\Ccal$ is obtained by pushing forward the log structure on the central fibre $C$. This completes step (2).
+Note that this is well-defined by the fact that we have the factorisation $Q^{\operatorname{ctr}} \to \N$. This defines a log structure $\Mcal_S^{\operatorname{ctr}}$ on $S$. On the other hand the morphism $S \to \Mfrak_{1,n}$ defines another log structure $\Mcal_S^{\operatorname{log}}$ on $S$ corresponding to the minimal structure of a log smooth curve on $\Ccal$. There is a map $\Mcal_S^{\operatorname{log}} \to \Mcal_S^{\operatorname{ctr}}$ induced by the map of charts $Q^{\operatorname{log}} \to Q^{\operatorname{ctr}}$, and this gives a diagram:
+\bcd
+& (C,\Mcal_C^{\operatorname{log}}) \ar[d] \\
+(S,\Mcal_S^{\operatorname{ctr}}) \ar[r] & (S,\Mcal_S^{\operatorname{log}})
+\ecd
+We define $(\Ccal,\Mcal_{\Ccal}^{\operatorname{ctr}})$ to be the fibre product. This is clearly a log smooth centrally aligned curve over $(S,\Mcal_S^{\operatorname{ctr}})$, with radius $\delta$ given by the radius on the central fibre (note that $\overline{\Mcal_S}^{\operatorname{ctr}}$ is supported on the closed point). This completes step (2).
 
 We now begin step (3), that of extending the line bundle $L=f^*\OO_{\PP^N}(H)$ on $C$ to a line bundle $\Lcal$ on $\Ccal$. In case it hasn't been mentioned already, we assume that $H=\{ z_0=0\}$ is a co-ordinate hyperplane.
 
