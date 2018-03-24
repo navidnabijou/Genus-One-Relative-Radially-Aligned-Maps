@@ -387,8 +387,9 @@ We now proceed by induction. The process is as follows: having determined $q$, w
 
 This procedure proves that all the $u_q$ are integers and that the balancing condition is satisfied on every component, except for those nodes and those components belonging to the circuit $E$. If the circuit is smooth there is nothing additional to prove, except to note that the Gathmann-like condition (1) ensures that the balancing condition will be satisfied on the level of $\Pic(E)$ (rather than just on the level of degree), so that it is satisfied for $\Pic(C)$.
 
-It remains to consider the case when $E$ is a wheel of rational components. Again the Gathmann-like condition (1) ensures we have balancing on the level of $\Pic(E)$, once we show that all the $u_q$ for the nodes internal to $E$ are integers.
-
+It remains to consider the case when $E$ is a wheel of rational components. Again the Gathmann-like condition (1) ensures we have balancing on the level of $\Pic(E)$, once we show that all the $u_q$ for the nodes internal to $E$ are integers. Labelling the components of $E$ as $C_1,\ldots,C_k$ with $C_i$ intersecting $C_{i-1}$ and $C_{i+1}$, we obtain relations:
+\begin{equation*} u_{q_i} r_{q_i} = \gamma_{i+1} - \gamma_{i-1} \end{equation*}
+Thus $u_{q_i} \in r_{q_i}^{-1} \cdot \Z$. But if we restrict $\Lcal$ to each component and look at the resulting equation, we see that in fact $u_{q_i} \in (1/r_{q_j}) \Z$ for all $j$. Thus $u_{q_i} \in (1/g) \Z$ where $g = \operatorname{gcd}(r_{q_1},\ldots,r_{q_k})$. \basenote{Maybe we can fix this using saturation: note that we only need a map from the saturation of the quotient to $\N$, not from the quotient itself.}
 
 
 \end{proof}
