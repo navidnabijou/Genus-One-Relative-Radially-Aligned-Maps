@@ -10,7 +10,7 @@
 \usepackage{amsthm}
 \usepackage{marginnote}
 \usepackage{stmaryrd}
-\usepackage{enumitem}
+\usepackage{enumitem} 
 \usepackage[english]{babel}
 \usepackage{yfonts}
 \usepackage[T1]{fontenc}
@@ -39,10 +39,10 @@
 \usepackage[baskervaldx,bigdelims,vvarbb]{newtxmath}
 \usepackage[cal=cm]{mathalfa}
 
-\newcommand{\sidenote}[1]{\marginpar{\textbf{\color{red}#1}}}
 \newcommand{\basenote}[1]{\footnote{\color{red}#1}}
 
 \newcommand{\plC}{\scalebox{0.8}[1.3]{$\sqsubset$}}
+\newcommand{\sidenote}[1]{\marginpar{\textbf{\color{red}#1}}}
 
 \newcommand{\formLine}{\spec \mathbbm{k}\llbracket t \rrbracket}
 
@@ -61,6 +61,7 @@
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\tVZc}[4]{\widetilde{\mathcal{V\!Z}}^{\rm{ctr}}_{#1,#2}(#3,#4)}
 \newcommand{\VZc}[4]{\mathcal{V\!Z}^{\rm{ctr}}_{#1,#2}(#3,#4)}
+\newcommand{\VZclb}[4]{\mathcal{V\!Z}^{\rm{ctr,lb}}_{#1,#2}(#3,#4)}
 \newcommand{\VZco}[4]{\mathcal{V\!Z}^{\rm{ctr},\circ}_{#1,#2}(#3,#4)}
 \newcommand{\VZcLi}[4]{\mathcal{V\!Z}^{\rm{ctr, Li}}_{#1,#2}(#3,#4)}
 \newcommand{\N}{\mathbb{N}}
@@ -234,10 +235,10 @@ This is a locally closed substack of expected codimension $\Sigma \alpha=d$, and
 \begin{equation*} \VZco{1}{\alpha}{\PP^N|H}{d} \end{equation*}
 It has a well-defined stack structure since it is a moduli space. Note that it is irreducible, since we can find a parametrisation for it over $\Mfrak_{1,n}$.
 
-We now define the \emph{centrally alined relative space} to be the closure of the nice locus:
+We now define the \emph{centrally aligned relative space} to be the closure of the nice locus:
 \begin{equation*} \VZc{1}{\alpha}{\PP^N|H}{d} := \overline{\VZco{1}{\alpha}{\PP^N|H}{d}} \subseteq \VZc{1}{n}{\PP^N}{d} \end{equation*}
 This inherits the natural structure of a stack from the stack structure of the nice locus. It is proper since it is a closed substack of a proper stack, and it is irreducible because it is the closure of an irreducible stack. Hence it admits a fundamental class, which we can use to define \emph{reduced relative Gromov--Witten invariants}:
-\begin{equation*} \langle \tau_{k_1}(\gamma_1), \ldots, \tau_{k_n}(\gamma_n) \rangle^{\PP^N|H, \operatorname{red}}_{0,\alpha,d} := \int_{[\VZc{1}{\alpha}{\PP^N|H}{d}]} \prod_{i=1}^n \ev_i^*(\gamma_i) \psi_i^{k_i} \end{equation*}
+\begin{equation*} \langle \tau_{k_1}(\gamma_1), \ldots, \tau_{k_n}(\gamma_n) \rangle^{\PP^N|H, \operatorname{red}}_{0,\alpha,d} := \int_{[\VZc{1}{\alpha}{\PP^N|H}{d}]} \prod_{i=1}^n \ev_i^*(\gamma_i) \cdot \psi_i^{k_i} \end{equation*}
 
 \section{Characterisation of the closed points of the relative space}
 It will be important for our purposes to have an understanding of the boundary of the relative space, i.e. what we add in when we take the closure of the nice locus. In this section we will describe this boundary on the level of closed points.
@@ -395,7 +396,81 @@ Thus $u_{q_i} \in r_{q_i}^{-1} \cdot \Z$. But if we restrict $\Lcal$ to each com
 \end{proof}
 \newpage
 
-\section{Recursion formula for $\PP^1|\infty, \Sigma \alpha = d$}
+\section{Recursion formula for $\PP^1|\infty$, $\Sigma \alpha = d$.}
+As in the genus zero case, we construct a line bundle (a quotient of jet bundles) and a section of that line bundle whose vanishing locus equals a union of boundary components (comb loci). (The moduli space for $\alpha+e_k$ does not appear because we are assuming maximal tangency.) These fit into the following families:
+\subsection{$\mathcal{Y}^a$}
+The first family is where the circuit is external:
+\begin{equation*} \mathcal{Y}^a=\oM_{0,\lvert\alpha^{(0)}\rvert+r} \times\left(\VZc{1}{\alpha^{(1)}\cup\{m^{(1)}\}}{\PP^1|\infty}{d_1}\times_H {\prod_{i=2}^r} {}_H \M{0}{\alpha^{(i)}\cup\{m^{(i)}\}}{\PP^1|\infty}{d_i}\right) \end{equation*}
+
+\subsection{$\mathcal{Y}^b$}
+The second family is where the circuit is partly internal, partly external (and hence is a wheel of rational curves).
+\begin{equation*} \mathcal Y^b=\oM_{0,\lvert\alpha^{(0)}\rvert+r}\times \left(\M{0}{\alpha^{(1)}\cup\{m^{(1)},m^{(2)}\}}{\PP^1|\infty}{d_1}\times_H \prod_{i=3}^r {}_H \M{0}{\alpha^{(i)}\cup\{m^{(i)}\}}{\PP^1|\infty}{d_i}\right)\end{equation*}
+
+\subsection{$\mathcal{Y}^c$}
+The third family is where the circuit is internal (and thus has zero degree, since we are working with $\PP^1$ relative $\infty$).
+\begin{equation*} \mathcal Y^c = \oM^{\operatorname{ctr,lb}}_{1,\lvert\alpha^{(0)}\rvert+r} \times \prod_{i=1}^r {}_H \M{0}{\alpha^{(i)}\cup\{m^{(i)}\}}{\PP^1|\infty}{d_i} \end{equation*}
+In the above, the first factor
+\begin{equation*} \oM^{\operatorname{ctr,lb}}_{1,\lvert\alpha^{(0)}\rvert+r} \subseteq \oM^{\operatorname{ctr}}_{1,\lvert\alpha^{(0)}\rvert+r}  \end{equation*}
+consists of those centrally aligned curves satisfying Gathmann's condition in $\Achow_0(C)$:
+\begin{equation*} \sum_{x_j\in C}\alpha_jx_j-\sum_{i=1}^r m^{(i)}y_i= 0 \in \Achow_0(C)\end{equation*}
+We saw before how to express this as a condition in $\Pic(E)$ where $E \subseteq C$ is the circuit. Notice that the condition above epends on the choice of $m^{(i)}$ but is really just a condition on the first factor of the product, so $\mathcal Y^c$ itself can be expressed as a product. \sidenote{Express the line bundle condition in terms of tautological classes?}
+
+In this third case there is also a degeneracy condition that must be imposed on the second factor, which ensures that the map factors through the Smyth curve. To be more precise, the condition is that the derivatives
+\begin{equation*} (\operatorname{d}\!f)|_{q_i} \in \operatorname{T}|_{\PP^1} \qquad i=1,\ldots,r \end{equation*}
+are linearly dependent. Note that if $m_i > 1$ for any $i$, or if $r \geq 2$, then this is automatically satisfied. Thus the only case in which we have to impose this is for
+\begin{equation*} \mathcal{Y}^c = \oM^{\operatorname{ctr,lb}}_{1,|\alpha^{(0)}|+r} \times {\M{0}{\alpha^{(i)}\cup (1}{\PP^1|\infty}{d}}^{\operatorname{degen}} \end{equation*}
+where ``degen'' indicates that we impose degeneracy.
+
+These spaces are all irreducible of the expected dimension, and it can be checked that they define divisors inside:
+\begin{equation*} \VZc{1}{\alpha}{\PP^1|\infty}{d} \end{equation*}
+In fact, this applies to all of the above spaces \emph{except} for the special case mentioned above (where we impose degeneracy). This has too small dimension, and hence will not appear in the recursion formula.
+
+
+
+\section{Recursion formula}
+
+\subsection{The case $\sum\alpha=d$}
+
+\subsection{Definition of the boundary components} According to Vakil's article there should be three sorts of boundary components.
+\begin{enumerate}[label=(\alph*)]
+ \item \[\mathcal Y^a=\M{0}{\lvert\alpha^{(0)}\rvert+r}{H}{d_0}\times_{H^r}\left(\VZc{1}{\alpha^{(1)}\cup\{m^{(1)}\}}{\PP^N|H}{d_1}\times\prod_{i=2}^r\M{0}{\alpha^{(i)}\cup\{m^{(i)}\}}{\PP^N|H}{d_i}\right)\]
+ \item \[\mathcal Y^b=\M{0}{\lvert\alpha^{(0)}\rvert+r}{H}{d_0}\times_{H^r}\left(\M{0}{\alpha^{(1)}\cup\{m^{(1)},m^{(2)}\}}{\PP^N|H}{d_1}\times\prod_{i=3}^r\M{0}{\alpha^{(i)}\cup\{m^{(i)}\}}{\PP^N|H}{d_i}\right)\]
+ \item \[\mathcal Y^c\subseteq \VZc{1}{\lvert\alpha^{(0)}\rvert+r}{H}{d_0}\times_{H^r}\prod_{i=1}^r\M{0}{\alpha^{(i)}\cup\{m^{(i)}\}}{\PP^N|H}{d_i}\]
+ $\mathcal Y^c$ is cut within the latter by Gathmann's condition on line bundles:
+ \[f_{|E}^*\mathcal O_H(1)\cong\mathcal O_E\left(\sum_{x_j\in E}\alpha_jx_j-\sum_{i=1}^r m^{(i)}y_i\right)\]\sidenote{Express the line bundle condition in terms of tautological classes?}
+ Notice that such condition depends on the choice of $m^{(i)}$ but is really just a condition on the first factor of the product, so $\mathcal Y^c$ itself can be expressed as a product.
+\end{enumerate}
+
+\begin{remark}
+ Notice that gluing does not present the subtleties to which log geometry has made us used, since we endow the curves with the minimal centrally aligned structure, possibly after prescribing that the smoothing parameters for the newly created nodes are \emph{bigger} than the contraction radius $\delta$.
+\end{remark}
+
+\begin{remark}
+ A dimensional computation shows that $\mathcal Y^b$ is never relevant to the purpose of the recursion formula. On the other hand the classes of $\mathcal Y^a$ and $\mathcal Y^c$ should be weighted with the coefficient $\frac{\prod m^{(i)}}{r!}$. Let $D_{1,\alpha,k}(\PP^N|H)$ be the union of all the $\mathcal Y^a$ and $\mathcal Y^c$ as above, for any choice of number of external components $r$, distribution of the markings $A$, and of the degree $D$, provided the marked point $x_k$ lies on the internal component $C^{(0)}$. Let each component be endowed with its fundamental class weighted as above and let $\virt{D_{1,\alpha,k}(\PP^N|H)}$ be the sum of all these classes.
+\end{remark}
+
+\begin{thm}
+ Assume $\sum\alpha=d$. Then \[(\alpha_k\psi_k+\ev_k^*H)[\VZc{1}{\alpha}{\PP^N|H}{d}]=\virt{D_{1,\alpha,k}(\PP^N|H)}.\]
+\end{thm}
+\begin{proof}
+We perform a number of reductions.
+ \begin{itemize}%[leftmargin=1cm]
+  \item \textbf{Reduction to the case of $\PP^1|\{\infty\}$:} by choosing a general $N-2$-plane $A\subseteq H$ and projecting away from it. Must show that the rational map $\rho_A\colon \VZc{1}{n}{\PP^N|H}{d}\dashrightarrow \VZc{1}{n}{\PP^1|\{\infty\}}{d}$ is defined and smooth at a general point of $D_{1,\alpha,k}(\PP^N|H)$.
+  
+  \item \textbf{Reduction to an \'etale neighbourhood of $C^{(0)}$:} the plan is to understand the global perfect obstruction theory of $\VZc{1}{n}{\PP^1}{d}$ and see that the tangent to the latter is a sum of contributions from the \emph{special loci}, namely contracted components, ramification points, markings and nodes.
+  
+  \begin{remark}
+   When we are studying the infinitesimal deformation theory of centrally aligned curves, notice that being centrally aligned must be checked on geometric points, and minimality is open, hence any first-order deformation as a log smooth curve will automatically be minimal centrally aligned. The tangent space is then $H^1(C,T_C^{\rm{log}})$; notice that this is independent from the log structure on the base.
+  \end{remark}
+  
+  \begin{example}
+   There are non-trivial deformations that are trivial on the underlying marked prestable curve. If $(C,\mathcal M_C)\to (\Spec(k),Q^{\rm{cen}})$ is a centrally aligned curve, then in order to define a deformation over $\Spec(k[\epsilon])$ we need to extend the log structure on the base by choosing a map $Q^{\rm{cen}}\to k[\epsilon]$. Notice that if we want the underlying curve to be a trivial deformation we better send all the smoothing parameters to $0$ in $k[\epsilon]$; on the other hand, if $Q^{\rm{cen}}$ contains an element such as $e_i-e_j$ (making $R_i$ further from the circuit than $R_j$), then we are free to map it to an invertible element in $k[\epsilon]$, which will kill it in the associated log structure;\sidenote{Invertible elements of $k[\epsilon]$ remain invertible when setting $\epsilon=0$, which seems to kill $e_i-e_j$ on the central fiber too.} this will make $R_i$ and $R_j$ be \emph{at the same distance} from the circuit in the deformation. Importantly, $Q^{\rm{log}}\to Q^{\rm{cen}}$ is an epimorphism only in the category of integral monoid (of which the multiplicative monoid of a ring is never an object, because it has a sink).
+  \end{example}
+
+
+ \end{itemize}
+
+\end{proof}
 
 \newpage
 \appendix
@@ -512,7 +587,7 @@ The nice locus $\VZc{1}{\alpha}{\PP^N|H}{d}^{\circ}$ is irreducible.
 \begin{proof}
 By definition the contraction radius $\delta$ is compatible with the map, i.e. the subcurve $C_0\subseteq C$ where $\lambda<\delta$ is equal to the maximal connected genus one subcurve contracted by $f$. Hence when the source curve is irreducible we must have $\delta=0$, and we see that the central alignment on $C$ is uniquely and trivially determined. Thus to specify a point in the nice locus we only need to specify the source curve $C$ (as a scheme) and the map $f$. A parametrisation can be given from the vector bundle:
 \[ \operatorname{Vb}\left(\pi_*\OO_{\mathcal E}(\sum_{j=n+1}^{n+\delta}\sigma_j)\oplus\pi_*\OO_{\mathcal E}(\sum_{j=1}^{n+\delta}\sigma_j)^{\oplus r}\right) \quad \text{on} \quad \mathcal{M}_{1,n+\delta}\]
-where $\pi\colon\mathcal E\to\mathcal M$ is the universal curve and $\delta=d-\sum\alpha_i$.
+where $\pi\colon\mathcal E\to\mathcal M$ is the universal curve and $\delta=d-\sum\alpha_i$. Notice that this is a vector bundle because the source curve is smooth of genus one.
 \end{proof}
 
 \subsection{Justifying the novel condition by dimensional reasons}
