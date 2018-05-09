@@ -15,6 +15,10 @@
 \usepackage{yfonts}
 \usepackage[T1]{fontenc}
 \usepackage[utf8x]{inputenc}
+
+\usepackage{calrsfs}
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+
 \usepackage{verbatim}
 \usepackage{graphicx}
 \usepackage{verbatim}
@@ -43,6 +47,7 @@
 \newcommand{\plC}{\scalebox{0.8}[1.3]{$\sqsubset$}}
 \newcommand{\sidenote}[1]{\marginpar{\textbf{\color{red}#1}}}
 
+\newcommand{\pM}{\pazocal{M}}
 \newcommand{\TT}{\operatorname{T}}
 \newcommand{\oM}{\overline{\mathcal{M}}}
 \newcommand{\M}[4]{\overline{\mathcal{M}}_{#1,#2}(#3,#4)}
@@ -122,7 +127,7 @@
 \newcommand{\h}{\operatorname{h}}
 \newcommand{\Aut}{\operatorname{Aut}}
 \newcommand{\RR}{\textbf{R}}
-\newcommand{\NN}{\operatorname{N}}
+\newcommand{\NN}{\mathbb{N}}
 \newcommand{\ovm}[1]{\overline{\mathcal{#1}}}
 \newcommand{\ovt}[1]{\widetilde{\mathcal{#1}}}
 \newcommand{\ov}[1]{\overline{#1}}
@@ -190,6 +195,40 @@
 
 \appendixtitletocoff
 \tableofcontents
+
+\section{A desingularisation of Chen-Kim's moduli space of genus one logarithmic maps to expanded pairs, for $(\PP^N|H)$}
+
+We recall a number of definitions from \cite{ChenDegeneration}; see also \cite{KimLog}.
+
+Fix a smooth pair $(X,Y)$, i.e. a smooth projective variety $X$ with a smooth divisor $Y$.
+
+\begin{definition}
+ An \emph{extended log twisted expansion} of $(X,Y)$ is a quadruple $(\pi_S\colon W\to S, \pi_X\colon W\to X, D\subseteq W, \pM_S^{W/S}\to\pM_S)$ such that:
+ \begin{enumerate}
+  \item $W$ is an $S$-algebraic space, $\pi_S$ is a proper and flat morphism, with fibers at worst nodal in codimension 1, admitting a lifting to a special log morphism $\pi\colon (W,\pM_W^{W/S})\to(S,\pM_S^{W/S})$, such that:
+  \begin{enumerate}
+   \item $\pM_W^{W/S}$ and $\pM_S^{W/S}$ are locally free log structures;
+   \item for every geometric point $\bar{w}\to W$, either $\bar{w}$ is in the smooth locus of $\pi_S$ and $\pi^\flat\colon \pi^*\overline{\pM}_{S,\bar{w}}^{W/S}\to \overline{\pM}_{W,\bar{w}}^{W/S}$ is an isomorphism, or $\bar{w}$ is in the nodal locus and the following diagram is cocartesian:
+   \bcd
+   \NN\ar[r,"{(1,1)}"]\ar[d,"h"] & \NN^2\ar[d] \\
+   \pi^*\overline{\pM}_{S,\bar{w}}^{W/S}\ar[r] & \overline{\pM}_{W,\bar{w}}^{W/S}
+   \ecd
+   with $h(e)$ irreducible;
+   \item for every geometric point $\bar{s}\to S$ there is a bijection between the irreducible elements of $\overline{\pM}_{S,\bar{s}}^{W/S}$ and the irreducible components of $W_{\bar{s}}^{\text{sing}}$.
+  \end{enumerate}
+  \item $D\subseteq W$ is a Cartier divisor, smooth over $S$, and such that $\pi_X(D)=Y$;
+ \item $\pM_S$ is twisted by integers $(r_1,\ldots,r_l)$ and expanded with respect to $\pM_S^{W/S}$, namely \'{e}tale locally at every point $s\in S$ the morphism of log structures $\pM_S^{W/S}\to\pM_S$ admits a chart:
+ \bcd
+ \NN^l\ar[d]\ar[r,"{(r_1,\cdots,r_l)}"] &\NN^l\ar[r,"{(id,0)}"]&\NN^l\oplus\NN^k\ar[d] \\
+ \pM_S^{W/S}\ar[rr] & & \pM_S
+ \ecd
+  
+ \end{enumerate}
+
+ The log structure on $W$ is given by
+\end{definition}
+
+\section{Gathmann's recursive structure on the boundary of maps to expanded pairs}
 
 \section{The space of relative centrally aligned maps}
 \noindent Recall \cite{RSPW} that the moduli space of maps from centrally aligned curves is obtained by considering the  Cartesian diagram
