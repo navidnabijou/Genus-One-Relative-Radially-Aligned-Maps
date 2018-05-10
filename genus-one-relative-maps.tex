@@ -203,9 +203,9 @@ We recall a number of definitions from \cite{ChenDegeneration}; see also \cite{K
 Fix a smooth pair $(X,Y)$, i.e. a smooth projective variety $X$ with a smooth divisor $Y$.
 
 \begin{definition}
- An \emph{extended log twisted expansion} of $(X,Y)$ is a quadruple $(\pi_S\colon W\to S, \pi_X\colon W\to X, D\subseteq W, \pM_S^{W/S}\to\pM_S)$ such that:
+ An \emph{extended log twisted expansion} of $(X,Y)$ is a quadruple $(\pi\colon W\to S, \pi_X\colon W\to X, D\subseteq W, \pM_S^{W/S}\to\pM_S)$ such that:
  \begin{enumerate}
-  \item $W$ is an $S$-algebraic space, $\pi_S$ is a proper and flat morphism, with fibers at worst nodal in codimension 1, admitting a lifting to a special log morphism $\pi\colon (W,\pM_W^{W/S})\to(S,\pM_S^{W/S})$, such that:
+  \item $\pi$ makes $W$ into a flat, proper algebraic space over $S$, with fibers at worst nodal in codimension 1, admitting a lifting to a special log morphism $\pi\colon (W,\pM_W^{W/S})\to(S,\pM_S^{W/S})$, such that:
   \begin{enumerate}
    \item $\pM_W^{W/S}$ and $\pM_S^{W/S}$ are locally free log structures;
    \item for every geometric point $\bar{w}\to W$, either $\bar{w}$ is in the smooth locus of $\pi_S$ and $\pi^\flat\colon \pi^*\overline{\pM}_{S,\bar{w}}^{W/S}\to \overline{\pM}_{W,\bar{w}}^{W/S}$ is an isomorphism, or $\bar{w}$ is in the nodal locus and the following diagram is cocartesian:
@@ -224,8 +224,53 @@ Fix a smooth pair $(X,Y)$, i.e. a smooth projective variety $X$ with a smooth di
  \ecd
   
  \end{enumerate}
+\end{definition}
+ The log structure on $W$ is then given by
+ \[ \pM_W=\pi^*\pM_S\oplus_{\pi^*\pM_S^{W/S}}\pM_W^{W/S}\oplus_{\OO^*_W}\pM^D\]
+ where $\pM_D$ is the divisorial log structure associated to $D$. 
+Notice that with this definition $(W,\pM_W)\to(S,\pM_S)$ is log smooth.
 
- The log structure on $W$ is given by
+Similarly a \emph{log twisted curve} is $((C,p_1,\ldots,p_n)\to S, \pM_S^{C/S}\to\pM_S)$ with
+\[\pM_C=\pi^*\pM_S\oplus_{\pi^*\pM_S^{C/S}}\pM_C^{C/S}\oplus_{\OO^*_C}\bigoplus_{i=1}^n\pM^{p_i}\]
+A log twisted curve is \emph{minimal} if the log structure $\pM_S$ is locally free, and for every geometric point $\bar{s}\to S$ and irreducible element $b\in\overline{\pM}_S$, we can find an irreducible $a\in\overline{\pM}^{C/S}_S$ and a positive integer $l$ such that $a\mapsto lb$ (by definition this means that the morphism of log structures $\pM_S^{C/S}\to\pM_S$ is \emph{simple}). So essentially we are allowed to take roots of the smoothing parameters of the nodes of $C_{\bar{s}}$.
+
+Finally, fix an $n$-tuple of non-negative contact orders $(c_1,\ldots,c_n)$.
+\begin{definition}
+ A \emph{relative log prestable map} with tangency condition $\mathbf{c}$ is given by a diagram of log morphisms:
+ \bcd
+ ((C,\mathbf p),\pM_C)\ar[rr,"f"]\ar[dr] & & ((W,D),\pM_W)\ar[rr,"\pi_X"]\ar[dl] & & (X,Y)\times S \\
+  & (S,\pM_S) & & &
+ \ecd
+ \begin{enumerate}
+  \item $(C,\mathbf p),\pM_C)\to (S,\pM_S)$ is a minimal log twisted curve;
+  \item $((W,\pM_W)\to (S,\pM_S),(W,D)\to(X,Y))$ is an extended twisted log expansion of $(X,Y)$;
+  \item (\emph{corank condition}) \sidenote{split the definition into a more general one over LogSch and minimality?} for every geometric point $\bar{s}\in S$, the rank of \[\operatorname{Coker}(\pM^{W/S}_{S,\bar{s}}\to \pM_{S,\bar{s}})\] is equal to the number of non-distinguished nodes of $C_{\bar{s}}$; recall that a node of $C_{\bar{s}}$ is \emph{distinguished} if it is mapped under $f$ to the singular locus of $W_{\bar{s}}$.
+  \item (\emph{log admissibility}) the morphism of log structures $f^\flat\colon f^*\pM_W\to\pM_C$ is simple at every distinguished node;
+  \item (\emph{tangency condition}) the underlying map $\underline{f}\colon C\to (W,D)$ is non-degenerate, namely no component of $C$ is mapped entirely into $D$, and locally around every marking $p_i$ we can find a chart
+  \bcd
+  \NN\ar[r,"\cdot c_i"]\ar[d] & \NN\ar[d] \\
+  f^*\pM^D\ar[r] & \pM^{p_i}
+  \ecd
+  for the restriction of $f^\flat$ to the $f^*\pM^D$ factor.
+  \end{enumerate}
+\end{definition}
+\begin{definition}
+ A relative log prestable map as above is \emph{stable} if for every geometric point $\bar{s}\in S$ the group of automorphisms $(\sigma,\tau)$ is finite, where:
+ \begin{enumerate}
+  \item $\sigma$ is an automorphism of $((C,\pM_C)\to (S,\pM_S))_{\bar{s}}$ preserving the markings $\mathbf p$;
+  \item $\tau$ is an automorphism of $((W,\pM_W)\to (S,\pM_S))_{\bar{s}}$ preserving $D$ and $\pi_X\colon W_{\bar{s}}\to X$;
+  \item $\tau\circ f_{\bar{s}}=f_{\bar{s}}\circ \sigma$.
+ \end{enumerate}
+\begin{remark}
+ The corank and simplicity condition imply the following: the rank of the locally free log structure $\pM_S$ at $\bar{s}$ amounts to the number of irreducible components of $W_{\bar{s}}^{\text{sing}}$ plus the number of non-distinguished nodes of $C_{\bar{s}}$; all the smoothing parameters of the distinguished nodes mapping to the same component of $W_{\bar{s}}^{\text{sing}}$ have been identified \emph{up to twisting}. In facts, at a distinguished node $q$ of $C$, letting $R$ be the local ring of $S$ at $\pi(q)$, we can find \'{e}tale local charts
+ \bcd
+ \NN^2\oplus_{\NN} \pM_{S}\ar[r,"{(id,\cdot m_q)}"]\ar[d] & \NN^2\oplus_{\NN} \pM_{S}\ar[d] \\
+ f^*\pM_W \ar[r,"f^\flat"]\ar[d] & \pM_C\ar[d] \\
+ R[z_1,\ldots,z_{\dim(X)-1},x,y]/xy-t\ar[r,"\left(\substack{x\mapsto a^{m_q}\\ y\mapsto b^{m_q}\\ t\mapsto s^{m_q}}\right)" below=.2cm] & R[a,b]/ab-s
+ \ecd
+ where the twist at $f(q)$ is given by $l$, that at $q$ is given by $r_q$, and the equality $l=r_qm_q$ has to hold.
+\end{remark}
+
 \end{definition}
 
 \section{Gathmann's recursive structure on the boundary of maps to expanded pairs}
