@@ -198,7 +198,7 @@
 
 \section{A desingularisation of Chen-Kim's moduli space of genus one logarithmic maps to expanded pairs, for $(\PP^N|H)$}
 
-We recall a number of definitions from \cite{ChenDegeneration}; see also \cite{KimLog}.
+\subsection{Relative logarithmic maps to expanded pairs} We recall a number of definitions from \cite{ChenDegeneration}; see also \cite{KimLog}.
 
 Fix a smooth pair $(X,Y)$, i.e. a smooth projective variety $X$ with a smooth divisor $Y$.
 
@@ -261,17 +261,18 @@ Finally, fix an $n$-tuple of non-negative contact orders $(c_1,\ldots,c_n)$.
   \item $\tau$ is an automorphism of $((W,\pM_W)\to (S,\pM_S))_{\bar{s}}$ preserving $D$ and $\pi_X\colon W_{\bar{s}}\to X$;
   \item $\tau\circ f_{\bar{s}}=f_{\bar{s}}\circ \sigma$.
  \end{enumerate}
+\end{definition}
 \begin{remark}
  The corank and simplicity condition imply the following: the rank of the locally free log structure $\pM_S$ at $\bar{s}$ amounts to the number of irreducible components of $W_{\bar{s}}^{\text{sing}}$ plus the number of non-distinguished nodes of $C_{\bar{s}}$; all the smoothing parameters of the distinguished nodes mapping to the same component of $W_{\bar{s}}^{\text{sing}}$ have been identified \emph{up to twisting}. In facts, at a distinguished node $q$ of $C$, letting $R$ be the local ring of $S$ at $\pi(q)$, we can find \'{e}tale local charts
  \bcd
- \NN^2\oplus_{\NN} \pM_{S}\ar[r,"{(id,\cdot m_q)}"]\ar[d] & \NN^2\oplus_{\NN} \pM_{S}\ar[d] \\
- f^*\pM_W \ar[r,"f^\flat"]\ar[d] & \pM_C\ar[d] \\
- R[z_1,\ldots,z_{\dim(X)-1},x,y]/xy-t\ar[r,"\left(\substack{x\mapsto a^{m_q}\\ y\mapsto b^{m_q}\\ t\mapsto s^{m_q}}\right)" below=.2cm] & R[a,b]/ab-s
+ \NN^2\oplus_{\NN} \pM_{S}\ar[r,"{(id,\cdot m_q)}" below]\ar[d] & \NN^2\oplus_{\NN} \pM_{S}\ar[d] \\
+ f^*\pM_W \ar[r,"f^\flat" below]\ar[d] & \pM_C\ar[d] \\
+ R[z_1,\ldots,z_{\dim(X)-1},x,y]/(xy-t)\ar[r,"\left(\substack{x\mapsto a^{m_q}\\ y\mapsto b^{m_q}\\ t\mapsto s^{m_q}}\right)" below=.2cm] & R[a,b]/(ab-s)
  \ecd
- where the twist at $f(q)$ is given by $l$, that at $q$ is given by $r_q$, and the equality $l=r_qm_q$ has to hold.
+ where the twist at $f(q)$ is given by $l$, the one at $q$ is given by $r_q$, and the equality $l=r_qm_q$ has to hold.
 \end{remark}
 
-\end{definition}
+\subsection{The desingularisation via central alignments} The following is a variation on \cite[\S 3.3]{RSPW2}.
 
 \section{Gathmann's recursive structure on the boundary of maps to expanded pairs}
 
