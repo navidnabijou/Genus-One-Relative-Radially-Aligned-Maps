@@ -1,0 +1,353 @@
+\documentclass[11pt]{amsart}
+
+\usepackage[english]{babel}
+\usepackage{appendix}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%\usepackage{showlabels}
+\usepackage{hyperref}
+\usepackage{amsthm}
+\usepackage{marginnote}
+\usepackage{stmaryrd}
+\usepackage{enumitem}
+\usepackage[english]{babel}
+\usepackage{yfonts}
+\usepackage[T1]{fontenc}
+\usepackage[utf8x]{inputenc}
+
+\usepackage{calrsfs}
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{verbatim}
+\usepackage{faktor}
+\usepackage{xcolor}
+\usepackage{xfrac}
+\usepackage{tikz,tikz-cd}
+\usetikzlibrary{decorations.pathmorphing,decorations.pathreplacing,patterns}
+
+\usepackage[all]{xy}
+\usepackage{bbm}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{tabu}
+\usepackage{booktabs}
+\usepackage{mathtools}
+
+\usepackage[]{textcomp}
+\usepackage[sups]{Baskervaldx}
+\usepackage{cabin}
+\usepackage[varqu,varl]{inconsolata}
+\usepackage[baskervaldx,bigdelims,vvarbb]{newtxmath}
+\usepackage[cal=cm]{mathalfa}
+
+
+\newcommand{\plC}{\scalebox{0.8}[1.3]{$\sqsubset$}}
+\newcommand{\sidenote}[1]{\marginpar{\textbf{\color{red}#1}}}
+
+\newcommand{\pM}{\pazocal{M}}
+\newcommand{\TT}{\operatorname{T}}
+\newcommand{\oM}{\overline{\mathcal{M}}}
+\newcommand{\M}[4]{\overline{\mathcal{M}}_{#1,#2}(#3,#4)}
+\newcommand{\Q}[4]{\mathcal{Q}_{#1,#2}(#3,#4)}
+\newcommand{\Qe}[4]{\mathcal{Q}^{\epsilon}_{#1,#2}(#3,#4)}
+\newcommand{\Qt}[4]{\widetilde{\mathcal Q}_{#1,#2}(#3,#4)}
+\newcommand{\QG}[4]{\mathcal{Q}G_{#1,#2}(#3,#4)}
+\newcommand{\QGe}[4]{\mathcal{Q}G^{\epsilon}_{#1,#2}(#3,#4)}
+\newcommand{\D}[3]{\mathcal{D^Q}(#1,#2,#3)}
+\newcommand{\E}[3]{\mathcal{E^Q}(#1,#2,#3)}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\VZ}{\pazocal{V\!Z}}
+\newcommand{\tVZc}[4]{\widetilde{\mathcal{V\!Z}}^{\rm{ctr}}_{#1,#2}(#3,#4)}
+\newcommand{\VZc}[4]{\mathcal{V\!Z}^{\rm{ctr}}_{#1,#2}(#3,#4)}
+\newcommand{\VZcLi}[4]{\mathcal{V\!Z}^{\rm{ctr, Li}}_{#1,#2}(#3,#4)}
+\newcommand{\VZrel}[4]{\mathcal{V\!Z}^{\rm{rel}}_{#1,#2}(#3,#4)}
+\newcommand{\stab}{\rm{stab}}
+\newcommand{\stC}{C'}
+\newcommand{\stf}{f'}
+\newcommand{\stpi}{\pi'}
+\newcommand{\sts}{s'}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\OO}{\mathcal{O}}
+\renewcommand{\to}{\rightarrow}
+\newcommand{\A}{\mathcal A}
+\newcommand{\B}{\mathcal B}
+\newcommand{\C}{\mathfrak C}
+\newcommand{\cC}{\mathcal C}
+\newcommand{\EE}{\mathbf{E}}
+\renewcommand{\L}{\mathcal L}
+\newcommand{\LL}{\mathbf{L}}
+\newcommand{\MM}{\mathfrak M}
+\newcommand{\Aaff}{\mathbb{A}}
+\newcommand{\kfield}{\Bbbk}
+\newcommand{\comp}{\chi}
+\newcommand{\sst}{\sigma^{\operatorname{ss}}}
+\newcommand{\Pic}{\operatorname{Pic}}
+\newcommand{\Def}{\operatorname{Def}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\Proj}{\operatorname{Proj}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Ext}{\operatorname{Ext}}
+\newcommand{\Gm}{\mathbb{G}_{\text{m}}}
+\newcommand{\virt}[1]{[#1]^{\operatorname{virt}}}
+\newcommand{\vip}[1]{[#1]^{\operatorname{prod}}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\HH}{\operatorname{H}}
+\newcommand{\Achow}{\operatorname{A}}
+\newcommand{\pt}{\operatorname{pt}}
+\newcommand{\bq}{\begin{equation}}
+\newcommand{\eq}{\end{equation}}
+\newcommand{\ba}{\begin{aligned}}
+\newcommand{\ea}{\end{aligned}}
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bsm}{\left(\begin{smallmatrix}}
+\newcommand{\esm}{\end{smallmatrix}\right)}                   
+\newcommand{\bpm}{\begin{pmatrix}}
+\newcommand{\epm}{\end{pmatrix}}
+\newcommand{\barr}{\begin{displaymath}\begin{array}{cccc}}
+\newcommand{\earr}{\end{array}\end{displaymath}}
+\newcommand{\barrl}{\begin{displaymath}\begin{array}{lcl}}
+\newcommand{\earrl}{\end{array}\end{displaymath}}
+\newcommand{\barl}{\begin{displaymath}\begin{array}{l}}
+\newcommand{\earl}{\end{array}\end{displaymath}}
+\newcommand{\bxym}{ \begin{displaymath}\xymatrix }
+\newcommand{\exym}{\end{displaymath}}
+\newcommand{\bcd}{\begin{center}\begin{tikzcd}}
+\newcommand{\ecd}{\end{tikzcd}\end{center}}
+\newcommand{\R}{\operatorname{R}^{\bullet}}
+\newcommand{\dvr}{\Delta}
+%\newcommand{\sslash}{\mathbin{/\mkern-6mu/}}
+\newcommand{\tr}{{\rm tr}}
+\newcommand{\Isom}{\text{Isom}}
+\newcommand{\pr}{\operatorname{pr}}
+\newcommand{\ev}{\operatorname{ev}}
+\newcommand{\codim}{\operatorname{codim}}
+\newcommand{\vdim}{\operatorname{vdim}}
+\newcommand{\ildef}[1]{\emph{#1}}
+\newcommand{\om}[1]{\mathcal{#1}}
+\newcommand{\h}{\operatorname{h}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\RR}{\textbf{R}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ovm}[1]{\overline{\mathcal{#1}}}
+\newcommand{\ovt}[1]{\widetilde{\mathcal{#1}}}
+\newcommand{\ov}[1]{\overline{#1}}
+
+\theoremstyle{definition}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem*{teo*}{Theorem}
+\newtheorem{ipotesi}{ipotesi}
+\newtheorem*{nota}{Nota}
+\newtheorem{claim}{Claim}
+\newtheorem{question}[thm]{Question}
+\newtheorem{conj}[thm]{Conjecture}
+
+\newtheorem{innercustomthm}{Theorem}
+\newenvironment{customthm}[1]
+  {\renewcommand\theinnercustomthm{#1}\innercustomthm}
+  {\endinnercustomthm}
+
+\theoremstyle{definition}
+\newtheorem{example}[thm]{Example}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{dfn}[thm]{Definition}
+\newtheorem{definition}[thm]{Definition}
+\newtheorem{aside}[thm]{Aside}
+\newtheorem{remark}[thm]{Remark}
+\newtheorem{com}[thm]{Comment}
+\newtheorem{num}{Number}
+\newtheorem*{sketch}{Sketch}
+\newtheorem*{rem}{Remark}
+\newtheorem*{aside*}{Aside}
+\newtheorem*{acknowledgements}{Acknowledgements}
+
+\newcommand{\ilemph}[1]{\emph{#1}}
+
+\setcounter{tocdepth}{1}
+
+\newcommand{\todo}[1]{\vspace{5mm}\par \noindent
+\framebox{\begin{minipage}[c]{0.95 \textwidth} \tt #1\end{minipage}} \vspace{5mm} \par}
+
+\def\ti{-\allowhyphens}
+\newcommand{\thismonth}{\ifcase\month % case 0 --- impossible!
+  \or January\or February\or March\or April\or May\or June%
+  \or July\or August\or September\or October\or November%
+  \or December\fi}
+\newcommand{\thismonthyear}{{\thismonth} {\number\year}}
+\newcommand{\thisdaymonthyear}{{\number\day} {\thismonth} {\number\year}}
+
+\title[Genus One Reduced Relative Invariants]{Relative Stable Maps in Genus One via Central Alignments}
+\author{Luca Battistella, Navid Nabijou and Dhruv Ranganathan}
+\date{\thismonthyear}
+
+\begin{document}
+
+
+\begin{abstract} For a smooth projective variety $X$ and a smooth very ample hypersurface $Y \subseteq X$, we define moduli spaces of relative stable maps to $(X,Y)$ in genus one, as closed substacks of the moduli space of maps from centrally aligned curves, constructed in \cite{RSPW}. We construct virtual classes for these moduli spaces, which we use to define \emph{reduced relative Gromov--Witten invariants} in genus one.
+
+[GOALS: We prove a recursion formula which allows us to completely determine these invariants in terms of the reduced Gromov--Witten invariants, as defined in [REF]. We also prove a relative version of the Li--Zinger formula, relating our invariants to the usual relative Gromov--Witten invariants. Also say something about quasimaps.]
+\end{abstract}
+
+\maketitle
+
+\appendixtitletocoff
+\tableofcontents
+
+\section{Introduction}
+
+\textbf{Statement of the problem.} Contrary to the genus zero case, the moduli space of genus one maps to projective space - with or without markings - is far from smooth; indeed it has various boundary components of different dimensions, representing maps that contract a genus one curve and have all the degree supported on a number of rational tails. The many incarnations of relative moduli spaces also suffer of the same undesirable feature.
+
+Since the work of Vakil--Zinger and Ranganathan--Santos-Parker--Wise, it has been clear that it is possible to identify a desingularisation of the main component by adding the extra data of a contraction of the source curve $\nu\colon C\to \bar{C}$ - where the latter is allowed to acquire a Smyth singularity - and requiring the stable map $f\colon C\to \PP^N$ to factor through $\nu$.
+
+\textbf{Choice of relative space and desingularisation.} We focus on the space of logarithmic stable maps to $(\PP^N|H)$, following ACGS. We perform a log modification of this space as detailed below. For a log curve $C\to S=\Spec(k=\bar k)$, modify the dual graph of $C$ by replacing the minimal genus one subcurve (in case it is a circle of $\PP^1$) by a single vertex of genus one, called the \emph{core} and denoted by $\circ$, and define a piecewise linear function with values in $\overline{\pazocal M}_S$ on such a graph by setting \[\lambda(v)=\sum_{q\in[\circ,v]}\rho_q,\]
+where the $\rho_q$ are the smoothing parameters of the nodes $q$ separating $v$ from the core. Such a function is related to the log canonical bundle of $C\to S$. When the map contracts a subcurve of genus one, we endow it with the extra data of a radius $\delta\in\overline{\pazocal M}_S$ subject to the following compatibility condition:
+
+(*) \emph{the circle of radius $\delta$ around $\circ$ passes through $\geq1$ vertex of positive $f$-degree}.
+
+\noindent Furthermore, we require all the values of $\lambda$ to be comparable with $\delta$, and among themselves whenever they are $\leq \delta$. This is called a \emph{centrally aligned} log structure and carries enough information to define a contraction $\nu\colon C\to \bar{C}$, possibly after a semistabilisation of $(C,f)$ - in fact even more. The space thus obtained, $\widetilde \VZ_{1,\alpha}(\PP^N|H,d)$, is a log modification of $\M{1}{\alpha}{\PP^N|H}{d}$.
+
+The main component $\VZ_{1,\alpha}(\PP^N|H,d)$ is then identified by a double factorisation condition:
+\begin{enumerate}
+ \item If $f$ contracts a genus one subcurve, then $f$ is required to factor through the Smyth singularity $\nu\colon C\to \bar C$ determined by the contraction radius $\delta$ as above.
+ \item If furthermore the core is contracted by the associated tropical map $\phi$, let $\delta_2$ be the minimal distance from $\circ$ to a vertex supporting a flag that escapes $\phi^{-1}(\phi(\circ))$; we require $f$ to factor through $\nu_2\colon C\to\bar C_2$.
+\end{enumerate}
+The main result is that
+\begin{thm}
+ $\VZ_{1,\alpha}(\PP^N|H,d)$ is (log) smooth.
+\end{thm}
+
+\textbf{Gathmann's recursion.} There is a morphism $\VZ_{1,\alpha}(\PP^N|H,d)\to \VZ_{1,n}(\PP^N,d)$, hitting Gathmann's relative space. We may therefore pullback Gathmann's line bundle and section, cutting out the locus where the $k$-th marking is tangent to $H$ to order $\alpha_k+1$. Because $\alpha$ was maximal ($\sum\alpha=d$) by assumption, this means that the curve has to break, and $x_k$ has to lie on an internal component - one which is entirely mapped into $H$. Here comes an interesting point: the combinatorics of such boundary loci is governed by tropical geometry, and it is otherwise very hard to districate the interaction between the relative condition and the exceptional loci of the Vakil--Zinger blow-up.
+\begin{cor}
+ $\VZ_{1,\alpha}(\PP^N|H,d)$ is smooth over its Artin fan, in particular codimension one logarithmic strata can be read off from the latter.\marginpar{why are we only interested in log strata?}
+\end{cor}
+The Artin fan is a tropical gadget. Its local structure is given by subdividing the ACGS minimal model according to the alignment. We are only interested in picking its rays. The upshot is that the combinatorics is slightly more involved than in the genus zero case: the alignment may force some teeth of the comb to break.
+\begin{thm}
+ \[(\alpha_k\psi_k+\ev_k*H)[\VZ_{1,\alpha}(\PP^N|H,d)]=[D_{\alpha,k}(\PP^N|H,d)],\]
+ where the latter is a sum of broken comb loci indexed by rays of the tropical fan.
+\end{thm}
+Importantly, the broken comb loci admit a very explicit description in terms of tautological integrals on the underlying boundary of Gathmann's relative space.
+\begin{thm}
+ Up to a finite cover of the underlying boundary stratum - which is just a combinatorially-determined product of moduli spaces of genus zero or one curves and absolute or relative maps with lower numerical invariants - every component of $D_{\alpha,k}(\PP^N|H,d)$ can be described as the transverse intersection of two loci in a projective bundle, where:
+ \begin{itemize}
+  \item the latter parametrises the possible line bundle isomorphisms imposed by the alignment of the log structure;
+  \item the first locus is a subbundle representing the residual isomorphisms after fixing the ones imposed by tropical continuity;
+  \item the second locus is determined by the factorisation conditions.
+ \end{itemize}
+\end{thm}
+The upshot is that we may then push the formula down to the Gathmann's space and we obtain multiplicities and tautological classes.
+\begin{cor}
+ \[(\alpha_k\psi_k+\ev_k*H)[\VZ^G_{1,\alpha}(\PP^N|H,d)]=[D^G_{\alpha,k}(\PP^N|H,d)],\]
+ where the latter is a weighted sum of tautological classes on Gathmann's comb loci.
+\end{cor}
+Once we have this formula, the following extensions are classical:
+\begin{itemize}
+ \item A similar formula for raising the tangency holds in the non-maximal case. It can be proven by adding auxiliary markings of contact order $1$; forgetting them is then a $(d-\sum\alpha)!:1$ cover because of the density of the nice locus inside Gathmann's spaces.
+ \item The formula holds more generally for any smooth projective target $X$ relative to a generic hyperplane section $Y=X\cap H\subseteq \PP^N$ by virtual pullback.
+\end{itemize}
+Finally the recursive structure of the boundary allows us to prove the following
+\begin{thm}[In-principle quantum Lefschetz]
+ The restricted reduced genus one invariants of $Y$ can be inductively deducted from the full descendant (reduced) genus zero and one Gromov-Witten theory of $X$.
+\end{thm}
+The computation is more delicate than its genus zero analogue because invariant with the same numerical data appear intertwined in the last steps of the recursion.
+
+\subsection{The line bundle and section}
+On $\VZrel{1}{\alpha}{X}{\beta}$, as on any space of maps to an expansion really, there is not only a universal curve $C$ with universal map $f$ to the expansion $W$, but also the stabilisation of the collapsed map obtained by composing $f$ with $\pi_X\colon W\to X$:
+\bcd
+C\ar[r,"f"]\ar[d,"\stab"] & W \ar[d,"\pi_X"] \\
+\stC\ar[r,"\stf"] & X
+\ecd
+Notice that the image of the marking $p_k$ on $\stC$ has either contact order $\alpha_k$ to $Y$, or it lies on an internal component. The section $s\in\Gamma(X,\OO_X(Y))$ whose vanishing locus defines $Y$, induces a section $\sts$ of $\stpi_*\stf^*\OO_X(Y)$. By the previous discussion, the image of $\sts$ in $\ev_k^*\mathcal P^{\alpha_k}\OO_X(Y)$ vanishes, hence by the principal parts exact sequence
+\[ 0\to p_k^*\Omega_{\stC}^{\otimes\alpha_k+1}\otimes\ev_k^*\OO_X(Y)\to \ev_k^*\mathcal P^{\alpha_k+1}\OO_X(Y)\to \ev_k^*\mathcal P^{\alpha_k}\OO_X(Y)\to 0\]
+we obtain a section $\sts_k$ of the line bundle $p_k^*\Omega_{\stC}^{\otimes\alpha_k+1}\otimes\ev_k^*\OO_X(Y)$.
+
+It is apparent that, set-theoretically at least, the vanishing locus of $\sts_k$ consists of those maps such that $p_k$ lies on an internal component of $\stC$, or, equivalently, it is mapped to higher level in the expansion and lies not on a ``trivial bubble'' in $C$.
+
+\subsection{Boundary loci}
+We follow in Vakil's footsteps in setting the following notation:
+\begin{enumerate}[label=(\alph*)]
+ \item \[\mathcal Y^a=\M{0}{\lvert\alpha^{(0)}\rvert+r}{H}{d_0}\times_{H^r}\left(\VZc{1}{\alpha^{(1)}\cup\{m^{(1)}\}}{\PP^N|H}{d_1}\times\prod_{i=2}^r\M{0}{\alpha^{(i)}\cup\{m^{(i)}\}}{\PP^N|H}{d_i}\right)\]
+ \item \[\mathcal Y^b=\M{0}{\lvert\alpha^{(0)}\rvert+r}{H}{d_0}\times_{H^r}\left(\M{0}{\alpha^{(1)}\cup\{m^{(1)},m^{(2)}\}}{\PP^N|H}{d_1}\times\prod_{i=3}^r\M{0}{\alpha^{(i)}\cup\{m^{(i)}\}}{\PP^N|H}{d_i}\right)\]
+ \item \[\mathcal Y^c\subseteq \VZc{1}{\lvert\alpha^{(0)}\rvert+r}{H}{d_0}\times_{H^r}\prod_{i=1}^r\M{0}{\alpha^{(i)}\cup\{m^{(i)}\}}{\PP^N|H}{d_i}\]
+ $\mathcal Y^c$ is cut within the latter by Gathmann's condition on line bundles:
+ \[f_{|E}^*\mathcal O_H(1)\cong\mathcal O_E\left(\sum_{x_j\in E}\alpha_jx_j-\sum_{i=1}^r m^{(i)}y_i\right)\]\sidenote{Express the line bundle condition in terms of tautological classes?}
+ Notice that such condition depends on the choice of $m^{(i)}$ but is really just a condition on the first factor of the product, so $\mathcal Y^c$ itself can be expressed as a product.
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{The space of relative centrally aligned maps}
+\noindent Recall \cite{RSPW} that the moduli space of maps from centrally aligned curves is obtained by considering the  Cartesian diagram
+\bcd
+\tVZc{1}{n}{X}{\beta}\ar[d]\ar[r]\ar[dr,phantom,"\Box"] & \M{1}{n}{X}{\beta}\ar[d] \\
+\MM_{1,n}^{\rm{ctr}}\ar[r] & \MM_{1,n}^{\dagger}
+\ecd
+so that objects of $\tVZc{1}{n}{X}{\beta}$ consist of
+\begin{enumerate}
+\item a centrally aligned curve $(C,M_C,\delta)$;
+\item a stable map $f\colon C \to X$;
+\end{enumerate}
+subject to the condition that the subcurve $C_0 \subseteq C$, consisting of those components $C_v$ for which $\lambda(v) < \delta$, coincides with the maximal connected genus one subcurve contracted by $f$. They then define
+\begin{equation*} \VZc{1}{n}{X}{\beta} \subseteq \tVZc{1}{n}{X}{\beta} \end{equation*}
+to be the closed substack consisting of maps satisfying the \emph{factorisation condition}, namely that the map $f\colon C\to X$ factors through the associated contraction to a Smyth curve, i.e. there exists a map $\bar{f}$ making the following square commute:
+\bcd
+\widetilde C\ar[r]\ar[d] & \overline C\ar[d,"\bar f" left,dotted] \\
+C\ar[r,"f"] & X
+\ecd
+One should think of the factorisation condition as identifying the main component of the moduli space.
+
+\section{Definition of centrally aligned relative space}
+\section{Characterisation of the closed points of the relative space}
+\section{Recursion formula}
+
+\subsection{The case $\sum\alpha=d$}
+
+\subsection{Definition of the boundary components} According to Vakil's article there should be three sorts of boundary components.
+\begin{enumerate}[label=(\alph*)]
+ \item \[\mathcal Y^a=\M{0}{\lvert\alpha^{(0)}\rvert+r}{H}{d_0}\times_{H^r}\left(\VZc{1}{\alpha^{(1)}\cup\{m^{(1)}\}}{\PP^N|H}{d_1}\times\prod_{i=2}^r\M{0}{\alpha^{(i)}\cup\{m^{(i)}\}}{\PP^N|H}{d_i}\right)\]
+ \item \[\mathcal Y^b=\M{0}{\lvert\alpha^{(0)}\rvert+r}{H}{d_0}\times_{H^r}\left(\M{0}{\alpha^{(1)}\cup\{m^{(1)},m^{(2)}\}}{\PP^N|H}{d_1}\times\prod_{i=3}^r\M{0}{\alpha^{(i)}\cup\{m^{(i)}\}}{\PP^N|H}{d_i}\right)\]
+ \item \[\mathcal Y^c\subseteq \VZc{1}{\lvert\alpha^{(0)}\rvert+r}{H}{d_0}\times_{H^r}\prod_{i=1}^r\M{0}{\alpha^{(i)}\cup\{m^{(i)}\}}{\PP^N|H}{d_i}\]
+ $\mathcal Y^c$ is cut within the latter by Gathmann's condition on line bundles:
+ \[f_{|E}^*\mathcal O_H(1)\cong\mathcal O_E\left(\sum_{x_j\in E}\alpha_jx_j-\sum_{i=1}^r m^{(i)}y_i\right)\]\sidenote{Express the line bundle condition in terms of tautological classes?}
+ Notice that such condition depends on the choice of $m^{(i)}$ but is really just a condition on the first factor of the product, so $\mathcal Y^c$ itself can be expressed as a product.
+\end{enumerate}
+
+
+\bibliographystyle{alpha}
+\bibliography{relqm}
+
+\bigskip\bigskip
+
+\noindent Luca Battistella\\
+Department of Mathematics, Imperial College London \\
+\texttt{l.battistella14@imperial.ac.uk}\\
+
+\noindent Navid Nabijou \\
+Department of Mathematics, Imperial College London \\
+\texttt{navid.nabijou09@imperial.ac.uk}\\
+
+\noindent Dhruv Ranganathan \\
+Department of Mathematics, Massachusetts Institute of Technology \\
+\texttt{dhruvr@mit.edu}
+
+
+\end{document}
