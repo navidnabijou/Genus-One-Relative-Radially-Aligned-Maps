@@ -226,39 +226,90 @@ The main result is that
  $\VZ_{1,\alpha}(\PP^N|H,d)$ is (log) smooth.
 \end{thm}
 
-\textbf{Gathmann's recursion.} There is a morphism $\VZ_{1,\alpha}(\PP^N|H,d)\to \VZ_{1,n}(\PP^N,d)$, hitting Gathmann's relative space. We may therefore pullback Gathmann's line bundle and section, cutting out the locus where the $k$-th marking is tangent to $H$ to order $\alpha_k+1$. Because $\alpha$ was maximal ($\sum\alpha=d$) by assumption, this means that the curve has to break, and $x_k$ has to lie on an internal component - one which is entirely mapped into $H$. Here comes an interesting point: the combinatorics of such boundary loci is governed by tropical geometry, and it is otherwise very hard to districate the interaction between the relative condition and the exceptional loci of the Vakil--Zinger blow-up.
+\textbf{Gathmann-type recursion.} There is a forgetful morphism \[\VZ_{1,\alpha}(\PP^N|H,d)\to \VZ_{1,n}(\PP^N,d),\] hitting Gathmann's relative space. We may therefore pullback Gathmann's line bundle and section, cutting out the locus where the $k$-th marking is tangent to $H$ to order $\alpha_k+1$. Because $\alpha$ was maximal ($\sum\alpha=d$) by assumption, this means that the curve has to break, and $x_k$ has to lie on an internal component - one which is entirely mapped into $H$. We identify the zero locus of Gathmann's section explicitly. Here is an interesting remark: the combinatorics of such boundary loci is governed by tropical geometry, and it is otherwise very hard to districate the interaction between the relative condition and the exceptional loci of the Vakil--Zinger blow-up.
 \begin{cor}
  $\VZ_{1,\alpha}(\PP^N|H,d)$ is smooth over its Artin fan, in particular codimension one logarithmic strata can be read off from the latter.\marginpar{why are we only interested in log strata?}
 \end{cor}
-The Artin fan is a tropical gadget. Its local structure is given by subdividing the ACGS minimal model according to the alignment. We are only interested in picking its rays. The upshot is that the combinatorics is slightly more involved than in the genus zero case: the alignment may force some teeth of the comb to break.
-\begin{thm}
- \[(\alpha_k\psi_k+\ev_k*H)[\VZ_{1,\alpha}(\PP^N|H,d)]=[D_{\alpha,k}(\PP^N|H,d)],\]
- where the latter is a sum of broken comb loci indexed by rays of the tropical fan.
+The Artin fan is a tropical gadget. Its local structure is given by subdividing the ACGS minimal monoid according to the alignment. We are only interested in picking its rays. The upshot is that the combinatorics is slightly more involved than in the genus zero case: the alignment may force some teeth of the comb to break.
+\begin{thm}[Gathmann-type formula, maximal tangency, $(\PP^N|H)$ case]
+ \[(\alpha_k\psi_k+\ev_k^*H)[\VZ_{1,\alpha}(\PP^N|H,d)]=[D_{1,\alpha;k}(\PP^N|H,d)],\]
+ the latter being a sum of broken comb loci indexed by rays of the tropical fan.
 \end{thm}
 Importantly, the broken comb loci admit a very explicit description in terms of tautological integrals on the underlying boundary of Gathmann's relative space.
 \begin{thm}
- Up to a finite cover of the underlying boundary stratum - which is just a combinatorially-determined product of moduli spaces of genus zero or one curves and absolute or relative maps with lower numerical invariants - every component of $D_{\alpha,k}(\PP^N|H,d)$ can be described as the transverse intersection of two loci in a projective bundle, where:
+ Up to a finite cover of the underlying boundary stratum - which is a combinatorially-determined fiber product of moduli spaces of genus zero and one, absolute and relative maps with lower numerical invariants - every component of $D_{\alpha,k}(\PP^N|H,d)$ can be described as the transverse intersection of two loci in a projective bundle, where:
  \begin{itemize}
   \item the latter parametrises the possible line bundle isomorphisms imposed by the alignment of the log structure;
-  \item the first locus is a subbundle representing the residual isomorphisms after fixing the ones imposed by tropical continuity;
+  \item the first locus is a subbundle representing the residual isomorphisms after fixing the ones virtually imposed by tropical continuity;
   \item the second locus is determined by the factorisation conditions.
  \end{itemize}
 \end{thm}
-The upshot is that we may then push the formula down to the Gathmann's space and we obtain multiplicities and tautological classes.
+The upshot is that we may then push the formula down to the Gathmann's space, so as to obtain multiplicities and tautological classes.
 \begin{cor}
- \[(\alpha_k\psi_k+\ev_k*H)[\VZ^G_{1,\alpha}(\PP^N|H,d)]=[D^G_{\alpha,k}(\PP^N|H,d)],\]
- where the latter is a weighted sum of tautological classes on Gathmann's comb loci.
+ \[(\alpha_k\psi_k+\ev_k^*H)[\VZ^G_{1,\alpha}(\PP^N|H,d)]=[D^G_{1,\alpha;k}(\PP^N|H,d)],\]
+ the latter being expressible as a weighted sum of tautological classes on Gathmann's comb loci.
 \end{cor}
 Once we have this formula, the following extensions are classical:
 \begin{itemize}
- \item A similar formula for raising the tangency holds in the non-maximal case. It can be proven by adding auxiliary markings of contact order $1$; forgetting them is then a $(d-\sum\alpha)!:1$ cover because of the density of the nice locus inside Gathmann's spaces.
- \item The formula holds more generally for any smooth projective target $X$ relative to a generic hyperplane section $Y=X\cap H\subseteq \PP^N$ by virtual pullback.
+ \item A similar formula for raising the tangency holds in the non-maximal tangency case. It can be proven by adding auxiliary markings of contact order $1$; forgetting them is then a $(d-\sum\alpha)!:1$ cover because the nice locus is dense inside Gathmann's relative spaces.
+ \item The formula holds more generally for any smooth projective target $X$ relative to a generic hyperplane section $Y=X\cap H\subseteq \PP^N$. This follows via virtual pullback.
 \end{itemize}
 Finally the recursive structure of the boundary allows us to prove the following
 \begin{thm}[In-principle quantum Lefschetz]
- The restricted reduced genus one invariants of $Y$ can be inductively deducted from the full descendant (reduced) genus zero and one Gromov-Witten theory of $X$.
+ The restricted reduced genus one invariants of $Y$ can be inductively deducted from the full descendant genus zero and one (reduced) Gromov-Witten theory of $X$.
 \end{thm}
-The computation is more delicate than its genus zero analogue because invariant with the same numerical data appear intertwined in the last steps of the recursion.
+The proof is more delicate than its genus zero analogue because invariants with the same numerical data appear intertwined in the last steps of the recursion.
+
+\section{A desingularisation of the log space}
+The ultimate goal of the paper is to apply Gathmann's techniques to the Vakil-Zinger desingularisation $\VZ_{1,n}(\PP^N,d)$ and to obtain a quantum Lefschetz result for reduced invariants under some positivity assumption. The key step is to study the unobstructed case $(\PP^N|H)$. We approach the problem by lifting it to the ACGS space of log stable maps. This allows us to exploit the tools developed in \cite{RSPW,RSPW2}. We are in an intermediate situation between those two papers, and indeed we get an intermediate answer.
+
+\subsection{The ACGS minimal monoid and central alignments}
+
+\begin{prop}
+ The map $\oM_{1,\alpha}^{\mathrm{cen}}(\PP^N|H,d)\to\oM_{1,\alpha}(\PP^N|H,d)$ is a log modification. In particular $\oM_{1,\alpha}^{\mathrm{cen}}(\PP^N|H,d)$ is a log algebraic stack.
+\end{prop}
+
+{\color{gray} possibly start pointing out that the log structure is already partially aligned by the map to $(\PP^N|H)$}
+
+\subsection{Factorisation conditions}
+
+\begin{prop}
+ Factoring through the Smyth curve is a closed condition. In particular $\VZ_{1,\alpha}(\PP^N|H,d)\subseteq_{\mathrm{cl}}\oM_{1,\alpha}^{\mathrm{cen}}(\PP^N|H,d)$ is a log algebraic stack.
+\end{prop}
+
+\subsection{Log smoothness}
+\begin{thm}
+ $\VZ_{1,\alpha}(\PP^N|H,d)$ is log smooth.
+\end{thm}
+\begin{proof}
+ We reduce to the situation dealt with in \cite{RSPW2} by adding generic extra hyperplanes $H_1,\ldots, H_N$.
+ 
+ First, note that, for divisors $D_1\subseteq D_2$ in $X$, there is a morphism of log schemes $(X,\pazocal M_{D_2})\to (X,\pazocal M_{D_1})$, or equivalently a morphism of log structures $\pazocal M_{D_1}\to\pazocal M_{D_2}$ over $i\!d_X$, because functions invertible off $D_1$ are in particular invertible off $D_2$ as well, and divisorial log structures are subsheaves of the structure sheaf $\pazocal M_{D}\subseteq\OO_X$.
+ 
+ Now fix a point $[(C,f)]\in\VZ_{1,\alpha}(\PP^N|H,d)$. Choose hyperplanes $H_1,\ldots, H_N$ in such a way that they intersect the image of $f$ transversally, namely $f^{-1}(H_1\cup\ldots\cup H_N)$ is a reduced collection of points $\{q^i_j\}_{\substack{i=1,\ldots,N \\ j=1,\ldots,d}}$ in the smooth locus of $C$. This condition will then hold in an open neighbourhood of $[(C,f)]$. Mark $C$ at these points, end endow it with the pullback along $f$ of the divisorial log structure $(\PP^N,\Delta)$, where $\Delta=H+\sum_{i=1}^N H_i$. Then \[f\colon (C,\{p_k\}_{k=1,\ldots,n}\{q^i_j\}_{\substack{i=1,\ldots,N \\ j=1,\ldots,d}})\to(\PP^N,\Delta)\]
+ is a lift of $[(C,f)]$ to $\oM_{1,\alpha}(\PP^N|\Delta,d)$ (under the forgetful morphism discussed in the previous paragraph).
+ 
+ Looking at the associated tropical map $\phi$, observe that:
+ \begin{itemize}
+  \item new flags have been attached only to vertices of positive degree, and these already have a flag escaping $\phi^{-1}\phi(v)$, because the sum of the incoming slopes is not zero (by modified balancing);
+  \item the image of the new tropical map $\tilde\phi$ is entirely contained in the ray of the tropicalisation of $(\PP^N,\Delta)$ corresponding to $H$, with new flags going off to infinity in all the new ray directions from every vertex of positive degree.
+ \end{itemize}
+ In particular, for every quotient $N'$ of the lattice $N$, the associated tropical map $\tilde\phi'$ will either
+ \begin{enumerate}
+  \item have image contained in the ray corresponding to $H$, isomorphically to the original $\phi$, so the contraction radius can be seen to coincide with $\delta_2$, or
+  \item collapse the entire curve to the zero-cell of the fan, in which case we argue from the previous remarks that the contraction radius is $\delta$.
+ \end{enumerate}
+
+ Hence the lift of $[(C,f)]$ is centrally aligned and satisfies the factorisation property for every subtorus $H<T$, therefore it is well-spaced (see \cite[Definition 3.4.2]{RSPW2}) and it belongs to $\VZ_{1,\tilde\alpha}(\PP^N|\Delta,d)$. Note that the deformation spaces of $(C,f)$ and its lift are isomorphic by construction, as can be checked by the infinitesimal criterion - an infinitesimal deformation of $(C,f)$ brings along a unique deformation of the $\{q^i_j\}$ compatible with the map to $(\PP^N,\Delta)$. At the logarithmic level, observe that the ACGS minimal monoid is the same, because no component of $C$ is entirely mapped into any of the newly added hyperplanes; since the global contraction radius $\delta$ is the same, the subdivisions corresponding to the alignment procedure do coincide as well. This shows that the forgetful morphism is (log) \'etale in a neighbourhood of the lift of $[(C,f)]$, hence we may conclude by appealing to \cite[Theorem 3.5.1]{RSPW2}.
+\end{proof}
+
+\begin{cor}
+ $\VZ_{1,\alpha}(\PP^N|H,d)$ is smooth over its Artin fan.
+\end{cor}
+
+{\color{gray} describe the latter as explicitly as possible; comment on the cones that are (possibly?) not there because of the compatibility of the alignment with the log map (this is probably awkward, useless, and superceded by saying ``we align subdivide the ACGS minimal dual monoid'') and because of smoothability/factorisation (this is probably related to tropical well-spacedness)}
+
+\section{An explicit description of Gathmann's boundary}
 
 \subsection{The line bundle and section}
 On $\VZrel{1}{\alpha}{X}{\beta}$, as on any space of maps to an expansion really, there is not only a universal curve $C$ with universal map $f$ to the expansion $W$, but also the stabilisation of the collapsed map obtained by composing $f$ with $\pi_X\colon W\to X$:
