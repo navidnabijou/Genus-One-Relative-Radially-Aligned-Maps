@@ -63,6 +63,12 @@
 \newcommand{\tVZc}[4]{\widetilde{\mathcal{V\!Z}}^{\rm{ctr}}_{#1,#2}(#3,#4)}
 \newcommand{\VZc}[4]{\mathcal{V\!Z}^{\rm{ctr}}_{#1,#2}(#3,#4)}
 \newcommand{\VZcLi}[4]{\mathcal{V\!Z}^{\rm{ctr, Li}}_{#1,#2}(#3,#4)}
+\newcommand{\VZrel}[4]{\mathcal{V\!Z}^{\rm{rel}}_{#1,#2}(#3,#4)}
+\newcommand{\stab}{\rm{stab}}
+\newcommand{\stC}{C'}
+\newcommand{\stf}{f'}
+\newcommand{\stpi}{\pi'}
+\newcommand{\sts}{s'}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\OO}{\mathcal{O}}
 \renewcommand{\to}{\rightarrow}
@@ -275,6 +281,43 @@ Finally, fix an $n$-tuple of non-negative contact orders $(c_1,\ldots,c_n)$.
 \subsection{The desingularisation via central alignments} The following is a variation on \cite[\S 3.3]{RSPW2}.
 
 \section{Gathmann's recursive structure on the boundary of maps to expanded pairs}
+
+We find a natural line bundle with a section whose vanishing locus consists of those maps where the target splits and the marking $p_k$ is mapped to a higher level of the accordion. We express these boundary strata recursively as fibered products of desingularised relative and rubber spaces with lower numerical invariants; the multiplicity calcultion is performed for $\PP^1|\{\infty\}$ and rests on work of Vakil \cite{Vre}. Putting everything together we reobtain Gathmann's algorithm for computing relative invariants, or the invariants of a smooth hyperplane section.
+
+\subsection{The line bundle and section}
+On $\VZrel{1}{\alpha}{X}{\beta}$, as on any space of maps to an expansion really, there is not only a universal curve $C$ with universal map $f$ to the expansion $W$, but also the stabilisation of the collapsed map obtained by composing $f$ with $\pi_X\colon W\to X$:
+\bcd
+C\ar[r,"f"]\ar[d,"\stab"] & W \ar[d,"\pi_X"] \\
+\stC\ar[r,"\stf"] & X
+\ecd
+Notice that the image of the marking $p_k$ on $\stC$ has either contact order $\alpha_k$ to $Y$, or it lies on an internal component. The section $s\in\Gamma(X,\OO_X(Y))$ whose vanishing locus defines $Y$, induces a section $\sts$ of $\stpi_*\stf^*\OO_X(Y)$. By the previous discussion, the image of $\sts$ in $\ev_k^*\mathcal P^{\alpha_k}\OO_X(Y)$ vanishes, hence by the principal parts exact sequence
+\[ 0\to p_k^*\Omega_{\stC}^{\otimes\alpha_k+1}\otimes\ev_k^*\OO_X(Y)\to \ev_k^*\mathcal P^{\alpha_k+1}\OO_X(Y)\to \ev_k^*\mathcal P^{\alpha_k}\OO_X(Y)\to 0\]
+we obtain a section $\sts_k$ of the line bundle $p_k^*\Omega_{\stC}^{\otimes\alpha_k+1}\otimes\ev_k^*\OO_X(Y)$.
+
+It is apparent that, set-theoretically at least, the vanishing locus of $\sts_k$ consists of those maps such that $p_k$ lies on an internal component of $\stC$, or, equivalently, it is mapped to higher level in the expansion and lies not on a ``trivial bubble'' in $C$.
+
+\subsection{Boundary loci}
+We follow in Vakil's footsteps in setting the following notation:
+\begin{enumerate}[label=(\alph*)]
+ \item \[\mathcal Y^a=\M{0}{\lvert\alpha^{(0)}\rvert+r}{H}{d_0}\times_{H^r}\left(\VZc{1}{\alpha^{(1)}\cup\{m^{(1)}\}}{\PP^N|H}{d_1}\times\prod_{i=2}^r\M{0}{\alpha^{(i)}\cup\{m^{(i)}\}}{\PP^N|H}{d_i}\right)\]
+ \item \[\mathcal Y^b=\M{0}{\lvert\alpha^{(0)}\rvert+r}{H}{d_0}\times_{H^r}\left(\M{0}{\alpha^{(1)}\cup\{m^{(1)},m^{(2)}\}}{\PP^N|H}{d_1}\times\prod_{i=3}^r\M{0}{\alpha^{(i)}\cup\{m^{(i)}\}}{\PP^N|H}{d_i}\right)\]
+ \item \[\mathcal Y^c\subseteq \VZc{1}{\lvert\alpha^{(0)}\rvert+r}{H}{d_0}\times_{H^r}\prod_{i=1}^r\M{0}{\alpha^{(i)}\cup\{m^{(i)}\}}{\PP^N|H}{d_i}\]
+ $\mathcal Y^c$ is cut within the latter by Gathmann's condition on line bundles:
+ \[f_{|E}^*\mathcal O_H(1)\cong\mathcal O_E\left(\sum_{x_j\in E}\alpha_jx_j-\sum_{i=1}^r m^{(i)}y_i\right)\]\sidenote{Express the line bundle condition in terms of tautological classes?}
+ Notice that such condition depends on the choice of $m^{(i)}$ but is really just a condition on the first factor of the product, so $\mathcal Y^c$ itself can be expressed as a product.
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
 
 \section{The space of relative centrally aligned maps}
 \noindent Recall \cite{RSPW} that the moduli space of maps from centrally aligned curves is obtained by considering the  Cartesian diagram
