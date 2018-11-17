@@ -15,6 +15,10 @@
 \usepackage{yfonts}
 \usepackage[T1]{fontenc}
 \usepackage[utf8x]{inputenc}
+
+\usepackage{calrsfs}
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+
 \usepackage{verbatim}
 \usepackage{graphicx}
 \usepackage{verbatim}
@@ -45,8 +49,9 @@
 \newcommand{\sidenote}[1]{\marginpar{\textbf{\color{red}#1}}}
 
 \newcommand{\formLine}{\spec \mathbbm{k}\llbracket t \rrbracket}
-
 \newcommand{\spec}{\operatorname{Spec}}
+\newcommand{\pM}{\pazocal{M}}
+
 \newcommand{\TT}{\operatorname{T}}
 \newcommand{\oM}{\overline{\mathcal{M}}}
 \newcommand{\M}[4]{\overline{\mathcal{M}}_{#1,#2}(#3,#4)}
@@ -64,6 +69,12 @@
 \newcommand{\VZclb}[4]{\mathcal{V\!Z}^{\rm{ctr,lb}}_{#1,#2}(#3,#4)}
 \newcommand{\VZco}[4]{\mathcal{V\!Z}^{\rm{ctr},\circ}_{#1,#2}(#3,#4)}
 \newcommand{\VZcLi}[4]{\mathcal{V\!Z}^{\rm{ctr, Li}}_{#1,#2}(#3,#4)}
+\newcommand{\VZrel}[4]{\mathcal{V\!Z}^{\rm{rel}}_{#1,#2}(#3,#4)}
+\newcommand{\stab}{\rm{stab}}
+\newcommand{\stC}{C'}
+\newcommand{\stf}{f'}
+\newcommand{\stpi}{\pi'}
+\newcommand{\sts}{s'}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\OO}{\mathcal{O}}
 \renewcommand{\to}{\rightarrow}
@@ -128,7 +139,7 @@
 \newcommand{\h}{\operatorname{h}}
 \newcommand{\Aut}{\operatorname{Aut}}
 \newcommand{\RR}{\textbf{R}}
-\newcommand{\NN}{\operatorname{N}}
+\newcommand{\NN}{\mathbb{N}}
 \newcommand{\ovm}[1]{\overline{\mathcal{#1}}}
 \newcommand{\ovt}[1]{\widetilde{\mathcal{#1}}}
 \newcommand{\ov}[1]{\overline{#1}}
@@ -201,6 +212,123 @@
 
 \appendixtitletocoff
 \tableofcontents
+
+\section{A desingularisation of Chen-Kim's moduli space of genus one logarithmic maps to expanded pairs, for $(\PP^N|H)$}
+
+\subsection{Relative logarithmic maps to expanded pairs} We recall a number of definitions from \cite{ChenDegeneration}; see also \cite{KimLog}.
+
+Fix a smooth pair $(X,Y)$, i.e. a smooth projective variety $X$ with a smooth divisor $Y$.
+
+\begin{definition}
+ An \emph{extended log twisted expansion} of $(X,Y)$ is a quadruple $(\pi\colon W\to S, \pi_X\colon W\to X, D\subseteq W, \pM_S^{W/S}\to\pM_S)$ such that:
+ \begin{enumerate}
+  \item $\pi$ makes $W$ into a flat, proper algebraic space over $S$, with fibers at worst nodal in codimension 1, admitting a lifting to a special log morphism $\pi\colon (W,\pM_W^{W/S})\to(S,\pM_S^{W/S})$, such that:
+  \begin{enumerate}
+   \item $\pM_W^{W/S}$ and $\pM_S^{W/S}$ are locally free log structures;
+   \item for every geometric point $\bar{w}\to W$, either $\bar{w}$ is in the smooth locus of $\pi_S$ and $\pi^\flat\colon \pi^*\overline{\pM}_{S,\bar{w}}^{W/S}\to \overline{\pM}_{W,\bar{w}}^{W/S}$ is an isomorphism, or $\bar{w}$ is in the nodal locus and the following diagram is cocartesian:
+   \bcd
+   \NN\ar[r,"{(1,1)}"]\ar[d,"h"] & \NN^2\ar[d] \\
+   \pi^*\overline{\pM}_{S,\bar{w}}^{W/S}\ar[r] & \overline{\pM}_{W,\bar{w}}^{W/S}
+   \ecd
+   with $h(e)$ irreducible;
+   \item for every geometric point $\bar{s}\to S$ there is a bijection between the irreducible elements of $\overline{\pM}_{S,\bar{s}}^{W/S}$ and the irreducible components of $W_{\bar{s}}^{\text{sing}}$.
+  \end{enumerate}
+  \item $D\subseteq W$ is a Cartier divisor, smooth over $S$, and such that $\pi_X(D)=Y$;
+ \item $\pM_S$ is twisted by integers $(r_1,\ldots,r_l)$ and expanded with respect to $\pM_S^{W/S}$, namely \'{e}tale locally at every point $s\in S$ the morphism of log structures $\pM_S^{W/S}\to\pM_S$ admits a chart:
+ \bcd
+ \NN^l\ar[d]\ar[r,"{(r_1,\cdots,r_l)}"] &\NN^l\ar[r,"{(id,0)}"]&\NN^l\oplus\NN^k\ar[d] \\
+ \pM_S^{W/S}\ar[rr] & & \pM_S
+ \ecd
+  
+ \end{enumerate}
+\end{definition}
+ The log structure on $W$ is then given by
+ \[ \pM_W=\pi^*\pM_S\oplus_{\pi^*\pM_S^{W/S}}\pM_W^{W/S}\oplus_{\OO^*_W}\pM^D\]
+ where $\pM_D$ is the divisorial log structure associated to $D$. 
+Notice that with this definition $(W,\pM_W)\to(S,\pM_S)$ is log smooth.
+
+Similarly a \emph{log twisted curve} is $((C,p_1,\ldots,p_n)\to S, \pM_S^{C/S}\to\pM_S)$ with
+\[\pM_C=\pi^*\pM_S\oplus_{\pi^*\pM_S^{C/S}}\pM_C^{C/S}\oplus_{\OO^*_C}\bigoplus_{i=1}^n\pM^{p_i}\]
+A log twisted curve is \emph{minimal} if the log structure $\pM_S$ is locally free, and for every geometric point $\bar{s}\to S$ and irreducible element $b\in\overline{\pM}_S$, we can find an irreducible $a\in\overline{\pM}^{C/S}_S$ and a positive integer $l$ such that $a\mapsto lb$ (by definition this means that the morphism of log structures $\pM_S^{C/S}\to\pM_S$ is \emph{simple}). So essentially we are allowed to take roots of the smoothing parameters of the nodes of $C_{\bar{s}}$.
+
+Finally, fix an $n$-tuple of non-negative contact orders $(c_1,\ldots,c_n)$.
+\begin{definition}
+ A \emph{relative log prestable map} with tangency condition $\mathbf{c}$ is given by a diagram of log morphisms:
+ \bcd
+ ((C,\mathbf p),\pM_C)\ar[rr,"f"]\ar[dr] & & ((W,D),\pM_W)\ar[rr,"\pi_X"]\ar[dl] & & (X,Y)\times S \\
+  & (S,\pM_S) & & &
+ \ecd
+ \begin{enumerate}
+  \item $(C,\mathbf p),\pM_C)\to (S,\pM_S)$ is a minimal log twisted curve;
+  \item $((W,\pM_W)\to (S,\pM_S),(W,D)\to(X,Y))$ is an extended twisted log expansion of $(X,Y)$;
+  \item (\emph{corank condition}) \sidenote{split the definition into a more general one over LogSch and minimality?} for every geometric point $\bar{s}\in S$, the rank of \[\operatorname{Coker}(\pM^{W/S}_{S,\bar{s}}\to \pM_{S,\bar{s}})\] is equal to the number of non-distinguished nodes of $C_{\bar{s}}$; recall that a node of $C_{\bar{s}}$ is \emph{distinguished} if it is mapped under $f$ to the singular locus of $W_{\bar{s}}$.
+  \item (\emph{log admissibility}) the morphism of log structures $f^\flat\colon f^*\pM_W\to\pM_C$ is simple at every distinguished node;
+  \item (\emph{tangency condition}) the underlying map $\underline{f}\colon C\to (W,D)$ is non-degenerate, namely no component of $C$ is mapped entirely into $D$, and locally around every marking $p_i$ we can find a chart
+  \bcd
+  \NN\ar[r,"\cdot c_i"]\ar[d] & \NN\ar[d] \\
+  f^*\pM^D\ar[r] & \pM^{p_i}
+  \ecd
+  for the restriction of $f^\flat$ to the $f^*\pM^D$ factor.
+  \end{enumerate}
+\end{definition}
+\begin{definition}
+ A relative log prestable map as above is \emph{stable} if for every geometric point $\bar{s}\in S$ the group of automorphisms $(\sigma,\tau)$ is finite, where:
+ \begin{enumerate}
+  \item $\sigma$ is an automorphism of $((C,\pM_C)\to (S,\pM_S))_{\bar{s}}$ preserving the markings $\mathbf p$;
+  \item $\tau$ is an automorphism of $((W,\pM_W)\to (S,\pM_S))_{\bar{s}}$ preserving $D$ and $\pi_X\colon W_{\bar{s}}\to X$;
+  \item $\tau\circ f_{\bar{s}}=f_{\bar{s}}\circ \sigma$.
+ \end{enumerate}
+\end{definition}
+\begin{remark}
+ The corank and simplicity condition imply the following: the rank of the locally free log structure $\pM_S$ at $\bar{s}$ amounts to the number of irreducible components of $W_{\bar{s}}^{\text{sing}}$ plus the number of non-distinguished nodes of $C_{\bar{s}}$; all the smoothing parameters of the distinguished nodes mapping to the same component of $W_{\bar{s}}^{\text{sing}}$ have been identified \emph{up to twisting}. In facts, at a distinguished node $q$ of $C$, letting $R$ be the local ring of $S$ at $\pi(q)$, we can find \'{e}tale local charts
+ \bcd
+ \NN^2\oplus_{\NN} \pM_{S}\ar[r,"{(id,\cdot m_q)}" below]\ar[d] & \NN^2\oplus_{\NN} \pM_{S}\ar[d] \\
+ f^*\pM_W \ar[r,"f^\flat" below]\ar[d] & \pM_C\ar[d] \\
+ R[z_1,\ldots,z_{\dim(X)-1},x,y]/(xy-t)\ar[r,"\left(\substack{x\mapsto a^{m_q}\\ y\mapsto b^{m_q}\\ t\mapsto s^{m_q}}\right)" below=.2cm] & R[a,b]/(ab-s)
+ \ecd
+ where the twist at $f(q)$ is given by $l$, the one at $q$ is given by $r_q$, and the equality $l=r_qm_q$ has to hold.
+\end{remark}
+
+\subsection{The desingularisation via central alignments} The following is a variation on \cite[\S 3.3]{RSPW2}.
+
+\section{Gathmann's recursive structure on the boundary of maps to expanded pairs}
+
+We find a natural line bundle with a section whose vanishing locus consists of those maps where the target splits and the marking $p_k$ is mapped to a higher level of the accordion. We express these boundary strata recursively as fibered products of desingularised relative and rubber spaces with lower numerical invariants; the multiplicity calcultion is performed for $\PP^1|\{\infty\}$ and rests on work of Vakil \cite{Vre}. Putting everything together we reobtain Gathmann's algorithm for computing relative invariants, or the invariants of a smooth hyperplane section.
+
+\subsection{The line bundle and section}
+On $\VZrel{1}{\alpha}{X}{\beta}$, as on any space of maps to an expansion really, there is not only a universal curve $C$ with universal map $f$ to the expansion $W$, but also the stabilisation of the collapsed map obtained by composing $f$ with $\pi_X\colon W\to X$:
+\bcd
+C\ar[r,"f"]\ar[d,"\stab"] & W \ar[d,"\pi_X"] \\
+\stC\ar[r,"\stf"] & X
+\ecd
+Notice that the image of the marking $p_k$ on $\stC$ has either contact order $\alpha_k$ to $Y$, or it lies on an internal component. The section $s\in\Gamma(X,\OO_X(Y))$ whose vanishing locus defines $Y$, induces a section $\sts$ of $\stpi_*\stf^*\OO_X(Y)$. By the previous discussion, the image of $\sts$ in $\ev_k^*\mathcal P^{\alpha_k}\OO_X(Y)$ vanishes, hence by the principal parts exact sequence
+\[ 0\to p_k^*\Omega_{\stC}^{\otimes\alpha_k+1}\otimes\ev_k^*\OO_X(Y)\to \ev_k^*\mathcal P^{\alpha_k+1}\OO_X(Y)\to \ev_k^*\mathcal P^{\alpha_k}\OO_X(Y)\to 0\]
+we obtain a section $\sts_k$ of the line bundle $p_k^*\Omega_{\stC}^{\otimes\alpha_k+1}\otimes\ev_k^*\OO_X(Y)$.
+
+It is apparent that, set-theoretically at least, the vanishing locus of $\sts_k$ consists of those maps such that $p_k$ lies on an internal component of $\stC$, or, equivalently, it is mapped to higher level in the expansion and lies not on a ``trivial bubble'' in $C$.
+
+\subsection{Boundary loci}
+We follow in Vakil's footsteps in setting the following notation:
+\begin{enumerate}[label=(\alph*)]
+ \item \[\mathcal Y^a=\M{0}{\lvert\alpha^{(0)}\rvert+r}{H}{d_0}\times_{H^r}\left(\VZc{1}{\alpha^{(1)}\cup\{m^{(1)}\}}{\PP^N|H}{d_1}\times\prod_{i=2}^r\M{0}{\alpha^{(i)}\cup\{m^{(i)}\}}{\PP^N|H}{d_i}\right)\]
+ \item \[\mathcal Y^b=\M{0}{\lvert\alpha^{(0)}\rvert+r}{H}{d_0}\times_{H^r}\left(\M{0}{\alpha^{(1)}\cup\{m^{(1)},m^{(2)}\}}{\PP^N|H}{d_1}\times\prod_{i=3}^r\M{0}{\alpha^{(i)}\cup\{m^{(i)}\}}{\PP^N|H}{d_i}\right)\]
+ \item \[\mathcal Y^c\subseteq \VZc{1}{\lvert\alpha^{(0)}\rvert+r}{H}{d_0}\times_{H^r}\prod_{i=1}^r\M{0}{\alpha^{(i)}\cup\{m^{(i)}\}}{\PP^N|H}{d_i}\]
+ $\mathcal Y^c$ is cut within the latter by Gathmann's condition on line bundles:
+ \[f_{|E}^*\mathcal O_H(1)\cong\mathcal O_E\left(\sum_{x_j\in E}\alpha_jx_j-\sum_{i=1}^r m^{(i)}y_i\right)\]\sidenote{Express the line bundle condition in terms of tautological classes?}
+ Notice that such condition depends on the choice of $m^{(i)}$ but is really just a condition on the first factor of the product, so $\mathcal Y^c$ itself can be expressed as a product.
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
 
 \section{The space of relative centrally aligned maps}
 \noindent Recall \cite{RSPW} that the moduli space of maps from centrally aligned curves is obtained by first considering the Cartesian diagram
@@ -425,9 +553,6 @@ These spaces are all irreducible of the expected dimension, and it can be checke
 \begin{equation*} \VZc{1}{\alpha}{\PP^1|\infty}{d} \end{equation*}
 In fact, this applies to all of the above spaces \emph{except} for the special case mentioned above (where we impose degeneracy). This has too small dimension, and hence will not appear in the recursion formula.
 
-
-
->>>>>>> navid
 \section{Recursion formula}
 
 \subsection{The case $\sum\alpha=d$}
