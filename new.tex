@@ -47,6 +47,39 @@
 \newcommand{\plC}{\scalebox{0.8}[1.3]{$\sqsubset$}}
 \newcommand{\sidenote}[1]{\marginpar{\textbf{\color{red}#1}}}
 
+\def\Yagraph{\tikz[baseline=-3pt,scale=.8]{
+\draw (2,0) -- (0,1) (2,0) -- (0,.5) (2,0) -- (0,-1);
+\draw (2,0) circle(2pt)[fill=black];
+\draw (0,1) circle(2pt)[fill=white];
+\draw (0,.5) circle(2pt)[fill=black];
+\draw (0,-.5) node{$\ldots$};
+\draw (0,-1) circle(2pt)[fill=black];
+\draw (-1,1.5) -- (1,1.5) -- (1,-1.5) -- (-1,-1.5) -- (-1,1.5);
+\draw (1,1.5) -- (3,2) -- (3,-1) -- (1,-1.5);
+}}
+
+\def\Ybgraph{\tikz[baseline=-3pt,scale=.8]{
+\draw (2,0) to[out=120,in=0] (0,1) (2,0) -- (0,1) (2,0) -- (0,.5) (2,0) -- (0,-1);
+\draw (2,0) circle(2pt)[fill=black];
+\draw (0,1) circle(2pt)[fill=black];
+\draw (0,.5) circle(2pt)[fill=black];
+\draw (0,-.5) node{$\ldots$};
+\draw (0,-1) circle(2pt)[fill=black];
+\draw (-1,1.5) -- (1,1.5) -- (1,-1.5) -- (-1,-1.5) -- (-1,1.5);
+\draw (1,1.5) -- (3,2) -- (3,-1) -- (1,-1.5);
+}}
+
+\def\Ycgraph{\tikz[baseline=-3pt,scale=.8]{
+\draw (2,0) -- (0,1) (2,0) -- (0,.5) (2,0) -- (0,-1);
+\draw (2,0) circle(2pt)[fill=white];
+\draw (0,1) circle(2pt)[fill=black];
+\draw (0,.5) circle(2pt)[fill=black];
+\draw (0,-.5) node{$\ldots$};
+\draw (0,-1) circle(2pt)[fill=black];
+\draw (-1,1.5) -- (1,1.5) -- (1,-1.5) -- (-1,-1.5) -- (-1,1.5);
+\draw (1,1.5) -- (3,2) -- (3,-1) -- (1,-1.5);
+}}
+
 \newcommand{\pM}{\pazocal{M}}
 \newcommand{\TT}{\operatorname{T}}
 \newcommand{\oM}{\overline{\mathcal{M}}}
@@ -303,25 +336,59 @@ The ultimate goal of the paper is to apply Gathmann's techniques to the Vakil-Zi
  Hence the lift of $[(C,f)]$ is centrally aligned and satisfies the factorisation property for every subtorus $H<T$, therefore it is well-spaced (see \cite[Definition 3.4.2]{RSPW2}) and it belongs to $\VZ_{1,\tilde\alpha}(\PP^N|\Delta,d)$. Note that the deformation spaces of $(C,f)$ and its lift are isomorphic by construction, as can be checked by the infinitesimal criterion - an infinitesimal deformation of $(C,f)$ brings along a unique deformation of the $\{q^i_j\}$ compatible with the map to $(\PP^N,\Delta)$. At the logarithmic level, observe that the ACGS minimal monoid is the same, because no component of $C$ is entirely mapped into any of the newly added hyperplanes; since the global contraction radius $\delta$ is the same, the subdivisions corresponding to the alignment procedure do coincide as well. This shows that the forgetful morphism is (log) \'etale in a neighbourhood of the lift of $[(C,f)]$, hence we may conclude by appealing to \cite[Theorem 3.5.1]{RSPW2}.
 \end{proof}
 
-\begin{cor}
+\begin{cor}\label{cor:log_smooth}
  $\VZ_{1,\alpha}(\PP^N|H,d)$ is smooth over its Artin fan.
 \end{cor}
 
 {\color{gray} describe the latter as explicitly as possible; comment on the cones that are (possibly?) not there because of the compatibility of the alignment with the log map (this is probably awkward, useless, and superceded by saying ``we align subdivide the ACGS minimal dual monoid'') and because of smoothability/factorisation (this is probably related to tropical well-spacedness)}
 
-\section{An explicit description of Gathmann's boundary}
+\section{Description of the boundary}
 
-\subsection{The line bundle and section}
-On $\VZrel{1}{\alpha}{X}{\beta}$, as on any space of maps to an expansion really, there is not only a universal curve $C$ with universal map $f$ to the expansion $W$, but also the stabilisation of the collapsed map obtained by composing $f$ with $\pi_X\colon W\to X$:
-\bcd
-C\ar[r,"f"]\ar[d,"\stab"] & W \ar[d,"\pi_X"] \\
-\stC\ar[r,"\stf"] & X
-\ecd
-Notice that the image of the marking $p_k$ on $\stC$ has either contact order $\alpha_k$ to $Y$, or it lies on an internal component. The section $s\in\Gamma(X,\OO_X(Y))$ whose vanishing locus defines $Y$, induces a section $\sts$ of $\stpi_*\stf^*\OO_X(Y)$. By the previous discussion, the image of $\sts$ in $\ev_k^*\mathcal P^{\alpha_k}\OO_X(Y)$ vanishes, hence by the principal parts exact sequence
-\[ 0\to p_k^*\Omega_{\stC}^{\otimes\alpha_k+1}\otimes\ev_k^*\OO_X(Y)\to \ev_k^*\mathcal P^{\alpha_k+1}\OO_X(Y)\to \ev_k^*\mathcal P^{\alpha_k}\OO_X(Y)\to 0\]
-we obtain a section $\sts_k$ of the line bundle $p_k^*\Omega_{\stC}^{\otimes\alpha_k+1}\otimes\ev_k^*\OO_X(Y)$.
+Note that $f$ has contact order with $H$ exactly equal to $\alpha_k$ at the marking $p_k$, or else the irreducible component of $C$ on which $x_k$ lies is mapped entirely inside $H$. By pulling back along $f$ the equation defining $H$, and taking its $\alpha_k+1$-st derivative at $x_k$ (which makes sense because all the lower order derivatives do vanish by assumption) we single out the latter locus. By staring at the exact sequence of jet bundles
+\[0\to p_k^*\Omega_{C}^{\otimes\alpha_k}\otimes\ev_k^*\OO_{\PP^N}(H)\to p_k^*\mathcal J^{\alpha_k}(f^*\OO_{\PP^N}(H))\to p_k^*\mathcal J^{\alpha_k-1}(f^*\OO_{\PP^N}(H))\to 0\]
+we realise that there is on $\VZ_{1,\alpha}(\PP^N|H,d)$ a line bundle (the leftmost term in the exact sequence) with a natural section cutting the locus where the curve breaks, and the piece containing $p_k$ is mapped inside $H$.
+\begin{lem}
+ \[(\alpha_k\psi_k+\ev_k^*H)[\VZ_{1,\alpha}(\PP^N|H,d)]=[D_{1,\alpha;k}(\PP^N|H,d)],\]
+\end{lem}
+In what follows we shall give an explicit (recursive) description of the right-hand side, in terms of tautological classes on spaces of maps with lower numerical invariants.
+\begin{remark}
+ The divisors we are after are a union of logarithmic strata, because the locus where the log structure is trivial coincides precisely with the nice locus.
+\end{remark}
+By Corollary \ref{cor:log_smooth}, the divisorial logarithmic strata correspond to rays of the Artin fan.
 
-It is apparent that, set-theoretically at least, the vanishing locus of $\sts_k$ consists of those maps such that $p_k$ lies on an internal component of $\stC$, or, equivalently, it is mapped to higher level in the expansion and lies not on a ``trivial bubble'' in $C$.
+\subsection{Combinatorial description}
+As long as the minimal subcurve of genus one has positive degree, the picture is classical: the dual graph of the curve is bipartite - vertices mapped inside $H$ are distinguished from the others. In fact there is only one such vertex, because, if there were more, the relative position of their image in $\mathbb R_{\geq 0}$ under the tropical map would be unconstrained, therefore spanning a locus larger than a ray in the tropical moduli space. We follow in R. Vakil's footsteps in setting the following notation:
+\begin{figure}[h]
+    \centering
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \Yagraph
+        \caption{$\mathcal Y_a$}
+    \end{minipage}\hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \Ybgraph
+        \caption{$\mathcal Y_b$}
+    \end{minipage}\hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \Ycgraph
+        \caption{$\mathcal Y_c^+$}
+    \end{minipage}
+\end{figure}
+
+Notice that continuity of the tropical map determines the mutual relationship among the edge lengths.
+
+On the other hand, when there is a contracted elliptic subcurve - and it will be contracted into the hyperplane, because otherwise it wouldn't be generic, by density of the nice locus in $\VZ_{1,\tilde\alpha}(\PP^N|H,\tilde d)$ - the picture becomes much more complicated due to the alignment. The combs may break multiple times and they may even point in opposite directions.
+\begin{figure}
+ \tikz{
+ \draw (0,0) circle(2pt)[fill=black] (0,2) circle(2pt)[fill=black] (0,4) circle(2pt)[fill=black] (0,6) circle(2pt)[fill=black] (0,-2) circle(2pt)[fill=black] (2,0) circle(2pt)[fill=white] (1.1,1.78) circle(2pt)[fill=black] (3.42,1.42) circle(2pt)[fill=black] (.58,-1.42) circle(2pt)[fill=black];
+ \draw (2,0) -- node[above]{4} (0,0) (2,0) --node[above]{2} (1.1,1.78) --node[above]{2} (0,2) (1.1,1.78) --node[above]{1} (0,4) (2,0) --node[above]{1} (3.42,1.42) (2,0) --node[above]{1} (.58,-1.42) (3.42,1.42) --node[above]{5} (0,6) (.58,-1.42) --node[above]{3} (0,-2);
+ \draw[red] (2,0) circle(2);
+ }
+\end{figure}
+
+
 
 \subsection{Boundary loci}
 We follow in Vakil's footsteps in setting the following notation:
