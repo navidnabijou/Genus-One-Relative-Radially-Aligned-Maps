@@ -84,6 +84,7 @@
 \newcommand{\TT}{\operatorname{T}}
 \newcommand{\oM}{\overline{\mathcal{M}}}
 \newcommand{\M}[4]{\overline{\mathcal{M}}_{#1,#2}(#3,#4)}
+\newcommand{\MG}[4]{\overline{\mathcal{M}}^{\rm G}_{#1,#2}(#3,#4)}
 \newcommand{\Q}[4]{\mathcal{Q}_{#1,#2}(#3,#4)}
 \newcommand{\Qe}[4]{\mathcal{Q}^{\epsilon}_{#1,#2}(#3,#4)}
 \newcommand{\Qt}[4]{\widetilde{\mathcal Q}_{#1,#2}(#3,#4)}
@@ -95,7 +96,7 @@
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\VZ}{\pazocal{V\!Z}}
 \newcommand{\tVZc}[4]{\widetilde{\mathcal{V\!Z}}^{\rm{ctr}}_{#1,#2}(#3,#4)}
-\newcommand{\VZc}[4]{\mathcal{V\!Z}^{\rm{ctr}}_{#1,#2}(#3,#4)}
+\newcommand{\VZc}[4]{\mathcal{V\!Z}_{#1,#2}(#3,#4)}
 \newcommand{\VZcLi}[4]{\mathcal{V\!Z}^{\rm{ctr, Li}}_{#1,#2}(#3,#4)}
 \newcommand{\VZrel}[4]{\mathcal{V\!Z}^{\rm{rel}}_{#1,#2}(#3,#4)}
 \newcommand{\stab}{\rm{stab}}
@@ -160,6 +161,7 @@
 \newcommand{\Isom}{\text{Isom}}
 \newcommand{\pr}{\operatorname{pr}}
 \newcommand{\ev}{\operatorname{ev}}
+\newcommand{\fgt}{\operatorname{fgt}}
 \newcommand{\codim}{\operatorname{codim}}
 \newcommand{\vdim}{\operatorname{vdim}}
 \newcommand{\ildef}[1]{\emph{#1}}
@@ -261,7 +263,7 @@ The main result is that
 
 \textbf{Gathmann-type recursion.} There is a forgetful morphism \[\VZ_{1,\alpha}(\PP^N|H,d)\to \VZ_{1,n}(\PP^N,d),\] hitting Gathmann's relative space. We may therefore pullback Gathmann's line bundle and section, cutting out the locus where the $k$-th marking is tangent to $H$ to order $\alpha_k+1$. Because $\alpha$ was maximal ($\sum\alpha=d$) by assumption, this means that the curve has to break, and $x_k$ has to lie on an internal component - one which is entirely mapped into $H$. We identify the zero locus of Gathmann's section explicitly. Here is an interesting remark: the combinatorics of such boundary loci is governed by tropical geometry, and it is otherwise very hard to districate the interaction between the relative condition and the exceptional loci of the Vakil--Zinger blow-up.
 \begin{cor}
- $\VZ_{1,\alpha}(\PP^N|H,d)$ is smooth over its Artin fan, in particular codimension one logarithmic strata can be read off from the latter.\marginpar{why are we only interested in log strata?}
+ $\VZ_{1,\alpha}(\PP^N|H,d)$ is smooth over its Artin fan, in particular codimension one logarithmic strata can be read off from the latter.
 \end{cor}
 The Artin fan is a tropical gadget. Its local structure is given by subdividing the ACGS minimal monoid according to the alignment. We are only interested in picking its rays. The upshot is that the combinatorics is slightly more involved than in the genus zero case: the alignment may force some teeth of the comb to break.
 \begin{thm}[Gathmann-type formula, maximal tangency, $(\PP^N|H)$ case]
@@ -344,9 +346,9 @@ The ultimate goal of the paper is to apply Gathmann's techniques to the Vakil-Zi
 
 \section{Description of the boundary}
 
-Note that $f$ has contact order with $H$ exactly equal to $\alpha_k$ at the marking $p_k$, or else the irreducible component of $C$ on which $x_k$ lies is mapped entirely inside $H$. By pulling back along $f$ the equation defining $H$, and taking its $\alpha_k+1$-st derivative at $x_k$ (which makes sense because all the lower order derivatives do vanish by assumption) we single out the latter locus. By staring at the exact sequence of jet bundles
+Note that $f$ has contact order with $H$ exactly equal to $\alpha_k$ at the marking $p_k$, or else the irreducible component of $C$ on which $p_k$ lies is mapped entirely inside $H$. By pulling back along $f$ the equation defining $H$, and taking its $\alpha_k$-th derivative at $p_k$ (which makes sense because all the lower order derivatives do vanish by assumption) we single out the latter locus. By staring at the exact sequence of jet bundles
 \[0\to p_k^*\Omega_{C}^{\otimes\alpha_k}\otimes\ev_k^*\OO_{\PP^N}(H)\to p_k^*\mathcal J^{\alpha_k}(f^*\OO_{\PP^N}(H))\to p_k^*\mathcal J^{\alpha_k-1}(f^*\OO_{\PP^N}(H))\to 0\]
-we realise that there is on $\VZ_{1,\alpha}(\PP^N|H,d)$ a line bundle (the leftmost term in the exact sequence) with a natural section cutting the locus where the curve breaks, and the piece containing $p_k$ is mapped inside $H$.
+we realise that there is on $\VZ_{1,\alpha}(\PP^N|H,d)$ a line bundle (the leftmost term in the exact sequence above) with a natural section cutting the locus where the curve breaks, and the piece containing $p_k$ is mapped inside $H$.
 \begin{lem}
  \[(\alpha_k\psi_k+\ev_k^*H)[\VZ_{1,\alpha}(\PP^N|H,d)]=[D_{1,\alpha;k}(\PP^N|H,d)],\]
 \end{lem}
@@ -354,10 +356,10 @@ In what follows we shall give an explicit (recursive) description of the right-h
 \begin{remark}
  The divisors we are after are a union of logarithmic strata, because the locus where the log structure is trivial coincides precisely with the nice locus.
 \end{remark}
-By Corollary \ref{cor:log_smooth}, the divisorial logarithmic strata correspond to rays of the Artin fan.
+By Corollary \ref{cor:log_smooth}, the logarithmic strata of codimension one correspond to rays of the Artin fan.
 
 \subsection{Combinatorial description}
-As long as the minimal subcurve of genus one has positive degree, the picture is classical: the dual graph of the curve is bipartite - vertices mapped inside $H$ are distinguished from the others. In fact there is only one such vertex, because, if there were more, the relative position of their image in $\mathbb R_{\geq 0}$ under the tropical map would be unconstrained, therefore spanning a locus larger than a ray in the tropical moduli space. We follow in R. Vakil's footsteps in setting the following notation:
+As long as the minimal subcurve of genus one has positive degree, the picture is classical: the dual graph of the curve is bipartite - vertices mapped inside $H$ are distinguished from the others. In fact there is only one such vertex, because, if there were more, the relative position of their image in $\mathbb R_{\geq 0}$ under the tropical map would be unconstrained, therefore spanning a locus larger than a ray in the tropical moduli space. \marginpar{say something about rigid tropical curves as in ACGS and KLR} We follow in R. Vakil's footsteps in setting the following notation:
 \begin{figure}[h]
     \centering
     \begin{minipage}{0.3\textwidth}
@@ -379,29 +381,53 @@ As long as the minimal subcurve of genus one has positive degree, the picture is
 
 Notice that continuity of the tropical map determines the mutual relationship among the edge lengths.
 
-On the other hand, when there is a contracted elliptic subcurve - and it will be contracted into the hyperplane, because otherwise it wouldn't be generic, by density of the nice locus in $\VZ_{1,\tilde\alpha}(\PP^N|H,\tilde d)$ - the picture becomes much more complicated due to the alignment. The combs may break multiple times and they may even point in opposite directions.
+On the other hand, when there is a contracted elliptic subcurve - and it will be contracted into the hyperplane, because otherwise it wouldn't be generic, by density of the nice locus in $\VZ_{1,\alpha^\prime}(\PP^N|H,d^\prime)$ - the picture becomes more complicated due to the alignment. The combs may break (multiple times) and they may point in opposite directions. We label these loci $\mathcal{Y}_c^0$.
 \begin{figure}
  \tikz{
- \draw (0,0) circle(2pt)[fill=black] (0,2) circle(2pt)[fill=black] (0,4) circle(2pt)[fill=black] (0,6) circle(2pt)[fill=black] (0,-2) circle(2pt)[fill=black] (2,0) circle(2pt)[fill=white] (1.1,1.78) circle(2pt)[fill=black] (3.42,1.42) circle(2pt)[fill=black] (.58,-1.42) circle(2pt)[fill=black];
+ \draw (0,0) circle(2pt)[fill=black] (0,2) circle(2pt)[fill=black] (0,4) circle(2pt)[fill=black] (0,6) circle(2pt)[fill=black] (0,-2) circle(2pt)[fill=black] (1.1,1.78) circle(2pt)[fill=black] (3.42,1.42) circle(2pt)[fill=black] (.58,-1.42) circle(2pt)[fill=black];
  \draw (2,0) -- node[above]{4} (0,0) (2,0) --node[above]{2} (1.1,1.78) --node[above]{2} (0,2) (1.1,1.78) --node[above]{1} (0,4) (2,0) --node[above]{1} (3.42,1.42) (2,0) --node[above]{1} (.58,-1.42) (3.42,1.42) --node[above]{5} (0,6) (.58,-1.42) --node[above]{3} (0,-2);
  \draw[red] (2,0) circle(2);
+ \draw (2,0) circle(2pt)[fill=white];
+ \draw[->] (0,-3) circle(2pt)[fill=black] edge (4,-3);
  }
 \end{figure}
+\begin{dfn}
+ A degree-aligned genus one tropical map $\phi$ to $\mathbb R_{\geq 0}$ is ... with a circle of radius $\delta$ around the core satisfying:
+ \begin{enumerate}
+  \item the circle of radius $\delta$ passes through at least one vertex of positive degree, and no vertex of positive degree is contained in its strict interior;
+  \item every circle of radius $<\delta$ around the core passes through (either none or) at least two vertices;\footnote{The subdivisions we perform before picking a ray correspond to aligning the log structure, i.e. imposing $\lambda(v)=\lambda(v^\prime)$ for some $v,v^\prime$.}
+  \item every edge heading out of the circle of radius $\delta$ goes directly to a vertex in $\phi^{-1}(0)$.
+ \end{enumerate}
+\end{dfn}
 
+\begin{remark}
+ The core being contracted in the fiber of the tropical map is not a phenomenon that we should worry about in codimension one. Indeed, assume that the core is contracted in the fiber along a ray. Then all the edges departing from the core have expansion factor $0$; call the corresponding coordinates $U=\{u_i\}_{i\in I}$. Call the remaining coordinates $E=\{e_j\}_{j\in J}$. Note that tropical continuity involves only $E$. Alignments on the other hand assume the form $\lambda(v)=\lambda(v^\prime)$, where $\lambda(v)=\sum_{i\in I(v)}u_i\sum_{j\in J(v)}e_j$. Pick the shortest elements of $U$; then these can be shortened to zero without affecting the rest (by hypothesis, alignments can only identify them among themselves). This shows that we could not have started with a ray.
+\end{remark}
 
-
-\subsection{Boundary loci}
-We follow in Vakil's footsteps in setting the following notation:
+\subsection{Explicit realisation}
+The description of the first three types is relatively easy:
 \begin{enumerate}[label=(\alph*)]
- \item \[\mathcal Y^a=\M{0}{\lvert\alpha^{(0)}\rvert+r}{H}{d_0}\times_{H^r}\left(\VZc{1}{\alpha^{(1)}\cup\{m^{(1)}\}}{\PP^N|H}{d_1}\times\prod_{i=2}^r\M{0}{\alpha^{(i)}\cup\{m^{(i)}\}}{\PP^N|H}{d_i}\right)\]
- \item \[\mathcal Y^b=\M{0}{\lvert\alpha^{(0)}\rvert+r}{H}{d_0}\times_{H^r}\left(\M{0}{\alpha^{(1)}\cup\{m^{(1)},m^{(2)}\}}{\PP^N|H}{d_1}\times\prod_{i=3}^r\M{0}{\alpha^{(i)}\cup\{m^{(i)}\}}{\PP^N|H}{d_i}\right)\]
- \item \[\mathcal Y^c\subseteq \VZc{1}{\lvert\alpha^{(0)}\rvert+r}{H}{d_0}\times_{H^r}\prod_{i=1}^r\M{0}{\alpha^{(i)}\cup\{m^{(i)}\}}{\PP^N|H}{d_i}\]
- $\mathcal Y^c$ is cut within the latter by Gathmann's condition on line bundles:
- \[f_{|E}^*\mathcal O_H(1)\cong\mathcal O_E\left(\sum_{x_j\in E}\alpha_jx_j-\sum_{i=1}^r m^{(i)}y_i\right)\]\sidenote{Express the line bundle condition in terms of tautological classes?}
- Notice that such condition depends on the choice of $m^{(i)}$ but is really just a condition on the first factor of the product, so $\mathcal Y^c$ itself can be expressed as a product.
+ \item \[\mathcal Y_a=\M{0}{\{-m^{(1)},\ldots,-m^{(r)}\}\cup\alpha^{(0)}}{H}{d_0}^\sim\times_{H^r}\left(\VZc{1}{\alpha^{(1)}\cup\{m^{(1)}\}}{\PP^N|H}{d_1}\times\prod_{i=2}^r\M{0}{\alpha^{(i)}\cup\{m^{(i)}\}}{\PP^N|H}{d_i}\right)\]
+ \item \[\mathcal Y_b=\M{0}{\{-m^{(1)},\ldots,-m^{(r)}\}\cup\alpha^{(0)}}{H}{d_0}^\sim\times_{H^r}\left(\M{0}{\alpha^{(1)}\cup\{m^{(1)},m^{(2)}\}}{\PP^N|H}{d_1}\times\prod_{i=3}^r\M{0}{\alpha^{(i)}\cup\{m^{(i)}\}}{\PP^N|H}{d_i}\right)\]
+ \item \[\mathcal Y_c^+= \VZc{1}{\{-m^{(1)},\ldots,-m^{(r)}\}\cup\alpha^{(0)}}{H}{d_0}^{\sim} \times_{H^r}\prod_{i=1}^r\M{0}{\alpha^{(i)}\cup\{m^{(i)}\}}{\PP^N|H}{d_i}\]
+\end{enumerate}
+where $\M{0}{\mu}{H}{d}^\sim$ denotes the space of genus zero punctured maps, while $\VZc{0}{\mu}{H}{d}$ denotes the desingularisation of the main component of the space of punctured maps discussed in Section ???. The numerical data run over all splitting $A$ of the tangency conditions (resp. $B$ of the degree) in $r+1$ parts, such that:
+\begin{enumerate}
+ \item $d_0+\sum_{i=1}^r m^{(i)}=\sum\alpha^{(0)}$;
+ \item $d_i=m^{(i)}+\sum\alpha^{(i)}$;
+ \item $d_0>0$ in case $c$.
 \end{enumerate}
 
+Review here the process of gluing for punctured maps. In particular the basic monoid should be modified in order to make the relevant evaluations log morphisms. Claim: evaluations are strict. Consequence: the fiber product in the category of log stacks is fine. We have then to apply saturation. This is a finite morphism of degree... (I think it could be $\frac{\prod m^{(i)}}{lcm(m^{(i)}}$).
 
+\begin{lemma}[Virtual pushforward] The following hold.
+ \begin{itemize}
+  \item $\fgt_*[\M{0}{\alpha}{\PP^N|H}{d}]=[\MG{0}{\alpha}{\PP^N|H}{d}]$ (follows from \cite{GathmannThesis,AbramovichMarcusWiseComparison}).
+  \item $\fgt_*[\VZc{1}{\alpha}{\PP^N|H}{d}]$ computes the reduced relative invariants by definition.
+  \item $\fgt_*[\M{0}{\mu}{H}{d_0}^\sim]=[\M{0}{\lvert\mu\rvert}{H}{d_0}]$ (follows from \cite{GathmannThesis} and... comparison of punctured with rubber invariants).
+  \item $\fgt_*[\VZc{1}{\mu}{H}{d_0}^\sim]$ here we should need a variation on Pixton's DRC formula; hopefully it's enough to avoid the graphs that tropical well-spacedness discards.
+ \end{itemize}
+\end{lemma}
 
 
 
