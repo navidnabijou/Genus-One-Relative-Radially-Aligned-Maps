@@ -344,7 +344,16 @@ The ultimate goal of the paper is to apply Gathmann's techniques to the Vakil-Zi
 
 {\color{gray} describe the latter as explicitly as possible; comment on the cones that are (possibly?) not there because of the compatibility of the alignment with the log map (this is probably awkward, useless, and superceded by saying ``we align subdivide the ACGS minimal dual monoid'') and because of smoothability/factorisation (this is probably related to tropical well-spacedness)}
 
-\section{Description of the boundary}
+\subsection{A desingularisation of punctured log maps}
+Describe an analogous desingularisation for punctured log maps. The degree zero case seems more delicate and complicated, even though it should just be a substack of a moduli space of marked curves after all (the log structure is possibly trickier).
+\begin{dfn}
+ A $(z,g,n)$-punctured log map is a punctured log map where the markings with negative contact order to $H$ have an extra label, either $z$ (the tropical map sends them to $z$ero), or $g$ (stands for gluing), or $n$ (stands for nihil, nothing...)
+\end{dfn}
+We would like to extend the minimal monoid in order to account for some of the punctures, i.e. take the sum of $p^*\mathcal M_{C^\circ}$ (for every such puncture $p$) fibered over the log structure of the base, which seems to have the same effect as topping those edges with a uertex (which doesn't carry any other information). This looks to me like sprouting a $\PP^1$ at those puncture. Now, the point of the $(z,g,n)$-labelling is that: we only extend the log structure at the $z$ and $g$ punctures; uertices labelled with a $z$ are sent under the tropical map to $0$, so continuity applies to them (therefore the extension of the log structure is fake because that edge length is determined by the position of the adjacent vertex); while uertices labelled with an $n$ are free to roam about. Finally, we perform a radial alignment (and we take rays). This distinction comes about when you split your centrally aligned map according to the strict interior of the $\delta$-circle and the outside; the intersection of a tree with the $\delta$-circle can either be a vertex over $0$, or another vertex (corresponding to a degeneration of the genus zero map outside), or not a vertex.
+
+
+
+\section{The boundary}
 
 Note that $f$ has contact order with $H$ exactly equal to $\alpha_k$ at the marking $p_k$, or else the irreducible component of $C$ on which $p_k$ lies is mapped entirely inside $H$. By pulling back along $f$ the equation defining $H$, and taking its $\alpha_k$-th derivative at $p_k$ (which makes sense because all the lower order derivatives do vanish by assumption) we single out the latter locus. By staring at the exact sequence of jet bundles
 \[0\to p_k^*\Omega_{C}^{\otimes\alpha_k}\otimes\ev_k^*\OO_{\PP^N}(H)\to p_k^*\mathcal J^{\alpha_k}(f^*\OO_{\PP^N}(H))\to p_k^*\mathcal J^{\alpha_k-1}(f^*\OO_{\PP^N}(H))\to 0\]
@@ -418,7 +427,7 @@ where $\M{0}{\mu}{H}{d}^\sim$ denotes the space of genus zero punctured maps, wh
  \item $d_0>0$ in case $c$.
 \end{enumerate}
 
-Review here the process of gluing for punctured maps. In particular the basic monoid should be modified in order to make the relevant evaluations log morphisms. Claim: evaluations are strict. Consequence: the fiber product in the category of log stacks is fine. We have then to apply saturation. This is a finite morphism of degree... (I think it could be $\frac{\prod m^{(i)}}{lcm(m^{(i)}}$).
+Review here the process of gluing for punctured maps. In particular the basic monoid should be modified in order to make the relevant evaluations log morphisms. Claim: evaluations are strict. Consequence: the fiber product in the category of log stacks is fine. We have then to apply saturation. This is a finite morphism of degree... (I think it could be $\frac{\prod m^{(i)}}{lcm(m^{(i)})}$).
 
 \begin{lemma}[Virtual pushforward] The following hold.
  \begin{itemize}
