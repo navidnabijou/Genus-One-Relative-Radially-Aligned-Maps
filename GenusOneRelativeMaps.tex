@@ -80,6 +80,7 @@
 \draw (1,1.5) -- (3,2) -- (3,-1) -- (1,-1.5);
 }}
 
+\newcommand{\mathsq}[1]{#1}
 \newcommand{\pM}{\pazocal{M}}
 \newcommand{\TT}{\operatorname{T}}
 \newcommand{\oM}{\overline{\mathcal{M}}}
@@ -358,29 +359,74 @@ We would like to extend the minimal monoid in order to account for some of the p
 
 \newpage
 
-\section{Recursive description of the boundary}
-Let $\VZ = \VZ_{1,\alpha}(\PP^N|H,d)$ and let $\Acal$ denote the Artin fan of $\VZ$. Since the map
+\section{Determination of the logarithmic strata}
+\subsection{Logarithmic strata of the Artin fan}
+Let $\VZ = \VZ_{1,\alpha}(\PP^N|H,d)$ and let $\Acal$ denote the Artin fan of $\VZ$. Since the map of log stacks
 \begin{equation*} \VZ \to \Acal \end{equation*}
-is smooth and strict, we see that the codimension-$k$ logarithmic strata in $\VZ$ are in bijective correspondene (via pull-back) with the codimension-$k$ logarithmic strata in $\Acal$. The logarithmic strata in $\Acal$, on the other hand, have a purely combinatorial description (at least locally) in terms of the associated moduli spaces of tropical curves, coming from the fact that $\VZ$ is a logarithmic blow-up of the usual moduli space of log stable maps. In this section we discuss this circle of ideas, and show how it plays out in a number of examples.
+is smooth, we see that the codimension-$k$ logarithmic strata in $\VZ$ are in bijective correspondene (via pull-back) with the codimension-$k$ logarithmic strata in $\Acal$. The logarithmic strata in $\Acal$, on the other hand, have a purely combinatorial description (at least locally) in terms of the associated moduli spaces of tropical curves, coming from the fact that $\VZ$ is a logarithmic blow-up of the usual moduli space of log stable maps. In this section we discuss this circle of ideas, and show how it plays out in a number of examples.
 
 Let $\Mcal = \ol{\Mcal}^{\op{log}}_{1,\alpha}(\PP^N|H,d)$ denote the Abramovich--Chen--Gross--Siebert moduli space of log stable maps. Recall that $\VZ$ is obtained as a closed substack of a log modification
 \begin{equation*} \widetilde{\VZ} \to \Mcal .\end{equation*}
-Since the map $\VZ \hookrightarrow \widetilde{\VZ}$ is strict, their Artin fans agree, so for the moment let us focus on $\widetilde{\VZ}$. We have a commutative square:
+Since the map $\VZ \hookrightarrow \widetilde{\VZ}$ is strict, the Artin fan $\Acal$ of $\VZ$ is locally isomorphic to the Artin fan of $\widetilde{\VZ}$ (with the latter being, in general, larger). Since the following discussion is entirely local, we will ignore the distinction between the two, and pretend as though $\Acal$ is the Artin fan of $\widetilde{\VZ}$. There is then a commuting square:
 \bcd
 \widetilde{\VZ} \ar[r] \ar[d] & \Mcal \ar[d] \\
 \Acal \ar[r] & \Acal_{\Mcal}.
 \ecd
 Note that neither of the vertical maps are smooth, since the moduli spaces on the top row are not log smooth. The construction of $\widetilde{\VZ} \to \Mcal$ as the log modification obtained by imposing an alignment condition gives us a combinatorial description of the map $\Acal \to \Acal_{\Mcal}$ which we will use to study $\Acal$. Recall that $\Acal$ is locally isomorphic to the stack quotient
 \begin{equation*} \left[ \Spec \kfield[Q] / \Spec\kfield [Q^{\gp}] \right]\end{equation*}
-where $Q$ is a monoid giving a\footnote{(Navid) Neat?} local chart for $\Mcal$, which we may take to be the minimal monoid of \cite[\S 1.5]{GrossSiebertLog}. The real dual $Q^\vee_{\RR} = \Hom(Q,\RR_{\geq 0})$ of this monoid can be viewed as a moduli space of tropical maps; see \cite[Remark 1.12]{GrossSiebertLog}. We call this \emph{the tropical moduli space}; belonging to the tropical moduli space are the edge lengths of the associated tropical curve (corresponding to the smoothing parameters of the nodes of the logarithmic curve). Since the alignemnt condition amounts to imposing a partial ordering amongst certain sums of these edge lengths, it produces a polyhedral decomposition of the tropical moduli space into chambers where different partial order relations hold. If we only consider the integral points, this produces a polyhedral decomposition of the cone $Q^\vee = \Hom(Q,\N)$. Dualising, we obtain a toric blow-up
+where $Q$ is a monoid giving a\footnote{(Navid) Neat?} local chart for $\Mcal$, which we may take to be the minimal monoid of \cite[\S 1.5]{GrossSiebertLog}. The real dual $Q^\vee_{\RR} = \Hom(Q,\RR_{\geq 0})$ of this monoid can be viewed as a moduli space of tropical maps; see \cite[Remark 1.12]{GrossSiebertLog}. We call this \emph{the tropical moduli space}; belonging to the tropical moduli space are the edge lengths of the associated tropical curve (corresponding to the smoothing parameters of the nodes of the logarithmic curve). Since the alignment condition amounts to imposing a partial ordering amongst certain sums of these edge lengths, it produces a polyhedral decomposition of the tropical moduli space into chambers where different partial order relations hold. If we only consider the integral points, this produces a polyhedral decomposition of the cone $Q^\vee = \Hom(Q,\N)$. Dualising, we obtain a toric blow-up
 \begin{equation*} Z \to \Spec \kfield[Q] \end{equation*}
 which, since it is equivariant, descends to a morphism of the associated $0$-dimensional stacks:
 \begin{equation*} \left[Z/T_Z \right] \to \left[ \Spec \kfield[Q] / \Spec\kfield [Q^{\gp}] \right]. \end{equation*}
-This gives an affine-local description of the map $\Acal \to \Acal_\Mcal$ and in particular of the Artin fan $\Acal$. By the orbit-cone correspondence, the codimension-$k$ strata of $\Acal$ (locally) correspond to the $k$-dimensional cones in the polyhedral decomposition of $Q^\vee$. This is best understood through examples: we now present a number of these.
+This gives an affine-local description of the map $\Acal \to \Acal_\Mcal$ and in particular of the Artin fan $\Acal$. By the orbit-cone correspondence, the codimension-$k$ strata of $\Acal$ which intersect this open locus correspond to the $k$-dimensional cones in the polyhedral decomposition of $Q^\vee$ described above. This is best understood through a number of examples, which we now present.
+
+\subsection{Examples of logarithmic strata} In these examples we will proceed in the following manner: we will start by fixing an element of the ordinary moduli space $\Mcal$ of log stable maps. We will then compute the associated tropical moduli space, giving a description of $\Acal_\Mcal$ local to our chosen element. We will then describe the necessary polyhedral subdivison, and thus give a description of $\Acal$ in a neighbourhood of the preimage in $\VZ$ of our chosen element of $\Mcal$. Finally we will use this to describe the logarithmic strata which intersect this neighbourhood.
+\begin{example} Consider an element of $\Mcal$ whose associated tropical map has the following combinatorial type:
+\begin{center}
+\begin{tikzpicture}
+\draw [fill] (0,3) circle[radius=2pt];
+\draw (0,3) node[left]{$\mathsq{C}_1$};
+\draw (0,3) -- (2,2);
+\draw (1,2.5) node[above,color=red]{$1$};
+\draw (1,2.5) node[below]{$e_1$};
+
+\draw [fill] (0,1) circle[radius=2pt];
+\draw (0,1) node[left]{$\mathsq{C}_2$};
+\draw (0,1) -- (2,2);
+\draw (1,1.5) node[below,color=red]{$2$};
+\draw (1,1.5) node[above]{$e_2$};
+
+\draw [->] (2,2) -- (3,2);
+\draw (3,2) node[above]{$x_1$};
+
+\draw [fill=white] (2,2) circle[radius=2pt];
+\draw (2,2) node[above]{$\mathsq{C}_0$};
+
+\draw [->,color=red] (2,1.5) -- (2,0.5);
+
+\draw [->,color=red] (0,0) -- (3,0);
+\draw (0,0) [fill=red,color=red] circle[radius=2pt];
+\draw (3,0) node[right,color=red]{$\Sigma(\PP^N|H)$};
+\end{tikzpicture}
+\end{center}
+Here each edge (corresponding to a node of the curve) has a length $e_i$ and an expansion factor $u_i$ (indicated in red). The moduli space of such tropical maps is generated by the edge lengths $e_1$ and $e_2$
+\begin{equation*} (\RR_{\geq 0})_{e_1} \times (\RR_{\geq 0})_{e_2} \end{equation*}
+subject to the continuity condition $e_1=2e_2$. So the tropical moduli space is simply $\RR_{\geq 0}$ generated by $e_2$. Note that for any $e_2 > 0$ we have:
+\begin{equation*} \lambda(\mathsq{C}_2) = e_2 = e_1/2 < e_1 = \lambda(\mathsq{C}_1). \end{equation*}
+Thus, any logarithmic map with combinatorial type given by the above picture is automatically aligned. This means that the map $\VZ \to \Mcal$ is an isomorphism in a neighbourhood of our chosen element (there is no blowing up necessary). Indeed, the tropical moduli space is $\RR_{\geq 0}$ and this cone does not admit a polyhedral decomposition (there is no non-trivial toric blow-up of $\Aaff^1$).
+\end{example}
+
+\begin{example}
+Consider now an element of $\Mcal$ whose associated tropical map has the corresponding combinatorial type:
+
+
+\end{example}
 
 \newpage
 
 \section{Recursion formula for $(\PP^N|H)$}
+
+In the previous section we used tropical geometry to identify the logarithmic strata of $\VZ_{1,\alpha}(\PP^N|H,d)$. We now focus our attention on the logarithmic divisors, providing a recursive description for these loci: i.e. a description using a fibre product of smaller moduli spaces. This is the technically most difficult part of the paper. As a result, we obtain a Gathmann recursion formula in genus one.
 
 Note that $f$ has contact order with $H$ exactly equal to $\alpha_k$ at the marking $p_k$, or else the irreducible component of $C$ on which $p_k$ lies is mapped entirely inside $H$. By pulling back along $f$ the equation defining $H$, and taking its $\alpha_k$-th derivative at $p_k$ (which makes sense because all the lower order derivatives do vanish by assumption) we single out the latter locus. By staring at the exact sequence of jet bundles
 \[0\to p_k^*\Omega_{C}^{\otimes\alpha_k}\otimes\ev_k^*\OO_{\PP^N}(H)\to p_k^*\mathcal J^{\alpha_k}(f^*\OO_{\PP^N}(H))\to p_k^*\mathcal J^{\alpha_k-1}(f^*\OO_{\PP^N}(H))\to 0\]
