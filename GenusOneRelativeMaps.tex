@@ -604,13 +604,17 @@ We proceed as in the previous section, fixing an element of $\Mcal$ and consider
         \caption{$\Ycal_C^+$}
     \end{minipage}
 \end{figure}
-\noindent Notice that the continuity of the tropical map identifies all of the edge lengths up to scalars given by the expansion factors (i.e. tangency orders) at the edges; thus the tropical moduli space is isomorphic to $\RR_{\geq 0}$ and so we have a divisor (with no subdivision required).
+\noindent Notice that the continuity of the tropical map identifies all of the edge lengths, up to weights given by the expansion factors (i.e. tangency orders) at the edges; thus the tropical moduli space is isomorphic to $\RR_{\geq 0}$ and so we have a divisor (with no subdivision required).
 
-These divisors live inside an open neighbourhood of the preimage in $\VZ$ of our chosen locus in $\Mcal$, and are thus locally closed substacks of $\VZ$. To obtain the desired components of $\Dcal^k$, we must take the closure of these locally closed substacks. We will analyse this procedure on a case-by-case basis, and see once again that the tropical picture gives a complete and recursive description of the closure.
+These divisors live inside an open neighbourhood of the preimage in $\VZ$ of our chosen locus in $\Mcal$, and are thus locally closed substacks of $\VZ$. To obtain the desired components of $\Dcal^k$, we must take the closure of these locally closed substacks. We will analyse this procedure on a case-by-case basis, and see once again that the tropical picture gives a complete and recursive description of the combinatorics. As usual, this will be done by comparing loci in$\VZ$ with loci in $\Mcal$. To be more precise: we will take the closure of our locally closed substack in $\Mcal$ and relate it to the closure of our locally closed substack in $\VZ$. We will see that the induced map on closures is another blow-up. The closed locus in $\Mcal$ is understood by \cite{PuncturedMaps} as a fibre product of moduli spaces of punctured maps. \footnote{(Navid) Introduce notation for these locally closed substacks, because this shit is getting out of hand.}
 
-\subsubsection{Type A} By definition the locus $\Ycal_A$ contains those aligned maps which are in the closure of the locus of maps whose associated tropical curve has the same combinatorial type as Figure 1\footnote{(Navid) Bad LaTeX reference}. We will now argue that such an aligned map is always obtained by giving an alignment on the piece of the curve corresponding to the genus one vertex.
+\subsubsection{Type A} By definition the locus $\Ycal_A$ contains those elements of $\VZ$ which appear in the closure of the locus of aligned maps whose associated tropical curve has the same combinatorial type as Figure 1\footnote{(Navid) Bad LaTeX reference}. We will now argue that such an element restricts to give an aligned map on the piece of the curve corresponding to $\mathsq{C}_1$, and that conversely given an aligned map corresponding to $\mathsq{C}_1$ and ordinary punctured maps corresponding to $\mathsq{C}_0,\mathsq{C}_2,\ldots,\mathsq{C}_r$, the glued map is aligned. This shows that $\Ycal_A$ is equal, up to an \'etale quotient, to the fibre product:
+\begin{equation*}\M{0}{\alpha^{(0)}\cup (-m_1,\ldots,-m_r)}{\PP^N|H}{d_0}\times_{H^r}\left(\VZ_{1,\alpha^{(1)}\cup(m_1)}(\PP^N|H,d_1)\times\prod_{i=2}^r\M{0}{\alpha^{(i)}\cup(m_i)}{\PP^N|H}{d_i}\right). \end{equation*}
+Put differently, the map from the closed locus in $\VZ$ to the closed locus in $\Mcal$ is given by blowing up one of the factors of the fibre product
+\begin{equation*}\M{0}{\alpha^{(0)}\cup (-m_1,\ldots,-m_r)}{\PP^N|H}{d_0}\times_{H^r}\prod_{i=1}^r\M{0}{\alpha^{(i)}\cup(m_i)}{\PP^N|H}{d_i}. \end{equation*}
+and leaving the rest alone.
 
-We start by considering possible limiting points of our original locus in $\Mcal$. These correspond to further degenerations of the (combinatorial type of the) tropical map.
+Let us start by considering possible limiting points of our original locus in $\Mcal$. These correspond to further degenerations of the (combinatorial type of the) tropical map.
 
 
 
