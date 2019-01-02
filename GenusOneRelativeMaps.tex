@@ -179,6 +179,7 @@
 \newcommand{\h}{\operatorname{h}}
 \newcommand{\Aut}{\operatorname{Aut}}
 \newcommand{\Acal}{\mathcal{A}}
+\newcommand{\Scal}{\mathcal{S}}
 \newcommand{\Mcal}{\mathcal{M}}
 \newcommand{\Dcal}{\mathcal{D}}
 \newcommand{\Ycal}{\mathcal{Y}}
@@ -222,6 +223,9 @@
 \newtheorem*{rem}{Remark}
 \newtheorem*{aside*}{Aside}
 \newtheorem*{acknowledgements}{Acknowledgements}
+
+\newlist{steps}{enumerate}{1}
+\setlist[steps, 1]{label = Step (\arabic*):}
 
 \newcommand{\ilemph}[1]{\emph{#1}}
 
@@ -370,7 +374,7 @@ We would like to extend the minimal monoid in order to account for some of the p
 
 \newpage
 
-\section{Indexing the logarithmic strata}
+\section{Description of the logarithmic strata}
 \noindent Let $\VZ = \VZ_{1,\alpha}(\PP^N|H,d)$ and let $\Acal$ denote the Artin fan of $\VZ$. Since the map of log stacks
 \begin{equation*} \VZ \to \Acal \end{equation*}
 is smooth, we see that the codimension-$k$ logarithmic strata in $\VZ$ are in bijective correspondence (via pull-back) with the codimension-$k$ logarithmic strata in $\Acal$. The logarithmic strata in $\Acal$, on the other hand, have a purely combinatorial description (at least locally) in terms of the associated moduli spaces of tropical maps, coming from the fact that $\VZ$ is a logarithmic blow-up of the usual moduli space of log stable maps. In this section we discuss this circle of ideas, and show how it plays out in a number of examples.
@@ -561,11 +565,30 @@ Finally, there are three codimension--$2$ strata, corresponding to different \em
 
 \end{example}
 
+\subsection{Global logarithmic strata}
+In the previous subsections we used tropical geometry to identify the logarithmic strata of $\VZ=\VZ_{1,\alpha}(\PP^N|H,d)$ local to the preimage of a point in $\Mcal$. In fact, the whole discussion carries over if we replace a point in $\Mcal$ by a locally closed logarithmic stratum. This fact will allow us to describe the logarithmic strata of $\VZ$ globally.
+
+As usual we start with $\Mcal$. The locally closed logarithmic strata of $\Mcal$ consist of loci where the combinatorial type of the associated tropical curve is constant. This is because the combinatorial type determines the minimal monoid $Q$, which coincides with the stalk of the ghost sheaf on $\Mcal$.
+
+Let us now pick such a stratum $\Scal \subseteq \Mcal$. In a sufficiently small open neighbourhood of $\Scal$, the combinatorial types of the associated tropical curves are obtained from the combinatorial type of $\Scal$ by contracting some edges (i.e. smoothing some nodes) and moving some of the vertices from the interior $\RR_{>0}$ of the tropicalisation of the target to the vertex $0 \in \RR_{\geq 0}$ (i.e. moving some components outside of $H$). In both cases, we see that the associated map on tropical moduli spaces is injective, and so the generisation map on the level of ghost sheaves is surjective. This allows us to produce a chart on the open neighbourhood of $\Scal$ with monoid given by $Q$.
+
+The previous discussion then applies to give a description of the logarithmic strata of $\VZ$ which intersect an open neighbourhood of the preimage of $\Scal$. Since logarithmic strata must map to logarithmic strata, this gives a procedure for enumerating all of the locally closed logarithmic strata of $\VZ$, namely:\medskip
+\begin{enumerate}[label=\textbf{Step \arabic*:},leftmargin=5\parindent]
+\item Enumerate the locally closed logarithmic strata of $\Mcal$ by enumerating all possible combinatorial types of tropical curves with the given numerical data. The dual intersection complex of these strata is specified by generisation of combinatorial types, as described earlier.\medskip
+\item For each locally closed stratum $\Scal\subseteq \Mcal$ identify the tropical moduli space $Q^\vee_{\RR}$ and perform the subdivision  specified by the alignment condition. The arguments of the previous subsections carry over \emph{mutatis mutandis} to give a description of the logarithmic strata of $\VZ$ which map to a neighbourhood of $\Scal$. The dual intersection complex of these strata is specified by the combinatorics of each subdivision together with the dual intersection complex of the strata of $\Mcal$.
+\end{enumerate}
+
+We now illustrate this is in some examples:
+\begin{example} Example of low-degree computation of logarithmic strata. (Note that for $\Mcal$ we can't read off the codimension from the dimension of the tropical moduli space because $\Mcal$ is not log smooth.)\footnote{(Navid) To be done.}\end{example}
+
+
 \newpage
 
 \section{Recursion formula for $(\PP^N|H)$}
 
-\noindent In the previous section we used tropical geometry to identify the logarithmic strata of $\VZ=\VZ_{1,\alpha}(\PP^N|H,d)$. We now focus our attention on the logarithmic divisors, providing a recursive description for these loci: that is, a description in terms of fibre products of smaller moduli spaces. This is the technically most difficult part of the paper. The recursive description bears some similarities with the recursive desription of the boundary of the absolute space $\VZ_{1,n}(\PP^N,d)$ given in \cite{VZ}; in keeping with the theme of this paper, however, we will see that the logarithmic structures provide a convenient framework for dealing with the combinatorics.
+\noindent 
+
+We now focus our attention on the logarithmic divisors, providing a recursive description for these loci: that is, a description in terms of fibre products of smaller moduli spaces. This is the technically most difficult part of the paper. The recursive description bears some similarities with the recursive desription of the boundary of the absolute space $\VZ_{1,n}(\PP^N,d)$ given in \cite{VZ}; in keeping with the theme of this paper, however, we will see that the logarithmic structures provide a convenient framework for dealing with the combinatorics.
 
 The end result is that we obtain an explicit formula for tautological integrals over these boundary loci. This produces a Gathmann recursion formula for relative invariants in genus one.
 
