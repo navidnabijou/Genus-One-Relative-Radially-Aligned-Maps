@@ -1,4 +1,6 @@
 \documentclass[11pt]{amsart}
+\linespread{1.25}
+\usepackage[margin=3cm]{geometry}
 
 \usepackage[english]{babel}
 \usepackage{appendix}
@@ -52,39 +54,45 @@
 \def\Yagraph{\tikz[baseline=-3pt,scale=.8]{
 \draw (2,0) -- (0,1) (2,0) -- (0,.5) (2,0) -- (0,-1);
 \draw (2,0) circle(2pt)[fill=black];
+\draw [->] (2,0) -- (2.7,0);
+\draw (2.6,0) node[right]{\tiny{$x_k$}};
 \draw (0,1) circle(2pt)[fill=white];
 \draw (0,.5) circle(2pt)[fill=black];
 \draw (0,-.25) node{$\vdots$};
 \draw (0,-1) circle(2pt)[fill=black];
 \draw [red,fill=red] (0,-2) circle[radius=2pt];
 \draw [->,red,thick] (0,-2) -- (2,-2);
-\draw (2,-2) node[right,red]{\tiny{$\Sigma(\PP^N)$}};
+\draw (2,-2) node[right,red]{\tiny{$\Sigma(\PP^N|H)$}};
 \draw [->,red] (1,-0.9) -- (1,-1.6);
 }}
 
 \def\Ybgraph{\tikz[baseline=-3pt,scale=.8]{
 \draw (2,0) to[out=120,in=0] (0,1) (2,0) -- (0,1) (2,0) -- (0,.5) (2,0) -- (0,-1);
 \draw (2,0) circle(2pt)[fill=black];
+\draw [->] (2,0) -- (2.7,0);
+\draw (2.6,0) node[right]{\tiny{$x_k$}};
 \draw (0,1) circle(2pt)[fill=black];
 \draw (0,.5) circle(2pt)[fill=black];
 \draw (0,-.25) node{$\vdots$};
 \draw (0,-1) circle(2pt)[fill=black];
 \draw [red,fill=red] (0,-2) circle[radius=2pt];
 \draw [->,red,thick] (0,-2) -- (2,-2);
-\draw (2,-2) node[right,red]{\tiny{$\Sigma(\PP^N)$}};
+\draw (2,-2) node[right,red]{\tiny{$\Sigma(\PP^N|H)$}};
 \draw [->,red] (1,-0.9) -- (1,-1.6);
 }}
 
 \def\Ycgraph{\tikz[baseline=-3pt,scale=.8]{
 \draw (2,0) -- (0,1) (2,0) -- (0,.5) (2,0) -- (0,-1);
 \draw (2,0) circle(2pt)[fill=white];
+\draw [->] (2,0) -- (2.7,0);
+\draw (2.6,0) node[right]{\tiny{$x_k$}};
 \draw (0,1) circle(2pt)[fill=black];
 \draw (0,.5) circle(2pt)[fill=black];
 \draw (0,-.25) node{$\vdots$};
 \draw (0,-1) circle(2pt)[fill=black];
 \draw [red,fill=red] (0,-2) circle[radius=2pt];
 \draw [->,red,thick] (0,-2) -- (2,-2);
-\draw (2,-2) node[right,red]{\tiny{$\Sigma(\PP^N)$}};
+\draw (2,-2) node[right,red]{\tiny{$\Sigma(\PP^N|H)$}};
 \draw [->,red] (1,-0.9) -- (1,-1.6);
 }}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -584,11 +592,10 @@ Note that we are \emph{not} able to easily read off the codimension of a logarit
 Now let us pick a stratum $\Scal \subseteq \Mcal$ indexed by a combinatorial type $\Gamma$ and with associated monoid $Q$. We may choose a sufficiently small open neighbourhood of $\Scal$ which only intersects logarithmic strata $\Scal^\prime$ which contain $\Scal$ in their closures. The previous discussion then shows that if we pick any point in this open neighbourhood, the combinatorial type of the associated tropical curve is obtained from $\Gamma$ by contracting some edges and specialising some vertices. Thus we see that the associated map on tropical moduli spaces is injective, and so the generisation map on the level of ghost sheaves is surjective. This allows us to produce a chart on the open neighbourhood of $\Scal$ with monoid given by $Q$.
 
 The discussion in the previous subsections then applies \emph{mutatis mutandis} to this open set, giving a description of the logarithmic strata of $\VZ$ which intersect an open neighbourhood of the preimage of $\Scal$. Since log strata must map to log strata, this gives a procedure for enumerating all of the locally closed logarithmic strata of $\VZ$, namely:\medskip
-\begin{enumerate}[label=\textbf{Step \arabic*:},leftmargin=5\parindent]
+\begin{enumerate}
 \item Enumerate the locally closed logarithmic strata of $\Mcal$ by enumerating all possible combinatorial types of tropical curves with the given numerical data. The dual intersection complex of these strata is specified by generisation of combinatorial types, as described earlier.\medskip
 \item For each locally closed stratum $\Scal\subseteq \Mcal$ identify the tropical moduli space $Q^\vee_{\RR}$ associated to the given combinatorial type, and perform the subdivision specified by the alignment condition. The arguments of the previous subsections carry over to give a description of the logarithmic strata of $\VZ$ which map to a neighbourhood of $\Scal$. The dual intersection complex of these strata is specified by the combinatorics of each subdivision together with the dual intersection complex of the strata of $\Mcal$.
 \end{enumerate}
-
 We now illustrate this is in some examples:
 \begin{example} Example of low-degree computation of logarithmic strata. (Note that for $\Mcal$ we can't read off the codimension from the dimension of the tropical moduli space because $\Mcal$ is not log smooth.)\footnote{(Navid) To be done.}\end{example}
 
@@ -597,33 +604,55 @@ We now illustrate this is in some examples:
 
 \section{Recursion formula for $(\PP^N|H)$}
 
-\noindent  In the previous section we explained how to determine the logarithmic strata of $\VZ$ along with their dual intersection complex. We now focus our attention on certain logarithmic divisors, providing a recursive description for these loci: that is, a description in terms of fibre products of smaller moduli spaces. This is the technically most difficult part of the paper. The recursive description bears some similarities with the recursive desription of the boundary of the absolute space $\VZ_{1,n}(\PP^N,d)$ given in \cite{VZ}; in keeping with the theme of this paper, however, we will see that log geometry provides a convenient framework for dealing with the combinatorics.
+\noindent  In the previous section we explained how to determine the logarithmic strata of $\VZ$. We now focus our attention on certain logarithmic divisors, providing a recursive description for these loci: that is, a description in terms of fibre products of smaller moduli spaces. This is the technically most difficult part of the paper. The recursive description bears some similarities with the recursive desription of the boundary of the absolute space $\VZ_{1,n}(\PP^N,d)$ given in \cite{VZ}; in keeping with the theme of this paper, however, we will see that log geometry provides a convenient framework for dealing with the combinatorics.
 
 The end result is that we obtain an explicit formula for tautological integrals over these boundary loci. This produces a Gathmann recursion  for relative invariants in genus one.
+
+The plan for this section is as follows \footnote{(Navid) Finish this}
 
 \subsection{Recursion setup} Consider an element of $\VZ$ and choose a marked point $x_k\in C$. We note that by the existence of a log morphism, either $f$ has contact order $\alpha_k$ to $H$ at the marking $x_k$, or else the irreducible component of $C$ containing $x_k$ is mapped entirely inside $H$ (we say ``$x_k$ belongs to an internal component'' in this case).
 
 By pulling back the equation defining $H$ along $f$ and then taking its $\alpha_k$-th derivative at $x_k$ (which makes sense since all the lower-order derivatives vanish by assumption) we obtain a section of a jet bundle on $\VZ$ whose vanishing locus coincides (set-theoretically) with the locus where $x_k$ belongs to an internal component. As in \cite[Construction 2.1]{Ga} there is an exact sequence of jet bundles
 \begin{equation*} 0\to x_k^*\omega_{\mathcal{C}/\VZ}^{\otimes\alpha_k}\otimes\ev_k^*\OO_{\PP^N}(H)\to x_k^*\mathcal J^{\alpha_k}(f^*\OO_{\PP^N}(H))\to x_k^*\mathcal J^{\alpha_k-1}(f^*\OO_{\PP^N}(H))\to 0 \end{equation*}
 and thus we obtain a section of the line bundle $x_k^*\omega_{\mathcal{C}/\VZ}^{\otimes\alpha_k}\otimes\ev_k^*\OO_{\PP^N}(H)$ with vanishing locus equal to the locus where $x_k$ belongs to an internal component. Writing this locus as
-\begin{equation*} \Dcal^k = \Dcal_{1,\alpha}^k(\PP^N|H,d) \subseteq \VZ_{1,\alpha}(\PP^N|H,d) = \VZ \end{equation*}
+\begin{equation*} \Dcal(k) = \Dcal_{1,\alpha}^k(\PP^N|H,d) \subseteq \VZ_{1,\alpha}(\PP^N|H,d) = \VZ \end{equation*}
 we obtain:
-\begin{lem} $(\alpha_k\psi_k+\ev_k^*H)\cap[\VZ]=[\Dcal^k].\footnote{(Navid) Should we work out the vanishing orders of the section at this point?}$\end{lem}
-\noindent The remainder of this section will be devoted to providing an explicit recursive description of $[\Dcal^k]$ in terms of tautological classes on spaces of maps with smaller numerical invariants. As we will see, this provides an algorithm for computing reduced relative invariants, as well as a quantum Lefschetz algorithm for reduced (absolute) invariants in genus one.
+\begin{lem} $(\alpha_k\psi_k+\ev_k^*H)\cap[\VZ]=[\Dcal(k)].\footnote{(Navid) Should we work out the vanishing orders of the section at this point?}$\end{lem}
+\noindent The remainder of this section will be devoted to providing an explicit recursive description of the class $[\Dcal(k)]$ in terms of tautological classes on spaces of maps with smaller numerical invariants. As we will see, this provides an algorithm for computing reduced relative invariants, as well as a quantum Lefschetz algorithm for reduced (absolute) invariants in genus one.
 
-\subsection{Identifying the components of $\Dcal^k$}
+\subsection{Identifying the irreducible components of $\Dcal(k)$} Here we explain the strategy for identifying the irreducible components of $\Dcal(k)$ via tropical geometry.
 
-\subsubsection{Components of $\Dcal^k$ are log strata} We begin by noting that every irreducible component of $\Dcal^k$ is a codimension--$1$ logarithmic stratum. This is not hard to see: the locus where the log structure is trivial coincides precisely with the  locus where the source curve is smooth and not mapped inside $H$. Moreover since $\VZ$ is log smooth this locus is open and dense. By definition $\Dcal^k$ is disjoint from this locus, hence is contained in the closed complement. Since it has codmension $1$, it must thus be equal to a union of logarithmic strata.
+\begin{lemma} Every irreducible component of $\Dcal(k)$ is a codimension-$1$ logarithmic stratum.\end{lemma}
+\begin{proof} This is not hard to see: the locus where the log structure is trivial coincides precisely with the  locus where the source curve is smooth and not mapped inside $H$, and since $\VZ$ is log smooth this locus is open and dense. By definition $\Dcal(k)$ is disjoint from this locus, hence is contained in the  complement of this locus, which (by the very definition of logarithmic strata) can be written as a union of logarithmic strata of positive codimension. Since $\Dcal(k)$ has codmension $1$, it must therefore be equal to a union of logarithmic divisors.\end{proof}
 
-\subsubsection{Describing logarithmic divisors} In the previous section we discussed at length a procedure for determining all the logarithmic strata of $\VZ$. In particular, each divisorial logarithmic stratum is obtained by first choosing the combinatorial type of a tropical map, then subdividing its tropical moduli space, and finally choosing a ray in this subdivision. The logarithmic divisors which are contained in $\Dcal^k$ correspond precisely to the rays of the tropical moduli space where the vertex of the tropicalisation containing $x_k$ is mapped into the interior of $\RR_{\geq 0}$ by the tropical map.
+In the previous section we discussed at length a procedure for describing the logarithmic strata of $\VZ$. This shows that every divisorial logarithmic stratum is obtained via a three-step process:
+\begin{enumerate}
+\item choose the combinatorial type of a tropical map;
+\item subdivide the corresponding tropical moduli space;
+\item choose a ray in this subdivision.
+\end{enumerate}
+Notice that this process contains some redundancies: once we choose a ray of the tropical moduli space, we obtain a generisation of the intial combinatorial type, given by contracting some edges of the dual graph.
+
+\begin{example} \end{example}
+
+Whenever we consider a logarithmic stratum in $\VZ$, by its combinatorial type we will always mean the generisation of the ``original'' combinatorial type induced by our choice of cone in the polyhedral subdivision. This does not depend on the choice of original combinatorial type.
+
+Now, the logarithmic divisors which are contained in $\Dcal(k)$ are precisely those whose corresponding combinatorial type has the vertex of the dual graph containing $x_k$ mapped into the interior of $\RR_{\geq 0}$.
+
+Thus, via the above procedure, we are able to enumerate the irreducible components of $\Dcal(k)$ in a combinatorial manner. The combinatorial type and choice of ray allows us to describe the general element of such a component. What we are still lacking is a recursive description of the components which will allow us to compute integrals over them. This is the subject of the remainder of this section.
 
 \subsection{Recursive description of the divisors: types $A,B$ and $C^+$}
-Let us therefore choose a combinatorial type of a tropical map, corresponding to a logarithmic stratum $\Scal$. In this section we will restrict ourselves to the situation where the minimal subcurve of genus one has positive degree (the other, more complicated, case will be taken up in the next section).
 
-In this situation, the subdivision is trivial since no alignment is necessary (both radii are zero). Following our procedure, we choose a ray of the tropical moduli space $Q^\vee_{\RR}$. This determines a generisation of our original combinatorial type, by setting certain edge lengths to zero. Replace the original combinatorial type with this generisation. In order to have $\Dcal \subseteq \Dcal^k$ we need that the vertex of the tropicalisation which contains the flag $x_k$ is mapped into the interior of $\RR_{\geq 0}$ by the tropical map.
+The basic idea is as follows. Choose an irreducible component $\Dcal \subseteq \Dcal(k)$. As discussed above, we can obtain this by choosing an ``initial'' combinatorial type together with a ray of the resulting subdivision of the tropical moduli space. Without loss of generality we may assume that this ``initial'' combinatorial type coincides with the ``true'' combinatorial type of $\Dcal$ obtained by performing the edge contractions specified by the choice of ray.
 
-We claim that this can be the only vertex of the tropical curve mapped into the interior of $\RR_{\geq 0}$; if there were more, the positions of their images in $\RR_{\geq 0}$ would be independent and thus the corresponding maximal cone in the tropical moduli space would be at least $2$~dimensional, which is a contradiction since we assumed we had chosen a ray.\footnote{(Luca) Say something about rigid tropical curves as in ACGS and KLR} There are now three cases to distinguish, depending on the position of the circuit. These are illustrated in the figures below.
+Now, let $\Dcal_{\Mcal}^\circ\subseteq \Mcal$ denote the (codimension-$1$) locally closed stratum corresponding to our choice of combinatorial type, and let $\Dcal_\Mcal = \overline{\Dcal^\circ}$ be the corresponding logarithmic stratum in $\Mcal$. Our divisor $\Dcal\subseteq\VZ$ is the proper transform of $\Dcal_\Mcal$, which is obtained by taking the preimage $\Dcal^\circ$ of $\Dcal_\Mcal^\circ$ (since $\Dcal^\circ$ is disjoint from the blown-up locus) and then taking its closure in $\VZ$. This is, of course, different from taking the preimage of $\Dcal_\Mcal$, since in general $\Dcal_\Mcal$ will intersect the blown-up locus. By continuity we have an induced map:
+\begin{equation*} \Dcal \to \Dcal_\Mcal. \end{equation*}
+The remainder of this section will be dedicated to showing how the map $\Dcal \to \Dcal_\Mcal$ may be interpreted as a blow-up. The reason this is useful is that $\Dcal_\Mcal$ itself has a recursive description, in terms of moduli spaces of punctured maps \cite{PuncturedMaps}, which in our setting we are able to compute integrals over.
 
+For the remainder of this subsection, we will consider only the situation where the circuit has positive degree; the other, more complicated case, will be taken up in \S \ref{}.
+
+
+\begin{lemma} Let $\Dcal \subseteq \Dcal(k)$ be an irreducible component and let $\Delta$ be the corresponding combinatorial type. Suppose that $\Delta$ assigns circuit has positive degree to the circuit. Then $\Delta$ takes one of the following forms:
 \begin{figure}[h]
     \centering
     \begin{minipage}{0.3\textwidth}
@@ -642,19 +671,33 @@ We claim that this can be the only vertex of the tropical curve mapped into the 
         \caption{$\Ycal_C^+$}
     \end{minipage}
 \end{figure}
-Note that these are just cartoon pictures: we have omitted the marked points and the expansion factors. The continuity of the tropical map identifies all of the edge lengths, up to weights given by the expansion factors (i.e. tangency orders) at the edges; thus the tropical moduli space is isomorphic to $\RR_{\geq 0}$ and so we have a divisor as expected.
 
-\subsubsection{Recursive description of the divisor}
-Let $\Dcal_{\Mcal}^\circ\subseteq \Mcal$ denote the (codimension-$1$) locally closed stratum corresponding to our combinatorial type. The corresponding divisor in $\Mcal$ is $\Dcal_\Mcal = \overline{\Dcal^\circ}$. On the other hand, the corresponding divisor $\Dcal$ in $\VZ$ is the proper transform of $\Dcal_\Mcal$, which is obtained by taking the preimage $\Dcal^\circ$ of $\Dcal_\Mcal^\circ$ (since $\Dcal^\circ$ is disjoint from the blown-up locus) and then taking its closure in $\VZ$. This is different from taking the preimage of $\Dcal_\Mcal$ (the total transform), since in general $\Dcal_\Mcal$ will intersect the blown-up locus. By continuity have an induced map:
-\begin{equation*} \Dcal \to \Dcal_\Mcal. \end{equation*}
-The remainder of this subsection will be dedicated to showing how the map $\Dcal \to \Dcal_\Mcal$ may be interpreted as a blow-up. This is an extremely useful fact, because $\Dcal_\Mcal$ has a recursive description in terms of moduli spaces of punctured maps \cite{PuncturedMaps}, which in our setting we are able to compute integrals over. We will consider the cases $A,B$ and $C^+$ separately in the next three subsections.
+\noindent The terminology is due to Vakil, and the picture in this case is very similar to \cite{Vre} (as we will see later, when the circuit is contracted the picture becomes very different). Note that in these pictures we have omitted the marked points, the degree of each vertex, and the expansion factors. These combinatorial data can be distributed arbitrarily, as long as:
+\begin{enumerate}
+\item every vertex has positive degree;
+\item the balancing condition is satisfied.
+\end{enumerate}
+Note that since every vertex has positive degree, there is no need to impose stability.\end{lemma}
+
+\begin{proof}
+Recall that we have $\Dcal\subseteq\VZ$ obtained by a choice of combinatorial type and ray in the subdivison of the tropical moduli space. In this situation, the subdivision is trivial since no alignment is necessary (both radii are zero). Following our procedure, we choose a ray of the tropical moduli space $Q^\vee_{\RR}$. Since this is generated by edge lengths, and we are assuming that the initial and generised combinatorial types coincide, we conclude that the tropical moduli space must be $\RR_{\geq 0}$. Since we are assuming that $\Dcal \subseteq \Dcal(k)$, we know that the vertex of the tropicalisation which contains the flag $x_k$ must map into the interior $\RR_{>0}\subseteq \RR_{\geq 0}$.
+
+We claim that this is the only vertex of the tropical curve mapped into the interior; if there were more, the positions of their images in $\RR_{\geq 0}$ would be independent, and thus the tropical moduli space would have dimension $\geq 2$, a contradiction.\footnote{(Luca) Say something about rigid tropical curves as in ACGS and KLR}
+
+Thus there is a single vertex $\sqC_0$ mapped into the interior of $\RR_{\geq 0}$ and a number of vertices $\sqC_1,\ldots,\sqC_r$ mapped onto the vertex $0 \in \RR_{\geq 0}$. No pair of $\sqC_1,\ldots,\sqC_r$ can be connected by an edge, since this would introduce an extra edge length to the tropical moduli space, which then once again would have dimension $\geq 2$. Each of $\sqC_1,\ldots,\sqC_r$ must have positive degree by the tropical balancing condition and must be connected to $\sqC_0$ (since the tropical curve must be connected).
+
+Thus, we see that the combinatorial type takes the form of a bipartite graph, with $\sqC_0$ on the right-hand side and $\sqC_1,\ldots,\sqC_r$ on the left-hand side. Note that the continuity of the tropical map identifies all of the edge lengths, up to weights given by the expansion factors (i.e. tangency orders) at the edges; thus the tropical moduli space is isomorphic to $\RR_{\geq 0}$ and so we have a divisor as expected.
+
+We distinguish three cases, depending on the position of the circuit, giving the three forms presented in the statement of the Lemma.\end{proof}
+
+We now now investigate the three types $A,B,C^+$ separately, giving a recursive description of the boundary locus in each case.
 
 
-\subsubsection{Type A} Choose an element of $\Dcal=\overline{\Dcal^\circ}$ where $\Dcal^\circ \subseteq \VZ$ is the locus of maps with combinatorial type equal to $\Gamma$, which itself is of type A. We will now argue that such an element restricts to give an aligned map on the piece of the curve corresponding to $\sqC_1$, and that conversely given an aligned map corresponding to $\sqC_1$ and ordinary punctured and logarithmic maps corresponding to $\sqC_0,\sqC_2,\ldots,\sqC_r$, the glued map is aligned. This shows that $\Dcal$ is equal, up to an \'etale quotient, to the fibre product:
-\begin{equation*}\Mpunct{0}{\alpha^{(0)}\cup (-m_1,\ldots,-m_r)}{\PP^N|H}{d_0}\times_{H^r}\left(\VZ_{1,\alpha^{(1)}\cup(m_1)}(\PP^N|H,d_1)\times\prod_{i=2}^r\Mlog{0}{\alpha^{(i)}\cup(m_i)}{\PP^N|H}{d_i}\right). \end{equation*}
-Put differently, the map from the closed locus in $\VZ$ to the closed locus in $\Mcal$ is given by blowing up one of the factors of the fibre product
-\begin{equation*}\Mpunct{0}{\alpha^{(0)}\cup (-m_1,\ldots,-m_r)}{\PP^N|H}{d_0}\times_{H^r}\prod_{i=1}^r\Mlog{0}{\alpha^{(i)}\cup(m_i)}{\PP^N|H}{d_i}. \end{equation*}
-and leaving the rest alone. Note that only the moduli space corresponding to $\sqC_0$ is a moduli space of punctured maps: the rest are usual moduli spaces of log stable maps.
+\subsubsection{Type A} Let $\Delta$ be a combinatorial type of type $A$ and let $\Dcal\subseteq\VZ$ be the corresponding logarithmic divisor (note there is no choice of ray here). The corresponding locus $\Dcal_\Mcal\subseteq\Mcal$ is given (up to a finite cover) by\footnote{(Navid) Include short appendix on integralisation/saturation when gluing punctured maps in our setting?}:
+\begin{equation*}\Dcal_\Mcal=\Mpunct{0}{\alpha^{(0)}\cup (-m_1,\ldots,-m_r)}{\PP^N|H}{d_0}\times_{H^r}\prod_{i=1}^r\Mlog{0}{\alpha^{(i)}\cup(m_i)}{\PP^N|H}{d_i}. \end{equation*}
+In this subsection we will show that
+\begin{equation*}\Dcal_\Mcal=\Mpunct{0}{\alpha^{(0)}\cup (-m_1,\ldots,-m_r)}{\PP^N|H}{d_0}\times_{H^r}\left(\VZ_{1,\alpha^{(1)}\cup(m_1)}(\PP^N|H,d_1)\times\prod_{i=2}^r\Mlog{0}{\alpha^{(i)}\cup(m_i)}{\PP^N|H}{d_i}\right) \end{equation*}
+i.e. that the map $\Dcal\to\Dcal_\Mcal$ is given by blowing up one of the factors of the fibre product.
 
 Let us start by considering possible limiting points of our original locus in $\Mcal$. These correspond to further degenerations of the (combinatorial type of the) tropical map.
 
