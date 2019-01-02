@@ -87,7 +87,7 @@
 
 \draw (2.05,0) node[above]{\tiny{$\sqC_0$}};
 \draw (0,1) node[left]{\tiny{$\sqC_1$}};
-\draw (0,.5) node[left]{\tiny{$\sqC_2$}};
+\draw (0,.5) node[left]{\tiny{$\sqC_3$}};
 \draw (0,-1) node[left]{\tiny{$\sqC_r$}};
 }}
 
@@ -617,7 +617,7 @@ We now illustrate this is in some examples:
 
 \newpage
 
-\section{Recursion formula for $(\PP^N|H)$}
+\section{Splitting axiom and recursion formula for $(\PP^N|H)$}
 
 \noindent  In the previous section we explained how to determine the logarithmic strata of $\VZ$. We now focus our attention on certain logarithmic divisors, providing a recursive description for these loci: that is, a description in terms of fibre products of smaller moduli spaces. This is the technically most difficult part of the paper. The recursive description bears some similarities with the recursive desription of the boundary of the absolute space $\VZ_{1,n}(\PP^N,d)$ given in \cite{VZ}; in keeping with the theme of this paper, however, we will see that log geometry provides a convenient framework for dealing with the combinatorics.
 
@@ -667,7 +667,7 @@ The remainder of this section will be dedicated to showing how the map $\Dcal \t
 For the remainder of this subsection, we will consider only the situation where the circuit has positive degree; the other, more complicated case, will be taken up in \S \ref{}.
 
 
-\begin{lemma} Let $\Dcal \subseteq \Dcal(k)$ be an irreducible component and let $\Delta$ be the corresponding combinatorial type. Suppose that $\Delta$ assigns circuit has positive degree to the circuit. Then $\Delta$ takes one of the following forms:
+\begin{lemma} Let $\Dcal \subseteq \Dcal(k)$ be an irreducible component and let $\Delta$ be the corresponding combinatorial type. Suppose that $\Delta$ assigns positive degree to the circuit. Then $\Delta$ takes one of the following forms:
 \begin{figure}[h]
     \centering
     \begin{minipage}{0.3\textwidth}
@@ -708,7 +708,7 @@ We distinguish three cases, depending on the position of the circuit, giving the
 We now now investigate the three types $A,B,C^+$ separately, giving a recursive description of the boundary locus in each case.
 
 
-\subsubsection{Type A} Let $\Delta$ be a combinatorial type of type $A$ and let $\Dcal\subseteq\VZ$ be the corresponding logarithmic divisor (note there is no choice of ray here). The corresponding locus $\Dcal_\Mcal\subseteq\Mcal$ is given (up to a finite cover) by\footnote{(Navid) Include short appendix on integralisation/saturation when gluing punctured maps in our setting?}:
+\subsubsection{Type $A$} Let $\Delta$ be a combinatorial type of type $A$ and let $\Dcal\subseteq\VZ$ be the corresponding logarithmic divisor (note there is no choice of ray here). The corresponding locus $\Dcal_\Mcal\subseteq\Mcal$ is given (up to a finite cover) by\footnote{(Navid) Include short appendix on integralisation/saturation when gluing punctured maps in our setting?}:
 \begin{equation*}\Dcal_\Mcal=\Mpunct{0}{\alpha^{(0)}\cup (-m_1,\ldots,-m_r)}{\PP^N|H}{d_0}\times_{H^r}\prod_{i=1}^r\Mlog{0}{\alpha^{(i)}\cup(m_i)}{\PP^N|H}{d_i}. \end{equation*}
 In this subsection we will show that
 \begin{equation}\label{type A splitting axiom}\Dcal=\Mpunct{0}{\alpha^{(0)}\cup (-m_1,\ldots,-m_r)}{\PP^N|H}{d_0}\times_{H^r}\left(\VZ_{1,\alpha^{(1)}\cup(m_1)}(\PP^N|H,d_1)\times\prod_{i=2}^r\Mlog{0}{\alpha^{(i)}\cup(m_i)}{\PP^N|H}{d_i}\right) \end{equation}
@@ -725,14 +725,20 @@ On $\sqC$ there is an associated contraction radius $\delta$ passing through a n
 \noindent Assuming this holds, we see as a consequence that $\sqC_0,\sqC_2,\ldots,\sqC_r$ must lie outside the contraction radius. Consequently the aligned curve $\sqC$ satisfies the factorisation condition if and only if $\sqC_1$ does, so \eqref{type A splitting axiom} holds.
 
 \begin{proof} The basic point is that $\Dcal$ consists of the union of the locally closed logarithmic strata adjacent to the locally closed stratum where all the $\sqC_i$ are irreducible. If we look at one of these boundary strata, the tropical moduli space contains a ray $\sigma$ corresponding to the stratum where all the $\sqC_i$ are irreducible; this amounts to setting all edge lengths other than $e_1,\ldots,e_r$ to zero. If $f_1,\ldots,f_l$ are some number of these additional edge lengths (corresponding to internal nodes in degenerations of the $\sqC_i$) then all of the cones of the subdivision adjacent to $\sigma$ will have $f_1+\ldots+f_l < e_j$ for all $j\in\{1,\ldots,r\}$, since $f_1=\ldots=f_l=0$ and $e_j \neq 0$ on $\sigma$. In particular, if $\sqC_1$ is degenerate and if $e$ denotes the minimal distance from the circuit to a non-contracted vertex of $\sqC_1$ (which certainly exists since $\sqC_1$ has positive degree) then $e < e_1 < \lambda(\sqC^\prime)$. Thus $\delta=e$ and $\delta < \lambda(\sqC^\prime)$ as claimed.\footnote{(Navid) Do an example?}\end{proof}
+Notice we did not specify whether $\delta$ was the relative or absolute radius. The point is that it does not matter; the proof goes through the same in either case. Thus we see that $\sqC$ satisfies the (double) factorisation condition if and only if $\sqC_1$ does.
 
-\subsubsection{Type B}
+\subsubsection{Type $B$}
+Now let $\Dcal\subseteq\VZ$ be a component of $\Dcal(k)$ with combinatorial type $\Delta$ of type $B$. In this case, it is impossible for the circuit to be contracted. Thus, $\Dcal_\Mcal \subseteq \Mcal$ is disjoint from the blown-up locus, and the map
+\begin{equation*} \Dcal \to \Dcal_\Mcal \end{equation*}
+is an isomorphism. Thus we obtain:
+\begin{equation*} \Dcal = \Mpunct{0}{\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}{\PP^N|H}{d_0}\times_{H^r}\left(\Mlog{0}{\alpha^{(1)}\cup(m_1,m_2)}{\PP^N|H}{d_1}\times\prod_{i=3}^r\Mlog{0}{\alpha^{(i)}\cup(m_i)}{\PP^N|H}{d_i}\right).\end{equation*}
 
+\subsubsection{Type $C^+$}
 
 \newpage
 Now we may use the recursive description of the boundary in $\Mcal$ using punctured maps \cite{PuncturedMaps} to obtain a description of these loci:
 \begin{enumerate}[label=(\Alph*)]
- \item \[\mathcal Y_a=\M{0}{\{-m^{(1)},\ldots,-m^{(r)}\}\cup\alpha^{(0)}}{H}{d_0}^\sim\times_{H^r}\left(\VZc{1}{\alpha^{(1)}\cup\{m^{(1)}\}}{\PP^N|H}{d_1}\times\prod_{i=2}^r\M{0}{\alpha^{(i)}\cup\{m^{(i)}\}}{\PP^N|H}{d_i}\right)\]
+
  \item \[\mathcal Y_b=\M{0}{\{-m^{(1)},\ldots,-m^{(r)}\}\cup\alpha^{(0)}}{H}{d_0}^\sim\times_{H^r}\left(\M{0}{\alpha^{(1)}\cup\{m^{(1)},m^{(2)}\}}{\PP^N|H}{d_1}\times\prod_{i=3}^r\M{0}{\alpha^{(i)}\cup\{m^{(i)}\}}{\PP^N|H}{d_i}\right)\]
  \item \[\mathcal Y_c^+= \VZc{1}{\{-m^{(1)},\ldots,-m^{(r)}\}\cup\alpha^{(0)}}{H}{d_0}^{\sim} \times_{H^r}\prod_{i=1}^r\M{0}{\alpha^{(i)}\cup\{m^{(i)}\}}{\PP^N|H}{d_i}\]
 \end{enumerate}
