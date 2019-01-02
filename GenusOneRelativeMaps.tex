@@ -64,6 +64,11 @@
 \draw [->,red,thick] (0,-2) -- (2,-2);
 \draw (2,-2) node[right,red]{\tiny{$\Sigma(\PP^N|H)$}};
 \draw [->,red] (1,-0.9) -- (1,-1.6);
+
+\draw (2.05,0) node[above]{\tiny{$\sqC_0$}};
+\draw (0,1) node[left]{\tiny{$\sqC_1$}};
+\draw (0,.5) node[left]{\tiny{$\sqC_2$}};
+\draw (0,-1) node[left]{\tiny{$\sqC_r$}};
 }}
 
 \def\Ybgraph{\tikz[baseline=-3pt,scale=.8]{
@@ -79,13 +84,18 @@
 \draw [->,red,thick] (0,-2) -- (2,-2);
 \draw (2,-2) node[right,red]{\tiny{$\Sigma(\PP^N|H)$}};
 \draw [->,red] (1,-0.9) -- (1,-1.6);
+
+\draw (2.05,0) node[above]{\tiny{$\sqC_0$}};
+\draw (0,1) node[left]{\tiny{$\sqC_1$}};
+\draw (0,.5) node[left]{\tiny{$\sqC_2$}};
+\draw (0,-1) node[left]{\tiny{$\sqC_r$}};
 }}
 
 \def\Ycgraph{\tikz[baseline=-3pt,scale=.8]{
 \draw (2,0) -- (0,1) (2,0) -- (0,.5) (2,0) -- (0,-1);
-\draw (2,0) circle(2pt)[fill=white];
 \draw [->] (2,0) -- (2.7,0);
 \draw (2.6,0) node[right]{\tiny{$x_k$}};
+\draw (2,0) circle(2pt)[fill=white];
 \draw (0,1) circle(2pt)[fill=black];
 \draw (0,.5) circle(2pt)[fill=black];
 \draw (0,-.25) node{$\vdots$};
@@ -94,6 +104,11 @@
 \draw [->,red,thick] (0,-2) -- (2,-2);
 \draw (2,-2) node[right,red]{\tiny{$\Sigma(\PP^N|H)$}};
 \draw [->,red] (1,-0.9) -- (1,-1.6);
+
+\draw (2.05,0) node[above]{\tiny{$\sqC_0$}};
+\draw (0,1) node[left]{\tiny{$\sqC_1$}};
+\draw (0,.5) node[left]{\tiny{$\sqC_2$}};
+\draw (0,-1) node[left]{\tiny{$\sqC_r$}};
 }}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -672,7 +687,7 @@ For the remainder of this subsection, we will consider only the situation where 
     \end{minipage}
 \end{figure}
 
-\noindent The terminology is due to Vakil, and the picture in this case is very similar to \cite{Vre} (as we will see later, when the circuit is contracted the picture becomes very different). Note that in these pictures we have omitted the marked points, the degree of each vertex, and the expansion factors. These combinatorial data can be distributed arbitrarily, as long as:
+\noindent The terminology is due to Vakil, and the picture in this case is very similar to \cite{Vre} (as we will see later, when the circuit is contracted the picture becomes \emph{very} different). Note that in these pictures we have omitted the marked points (apart from $x_k$), the degree of each vertex, and the expansion factors of the edges. These combinatorial data can be distributed arbitrarily, as long as:
 \begin{enumerate}
 \item every vertex has positive degree;
 \item the balancing condition is satisfied.
@@ -696,11 +711,22 @@ We now now investigate the three types $A,B,C^+$ separately, giving a recursive 
 \subsubsection{Type A} Let $\Delta$ be a combinatorial type of type $A$ and let $\Dcal\subseteq\VZ$ be the corresponding logarithmic divisor (note there is no choice of ray here). The corresponding locus $\Dcal_\Mcal\subseteq\Mcal$ is given (up to a finite cover) by\footnote{(Navid) Include short appendix on integralisation/saturation when gluing punctured maps in our setting?}:
 \begin{equation*}\Dcal_\Mcal=\Mpunct{0}{\alpha^{(0)}\cup (-m_1,\ldots,-m_r)}{\PP^N|H}{d_0}\times_{H^r}\prod_{i=1}^r\Mlog{0}{\alpha^{(i)}\cup(m_i)}{\PP^N|H}{d_i}. \end{equation*}
 In this subsection we will show that
-\begin{equation*}\Dcal=\Mpunct{0}{\alpha^{(0)}\cup (-m_1,\ldots,-m_r)}{\PP^N|H}{d_0}\times_{H^r}\left(\VZ_{1,\alpha^{(1)}\cup(m_1)}(\PP^N|H,d_1)\times\prod_{i=2}^r\Mlog{0}{\alpha^{(i)}\cup(m_i)}{\PP^N|H}{d_i}\right) \end{equation*}
-i.e. that the map $\Dcal\to\Dcal_\Mcal$ is given by blowing up one of the factors of the fibre product.
+\begin{equation}\label{type A splitting axiom}\Dcal=\Mpunct{0}{\alpha^{(0)}\cup (-m_1,\ldots,-m_r)}{\PP^N|H}{d_0}\times_{H^r}\left(\VZ_{1,\alpha^{(1)}\cup(m_1)}(\PP^N|H,d_1)\times\prod_{i=2}^r\Mlog{0}{\alpha^{(i)}\cup(m_i)}{\PP^N|H}{d_i}\right) \end{equation}
+i.e. that the map $\Dcal\to\Dcal_\Mcal$ is given by blowing up one of the factors of the fibre product. Note that the map $\Dcal\to\Dcal_\Mcal$ is an isomorphism away from the blown-up locus, which lives inside the locus where the circuit is contracted. 
 
-Let us start by considering possible limiting points of our original locus in $\Mcal$. These correspond to further degenerations of the (combinatorial type of the) tropical map.
+%DEPRECATED?/WRONG?
 
+%Note that if $\sqC_0$ degenerates further then it may be the case that there are components of $\sqC_0$ contained inside the contraction radius for $\sqC$, and thus once we contract to a Smyth curve there are components of $\sqC_0$ adjacent to the genus one singularity. However, in this case when we split off $\sqC_1$ these components disappear, and if the factorisation condition holds for $\sqC$ then it holds a fortiori for $\sqC_1$.\footnote{(Navid) I think this is right, but could someone check? Maybe there's a better way to say this.} Thus we obtain a morphism from $\Dcal$ to the fibre product on the right-hand side of \eqref{type A splitting axiom}.
+
+Given an element of $\Dcal$ we can split it along the nodes $q_1,\ldots,q_r$ as in \cite{PuncturedMaps}. It is then clear that $\sqC_1$ is aligned. We claim that $\sqC$ satisfies the factorisation property if and only if $\sqC_1$ does. This is enough to show \eqref{type A splitting axiom}.
+
+On $\sqC$ there is an associated contraction radius $\delta$ passing through a non-contracted vertex, such that the strict interior only contains contracted vertices.
+\begin{lemma}\label{type A radius lemma}$\lambda(\sqC^\prime) > \delta$ for any component $\sqC^\prime$ of $\sqC_0$.\end{lemma}
+\noindent Assuming this holds, we see as a consequence that $\sqC_0,\sqC_2,\ldots,\sqC_r$ must lie outside the contraction radius. Consequently the aligned curve $\sqC$ satisfies the factorisation condition if and only if $\sqC_1$ does, so \eqref{type A splitting axiom} holds.
+
+\begin{proof} The basic point is that $\Dcal$ consists of the union of the locally closed logarithmic strata adjacent to the locally closed stratum where all the $\sqC_i$ are irreducible. If we look at one of these boundary strata, the tropical moduli space contains a ray $\sigma$ corresponding to the stratum where all the $\sqC_i$ are irreducible; this amounts to setting all edge lengths other than $e_1,\ldots,e_r$ to zero. If $f_1,\ldots,f_l$ are some number of these additional edge lengths (corresponding to internal nodes in degenerations of the $\sqC_i$) then all of the cones of the subdivision adjacent to $\sigma$ will have $f_1+\ldots+f_l < e_j$ for all $j\in\{1,\ldots,r\}$, since $f_1=\ldots=f_l=0$ and $e_j \neq 0$ on $\sigma$. In particular, if $\sqC_1$ is degenerate and if $e$ denotes the minimal distance from the circuit to a non-contracted vertex of $\sqC_1$ (which certainly exists since $\sqC_1$ has positive degree) then $e < e_1 < \lambda(\sqC^\prime)$. Thus $\delta=e$ and $\delta < \lambda(\sqC^\prime)$ as claimed.\footnote{(Navid) Do an example?}\end{proof}
+
+\subsubsection{Type B}
 
 
 \newpage
