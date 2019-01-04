@@ -656,13 +656,29 @@ Now, the logarithmic divisors which are contained in $\Dcal(k)$ are precisely th
 
 Thus, via the above procedure, we are able to enumerate the irreducible components of $\Dcal(k)$ in a combinatorial manner. The combinatorial type and choice of ray allows us to describe the general element of such a component. What we are still lacking is a recursive description of the components which will allow us to compute integrals over them. This is the subject of the remainder of this section.
 
+\subsection{Splitting and gluing punctured logarithmic maps}\label{subsection punctured maps} We still start by considering the usual moduli space $\Mcal$ of log stable maps. In \cite{PuncturedMaps}, a recursive description of the logarithmic strata of $\Mcal$ is given, in terms of moduli spaces of punctured maps. As discussed above, the logarithmic strata of $\Mcal$ are indexed by combinatorial types of tropical curves. Given such a combinatorial type, each vertex of the associated graph defines a moduli space of punctured stable maps. This has a degree and genus given by the degree and genus of the vertex, and a target space given by the logarithmic stratum corresponding to the tropical stratum into which the vertex is mapped. It has marked points indexed by the edges and flags adjacent to that vertex, and these marked points have tangencies (which may be positive or negative) depending on the expansion factors of the associated edges and flags. If all of the tangencies are positive, then a punctured map is the same thing as a log stable map.
+
+In our setting, when dealing with truly punctured maps, the associated logarithmic stratum of the target will always be the divisor $H$. Consider a moduli space
+\begin{equation*} \Mpunct{g}{\alpha}{H}{d} \end{equation*}
+where $g \in \{0,1\}$ and $\alpha$ is a vector of tangency orders, some of which are negative. Here $H$ is given the log structure pulled back from $\PP^N$; since $H$ is not log smooth, the natural obstruction theory on the above moduli space is not necessarily perfect. On the other hand, we will see that this space is birational to the moduli space
+\begin{equation*} \ol\Mcal^{\alpha}_{g,n}(H,d) \subseteq \M{g}{n}{H}{d} \end{equation*}
+of ordinary stable maps to $H$ satisfying the condition:
+\begin{equation*} f^*\OO_H(1) \cong \OO_C(\Sigma_i \alpha_ix_i).\end{equation*}
+This is referred to as the \emph{double ramification locus} and has been studied extensively. It is a closed substack of virtual codimension $g$ in $\M{g}{n}{H}{d}$. In the genus zero case it is equal to the entire space
+\begin{equation*} \ol\Mcal^{\alpha}_{0,n}(H,d) = \M{0}{n}{H}{d} \end{equation*}
+which is smooth. Thus integrals over $\Mpunct{0}{\alpha}{H}{d}$ are the same as integrals over $\M{0}{n}{H}{d}$. The genus one case is more delicate; see \S \ref{} below.
+
+We will now use this recursive description of the logarithmic strata in $\Mcal$ to obtain a similar description of the strata in $\VZ$.
+
+
+
 \subsection{Recursive description of the divisors: types $A,B$ and $C^+$}
 
 The basic idea is as follows. Choose an irreducible component $\Dcal \subseteq \Dcal(k)$. As discussed above, we can obtain this by choosing an ``initial'' combinatorial type together with a ray of the resulting subdivision of the tropical moduli space. Without loss of generality we may assume that this ``initial'' combinatorial type coincides with the ``true'' combinatorial type of $\Dcal$ obtained by performing the edge contractions specified by the choice of ray.
 
 Now, let $\Dcal_{\Mcal}^\circ\subseteq \Mcal$ denote the (codimension-$1$) locally closed stratum corresponding to our choice of combinatorial type, and let $\Dcal_\Mcal = \overline{\Dcal^\circ}$ be the corresponding logarithmic stratum in $\Mcal$. Our divisor $\Dcal\subseteq\VZ$ is the proper transform of $\Dcal_\Mcal$, which is obtained by taking the preimage $\Dcal^\circ$ of $\Dcal_\Mcal^\circ$ (since $\Dcal^\circ$ is disjoint from the blown-up locus) and then taking its closure in $\VZ$. This is, of course, different from taking the preimage of $\Dcal_\Mcal$, since in general $\Dcal_\Mcal$ will intersect the blown-up locus. By continuity we have an induced map:
 \begin{equation*} \Dcal \to \Dcal_\Mcal. \end{equation*}
-The remainder of this section will be dedicated to showing how the map $\Dcal \to \Dcal_\Mcal$ may be interpreted as a blow-up. The reason this is useful is that $\Dcal_\Mcal$ itself has a recursive description, in terms of moduli spaces of punctured maps \cite{PuncturedMaps}, which in our setting we are able to compute integrals over.
+The remainder of this section will be dedicated to showing how the map $\Dcal \to \Dcal_\Mcal$ may be interpreted as a blow-up. The reason this is useful is that $\Dcal_\Mcal$ itself has a recursive description in terms of moduli spaces of punctured maps (see \S \ref{subsection punctured maps}), which in our setting we are able to compute integrals over.
 
 For the remainder of this subsection, we will consider only the situation where the circuit has positive degree; the other, more complicated case, will be taken up in \S \ref{}.
 
@@ -703,16 +719,18 @@ Thus there is a single vertex $\sqC_0$ mapped into the interior of $\RR_{\geq 0}
 
 Thus, we see that the combinatorial type takes the form of a bipartite graph, with $\sqC_0$ on the right-hand side and $\sqC_1,\ldots,\sqC_r$ on the left-hand side. Note that the continuity of the tropical map identifies all of the edge lengths, up to weights given by the expansion factors (i.e. tangency orders) at the edges; thus the tropical moduli space is isomorphic to $\RR_{\geq 0}$ and so we have a divisor as expected.
 
-We distinguish three cases, depending on the position of the circuit, giving the three forms presented in the statement of the Lemma.\end{proof}
+We distinguish three cases, depending on the position of the circuit, giving the three forms presented in the statement of the lemma.\end{proof}
 
 We now now investigate the three types $A,B,C^+$ separately, giving a recursive description of the boundary locus in each case.
 
 
 \subsubsection{Type $A$} Let $\Delta$ be a combinatorial type of type $A$ and let $\Dcal\subseteq\VZ$ be the corresponding logarithmic divisor (note there is no choice of ray here). The corresponding locus $\Dcal_\Mcal\subseteq\Mcal$ is given (up to a finite cover) by\footnote{(Navid) Include short appendix on integralisation/saturation when gluing punctured maps in our setting?}:
-\begin{equation*}\Dcal_\Mcal=\Mpunct{0}{\alpha^{(0)}\cup (-m_1,\ldots,-m_r)}{\PP^N|H}{d_0}\times_{H^r}\prod_{i=1}^r\Mlog{0}{\alpha^{(i)}\cup(m_i)}{\PP^N|H}{d_i}. \end{equation*}
+\begin{equation*}\Dcal_\Mcal=\Mpunct{0}{\alpha^{(0)}\cup (-m_1,\ldots,-m_r)}{H}{d_0}\times_{H^r}\prod_{i=1}^r\Mlog{0}{\alpha^{(i)}\cup(m_i)}{\PP^N|H}{d_i}. \end{equation*}
 In this subsection we will show that
-\begin{equation}\label{type A splitting axiom}\Dcal=\Mpunct{0}{\alpha^{(0)}\cup (-m_1,\ldots,-m_r)}{\PP^N|H}{d_0}\times_{H^r}\left(\VZ_{1,\alpha^{(1)}\cup(m_1)}(\PP^N|H,d_1)\times\prod_{i=2}^r\Mlog{0}{\alpha^{(i)}\cup(m_i)}{\PP^N|H}{d_i}\right) \end{equation}
-i.e. that the map $\Dcal\to\Dcal_\Mcal$ is given by blowing up one of the factors of the fibre product. Note that the map $\Dcal\to\Dcal_\Mcal$ is an isomorphism away from the blown-up locus, which lives inside the locus where the circuit is contracted. 
+\begin{equation}\label{type A splitting axiom}\Dcal=\Mpunct{0}{\alpha^{(0)}\cup (-m_1,\ldots,-m_r)}{H}{d_0}\times_{H^r}\left(\VZ_{1,\alpha^{(1)}\cup(m_1)}(\PP^N|H,d_1)\times\prod_{i=2}^r\Mlog{0}{\alpha^{(i)}\cup(m_i)}{\PP^N|H}{d_i}\right) \end{equation}
+i.e. that the map $\Dcal\to\Dcal_\Mcal$ is given by blowing up one of the factors of the fibre product. Note that the map $\Dcal\to\Dcal_\Mcal$ is an isomorphism away from the blown-up locus, which lives inside the locus where the circuit is contracted. Note that there is a birational map which forgets the log structures
+\begin{equation*} \Mpunct{0}{\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}{H}{d_0} \to \M{0}{n_0+r}{H}{d_0} \end{equation*}
+and all of our insertions are pulled back from the latter space. Therefore the integrals over the punctured space are determined by the genus zero Gromov--Witten theory of $H\cong\PP^{N-1}$.
 
 %DEPRECATED?/WRONG?
 
@@ -731,25 +749,36 @@ Notice we did not specify whether $\delta$ was the relative or absolute radius. 
 Now let $\Dcal\subseteq\VZ$ be a component of $\Dcal(k)$ with combinatorial type $\Delta$ of type $B$. In this case, it is impossible for the circuit to be contracted. Thus, $\Dcal_\Mcal \subseteq \Mcal$ is disjoint from the blown-up locus, and the map
 \begin{equation*} \Dcal \to \Dcal_\Mcal \end{equation*}
 is an isomorphism. Thus we obtain:
-\begin{equation*} \Dcal = \Mpunct{0}{\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}{\PP^N|H}{d_0}\times_{H^r}\left(\Mlog{0}{\alpha^{(1)}\cup(m_1,m_2)}{\PP^N|H}{d_1}\times\prod_{i=3}^r\Mlog{0}{\alpha^{(i)}\cup(m_i)}{\PP^N|H}{d_i}\right).\end{equation*}
+\begin{equation*} \Dcal = \Mpunct{0}{\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}{H}{d_0}\times_{H^r}\left(\Mlog{0}{\alpha^{(1)}\cup(m_1,m_2)}{\PP^N|H}{d_1}\times\prod_{i=3}^r\Mlog{0}{\alpha^{(i)}\cup(m_i)}{\PP^N|H}{d_i}\right).\end{equation*}
+As before, the integrals over the punctured space are determined by the Gromov--Witten theory of $H$.
 
-\subsubsection{Type $C^+$}
+\subsubsection{Type $C^+$} Finally let $\Dcal \subseteq \VZ$ be a component of $\Dcal(k)$ with combinatorial type $\Delta$ of type $C^+$. The corresponding locus in $\Mcal$ can be written as:
+\begin{equation*} \Dcal_\Mcal = \Mpunct{1}{\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}{H}{d_0} \times_{H^r} \left( \prod_{i=1}^r \Mlog{0}{\alpha^{(i)}\cup(m_i)}{\PP^N|H}{d_i} \right). \end{equation*}
+Then the same argument as in Lemma \ref{type A radius lemma} shows that given any point in $\Dcal$ the interior of the radius can only contain components of $C_0$. Thus the alignment and factorisation condition apply exclusively to $C_0$, which shows that:
+\begin{equation*}\Dcal = \VZ^{\operatorname{punct}}_{1,\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}(H,d_0) \times_{H^r} \left( \prod_{i=1}^r \Mlog{0}{\alpha^{(i)}\cup(m_i)}{\PP^N|H}{d_i} \right). \end{equation*}
+Here the first factor
+\begin{equation*}\VZ^{\operatorname{punct}}_{1,\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}(H,d_0) \end{equation*}
+is the logarithmic blow-up of the moduli space of punctured maps, obtained by imposing an alignment and factorisation condition. To be more precise: its elements consist of punctured maps to $H$ which are aligned in the sense of Definition \ref{}, and satisfy the (double) factorisation condition (simply replace $\PP^N$ by $H$ everywhere in that definition).
+
+\begin{prop} $\VZ^{\operatorname{punct}}_{1,\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}(H,d_0)$ is irreducible of the expected dimension, and birational to the main component of the double ramification locus:
+\begin{equation*} \ol{\Mcal}_{1,n_0+r}^{\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}(H,d_0) \subseteq \ol{\Mcal}_{1,n_0+r}(H,d_0) \end{equation*}\end{prop}
+
+Now, the double ramification locus carries a natural virtual class, and one can write
+\begin{equation*} \virt{\ol{\Mcal}_{1,n_0+r}^{\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}(H,d_0)} = \gamma \cap \virt{\ol{\Mcal}_{1,n_0+r}(H,d_0)} \end{equation*}
+where $\gamma \in \Achow^1(\M{1}{n}{H}{d})$ is some explicit sum of tautological classes \cite{DRCBundle}. To identify the class of the main component, we split the virtual class of the double ramification locus as
+\begin{equation*} \virt{\ol\Mcal^{\alpha}_{1,n}(H,d)} = [\ol\Mcal^{\alpha,\text{main}}_{1,n}(H,d)] + \sum_{\Gamma} \virt{\ol\Mcal^{\alpha,\Gamma}_{1,n}(H,d)} \end{equation*}
+and this allows us to write
+\begin{equation*} [\ol\Mcal^{\alpha,\text{main}}_{1,n}(H,d)] = \gamma^\prime \cap [\ol\Mcal^{\text{main}}_{1,n}(H,d)]\end{equation*}
+where $\gamma^\prime$ is some other sum of tautological classes. This makes integrals over $\VZ^{\operatorname{punct}}_{1,\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}(H,d_0)$ computable in terms of the reduced Gromov--Witten theory of $H\cong\PP^{N-1}$.
 
 \newpage
-Now we may use the recursive description of the boundary in $\Mcal$ using punctured maps \cite{PuncturedMaps} to obtain a description of these loci:
-\begin{enumerate}[label=(\Alph*)]
 
- \item \[\mathcal Y_b=\M{0}{\{-m^{(1)},\ldots,-m^{(r)}\}\cup\alpha^{(0)}}{H}{d_0}^\sim\times_{H^r}\left(\M{0}{\alpha^{(1)}\cup\{m^{(1)},m^{(2)}\}}{\PP^N|H}{d_1}\times\prod_{i=3}^r\M{0}{\alpha^{(i)}\cup\{m^{(i)}\}}{\PP^N|H}{d_i}\right)\]
- \item \[\mathcal Y_c^+= \VZc{1}{\{-m^{(1)},\ldots,-m^{(r)}\}\cup\alpha^{(0)}}{H}{d_0}^{\sim} \times_{H^r}\prod_{i=1}^r\M{0}{\alpha^{(i)}\cup\{m^{(i)}\}}{\PP^N|H}{d_i}\]
-\end{enumerate}
-where $\M{0}{\mu}{H}{d}^\sim$ denotes the space of genus zero punctured maps, while $\VZc{0}{\mu}{H}{d}$ denotes the desingularisation of the main component of the space of punctured maps discussed in Section ???. The numerical data run over all splitting $A$ of the tangency conditions (resp. $B$ of the degree) in $r+1$ parts, such that:
-\begin{enumerate}
- \item $d_0+\sum_{i=1}^r m^{(i)}=\sum\alpha^{(0)}$;
- \item $d_i=m^{(i)}+\sum\alpha^{(i)}$;
- \item $d_0>0$ in case $c$.
-\end{enumerate}
+
 
 Review here the process of gluing for punctured maps. In particular the basic monoid should be modified in order to make the relevant evaluations log morphisms. Claim: evaluations are strict. Consequence: the fiber product in the category of log stacks is fine. We have then to apply saturation. This is a finite morphism of degree... (I think it could be $\frac{\prod m^{(i)}}{lcm(m^{(i)})}$).
+
+
+
 
 \begin{lemma}[Virtual pushforward] The following hold.
  \begin{itemize}
