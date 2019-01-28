@@ -394,12 +394,12 @@ The ultimate goal of the paper is to apply Gathmann's techniques to the Vakil-Zi
 
 {\color{gray} describe the latter as explicitly as possible; comment on the cones that are (possibly?) not there because of the compatibility of the alignment with the log map (this is probably awkward, useless, and superceded by saying ``we align subdivide the ACGS minimal dual monoid'') and because of smoothability/factorisation (this is probably related to tropical well-spacedness)}
 
-\subsection{A desingularisation of punctured log maps}
-Describe an analogous desingularisation for punctured log maps. The degree zero case seems more delicate and complicated, even though it should just be a substack of a moduli space of marked curves after all (the log structure is possibly trickier).
-\begin{dfn}
- A $(z,g,n)$-punctured log map is a punctured log map where the markings with negative contact order to $H$ have an extra label, either $z$ (the tropical map sends them to $z$ero), or $g$ (stands for gluing), or $n$ (stands for nihil, nothing...)
-\end{dfn}
-We would like to extend the minimal monoid in order to account for some of the punctures, i.e. take the sum of $p^*\mathcal M_{C^\circ}$ (for every such puncture $p$) fibered over the log structure of the base, which seems to have the same effect as topping those edges with a uertex (which doesn't carry any other information). This looks to me like sprouting a $\PP^1$ at those puncture. Now, the point of the $(z,g,n)$-labelling is that: we only extend the log structure at the $z$ and $g$ punctures; uertices labelled with a $z$ are sent under the tropical map to $0$, so continuity applies to them (therefore the extension of the log structure is fake because that edge length is determined by the position of the adjacent vertex); while uertices labelled with an $n$ are free to roam about. Finally, we perform a radial alignment (and we take rays). This distinction comes about when you split your centrally aligned map according to the strict interior of the $\delta$-circle and the outside; the intersection of a tree with the $\delta$-circle can either be a vertex over $0$, or another vertex (corresponding to a degeneration of the genus zero map outside), or not a vertex.
+%\subsection{A desingularisation of punctured log maps}
+%Describe an analogous desingularisation for punctured log maps. The degree zero case seems more delicate and complicated, even though it should just be a substack of a moduli space of marked curves after all (the log structure is possibly trickier).
+%\begin{dfn}
+% A $(z,g,n)$-punctured log map is a punctured log map where the markings with negative contact order to $H$ have an extra label, either $z$ (the tropical map sends them to $z$ero), or $g$ (stands for gluing), or $n$ (stands for nihil, nothing...)
+%\end{dfn}
+%We would like to extend the minimal monoid in order to account for some of the punctures, i.e. take the sum of $p^*\mathcal M_{C^\circ}$ (for every such puncture $p$) fibered over the log structure of the base, which seems to have the same effect as topping those edges with a uertex (which doesn't carry any other information). This looks to me like sprouting a $\PP^1$ at those puncture. Now, the point of the $(z,g,n)$-labelling is that: we only extend the log structure at the $z$ and $g$ punctures; uertices labelled with a $z$ are sent under the tropical map to $0$, so continuity applies to them (therefore the extension of the log structure is fake because that edge length is determined by the position of the adjacent vertex); while uertices labelled with an $n$ are free to roam about. Finally, we perform a radial alignment (and we take rays). This distinction comes about when you split your centrally aligned map according to the strict interior of the $\delta$-circle and the outside; the intersection of a tree with the $\delta$-circle can either be a vertex over $0$, or another vertex (corresponding to a degeneration of the genus zero map outside), or not a vertex.
 
 \newpage
 
@@ -666,7 +666,32 @@ of ordinary stable maps to $H$ satisfying the condition:
 \begin{equation*} f^*\OO_H(1) \cong \OO_C(\Sigma_i \alpha_ix_i).\end{equation*}
 This is referred to as the \emph{double ramification locus} and has been studied extensively. It is a closed substack of virtual codimension $g$ in $\M{g}{n}{H}{d}$. In the genus zero case it is equal to the entire space
 \begin{equation*} \ol\Mcal^{\alpha}_{0,n}(H,d) = \M{0}{n}{H}{d} \end{equation*}
-which is smooth. Thus integrals over $\Mpunct{0}{\alpha}{H}{d}$ are the same as integrals over $\M{0}{n}{H}{d}$. The genus one case is more delicate; see \S \ref{} below.
+which is smooth. Thus integrals over $\Mpunct{0}{\alpha}{H}{d}$ are the same as integrals over $\M{0}{n}{H}{d}$. The genus one case is more delicate; yet, luckily, we are only interested in the main component of the punctured space.
+
+\begin{lem}
+ Alignment and factorisation single out the closure of the locus of punctured maps with smooth source curve.
+\end{lem}
+\begin{proof}
+ If it is true, we might be able to prove it via deformation theory. For this it might be useful to notice that there is a morphism $\Mpunct{g}{\alpha}{H}{d}\to \Mpunct{g}{\alpha}{\PP^N}{d}$ (because $H\subseteq\PP^N$ is strict), which is probably a closed immersion, and the loci with smooth source curve are isomorphic under this map. It seems plausible that the main omponent is log smooth over $B\Gm\subseteq[\Aaff^1/\Gm]$ (or the standard log point).
+\end{proof}
+
+\begin{lem}
+The main component of punctured maps is birational to the main component of the DR locus.
+\end{lem}
+We probably want the latter statement to hold under imposing alignment and factorisation (keeping the log structure on the source curve, but forgetting that the map is log).
+
+\begin{lem}
+ Forgetting a marking $\fgt_i\colon\ol\Mcal_{1,n}^\alpha(H,d)^{\rm{main}} \to\VZ_{1,n-1}(H,d)$ is generically finite of degree $\alpha_i^2$ - except in one case.
+\end{lem}
+\begin{proof}
+ Let us consider the case $d=0$ first. We may assume the source curve is smooth elliptic $E$. The map \[ \phi\colon E\to \Pic^0(E),\qquad x\mapsto\OO_E\left(\alpha_ix+\sum_{j=1,\ldots,\hat i\ldots,n}\alpha_jp_j\right)\]
+ is an isogeny of degree $\alpha_i^2$. The locus of $(C,p_1,\ldots,\hat{p_i},\ldots,p_n)$ such that the kernel of $\phi$ contains one of the points $\{p_1,\ldots,\hat{p_i},\ldots,p_n\}$ is itself a double ramification locus inside $\oM_{1,n}$, hence non-generic - with one exception: namely, when $n=2$, $x=p_1$ is always a solution, but the curve lying above such point bubbles off a $\PP^1$. To see that it does not belong to the closure of the nice locus, notice that the rational function trivialising $\OO_C(\alpha_1p_1-\alpha_2p_2)$ should descend to the cusp, thus having a ramification point at the node; yet its ramification profile is determined by Riemann-Hurwitz, and it is entirely supported on $p_1$ and $p_2$.
+ 
+ For a different proof: notice that we should obtain the class of the main component from the full double ramification cycle by subtracting the boundary class $[D_{1,\emptyset|0,\{1,\ldots,n\}}]$. The latter pushes forward to $0$ under $\fgt_i$, unless $n=2$. Therefore we may apply $\fgt_{i,*}$ to the Hain-Pixton formula:
+ \[DR_1(A)=\frac{1}{2}\left(\sum_{i=1}^na_i^2\psi_i-\sum_{\substack{I\subseteq\{1,\ldots,n\}\\|I|\geq 2}}a_I^2[D_{1,I^c|0,I}]-\frac{1}{12}\delta_0\right),\]
+ where $a_I=\sum_{i\in I}a_i$ and $\delta_0=\operatorname{glue}_*([\oM_{0,n+2}])$. From $\psi_j=\fgt_i^*\psi_j+[D_{i,j}]$ for $i\neq j$, and the dilaton equation, we see that $\fgt_{i,*}\psi_j=1$ and $\fgt_{i,*}\psi_i=n-1$. On the other hand, the only surviving boundary classes are $[D_{i,j}]$, and they push down to $1$. Hence the formula pushes down to $\frac{1}{2}\left(\sum_{j\neq i}\alpha_j^2+(n-1)\alpha_i^2-\sum_{j\neq i}(\alpha_j+\alpha_i)^2\right)=-\alpha_i\left(\sum_{j\neq i}\alpha_j\right)=\alpha_i^2.$
+\end{proof}
+
 
 We will now use this recursive description of the logarithmic strata in $\Mcal$ to obtain a similar description of the strata in $\VZ$.
 
@@ -774,7 +799,7 @@ where $\gamma^\prime$ is some other sum of tautological classes. This makes inte
 
 
 
-Review here the process of gluing for punctured maps. In particular the basic monoid should be modified in order to make the relevant evaluations log morphisms. Claim: evaluations are strict. Consequence: the fiber product in the category of log stacks is fine. We have then to apply saturation. This is a finite morphism of degree... (I think it could be $\frac{\prod m^{(i)}}{lcm(m^{(i)})}$).
+\footnote{(Luca) to be made homogeneous with what comes earlier} Review here the process of gluing for punctured maps. In particular the basic monoid should be modified in order to make the relevant evaluations log morphisms. Claim: evaluations are strict. Consequence: the fiber product in the category of log stacks is fine. We have then to apply saturation. This is a finite morphism of degree... (I think it could be $\frac{\prod m^{(i)}}{lcm(m^{(i)})}$).
 
 
 
@@ -789,24 +814,33 @@ Review here the process of gluing for punctured maps. In particular the basic mo
 \end{lemma}
 
 \subsection{Recursive description of the divisors: type $C_0$}
-On the other hand, when there is a contracted elliptic subcurve - and it will be contracted into the hyperplane, because otherwise it wouldn't be generic, by density of the nice locus in $\VZ_{1,\alpha^\prime}(\PP^N|H,d^\prime)$ - the picture becomes more complicated due to the alignment. The combs may break (multiple times) and they may point in opposite directions. We label these loci $\mathcal{Y}_c^0$.
+On the other hand, when there is a contracted elliptic subcurve - and it will be contracted into the hyperplane, because otherwise it wouldn't be generic, by density of the nice locus in $\VZ_{1,\alpha^\prime}(\PP^N|H,d^\prime)$ - the picture becomes more complicated due to the alignment. The combs may break. We label these loci $\mathcal{Y}_C^0$.
 \begin{figure}
+
  \tikz{
- \draw (0,0) circle(2pt)[fill=black] (0,2) circle(2pt)[fill=black] (0,4) circle(2pt)[fill=black] (0,6) circle(2pt)[fill=black] (0,-2) circle(2pt)[fill=black] (1.1,1.78) circle(2pt)[fill=black] (3.42,1.42) circle(2pt)[fill=black] (.58,-1.42) circle(2pt)[fill=black];
- \draw (2,0) -- node[above]{4} (0,0) (2,0) --node[above]{2} (1.1,1.78) --node[above]{2} (0,2) (1.1,1.78) --node[above]{1} (0,4) (2,0) --node[above]{1} (3.42,1.42) (2,0) --node[above]{1} (.58,-1.42) (3.42,1.42) --node[above]{5} (0,6) (.58,-1.42) --node[above]{3} (0,-2);
- \draw[red] (2,0) circle(2);
- \draw (2,0) circle(2pt)[fill=white];
- \draw[->] (0,-3) circle(2pt)[fill=black] edge (4,-3);
+ \draw[red] (2,0) circle(2); %circle
+ \draw (0,0) circle(2pt)[fill=black] (0,2) circle(2pt)[fill=black] (0,4) circle(2pt)[fill=black] (0,6) circle(2pt)[fill=black] (0,-2) circle(2pt)[fill=black] (1.1,1.78) circle(2pt)[fill=black] (3.42,1.42) circle(2pt)[fill=black] (.58,-1.42) circle(2pt)[fill=black] (0,1) circle(2pt)[fill=black]; %black vertices
+ \draw (2,0) -- node[above]{4} (0,0) (2,0) --node[above]{2} (1.1,1.78) --node[above]{1} (0,2) (1.1,1.78) --node[above]{1} (0,4) (2,0) --node[above]{1} (3.42,1.42) (2,0) --node[above]{3} (.58,-1.42) (3.42,1.42) --node[above]{5} (0,6) (.58,-1.42) --node[above]{1} (0,-2) (2,0) -- node[above]{2} (0,1); %edges
+ \draw (.58,-1.42) -- (5,-1.42) node[right]{1} (3.42,1.42) -- (5,1.42) node[right]{2} (2,0) -- (5,.5) node[right]{3} (2,0) -- (5,-.5) node[right]{7}; %markings
+ \draw (2,0) circle(2pt)[fill=white]; %core
+ \draw[->] (0,-3) circle(2pt)[fill=black] edge (5,-3); %trop(P^N|H)
  }
+ 
+ \caption{The degrees can be figured out from the balancing equation.}
 \end{figure}
-\begin{dfn}
+
+In the following we describe the rays of the tropical moduli space.
+\begin{lem}
  A degree-aligned genus one tropical map $\phi$ to $\mathbb R_{\geq 0}$ is ... with a circle of radius $\delta$ around the core satisfying:
  \begin{enumerate}
-  \item the circle of radius $\delta$ passes through at least one vertex of positive degree, and no vertex of positive degree is contained in its strict interior;
-  \item every circle of radius $<\delta$ around the core passes through (either none or) at least two vertices;\footnote{The subdivisions we perform before picking a ray correspond to aligning the log structure, i.e. imposing $\lambda(v)=\lambda(v^\prime)$ for some $v,v^\prime$.}
-  \item every edge heading out of the circle of radius $\delta$ goes directly to a vertex in $\phi^{-1}(0)$.
+ \item the circle of radius $\delta$ passes through at least one vertex of $\phi^{-1}(0)$ - which necessarily has positive degree - call $m$ its contact order with $H$;
+ \item teeth may break only when they intersect the circle of radius $\delta$; in particular, $\circ$ is the only vertex contained in its strict interior, and every edge heading out from the circle goes directly to a vertex of $\phi^{-1}(0)$;
+ \item every tooth that starts with contact order $m$ goes directly to a vertex of $\operatorname{circle}(\circ,\delta)\cap\phi^{-1}(0)$, and every other tooth starts with contact order $<m$ (possibly negative).
  \end{enumerate}
-\end{dfn}
+\end{lem}
+\begin{proof}
+ Otherwise there would be more than one parameters.
+\end{proof}
 
 \begin{remark}
  The core being contracted in the fiber of the tropical map is not a phenomenon that we should worry about in codimension one. Indeed, assume that the core is contracted in the fiber along a ray. Then all the edges departing from the core have expansion factor $0$; call the corresponding coordinates $U=\{u_i\}_{i\in I}$. Call the remaining coordinates $E=\{e_j\}_{j\in J}$. Note that tropical continuity involves only $E$. Alignments on the other hand assume the form $\lambda(v)=\lambda(v^\prime)$, where $\lambda(v)=\sum_{i\in I(v)}u_i\sum_{j\in J(v)}e_j$. Pick the shortest elements of $U$; then these can be shortened to zero without affecting the rest (by hypothesis, alignments can only identify them among themselves). This shows that we could not have started with a ray.
@@ -878,7 +912,75 @@ The recursion formula in $\VZ_{1,\alpha}(\PP^N|H,d)$ immediately pulls back alon
 
 \section{Quantum Lefschetz in genus one}
 
-
+ Assume \footnote{(Luca) copied and pasted from my thesis} we want to compute $\langle\tau_{h_1}H^{k_1},\ldots,\tau_{h_1}H^{k_1}\rangle^{\PP^{N-1},\rm{red}}_{1,n,d}$ by writing it as $\frac{1}{d^2}(\psi_1^{\{n+1\}})^{h_1}H^{k_1}\cdots(\psi_n^{\{n+1\}})^{h_n}H^{k_n}\cdot[\VZ{(0,\ldots,0,d)}{\PP^N|H}{d}^\thicksim]$. Let me start from the recursion step $H_1\cdot[\VZ{(0,\ldots,0,d)}{\PP^N|H}{d}]=\ldots:$
+ 
+ \begin{description}
+  \item[$\mathcal Y_a$:] $d\ {\tikz[baseline=-3pt,scale=.7]{
+\draw (2,0) node[above]{$\{x_1,x_{n+1}\}$} -- (0,0)node[below]{$d$};
+\draw (2,0) circle(2pt)[fill=black];
+\draw (0,0) circle(2pt)[fill=white];
+\draw (-1,1.5) -- (1,1.5) -- (1,-1.5) -- (-1,-1.5) -- (-1,1.5);
+\draw (1,1.5) -- (3,2) -- (3,-1) -- (1,-1.5);
+}}$ contributes $\frac{1}{d}\psi_1^{h_1}H^{k_1}\cdots\psi_n^{h_n}H^{k_n}\cdot[\VZ{(d,\ldots,0)}{\PP^N|H}{d}]$; if this is the curve configuration, while there is any other marking at level one, then $\fgt_{n+1}$ has positive dimensional fibers; otherwise there must be another component of positive horizontal degree (these contributions are computed inductively on $d$);
+\item[$\mathcal Y_b$:] is an entirely rational story;
+\item[$\mathcal Y_c$:] {\tikz[baseline=-3pt,scale=.7]{
+\draw (2,0) node[above]{$\{x_1,\ldots,x_{n+1}\}$} node[below]{$d$};
+\draw (2,0) circle(2pt)[fill=white];
+\draw (-1,1.5) -- (1,1.5) -- (1,-1.5) -- (-1,-1.5) -- (-1,1.5);
+\draw (1,1.5) -- (3,2) -- (3,-1) -- (1,-1.5);
+}} is the term we are meant to compute, while all other terms will include a DRC integral of lower degree.
+ \end{description}
+I shall look one step further into the recursion for computing $[\VZ{(0,\ldots,0,d)}{\PP^N|H}{d}]$: in order to do so consider the formula for $((d-1)\psi_{n+1}+H_{n+1})\cdot[\VZ{(0,\ldots,0,d-1,1)}{\PP^N|H}{d}]$. This produces:
+\begin{description}
+  \item[$\mathcal Y_a$:] $d\ {\tikz[baseline=-3pt,scale=.7]{
+\draw (2,0) node[above]{$\{x_{n+1},x_{n+2}\}$} -- (0,0)node[below]{$d$};
+\draw (2,0) circle(2pt)[fill=black];
+\draw (0,0) circle(2pt)[fill=white];
+\draw (-1,1.5) -- (1,1.5) -- (1,-1.5) -- (-1,-1.5) -- (-1,1.5);
+\draw (1,1.5) -- (3,2) -- (3,-1) -- (1,-1.5);
+}}$ this is the one we are after; while
+$(d-1){\tikz[baseline=-3pt,scale=.7]{
+\draw (2,.5) node[above]{$\{x_{k},x_{n+1}\}$} -- (0,0)node[below]{$d$};
+\draw (2,-.5) node[above]{$\{x_{n+2}\}$} -- (0,0);
+\draw (2,.5) circle(2pt)[fill=black];
+\draw (2,-.5) circle(2pt)[fill=black];
+\draw (0,0) circle(2pt)[fill=white];
+\draw (-1,1.5) -- (1,1.5) -- (1,-1.5) -- (-1,-1.5) -- (-1,1.5);
+\draw (1,1.5) -- (3,2) -- (3,-1) -- (1,-1.5);
+}}$ gives a lower tangency condition $[\VZ{(0,\ldots,d-1,\ldots,0)}{\PP^N|H}{d}]$; and all other terms have lower degree.
+\item[$\mathcal Y_c$:] {\tikz[baseline=-3pt,scale=.7]{
+\draw (2,0) node[above]{$\{x_1,\ldots,x_{n+1},x_{n+2}\}$} node[below]{$d$};
+\draw (2,0) circle(2pt)[fill=white];
+\draw (-1,1.5) -- (1,1.5) -- (1,-1.5) -- (-1,-1.5) -- (-1,1.5);
+\draw (1,1.5) -- (3,2) -- (3,-1) -- (1,-1.5);
+}} has positive dimensional fibers for $\fgt_{n+1,n+2}$, and all other terms have lower degree.
+ \end{description}
+ Finally, let me look one step further into the reduction of $[\VZ{(d,\ldots,0)}{\PP^N|H}{d}]$: we have $((d-1)\psi_1^{\{n+1\}}+H_1)\cdot[\VZ{(d-1,\ldots,0,1)}{\PP^N|H}{d}]=\ldots:$
+ \begin{description}
+  \item[$\mathcal Y_a$:] $d\ {\tikz[baseline=-3pt,scale=.7]{
+\draw (2,0) node[above]{$\{x_{1},x_{n+1}\}$} -- (0,0)node[below]{$d$};
+\draw (2,0) circle(2pt)[fill=black];
+\draw (0,0) circle(2pt)[fill=white];
+\draw (-1,1.5) -- (1,1.5) -- (1,-1.5) -- (-1,-1.5) -- (-1,1.5);
+\draw (1,1.5) -- (3,2) -- (3,-1) -- (1,-1.5);
+}}$ is the one we care about;
+$(d-1)\ {\tikz[baseline=-3pt,scale=.7]{
+\draw (2,.5) node[above]{$\{x_{k},x_{1}\}$} -- (0,0)node[below]{$d$};
+\draw (2,-.5) node[above]{$\{x_{n+1}\}$} -- (0,0);
+\draw (2,.5) circle(2pt)[fill=black];
+\draw (2,-.5) circle(2pt)[fill=black];
+\draw (0,0) circle(2pt)[fill=white];
+\draw (-1,1.5) -- (1,1.5) -- (1,-1.5) -- (-1,-1.5) -- (-1,1.5);
+\draw (1,1.5) -- (3,2) -- (3,-1) -- (1,-1.5);
+}}$ has a lower number of markings (indeed $\psi_1^{\{n+1\}}$ and $\psi_k^{\{n+1\}}$ restrict to $0$ on this locus, and $\ev_1\equiv\ev_k$); while all other terms have lower degree.
+\item[$\mathcal Y_c$:] {\tikz[baseline=-3pt,scale=.7]{
+\draw (2,0) node[above]{$\{x_1,\ldots,x_{n+1}\}$} node[below]{$d$};
+\draw (2,0) circle(2pt)[fill=white];
+\draw (-1,1.5) -- (1,1.5) -- (1,-1.5) -- (-1,-1.5) -- (-1,1.5);
+\draw (1,1.5) -- (3,2) -- (3,-1) -- (1,-1.5);
+}} contributes $\frac{1}{d}\psi_1^{h_1}H^{k_1}\cdots\psi_n^{h_n}H^{k_n}\cdot[\VZ{(0,\ldots,0,d)}{\PP^N|H}{d}^\thicksim]$ so \emph{there is no cancellation}, while all other terms have lower degree.
+ \end{description}
+ To sum up, it is possible to determine the reduced genus one restricted invariants of $H$ in terms of those of $\PP^N$ and the genus zero theory, by induction on the degree, number of markings, and total tangency order.
 
 \bibliographystyle{alpha}
 \bibliography{Bibliography}
