@@ -1,0 +1,901 @@
+\documentclass[11pt]{amsart}
+\linespread{1.25}
+\usepackage[margin=3cm]{geometry}
+
+\usepackage[english]{babel}
+\usepackage{appendix}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%\usepackage{showlabels}
+\usepackage{hyperref}
+\usepackage{amsthm}
+\usepackage{marginnote}
+\usepackage{stmaryrd}
+\usepackage{enumitem}
+\usepackage[english]{babel}
+\usepackage{yfonts}
+\usepackage[T1]{fontenc}
+\usepackage[utf8x]{inputenc}
+
+\usepackage{calrsfs}
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{verbatim}
+\usepackage{faktor}
+\usepackage{xcolor}
+\usepackage{xfrac}
+\usepackage{tikz,tikz-cd}
+\usetikzlibrary{decorations.pathmorphing,decorations.pathreplacing,patterns}
+
+\usepackage[all]{xy}
+\usepackage{bbm}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{tabu}
+\usepackage{booktabs}
+\usepackage{mathtools}
+
+\usepackage[]{textcomp}
+\usepackage[sups]{Baskervaldx}
+\usepackage{cabin}
+\usepackage[varqu,varl]{inconsolata}
+\usepackage[baskervaldx,bigdelims,vvarbb]{newtxmath}
+\usepackage[cal=cm]{mathalfa}
+
+
+\newcommand{\plC}{\scalebox{0.8}[1.3]{$\sqsubset$}}
+\newcommand{\sidenote}[1]{\marginpar{\textbf{\color{red}#1}}}
+
+% FIGURES FOR USE LATER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\Yagraph{\tikz[baseline=-3pt,scale=.8]{
+\draw (2,0) -- (0,1) (2,0) -- (0,.5) (2,0) -- (0,-1);
+\draw (2,0) circle(2pt)[fill=black];
+\draw [->] (2,0) -- (2.7,0);
+\draw (2.6,0) node[right]{\tiny{$x_k$}};
+\draw (0,1) circle(2pt)[fill=white];
+\draw (0,.5) circle(2pt)[fill=black];
+\draw (0,-.25) node{$\vdots$};
+\draw (0,-1) circle(2pt)[fill=black];
+\draw [red,fill=red] (0,-2) circle[radius=2pt];
+\draw [->,red,thick] (0,-2) -- (2,-2);
+\draw (2,-2) node[right,red]{\tiny{$\Sigma(\PP^N|H)$}};
+\draw [->,red] (1,-0.9) -- (1,-1.6);
+
+\draw (2.05,0) node[above]{\tiny{$\sqC_0$}};
+\draw (0,1) node[left]{\tiny{$\sqC_1$}};
+\draw (0,.5) node[left]{\tiny{$\sqC_2$}};
+\draw (0,-1) node[left]{\tiny{$\sqC_r$}};
+}}
+
+\def\Ybgraph{\tikz[baseline=-3pt,scale=.8]{
+\draw (2,0) to[out=120,in=0] (0,1) (2,0) -- (0,1) (2,0) -- (0,.5) (2,0) -- (0,-1);
+\draw (2,0) circle(2pt)[fill=black];
+\draw [->] (2,0) -- (2.7,0);
+\draw (2.6,0) node[right]{\tiny{$x_k$}};
+\draw (0,1) circle(2pt)[fill=black];
+\draw (0,.5) circle(2pt)[fill=black];
+\draw (0,-.25) node{$\vdots$};
+\draw (0,-1) circle(2pt)[fill=black];
+\draw [red,fill=red] (0,-2) circle[radius=2pt];
+\draw [->,red,thick] (0,-2) -- (2,-2);
+\draw (2,-2) node[right,red]{\tiny{$\Sigma(\PP^N|H)$}};
+\draw [->,red] (1,-0.9) -- (1,-1.6);
+
+\draw (2.05,0) node[above]{\tiny{$\sqC_0$}};
+\draw (0,1) node[left]{\tiny{$\sqC_1$}};
+\draw (0,.5) node[left]{\tiny{$\sqC_3$}};
+\draw (0,-1) node[left]{\tiny{$\sqC_r$}};
+}}
+
+\def\Ycgraph{\tikz[baseline=-3pt,scale=.8]{
+\draw (2,0) -- (0,1) (2,0) -- (0,.5) (2,0) -- (0,-1);
+\draw [->] (2,0) -- (2.7,0);
+\draw (2.6,0) node[right]{\tiny{$x_k$}};
+\draw (2,0) circle(2pt)[fill=white];
+\draw (0,1) circle(2pt)[fill=black];
+\draw (0,.5) circle(2pt)[fill=black];
+\draw (0,-.25) node{$\vdots$};
+\draw (0,-1) circle(2pt)[fill=black];
+\draw [red,fill=red] (0,-2) circle[radius=2pt];
+\draw [->,red,thick] (0,-2) -- (2,-2);
+\draw (2,-2) node[right,red]{\tiny{$\Sigma(\PP^N|H)$}};
+\draw [->,red] (1,-0.9) -- (1,-1.6);
+
+\draw (2.05,0) node[above]{\tiny{$\sqC_0$}};
+\draw (0,1) node[left]{\tiny{$\sqC_1$}};
+\draw (0,.5) node[left]{\tiny{$\sqC_2$}};
+\draw (0,-1) node[left]{\tiny{$\sqC_r$}};
+}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\mathsq}[1]{#1}
+
+\newcommand{\sqC}{\scalebox{0.8}[1.3]{$\sqsubset$}}
+
+\newcommand{\pM}{\pazocal{M}}
+\newcommand{\TT}{\operatorname{T}}
+\newcommand{\oM}{\overline{\mathcal{M}}}
+\newcommand{\M}[4]{\overline{\mathcal{M}}_{#1,#2}(#3,#4)}
+
+\newcommand{\Mlog}[4]{\overline{\mathcal{M}}^{\operatorname{log}}_{#1,#2}(#3,#4)}
+\newcommand{\Mpunct}[4]{\overline{\mathcal{M}}^{\operatorname{punct}}_{#1,#2}(#3,#4)}
+\newcommand{\MG}[4]{\overline{\mathcal{M}}^{\rm G}_{#1,#2}(#3,#4)}
+\newcommand{\Q}[4]{\mathcal{Q}_{#1,#2}(#3,#4)}
+\newcommand{\Qe}[4]{\mathcal{Q}^{\epsilon}_{#1,#2}(#3,#4)}
+\newcommand{\Qt}[4]{\widetilde{\mathcal Q}_{#1,#2}(#3,#4)}
+\newcommand{\QG}[4]{\mathcal{Q}G_{#1,#2}(#3,#4)}
+\newcommand{\QGe}[4]{\mathcal{Q}G^{\epsilon}_{#1,#2}(#3,#4)}
+\newcommand{\D}[3]{\mathcal{D^Q}(#1,#2,#3)}
+\newcommand{\E}[3]{\mathcal{E^Q}(#1,#2,#3)}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\VZ}{\pazocal{V\!Z}}
+\newcommand{\tVZc}[4]{\widetilde{\mathcal{V\!Z}}^{\rm{ctr}}_{#1,#2}(#3,#4)}
+\newcommand{\VZc}[4]{\mathcal{V\!Z}_{#1,#2}(#3,#4)}
+\newcommand{\VZcLi}[4]{\mathcal{V\!Z}^{\rm{ctr, Li}}_{#1,#2}(#3,#4)}
+\newcommand{\VZrel}[4]{\mathcal{V\!Z}^{\rm{rel}}_{#1,#2}(#3,#4)}
+\newcommand{\stab}{\rm{stab}}
+\newcommand{\stC}{C'}
+\newcommand{\stf}{f'}
+\newcommand{\stpi}{\pi'}
+\newcommand{\sts}{s'}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\OO}{\mathcal{O}}
+\renewcommand{\to}{\rightarrow}
+\newcommand{\A}{\mathcal A}
+\newcommand{\B}{\mathcal B}
+\newcommand{\C}{\mathfrak C}
+\newcommand{\cC}{\mathcal C}
+\newcommand{\EE}{\mathbf{E}}
+\renewcommand{\L}{\mathcal L}
+\newcommand{\LL}{\mathbf{L}}
+\newcommand{\MM}{\mathfrak M}
+\newcommand{\Aaff}{\mathbb{A}}
+\newcommand{\kfield}{\Bbbk}
+\newcommand{\comp}{\chi}
+\newcommand{\sst}{\sigma^{\operatorname{ss}}}
+\newcommand{\Pic}{\operatorname{Pic}}
+\newcommand{\Def}{\operatorname{Def}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\Proj}{\operatorname{Proj}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Ext}{\operatorname{Ext}}
+\newcommand{\Gm}{\mathbb{G}_{\text{m}}}
+\newcommand{\virt}[1]{[#1]^{\operatorname{virt}}}
+\newcommand{\vip}[1]{[#1]^{\operatorname{prod}}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\HH}{\operatorname{H}}
+\newcommand{\Achow}{\operatorname{A}}
+\newcommand{\pt}{\operatorname{pt}}
+\newcommand{\bq}{\begin{equation}}
+\newcommand{\eq}{\end{equation}}
+\newcommand{\ba}{\begin{aligned}}
+\newcommand{\ea}{\end{aligned}}
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bsm}{\left(\begin{smallmatrix}}
+\newcommand{\esm}{\end{smallmatrix}\right)}                   
+\newcommand{\bpm}{\begin{pmatrix}}
+\newcommand{\epm}{\end{pmatrix}}
+\newcommand{\barr}{\begin{displaymath}\begin{array}{cccc}}
+\newcommand{\earr}{\end{array}\end{displaymath}}
+\newcommand{\barrl}{\begin{displaymath}\begin{array}{lcl}}
+\newcommand{\earrl}{\end{array}\end{displaymath}}
+\newcommand{\barl}{\begin{displaymath}\begin{array}{l}}
+\newcommand{\earl}{\end{array}\end{displaymath}}
+\newcommand{\bxym}{ \begin{displaymath}\xymatrix }
+\newcommand{\exym}{\end{displaymath}}
+\newcommand{\bcd}{\begin{center}\begin{tikzcd}}
+\newcommand{\ecd}{\end{tikzcd}\end{center}}
+\newcommand{\R}{\operatorname{R}^{\bullet}}
+\newcommand{\dvr}{\Delta}
+%\newcommand{\sslash}{\mathbin{/\mkern-6mu/}}
+\newcommand{\tr}{{\rm tr}}
+\newcommand{\Isom}{\text{Isom}}
+\newcommand{\pr}{\operatorname{pr}}
+\newcommand{\ev}{\operatorname{ev}}
+\newcommand{\fgt}{\operatorname{fgt}}
+\newcommand{\codim}{\operatorname{codim}}
+\newcommand{\vdim}{\operatorname{vdim}}
+\newcommand{\ildef}[1]{\emph{#1}}
+\newcommand{\om}[1]{\mathcal{#1}}
+\newcommand{\h}{\operatorname{h}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Acal}{\mathcal{A}}
+\newcommand{\Scal}{\mathcal{S}}
+\newcommand{\Mcal}{\mathcal{M}}
+\newcommand{\Dcal}{\mathcal{D}}
+\newcommand{\Ycal}{\mathcal{Y}}
+\newcommand{\ol}[1]{\overline{#1}}
+\newcommand{\op}[1]{\operatorname{#1}}
+\newcommand{\gp}{\operatorname{gp}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ovm}[1]{\overline{\mathcal{#1}}}
+\newcommand{\ovt}[1]{\widetilde{\mathcal{#1}}}
+\newcommand{\ov}[1]{\overline{#1}}
+
+\theoremstyle{definition}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem*{teo*}{Theorem}
+\newtheorem{ipotesi}{ipotesi}
+\newtheorem*{nota}{Nota}
+\newtheorem{claim}{Claim}
+\newtheorem{question}[thm]{Question}
+\newtheorem{conj}[thm]{Conjecture}
+
+\newtheorem{innercustomthm}{Theorem}
+\newenvironment{customthm}[1]
+  {\renewcommand\theinnercustomthm{#1}\innercustomthm}
+  {\endinnercustomthm}
+
+\theoremstyle{definition}
+\newtheorem{example}[thm]{Example}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{dfn}[thm]{Definition}
+\newtheorem{definition}[thm]{Definition}
+\newtheorem{aside}[thm]{Aside}
+\newtheorem{remark}[thm]{Remark}
+\newtheorem{com}[thm]{Comment}
+\newtheorem{num}{Number}
+\newtheorem*{sketch}{Sketch}
+\newtheorem*{rem}{Remark}
+\newtheorem*{aside*}{Aside}
+\newtheorem*{acknowledgements}{Acknowledgements}
+
+\newlist{steps}{enumerate}{1}
+\setlist[steps, 1]{label = Step (\arabic*):}
+
+\newcommand{\ilemph}[1]{\emph{#1}}
+
+\setcounter{tocdepth}{1}
+
+\newcommand{\todo}[1]{\vspace{5mm}\par \noindent
+\framebox{\begin{minipage}[c]{0.95 \textwidth} \tt #1\end{minipage}} \vspace{5mm} \par}
+
+\def\ti{-\allowhyphens}
+\newcommand{\thismonth}{\ifcase\month % case 0 --- impossible!
+  \or January\or February\or March\or April\or May\or June%
+  \or July\or August\or September\or October\or November%
+  \or December\fi}
+\newcommand{\thismonthyear}{{\thismonth} {\number\year}}
+\newcommand{\thisdaymonthyear}{{\number\day} {\thismonth} {\number\year}}
+
+\title[Genus One Reduced Relative Invariants]{Relative Stable Maps in Genus One via Central Alignments}
+\author{Luca Battistella, Navid Nabijou and Dhruv Ranganathan}
+\date{\thismonthyear}
+
+\begin{document}
+
+
+\begin{abstract} For a smooth projective variety $X$ and a smooth very ample hypersurface $Y \subseteq X$, we define moduli spaces of relative stable maps to $(X,Y)$ in genus one, as closed substacks of the moduli space of maps from centrally aligned curves, constructed in \cite{RSPW}. We construct virtual classes for these moduli spaces, which we use to define \emph{reduced relative Gromov--Witten invariants} in genus one.
+
+[GOALS: We prove a recursion formula which allows us to completely determine these invariants in terms of the reduced Gromov--Witten invariants, as defined in [REF]. We also prove a relative version of the Li--Zinger formula, relating our invariants to the usual relative Gromov--Witten invariants. Also say something about quasimaps.]
+\end{abstract}
+
+\maketitle
+
+\appendixtitletocoff
+\tableofcontents
+
+\section{Introduction}
+
+\subsection{Statement of the problem} Contrary to the genus zero case, the moduli space of genus one maps to projective space - with or without markings - is far from smooth; indeed it has various boundary components of different dimensions, representing maps that contract a genus one curve and have all the degree supported on a number of rational tails. The many incarnations of relative moduli spaces also suffer of the same undesirable feature.
+
+Since the work of Vakil--Zinger and Ranganathan--Santos-Parker--Wise, it has been clear that it is possible to identify a desingularisation of the main component by adding the extra data of a contraction of the source curve $\nu\colon C\to \bar{C}$ - where the latter is allowed to acquire a Smyth singularity - and requiring the stable map $f\colon C\to \PP^N$ to factor through $\nu$.
+
+\subsection{Choice of relative space and desingularisation} We focus on the space of logarithmic stable maps to $(\PP^N|H)$, following ACGS. We perform a log modification of this space as detailed below. For a log curve $C\to S=\Spec(k=\bar k)$, modify the dual graph of $C$ by replacing the minimal genus one subcurve (in case it is a circle of $\PP^1$) by a single vertex of genus one, called the \emph{core} and denoted by $\circ$, and define a piecewise linear function with values in $\overline{\pazocal M}_S$ on such a graph by setting \[\lambda(v)=\sum_{q\in[\circ,v]}\rho_q,\]
+where the $\rho_q$ are the smoothing parameters of the nodes $q$ separating $v$ from the core. Such a function is related to the log canonical bundle of $C\to S$. When the map contracts a subcurve of genus one, we endow it with the extra data of a radius $\delta\in\overline{\pazocal M}_S$ subject to the following compatibility condition:
+
+(*) \emph{the circle of radius $\delta$ around $\circ$ passes through $\geq1$ vertex of positive $f$-degree}.
+
+\noindent Furthermore, we require all the values of $\lambda$ to be comparable with $\delta$, and among themselves whenever they are $\leq \delta$. This is called a \emph{centrally aligned} log structure and carries enough information to define a contraction $\nu\colon C\to \bar{C}$, possibly after a semistabilisation of $(C,f)$ - in fact even more. The space thus obtained, $\widetilde \VZ_{1,\alpha}(\PP^N|H,d)$, is a log modification of $\M{1}{\alpha}{\PP^N|H}{d}$.
+
+The main component $\VZ_{1,\alpha}(\PP^N|H,d)$ is then identified by a double factorisation condition:
+\begin{enumerate}
+ \item If $f$ contracts a genus one subcurve, then $f$ is required to factor through the Smyth singularity $\nu\colon C\to \bar C$ determined by the contraction radius $\delta$ as above.
+ \item If furthermore the core is contracted by the associated tropical map $\phi$, let $\delta_2$ be the minimal distance from $\circ$ to a vertex supporting a flag that escapes $\phi^{-1}(\phi(\circ))$; we require $f$ to factor through $\nu_2\colon C\to\bar C_2$.
+\end{enumerate}
+The main result is that
+\begin{thm}
+ $\VZ_{1,\alpha}(\PP^N|H,d)$ is (log) smooth.
+\end{thm}
+
+\subsection{Gathmann-type recursion} There is a forgetful morphism \[\VZ_{1,\alpha}(\PP^N|H,d)\to \VZ_{1,n}(\PP^N,d),\] hitting Gathmann's relative space. We may therefore pullback Gathmann's line bundle and section, cutting out the locus where the $k$-th marking is tangent to $H$ to order $\alpha_k+1$. Because $\alpha$ was maximal ($\sum\alpha=d$) by assumption, this means that the curve has to break, and $x_k$ has to lie on an internal component - one which is entirely mapped into $H$. We identify the zero locus of Gathmann's section explicitly. Here is an interesting remark: the combinatorics of such boundary loci is governed by tropical geometry, and it is otherwise very hard to districate the interaction between the relative condition and the exceptional loci of the Vakil--Zinger blow-up.
+\begin{cor}
+ $\VZ_{1,\alpha}(\PP^N|H,d)$ is smooth over its Artin fan, in particular codimension one logarithmic strata can be read off from the latter.
+\end{cor}
+The Artin fan is a tropical gadget. Its local structure is given by subdividing the ACGS minimal monoid according to the alignment. We are only interested in picking its rays. The upshot is that the combinatorics is slightly more involved than in the genus zero case: the alignment may force some teeth of the comb to break.
+\begin{thm}[Gathmann-type formula, maximal tangency, $(\PP^N|H)$ case]
+ \[(\alpha_k\psi_k+\ev_k^*H)[\VZ_{1,\alpha}(\PP^N|H,d)]=[D_{1,\alpha;k}(\PP^N|H,d)],\]
+ the latter being a sum of broken comb loci indexed by rays of the tropical fan.
+\end{thm}
+Importantly, the broken comb loci admit a very explicit description in terms of tautological integrals on the underlying boundary of Gathmann's relative space.
+\begin{thm}
+ Up to a finite cover of the underlying boundary stratum - which is a combinatorially-determined fiber product of moduli spaces of genus zero and one, absolute and relative maps with lower numerical invariants - every component of $D_{\alpha,k}(\PP^N|H,d)$ can be described as the transverse intersection of two loci in a projective bundle, where:
+ \begin{itemize}
+  \item the latter parametrises the possible line bundle isomorphisms imposed by the alignment of the log structure;
+  \item the first locus is a subbundle representing the residual isomorphisms after fixing the ones virtually imposed by tropical continuity;
+  \item the second locus is determined by the factorisation conditions.
+ \end{itemize}
+\end{thm}
+The upshot is that we may then push the formula down to the Gathmann's space, so as to obtain multiplicities and tautological classes.
+\begin{cor}
+ \[(\alpha_k\psi_k+\ev_k^*H)[\VZ^G_{1,\alpha}(\PP^N|H,d)]=[D^G_{1,\alpha;k}(\PP^N|H,d)],\]
+ the latter being expressible as a weighted sum of tautological classes on Gathmann's comb loci.
+\end{cor}
+Once we have this formula, the following extensions are classical:
+\begin{itemize}
+ \item A similar formula for raising the tangency holds in the non-maximal tangency case. It can be proven by adding auxiliary markings of contact order $1$; forgetting them is then a $(d-\sum\alpha)!:1$ cover because the nice locus is dense inside Gathmann's relative spaces.
+ \item The formula holds more generally for any smooth projective target $X$ relative to a generic hyperplane section $Y=X\cap H\subseteq \PP^N$. This follows via virtual pullback.
+\end{itemize}
+Finally the recursive structure of the boundary allows us to prove the following
+\begin{thm}[In-principle quantum Lefschetz]
+ The restricted reduced genus one invariants of $Y$ can be inductively deducted from the full descendant genus zero and one (reduced) Gromov-Witten theory of $X$.
+\end{thm}
+The proof is more delicate than its genus zero analogue because invariants with the same numerical data appear intertwined in the last steps of the recursion.
+
+\section{Desingularisation of the moduli space of log stable maps}
+The ultimate goal of the paper is to apply Gathmann's techniques to the Vakil-Zinger desingularisation $\VZ_{1,n}(\PP^N,d)$ and to obtain a quantum Lefschetz result for reduced invariants under some positivity assumption. The key step is to study the unobstructed case $(\PP^N|H)$. We approach the problem by lifting it to the ACGS space of log stable maps. This allows us to exploit the tools developed in \cite{RSPW,RSPW2}. We are in an intermediate situation between those two papers, and indeed we get an intermediate answer.
+
+\subsection{The ACGS minimal monoid and central alignments}
+
+\begin{prop}
+ The map $\oM_{1,\alpha}^{\mathrm{cen}}(\PP^N|H,d)\to\oM_{1,\alpha}(\PP^N|H,d)$ is a log modification. In particular $\oM_{1,\alpha}^{\mathrm{cen}}(\PP^N|H,d)$ is a log algebraic stack.
+\end{prop}
+
+{\color{gray} possibly start pointing out that the log structure is already partially aligned by the map to $(\PP^N|H)$}
+
+\subsection{Factorisation conditions}
+
+\begin{prop}
+ Factoring through the Smyth curve is a closed condition. In particular $\VZ_{1,\alpha}(\PP^N|H,d)\subseteq_{\mathrm{cl}}\oM_{1,\alpha}^{\mathrm{cen}}(\PP^N|H,d)$ is a log algebraic stack.
+\end{prop}
+
+\subsection{Log smoothness}
+\begin{thm}
+ $\VZ_{1,\alpha}(\PP^N|H,d)$ is log smooth.
+\end{thm}
+\begin{proof}
+ We reduce to the situation dealt with in \cite{RSPW2} by adding generic extra hyperplanes $H_1,\ldots, H_N$.
+ 
+ First, note that, for divisors $D_1\subseteq D_2$ in $X$, there is a morphism of log schemes $(X,\pazocal M_{D_2})\to (X,\pazocal M_{D_1})$, or equivalently a morphism of log structures $\pazocal M_{D_1}\to\pazocal M_{D_2}$ over $i\!d_X$, because functions invertible off $D_1$ are in particular invertible off $D_2$ as well, and divisorial log structures are subsheaves of the structure sheaf $\pazocal M_{D}\subseteq\OO_X$.
+ 
+ Now fix a point $[(C,f)]\in\VZ_{1,\alpha}(\PP^N|H,d)$. Choose hyperplanes $H_1,\ldots, H_N$ in such a way that they intersect the image of $f$ transversally, namely $f^{-1}(H_1\cup\ldots\cup H_N)$ is a reduced collection of points $\{q^i_j\}_{\substack{i=1,\ldots,N \\ j=1,\ldots,d}}$ in the smooth locus of $C$. This condition will then hold in an open neighbourhood of $[(C,f)]$. Mark $C$ at these points, end endow it with the pullback along $f$ of the divisorial log structure $(\PP^N,\Delta)$, where $\Delta=H+\sum_{i=1}^N H_i$. Then \[f\colon (C,\{p_k\}_{k=1,\ldots,n}\{q^i_j\}_{\substack{i=1,\ldots,N \\ j=1,\ldots,d}})\to(\PP^N,\Delta)\]
+ is a lift of $[(C,f)]$ to $\oM_{1,\alpha}(\PP^N|\Delta,d)$ (under the forgetful morphism discussed in the previous paragraph).
+ 
+ Looking at the associated tropical map $\phi$, observe that:
+ \begin{itemize}
+  \item new flags have been attached only to vertices of positive degree, and these already have a flag escaping $\phi^{-1}\phi(v)$, because the sum of the incoming slopes is not zero (by modified balancing);
+  \item the image of the new tropical map $\tilde\phi$ is entirely contained in the ray of the tropicalisation of $(\PP^N,\Delta)$ corresponding to $H$, with new flags going off to infinity in all the new ray directions from every vertex of positive degree.
+ \end{itemize}
+ In particular, for every quotient $N'$ of the lattice $N$, the associated tropical map $\tilde\phi'$ will either
+ \begin{enumerate}
+  \item have image contained in the ray corresponding to $H$, isomorphically to the original $\phi$, so the contraction radius can be seen to coincide with $\delta_2$, or
+  \item collapse the entire curve to the zero-cell of the fan, in which case we argue from the previous remarks that the contraction radius is $\delta$.
+ \end{enumerate}
+
+ Hence the lift of $[(C,f)]$ is centrally aligned and satisfies the factorisation property for every subtorus $H<T$, therefore it is well-spaced (see \cite[Definition 3.4.2]{RSPW2}) and it belongs to $\VZ_{1,\tilde\alpha}(\PP^N|\Delta,d)$. Note that the deformation spaces of $(C,f)$ and its lift are isomorphic by construction, as can be checked by the infinitesimal criterion - an infinitesimal deformation of $(C,f)$ brings along a unique deformation of the $\{q^i_j\}$ compatible with the map to $(\PP^N,\Delta)$. At the logarithmic level, observe that the ACGS minimal monoid is the same, because no component of $C$ is entirely mapped into any of the newly added hyperplanes; since the global contraction radius $\delta$ is the same, the subdivisions corresponding to the alignment procedure do coincide as well. This shows that the forgetful morphism is (log) \'etale in a neighbourhood of the lift of $[(C,f)]$, hence we may conclude by appealing to \cite[Theorem 3.5.1]{RSPW2}.
+\end{proof}
+
+\begin{cor}\label{cor:log_smooth}
+ $\VZ_{1,\alpha}(\PP^N|H,d)$ is smooth over its Artin fan.
+\end{cor}
+
+{\color{gray} describe the latter as explicitly as possible; comment on the cones that are (possibly?) not there because of the compatibility of the alignment with the log map (this is probably awkward, useless, and superceded by saying ``we align subdivide the ACGS minimal dual monoid'') and because of smoothability/factorisation (this is probably related to tropical well-spacedness)}
+
+\subsection{A desingularisation of punctured log maps}
+Describe an analogous desingularisation for punctured log maps. The degree zero case seems more delicate and complicated, even though it should just be a substack of a moduli space of marked curves after all (the log structure is possibly trickier).
+\begin{dfn}
+ A $(z,g,n)$-punctured log map is a punctured log map where the markings with negative contact order to $H$ have an extra label, either $z$ (the tropical map sends them to $z$ero), or $g$ (stands for gluing), or $n$ (stands for nihil, nothing...)
+\end{dfn}
+We would like to extend the minimal monoid in order to account for some of the punctures, i.e. take the sum of $p^*\mathcal M_{C^\circ}$ (for every such puncture $p$) fibered over the log structure of the base, which seems to have the same effect as topping those edges with a uertex (which doesn't carry any other information). This looks to me like sprouting a $\PP^1$ at those puncture. Now, the point of the $(z,g,n)$-labelling is that: we only extend the log structure at the $z$ and $g$ punctures; uertices labelled with a $z$ are sent under the tropical map to $0$, so continuity applies to them (therefore the extension of the log structure is fake because that edge length is determined by the position of the adjacent vertex); while uertices labelled with an $n$ are free to roam about. Finally, we perform a radial alignment (and we take rays). This distinction comes about when you split your centrally aligned map according to the strict interior of the $\delta$-circle and the outside; the intersection of a tree with the $\delta$-circle can either be a vertex over $0$, or another vertex (corresponding to a degeneration of the genus zero map outside), or not a vertex.
+
+\newpage
+
+\section{Description of the logarithmic strata}
+\noindent Let $\VZ = \VZ_{1,\alpha}(\PP^N|H,d)$ and let $\Acal$ denote the Artin fan of $\VZ$. Since the map of log stacks
+\begin{equation*} \VZ \to \Acal \end{equation*}
+is smooth, we see that the codimension-$k$ logarithmic strata in $\VZ$ are in bijective correspondence (via pull-back) with the codimension-$k$ logarithmic strata in $\Acal$. The logarithmic strata in $\Acal$, on the other hand, have a purely combinatorial description (at least locally) in terms of the associated moduli spaces of tropical maps, coming from the fact that $\VZ$ is a logarithmic blow-up of the usual moduli space of log stable maps. In this section we discuss this circle of ideas, and show how it plays out in a number of examples.
+
+\subsection{Blowing up the Artin fan}
+Let $\Mcal = \ol{\Mcal}^{\op{log}}_{1,\alpha}(\PP^N|H,d)$ denote the Abramovich--Chen--Gross--Siebert moduli space of log stable maps. Recall that $\VZ$ is obtained as a closed substack of a log modification
+\begin{equation*} \widetilde{\VZ} \to \Mcal .\end{equation*}
+Since the map $\VZ \hookrightarrow \widetilde{\VZ}$ is strict, the Artin fan $\Acal$ of $\VZ$ is locally isomorphic to the Artin fan of $\widetilde{\VZ}$ (with the latter being, in general, larger). Since the following discussion is entirely local, we will ignore the distinction between the two, and pretend as though $\Acal$ is the Artin fan of $\widetilde{\VZ}$. There is then a commuting square:
+\bcd
+\widetilde{\VZ} \ar[r] \ar[d] & \Mcal \ar[d] \\
+\Acal \ar[r] & \Acal_{\Mcal}.
+\ecd
+Note that neither of the vertical maps are smooth, since the moduli spaces on the top row are not log smooth. The construction of $\widetilde{\VZ} \to \Mcal$ as the log modification obtained by imposing an alignment condition gives us a combinatorial description of the map $\Acal \to \Acal_{\Mcal}$ which we will use to study $\Acal$. Recall that $\Acal_\Mcal$ is locally isomorphic to the stack quotient
+\begin{equation*} \left[ \Spec \kfield[Q] / \Spec\kfield [Q^{\gp}] \right]\end{equation*}
+where $Q$ is a monoid giving a\footnote{(Navid) Neat?} local chart for $\Mcal$, which we may take to be the minimal monoid of \cite[\S 1.5]{GrossSiebertLog}. The real dual $Q^\vee_{\RR} = \Hom(Q,\RR_{\geq 0})$ of this monoid can be viewed as a moduli space of tropical maps; see \cite[Remark 1.12]{GrossSiebertLog}. We call this \emph{the tropical moduli space}; contained in the tropical moduli space are the edge lengths of the associated tropical curve (corresponding to the smoothing parameters of the nodes of the logarithmic curve). Since the alignment condition amounts to imposing a partial ordering amongst certain sums of these edge lengths, it produces a polyhedral decomposition of the tropical moduli space, into chambers where different partial order relations hold. If we only consider the integral points, this produces a polyhedral decomposition of the cone $Q^\vee = \Hom(Q,\N)$. Dualising, we obtain a toric blow-up
+\begin{equation*} Z \to \Spec \kfield[Q] \end{equation*}
+which, since it is equivariant, descends to a morphism of the associated zero-dimensional stacks:
+\begin{equation*} \left[Z/T_Z \right] \to \left[ \Spec \kfield[Q] / \Spec\kfield [Q^{\gp}] \right]. \end{equation*}
+This gives a local description of the map $\Acal \to \Acal_\Mcal$ and in particular of the Artin fan $\Acal$. By the orbit-cone correspondence, the codimension-$k$ strata of $\Acal$ which intersect this open locus correspond to the $k$-dimensional cones in the polyhedral decomposition of $Q^\vee$ described above. These can be understood entirely in terms of tropical combinatorics. This is best explained through a number of examples, which we now present.
+
+\subsection{Examples of logarithmic strata} In these examples we will proceed as follows: we will start by fixing an element of the ordinary moduli space $\Mcal$ of log stable maps. We will then compute the associated tropical moduli space, giving a description of $\Acal_\Mcal$ local to our chosen element. We will then describe the necessary polyhedral subdivison, and thus give a description of $\Acal$ in a neighbourhood of the preimage in $\VZ$ of our chosen element of $\Mcal$. Finally we will use this to describe the logarithmic strata which intersect this neighbourhood.
+\begin{example} Consider an element of $\Mcal$ whose associated tropical map has the following combinatorial type:
+\begin{center}
+\begin{tikzpicture}
+\draw [fill] (0,3) circle[radius=2pt];
+\draw (0,3) node[left]{$\sqC_1$};
+\draw (0,3) -- (2,2);
+\draw (1,2.5) node[above,color=red]{$1$};
+\draw (1,2.5) node[below]{$e_1$};
+
+\draw [fill] (0,1) circle[radius=2pt];
+\draw (0,1) node[left]{$\sqC_2$};
+\draw (0,1) -- (2,2);
+\draw (1,1.5) node[below,color=red]{$2$};
+\draw (1,1.5) node[above]{$e_2$};
+
+\draw [->] (2,2) -- (3,2);
+\draw (3,2) node[above]{$x_1$};
+\draw (2.5,2) node[below,red]{$3$};
+
+\draw [fill=white] (2,2) circle[radius=2pt];
+\draw (2,2) node[above]{$\sqC_0$};
+
+\draw [->,color=red] (2,1.5) -- (2,0.5);
+
+\draw [->,color=red] (0,0) -- (3,0);
+\draw (0,0) [fill=red,color=red] circle[radius=2pt];
+\draw (3,0) node[right,color=red]{$\Sigma(\PP^N|H)$};
+\end{tikzpicture}
+\end{center}
+Here each edge (corresponding to a node of the curve) has a length $e_i$ and an expansion factor $u_i$ (indicated in red). The moduli space of such tropical maps is generated by the edge lengths $e_1$ and $e_2$
+\begin{equation*} (\RR_{\geq 0})_{e_1} \times (\RR_{\geq 0})_{e_2} \end{equation*}
+subject to the continuity condition $e_1=2e_2$. So the tropical moduli space is simply $\RR_{\geq 0}$ generated by $e_2$. Note that for any $e_2 > 0$ (i.e. on the interior of the cone) we have:
+\begin{equation*} \lambda(\sqC_2) = e_2 = e_1/2 < e_1 = \lambda(\sqC_1). \end{equation*}
+Thus, any logarithmic map with combinatorial type given by the above picture is automatically aligned. This means that the map $\VZ \to \Mcal$ is an isomorphism in a neighbourhood of our chosen element (there is no blowing up necessary). Indeed, the tropical moduli space is $\RR_{\geq 0}$ and this cone does not admit a polyhedral subdivision (there is no non-trivial toric blow-up of $\Aaff^1$).
+\end{example}
+
+\begin{example}
+Consider now an element of $\Mcal$ whose associated tropical map has the corresponding combinatorial type:
+\begin{center}
+\begin{tikzpicture}
+\draw [fill] (0,4) circle[radius=2pt];
+\draw (0,4) node[left]{$\sqC_1$};
+\draw (0,4) -- (2,3);
+\draw (1,3.5) node[above,color=red]{$1$};
+\draw (1,3.5) node[below]{$e_1$};
+
+\draw [fill] (0,1) circle[radius=2pt];
+\draw (0,1) node[left]{$\sqC_2$};
+\draw (0,1) -- (2,2);
+\draw (1,1.5) node[below,color=red]{$2$};
+\draw (1,1.5) node[above]{$e_2$};
+
+\draw [->] (2,3) -- (3,3);
+\draw (3,3) node[above]{$x_1$};
+\draw (2.5,3) node[above,red]{$1$};
+
+\draw (2,3) -- (2,2);
+\draw [fill] (2,2) circle[radius=2pt];
+\draw (2,2.5) node[right]{$e_3$};
+\draw (2.075,2.5) node[left,red]{$0$};
+\draw (2,2) node[below]{$\sqC_3$};
+
+\draw [->] (2,2) -- (3,2);
+\draw (3,2) node[above]{$x_2$};
+\draw (2.5,2) node[below,red]{$2$};
+
+\draw [fill=white] (2,3) circle[radius=2pt];
+\draw (2,3) node[above]{$\sqC_0$};
+
+\draw [->,color=red] (2,1.25) -- (2,0.5);
+
+\draw [->,color=red] (0,0) -- (3,0);
+\draw (0,0) [fill=red,color=red] circle[radius=2pt];
+\draw (3,0) node[right,color=red]{$\Sigma(\PP^N|H)$};
+\end{tikzpicture}
+\end{center}
+As before, expansion factors are indicated in red and the edge lengths are $e_1,e_2,e_3$. The tropical moduli space is $\RR_{\geq 0}^3$ generated by these three lengths, subject to the continuity condition $e_1=2e_2$. Thus the moduli space is isomorphic to $\RR_{\geq 0}^2$ generated by $e_2$ and $e_3$. In order to have an alignment, at least one of $\lambda(\sqC_1)$ and $\lambda(\sqC_2)$ must be equal to the radius $\delta$. Note that
+\begin{align*} \lambda(\sqC_1) & = e_1 = 2e_2 \\
+\lambda(\sqC_2) & = e_2 + e_3\end{align*}
+and without more information we cannot say which of these is larger. The subdivision of $(\RR_{\geq 0})^2$ is obtained by dividing the cone into regions where different order relations hold amongst the distances $\lambda(\sqC_1),\lambda(\sqC_2),\lambda(\sqC_3)$. The walls of this subdivison correspond to where some of these distances are equal. Note that in this setting we always have $\lambda(\sqC_2) > \lambda(\sqC_3)$ (at least, as long as we remain in the interior of the cone). The remaining possibilities are:
+\begin{align*} \lambda(\sqC_1) & = \lambda(\sqC_3) \qquad (\Leftrightarrow e_1 = e_3 \Leftrightarrow 2e_2 = e_3) \\
+\lambda(\sqC_1) & = \lambda(\sqC_2) \qquad (\Leftrightarrow e_1 = e_2 + e_3 \Leftrightarrow e_2 = e_3). \end{align*}
+Thus, the subdivision of the tropical moduli space $(\RR_{\geq 0}^2)_{e_2 e_3}$ is given by:
+\begin{center}
+\begin{tikzpicture}[scale=1]
+% Right-hand box
+\fill [fill=gray!30!white] (5,0) -- (8.75,0) -- (8.75,3.75) -- (5,3.75) -- cycle;
+\draw [fill] (5,0) circle[radius=2pt];
+\draw [->] (5,0) -- (9,0);
+\draw (9,0) node[right]{$e_2$};
+\draw [->] (5,0) -- (5,4);
+\draw (5,4) node[above]{$e_3$};
+
+% Left-hand box
+\fill [fill=gray!30!white] (-3,0) -- (0.75,0) -- (0.75,3.75) -- cycle;
+\fill [fill=gray!50!white] (-3,0) -- (0.75,3.75) -- (-1.125,3.75) -- cycle;
+\fill [fill=gray!30!white] (-3,0) -- (-1.125,3.75) -- (-3,3.75) -- cycle;
+\draw [fill] (-3,0) circle[radius=2pt];
+\draw [->] (-3,0) -- (1,0);
+\draw (1,0) node[right]{$e_2$};
+\draw [->] (-3,0) -- (-3,4);
+\draw (-3,4) node[above]{$e_3$};
+
+% 2e_2=e_3 line
+\draw [->] (-3,0) -- (-1,4);
+\draw (-1,4) node[above]{$2e_2=e_3$};
+
+% e_2=e_3 line
+\draw [->] (-3,0) -- (1,4);
+\draw (1,4) node[above]{$e_2=e_3$};
+
+% arrow
+\draw [->] (2,2) -- (4,2);
+\end{tikzpicture}
+\end{center}
+The cones of the subdivison index the logarithmic strata in a neighbourhood of the preimage in $\VZ$ of our chosen element of $\Mcal$. These can be described as follows:
+\begin{center}
+\begin{tikzpicture}[scale=1.8]
+% Left-hand box
+\fill [fill=gray!30!white] (-3,0) -- (0.75,0) -- (0.75,3.75) -- cycle;
+\fill [fill=gray!50!white] (-3,0) -- (0.75,3.75) -- (-1.125,3.75) -- cycle;
+\fill [fill=gray!30!white] (-3,0) -- (-1.125,3.75) -- (-3,3.75) -- cycle;
+\draw [fill] (-3,0) circle[radius=1pt];
+\draw (-3,0) -- (1,0);
+\draw (1,0) node[right,red]{$e_3=0$};
+\draw (-3,0) -- (-3,4);
+\draw (-3,4) node[above,red]{$e_1=e_2=0$};
+
+% 2e_2=e_3 line
+\draw (-3,0) -- (-1,4);
+\draw (-1,4) node[above,red]{$\lambda(\sqC_1)=\lambda(\sqC_3)$};
+
+% e_2=e_3 line
+\draw (-3,0) -- (1,4);
+\draw (1,4) node[above,red]{$\lambda(\sqC_1)=\lambda(\sqC_2)$};
+
+\draw (0,1.5) node[below,red]{$\lambda(\sqC_1) > \lambda(\sqC_2)$};
+
+\draw (-0.6,3.4) node[below,red]{$\lambda(\sqC_3) < \lambda(\sqC_1)$};
+\draw (-0.6,3.1) node[below,red]{$< \lambda(\sqC_2)$};
+
+\draw (-2.2,3.4) node[below,red]{$\lambda(\sqC_1) < \lambda(\sqC_3)$};
+\end{tikzpicture}
+\end{center}
+There are four codimension--$1$ logarithmic strata of $\VZ$ intersecting our chosen neighbourhood, corresponding to the rays in the above picture. Two of these -- those corresponding to the rays labeled $\{ e_1=e_2=0 \}$ and $\{ e_3=0 \}$ -- are the proper transforms of codimension--$1$ strata in $\Mcal$. These strata consist of log stable maps where some of the tropical edge lengths are equal to zero, meaning that the corresponding nodes have been smoothed. Notice that although the curve has three nodes, there are only two such strata: the nodes $q_1$ and $q_2$ cannot be smoothed independently because of the relation $e_1=2e_2$.
+
+The remaining two codimension--$1$ strata in $\VZ$ -- corresponding to the interior rays in the above picture -- consist of log stable maps where some of the vertex distances become equal. Here none of the nodes are smoothed. From the construction of the subdivision, we see that both these strata map onto a codimension--$2$ stratum of $\Mcal$ (namely, the locus in which all of the nodes persist); this coheres with the fact that they should be thought of as exceptional loci of the blow-up. The extra dimension of moduli comes from the choice of alignment.
+
+Finally, there are three codimension--$2$ strata, corresponding to different \emph{strict} orderings of the vertex distances. Note that the divisorial strata corresponding to $\{e_1=e_2=0\}$ and $\{e_3=0\}$, which intersected in $\Mcal$, no longer intersect in $\VZ$, since we have blown up. The picture is something like:
+\begin{center}
+\begin{tikzpicture}[scale=0.5]
+\draw (-6.5,0.5) ellipse (4 and 2);
+\draw (-6.5,-1.5) node[below]{$\Mcal$};
+\draw [very thick] plot [smooth] coordinates{(-10,0.25) (-8,0.75) (-6,0)};
+\draw [very thick] plot [smooth] coordinates{(-7,0) (-5,0.75) (-3,0.5)};
+
+\draw (-21.5,0.5) ellipse (7 and 2);
+\draw (-21.5,-1.5) node[below]{$\VZ$};
+\draw [very thick] plot [smooth] coordinates{(-28,0.25) (-26,0.75) (-24,0)};
+\draw plot [smooth] coordinates{(-25,0) (-23,0.75) (-21,0)};
+\draw plot [smooth] coordinates{(-23,0) (-20,0.75) (-18,0)};
+\draw [very thick] plot [smooth] coordinates{(-20,0) (-17,0.75) (-15,0)};
+
+\draw [->] (-14,0.5) -- (-11,0.5);
+\end{tikzpicture}
+\end{center}
+
+\end{example}
+
+\subsection{Global logarithmic strata}
+In the previous subsections we used tropical geometry to identify the logarithmic strata of $\VZ=\VZ_{1,\alpha}(\PP^N|H,d)$ local to the preimage of a point in $\Mcal$. In fact, the whole discussion carries over if we replace a point in $\Mcal$ by a locally closed logarithmic stratum: the key observation is simply that the tropical moduli space does not vary if we move inside a locally closed logarithmic stratum, so the subdivision process makes sense over that whole stratum. This fact will allow us to describe the logarithmic strata of $\VZ$ globally.
+
+\subsubsection{Logarithmic strata of $\Mcal$} The locally closed logarithmic strata of $\Mcal$ consist of loci where the combinatorial type of the associated tropical curve is constant\footnote{(Navid) Reference for this?}. This is because the combinatorial type determines the minimal monoid $Q$, which coincides with the stalk of the ghost sheaf on $\Mcal$.
+
+If we have two strata $\Scal_1$ and $\Scal_2$ corresponding to combinatorial types $\Delta_1$ and $\Delta_2$, then $\Scal_2$ is contained in the closure of $\Scal_1$ if and only if the combinatorial type $\Delta_1$ is obtained from $\Delta_2$ by a process of generisation: namely, by contracting some edges (i.e. smoothing some nodes) and moving some of the vertices from the interior $\RR_{>0} \subseteq \RR_{\geq 0}$ of the tropicalisation $\Sigma(\PP^N|H)$ to the vertex $0 \in \RR_{\geq 0}$ (i.e. moving some components of the curve outside $H$). This allows us to completely describe the dual intersection complex of the logarithmic strata of $\Mcal$.
+
+Note that we are \emph{not} able to easily read off the codimension of a logarithmic stratum from the combinatorial data: the codimension of the associated stratum in the Artin fan $\Acal_\Mcal$ is given by the dimension of the tropical moduli space, but the map $\Mcal\to\Acal_\Mcal$ is not smooth (since $\Mcal$ is not log smooth) so we are not able to say anything about the locus in $\Mcal$. 
+
+\subsubsection{Logarithmic strata of $\VZ$}
+Now let us pick a stratum $\Scal \subseteq \Mcal$ indexed by a combinatorial type $\Delta$ and with associated monoid $Q$. We may choose a sufficiently small open neighbourhood of $\Scal$ which only intersects logarithmic strata $\Scal^\prime$ which contain $\Scal$ in their closures. The previous discussion then shows that if we pick any point in this open neighbourhood, the combinatorial type of the associated tropical curve is obtained from $\Delta$ by contracting some edges and specialising some vertices. Thus we see that the associated map on tropical moduli spaces is injective, and so the generisation map on the level of ghost sheaves is surjective. This allows us to produce a chart on the open neighbourhood of $\Scal$ with monoid given by $Q$.
+
+The discussion in the previous subsections then applies \emph{mutatis mutandis} to this open set, giving a description of the logarithmic strata of $\VZ$ which intersect an open neighbourhood of the preimage of $\Scal$. Since log strata must map to log strata, this gives a procedure for enumerating all of the locally closed logarithmic strata of $\VZ$, namely:\medskip
+\begin{enumerate}
+\item Enumerate the locally closed logarithmic strata of $\Mcal$ by enumerating all possible combinatorial types of tropical curves with the given numerical data. The dual intersection complex of these strata is specified by generisation of combinatorial types, as described earlier.\medskip
+\item For each locally closed stratum $\Scal\subseteq \Mcal$ identify the tropical moduli space $Q^\vee_{\RR}$ associated to the given combinatorial type, and perform the subdivision specified by the alignment condition. The arguments of the previous subsections carry over to give a description of the logarithmic strata of $\VZ$ which map to a neighbourhood of $\Scal$. The dual intersection complex of these strata is specified by the combinatorics of each subdivision together with the dual intersection complex of the strata of $\Mcal$.
+\end{enumerate}
+We now illustrate this is in some examples:
+\begin{example} Example of low-degree computation of logarithmic strata. (Note that for $\Mcal$ we can't read off the codimension from the dimension of the tropical moduli space because $\Mcal$ is not log smooth.)\footnote{(Navid) To be done.}\end{example}
+
+
+\newpage
+
+\section{Splitting axiom and recursion formula for $(\PP^N|H)$}
+
+\noindent  In the previous section we explained how to determine the logarithmic strata of $\VZ$. We now focus our attention on certain logarithmic divisors, providing a recursive description for these loci: that is, a description in terms of fibre products of smaller moduli spaces. This is the technically most difficult part of the paper. The recursive description bears some similarities with the recursive description of the boundary of the absolute space $\VZ_{1,n}(\PP^N,d)$ given in \cite{VZ}; in keeping with the theme of this paper, however, we will see that log geometry provides a convenient framework for dealing with the combinatorics.
+
+The end result is that we obtain an explicit formula for tautological integrals over these boundary loci. This produces a Gathmann recursion  for relative invariants in genus one.
+
+The plan for this section is as follows \footnote{(Navid) Finish this}
+
+\subsection{Recursion setup} Consider an element of $\VZ$ and choose a marked point $x_k\in C$. We note that by the existence of a log morphism, either $f$ has contact order $\alpha_k$ to $H$ at the marking $x_k$, or else the irreducible component of $C$ containing $x_k$ is mapped entirely inside $H$ (we say ``$x_k$ belongs to an internal component'' in this case).
+
+By pulling back the equation defining $H$ along $f$ and then taking its $\alpha_k$-th derivative at $x_k$ (which makes sense since all the lower-order derivatives vanish by assumption) we obtain a section of a jet bundle on $\VZ$ whose vanishing locus coincides (set-theoretically) with the locus where $x_k$ belongs to an internal component. As in \cite[Construction 2.1]{Ga} there is an exact sequence of jet bundles
+\begin{equation*} 0\to x_k^*\omega_{\mathcal{C}/\VZ}^{\otimes\alpha_k}\otimes\ev_k^*\OO_{\PP^N}(H)\to x_k^*\mathcal J^{\alpha_k}(f^*\OO_{\PP^N}(H))\to x_k^*\mathcal J^{\alpha_k-1}(f^*\OO_{\PP^N}(H))\to 0 \end{equation*}
+and thus we obtain a section of the line bundle $x_k^*\omega_{\mathcal{C}/\VZ}^{\otimes\alpha_k}\otimes\ev_k^*\OO_{\PP^N}(H)$ with vanishing locus equal to the locus where $x_k$ belongs to an internal component. Writing this locus as
+\begin{equation*} \Dcal(k) = \Dcal_{1,\alpha}^k(\PP^N|H,d) \subseteq \VZ_{1,\alpha}(\PP^N|H,d) = \VZ \end{equation*}
+we obtain:
+\begin{lem} $(\alpha_k\psi_k+\ev_k^*H)\cap[\VZ]=[\Dcal(k)].\footnote{(Navid) Should we work out the vanishing orders of the section at this point?}$\end{lem}
+\noindent The remainder of this section will be devoted to providing an explicit recursive description of the class $[\Dcal(k)]$ in terms of tautological classes on spaces of maps with smaller numerical invariants. As we will see, this provides an algorithm for computing reduced relative invariants, as well as a quantum Lefschetz algorithm for reduced (absolute) invariants in genus one.
+
+\subsection{Identifying the irreducible components of $\Dcal(k)$} Here we explain the strategy for identifying the irreducible components of $\Dcal(k)$ via tropical geometry.
+
+\begin{lemma} Every irreducible component of $\Dcal(k)$ is a codimension-$1$ logarithmic stratum.\end{lemma}
+\begin{proof} This is not hard to see: the locus where the log structure is trivial coincides precisely with the  locus where the source curve is smooth and not mapped inside $H$, and since $\VZ$ is log smooth this locus is open and dense. By definition $\Dcal(k)$ is disjoint from this locus, hence is contained in the  complement of this locus, which (by the very definition of logarithmic strata) can be written as a union of logarithmic strata of positive codimension. Since $\Dcal(k)$ has codmension $1$, it must therefore be equal to a union of logarithmic divisors.\end{proof}
+
+In the previous section we discussed at length a procedure for describing the logarithmic strata of $\VZ$. This shows that every divisorial logarithmic stratum is obtained via a three-step process:
+\begin{enumerate}
+\item choose the combinatorial type of a tropical map;
+\item subdivide the corresponding tropical moduli space;
+\item choose a ray in this subdivision.
+\end{enumerate}
+Notice that this process contains some redundancies: once we choose a ray of the tropical moduli space, we obtain a generisation of the intial combinatorial type, given by contracting some edges of the dual graph.
+
+\begin{example} \end{example}
+
+Whenever we consider a logarithmic stratum in $\VZ$, by its combinatorial type we will always mean the generisation of the ``initial'' combinatorial type induced by our choice of cone in the polyhedral subdivision. This does not depend on the choice of initial combinatorial type.
+
+Now, the logarithmic divisors which are contained in $\Dcal(k)$ are precisely those whose corresponding combinatorial type has the vertex of the dual graph containing $x_k$ mapped into the interior $\RR_{>0} \subseteq \RR_{\geq 0}$.
+
+Thus, via the above procedure, we are able to enumerate the irreducible components of $\Dcal(k)$ in a combinatorial manner. The combinatorial type and choice of ray allows us to describe the general element of such a component. What we are still lacking is a recursive description of the components, which we need in order to compute integrals over them. This is the subject of the remainder of this section.
+
+\subsection{Splitting and gluing punctured logarithmic maps}\label{subsection punctured maps} We still start by considering the usual moduli space $\Mcal$ of log stable maps. In \cite{PuncturedMaps}, a recursive description of the logarithmic strata of $\Mcal$ is given, in terms of moduli spaces of punctured maps. As discussed above, the logarithmic strata of $\Mcal$ are indexed by combinatorial types of tropical curves. Given such a combinatorial type, each vertex of the associated graph defines a moduli space of punctured stable maps. This has a degree and genus given by the degree and genus of the vertex, and a target space given by the logarithmic stratum corresponding to the tropical stratum into which the vertex is mapped. It has marked points indexed by the edges and flags adjacent to that vertex, and these marked points have tangencies (which may be positive or negative) depending on the expansion factors of the associated edges and flags. If all of the tangencies are positive, then a punctured map is the same thing as a log stable map.
+
+In our setting, when dealing with truly punctured maps, the associated logarithmic stratum of the target will always be the divisor $H$. Consider a moduli space
+\begin{equation*} \Mpunct{g}{\alpha}{H}{d} \end{equation*}
+where $g \in \{0,1\}$ and $\alpha$ is a vector of tangency orders, some of which are negative. Here $H$ is given the log structure pulled back from $\PP^N$; since $H$ is not log smooth, the natural obstruction theory on the above moduli space is not necessarily perfect. On the other hand, we will see that this space is birational to the moduli space
+\begin{equation*} \ol\Mcal^{\alpha}_{g,n}(H,d) \subseteq \M{g}{n}{H}{d} \end{equation*}
+of ordinary stable maps to $H$ satisfying the condition:
+\begin{equation*} f^*\OO_H(1) \cong \OO_C(\Sigma_i \alpha_ix_i).\end{equation*}
+This is referred to as the \emph{double ramification locus} and has been studied extensively. It is a closed substack of virtual codimension $g$ in $\M{g}{n}{H}{d}$. In the genus zero case it is equal to the entire space
+\begin{equation*} \ol\Mcal^{\alpha}_{0,n}(H,d) = \M{0}{n}{H}{d} \end{equation*}
+which is smooth. Thus integrals over $\Mpunct{0}{\alpha}{H}{d}$ are the same as integrals over $\M{0}{n}{H}{d}$. The genus one case is more delicate; see \S \ref{} below.
+
+We will now use this recursive description of the logarithmic strata in $\Mcal$ to obtain a similar description of the strata in $\VZ$.
+
+
+
+\subsection{Recursive description of the divisors: types $A,B$ and $C^+$}
+
+The basic idea is as follows. Choose an irreducible component $\Dcal \subseteq \Dcal(k)$. As discussed above, we can obtain this by choosing an ``initial'' combinatorial type together with a ray of the resulting subdivision of the tropical moduli space. Without loss of generality we may assume that this ``initial'' combinatorial type coincides with the ``true'' combinatorial type of $\Dcal$ obtained by performing the edge contractions specified by the choice of ray.
+
+Since $\VZ \to \Mcal$ is a log modification, the divisor $\Dcal$ is either exceptional or the proper transform of a logarithmic divisor on $\Mcal$. In this subsection, we will focus on the latter case. Then if we let $\Dcal_{\Mcal}^\circ\subseteq \Mcal$ denote the locally closed stratum corresponding to our choice of combinatorial type, and $\Dcal_\Mcal = \overline{\Dcal^\circ_\Mcal}$ denote the corresponding logarithmic divisor in $\Mcal$, then our divisor $\Dcal\subseteq\VZ$ is the proper transform of $\Dcal_\Mcal$, which is obtained by taking the preimage $\Dcal^\circ$ of $\Dcal_\Mcal^\circ$ (since $\Dcal^\circ_\Mcal$ is disjoint from the blown-up locus) and then taking its closure in $\VZ$. This is, of course, different from taking the preimage of $\Dcal_\Mcal$, since in general $\Dcal_\Mcal$ will intersect the blown-up locus. By continuity we have an induced map:
+\begin{equation*} \Dcal \to \Dcal_\Mcal. \end{equation*}
+The remainder of this section will be dedicated to showing how the map $\Dcal \to \Dcal_\Mcal$ may be interpreted as a blow-up. The reason this is useful is that $\Dcal_\Mcal$ itself has a recursive description in terms of moduli spaces of punctured maps (see \S \ref{subsection punctured maps}), which in our setting we are able to compute integrals over.
+
+For the remainder of this subsection, we will consider only the situation where the circuit is assigned a positive degree by the combinatorial type; the other, more complicated case, will be taken up in \S \ref{}.
+
+
+\begin{lemma} Let $\Dcal \subseteq \Dcal(k)$ be an irreducible component and let $\Delta$ be the corresponding combinatorial type. Suppose that $\Delta$ assigns positive degree to the circuit. Then $\Delta$ takes one of the following forms:
+\begin{figure}[h]
+    \centering
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \Yagraph
+        \caption{$\mathcal Y_A$}
+    \end{minipage}\hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \Ybgraph
+        \caption{$\mathcal Y_B$}
+    \end{minipage}\hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \Ycgraph
+        \caption{$\Ycal_C^+$}
+    \end{minipage}
+\end{figure}
+
+\noindent The terminology is due to Vakil, and the picture in this case is very similar to \cite{Vre} (as we will see later, when the circuit is contracted the picture becomes \emph{very} different). Note that in these pictures we have omitted the marked points (apart from $x_k$), the degree of each vertex, and the expansion factors of the edges. These combinatorial data can be distributed arbitrarily, as long as:
+\begin{enumerate}
+\item the vertices $\sqC_1,\ldots,\sqC_r$ have positive degree (and $\sqC_0$ has positive degree in the $\Ycal_C^+$ case);
+\item every vertex is stable;
+\item the balancing condition is satisfied.
+\end{enumerate}\end{lemma}
+
+\begin{proof}
+Recall that we have $\Dcal\subseteq\VZ$ obtained by a choice of combinatorial type and ray in the subdivison of the tropical moduli space. In this situation, since the circuit has positive degree no alignment is necessary (both radii are zero), and hence the subdivision is trivial. Following our procedure, we choose a ray of the tropical moduli space $Q^\vee_{\RR}$. Since this is generated by edge lengths, and we are assuming that the initial and generised combinatorial types coincide, we conclude that the tropical moduli space must be $\RR_{\geq 0}$. Since we are assuming that $\Dcal \subseteq \Dcal(k)$, we know that the vertex of the tropicalisation which contains the flag $x_k$ must map into the interior $\RR_{>0}\subseteq \RR_{\geq 0}$.
+
+We claim that this is the only vertex of the tropical curve mapped into the interior; if there were more, the positions of their images in $\RR_{> 0}$ would be independent, and thus the tropical moduli space would have dimension $\geq 2$, a contradiction.\footnote{(Luca) Say something about rigid tropical curves as in ACGS and KLR}
+
+Thus there is a single vertex $\sqC_0$ mapped into the interior $\RR_{>0} \subseteq \RR_{\geq 0}$ and a number of vertices $\sqC_1,\ldots,\sqC_r$ mapped onto the vertex $0 \in \RR_{\geq 0}$. No pair of $\sqC_1,\ldots,\sqC_r$ can be connected by an edge, since this would introduce an extra edge length to the tropical moduli space, which then once again would have dimension $\geq 2$. Each of $\sqC_1,\ldots,\sqC_r$ must have positive degree by the tropical balancing condition and must be connected to $\sqC_0$ (since the tropical curve must be connected).
+
+Thus, we see that the combinatorial type takes the form of a bipartite graph, with $\sqC_0$ on the right-hand side and $\sqC_1,\ldots,\sqC_r$ on the left-hand side. Note that the continuity of the tropical map identifies all of the edge lengths, up to weights given by the expansion factors (i.e. tangency orders) at the edges; thus the tropical moduli space is isomorphic to $\RR_{\geq 0}$ and so we have a divisor as expected.
+
+We distinguish three cases, depending on the position of the circuit, giving the three forms presented in the statement of the lemma.\end{proof}
+
+We now now investigate the three types $A,B,C^+$ separately, giving a recursive description of the boundary locus in each case.
+
+
+\subsubsection{Type $A$} Let $\Delta$ be a combinatorial type of type $A$ and let $\Dcal\subseteq\VZ$ be the corresponding logarithmic divisor (note there is no choice of ray here). The corresponding locus $\Dcal_\Mcal\subseteq\Mcal$ is given (up to a finite cover) by\footnote{(Navid) Include short appendix on integralisation/saturation when gluing punctured maps in our setting?}:
+\begin{equation*}\Dcal_\Mcal=\Mpunct{0}{\alpha^{(0)}\cup (-m_1,\ldots,-m_r)}{H}{d_0}\times_{H^r}\left( \Mlog{1}{\alpha^{(1)}\cup(m_1)}{\PP^N|H}{d_1} \times \prod_{i=2}^r\Mlog{0}{\alpha^{(i)}\cup(m_i)}{\PP^N|H}{d_i} \right). \end{equation*}
+\begin{lemma}We have the following description of $\Dcal$\begin{equation}\label{type A splitting axiom}\Dcal=\Mpunct{0}{\alpha^{(0)}\cup (-m_1,\ldots,-m_r)}{H}{d_0}\times_{H^r}\left(\VZ_{1,\alpha^{(1)}\cup(m_1)}(\PP^N|H,d_1)\times\prod_{i=2}^r\Mlog{0}{\alpha^{(i)}\cup(m_i)}{\PP^N|H}{d_i}\right) \end{equation}
+i.e. the map $\Dcal\to\Dcal_\Mcal$ is given by blowing up one of the factors of the fibre product.\end{lemma} Note that there is a birational map which forgets the log structures
+\begin{equation*} \Mpunct{0}{\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}{H}{d_0} \to \M{0}{n_0+r}{H}{d_0} \end{equation*}
+and all of our insertions are pulled back from the latter space. Therefore the integrals over the punctured space are determined by the genus zero Gromov--Witten theory of $H\cong\PP^{N-1}$.
+
+%DEPRECATED?/WRONG?
+
+%Note that if $\sqC_0$ degenerates further then it may be the case that there are components of $\sqC_0$ contained inside the contraction radius for $\sqC$, and thus once we contract to a Smyth curve there are components of $\sqC_0$ adjacent to the genus one singularity. However, in this case when we split off $\sqC_1$ these components disappear, and if the factorisation condition holds for $\sqC$ then it holds a fortiori for $\sqC_1$.\footnote{(Navid) I think this is right, but could someone check? Maybe there's a better way to say this.} Thus we obtain a morphism from $\Dcal$ to the fibre product on the right-hand side of \eqref{type A splitting axiom}.
+\begin{proof}
+Note first of all that the map $\Dcal\to\Dcal_\Mcal$ is an isomorphism away from the blown-up locus, which is contained inside the locus where the circuit is contracted. Given an element of $\Dcal$ we can split it along the nodes $q_1,\ldots,q_r$ as in \cite{PuncturedMaps}. It is then clear that $\sqC_1$ is aligned. We claim that $\sqC$ satisfies the factorisation property if and only if $\sqC_1$ does. This is enough to show \eqref{type A splitting axiom}.
+
+On $\sqC$ there is an associated contraction radius $\delta$ passing through a non-contracted vertex, such that the strict interior only contains contracted vertices.
+\begin{lemma}\label{type A radius lemma}$\lambda(\sqC^\prime) > \delta$ for any component $\sqC^\prime$ of $\sqC_0$.\end{lemma}
+\noindent Assuming this holds, we see as a consequence that $\sqC_0,\sqC_2,\ldots,\sqC_r$ must lie outside the contraction radius. Consequently the aligned curve $\sqC$ satisfies the factorisation condition if and only if $\sqC_1$ does, so \eqref{type A splitting axiom} holds.
+
+\begin{proof} The basic point is that $\Dcal$ consists of the union of the locally closed logarithmic strata adjacent to the locally closed stratum where all the $\sqC_i$ are irreducible. If we look at one of these boundary strata, the tropical moduli space contains a ray $\sigma$ corresponding to the stratum where all the $\sqC_i$ are irreducible; this amounts to setting all edge lengths other than $e_1,\ldots,e_r$ to zero. If $f_1,\ldots,f_l$ are some number of these additional edge lengths (corresponding to internal nodes in degenerations of the $\sqC_i$) then all of the cones of the subdivision adjacent to $\sigma$ will have $f_1+\ldots+f_l < e_j$ for all $j\in\{1,\ldots,r\}$, since $f_1=\ldots=f_l=0$ and $e_j \neq 0$ on $\sigma$. In particular, if $\sqC_1$ is degenerate and if $f$ denotes the minimal distance from the circuit to a non-contracted vertex of $\sqC_1$ (which certainly exists since $\sqC_1$ has positive degree) then $f < e_1 \leq \lambda(\sqC^\prime)$. Thus $\delta=f$ and $\delta < \lambda(\sqC^\prime)$ as claimed.\footnote{(Navid) Do an example?}\end{proof}
+\noindent Notice we did not specify whether $\delta$ was the relative or absolute radius. The point is that it does not matter; the proof goes through the same in either case. Thus we see that $\sqC$ satisfies the (double) factorisation condition if and only if $\sqC_1$ does.\end{proof}
+
+\subsubsection{Type $B$}
+Now let $\Dcal\subseteq\VZ$ be a component of $\Dcal(k)$ with combinatorial type $\Delta$ of type $B$. In this case, it is impossible for the circuit to be contracted. Thus, $\Dcal_\Mcal \subseteq \Mcal$ is disjoint from the blown-up locus, and the map
+\begin{equation*} \Dcal \to \Dcal_\Mcal \end{equation*}
+is an isomorphism. Thus we obtain:
+\begin{equation*} \Dcal = \Mpunct{0}{\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}{H}{d_0}\times_{H^r}\left(\Mlog{0}{\alpha^{(1)}\cup(m_1,m_2)}{\PP^N|H}{d_1}\times\prod_{i=3}^r\Mlog{0}{\alpha^{(i)}\cup(m_i)}{\PP^N|H}{d_i}\right).\end{equation*}
+As before, the integrals over the punctured space are determined by the Gromov--Witten theory of $H$.
+
+\subsubsection{Type $C^+$} Finally let $\Dcal \subseteq \VZ$ be a component of $\Dcal(k)$ with combinatorial type $\Delta$ of type $C^+$. The corresponding locus in $\Mcal$ can be written as:
+\begin{equation*} \Dcal_\Mcal = \Mpunct{1}{\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}{H}{d_0} \times_{H^r} \left( \prod_{i=1}^r \Mlog{0}{\alpha^{(i)}\cup(m_i)}{\PP^N|H}{d_i} \right). \end{equation*}
+Then the same argument as in Lemma \ref{type A radius lemma} shows that given any point in $\Dcal$ the interior of the radius can only contain components of $C_0$. Thus the alignment and factorisation condition apply exclusively to $C_0$, which shows that:
+\begin{equation*}\Dcal = \VZ^{\operatorname{punct}}_{1,\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}(H,d_0) \times_{H^r} \left( \prod_{i=1}^r \Mlog{0}{\alpha^{(i)}\cup(m_i)}{\PP^N|H}{d_i} \right). \end{equation*}
+Here the first factor
+\begin{equation*}\VZ^{\operatorname{punct}}_{1,\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}(H,d_0) \end{equation*}
+is the logarithmic blow-up of the moduli space of punctured maps, obtained by imposing an alignment and factorisation condition. To be more precise: its elements consist of punctured maps to $H$ which are aligned in the sense of Definition \ref{}, and satisfy the (double) factorisation condition (simply replace $\PP^N$ by $H$ everywhere in that definition).
+
+\begin{prop} $\VZ^{\operatorname{punct}}_{1,\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}(H,d_0)$ is irreducible of the expected dimension, and birational to the main component of the double ramification locus:
+\begin{equation*} \ol{\Mcal}_{1,n_0+r}^{\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}(H,d_0) \subseteq \ol{\Mcal}_{1,n_0+r}(H,d_0) \end{equation*}\end{prop}
+
+Now, the double ramification locus carries a natural virtual class, and one can write
+\begin{equation*} \virt{\ol{\Mcal}_{1,n_0+r}^{\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}(H,d_0)} = \gamma \cap \virt{\ol{\Mcal}_{1,n_0+r}(H,d_0)} \end{equation*}
+where $\gamma \in \Achow^1(\M{1}{n}{H}{d})$ is some explicit sum of tautological classes \cite{DRCBundle}. To identify the class of the main component, we split the virtual class of the double ramification locus as
+\begin{equation*} \virt{\ol\Mcal^{\alpha}_{1,n}(H,d)} = [\ol\Mcal^{\alpha,\text{main}}_{1,n}(H,d)] + \sum_{\Gamma} \virt{\ol\Mcal^{\alpha,\Gamma}_{1,n}(H,d)} \end{equation*}
+and this allows us to write
+\begin{equation*} [\ol\Mcal^{\alpha,\text{main}}_{1,n}(H,d)] = \gamma^\prime \cap [\ol\Mcal^{\text{main}}_{1,n}(H,d)]\end{equation*}
+where $\gamma^\prime$ is some other sum of tautological classes. This makes integrals over $\VZ^{\operatorname{punct}}_{1,\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}(H,d_0)$ computable in terms of the reduced Gromov--Witten theory of $H\cong\PP^{N-1}$.
+
+\newpage
+
+
+
+Review here the process of gluing for punctured maps. In particular the basic monoid should be modified in order to make the relevant evaluations log morphisms. Claim: evaluations are strict. Consequence: the fiber product in the category of log stacks is fine. We have then to apply saturation. This is a finite morphism of degree... (I think it could be $\frac{\prod m^{(i)}}{lcm(m^{(i)})}$).
+
+
+
+
+\begin{lemma}[Virtual pushforward] The following hold.
+ \begin{itemize}
+  \item $\fgt_*[\M{0}{\alpha}{\PP^N|H}{d}]=[\MG{0}{\alpha}{\PP^N|H}{d}]$ (follows from \cite{GathmannThesis,AbramovichMarcusWiseComparison}).
+  \item $\fgt_*[\VZc{1}{\alpha}{\PP^N|H}{d}]$ computes the reduced relative invariants by definition.
+  \item $\fgt_*[\M{0}{\mu}{H}{d_0}^\sim]=[\M{0}{\lvert\mu\rvert}{H}{d_0}]$ (follows from \cite{GathmannThesis} and... comparison of punctured with rubber invariants).
+  \item $\fgt_*[\VZc{1}{\mu}{H}{d_0}^\sim]$ here we should need a variation on Pixton's DRC formula; hopefully it's enough to avoid the graphs that tropical well-spacedness discards.
+ \end{itemize}
+\end{lemma}
+
+\subsection{Recursive description of the divisors: type $C_0$}
+On the other hand, when there is a contracted elliptic subcurve - and it will be contracted into the hyperplane, because otherwise it wouldn't be generic, by density of the nice locus in $\VZ_{1,\alpha^\prime}(\PP^N|H,d^\prime)$ - the picture becomes more complicated due to the alignment. The combs may break (multiple times) and they may point in opposite directions. We label these loci $\mathcal{Y}_c^0$.
+\begin{figure}
+ \tikz{
+ \draw (0,0) circle(2pt)[fill=black] (0,2) circle(2pt)[fill=black] (0,4) circle(2pt)[fill=black] (0,6) circle(2pt)[fill=black] (0,-2) circle(2pt)[fill=black] (1.1,1.78) circle(2pt)[fill=black] (3.42,1.42) circle(2pt)[fill=black] (.58,-1.42) circle(2pt)[fill=black];
+ \draw (2,0) -- node[above]{4} (0,0) (2,0) --node[above]{2} (1.1,1.78) --node[above]{2} (0,2) (1.1,1.78) --node[above]{1} (0,4) (2,0) --node[above]{1} (3.42,1.42) (2,0) --node[above]{1} (.58,-1.42) (3.42,1.42) --node[above]{5} (0,6) (.58,-1.42) --node[above]{3} (0,-2);
+ \draw[red] (2,0) circle(2);
+ \draw (2,0) circle(2pt)[fill=white];
+ \draw[->] (0,-3) circle(2pt)[fill=black] edge (4,-3);
+ }
+\end{figure}
+\begin{dfn}
+ A degree-aligned genus one tropical map $\phi$ to $\mathbb R_{\geq 0}$ is ... with a circle of radius $\delta$ around the core satisfying:
+ \begin{enumerate}
+  \item the circle of radius $\delta$ passes through at least one vertex of positive degree, and no vertex of positive degree is contained in its strict interior;
+  \item every circle of radius $<\delta$ around the core passes through (either none or) at least two vertices;\footnote{The subdivisions we perform before picking a ray correspond to aligning the log structure, i.e. imposing $\lambda(v)=\lambda(v^\prime)$ for some $v,v^\prime$.}
+  \item every edge heading out of the circle of radius $\delta$ goes directly to a vertex in $\phi^{-1}(0)$.
+ \end{enumerate}
+\end{dfn}
+
+\begin{remark}
+ The core being contracted in the fiber of the tropical map is not a phenomenon that we should worry about in codimension one. Indeed, assume that the core is contracted in the fiber along a ray. Then all the edges departing from the core have expansion factor $0$; call the corresponding coordinates $U=\{u_i\}_{i\in I}$. Call the remaining coordinates $E=\{e_j\}_{j\in J}$. Note that tropical continuity involves only $E$. Alignments on the other hand assume the form $\lambda(v)=\lambda(v^\prime)$, where $\lambda(v)=\sum_{i\in I(v)}u_i\sum_{j\in J(v)}e_j$. Pick the shortest elements of $U$; then these can be shortened to zero without affecting the rest (by hypothesis, alignments can only identify them among themselves). This shows that we could not have started with a ray.
+\end{remark}
+
+\begin{ex}
+ We look at the following example in some detail.
+ \begin{figure}[h]
+  \tikz{
+  \draw (0,1) circle(2pt)[fill=black] --node[above]{2} (2,0);
+  \draw (0,-1) circle(2pt)[fill=black] --node[above]{2} (2,0);
+  \draw (2,0) -- (2.5,0) node[right]{4};
+  \draw (2,0)  circle(2pt)[fill=white];
+  \draw (0,1) -- (.33,1.33) node[above right]{0};
+  \draw (0,-1) -- (.33,-1.33) node[below right]{0};
+  \draw[red] (2,0) circle(2.23);
+  \draw[->] (0,-2.5)node[left]{0} circle(2pt)[fill=black] edge (4,-2.5);
+  }
+ \end{figure}
+ The ambient space is $\VZc{1}{(4,0,0)}{\PP^N|H}{4}$, of dimension $4N+3$. The underlying moduli space is $X=\M{0}{(2,0)}{\PP^N|H}{2}\times_H\M{0}{(2,0)}{\PP^N|H}{2}\times\VZ_{1,(-2,-2,4)}$ of dimension $5N+1$. Consider the fiber product:
+ \bcd
+ F\ar[r]\ar[d]& \M{0}{(2,0)}{\PP^N|H}{2}\times\M{0}{(2,0)}{\PP^N|H}{2}\ar[d]\\
+ H\ar[r] & H\times H
+ \ecd
+ At the level of ghost sheaves, $\oM_F=\mathbb N\oplus_{\mathbb N^2}\oM_1^{\rm{enl}}\oplus\oM_2^{\rm{enl}}$, where the map $\mathbb N^2\to\mathbb N$ is the sum, and the map $\mathbb N^2\to\oM_1^{\rm{enl}}\oplus\oM_2^{\rm{enl}}$ generically is multiplication by $2$, so $\oM_F=\mathbb N^2/(2e=2f)$ generically. Saturation gives a finite cover $G\to F$ with $\oM_G=\mathbb N_{e=f}$ generically. Lifting this to actual log structures, what we are doing (again generically) is taking a square root of the isomorphism $T_{R_1,q_1}^{\otimes 2}\simeq T_{R_2,q_2}^{\otimes 2}$, which is obtained passing through $N_{H/\PP^N,f(Z)}$ via $\operatorname{d}f_{|R_i,q_i}$. This breaks when $f_{|R_i}$ is not tangent to $H$ of order exactly $2$ at $q_i$, for either $i$; but by the maximality assumption this happens precisely along Gathmann's comb loci $\Delta_i$. So in fact, rather than with $T_{R_i,q_i}^{\otimes 2}$, we should be working with $T_{R_i,q_i}^{\otimes 2}(-\Delta_i)$: but this is exactly $\ev_i^*(-H)$ by Gathmann's genus zero formula, and the isomorphism $\ev_1^*(H)=\ev_2^*(H)$ holds on all of $F$.
+ 
+ On the other hand, generically on $\VZ_{1,(-2,-2,4)}$ we have $T_{q_1}Z\simeq T_{q_2}Z$ by exploiting the group structure on the elliptic curve. This breaks when either (but not both) is on a rational tail. Yet we have $T_{q_1}Z(\Delta_{1\in P})\simeq T_{q_2}Z(\Delta_{2\in P})$ by Vakil-Zinger's construction of a universal $\psi$-class (i.e. by comparing both with $\pi_*\omega(\Delta)$; notice that our further blow-up has the only effect of twisting \emph{all} the relevant line bundles by $\Delta_{1,2\notin P}$).
+ 
+ Now, the fiber of the Vakil-Zinger blow-up over $X$ can be described as follows. Generically it looks like \[\PP(T_{q_1}R_1\otimes T_{q_1}Z\oplus T_{q_2}R_2\otimes T_{q_2}Z)\]
+ but this has to be modified along the boundary:
+ \begin{itemize}
+  \item this has to do with the fact that the normal bundle of the strict transform is the pullback of the normal bundle twisted by the intersection with the exceptional divisor (so it relates with previous steps of the blow-up);
+  \item it is not globally a $\PP^1$-bundle (so it relates with further stages of the blow-up; it also has to do with a choice of compactification for the moduli space of attachments);
+  \item it has the effect of replacing $T_{q_i}Z$ with Vakil-Zinger's universal $\mathbb T$, so that this can be factored out of the projective bundle, and in fact we are left with a projective bundle $\mathbb P=\PP(T_{q_1}R_1\oplus T_{q_2}R_2)$ over $F$, and its open part $\operatorname{Iso}(T_{q_1}R_1\oplus T_{q_2}R_2)$ represents the attachment data for a contraction to a tacnode $R_1\sqcup_q R_2\to\bar{C}$.
+ \end{itemize}
+On $\PP$ there is a natural vector bundle map \[s\colon \OO_{\PP}(-1)\hookrightarrow p^*(T_{q_1}R_1\oplus T_{q_2}R_2)\xrightarrow{+\operatorname{d}f}\ev_q^*T\PP^N\]
+that vanishes along the locus where $f$ descends to $\bar C$. In general, it is not a transversal section:
+\begin{itemize}
+ \item we should replace $T\PP^N$ by $TH$ as long as all the $m^{(i)}$ are $\geq2$;
+ \item Vakil and Zinger construct a blow-up of $\PP$ along the vanishing loci of $s$ of low codimension, and twist $s$ by the exceptional divisors, so that it becomes a transverse section $\tilde{s}$.
+\end{itemize}
+On the other hand, the finite cover $G\to F$ factors through $\PP$, because the two vertices are already aligned on $G$. We claim that the boundary locus of $\VZc{1}{(4,0,0)}{\PP^N|H}{4}$ corresponding to the combinatorial type of the tropical map above is the transverse intersection
+\[\left(G\cap V(\tilde{s})\subseteq\PP\right)\times\VZ_{1,(-2,-2,4)}.\]
+This has the expected dimension (codimension $N-1$ with respect to $X$). To compute its class, we can pull $\PP$ back to $G$, and then notice that $G\hookrightarrow\PP_G$ is the inclusion of a (trivial) subbundle.
+\begin{lem}
+ The class of $\PP(\mathcal F)\subseteq\PP(\mathcal E)$ is $c_{\rm{top}}(\OO_\mathcal{E}(1)\otimes p^*(\mathcal{E}/\mathcal{F}))$.
+\end{lem}
+See \cite[Prop. 9.13]{EH3264}. It is a good time to remember that $\mathcal E$ was in fact $(\bigoplus_{i=1}^rTR_{i,q_i})\otimes\mathbb T$. By writing $c$ for $c_1(\OO_\mathcal{E}(1))$, $\psi_i$ for $c_1(T^*R_{i,q_i})$, $\psi_Z$ for Vakil-Zinger's universal psi class, and $H$ for $\ev_q^*H$, we need to compute
+\begin{align*}
+p_*\left((c-\psi_1-\psi_2-2\psi_Z)[(1+c+H)^N(1+c)^{-1}]_{N-1}\right)= \\
+p_*\left((c-\psi_1-\psi_2-2\psi_Z)(\sum_{k=0}^{N-1}\binom{N}{1+k}c^kH^{N-1-k})\right)=\\
+\sum_{k=0}^{N-1}\binom{N}{k}H^{N-1-k}\big(s_k(\mathcal E)-s_{k-1}(\mathcal E)(\psi_1+\psi_2+\psi_Z)\big)
+\end{align*}
+\end{ex}
+
+\section{Recursion formula in general}
+Now let $(X|Y)$ be a smooth pair with $Y$ very ample. The complete linear system $|\OO_X(Y)|$ defines an embedding $X \hookrightarrow \PP^N$ with $Y=X\cap H$ for $H$ some hyperplane.
+
+\begin{lemma} The following square is cartesian (in the category of ordinary stacks):
+\bcd
+\VZ_{1,\alpha}(X|Y,\beta) \ar[r] \ar[d] \ar[rd,phantom,"\square"] & \VZ_{1,\alpha}(\PP^N|H,d) \ar[d] \\
+\VZ_{1,n}(X,\beta) \ar[r,"i"] & \VZ_{1,n}(\PP^N,d).
+\ecd
+\end{lemma}
+Since $\VZ_{1,n}(\PP^N,d)$ is smooth and $\VZ_{1,n}(X,\beta)$ carries a natural virtual class, there is a diagonal pull-back morphism which we use to define the virtual class on the space of maps to $(X|Y)$:
+\begin{equation*} \virt{\VZ_{1,\alpha}(X|Y,\beta)} := i_\Delta^! [\VZ_{1,\alpha}(\PP^N|H,d)]. \end{equation*}
+The recursion formula in $\VZ_{1,\alpha}(\PP^N|H,d)$ immediately pulls back along $i$ to give a recursion formula in $\VZ_{1,\alpha}(X|Y,\beta)$. \footnote{(Navid) Is it clear how to compute integrals over the pulled back classes?}
+
+
+\section{Quantum Lefschetz in genus one}
+
+
+
+\bibliographystyle{alpha}
+\bibliography{Bibliography}
+
+\bigskip\bigskip
+
+\noindent Luca Battistella\\
+Department of Mathematics, Imperial College London \\
+\texttt{l.battistella14@imperial.ac.uk}\\
+
+\noindent Navid Nabijou \\
+Department of Mathematics, Imperial College London \\
+\texttt{navid.nabijou09@imperial.ac.uk}\\
+
+\noindent Dhruv Ranganathan \\
+Department of Mathematics, Massachusetts Institute of Technology \\
+\texttt{dhruvr@mit.edu}
+
+
+\end{document}
