@@ -737,7 +737,7 @@ The component-wise description of the right-hand side in \cite{RSPW} (together w
 There is a $\Gm$ of choices for such a map, but these are canceled out by the automorphisms of $(C,\Mcal_{C^\circ})$ induced by pulling back along (strict) automorphisms of $(\Spec\kfield,Q\oplus\kfield^\st)$. This completes the proof of unique punctured lifting.
 \end{proof}
 
-\subsection{Geometry of double ramification loci and their desingularisations} Thus, the spaces of punctured maps we encounter are always birational to double ramification loci. We will now discuss the geometry of these loci. In the genus zero case, the double ramification locus is equal to the entire space
+Thus, the spaces of punctured maps we encounter are always birational to double ramification loci. We will now discuss the geometry of these loci. In the genus zero case, the double ramification locus is equal to the entire space
 \begin{equation*} \ol\Mcal^{\alpha}_{0,n}(H,d) = \M{0}{n}{H}{d} \end{equation*}
 which is smooth. Thus tautological integrals over $\ol\Mcal^{\alpha}_{0,n}(H,d)$ are determined by the genus-zero Gromov--Witten theory of $H$.
 
@@ -747,33 +747,7 @@ However, we know that $\M{1}{n}{H}{d}$ contains many other components besides $\
 \begin{equation*}\ol\Mcal_{1,1} \times \M{0}{n+1}{H}{d} \end{equation*}
 which has excess dimension $N-2$. This entire component belongs to the double ramification locus, since the intersection-theoretic condition is entirely numerical here.
 
-Thus we see that the double ramification locus can be quite badly-behaved in genus one. Fortunately, we will only be interested in the main component of the punctured space (which is birational to the main component of the double ramification locus). As we did in \S \ref{}, we may produce a logarithmic modification
-\begin{equation*} \widetilde{\VZ}^{\operatorname{punct}}_{1,\alpha}(H,d) \to \Mpunct{1}{\alpha}{H}{d} \end{equation*}
-by requiring our maps to be centrally aligned. We may then define a closed substack
-\begin{equation*} \VZ^{\operatorname{punct}}_{1,\alpha}(H,d) \subseteq \widetilde{\VZ}^{\operatorname{punct}}_{1,\alpha}(H,d) \end{equation*}
-by imposing a factorisation condition. These moduli spaces will appear in our recursive description of the boundary of $\VZ$ given later in this section.
-\begin{lem} This process produces a birational modification
-\begin{equation*}\VZ^{\operatorname{punct}}_{1,\alpha}(H,d) \to \ol\Mcal^{\operatorname{punct},\circ}_{1,\alpha}(H,d)\end{equation*}
-of the main component of the moduli space of punctured maps (which, in turn, is birational to the main component of the double ramification locus).\end{lem}
-\begin{proof}
- If it is true, we might be able to prove it via deformation theory. For this it might be useful to notice that there is a morphism $\Mpunct{g}{\alpha}{H}{d}\to \Mpunct{g}{\alpha}{\PP^N}{d}$ (because $H\subseteq\PP^N$ is strict), which is probably a closed immersion, and the loci with smooth source curve are isomorphic under this map. It seems plausible that the main omponent is log smooth over $B\Gm\subseteq[\Aaff^1/\Gm]$ (or the standard log point).
-\end{proof}
-
-%We probably want the latter statement to hold under imposing alignment and factorisation (keeping the log structure on the source curve, but forgetting that the map is log).
-Integrals over the main component of the double ramification locus can be computed using the following lemma.
-\begin{lem} The morphism which forgets a marking
-\begin{equation*} \fgt_i\colon\ol\Mcal_{1,n}^{\alpha,\circ}(H,d)\to\ol\Mcal^{\circ}_{1,n-1}(H,d)\end{equation*}
-is generically finite, of degree $\alpha_i^2$ (except in one special case, described in the proof).
-\end{lem}
-\begin{proof}
- Let us consider the case $d=0$ first. We may assume the source curve is smooth elliptic $E$. The map \[ \phi\colon E\to \Pic^0(E),\qquad x\mapsto\OO_E\left(\alpha_ix+\sum_{j=1,\ldots,\hat i\ldots,n}\alpha_jp_j\right)\]
- is an isogeny of degree $\alpha_i^2$. The locus of $(C,p_1,\ldots,\hat{p_i},\ldots,p_n)$ such that the kernel of $\phi$ contains one of the points $\{p_1,\ldots,\hat{p_i},\ldots,p_n\}$ is itself a double ramification locus inside $\oM_{1,n}$, hence non-generic - with one exception: namely, when $n=2$, $x=p_1$ is always a solution, but the curve lying above such point bubbles off a $\PP^1$. To see that it does not belong to the closure of the nice locus, notice that the rational function trivialising $\OO_C(\alpha_1p_1-\alpha_2p_2)$ should descend to the cusp, thus having a ramification point at the node; yet its ramification profile is determined by Riemann-Hurwitz, and it is entirely supported on $p_1$ and $p_2$.
- 
- For a different proof: notice that we should obtain the class of the main component from the full double ramification cycle by subtracting the boundary class $[D_{1,\emptyset|0,\{1,\ldots,n\}}]$. The latter pushes forward to $0$ under $\fgt_i$, unless $n=2$. Therefore we may apply $\fgt_{i,*}$ to the Hain-Pixton formula:
- \[DR_1(A)=\frac{1}{2}\left(\sum_{i=1}^na_i^2\psi_i-\sum_{\substack{I\subseteq\{1,\ldots,n\}\\|I|\geq 2}}a_I^2[D_{1,I^c|0,I}]-\frac{1}{12}\delta_0\right),\]
- where $a_I=\sum_{i\in I}a_i$ and $\delta_0=\operatorname{glue}_*([\oM_{0,n+2}])$. From $\psi_j=\fgt_i^*\psi_j+[D_{i,j}]$ for $i\neq j$, and the dilaton equation, we see that $\fgt_{i,*}\psi_j=1$ and $\fgt_{i,*}\psi_i=n-1$. On the other hand, the only surviving boundary classes are $[D_{i,j}]$, and they push down to $1$. Hence the formula pushes down to $\frac{1}{2}\left(\sum_{j\neq i}\alpha_j^2+(n-1)\alpha_i^2-\sum_{j\neq i}(\alpha_j+\alpha_i)^2\right)=-\alpha_i\left(\sum_{j\neq i}\alpha_j\right)=\alpha_i^2.$
-\end{proof}
-
+Thus we see that the double ramification locus can be quite badly-behaved in genus one. Fortunately, we will only be interested in the main component of this locus (which is birational to the main component of the moduli space of punctured maps); see \S \ref{} below.
 
 We will now use this recursive description of the logarithmic strata in $\Mcal$ to obtain a similar description of the strata in $\VZ$.
 
@@ -864,7 +838,32 @@ Then the same argument as in Lemma \ref{type A radius lemma} shows that given an
 \begin{equation*}\Dcal = \VZ^{\operatorname{punct}}_{1,\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}(H,d_0) \times_{H^r} \left( \prod_{i=1}^r \Mlog{0}{\alpha^{(i)}\cup(m_i)}{\PP^N|H}{d_i} \right). \end{equation*}
 Here the first factor
 \begin{equation*}\VZ^{\operatorname{punct}}_{1,\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}(H,d_0) \end{equation*}
-is the logarithmic blow-up of the moduli space of punctured maps, obtained by imposing an alignment and factorisation condition. To be more precise: its elements consist of punctured maps to $H$ which are aligned in the sense of Definition \ref{}, and satisfy the (double) factorisation condition (simply replace $\PP^N$ by $H$ everywhere in that definition).
+is the logarithmic blow-up of the moduli space of punctured maps, obtained by imposing an alignment and factorisation condition. To be more precise: its elements consist of punctured maps to $H$ which are aligned in the sense of Definition \ref{}, and satisfy the (double) factorisation condition (simply replace $\PP^N$ by $H$ everywhere in that definition). As in \S \ref{}, this construction produces a closed substack of a logarithmic modification
+\begin{equation*} \VZ^{\operatorname{punct}}_{1,\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}(H,d_0)\subseteq \widetilde{\VZ}^{\operatorname{punct}}_{1,\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}(H,d_0) \xrightarrow{\psi} \Mpunct{1}{\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}{H}{d_0} \end{equation*}
+
+\begin{lem} The logarithmic modification $\psi$ restricts to a birational map:
+\begin{equation*}\VZ^{\operatorname{punct}}_{1,\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}(H,d) \to \ol\Mcal^{\operatorname{punct},\circ}_{1,\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}(H,d).\end{equation*}
+\end{lem}
+Note that the latter space (the main component of the moduli space of punctured maps) is birational to the main component of the double ramification locus. In Lemma \ref{Lemma forget marking} below we explain how to compute integrals over this.
+\begin{proof}
+If it is true, we might be able to prove it via deformation theory. For this it might be useful to notice that there is a morphism $\Mpunct{g}{\alpha}{H}{d}\to \Mpunct{g}{\alpha}{\PP^N}{d}$ (because $H\subseteq\PP^N$ is strict), which is probably a closed immersion, and the loci with smooth source curve are isomorphic under this map. It seems plausible that the main omponent is log smooth over $B\Gm\subseteq[\Aaff^1/\Gm]$ (or the standard log point).
+\end{proof}
+
+%We probably want the latter statement to hold under imposing alignment and factorisation (keeping the log structure on the source curve, but forgetting that the map is log).
+Integrals over the main component of the double ramification locus can be computed using the following lemma.
+\begin{lem} \label{Lemma forget marking}The morphism which forgets a marking
+\begin{equation*} \fgt_i\colon\ol\Mcal_{1,n}^{\alpha,\circ}(H,d)\to\ol\Mcal^{\circ}_{1,n-1}(H,d)\end{equation*}
+is generically finite, of degree $\alpha_i^2$ (except in one special case, described in the proof).
+\end{lem}
+\begin{proof}
+ Let us consider the case $d=0$ first. We may assume the source curve is smooth elliptic $E$. The map \[ \phi\colon E\to \Pic^0(E),\qquad x\mapsto\OO_E\left(\alpha_ix+\sum_{j=1,\ldots,\hat i\ldots,n}\alpha_jp_j\right)\]
+ is an isogeny of degree $\alpha_i^2$. The locus of $(C,p_1,\ldots,\hat{p_i},\ldots,p_n)$ such that the kernel of $\phi$ contains one of the points $\{p_1,\ldots,\hat{p_i},\ldots,p_n\}$ is itself a double ramification locus inside $\oM_{1,n}$, hence non-generic - with one exception: namely, when $n=2$, $x=p_1$ is always a solution, but the curve lying above such point bubbles off a $\PP^1$. To see that it does not belong to the closure of the nice locus, notice that the rational function trivialising $\OO_C(\alpha_1p_1-\alpha_2p_2)$ should descend to the cusp, thus having a ramification point at the node; yet its ramification profile is determined by Riemann-Hurwitz, and it is entirely supported on $p_1$ and $p_2$.
+ 
+ For a different proof: notice that we should obtain the class of the main component from the full double ramification cycle by subtracting the boundary class $[D_{1,\emptyset|0,\{1,\ldots,n\}}]$. The latter pushes forward to $0$ under $\fgt_i$, unless $n=2$. Therefore we may apply $\fgt_{i,*}$ to the Hain-Pixton formula:
+ \[DR_1(A)=\frac{1}{2}\left(\sum_{i=1}^na_i^2\psi_i-\sum_{\substack{I\subseteq\{1,\ldots,n\}\\|I|\geq 2}}a_I^2[D_{1,I^c|0,I}]-\frac{1}{12}\delta_0\right),\]
+ where $a_I=\sum_{i\in I}a_i$ and $\delta_0=\operatorname{glue}_*([\oM_{0,n+2}])$. From $\psi_j=\fgt_i^*\psi_j+[D_{i,j}]$ for $i\neq j$, and the dilaton equation, we see that $\fgt_{i,*}\psi_j=1$ and $\fgt_{i,*}\psi_i=n-1$. On the other hand, the only surviving boundary classes are $[D_{i,j}]$, and they push down to $1$. Hence the formula pushes down to $\frac{1}{2}\left(\sum_{j\neq i}\alpha_j^2+(n-1)\alpha_i^2-\sum_{j\neq i}(\alpha_j+\alpha_i)^2\right)=-\alpha_i\left(\sum_{j\neq i}\alpha_j\right)=\alpha_i^2.$
+\end{proof}
+
 
 
 \newpage
