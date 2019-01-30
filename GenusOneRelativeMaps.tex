@@ -669,24 +669,24 @@ Here $g(v)$ and $d(v)$ are the genus and degree assigned to the vertex, while $Z
 \ecd
 This fibre product must be take in the fs log category. However, in our setting, the ordinary fibre product is automatically integral\footnote{(Navid) Justify this}, so all that is required is a saturation. This means that the fs fibre product is just a finite cover of the ordinary fibre product, and we may calculate the degree directly.\footnote{(Navid) How, again?}
 
-\subsection{Punctured maps and double ramification loci} We will now present some arguments and constructions aimed at demystifying the moduli spaces of punctured stable maps. In our context, we only ever encounter these spaces when the associated logarithmic stratum $Z_v$ of the target is the divisor $H$. Consider therefore a moduli space of punctured stable maps
-\begin{equation*} \Mpunct{g}{\alpha}{H}{d} \end{equation*}
-where $g \in \{0,1\}$ and $\alpha$ is a vector of tangency orders. The target $H$ is given the log structure pulled back from $\PP^N$, and consequently is not log smooth. As such, the natural obstruction theory on the above moduli space will not, in general, be perfect. This is not really a problem for us, since we are interested in studying the ``non-virtual'' geometry of our moduli spaces.
+This gives a recursion description of the logarithmic strata in $\Mcal$. We will now\footnote{(Navid) Really, after the next section, which maybe we should move to an appendix} use this to obtain a similar (though somewhat more complicated) description of the strata in $\VZ$.
 
-We will see that this space is birational to the moduli space of ordinary stable maps to $H$ satisfying the condition:
-\begin{equation*} f^*[H] - \sum_{i=1}^n \alpha_ix_i =0 \in \Achow_0(C).\end{equation*}
-This forms a closed substack
+\subsection{Punctured maps and double ramification loci}\footnote{(Navid) Move this to an appendix?} We will now present some arguments and constructions aimed at demystifying the moduli spaces of punctured stable maps. In our context, we only ever encounter these spaces when the associated logarithmic stratum $Z_v$ of the target is the divisor $H$. Consider therefore a moduli space of punctured stable maps
+\begin{equation}\label{punctured space} \Mpunct{g}{\alpha}{H}{d} \end{equation}
+where $g \in \{0,1\}$ and $\alpha$ is a vector of tangency orders. The target $H$ is given the log structure pulled back from $\PP^N$, and consequently is not log smooth. As such, the natural obstruction theory on the above moduli space will not, in general, be perfect. This is not really a problem for us, since we are mainly interested in studying the non-virtual geometry of our moduli spaces. Indeed, we will see that the space \eqref{punctured space} is birational to the moduli space of ordinary stable maps to $H$ satisfying the condition:
+\begin{equation}\label{DRC condition} f^*[H] - \sum_{i=1}^n \alpha_ix_i =0 \in \Achow_0(C).\end{equation}
+This space forms a closed substack
 \begin{equation*} \ol\Mcal^{\alpha}_{g,n}(H,d) \subseteq \M{g}{n}{H}{d} \end{equation*}
-referred to as the \emph{double ramification locus}. It has been studied in great detail in the past. It is a closed substack of virtual codimension $g$ in $\M{g}{n}{H}{d}$ (though, as with $\M{g}{n}{H}{d}$ itself, it typically has excess dimension).
+and is referred to as the \emph{double ramification locus}. These moduli spaces have been the focus of intense study over the years (see, for instance, \cite{GathmannThesis} \cite{DRCBundle}). The double ramification locus is a closed substack of $\M{g}{n}{H}{d}$ of virtual codimension $g$ (though, as with $\M{g}{n}{H}{d}$ itself, it typically has excess dimension).
 
-\begin{prop} Consider the forgetful morphism:
+\begin{prop} Suppose that $g \in \{0,1\}$ and consider the morphism forgetting all log structures:
 \begin{equation*} \Mpunct{g}{\alpha}{H}{d} \to \M{g}{n}{H}{d}. \end{equation*}
 This factors through the double ramification locus, and is in fact birational onto its image.\end{prop}
-\begin{proof} The fact that the forgetful morphism factors through the double ramification locus is an immediate consequence of the balancing condition satisfied by punctured stable maps, interpreted as a condition in the Picard group of $C$. So we indeed have a map:
-\begin{equation*} \Mpunct{g}{\alpha}{H}{d} \xrightarrow{\varphi} \ol\Mcal^\alpha_{g,n}(H,d). \end{equation*}
-To show that $\varphi$ is birational, we will show that it induces a bijection on geometric points when restricted to an open dense locus. This locus will be taken to be the preimage of the locus in $\ol\Mcal^\alpha_{g,n}(H,d)$ consisting of curves of compact type (i.e. those whose dual graph has genus zero). Essentially here we are excluding stable maps whose source curve countains a cycle of $\PP^1$s. The fact that this is open dense in $\ol\Mcal^\alpha_{g,n}(H,d)$ is not hard to see: when $g=0$ the double ramification locus is equal to $\M{0}{n}{H}{d}$ which is smooth, and the locus of stable maps not of compact type is codimension $2$. When $g=1$ the double ramification locus has many components, but on every such component the maximal genus one subcurve of the source is generically smooth, which shows again that the locus of stable maps not of compact type is closed.
+\begin{proof} The fact that the forgetful morphism factors through the double ramification locus is an immediate consequence of the balancing condition satisfied by punctured stable maps, interpreted as a condition in $\Pic(C)$ (the more familiar balancing condition is obtained from this one by restricting to a component of $C$ and then taking degrees). Thus indeed we have a map:
+\begin{equation*} \varphi \colon \Mpunct{g}{\alpha}{H}{d} \to \ol\Mcal^\alpha_{g,n}(H,d). \end{equation*}
+To show that $\varphi$ is birational, we will choose an open dense locus of the domain and show that $\varphi$ induces an isomorphism on geometric points when restricted to this locus. The locus we take is the preimage of the locus inside $\ol\Mcal^\alpha_{g,n}(H,d)$ consisting of curves of compact type (i.e. those whose dual graph has genus zero); essentially we are excluding stable maps whose source curve contains a cycle of $\PP^1$s. The fact that this is open dense in $\ol\Mcal^\alpha_{g,n}(H,d)$ is not hard to see: when $g=1$ (the only case in which non-compact type curves can arise), the double ramification locus contains many components, but on every such component the maximal genus one subcurve of the source will be generically smooth, which shows again that the locus of stable maps not of compact type is closed inside $\ol\Mcal^\alpha_{g,n}(H,d)$. Once we show that $\varphi$ is bijective on geometric points when restricted to the preimage of this locus, it follows (since $\varphi$ is a finite morphism) that the preimage of this locus is dense in $\Mpunct{g}{\alpha}{H}{d}$, and hence that $\varphi$ is birational.
 
-So let us start with a compact type stable map which belongs to the double ramification locus:
+So, let us start with a compact type stable map which belongs to the double ramification locus:
 \bcd
 C \ar[r,"f"] \ar[d] & H \\
 S=\Spec\kfield
@@ -696,9 +696,9 @@ We will show that there exists a unique lift of this to a punctured stable map. 
 Q \oplus \kfield^\st & \to \kfield \\
 (q,\lambda) & \mapsto \begin{cases} \lambda \qquad \text{if } q =0 \\ 0 \qquad \text{otherwise} \end{cases}
 \end{align*}
-If we let $r$ denote the number of nodes of $C$ then by construction there is a natural map $\N^r \to Q$ and by the universal property of minimality our punctured curve must be obtained by puncturing a log smooth curve pulled back along a log map
+If we let $r$ denote the number of nodes of $C$ then by construction there is a natural map $\N^r \to Q$ and by the universal property of minimality our punctured curve must be obtained by puncturing a log smooth curve pulled back along a morphism of log schemes:
 \begin{equation*} (\Spec\kfield,Q \oplus \kfield^\st) \to (\Spec\kfield,\N^r\oplus\kfield^\st).\end{equation*}
-This log map must enhance the given map $\N^r \to Q$ on the level of ghost sheaves. The moduli for such a log map is $\Gm^r$, but all these choices are canceled out by automorphisms of $(\Spec\kfield,Q\oplus\kfield^\st)$\footnote{(Navid) Here we are using the fact that $Q$ is in some sense bigger than $\N^r$.}. Thus we obtain, by pulling back the minimal log smooth curve over $(\Spec\kfield,\N^r \oplus\kfield^\st)$, a unique log smooth curve:
+This log morphism must enhance the given map $\N^r \to Q$ on the level of ghost sheaves. The moduli for such a log map is $\Gm^r$, but all these choices are canceled out by automorphisms of $(\Spec\kfield,Q\oplus\kfield^\st)$\footnote{(Navid) Here we are using the fact that $Q$ is in some sense bigger than $\N^r$.}. Thus we obtain, by pulling back the minimal log smooth curve over $(\Spec\kfield,\N^r \oplus\kfield^\st)$, a unique log smooth curve:
 \begin{equation*} (C,\Mcal_C) \to (\Spec\kfield,Q\oplus\kfield^\st).\end{equation*}
 We must now construct the puncturing $\Mcal_{C^\circ}$. Let $\Pcal_C$ denote the divisorial log structure on $C$ with respect to the punctures. It is easy to see that there is a unique log structure $\Mcal$ on $C$ such that
 \begin{equation*} \Mcal_C = \Mcal \oplus_{\OO_C^\st} \Pcal_C \end{equation*}
@@ -706,7 +706,7 @@ where the pushout is taken in the category of monoid sheaves. We consider the sh
 \begin{equation*} \Ncal_C = \Mcal \oplus_{\OO_C^\st} \Pcal^{\gp}_C. \end{equation*}
 By definition the puncturing $\Mcal_{C^\circ}$ should be an intermediate sheaf:
 \begin{equation*} \Mcal_C \subseteq \Mcal_{C^\circ} \subseteq \Ncal_C. \end{equation*}
-We will now construct this, and argue that our construction gives the only puncturing possible. First we note that it is sufficient to define $\Mcal_{C^\circ}$ on a base for the topology on $C$. We choose a base such that for every base open set $U$:
+We will now construct this, and argue that our construction gives the only puncturing possible. First we note that it is sufficient to define $\Mcal_{C^\circ}$ on a base for the topology on $C$. We choose a base such that for each base open set $U$:
 \begin{enumerate}
 \item $U$ is connected;
 \item $U$ contains at most one of the punctures of $C$;
@@ -714,44 +714,36 @@ We will now construct this, and argue that our construction gives the only punct
 \end{enumerate}
 Note that these properties are stable under taking subsets, so to obtain such a base we simply choose an open cover with this property (which is certainly possible) and then take the collection of all open subsets of our chosen cover.
 
-Now let $U$ be such an open set in our base. If $U$ does not contain a puncture then we set
+Now let $U$ be such an open set in our base. If $U$ does not contain a puncture then $\Mcal_C|_U = \Ncal_C|_U$ and so we set
 \begin{equation*} \Mcal_{C^\circ}(U) = \Mcal_C(U).\end{equation*}
-If $U$ contains a puncture $p$ then by assumption $U \setminus \{ p\}$ contains only smooth unmarked points, and hence we have
+If $U$ contains a puncture $p$ then by assumption $U \setminus \{ p\}$ contains only smooth unmarked points, and hence we have a splitting
 \begin{equation*} \Ncal_C|_U = \left( \pi^\st \Mcal_S|_U \right) \oplus_{\OO_U^\st} \left(\Pcal_p^{\gp}|_U \right) \end{equation*}
 where $\Pcal_p$ is the divisorial log structure with respect to $p$. Since $\Mcal_S = Q \oplus \kfield^\st$ it follows that $\pi^*\Mcal_S|_U = \ul{Q} \oplus \OO_U^\st$. Thus we see that
 \begin{equation*} \Ncal_C|_U = \ul{Q} \oplus \Pcal_p^{\gp}|_U\end{equation*}
 and similarly:
 \begin{equation*} \Mcal_C|_U = \ul{Q} \oplus \Pcal_p|_U.\end{equation*}
-We therefore have:
+We therefore have (since $U$ is connected):
 \begin{equation*} \Ncal_C(U) = Q \oplus \Pcal_p^{\gp}(U) \end{equation*}
-Recall we are assuming that $\OO_C(p)|_U$ is trivial. Choosing a trivialisation, we obtain a function $s \in \OO_U(U)$ such that $p=\{s=0\}$. Then $\Pcal_p(U)$ consists of functions of the form $\lambda \cdot s^n$ for $n \in \N$ and $\lambda \in \OO_U^\st(U)$. Groupifying, we obtain:
-\begin{equation*} \Pcal^{\gp}_p(U) = \left\{ \lambda \cdot s^k \, \vert \, \lambda \in \OO_U^\st(U), k \in \Z \right\} \end{equation*}
-(Indeed $\Pcal_p^{\gp}$ may be described as the sheaf of rational functions which are regular and invertible outside of $p$.) Recall that $p$ has attached to it a tangency order $\alpha_p \in \Z_{<0}$. If we let $\eta$ denote the generic point of the component of $C$ containing $p$, then we also have a pullback map $\ol\varphi_\eta \colon \N \to Q$. We define $\Mcal_{C^\circ}(U) \subseteq \Ncal_C(U)$ to be the submonoid generated by $Q \oplus \Pcal_p(U)$ and:
+Recall we are assuming that $\OO_C(p)|_U$ is trivial. Choosing a trivialisation, we obtain a function $s \in \OO_U(U)$ such that $p=\{s=0\}$ on $U$. Then $\Pcal_p(U)$ consists of functions of the form $\lambda \cdot s^n$ for $n \in \N$ and $\lambda \in \OO_U^\st(U)$. Groupifying, we obtain:
+\begin{equation*} \Pcal^{\gp}_p(U) = \left\{ \lambda \cdot s^k \, \vert \, \lambda \in \OO_U^\st(U), k \in \Z \right\}. \end{equation*}
+(Indeed, $\Pcal_p^{\gp}$ can be described as the sheaf of rational functions which are regular and invertible outside of $p$.) Recall that $p$ has attached to it a tangency order $\alpha_p \in \Z_{<0}$. If we let $\eta$ denote the generic point of the component of $C$ containing $p$, then we also have a pullback map $\ol\varphi_\eta \colon \N \to Q$ which is sharp (i.e. it is not the zero map). We define $\Mcal_{C^\circ}(U) \subseteq \Ncal_C(U)$ to be the submonoid generated by $Q \oplus \Pcal_p(U)$ and the element:
 \begin{equation*} (\ol\varphi_\eta(1),s^{\alpha_p}). \end{equation*}
-This clearly satisfies the condition to be a puncturing. Moreover, by the prestability condition for puncturings, this is the only possibility for $\Mcal_{C^\circ}$. We thus have a punctured curve:
-\begin{equation*} (C,\Mcal_{C^\circ}) \xrightarrow{\pi} (\Spec\kfield,Q\oplus\kfield^\st). \end{equation*}
-(Note that the log enhancement of $\pi$ is uniquely determined by taking the composition $\pi^\st \Mcal_S \to \Mcal_C \to \Mcal_{C^\circ}$.) It remains to construct the log enhancement of the map $f \colon C \to H$. The map $f^\flat \colon f^\st \Mcal_H \to \Mcal_{C^\circ}$ is already determined on the level of ghost sheaves. To enhance this to a map on the level of log structures entails choosing an isomorphism of line bundles:
+This clearly satisfies the conditions to be a puncturing, and by the prestability condition it is the only possibility for $\Mcal_{C^\circ}$. We thus have a punctured curve:
+\begin{equation*} (C,\Mcal_{C^\circ}) \to (C,\Mcal_C) \to (\Spec\kfield,Q\oplus\kfield^\st). \end{equation*}
+It remains to construct the log enhancement of the map $f \colon C \to H$. The map $f^\flat \colon f^\st \Mcal_H \to \Mcal_{C^\circ}$ is already determined on the level of ghost sheaves. To enhance this to a map on the level of log structures entails choosing an isomorphism of line bundles:
 \begin{equation*} f^* \OO_H(1) \cong \OO_C\left(\ol{f}^\flat(1)\right). \end{equation*}
-The component-wise description of the right-hand side in \cite{RSPW} (together with the fact that $C$ is compact type, so its Picard group is just the product of the Picard groups of its components) shows that such an isomorphism exists if and only if the original stable map is in the double ramification locus.
-
-There is a $\Gm$ of choices for such a map, but these are canceled out by the automorphisms of $(C,\Mcal_{C^\circ})$ induced by pulling back along (strict) automorphisms of $(\Spec\kfield,Q\oplus\kfield^\st)$. This completes the proof of unique punctured lifting.
+The component-wise description of the right-hand side in \cite{RSPW} (together with the fact that $C$ is compact type, so its Picard group is simply the product of the Picard groups of its components) shows that such an isomorphism exists if and only if the original stable map is in the double ramification locus. There is a $\Gm$ worth of choices for such a map, but these are canceled out by the automorphisms of $(C,\Mcal_{C^\circ})$ induced by pulling back along (strict) automorphisms of $(\Spec\kfield,Q\oplus\kfield^\st)$. This completes the proof of unique punctured lifting.
 \end{proof}
 
-Thus, the spaces of punctured maps we encounter are always birational to double ramification loci. We will now discuss the geometry of these loci. In the genus zero case, the double ramification locus is equal to the entire space
+Thus, the spaces of punctured maps we encounter are always birational to double ramification loci. We now briefly discuss the geometry of these loci. In the genus zero case, the double ramification locus is equal to the entire space
 \begin{equation*} \ol\Mcal^{\alpha}_{0,n}(H,d) = \M{0}{n}{H}{d} \end{equation*}
 which is smooth. Thus tautological integrals over $\ol\Mcal^{\alpha}_{0,n}(H,d)$ are determined by the genus-zero Gromov--Witten theory of $H$.
 
 The genus one case is more delicate: there is a ``main component'' of the double ramification locus, obtained as the closure of the locus where the source curve is smooth. This forms a divisor inside the main component of the moduli space of stable maps:
 \begin{equation*} \ol\Mcal^{\alpha,\circ}_{1,n}(H,d) \subseteq \ol\Mcal^\circ_{1,n}(H,d). \end{equation*}
-However, we know that $\M{1}{n}{H}{d}$ contains many other components besides $\ol\Mcal^\circ_{1,n}(H,d)$, some of which have excess dimension. Certainly the double ramification locus intersects these other components, and sometimes it does so in quite dramatic fashion. For instance, consider the locus where the source curve splits into a contracted elliptic component and a rational component containing all the markings. This locus forms an irreducible component of the moduli space, isomorphic to
+However, we know that $\M{1}{n}{H}{d}$ contains many other components besides $\ol\Mcal^\circ_{1,n}(H,d)$, some of which have excess dimension. Certainly the double ramification locus intersects these other components, and sometimes it can do so in quite dramatic fashion. For instance, consider the locus where the source curve splits into a contracted elliptic component and a rational component containing all the markings. This locus forms an irreducible component of the moduli space, isomorphic to
 \begin{equation*}\ol\Mcal_{1,1} \times \M{0}{n+1}{H}{d} \end{equation*}
-which has excess dimension $N-2$. This entire component belongs to the double ramification locus, since the intersection-theoretic condition is entirely numerical here.
-
-Thus we see that the double ramification locus can be quite badly-behaved in genus one. Fortunately, we will only be interested in the main component of this locus (which is birational to the main component of the moduli space of punctured maps); see \S \ref{} below.
-
-We will now use this recursive description of the logarithmic strata in $\Mcal$ to obtain a similar description of the strata in $\VZ$.
-
-
+which has excess dimension $N-2$. This entire component belongs to the double ramification locus, since the condition \eqref{DRC condition} becomes entirely numerical here. Thus, we see that the double ramification locus can be quite badly-behaved in genus one. Fortunately, we will only be interested in the main component of this locus (which is birational to the main component of the moduli space of punctured maps); see \S \ref{} below.
 
 \subsection{Recursive description of the divisors: types $A,B$ and $C^+$}
 
@@ -844,7 +836,7 @@ is the logarithmic blow-up of the moduli space of punctured maps, obtained by im
 \begin{lem} The logarithmic modification $\psi$ restricts to a birational map:
 \begin{equation*}\VZ^{\operatorname{punct}}_{1,\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}(H,d) \to \ol\Mcal^{\operatorname{punct},\circ}_{1,\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}(H,d).\end{equation*}
 \end{lem}
-Note that the latter space (the main component of the moduli space of punctured maps) is birational to the main component of the double ramification locus. In Lemma \ref{Lemma forget marking} below we explain how to compute integrals over this.
+Note that the latter space (the main component of the moduli space of punctured maps) is birational to the main component of the double ramification locus. In Lemma \ref{Lemma forget marking} below we explain how to compute integrals over this.cd 
 \begin{proof}
 If it is true, we might be able to prove it via deformation theory. For this it might be useful to notice that there is a morphism $\Mpunct{g}{\alpha}{H}{d}\to \Mpunct{g}{\alpha}{\PP^N}{d}$ (because $H\subseteq\PP^N$ is strict), which is probably a closed immersion, and the loci with smooth source curve are isomorphic under this map. It seems plausible that the main omponent is log smooth over $B\Gm\subseteq[\Aaff^1/\Gm]$ (or the standard log point).
 \end{proof}
