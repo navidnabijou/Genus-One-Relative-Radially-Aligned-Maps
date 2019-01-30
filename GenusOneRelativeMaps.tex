@@ -282,7 +282,7 @@
 \begin{document}
 
 
-\begin{abstract} For a smooth projective variety $X$ and a smooth very ample hypersurface $Y \subseteq X$, we define moduli spaces of relative stable maps to $(X,Y)$ in genus one, as closed substacks of the moduli space of maps from centrally aligned curves, constructed in \cite{RSPW}. We construct virtual classes for these moduli spaces, which we use to define \emph{reduced relative Gromov--Witten invariants} in genus one.
+\begin{abstract} [OLD] For a smooth projective variety $X$ and a smooth very ample hypersurface $Y \subseteq X$, we define moduli spaces of relative stable maps to $(X,Y)$ in genus one, as closed substacks of the moduli space of maps from centrally aligned curves, constructed in \cite{RSPW}. We construct virtual classes for these moduli spaces, which we use to define \emph{reduced relative Gromov--Witten invariants} in genus one.
 
 [GOALS: We prove a recursion formula which allows us to completely determine these invariants in terms of the reduced Gromov--Witten invariants, as defined in [REF]. We also prove a relative version of the Li--Zinger formula, relating our invariants to the usual relative Gromov--Witten invariants. Also say something about quasimaps.]
 \end{abstract}
@@ -415,7 +415,7 @@ is smooth, we see that the codimension-$k$ logarithmic strata in $\VZ$ are in bi
 \subsection{Blowing up the Artin fan}
 Let $\Mcal = \ol{\Mcal}^{\op{log}}_{1,\alpha}(\PP^N|H,d)$ denote the Abramovich--Chen--Gross--Siebert moduli space of log stable maps. Recall that $\VZ$ is obtained as a closed substack of a log modification
 \begin{equation*} \widetilde{\VZ} \to \Mcal .\end{equation*}
-Since the map $\VZ \hookrightarrow \widetilde{\VZ}$ is strict, the Artin fan $\Acal$ of $\VZ$ is locally isomorphic to the Artin fan of $\widetilde{\VZ}$ (with the latter being, in general, larger). Since the following discussion is entirely local, we will ignore the distinction between the two, and pretend as though $\Acal$ is the Artin fan of $\widetilde{\VZ}$. There is then a commuting square:
+Since the map $\VZ \hookrightarrow \widetilde{\VZ}$ is strict, the Artin fan $\Acal$ of $\VZ$ is locally isomorphic to the Artin fan of $\widetilde{\VZ}$ (with the latter being, in general, larger)\footnote{(Navid) Make this more precise}. Since the following discussion is entirely local, we will ignore the distinction between the two, and pretend as though $\Acal$ is the Artin fan of $\widetilde{\VZ}$. There is then a commuting square:
 \bcd
 \widetilde{\VZ} \ar[r] \ar[d] & \Mcal \ar[d] \\
 \Acal \ar[r] & \Acal_{\Mcal}.
@@ -662,7 +662,7 @@ Thus, via the above procedure, we are able to enumerate the irreducible componen
 
 \subsection{Splitting and gluing punctured logarithmic maps}\label{subsection punctured maps} We still start by considering the usual moduli space $\Mcal$ of log stable maps. In \cite{PuncturedMaps}, a recursive description of the logarithmic strata of $\Mcal$ is given, in terms of moduli spaces of punctured maps. As discussed above, the logarithmic strata $\Scal$ of $\Mcal$ are indexed by combinatorial types of tropical curves. Given such a combinatorial type $\Delta$, each vertex $v$ of the associated graph defines a moduli space of punctured stable maps:
 \begin{equation*} \ol\Mcal_v = \Mpunct{g(v)}{\alpha(v)}{Z_v}{d_v}. \end{equation*}
-Here $g(v)$ and $d(v)$ are the genus and degree assigned to the vertex, while $Z_v$ is the logarithmic stratum of the target corresponding to the tropical stratum into which the vertex is mapped by the combinatorial type (in our setting, $Z_v=\PP^N$ or $H$). The length of the vector $\alpha(v)$ is given by the number of edges and flags adjacent to $v$, and the entries (which represent tangencies, and may be positive or negative) are given by the expansion factors along those edges and flags. Note that if all of the tangencies are positive, then this is nothing but an ordinary moduli space of log stable maps. The corresponding logarithmic stratum is then obtained as a fibre product over evaluation maps:
+Here $g(v)$ and $d(v)$ are the genus and degree assigned to the vertex, while $Z_v$ is the logarithmic stratum of the target corresponding to the tropical stratum into which the vertex is mapped by the combinatorial type (in our setting, $Z_v=\PP^N$ or $H$). The length of the vector $\alpha(v)$ is given by the number of edges and legs adjacent to $v$, and the entries (which represent tangencies, and may be positive or negative) are given by the expansion factors along those edges and legs. Note that if all of the tangencies are positive, then this is nothing but an ordinary moduli space of log stable maps. The corresponding logarithmic stratum is then obtained as a fibre product over evaluation maps:
 \bcd
 \Scal \ar[r] \ar[d] \ar[rd,phantom,"\square"] & \prod_v \ol\Mcal_v \ar[d] \\
 \prod_{e} Z_e \ar[r] & \prod_{e} Z_e\times Z_e.
