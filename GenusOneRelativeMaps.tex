@@ -1,6 +1,6 @@
 \documentclass[11pt]{amsart}
 \linespread{1.25}
-\usepackage[margin=3cm]{geometry}
+\usepackage[margin=3.5cm]{geometry}
 
 \usepackage[english]{babel}
 \usepackage{appendix}
@@ -213,6 +213,7 @@
 \newcommand{\Mcal}{\mathcal{M}}
 \newcommand{\Dcal}{\mathcal{D}}
 \newcommand{\Ncal}{\mathcal{N}}
+\newcommand{\Ccal}{\mathcal{C}}
 \newcommand{\Pcal}{\mathcal{P}}
 \newcommand{\Ycal}{\mathcal{Y}}
 \newcommand{\ol}[1]{\overline{#1}}
@@ -262,7 +263,7 @@
 
 \newcommand{\ilemph}[1]{\emph{#1}}
 
-\setcounter{tocdepth}{1}
+\setcounter{tocdepth}{2}
 
 \newcommand{\todo}[1]{\vspace{5mm}\par \noindent
 \framebox{\begin{minipage}[c]{0.95 \textwidth} \tt #1\end{minipage}} \vspace{5mm} \par}
@@ -661,13 +662,29 @@ Now, the logarithmic divisors which are contained in $\Dcal(k)$ are precisely th
 Thus, via the above procedure, we are able to enumerate the irreducible components of $\Dcal(k)$ in a combinatorial manner. The combinatorial type and choice of ray allows us to describe the general element of such a component. What we are still lacking is a recursive description of the components, which we need in order to compute integrals over them. This is the subject of the remainder of this section.
 
 \subsection{Splitting and gluing punctured logarithmic maps}\label{subsection punctured maps} We still start by considering the usual moduli space $\Mcal$ of log stable maps. In \cite{PuncturedMaps}, a recursive description of the logarithmic strata of $\Mcal$ is given, in terms of moduli spaces of punctured maps. As discussed above, the logarithmic strata $\Scal$ of $\Mcal$ are indexed by combinatorial types of tropical curves. Given such a combinatorial type $\Delta$, each vertex $v$ of the associated graph defines a moduli space of punctured stable maps:
-\begin{equation*} \ol\Mcal_v = \Mpunct{g(v)}{\alpha(v)}{Z_v}{d_v}. \end{equation*}
-Here $g(v)$ and $d(v)$ are the genus and degree assigned to the vertex, while $Z_v$ is the logarithmic stratum of the target corresponding to the tropical stratum into which the vertex is mapped by the combinatorial type (in our setting, $Z_v=\PP^N$ or $H$). The length of the vector $\alpha(v)$ is given by the number of edges and legs adjacent to $v$, and the entries (which represent tangencies, and may be positive or negative) are given by the expansion factors along those edges and legs. Note that if all of the tangencies are positive, then this is nothing but an ordinary moduli space of log stable maps. The corresponding logarithmic stratum is then obtained as a fibre product over evaluation maps:
+\begin{equation*} \ol\Mcal_v = \Mpunct{g(v)}{\alpha(v)}{Z_v}{d(v)}. \end{equation*}
+Here $g(v)$ and $d(v)$ are the genus and degree assigned to the vertex, while $Z_v$ is the logarithmic stratum of the target corresponding to the tropical stratum into which the vertex is mapped by the combinatorial type (in our setting, $Z_v=\PP^N$ or $H$). The length of the vector $\alpha(v)$ is given by the number of edges and legs adjacent to $v$, and the entries (which represent tangencies, and may be positive or negative) are given by the expansion factors along those edges and legs. If all of the tangencies are positive, then this is nothing but an ordinary moduli space of log stable maps.
+
+The corresponding logarithmic stratum is then obtained as a follows. For each vertex $v$ and each adjacent edge $E \ni v$ we define $\widetilde\Mcal_v^E$ to be the stack $\ol\Mcal_v$ equipped with the log structure
+\begin{equation*} p_{v,E}^\st \Mcal_{\Ccal_v^\circ} \end{equation*}
+where $p_{v,E} \colon \ol\Mcal_v \to \Ccal_v^\circ$ is the marking section corresponding to $E$. This definition makes $p_{v,E}$ into a strict logarithmic map, and composing with the universal map produces a logarithmic evaluation morphism $\ev_{v,E} \colon \widetilde\Mcal_v^E \to Z_E$, where $Z_E \subseteq Z_v$ is the logarithmic stratum into which the marking corresponding to $E$ is mapped.
+
+If $E_1,\ldots,E_k$ are the edges adjacent to $v$ then we define
+\begin{equation*} \widetilde\Mcal_v = \widetilde\Mcal_v^{E_1} \times_{\ol\Mcal_v} \ldots \times_{\ol\Mcal_v} \widetilde\Mcal_v^{E_k} \end{equation*}
+where the fibre product is taken in the fs log category. With this definition, all the evaluation maps $\ev_{v,E} \colon \widetilde{\Mcal}_v \to Z_E$ are naturally logarithmic morphisms. Then the corresponding logarithmic stratum is obtained by taking the following fibre product (again, in the fs log category):
 \bcd
-\Scal \ar[r] \ar[d] \ar[rd,phantom,"\square"] & \prod_v \ol\Mcal_v \ar[d] \\
-\prod_{e} Z_e \ar[r] & \prod_{e} Z_e\times Z_e.
+\Scal \ar[r] \ar[d] \ar[rd,phantom,"\square"] & \prod_v \widetilde\Mcal_v \ar[d] \\
+\prod_{E} Z_E \ar[r] & \prod_{E} Z_E \times Z_E.
 \ecd
-This fibre product must be take in the fs log category. However, in our setting, the ordinary fibre product is automatically integral\footnote{(Navid) Justify this}, so all that is required is a saturation. This means that the fs fibre product is just a finite cover of the ordinary fibre product, and we may calculate the degree directly.\footnote{(Navid) How, again?}
+In the above discussion, there were two steps at which we needed to take fibre products in the fs log category: first, when constructing each $\widetilde{\Mcal}_v$ and second, when construction $\Scal$. Typically the fs fibre product does not agree with the usual fibre product of stacks; rather, one must take the fibre product in the category of coherent log stacks (which does agree with the usual fibre product) and then integralise and saturate the result.
+
+We will now argue that, in our situation, the fibre products of coherent log stacks are automatically integral. This means that the integralisation process is redundant, and so the fs fibre product is obtained from the ordinary fibre product by a process of saturation, which amounts to taking a finite cover of the underlying stack (whose degree we will compute).
+
+\begin{lemma}
+
+\end{lemma}
+
+
 
 This gives a recursion description of the logarithmic strata in $\Mcal$. We will now\footnote{(Navid) Really, after the next section, which maybe we should move to an appendix} use this to obtain a similar (though somewhat more complicated) description of the strata in $\VZ$.
 
