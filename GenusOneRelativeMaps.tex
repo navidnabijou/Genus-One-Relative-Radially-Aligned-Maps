@@ -894,7 +894,7 @@ On the other hand, when there is a contracted elliptic subcurve - and it will be
 
 In the following we describe the rays of the tropical moduli space.
 \begin{lem}
- A degree-aligned genus one tropical map $\phi$ to $\mathbb R_{\geq 0}$ is ... with a circle of radius $\delta$ around the core satisfying:
+ A one-parameter tropical map $\phi$ to $\mathbb R_{\geq 0}$ is a decorated tree (with expansion factors - \emph{contact orders} - along edges and legs, and degrees on vertices, satisfying the balancing condition) with a circle (of radius $\delta$) around the root (sometimes called the \emph{core} and denoted by $\circ$) satisfying:
  \begin{enumerate}
  \item the circle of radius $\delta$ passes through at least one vertex of $\phi^{-1}(0)$ - which necessarily has positive degree - call $m$ its contact order with $H$;
  \item teeth may break only when they intersect the circle of radius $\delta$; in particular, $\circ$ is the only vertex contained in its strict interior, and every edge heading out from the circle goes directly to a vertex of $\phi^{-1}(0)$;
@@ -958,6 +958,57 @@ p_*\left((c-\psi_1-\psi_2-2\psi_Z)(\sum_{k=0}^{N-1}\binom{N}{1+k}c^kH^{N-1-k})\r
 \sum_{k=0}^{N-1}\binom{N}{k}H^{N-1-k}\big(s_k(\mathcal E)-s_{k-1}(\mathcal E)(\psi_1+\psi_2+\psi_Z)\big)
 \end{align*}
 \end{ex}
+
+We now generalise this picture. Recall that the map $C\to\bar C$ is given by a (generic) line in the sum of the tangent spaces to the rational tails at the nodes that join them to the contracted curve of genus one. This is equivalent to an alignment, and it is parametrised by an open subset of a projective bundle over the moduli space for the tails corresponding to vertices of the dual graph lying on the circle of radius $\delta$. Yet, notice that those vertices lying in $\phi^{-1}(0)$ are already aligned among themselves. This is why we find it convenient to distinguish among four groups of vertices:
+\begin{enumerate}
+ \item the core;
+ \item\label{specialvertices} vertices on $\phi^{-1}(0)\cap\operatorname{circle}(\circ,\delta)$;
+ \item vertices on $\operatorname{circle}(\circ,\delta)\setminus\phi^{-1}(0)$;
+ \item\label{boringvertices} vertices on $\phi^{-1}(0)\setminus\operatorname{circle}(\circ,\delta)$.
+\end{enumerate}
+We shall first argue that gluing of log maps can be performed separately for the exterior and interior of the circle (the analogous classical picture is that, since the core is contracted, this moduli space is the product of a genus one curve, and a fiber product of genus zero maps under evaluation morphisms).
+
+\begin{lem}
+ $\VZ^{\operatorname{punct}}_{1,\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}(H,0)\simeq \VZ^{\operatorname{punct}}_{1,\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}(\Spec(k\oplus\mathbb N))\times H$.\footnote{(Luca) check log structure, could be fibered over std log point}
+\end{lem}
+
+Let us now deal with vertices of type \ref{specialvertices}.
+\begin{lem}
+ Consider the following fiber product in the category of fs log stacks:
+ \bcd
+ F\ar[d]\ar[r] & \prod_{i=1}^r\M{0}{\alpha^{(i)}\cup\{ m\}}{\PP^N|H}{d_i}\ar[d,"\ev_{q_i}"]\\
+ H\ar[r] & H^r
+ \ecd
+ On $F$ there is a canonical isomorphism $\mathbb L_{q_i}\cong\mathbb L_{q_j}$\footnote{(Luca) check how it degenerates}, the latter being the cotangent line bundles at the gluing markings on two different components $i$ and $j$. Furthermore, $\underline F$ is a finite cover of degree $m^{r-1}$ of the fiber product of the underlying stacks.
+\end{lem}
+\begin{proof}
+ Recall that each $\M{0}{\alpha^{(i)}\cup\{ m\}}{\PP^N|H}{d_i}$ is endowed with the log structure induced by pulling back along $q_i$ the divisorial log structure of the universal curve at the image of $q_i$ itself. Thus $\ev_{q_i}$ is made into a log morphism to $H$ with its induced DF(1) log structure. We claim that the subtext of such morphism is Gathmann's formula; namely, the log morphism to $H$ corresponds to an isomorphism betwee $\ev_{q_i}^*\OO_H(-H)$ on one side, and $\mathcal I_{D_i}\otimes\mathbb L_{q_i}^m$ on the other, where $\mathcal I_{D_i}$ is the ideal sheaf of the union of the comb loci $D_i$ in $\M{0}{\alpha^{(i)}\cup\{ m\}}{\PP^N|H}{d_i}$.
+ 
+ On the fiber product there is a canonical isomorphism between $\ev_{q_i}^*H$ and $\ev_{q_j}^*H$.
+ 
+ Say something about integrality.
+ 
+ Saturation is a local operation, as much as computing the degree, hence we can concentrate on the dense open locus where all the curves we are gluing are smooth, and they are not mapped entirely into $H$. There the minimal log structure on $\M{0}{\alpha^{(i)}\cup\{ m\}}{\PP^N|H}{d_i}$ is trivial, therefore the isomorphism between $\ev_{q_i}^*H$ and $\ev_{q_j}^*H$ translates into an isomorphism $\mathbb L_{q_i}^m\cong \mathbb L_{q_j}^m$. The saturation $F$ is obtained by taking an $m$-th root of this isomorphism.
+\end{proof}
+Let us denote by $\mathbb L_F$ the universal cotangent line at $q$.
+
+The projective bundle we are seeking has base
+\[\mathcal X=\left(F\times \prod_{i=1}^s\oM_{0,\tilde\alpha^{(i)}\cup\{m_i\}}^{\rm{punct}}(H,\tilde d_i)\right)\times_{H^{s+1}}H\]
+(with $m_i<m$) and it is \[\PP=\Proj_{\mathcal X}\left(\mathbb T_F\oplus\bigoplus_{i=1}^s\mathbb T_{\tilde q_i}\right).\]
+We are interested in the vanishing locus of the section
+\[s\colon\OO_{\PP}(-1)\hookrightarrow p^*\left(\mathbb T_F\oplus\bigoplus_{i=1}^s\mathbb T_{\tilde q_i}\right)\xrightarrow{+df_q} f^*(\operatorname{T}\PP^N)_q,\]
+because it represents the geometric condition that $f\colon C\to \PP^N$ factors through the normalisation map $C\to\bar C$ prescribed by the given point of $\PP$. As is, $s$ is not transverse to the zero section. First of all, unless $m=1$, $\operatorname{T}\PP^N$ can be replaced by $\operatorname{T}H$ in the definition of $s$ above, because the projection of all $\operatorname{d}f_i(\operatorname{T}_{q_i}R_i)$ to $N_{H/\PP^N}$ is zero. The case $m=1$ has to be dealt with separately and it turns out that, once $s$ is made transverse, the dimension of its zero locus is smaller than the expected dimension, hence the corresponding combinatorial types are in fact irrelevant.
+
+The procedure to make $s$ transverse is the same as described in \cite[\S 3]{VZ}, namely we need to blow up inside $\PP$ the projective subbundle $\PP(\mathcal E)$ of $\PP_{|\mathcal X_\sigma}$, where $\mathcal X_\sigma$ is the closed substack of $\mathcal X$ where some of the tails degenerate so that the corresponding gluing marking lies on a component contracted by $f$, and $\mathcal E$ is the sum of the tangent line bundles at such subset of the gluing markings. Because $\oM_{0,\tilde\alpha^{(i)}\cup\{m_i\}}^{\rm{punct}}(H,\tilde d_i)$ is isomorphic to $\M{0}{\tilde n_i}{H}{d_i}$, the construction of Vakil and Zinger in the section ``A blowup of a moduli space of genus-zero maps'' of their paper carries through unchanged. The result of the blow-up is to replace $T_{q_i}R_i$ with $T_{q_i}R_i\otimes\bigoplus_{j=1}^kT_{\tilde q_j}R_i\otimes T_{\tilde q_j} S_{ij}$. We interpret this in terms of alignments.\footnote{(Luca) this has to be written properly}
+
+We claim that $\tilde s$ obtained from $s$ by twisting by the exceptional divisors of the blowup is a transverse section. We also claim that comb loci of type $\mathcal Y_c^0$ can be described as a fibered product of 
+\begin{itemize}
+ \item moduli of genus one punctured maps to the standard log point, radially aligned and satisfying factorisation;
+ \item $V(\tilde s)$;
+ \item moduli of genus zero maps relative to $(\PP^N|H)$, corresponding to vertices of type \ref{boringvertices} above.
+\end{itemize}
+Finally, we claim that integrals of psi and evaluation classes over these loci can be translated into tautological integrals, i.e. descendant Gromov-Witten invariants, whose numerics is governed by the combinatorial type of the tropical map.
+
 
 \section{Recursion formula in general}
 Now let $(X|Y)$ be a smooth pair with $Y$ very ample. The complete linear system $|\OO_X(Y)|$ defines an embedding $X \hookrightarrow \PP^N$ with $Y=X\cap H$ for $H$ some hyperplane.
