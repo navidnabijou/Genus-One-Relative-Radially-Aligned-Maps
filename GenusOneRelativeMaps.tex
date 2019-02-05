@@ -951,9 +951,15 @@ Suppose therefore that every relative marking has insertions. At least one of th
 
 Consider the rubber VZ space with one additional marking $x_0$ with contact order zero. On this rubber space, take same as insertions as before, except replace $\ev_x$ with $\ev_{x_0}$.
 
-Consider the locus where the target splits. This can be expressed in terms of tautological classes by E. Katz's thesis (this gives us the left-hand side). Look at the right-hand side. One component of this is where the $x_0$ and $x$ are contained in a trivial bubble. Therefore $\ev_x = \ev_0$ and we recover the integral we are interested in.
+Consider the locus where the target splits. This can be expressed in terms of tautological classes in several ways (which gives us the left-hand side).
 
-On the other components, the marking $x$ will always be insertion-free; hence we can forget $x$. So we get an integral over main component of maps to $H$. Note that this reduced invariant of $H$ will be of lower degree than the one we set out to compute. So the recursion is fixed.
+Firstly, by E. Katz's thesis (actually, this is an easy argument using $\MM_{0,2}$ Vakil--Zinger identification of tangent and cotangent spaces on a genus zero curve). We get $\Psi_0 + \Psi_\infty$ (target psi classes).
+
+Alternatively, take the piecewise-linear $\RR_{\geq 0}$-valued function on the tropical moduli space of the VZ rubber space which sends a tropical map to the weighted sum of the edge lengths (weighted by expansion factors). We can see that the Chern class is weighted sum of source psi classes (which agree with the target psi classes by pull-back), and we calculate the vanishing orders by the same locally toric method.
+
+Either way, the left-hand side is determined. Now look at the right-hand side. One component of this is where the $x_0$ and $x$ are contained in a trivial bubble. Therefore $\ev_x = \ev_0$ and we recover the integral we are interested in.
+
+On the other components, the marking $x$ will always be insertion-free; hence we can forget $x$. So we get an integral over main component of maps to $H$. Note that this reduced invariant of $H$ will be of lower degree than the one we set out to compute. So the recursion isn't circular.
 \newpage
 
 On the other hand, when there is a contracted elliptic subcurve - and it will be contracted into the hyperplane, because otherwise it wouldn't be generic, by density of the nice locus in $\VZ_{1,\alpha^\prime}(\PP^N|H,d^\prime)$ - the picture becomes more complicated due to the alignment. The combs may break. We label these loci $\mathcal{Y}_C^0$.
