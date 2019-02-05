@@ -896,6 +896,14 @@ is generically finite, of degree $\alpha_i^2$ (except in one special case, descr
 
 \newpage
 
+\begin{definition} A combinatorial type $\Delta$ of a tropical curve consists of the following data:
+\begin{enumerate}
+\item $G$ a finite graph, with a set $V(G)$ of vertices, a set $F(G)$ of flags and an involution $\iota \colon F(G) \to F(G)$ with $\iota^2=\Id$. We let $L(G)$ denote the fixed set of $\iota$, and think of its elements as infinite legs; we let $E(G)$ denote the set of equivalence classes of elements not fixed by $\iota$, and think of them as finite edges connecting two (possibly equal) vertices of $G$;
+\item a genus assignment $g \colon V(G) \to \Z_{\geq 0}$;
+\item a degree assignment $\deg \colon V(G) \to \Z_{\geq 0}$;
+\item a weight assignment $u \colon F(G)  \to \Z$ such that for every edge $e \in E(G)$ we have $u(f_1)=-u(f_2)$ where $e=[f_1]=[f_2]$, and $u(l) \geq 0$ for any $l \in L(G)$;
+\end{enumerate}
+\end{definition}
 
 
 \footnote{(Luca) to be made homogeneous with what comes earlier} Review here the process of gluing for punctured maps. In particular the basic monoid should be modified in order to make the relevant evaluations log morphisms. Claim: evaluations are strict. Consequence: the fiber product in the category of log stacks is fine. We have then to apply saturation. This is a finite morphism of degree... (I think it could be $\frac{\prod m^{(i)}}{lcm(m^{(i)})}$).
@@ -912,7 +920,42 @@ is generically finite, of degree $\alpha_i^2$ (except in one special case, descr
  \end{itemize}
 \end{lemma}
 
-\subsection{Recursive description of the divisors: type $C_0$}
+\subsection{Recursive description of the divisors: type $C_0$} Consider now a combinatorial type $\Delta$ such that the circuit is contracted into the divisor. The corresponding stratum $\Dcal_\Mcal \subseteq \Mcal$ is contained in the blown-up locus. Our task is to identify the logarithmic divisors in the preimage of $\Dcal_\Mcal$ under the map $\VZ \to \Mcal$. As discussed, these are indexed by choices of ray in the subdivision of the tropical moduli space. Suppose we have fixed such data.
+
+\begin{claim} The teeth of the comb can break at most once, along the circuit.\end{claim}
+
+\begin{proof} If not there would be more parameters in the tropical moduli space. \end{proof}
+
+\begin{prop} Let $\Delta$ be a combinatorial type as above. Then:
+\begin{enumerate}
+\item the circuit is a single vertex, and is mapped to the interior $\RR_{>0} \subseteq \RR_{\geq 0}$;
+\item the degree of the circuit is zero;
+\item there is a vertex which is adjacent to the circuit and mapped to the interior $0 \in \RR_{\geq 0}$;
+\item let $e \in E(\sqC)$ be an edge which is adjacent to the circuit, and such that $u(e)$ is maximal among the edges adjacent to the circuit. Then the other vertex $v$ contained in $e$ is mapped to $0 \in \RR_{\geq 0}$, and $v$ lies on the (absolute) radius;
+\item if $v \in V(\sqC)$ and $\lambda(v) > \delta$ then $f(v)=0$.
+\end{enumerate}
+\end{prop}
+
+There are 
+\newpage
+
+\subsection{Wonderful trick to compute reduced rubber integrals}
+
+Our method to compute the rubber VZ integrals which appear in the recursion:
+
+First, if the degree is zero, then it's Pixton's formula minus the locus with a single rational tail containing all the markings. So focus on positive degree case.
+
+If there is a relative marking with no insertion, we can forget that marking and compare to the main component of absolute maps to $H$.
+
+Suppose therefore that every relative marking has insertions. At least one of these must have only evaluation classes (since any of the nodal markings will only have evaluation classes). Fix that one: call it $x$.
+
+Consider the rubber VZ space with one additional marking $x_0$ with contact order zero. On this rubber space, take same as insertions as before, except replace $\ev_x$ with $\ev_{x_0}$.
+
+Consider the locus where the target splits. This can be expressed in terms of tautological classes by E. Katz's thesis (this gives us the left-hand side). Look at the right-hand side. One component of this is where the $x_0$ and $x$ are contained in a trivial bubble. Therefore $\ev_x = \ev_0$ and we recover the integral we are interested in.
+
+On the other components, the marking $x$ will always be insertion-free; hence we can forget $x$. So we get an integral over main component of maps to $H$. Note that this reduced invariant of $H$ will be of lower degree than the one we set out to compute. So the recursion is fixed.
+\newpage
+
 On the other hand, when there is a contracted elliptic subcurve - and it will be contracted into the hyperplane, because otherwise it wouldn't be generic, by density of the nice locus in $\VZ_{1,\alpha^\prime}(\PP^N|H,d^\prime)$ - the picture becomes more complicated due to the alignment. The combs may break. We label these loci $\mathcal{Y}_C^0$.
 \begin{figure}
 
