@@ -122,6 +122,7 @@
 \newcommand{\M}[4]{\overline{\mathcal{M}}_{#1,#2}(#3,#4)}
 
 \newcommand{\Mlog}[4]{\overline{\mathcal{M}}^{\operatorname{log}}_{#1,#2}(#3,#4)}
+\newcommand{\MLog}{\overline{\mathcal{M}}^{\operatorname{log}}}
 \newcommand{\Mpunct}[4]{\overline{\mathcal{M}}^{\operatorname{punct}}_{#1,#2}(#3,#4)}
 \newcommand{\MG}[4]{\overline{\mathcal{M}}^{\rm G}_{#1,#2}(#3,#4)}
 \newcommand{\Q}[4]{\mathcal{Q}_{#1,#2}(#3,#4)}
@@ -141,7 +142,6 @@
 \newcommand{\stab}{\rm{stab}}
 \newcommand{\st}{\star}
 \newcommand{\stC}{C'}
-\newcommand{\stf}{f'}
 \newcommand{\stpi}{\pi'}
 \newcommand{\sts}{s'}
 \newcommand{\N}{\mathbb{N}}
@@ -213,9 +213,11 @@
 \newcommand{\Mcal}{\mathcal{M}}
 \newcommand{\Dcal}{\mathcal{D}}
 \newcommand{\Ncal}{\mathcal{N}}
+\newcommand{\Lcal}{\mathcal{L}}
 \newcommand{\Ccal}{\mathcal{C}}
 \newcommand{\Pcal}{\mathcal{P}}
 \newcommand{\Ycal}{\mathcal{Y}}
+\newcommand{\cchern}{\mathrm{c}}
 \newcommand{\ol}[1]{\overline{#1}}
 \newcommand{\ul}[1]{\underline{#1}}
 \newcommand{\op}[1]{\operatorname{#1}}
@@ -293,6 +295,60 @@
 \appendixtitletocoff
 \tableofcontents
 
+\newpage
+
+
+\subsection{Wonderful trick to compute reduced rubber integrals}
+
+Our method to compute the rubber VZ integrals which appear in the recursion:
+
+First, if the degree is zero, then it's Pixton's formula minus the locus with a single rational tail containing all the markings. So focus on positive degree case.
+
+If there is a relative marking with no insertion, we can forget that marking and compare to the main component of absolute maps to $H$.
+
+Suppose therefore that every relative marking has insertions. At least one of these must have only evaluation classes (since any of the nodal markings will only have evaluation classes). Fix that one: call it $x$.
+
+Consider the rubber VZ space with one additional marking $x_0$ with contact order zero. On this rubber space, take same as insertions as before, except replace $\ev_x$ with $\ev_{x_0}$.
+
+Consider the locus where the target splits. This can be expressed in terms of tautological classes in several ways (which gives us the left-hand side).
+
+Firstly, by E. Katz's thesis (actually, this is an easy argument using $\MM_{0,2}$ Vakil--Zinger identification of tangent and cotangent spaces on a genus zero curve). We get $\Psi_0 + \Psi_\infty$ (target psi classes).
+
+Alternatively, take the piecewise-linear $\RR_{\geq 0}$-valued function on the tropical moduli space of the VZ rubber space which sends a tropical map to the weighted sum of the edge lengths (weighted by expansion factors). We can see that the Chern class is weighted sum of source psi classes (which agree with the target psi classes by pull-back), and we calculate the vanishing orders by the same locally toric method.
+
+Either way, the left-hand side is determined. Now look at the right-hand side. One component of this is where the $x_0$ and $x$ are contained in a trivial bubble. Therefore $\ev_x = \ev_0$ and we recover the integral we are interested in.
+
+On the other components, the marking $x$ will always be insertion-free; hence we can forget $x$. So we get an integral over main component of maps to $H$. Note that this reduced invariant of $H$ will be of lower degree than the one we set out to compute. So the recursion isn't circular.
+
+\textbf{Addendum} You have to be a bit careful about the target psi class on the larger space. We need to integrate over this, and the standard approach is to identify it with $\alpha_i \psi_i + \ev_i^\st H$ for $x_i$ any marking tangent to the corresponding divisor. Remember we are trying to move all the insertions off $x_k$. If there is some other marking $x_i$ tangent to the same divisor as $x_k$ then we're fine - just interpret the target psi class as an insertion on $x_i$. If not, we're forced to get an insertion at $x_k$ on the larger space, and we're stuck. In this case, we need to modify the recursion scheme slightly: instead of introducing an additional non-relative marking, split $x_k$ into two markings of tangency $1$ and $\alpha_k - 1$ (really, any splitting of $\alpha_k$ will probably do). Then we can safely move all the insertions (including the target psi class) onto one of these, and leave the other free to forget. Note this works even if $\alpha_k=1$.\medskip
+
+\textbf{Note} It might be worth noting that this idea of recursion on rubber spaces by taking $c_1$ of a line bundle appears to have already appeared in E. Katz's paper. Maybe he was right that there's a lot of good stuff there!
+
+\newpage
+
+\subsection{Gathmann's line bundle via tropical geometry} For each marking $x_k$ we consider the locus in $\VZ_{1,\alpha}(\PP^N|H)$ where $x_k$ belongs to an internal component of the collapsed map. We use the log structure on $\VZ_{1,\alpha}(\PP^N|H)$ to construct a line bundle $\Lcal_k$ together with a section $s_k$ vanishing along this locus. We use the correspondence with tropical geometry to identify $\cchern_1(\Lcal_k)$ in terms of tautological classes on $\VZ_{1,\alpha}(\PP^N|H)$, and we compute the vanishing order of $s_k$ along the components of its zero set.
+
+The pair $(\Lcal_k,s_k)$ is most naturally constructed on the moduli space $\MLog_{1,\alpha}(\PP^N|H)$ of non-expanded log maps; the corresponding pair on $\VZ_{1,\alpha}(\PP^N|H)$ will be obtained via pull-back. Consider therefore a moduli point in $\MLog_{1,\alpha}(\PP^N|H)$ and let $Q^\vee_{\RR}$ be the corresponding tropical moduli space (viewed as a rational polyhedral cone). Over this cone we have a universal tropical curve and map
+\bcd
+\sqC \ar[d,"\pi"] \ar[r,"f"] & \RR_{\geq 0} \\
+Q^\vee_{\RR} \ar[u, bend left=40pt, "x_k" left]
+\ecd
+where $x_k$ is the section which for every point $v \in Q^\vee_{\RR}$ picks out the vertex of $\sqC_v$ containing the leg $x_k$. The composition $f \circ x_k \colon Q^\vee_{\RR} \to \RR_{\geq 0}$ defines a piecewise-linear function on $Q_{\RR}^\vee$ whose preimage over the open cone $\RR_{>0}$ consists of those tropical maps where $x_k$ belongs to an internal component. Dually we obtain an element of the minimal monoid $Q$ and globally a section of the ghost sheaf on $\MLog_{1,\alpha}(\PP^N|H)$. In the usual way this induces a line bundle and section $(\Lcal_k,s_k)$ on the moduli space, and the tropical description above shows that the zero locus of $s_k$ is (set-theoretically) the locus where $x_k$ belongs to an internal component.
+
+We now calculate $\cchern_1(\Lcal_k)$. Choose a family of log stable maps over $S$ and let $\mu \in \Gamma(S,\ol{M}_S)$ be the global section of the ghost sheaf constructed in the previous paragraph. This pulls back along $\pi$ to give a global section $\pi^\flat(\mu) \in \Gamma(C,\ol{M}_C)$.  Interpreted as a piecewise-linear function on the tropicalisation $\sqC$ with values in $\ol{M}_S$ \cite[Remark 7.3]{CavalieriChanUlirschWise}, this assigns $\mu$ to every vertex and has slope zero along every edge. By construction, the line bundle associated to this section is $\pi^\st \Lcal_k$. Consider on the other hand the generator $1 \in \N = \Gamma(\PP^N,\ol{M})$ with associated line bundle $\OO(H)$. The section $f^\flat(1) \in \Gamma(C,\ol{M}_C)$ has associated line bundle $f^\st\OO(H)$. By construction $f^\flat(1)$ assigns $\mu$ to $v$ and has slope $\alpha_k$ along the leg $x_k$. Thus if we consider the difference $f^\flat(1) - \pi^\flat(\mu)$ then this assigns $0$ to $v$ and still has slope $\alpha_k$ along $x_k$. Thus by \cite[Proposition 2.4.1]{RSPW} the corresponding line bundle restricted to $C_v$ is given by
+\begin{equation*} \OO_{C_v} \left(\alpha_k x_k + \sum_e \mu_e x_e \right) \end{equation*}
+where the sum is over the edges $e$ adjacent to $v$ and distinct from $x_k$. Thus we see that:
+\begin{equation*} \left( f^\st\OO(H) \otimes \pi^\st \Lcal_k^{-1} \right) \big|_{C_v} = \OO_{C_v} \left(\alpha_k x_k + \sum_e \mu_e x_e \right).\end{equation*}
+Since $x_k$ factors through $C_v$ we may pull back along $x_k$ to obtain
+\begin{equation*} \Lcal_k = x_k^\st\pi^\st \Lcal_k = x_k^\st \OO_\Ccal(\alpha_k x_k) \otimes x_k^\st f^\st\OO(H) = x_k^\st \omega_{\Ccal/S} \otimes \ev_k^\st \OO(H) \end{equation*}
+and taking Chern classes gives:
+\begin{equation*} \cchern_1(\Lcal_k) = \alpha_k \psi_k + \ev_k^\st H.\end{equation*}
+
+\begin{remark} This construction gives the natural logarithmic analogue of Gathmann's line bundle \cite[Construction 2.1]{Ga}. One of the benefits of the logarithmic approach is to make the computation of multiplicities entirely combinatorial; see \S \ref{} below.\end{remark}
+
+
+\newpage
+
 \section{Introduction}
 
 \subsection{Statement of the problem} Contrary to the genus zero case, the moduli space of genus one maps to projective space - with or without markings - is far from smooth; indeed it has various boundary components of different dimensions, representing maps that contract a genus one curve and have all the degree supported on a number of rational tails. The many incarnations of relative moduli spaces also suffer of the same undesirable feature.
@@ -322,7 +378,7 @@ The main result is that
 \end{cor}
 The Artin fan is a tropical gadget. Its local structure is given by subdividing the ACGS minimal monoid according to the alignment. We are only interested in picking its rays. The upshot is that the combinatorics is slightly more involved than in the genus zero case: the alignment may force some teeth of the comb to break.
 \begin{thm}[Gathmann-type formula, maximal tangency, $(\PP^N|H)$ case]
- \[(\alpha_k\psi_k+\ev_k^*H)[\VZ_{1,\alpha}(\PP^N|H,d)]=[D_{1,\alpha;k}(\PP^N|H,d)],\]
+ \[(\alpha_k\psi_k+\ev_k^\st H)[\VZ_{1,\alpha}(\PP^N|H,d)]=[D_{1,\alpha;k}(\PP^N|H,d)],\]
  the latter being a sum of broken comb loci indexed by rays of the tropical fan.
 \end{thm}
 Importantly, the broken comb loci admit a very explicit description in terms of tautological integrals on the underlying boundary of Gathmann's relative space.
@@ -336,7 +392,7 @@ Importantly, the broken comb loci admit a very explicit description in terms of 
 \end{thm}
 The upshot is that we may then push the formula down to the Gathmann's space, so as to obtain multiplicities and tautological classes.
 \begin{cor}
- \[(\alpha_k\psi_k+\ev_k^*H)[\VZ^G_{1,\alpha}(\PP^N|H,d)]=[D^G_{1,\alpha;k}(\PP^N|H,d)],\]
+ \[(\alpha_k\psi_k+\ev_k^\st H)[\VZ^G_{1,\alpha}(\PP^N|H,d)]=[D^G_{1,\alpha;k}(\PP^N|H,d)],\]
  the latter being expressible as a weighted sum of tautological classes on Gathmann's comb loci.
 \end{cor}
 Once we have this formula, the following extensions are classical:
@@ -404,7 +460,7 @@ The ultimate goal of the paper is to apply Gathmann's techniques to the Vakil-Zi
 %\begin{dfn}
 % A $(z,g,n)$-punctured log map is a punctured log map where the markings with negative contact order to $H$ have an extra label, either $z$ (the tropical map sends them to $z$ero), or $g$ (stands for gluing), or $n$ (stands for nihil, nothing...)
 %\end{dfn}
-%We would like to extend the minimal monoid in order to account for some of the punctures, i.e. take the sum of $p^*\mathcal M_{C^\circ}$ (for every such puncture $p$) fibered over the log structure of the base, which seems to have the same effect as topping those edges with a uertex (which doesn't carry any other information). This looks to me like sprouting a $\PP^1$ at those puncture. Now, the point of the $(z,g,n)$-labelling is that: we only extend the log structure at the $z$ and $g$ punctures; uertices labelled with a $z$ are sent under the tropical map to $0$, so continuity applies to them (therefore the extension of the log structure is fake because that edge length is determined by the position of the adjacent vertex); while uertices labelled with an $n$ are free to roam about. Finally, we perform a radial alignment (and we take rays). This distinction comes about when you split your centrally aligned map according to the strict interior of the $\delta$-circle and the outside; the intersection of a tree with the $\delta$-circle can either be a vertex over $0$, or another vertex (corresponding to a degeneration of the genus zero map outside), or not a vertex.
+%We would like to extend the minimal monoid in order to account for some of the punctures, i.e. take the sum of $p^\st\mathcal M_{C^\circ}$ (for every such puncture $p$) fibered over the log structure of the base, which seems to have the same effect as topping those edges with a uertex (which doesn't carry any other information). This looks to me like sprouting a $\PP^1$ at those puncture. Now, the point of the $(z,g,n)$-labelling is that: we only extend the log structure at the $z$ and $g$ punctures; uertices labelled with a $z$ are sent under the tropical map to $0$, so continuity applies to them (therefore the extension of the log structure is fake because that edge length is determined by the position of the adjacent vertex); while uertices labelled with an $n$ are free to roam about. Finally, we perform a radial alignment (and we take rays). This distinction comes about when you split your centrally aligned map according to the strict interior of the $\delta$-circle and the outside; the intersection of a tree with the $\delta$-circle can either be a vertex over $0$, or another vertex (corresponding to a degeneration of the genus zero map outside), or not a vertex.
 
 \newpage
 
@@ -633,11 +689,11 @@ The plan for this section is as follows \footnote{(Navid) Finish this}
 \subsection{Recursion setup} Consider an element of $\VZ$ and choose a marked point $x_k\in C$. We note that by the existence of a log morphism, either $f$ has contact order $\alpha_k$ to $H$ at the marking $x_k$, or else the irreducible component of $C$ containing $x_k$ is mapped entirely inside $H$ (we say ``$x_k$ belongs to an internal component'' in this case).
 
 By pulling back the equation defining $H$ along $f$ and then taking its $\alpha_k$-th derivative at $x_k$ (which makes sense since all the lower-order derivatives vanish by assumption) we obtain a section of a jet bundle on $\VZ$ whose vanishing locus coincides (set-theoretically) with the locus where $x_k$ belongs to an internal component. As in \cite[Construction 2.1]{Ga} there is an exact sequence of jet bundles
-\begin{equation*} 0\to x_k^*\omega_{\mathcal{C}/\VZ}^{\otimes\alpha_k}\otimes\ev_k^*\OO_{\PP^N}(H)\to x_k^*\mathcal J^{\alpha_k}(f^*\OO_{\PP^N}(H))\to x_k^*\mathcal J^{\alpha_k-1}(f^*\OO_{\PP^N}(H))\to 0 \end{equation*}
-and thus we obtain a section of the line bundle $x_k^*\omega_{\mathcal{C}/\VZ}^{\otimes\alpha_k}\otimes\ev_k^*\OO_{\PP^N}(H)$ with vanishing locus equal to the locus where $x_k$ belongs to an internal component. Writing this locus as
+\begin{equation*} 0\to x_k^\st\omega_{\mathcal{C}/\VZ}^{\otimes\alpha_k}\otimes\ev_k^\st\OO_{\PP^N}(H)\to x_k^\st\mathcal J^{\alpha_k}(f^\st\OO_{\PP^N}(H))\to x_k^\st\mathcal J^{\alpha_k-1}(f^\st\OO_{\PP^N}(H))\to 0 \end{equation*}
+and thus we obtain a section of the line bundle $x_k^\st\omega_{\mathcal{C}/\VZ}^{\otimes\alpha_k}\otimes\ev_k^\st\OO_{\PP^N}(H)$ with vanishing locus equal to the locus where $x_k$ belongs to an internal component. Writing this locus as
 \begin{equation*} \Dcal(k) = \Dcal_{1,\alpha}^k(\PP^N|H,d) \subseteq \VZ_{1,\alpha}(\PP^N|H,d) = \VZ \end{equation*}
 we obtain:
-\begin{lem} $(\alpha_k\psi_k+\ev_k^*H)\cap[\VZ]=[\Dcal(k)].\footnote{(Navid) Should we work out the vanishing orders of the section at this point?}$\end{lem}
+\begin{lem} $(\alpha_k\psi_k+\ev_k^\st H)\cap[\VZ]=[\Dcal(k)].\footnote{(Navid) Should we work out the vanishing orders of the section at this point?}$\end{lem}
 \noindent The remainder of this section will be devoted to providing an explicit recursive description of the class $[\Dcal(k)]$ in terms of tautological classes on spaces of maps with smaller numerical invariants. As we will see, this provides an algorithm for computing reduced relative invariants, as well as a quantum Lefschetz algorithm for reduced (absolute) invariants in genus one.
 
 \subsection{Identifying the irreducible components of $\Dcal(k)$} Here we explain the strategy for identifying the irreducible components of $\Dcal(k)$ via tropical geometry.
@@ -710,7 +766,7 @@ This gives a recursion description of the logarithmic strata in $\Mcal$. We will
 \subsection{Punctured maps and double ramification loci}\footnote{(Navid) Move this to an appendix?} We will now present some arguments and constructions aimed at demystifying the moduli spaces of punctured stable maps. In our context, we only ever encounter these spaces when the associated logarithmic stratum $Z_v$ of the target is the divisor $H$. Consider therefore a moduli space of punctured stable maps
 \begin{equation}\label{punctured space} \Mpunct{g}{\alpha}{H}{d} \end{equation}
 where $g \in \{0,1\}$ and $\alpha$ is a vector of tangency orders. The target $H$ is given the log structure pulled back from $\PP^N$, and consequently is not log smooth. As such, the natural obstruction theory on the above moduli space will not, in general, be perfect. This is not really a problem for us, since we are mainly interested in studying the non-virtual geometry of our moduli spaces. Indeed, we will see that the space \eqref{punctured space} is birational to the moduli space of ordinary stable maps to $H$ satisfying the condition:
-\begin{equation}\label{DRC condition} f^*[H] - \sum_{i=1}^n \alpha_ix_i =0 \in \Achow_0(C).\end{equation}
+\begin{equation}\label{DRC condition} f^\st[H] - \sum_{i=1}^n \alpha_ix_i =0 \in \Achow_0(C).\end{equation}
 This space forms a closed substack
 \begin{equation*} \ol\Mcal^{\alpha}_{g,n}(H,d) \subseteq \M{g}{n}{H}{d} \end{equation*}
 and is referred to as the \emph{double ramification locus}. These moduli spaces have been the focus of intense study over the years (see, for instance, \cite{GathmannThesis} \cite{DRCBundle}). The double ramification locus is a closed substack of $\M{g}{n}{H}{d}$ of virtual codimension $g$ (though, as with $\M{g}{n}{H}{d}$ itself, it typically has excess dimension).
@@ -754,7 +810,7 @@ Now let $U$ be such an open set in our base. If $U$ does not contain a puncture 
 \begin{equation*} \Mcal_{C^\circ}(U) = \Mcal_C(U).\end{equation*}
 If $U$ contains a puncture $p$ then by assumption $U \setminus \{ p\}$ contains only smooth unmarked points, and hence we have a splitting
 \begin{equation*} \Ncal_C|_U = \left( \pi^\st \Mcal_S|_U \right) \oplus_{\OO_U^\st} \left(\Pcal_p^{\gp}|_U \right) \end{equation*}
-where $\Pcal_p$ is the divisorial log structure with respect to $p$. Since $\Mcal_S = Q \oplus \kfield^\st$ it follows that $\pi^*\Mcal_S|_U = \ul{Q} \oplus \OO_U^\st$. Thus we see that
+where $\Pcal_p$ is the divisorial log structure with respect to $p$. Since $\Mcal_S = Q \oplus \kfield^\st$ it follows that $\pi^\st\Mcal_S|_U = \ul{Q} \oplus \OO_U^\st$. Thus we see that
 \begin{equation*} \Ncal_C|_U = \ul{Q} \oplus \Pcal_p^{\gp}|_U\end{equation*}
 and similarly:
 \begin{equation*} \Mcal_C|_U = \ul{Q} \oplus \Pcal_p|_U.\end{equation*}
@@ -767,7 +823,7 @@ Recall we are assuming that $\OO_C(p)|_U$ is trivial. Choosing a trivialisation,
 This clearly satisfies the conditions to be a puncturing, and by the prestability condition it is the only possibility for $\Mcal_{C^\circ}$. We thus have a punctured curve:
 \begin{equation*} (C,\Mcal_{C^\circ}) \to (C,\Mcal_C) \to (\Spec\kfield,Q\oplus\kfield^\st). \end{equation*}
 It remains to construct the log enhancement of the map $f \colon C \to H$. The map $f^\flat \colon f^\st \Mcal_H \to \Mcal_{C^\circ}$ is already determined on the level of ghost sheaves. To enhance this to a map on the level of log structures entails choosing an isomorphism of line bundles:
-\begin{equation*} f^* \OO_H(1) \cong \OO_C\left(\ol{f}^\flat(1)\right). \end{equation*}
+\begin{equation*} f^\st \OO_H(1) \cong \OO_C\left(\ol{f}^\flat(1)\right). \end{equation*}
 The component-wise description of the right-hand side in \cite{RSPW} (together with the fact that $C$ is compact type, so its Picard group is simply the product of the Picard groups of its components) shows that such an isomorphism exists if and only if the original stable map is in the double ramification locus. There is a $\Gm$ worth of choices for such a map, but these are canceled out by the automorphisms of $(C,\Mcal_{C^\circ})$ induced by pulling back along (strict) automorphisms of $(\Spec\kfield,Q\oplus\kfield^\st)$. This completes the proof of unique punctured lifting.
 \end{proof}
 
@@ -889,7 +945,7 @@ is generically finite, of degree $\alpha_i^2$ (except in one special case, descr
  
  For a different proof: notice that we should obtain the class of the main component from the full double ramification cycle by subtracting the boundary class $[D_{1,\emptyset|0,\{1,\ldots,n\}}]$. The latter pushes forward to $0$ under $\fgt_i$, unless $n=2$. Therefore we may apply $\fgt_{i,*}$ to the Hain-Pixton formula:
  \[DR_1(A)=\frac{1}{2}\left(\sum_{i=1}^na_i^2\psi_i-\sum_{\substack{I\subseteq\{1,\ldots,n\}\\|I|\geq 2}}a_I^2[D_{1,I^c|0,I}]-\frac{1}{12}\delta_0\right),\]
- where $a_I=\sum_{i\in I}a_i$ and $\delta_0=\operatorname{glue}_*([\oM_{0,n+2}])$. From $\psi_j=\fgt_i^*\psi_j+[D_{i,j}]$ for $i\neq j$, and the dilaton equation, we see that $\fgt_{i,*}\psi_j=1$ and $\fgt_{i,*}\psi_i=n-1$. On the other hand, the only surviving boundary classes are $[D_{i,j}]$, and they push down to $1$. Hence the formula pushes down to $\frac{1}{2}\left(\sum_{j\neq i}\alpha_j^2+(n-1)\alpha_i^2-\sum_{j\neq i}(\alpha_j+\alpha_i)^2\right)=-\alpha_i\left(\sum_{j\neq i}\alpha_j\right)=\alpha_i^2.$
+ where $a_I=\sum_{i\in I}a_i$ and $\delta_0=\operatorname{glue}_*([\oM_{0,n+2}])$. From $\psi_j=\fgt_i^\st\psi_j+[D_{i,j}]$ for $i\neq j$, and the dilaton equation, we see that $\fgt_{i,*}\psi_j=1$ and $\fgt_{i,*}\psi_i=n-1$. On the other hand, the only surviving boundary classes are $[D_{i,j}]$, and they push down to $1$. Hence the formula pushes down to $\frac{1}{2}\left(\sum_{j\neq i}\alpha_j^2+(n-1)\alpha_i^2-\sum_{j\neq i}(\alpha_j+\alpha_i)^2\right)=-\alpha_i\left(\sum_{j\neq i}\alpha_j\right)=\alpha_i^2.$
 \end{proof}
 
 
@@ -1013,7 +1069,7 @@ In the following we describe the rays of the tropical moduli space.
  F\ar[r]\ar[d]& \M{0}{(2,0)}{\PP^N|H}{2}\times\M{0}{(2,0)}{\PP^N|H}{2}\ar[d]\\
  H\ar[r] & H\times H
  \ecd
- At the level of ghost sheaves, $\oM_F=\mathbb N\oplus_{\mathbb N^2}\oM_1^{\rm{enl}}\oplus\oM_2^{\rm{enl}}$, where the map $\mathbb N^2\to\mathbb N$ is the sum, and the map $\mathbb N^2\to\oM_1^{\rm{enl}}\oplus\oM_2^{\rm{enl}}$ generically is multiplication by $2$, so $\oM_F=\mathbb N^2/(2e=2f)$ generically. Saturation gives a finite cover $G\to F$ with $\oM_G=\mathbb N_{e=f}$ generically. Lifting this to actual log structures, what we are doing (again generically) is taking a square root of the isomorphism $T_{R_1,q_1}^{\otimes 2}\simeq T_{R_2,q_2}^{\otimes 2}$, which is obtained passing through $N_{H/\PP^N,f(Z)}$ via $\operatorname{d}f_{|R_i,q_i}$. This breaks when $f_{|R_i}$ is not tangent to $H$ of order exactly $2$ at $q_i$, for either $i$; but by the maximality assumption this happens precisely along Gathmann's comb loci $\Delta_i$. So in fact, rather than with $T_{R_i,q_i}^{\otimes 2}$, we should be working with $T_{R_i,q_i}^{\otimes 2}(-\Delta_i)$: but this is exactly $\ev_i^*(-H)$ by Gathmann's genus zero formula, and the isomorphism $\ev_1^*(H)=\ev_2^*(H)$ holds on all of $F$.
+ At the level of ghost sheaves, $\oM_F=\mathbb N\oplus_{\mathbb N^2}\oM_1^{\rm{enl}}\oplus\oM_2^{\rm{enl}}$, where the map $\mathbb N^2\to\mathbb N$ is the sum, and the map $\mathbb N^2\to\oM_1^{\rm{enl}}\oplus\oM_2^{\rm{enl}}$ generically is multiplication by $2$, so $\oM_F=\mathbb N^2/(2e=2f)$ generically. Saturation gives a finite cover $G\to F$ with $\oM_G=\mathbb N_{e=f}$ generically. Lifting this to actual log structures, what we are doing (again generically) is taking a square root of the isomorphism $T_{R_1,q_1}^{\otimes 2}\simeq T_{R_2,q_2}^{\otimes 2}$, which is obtained passing through $N_{H/\PP^N,f(Z)}$ via $\operatorname{d}f_{|R_i,q_i}$. This breaks when $f_{|R_i}$ is not tangent to $H$ of order exactly $2$ at $q_i$, for either $i$; but by the maximality assumption this happens precisely along Gathmann's comb loci $\Delta_i$. So in fact, rather than with $T_{R_i,q_i}^{\otimes 2}$, we should be working with $T_{R_i,q_i}^{\otimes 2}(-\Delta_i)$: but this is exactly $\ev_i^\st(-H)$ by Gathmann's genus zero formula, and the isomorphism $\ev_1^\st(H)=\ev_2^\st(H)$ holds on all of $F$.
  
  On the other hand, generically on $\VZ_{1,(-2,-2,4)}$ we have $T_{q_1}Z\simeq T_{q_2}Z$ by exploiting the group structure on the elliptic curve. This breaks when either (but not both) is on a rational tail. Yet we have $T_{q_1}Z(\Delta_{1\in P})\simeq T_{q_2}Z(\Delta_{2\in P})$ by Vakil-Zinger's construction of a universal $\psi$-class (i.e. by comparing both with $\pi_*\omega(\Delta)$; notice that our further blow-up has the only effect of twisting \emph{all} the relevant line bundles by $\Delta_{1,2\notin P}$).
  
@@ -1024,7 +1080,7 @@ In the following we describe the rays of the tropical moduli space.
   \item it is not globally a $\PP^1$-bundle (so it relates with further stages of the blow-up; it also has to do with a choice of compactification for the moduli space of attachments);
   \item it has the effect of replacing $T_{q_i}Z$ with Vakil-Zinger's universal $\mathbb T$, so that this can be factored out of the projective bundle, and in fact we are left with a projective bundle $\mathbb P=\PP(T_{q_1}R_1\oplus T_{q_2}R_2)$ over $F$, and its open part $\operatorname{Iso}(T_{q_1}R_1\oplus T_{q_2}R_2)$ represents the attachment data for a contraction to a tacnode $R_1\sqcup_q R_2\to\bar{C}$.
  \end{itemize}
-On $\PP$ there is a natural vector bundle map \[s\colon \OO_{\PP}(-1)\hookrightarrow p^*(T_{q_1}R_1\oplus T_{q_2}R_2)\xrightarrow{+\operatorname{d}f}\ev_q^*T\PP^N\]
+On $\PP$ there is a natural vector bundle map \[s\colon \OO_{\PP}(-1)\hookrightarrow p^\st(T_{q_1}R_1\oplus T_{q_2}R_2)\xrightarrow{+\operatorname{d}f}\ev_q^\st T\PP^N\]
 that vanishes along the locus where $f$ descends to $\bar C$. In general, it is not a transversal section:
 \begin{itemize}
  \item we should replace $T\PP^N$ by $TH$ as long as all the $m^{(i)}$ are $\geq2$;
@@ -1034,9 +1090,9 @@ On the other hand, the finite cover $G\to F$ factors through $\PP$, because the 
 \[\left(G\cap V(\tilde{s})\subseteq\PP\right)\times\VZ_{1,(-2,-2,4)}.\]
 This has the expected dimension (codimension $N-1$ with respect to $X$). To compute its class, we can pull $\PP$ back to $G$, and then notice that $G\hookrightarrow\PP_G$ is the inclusion of a (trivial) subbundle.
 \begin{lem}
- The class of $\PP(\mathcal F)\subseteq\PP(\mathcal E)$ is $c_{\rm{top}}(\OO_\mathcal{E}(1)\otimes p^*(\mathcal{E}/\mathcal{F}))$.
+ The class of $\PP(\mathcal F)\subseteq\PP(\mathcal E)$ is $c_{\rm{top}}(\OO_\mathcal{E}(1)\otimes p^\st(\mathcal{E}/\mathcal{F}))$.
 \end{lem}
-See \cite[Prop. 9.13]{EH3264}. It is a good time to remember that $\mathcal E$ was in fact $(\bigoplus_{i=1}^rTR_{i,q_i})\otimes\mathbb T$. By writing $c$ for $c_1(\OO_\mathcal{E}(1))$, $\psi_i$ for $c_1(T^*R_{i,q_i})$, $\psi_Z$ for Vakil-Zinger's universal psi class, and $H$ for $\ev_q^*H$, we need to compute
+See \cite[Prop. 9.13]{EH3264}. It is a good time to remember that $\mathcal E$ was in fact $(\bigoplus_{i=1}^rTR_{i,q_i})\otimes\mathbb T$. By writing $c$ for $c_1(\OO_\mathcal{E}(1))$, $\psi_i$ for $c_1(T^\st R_{i,q_i})$, $\psi_Z$ for Vakil-Zinger's universal psi class, and $H$ for $\ev_q^\st H$, we need to compute
 \begin{align*}
 p_*\left((c-\psi_1-\psi_2-2\psi_Z)[(1+c+H)^N(1+c)^{-1}]_{N-1}\right)= \\
 p_*\left((c-\psi_1-\psi_2-2\psi_Z)(\sum_{k=0}^{N-1}\binom{N}{1+k}c^kH^{N-1-k})\right)=\\
@@ -1067,13 +1123,13 @@ Let us now deal with vertices of type \ref{specialvertices}.
  On $F$ there is a canonical isomorphism $\mathbb L_{q_i}\cong\mathbb L_{q_j}$\footnote{(Luca) check how it degenerates}, the latter being the cotangent line bundles at the gluing markings on two different components $i$ and $j$. Furthermore, $\underline F$ is a finite cover of degree $m^{r-1}$ of the fiber product of the underlying stacks.
 \end{lem}
 \begin{proof}
- Recall that each $\M{0}{\alpha^{(i)}\cup\{ m\}}{\PP^N|H}{d_i}$ is endowed with the log structure induced by pulling back along $q_i$ the divisorial log structure of the universal curve at the image of $q_i$ itself. Thus $\ev_{q_i}$ is made into a log morphism to $H$ with its induced DF(1) log structure. We claim that the subtext of such morphism is Gathmann's formula; namely, the log morphism to $H$ corresponds to an isomorphism betwee $\ev_{q_i}^*\OO_H(-H)$ on one side, and $\mathcal I_{D_i}\otimes\mathbb L_{q_i}^m$ on the other, where $\mathcal I_{D_i}$ is the ideal sheaf of the union of the comb loci $D_i$ in $\M{0}{\alpha^{(i)}\cup\{ m\}}{\PP^N|H}{d_i}$.
+ Recall that each $\M{0}{\alpha^{(i)}\cup\{ m\}}{\PP^N|H}{d_i}$ is endowed with the log structure induced by pulling back along $q_i$ the divisorial log structure of the universal curve at the image of $q_i$ itself. Thus $\ev_{q_i}$ is made into a log morphism to $H$ with its induced DF(1) log structure. We claim that the subtext of such morphism is Gathmann's formula; namely, the log morphism to $H$ corresponds to an isomorphism betwee $\ev_{q_i}^\st\OO_H(-H)$ on one side, and $\mathcal I_{D_i}\otimes\mathbb L_{q_i}^m$ on the other, where $\mathcal I_{D_i}$ is the ideal sheaf of the union of the comb loci $D_i$ in $\M{0}{\alpha^{(i)}\cup\{ m\}}{\PP^N|H}{d_i}$.
  
- On the fiber product there is a canonical isomorphism between $\ev_{q_i}^*H$ and $\ev_{q_j}^*H$.
+ On the fiber product there is a canonical isomorphism between $\ev_{q_i}^\st H$ and $\ev_{q_j}^\st H$.
  
  Say something about integrality.
  
- Saturation is a local operation, as much as computing the degree, hence we can concentrate on the dense open locus where all the curves we are gluing are smooth, and they are not mapped entirely into $H$. There the minimal log structure on $\M{0}{\alpha^{(i)}\cup\{ m\}}{\PP^N|H}{d_i}$ is trivial, therefore the isomorphism between $\ev_{q_i}^*H$ and $\ev_{q_j}^*H$ translates into an isomorphism $\mathbb L_{q_i}^m\cong \mathbb L_{q_j}^m$. The saturation $F$ is obtained by taking an $m$-th root of this isomorphism.
+ Saturation is a local operation, as much as computing the degree, hence we can concentrate on the dense open locus where all the curves we are gluing are smooth, and they are not mapped entirely into $H$. There the minimal log structure on $\M{0}{\alpha^{(i)}\cup\{ m\}}{\PP^N|H}{d_i}$ is trivial, therefore the isomorphism between $\ev_{q_i}^\st H$ and $\ev_{q_j}^\st H$ translates into an isomorphism $\mathbb L_{q_i}^m\cong \mathbb L_{q_j}^m$. The saturation $F$ is obtained by taking an $m$-th root of this isomorphism.
 \end{proof}
 Let us denote by $\mathbb L_F$ the universal cotangent line at $q$.
 
@@ -1081,7 +1137,7 @@ The projective bundle we are seeking has base
 \[\mathcal X=\left(F\times \prod_{i=1}^s\oM_{0,\tilde\alpha^{(i)}\cup\{m_i\}}^{\rm{punct}}(H,\tilde d_i)\right)\times_{H^{s+1}}H\]
 (with $m_i<m$) and it is \[\PP=\Proj_{\mathcal X}\left(\mathbb T_F\oplus\bigoplus_{i=1}^s\mathbb T_{\tilde q_i}\right).\]
 We are interested in the vanishing locus of the section
-\[s\colon\OO_{\PP}(-1)\hookrightarrow p^*\left(\mathbb T_F\oplus\bigoplus_{i=1}^s\mathbb T_{\tilde q_i}\right)\xrightarrow{+df_q} f^*(\operatorname{T}\PP^N)_q,\]
+\[s\colon\OO_{\PP}(-1)\hookrightarrow p^\st\left(\mathbb T_F\oplus\bigoplus_{i=1}^s\mathbb T_{\tilde q_i}\right)\xrightarrow{+df_q} f^\st(\operatorname{T}\PP^N)_q,\]
 because it represents the geometric condition that $f\colon C\to \PP^N$ factors through the normalisation map $C\to\bar C$ prescribed by the given point of $\PP$. As is, $s$ is not transverse to the zero section. First of all, unless $m=1$, $\operatorname{T}\PP^N$ can be replaced by $\operatorname{T}H$ in the definition of $s$ above, because the projection of all $\operatorname{d}f_i(\operatorname{T}_{q_i}R_i)$ to $N_{H/\PP^N}$ is zero. The case $m=1$ has to be dealt with separately and it turns out that, once $s$ is made transverse, the dimension of its zero locus is smaller than the expected dimension, hence the corresponding combinatorial types are in fact irrelevant.
 
 The procedure to make $s$ transverse is the same as described in \cite[\S 3]{VZ}, namely we need to blow up inside $\PP$ the projective subbundle $\PP(\mathcal E)$ of $\PP_{|\mathcal X_\sigma}$, where $\mathcal X_\sigma$ is the closed substack of $\mathcal X$ where some of the tails degenerate so that the corresponding gluing marking lies on a component contracted by $f$, and $\mathcal E$ is the sum of the tangent line bundles at such subset of the gluing markings. Because $\oM_{0,\tilde\alpha^{(i)}\cup\{m_i\}}^{\rm{punct}}(H,\tilde d_i)$ is isomorphic to $\M{0}{\tilde n_i}{H}{d_i}$, the construction of Vakil and Zinger in the section ``A blowup of a moduli space of genus-zero maps'' of their paper carries through unchanged. The result of the blow-up is to replace $T_{q_i}R_i$ with $T_{q_i}R_i\otimes\bigoplus_{j=1}^kT_{\tilde q_j}R_i\otimes T_{\tilde q_j} S_{ij}$. We interpret this in terms of alignments.\footnote{(Luca) this has to be written properly}
