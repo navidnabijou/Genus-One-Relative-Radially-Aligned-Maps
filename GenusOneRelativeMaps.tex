@@ -296,11 +296,26 @@
 \newpage
 
 
-\subsection{Wonderful trick to compute reduced rubber integrals}
+\subsection{Recursion formula for reduced rubber integrals} In the recursion above, certain terms appear which are integrals over moduli spaces of reduced log stable maps to rubber (as defined in \S \ref{}):
+\begin{equation*}\VZ_{1,\alpha}(P|H_0+H_\infty)_{\Gm}.\end{equation*}
+In this section we provide a recursive algorithm for computing such integrals. For convenience we denote the \textbf{horizontal degree} of the rubber map by:
+\begin{equation*} d := \sum_{i=1}^n \alpha_i .\end{equation*}
+Recall that the $\alpha_i$ may be positive or negative (recording tangencies with respect to $H_\infty$ and $H_0$, respectively) and that $d \geq 0$ always. First suppose that $d=0$. Then the usual rubber moduli space decomposes as
+\begin{equation*} \MLog_{1,\alpha}(P|H_0 + H_\infty)_{\Gm} = \MLog_{1,\alpha}(\PP^1|0+\infty)_{\Gm} \times H \end{equation*}
+and the first term on the right-hand side is birational to the double ramification locus in $\ol\Mcal_{1,n}$. This locus has a main component (the closure of the locus of smooth curves) and one other ``exceptional'' component, consisting of split curves where all the markings belong to the rational tail. The corresponding reduced rubber space is birational to the main component, and thus we can identify its class by subtracting off the class of the exceptional component. This gives
+\begin{equation*} \pi_\st [\VZ_{1,\alpha}(P|H_0+H_\infty)_{\Gm}] = \left( [\ol\Mcal_{1,n}^\alpha] - [D] \right) \times [H] \in \Achow_\st ( \ol\Mcal_{1,n} \times H ) = \Achow_\st ( \ol\Mcal_{1,n}(H,0) ) \end{equation*}
+where $\pi \colon \VZ_{1,\alpha}(P|H_0+H_\infty)_{\Gm} \to \ol\Mcal_{1,n}(H,0)$ is the map which forgets the log structure and collapses the map, $D$ is the boundary locus of split curves described above, and $[\ol\Mcal_{1,n}^\alpha]$ is the classical double ramification cycle, which has an explicit formula in terms of tautological classes \cite{Hain,JPPZ}. This allows us to compute the integral over the rubber space as a tautological integral on the moduli space of curves.
 
-Our method to compute the rubber VZ integrals which appear in the recursion:
+Now suppose that $d>0$. If there is a marking $x_k$ which carries no insertion and has $\alpha_k \neq 0$, then consider the morphism which forgets $x_k$ and collapses the map:
+\begin{equation*} \VZ_{1,\alpha}(P|H_0+H_\infty)_{\Gm} \to \VZ_{1,n-1}(H). \end{equation*}
 
-First, if the degree is zero, then it's Pixton's formula minus the locus with a single rational tail containing all the markings. So focus on positive degree case.
+
+
+\newpage
+
+
+
+
 
 If there is a relative marking with no insertion, we can forget that marking and compare to the main component of absolute maps to $H$.
 
@@ -324,26 +339,26 @@ On the other components, the marking $x$ will always be insertion-free; hence we
 
 \newpage
 
-\subsection{Gathmann's line bundle via tropical geometry} For each marking $x_k$ we consider the locus in $\VZ_{1,\alpha}(\PP^N|H)$ where $x_k$ belongs to an internal component of the collapsed map. We use the log structure on $\VZ_{1,\alpha}(\PP^N|H)$ to construct a line bundle $\Lcal_k$ together with a section $s_k$ vanishing along this locus. We use the correspondence with tropical geometry to identify $\cchern_1(\Lcal_k)$ in terms of tautological classes on $\VZ_{1,\alpha}(\PP^N|H)$, and we compute the vanishing order of $s_k$ along the components of its zero set.
+\subsection{Gathmann's line bundle via tropical geometry} For each marking $x_k$ we consider the locus in $\VZ_{1,\alpha}(\PP^N|H)$ where $x_k$ belongs to an internal component of the collapsed map. We use the log structure on $\VZ_{1,\alpha}(\PP^N|H)$ to construct a line bundle $\Lcal_k$ together with a section $s_k$ vanishing along this locus. We use the correspondence with tropical geometry to identify $\cchern_1(\Lcal_k)$ in terms of tautological classes on $\VZ_{1,\alpha}(\PP^N|H)$, and to compute the vanishing order of $s_k$ along the components of its zero set.
 
 The pair $(\Lcal_k,s_k)$ is most naturally constructed on the moduli space $\MLog_{1,\alpha}(\PP^N|H)$ of non-expanded log maps; the corresponding pair on $\VZ_{1,\alpha}(\PP^N|H)$ will be obtained via pull-back. Consider therefore a moduli point in $\MLog_{1,\alpha}(\PP^N|H)$ and let $Q^\vee_{\RR}$ be the corresponding tropical moduli space (viewed as a rational polyhedral cone). Over this cone we have a universal tropical curve and map
 \bcd
 \sqC \ar[d,"\pi"] \ar[r,"f"] & \RR_{\geq 0} \\
 Q^\vee_{\RR} \ar[u, bend left=40pt, "x_k" left]
 \ecd
-where $x_k$ is the section which for every point $\kappa \in Q^\vee_{\RR}$ picks out the vertex of $\sqC_\kappa$ containing the leg $x_k$. The composition $f \circ x_k \colon Q^\vee_{\RR} \to \RR_{\geq 0}$ defines a piecewise-linear function on $Q_{\RR}^\vee$ whose preimage over the open cone $\RR_{>0}$ consists of those tropical maps where $x_k$ belongs to an internal component. Dually we obtain an element of the minimal monoid $Q$ and globally a section of the ghost sheaf on $\MLog_{1,\alpha}(\PP^N|H)$. In the usual way this induces a line bundle and section $(\Lcal_k,s_k)$ on the moduli space, and the tropical description above shows that the zero locus of $s_k$ is (set-theoretically) the locus where $x_k$ belongs to an internal component.
+where $x_k$ is the section which for every point $\lambda \in Q^\vee_{\RR}$ picks out the vertex of $\sqC_\lambda$ containing the leg $x_k$. The composition $f \circ x_k \colon Q^\vee_{\RR} \to \RR_{\geq 0}$ defines a piecewise-linear function on $Q_{\RR}^\vee$ whose preimage over the open cone $\RR_{>0}$ consists of those tropical maps where $x_k$ belongs to an internal component. Dually we obtain an element of the minimal monoid $Q$ at the moduli point, and this globalises to produce a section of the ghost sheaf on $\MLog_{1,\alpha}(\PP^N|H)$. In the usual way this induces a line bundle and section $(\Lcal_k,s_k)$ on the moduli space, and the tropical description above shows that the zero locus of $s_k$ is (set-theoretically) the locus where $x_k$ belongs to an internal component.
 
-We now calculate $\cchern_1(\Lcal_k)$. Choose a family of log stable maps over $S$ and let $\mu \in \Gamma(S,\ol{M}_S)$ be the global section of the ghost sheaf constructed in the previous paragraph. This pulls back along $\pi$ to give a global section $\pi^\flat(\mu) \in \Gamma(C,\ol{M}_C)$.  Interpreted as a piecewise-linear function on the tropicalisation $\sqC$ with values in $\ol{M}_S$ \cite[Remark 7.3]{CavalieriChanUlirschWise}, this assigns $\mu$ to every vertex and has slope zero along every edge. By construction, the line bundle associated to this section is $\pi^\st \Lcal_k$. Consider on the other hand the generator $1 \in \N = \Gamma(\PP^N,\ol{M})$ with associated line bundle $\OO(H)$. The section $f^\flat(1) \in \Gamma(C,\ol{M}_C)$ has associated line bundle $f^\st\OO(H)$. By construction $f^\flat(1)$ assigns $\mu$ to $v$ and has slope $\alpha_k$ along the leg $x_k$. Thus if we consider the difference $f^\flat(1) - \pi^\flat(\mu)$ then this assigns $0$ to $v$ and still has slope $\alpha_k$ along $x_k$. Thus by \cite[Proposition 2.4.1]{RSPW} the corresponding line bundle restricted to $C_v$ is given by
+We now calculate $\cchern_1(\Lcal_k)$. Choose a family of log stable maps over $S$ and let $\mu \in \Gamma(S,\ol{M}_S)$ be the global section of the ghost sheaf constructed in the previous paragraph. This pulls back along $\pi$ to give a global section $\pi^\flat(\mu) \in \Gamma(C,\ol{M}_C)$.  Interpreted as a piecewise-linear function on the tropicalisation $\sqC$ with values in $\ol{M}_S$ \cite[Remark 7.3]{CavalieriChanUlirschWise}, this assigns $\mu$ to every vertex and has slope zero along every edge. By construction, the line bundle associated to this section is $\pi^\st \Lcal_k$. Consider on the other hand the generator $1 \in \N = \Gamma(\PP^N,\ol{M})$ with associated line bundle $\OO(H)$. The section $f^\flat(1) \in \Gamma(C,\ol{M}_C)$ has associated line bundle $f^\st\OO(H)$. If we let $v$ denote the vertex containing $x_k$, then by construction $f^\flat(1)$ assigns $\mu$ to $v$ and has slope $\alpha_k$ along the leg $x_k$. Thus if we consider the difference $f^\flat(1) - \pi^\flat(\mu)$ then this assigns $0$ to $v$ and still has slope $\alpha_k$ along $x_k$. Thus by \cite[Proposition 2.4.1]{RSPW} the corresponding line bundle restricted to $C_v$ is given by
 \begin{equation*} \OO_{C_v} \left(\alpha_k x_k + \sum_e \mu_e x_e \right) \end{equation*}
 where the sum is over the edges $e$ adjacent to $v$ and distinct from $x_k$. Thus we see that:
 \begin{equation*} \left( f^\st\OO(H) \otimes \pi^\st \Lcal_k^{-1} \right) \big|_{C_v} = \OO_{C_v} \left(\alpha_k x_k + \sum_e \mu_e x_e \right).\end{equation*}
 Since $x_k$ factors through $C_v$ we may pull back along $x_k$ to obtain
-\begin{equation*} \Lcal_k = x_k^\st\pi^\st \Lcal_k = x_k^\st \OO_\Ccal(\alpha_k x_k) \otimes x_k^\st f^\st\OO(H) = x_k^\st \omega_{\Ccal/S}^{\otimes \alpha_k} \otimes \ev_k^\st \OO(H) \end{equation*}
+\begin{equation*} \Lcal_k = x_k^\st\pi^\st \Lcal_k = x_k^\st \OO_{C_k}(-\alpha_k x_k) \otimes x_k^\st f^\st\OO(H) = x_k^\st \OO_{C_k}(-\alpha_k x_k) \otimes \ev_k^\st \OO(H) \end{equation*}
 and taking Chern classes gives:
 \begin{equation*} \cchern_1(\Lcal_k) = \alpha_k \psi_k + \ev_k^\st H.\end{equation*}
-This gives the construction of $(\Lcal_k,s_k)$ on $\MLog_{1,\alpha}(\PP^N|H)$; the construction on $\VZ_{1,\alpha}(\PP^N|H)$ is given by pull-back. Notice in particular that $\psi_k$ should be interpreted as a \emph{collapsed psi class} on $\VZ_{1,\alpha}(\PP^N|H)$, i.e. a psi class coming from the stabilised curve of the collapsed map. All of the psi classes we deal with will be collapsed psi classes.
+This gives the construction of $(\Lcal_k,s_k)$ on $\MLog_{1,\alpha}(\PP^N|H)$; the construction on $\VZ_{1,\alpha}(\PP^N|H)$ is given by pull-back. Notice in particular that $\psi_k$ should be interpreted as a \textbf{collapsed psi class} on $\VZ_{1,\alpha}(\PP^N|H)$, i.e. a psi class coming from the stabilised curve of the collapsed map. All of the psi classes we deal with will be collapsed psi classes.
 
-\begin{remark} This construction gives the natural logarithmic analogue of Gathmann's line bundle \cite[Construction 2.1]{Ga}. One of the benefits of the logarithmic approach is to make the computation of multiplicities entirely combinatorial; see \S \ref{} below.\end{remark}
+\begin{remark} This construction gives the natural logarithmic analogue of Gathmann's line bundle and section \cite[Construction 2.1]{Ga}. A benefit of the logarithmic approach is to make the computation of vanishing orders entirely combinatorial (see \S \ref{} below), circumventing the difficult technical calculation given by Gathmann. \end{remark}
 
 \newpage
 
@@ -353,12 +368,12 @@ This gives the construction of $(\Lcal_k,s_k)$ on $\MLog_{1,\alpha}(\PP^N|H)$; t
 
 Since the work of Vakil--Zinger and Ranganathan--Santos-Parker--Wise, it has been clear that it is possible to identify a desingularisation of the main component by adding the extra data of a contraction of the source curve $\nu\colon C\to \bar{C}$ - where the latter is allowed to acquire a Smyth singularity - and requiring the stable map $f\colon C\to \PP^N$ to factor through $\nu$.
 
-\subsection{Choice of relative space and desingularisation} We focus on the space of logarithmic stable maps to $(\PP^N|H)$, following ACGS. We perform a log modification of this space as detailed below. For a log curve $C\to S=\Spec(k=\bar k)$, modify the dual graph of $C$ by replacing the minimal genus one subcurve (in case it is a circle of $\PP^1$) by a single vertex of genus one, called the \emph{core} and denoted by $\circ$, and define a piecewise linear function with values in $\overline{\pazocal M}_S$ on such a graph by setting \[\lambda(v)=\sum_{q\in[\circ,v]}\rho_q,\]
+\subsection{Choice of relative space and desingularisation} We focus on the space of logarithmic stable maps to $(\PP^N|H)$, following ACGS. We perform a log modification of this space as detailed below. For a log curve $C\to S=\Spec(k=\bar k)$, modify the dual graph of $C$ by replacing the minimal genus one subcurve (in case it is a circle of $\PP^1$) by a single vertex of genus one, called the \textbf{core} and denoted by $\circ$, and define a piecewise linear function with values in $\overline{\pazocal M}_S$ on such a graph by setting \[\lambda(v)=\sum_{q\in[\circ,v]}\rho_q,\]
 where the $\rho_q$ are the smoothing parameters of the nodes $q$ separating $v$ from the core. Such a function is related to the log canonical bundle of $C\to S$. When the map contracts a subcurve of genus one, we endow it with the extra data of a radius $\delta\in\overline{\pazocal M}_S$ subject to the following compatibility condition:
 
-(*) \emph{the circle of radius $\delta$ around $\circ$ passes through $\geq1$ vertex of positive $f$-degree}.
+(*) \textbf{the circle of radius $\delta$ around $\circ$ passes through $\geq1$ vertex of positive $f$-degree}.
 
-\noindent Furthermore, we require all the values of $\lambda$ to be comparable with $\delta$, and among themselves whenever they are $\leq \delta$. This is called a \emph{centrally aligned} log structure and carries enough information to define a contraction $\nu\colon C\to \bar{C}$, possibly after a semistabilisation of $(C,f)$ - in fact even more. The space thus obtained, $\widetilde \VZ_{1,\alpha}(\PP^N|H,d)$, is a log modification of $\M{1}{\alpha}{\PP^N|H}{d}$.
+\noindent Furthermore, we require all the values of $\lambda$ to be comparable with $\delta$, and among themselves whenever they are $\leq \delta$. This is called a \textbf{centrally aligned} log structure and carries enough information to define a contraction $\nu\colon C\to \bar{C}$, possibly after a semistabilisation of $(C,f)$ - in fact even more. The space thus obtained, $\widetilde \VZ_{1,\alpha}(\PP^N|H,d)$, is a log modification of $\M{1}{\alpha}{\PP^N|H}{d}$.
 
 The main component $\VZ_{1,\alpha}(\PP^N|H,d)$ is then identified by a double factorisation condition:
 \begin{enumerate}
