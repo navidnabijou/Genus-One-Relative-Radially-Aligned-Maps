@@ -331,14 +331,14 @@ The pair $(\Lcal_k,s_k)$ is most naturally constructed on the moduli space $\MLo
 \sqC \ar[d,"\pi"] \ar[r,"f"] & \RR_{\geq 0} \\
 Q^\vee_{\RR} \ar[u, bend left=40pt, "x_k" left]
 \ecd
-where $x_k$ is the section which for every point $v \in Q^\vee_{\RR}$ picks out the vertex of $\sqC_v$ containing the leg $x_k$. The composition $f \circ x_k \colon Q^\vee_{\RR} \to \RR_{\geq 0}$ defines a piecewise-linear function on $Q_{\RR}^\vee$ whose preimage over the open cone $\RR_{>0}$ consists of those tropical maps where $x_k$ belongs to an internal component. Dually we obtain an element of the minimal monoid $Q$ and globally a section of the ghost sheaf on $\MLog_{1,\alpha}(\PP^N|H)$. In the usual way this induces a line bundle and section $(\Lcal_k,s_k)$ on the moduli space, and the tropical description above shows that the zero locus of $s_k$ is (set-theoretically) the locus where $x_k$ belongs to an internal component.
+where $x_k$ is the section which for every point $\kappa \in Q^\vee_{\RR}$ picks out the vertex of $\sqC_\kappa$ containing the leg $x_k$. The composition $f \circ x_k \colon Q^\vee_{\RR} \to \RR_{\geq 0}$ defines a piecewise-linear function on $Q_{\RR}^\vee$ whose preimage over the open cone $\RR_{>0}$ consists of those tropical maps where $x_k$ belongs to an internal component. Dually we obtain an element of the minimal monoid $Q$ and globally a section of the ghost sheaf on $\MLog_{1,\alpha}(\PP^N|H)$. In the usual way this induces a line bundle and section $(\Lcal_k,s_k)$ on the moduli space, and the tropical description above shows that the zero locus of $s_k$ is (set-theoretically) the locus where $x_k$ belongs to an internal component.
 
 We now calculate $\cchern_1(\Lcal_k)$. Choose a family of log stable maps over $S$ and let $\mu \in \Gamma(S,\ol{M}_S)$ be the global section of the ghost sheaf constructed in the previous paragraph. This pulls back along $\pi$ to give a global section $\pi^\flat(\mu) \in \Gamma(C,\ol{M}_C)$.  Interpreted as a piecewise-linear function on the tropicalisation $\sqC$ with values in $\ol{M}_S$ \cite[Remark 7.3]{CavalieriChanUlirschWise}, this assigns $\mu$ to every vertex and has slope zero along every edge. By construction, the line bundle associated to this section is $\pi^\st \Lcal_k$. Consider on the other hand the generator $1 \in \N = \Gamma(\PP^N,\ol{M})$ with associated line bundle $\OO(H)$. The section $f^\flat(1) \in \Gamma(C,\ol{M}_C)$ has associated line bundle $f^\st\OO(H)$. By construction $f^\flat(1)$ assigns $\mu$ to $v$ and has slope $\alpha_k$ along the leg $x_k$. Thus if we consider the difference $f^\flat(1) - \pi^\flat(\mu)$ then this assigns $0$ to $v$ and still has slope $\alpha_k$ along $x_k$. Thus by \cite[Proposition 2.4.1]{RSPW} the corresponding line bundle restricted to $C_v$ is given by
 \begin{equation*} \OO_{C_v} \left(\alpha_k x_k + \sum_e \mu_e x_e \right) \end{equation*}
 where the sum is over the edges $e$ adjacent to $v$ and distinct from $x_k$. Thus we see that:
 \begin{equation*} \left( f^\st\OO(H) \otimes \pi^\st \Lcal_k^{-1} \right) \big|_{C_v} = \OO_{C_v} \left(\alpha_k x_k + \sum_e \mu_e x_e \right).\end{equation*}
 Since $x_k$ factors through $C_v$ we may pull back along $x_k$ to obtain
-\begin{equation*} \Lcal_k = x_k^\st\pi^\st \Lcal_k = x_k^\st \OO_\Ccal(\alpha_k x_k) \otimes x_k^\st f^\st\OO(H) = x_k^\st \omega_{\Ccal/S} \otimes \ev_k^\st \OO(H) \end{equation*}
+\begin{equation*} \Lcal_k = x_k^\st\pi^\st \Lcal_k = x_k^\st \OO_\Ccal(\alpha_k x_k) \otimes x_k^\st f^\st\OO(H) = x_k^\st \omega_{\Ccal/S}^{\otimes \alpha_k} \otimes \ev_k^\st \OO(H) \end{equation*}
 and taking Chern classes gives:
 \begin{equation*} \cchern_1(\Lcal_k) = \alpha_k \psi_k + \ev_k^\st H.\end{equation*}
 This gives the construction of $(\Lcal_k,s_k)$ on $\MLog_{1,\alpha}(\PP^N|H)$; the construction on $\VZ_{1,\alpha}(\PP^N|H)$ is given by pull-back. Notice in particular that $\psi_k$ should be interpreted as a \emph{collapsed psi class} on $\VZ_{1,\alpha}(\PP^N|H)$, i.e. a psi class coming from the stabilised curve of the collapsed map. All of the psi classes we deal with will be collapsed psi classes.
@@ -989,32 +989,6 @@ is generically finite, of degree $\alpha_i^2$ (except in one special case, descr
 \item if $v \in V(\sqC)$ and $\lambda(v) > \delta$ then $f(v)=0$.
 \end{enumerate}
 \end{prop}
-
-There are 
-\newpage
-
-\subsection{Wonderful trick to compute reduced rubber integrals}
-
-Our method to compute the rubber VZ integrals which appear in the recursion:
-
-First, if the degree is zero, then it's Pixton's formula minus the locus with a single rational tail containing all the markings. So focus on positive degree case.
-
-If there is a relative marking with no insertion, we can forget that marking and compare to the main component of absolute maps to $H$.
-
-Suppose therefore that every relative marking has insertions. At least one of these must have only evaluation classes (since any of the nodal markings will only have evaluation classes). Fix that one: call it $x$.
-
-Consider the rubber VZ space with one additional marking $x_0$ with contact order zero. On this rubber space, take same as insertions as before, except replace $\ev_x$ with $\ev_{x_0}$.
-
-Consider the locus where the target splits. This can be expressed in terms of tautological classes in several ways (which gives us the left-hand side).
-
-Firstly, by E. Katz's thesis (actually, this is an easy argument using $\MM_{0,2}$ Vakil--Zinger identification of tangent and cotangent spaces on a genus zero curve). We get $\Psi_0 + \Psi_\infty$ (target psi classes).
-
-Alternatively, take the piecewise-linear $\RR_{\geq 0}$-valued function on the tropical moduli space of the VZ rubber space which sends a tropical map to the weighted sum of the edge lengths (weighted by expansion factors). We can see that the Chern class is weighted sum of source psi classes (which agree with the target psi classes by pull-back), and we calculate the vanishing orders by the same locally toric method.
-
-Either way, the left-hand side is determined. Now look at the right-hand side. One component of this is where the $x_0$ and $x$ are contained in a trivial bubble. Therefore $\ev_x = \ev_0$ and we recover the integral we are interested in.
-
-On the other components, the marking $x$ will always be insertion-free; hence we can forget $x$. So we get an integral over main component of maps to $H$. Note that this reduced invariant of $H$ will be of lower degree than the one we set out to compute. So the recursion isn't circular.
-\newpage
 
 On the other hand, when there is a contracted elliptic subcurve - and it will be contracted into the hyperplane, because otherwise it wouldn't be generic, by density of the nice locus in $\VZ_{1,\alpha^\prime}(\PP^N|H,d^\prime)$ - the picture becomes more complicated due to the alignment. The combs may break. We label these loci $\mathcal{Y}_C^0$.
 \begin{figure}
