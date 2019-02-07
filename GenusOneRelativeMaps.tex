@@ -296,7 +296,7 @@
 \newpage
 
 
-\subsection{Recursion formula for reduced rubber integrals} In the recursion above, certain terms appear which are integrals over moduli spaces of reduced log stable maps to rubber (as defined in \S \ref{}):
+\subsection{Recursion procedure for reduced rubber integrals} In the recursion above, certain terms appear which are integrals over moduli spaces of reduced log stable maps to rubber (as defined in \S \ref{}):
 \begin{equation*}\VZ_{1,\alpha}(P|H_0+H_\infty)_{\Gm}.\end{equation*}
 In this section we provide a recursive algorithm for computing such integrals. For convenience we denote the \textbf{horizontal degree} of the rubber map by:
 \begin{equation*} d := \sum_{i=1}^n \alpha_i .\end{equation*}
@@ -307,9 +307,27 @@ and the first term on the right-hand side is birational to the double ramificati
 where $\pi \colon \VZ_{1,\alpha}(P|H_0+H_\infty)_{\Gm} \to \ol\Mcal_{1,n}(H,0)$ is the map which forgets the log structure and collapses the map, $D$ is the boundary locus of split curves described above, and $[\ol\Mcal_{1,n}^\alpha]$ is the classical double ramification cycle, which has an explicit formula in terms of tautological classes \cite{Hain,JPPZ}. This allows us to compute the integral over the rubber space as a tautological integral on the moduli space of curves.
 
 Now suppose that $d>0$. If there is a marking $x_k$ which carries no insertion and has $\alpha_k \neq 0$, then consider the morphism which forgets $x_k$ and collapses the map:
-\begin{equation*} \VZ_{1,\alpha}(P|H_0+H_\infty)_{\Gm} \to \VZ_{1,n-1}(H). \end{equation*}
+\begin{equation*} \VZ_{1,\alpha}(P|H_0+H_\infty)_{\Gm} \xrightarrow{\pi} \VZ_{1,n-1}(H,d). \end{equation*}
+These moduli spaces are log smooth and of the same dimension. Over the nice locus in $\VZ_{1,n-1}(H,d)$, $\pi$ has degree $\alpha_k^2$, arising from a choice of $\alpha_k$-torsion point on the source elliptic curve. Thus we have:
+\begin{equation*} \pi_\st [\VZ_{1,\alpha}(P|H_0+H_\infty)_{\Gm}] = \alpha_k^2\cdot [\VZ_{1,n-1}(H,d)].\end{equation*}
+Since all the insertions are pulled back from the right-hand side (up to modifying psi classes by some boundary strata which we can then also compute recursively) we can perform the integral on $\VZ_{1,n-1}(H,d)$ inductively.\footnote{(Navid) Say something here about the degree being smaller}
 
+It remains to deal with the case where all of the relative markings carry insertions. The idea is to reduce to the case above by introducing an additional marking. Note first that every reduced rubber integral which appears in our recursion must either have a marking of negative tangency (i.e. tangent to $H_0$), or a marking with no insertions: indeed, the only boundary locus with no negative-tangency marking occurs when the entire curve is mapped to higher level, in which case (since we are assuming $d>0$) the curve is generically irreducible, and on this curve we have at least one fictitious marking (of positive tangency $1$) with no insertion.
 
+Therefore we may assume that there is at least one point of negative tangency, corresponding to a node at which we will glue. Notice that in our recursion these points only ever carry evaluation classes. Consider the following rubber space of dimension one higher, obtained by introducing an additional non-relative marking:
+\begin{equation} \label{bigger rubber space}\VZ_{1,\alpha \cup (0)}(P|H_0+H_\infty)_{\Gm}. \end{equation}
+Given a moduli point in this space, consider the piecewise-linear function on the associated tropical moduli space which sends a tropical map to the sum of the target edge lengths. This defines a line bundle and section on the space \eqref{bigger rubber space} which vanishes precisely on the locus where the target splits; moreover the vanishing orders may be read off from the tropical data as in \S \ref{}. It is not hard to see \cite{EKatz} that the first Chern class of the line bundle is
+$\Psi_0 + \Psi_\infty$, a sum of target psi classes which may be identified with evaluation and psi classes on the source curve as in \cite[Construction 5.1.17]{GathmannThesis}. 
+
+Now choose a point $x_1$ which carries only evaluation classes, and let $x_0$ denote the new non-relative marking we have introduced. If $\gamma$ was the class we were originally trying to integrate, consider the class $\tilde\gamma$ on \eqref{bigger rubber space} obtained from $\gamma$ by replacing $\ev_1$ by $\ev_0$. We obtain a recursion formula:
+\begin{equation*} (\Psi_0+\Psi_\infty)\cdot \tilde\gamma \cap [\VZ_{1,\alpha\cup(0)}(P|H_0+H_\infty)_{\Gm}] = \sum_{\Gamma} m_\Gamma \cdot \tilde\gamma \cap [\ol\Mcal_{\Gamma}]. \end{equation*}
+The right-hand side is a sum over irreducible components $\ol\Mcal_\Gamma$ of the locus where the target splits, with multiplicites $m_\Gamma$ calculated from the tropical picture. Each of these components can be written as a fibre product of (reduced) rubber spaces. One of these components is the locus where $x_0$ and $x_1$ belong to a trivial rational bubble:
+
+[FIGURE]
+
+The corresponding moduli space is $\VZ_{1,\alpha}(P|H_0+H_\infty)_{\Gm}$ and we have $\ev_0=\ev_1$ here, so the contribution of this locus is precisely the original rubber integral we were trying to calculate. The remaining terms on the right-hand side have, by design, no insertion at $x_1$ and hence can be computed via the trick described previously. Finally, the left-hand side also has no insertion at $x_1$ and so can be computed by the same method. Here we are assuming that $x_1$ is not the only negative-tangency marking, so that $\Psi_0$ can be interpreted as an insertion on a marking different from $x_1$; if this is not the case, then a similar argument works by splitting $x_1$ into two markings of tangency $(\alpha_1+1,-1)$.
+
+\textbf{What if $\alpha_1=-1$?}
 
 \newpage
 
