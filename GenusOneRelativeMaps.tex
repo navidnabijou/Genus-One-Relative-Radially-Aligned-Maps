@@ -342,29 +342,6 @@ which we may identify with a (nonzero) multiple of our original rubber integral 
 
 
 
-
-If there is a relative marking with no insertion, we can forget that marking and compare to the main component of absolute maps to $H$.
-
-Suppose therefore that every relative marking has insertions. At least one of these must have only evaluation classes (since any of the nodal markings will only have evaluation classes). Fix that one: call it $x$.
-
-Consider the rubber VZ space with one additional marking $x_0$ with contact order zero. On this rubber space, take same as insertions as before, except replace $\ev_x$ with $\ev_{x_0}$.
-
-Consider the locus where the target splits. This can be expressed in terms of tautological classes in several ways (which gives us the left-hand side).
-
-Firstly, by E. Katz's thesis (actually, this is an easy argument using $\MM_{0,2}$ Vakil--Zinger identification of tangent and cotangent spaces on a genus zero curve). We get $\Psi_0 + \Psi_\infty$ (target psi classes).
-
-Alternatively, take the piecewise-linear $\RR_{\geq 0}$-valued function on the tropical moduli space of the VZ rubber space which sends a tropical map to the weighted sum of the edge lengths (weighted by expansion factors). We can see that the Chern class is weighted sum of source psi classes (which agree with the target psi classes by pull-back), and we calculate the vanishing orders by the same locally toric method.
-
-Either way, the left-hand side is determined. Now look at the right-hand side. One component of this is where the $x_0$ and $x$ are contained in a trivial bubble. Therefore $\ev_x = \ev_0$ and we recover the integral we are interested in.
-
-On the other components, the marking $x$ will always be insertion-free; hence we can forget $x$. So we get an integral over main component of maps to $H$. Note that this reduced invariant of $H$ will be of lower degree than the one we set out to compute. So the recursion isn't circular.
-
-\textbf{Addendum} You have to be a bit careful about the target psi class on the larger space. We need to integrate over this, and the standard approach is to identify it with $\alpha_i \psi_i + \ev_i^\st H$ for $x_i$ any marking tangent to the corresponding divisor. Remember we are trying to move all the insertions off $x_k$. If there is some other marking $x_i$ tangent to the same divisor as $x_k$ then we're fine - just interpret the target psi class as an insertion on $x_i$. If not, we're forced to get an insertion at $x_k$ on the larger space, and we're stuck. In this case, we need to modify the recursion scheme slightly: instead of introducing an additional non-relative marking, split $x_k$ into two markings of tangency $1$ and $\alpha_k - 1$ (really, any splitting of $\alpha_k$ will probably do). Then we can safely move all the insertions (including the target psi class) onto one of these, and leave the other free to forget. \medskip
-
-\textbf{Note} It might be worth noting that this idea of recursion on rubber spaces by taking $c_1$ of a line bundle appears to have already appeared in E. Katz's paper. Maybe he was right that there's a lot of good stuff there!
-
-\newpage
-
 \subsection{Gathmann's line bundle via tropical geometry} For each marking $x_k$ we consider the locus in $\VZ_{1,\alpha}(\PP^N|H)$ where $x_k$ belongs to an internal component of the collapsed map. We use the log structure on $\VZ_{1,\alpha}(\PP^N|H)$ to construct a line bundle $\Lcal_k$ together with a section $s_k$ vanishing along this locus. We use the correspondence with tropical geometry to identify $\cchern_1(\Lcal_k)$ in terms of tautological classes on $\VZ_{1,\alpha}(\PP^N|H)$, and to compute the vanishing order of $s_k$ along the components of its zero set.
 
 The pair $(\Lcal_k,s_k)$ is most naturally constructed on the moduli space $\MLog_{1,\alpha}(\PP^N|H)$ of non-expanded log maps; the corresponding pair on $\VZ_{1,\alpha}(\PP^N|H)$ will be obtained via pull-back. Consider therefore a moduli point in $\MLog_{1,\alpha}(\PP^N|H)$ and let $Q^\vee_{\RR}$ be the corresponding tropical moduli space (viewed as a rational polyhedral cone). Over this cone we have a universal tropical curve and map
