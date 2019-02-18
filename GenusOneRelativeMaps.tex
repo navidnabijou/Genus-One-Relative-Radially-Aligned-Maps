@@ -373,22 +373,64 @@ The base terms of the recursion all have $d=0$ and as such are easy to compute: 
 
 \begin{notation}Given tuples $\mathbf{a}=(a_1,\ldots,a_n)$ and $\mathbf{b}=(b_1,\ldots,b_n)$, we say that $\mathbf{a}<\mathbf{b}$ if there exists an $i \in \{1,\ldots,n\}$ such that $a_j = b_j$ for $j < i$ and $a_i < b_i$.\end{notation}
 
-\subsection*{Step 1: } Suppose we are given a forgetful relative invariant to compute. That is, we have a relative space $\VZ_{1,\alpha}(X|Y,\beta)$ of degree $d$, with $n+1$ relative markings and true tangency $t$, and a special marking $x_0$ such that the insertion $\gamma$ is pulled back along $\fgt_{x_0}$, and we are trying to compute the integral $G$ of $\gamma$ over the relative space. We assume inductively that every absolute, relative and special rubber invariant with $(d^\prime,n^\prime) < (d,n)$ is known, and also that every forgetful relative invariant with $(d^\prime,n^\prime,t^\prime) < (d,n+1,t)$ is known. Choose a true marking $x_1$ with $\alpha_1 \geq 1$ and consider the space:
+\subsection*{Step 1: } Suppose we are given a forgetful relative invariant to compute. That is, we have a relative space $\VZ_{1,\alpha}(X|Y,\beta)$ of degree $d$, with $n+1$ relative markings and true tangency $t$, and a marking $x_0$ such that the insertion $\gamma$ is pulled back along $\fgt_{x_0}$. We assume inductively that every absolute, relative and special rubber invariant with $(d^\prime,n^\prime) < (d,n)$ is known, and also that every forgetful relative invariant with $(d^\prime,n^\prime,t^\prime) < (d,n+1,t)$ is known. Choose a true marking $x_1$ with $\alpha_1 \geq 1$ and consider the space:
 \begin{equation*} \VZ_{1,(\alpha-e_1) \cup (1)}(X|Y,\beta). \end{equation*}
 Denote the newly-introduced marking by $y$ and consider the integrand $\tilde\gamma$ obtained from $\gamma$ by introducing $\fgt_y^\st$ everywhere. Applying our recursion formula to $x_1$, we obtain:
-\begin{equation*}\left( (\alpha_1-1)\psi_1 + \ev_1^\st H\right) \tilde\gamma \cap [\VZ_{1,(\alpha-e_1) \cup (1)}(X|Y,\beta)] = \tilde\gamma \cap [\Dcal(1)].\end{equation*}
+\begin{equation}\label{step 1 recursion}\left( (\alpha_1-1)\psi_1 + \ev_1^\st Y\right) \tilde\gamma \cap [\VZ_{1,(\alpha-e_1) \cup (1)}(X|Y,\beta)] = \tilde\gamma \cap [\Dcal(1)].\end{equation}
 Let us first examine the left-hand side. The class $\psi_1$ differs from $\fgt_y^\st \psi_1$ by the locus where $x_1$ and $y$ are contained on a contracted rational bubble. This locus consists of reduced relative stable maps of the form \medskip
 
 \begin{center}
-\begin{tikzpicture}[scale=2]
+\begin{tikzpicture}[scale=1.5]
+%Draw target
 \draw (0,0) -- (3,0) -- (3,2) -- (0,2) -- (0,0);
-\draw [blue] plot [smooth cycle, tension=0.5] coordinates{(3,1) (1,1.7) (0.5,1) (1,0.3)};
-\draw [blue] plot [smooth] coordinates {(1.1,0.9) (1.4,1.1) (1.7,0.9)};
-
 \draw (3,0) -- (6,0) -- (6,2) -- (3,2) -- (3,0);
+
+%Draw genus one curve on left-hand side
+\draw [blue] (3,0.5) to [out=90,in=270] (2.7,1) to [out=90,in=270] (3,1.5) to [out=90,in=0] (1,1.7) to [out=180,in=90] (0.5,1) to [out=270,in=180] (1,0.3) to [out=0,in=270] (3,0.5);
+\draw [blue] (1.1,0.9) to [out=40, in=180] (1.4,1.1) to [out=0,in=140] (1.7,0.9);
+\draw [blue] (1.2,1) to [out=300, in=180] (1.4,0.9) to [out=0,in=240] (1.6,1);
+
+%Draw nodal blobs
+\draw [fill=blue,color=blue] (3,0.5) circle[radius=1pt];
+\draw [color=blue] (3,0.5) node[left]{\small$\alpha_2$};
+\draw [fill=blue,color=blue] (3,1.5) circle[radius=1pt];
+\draw [color=blue] (3,1.5) node[left]{\small$\alpha_1$};
+%Draw rational bubble with x_1 and y
+\draw [blue] (3,1.5) to [out=70,in=190] (5.5,1.9) to [out=0,in=90] (6,1.8) to [out=270,in=90] (5.75,1.5) to [out=270,in=90] (6,1.2) to [out=270,in=10] (5.5,1.1) to [out=180,in=290] (3,1.5);
+
+%Draw right-hand markings
+\draw [fill=blue,color=blue] (6,1.8) circle[radius=1pt];
+\draw [color=blue] (6,1.8) node[left]{\small{$\alpha_1-1$}};
+\draw (6,1.8) node[right]{$x_1$};
+\draw [fill=blue,color=blue] (6,1.2) circle[radius=1pt];
+\draw [color=blue] (6,1.2) node[left]{\small{$1$}};
+\draw (6,1.2) node[right]{$y$};
+
+%Draw ldots
+\draw [color=blue] (4,0.5) node[right]{$\ldots$};
 \end{tikzpicture}
 \end{center}
+with only trivial bubbles mapping to higher level. This is isomorphic to $\VZ_{1,\alpha}(X|Y,\beta)$ and when we restrict $\tilde\gamma$ to this locus we obtain precisely the class $\gamma$ which we started with. Thus the left-hand side of \eqref{step 1 recursion} may be written as
+\begin{equation*} (\alpha_1-1) I + \fgt_y^\st \left( (\alpha_1-1)\psi_1 + \ev_1^\st Y\right)  \tilde\gamma \cap [\VZ_{1,(\alpha-e_1)\cup(1)}(X|Y,\beta)]\end{equation*}
+where $I$ is the invariant we are trying to compute. The second term is a forgetful relative invariant with the same degree and number of true markings (since $y$ is fictitious), and strictly smaller true tangency. Hence it is recursively known. We now examine the right-hand side of \eqref{step 1 recursion}. Recall that all of the genus zero data has already been computed, so we only need to focus on the genus one pieces. First consider the type $A$ loci. The genus one piece has strictly smaller degree (and hence is recursively known) exept in the following situation (with some stable distribution of the remaining markings):
+\begin{center}
+\begin{tikzpicture}[scale=1]
+\draw (0,0) to (2,0);
+\draw [fill=white] (0,0) circle[radius=3pt];
+\draw (0,-0.1) node[below]{\small$d$};
+\draw [fill=black] (2,0) circle[radius=3pt];
+\draw (2,-0.1) node[below]{\small$0$};
+\draw [->] (2,0) -- (3,0);
+\draw (2.9,0) node[right]{$x_1$};
+\end{tikzpicture}
+\end{center}
+In this situation, $C_1$ contains at most $n+1$ true markings. If it has $n-1$ or fewer, than it is known recursively. If it has exactly $n$ this means that $C_0$ contains exactly one true marking (besides $x_1$, which may be true or fictitious). We claim that in this situation we must have $y \in C_1$: otherwise, we have a moduli space $\ol\Mcal_{0,k}$ for $C_0$ with $k \geq 4$, and  applying the projection formula with $\fgt_y$ we conclude that the contribution is zero. Thus we have $y \in C_1$, and so the genus one contribution is a forgetful relative invariant with $n$ true markings, and hence is recursively known.
 
+Finally, if $C_1$ contains exactly $n+1$ true markings, then the only additional markings $C_0$ are fictitious, and by the same argument as in the previous paragraph there can only be one. Thus for each fictitious marked point we obtain a locus isomorphic to $\VZ_{1,\alpha}(X|Y,\beta)$ and $\tilde\gamma$ restricts to $\gamma$ here (from the point of view of computing invariants the fictitious marked points are indistinguishable, meaning that the contributions are all the same). Thus for each fictitious marked point (of which there is at least one, namely $y$) we get a contribution of $\alpha_1 I$.
+
+The contributions of the type $B$ loci only involve genus zero data and hence are known. The contributions of the type $C^0$ loci are determined by genus zero data and tautological integrals on Deligne--Mumford space, hence are also known. It remains to consider type $C^+$ loci. If the degree of the genus one piece is less than $d$ then we have a reduced rubber integral of strictly smaller degree. The only other possibility is that the entire curve is mapped into the divisor. In this case we may apply the projection formula with $\fgt_y$ to identify this with an integral over $\VZ_{1,m}(Y,\beta)$ for some (possibly large) number $m$ of marked points. But by assumption there is another marked point $x_0$ with all of the insertions pulled back along $\fgt_{x_0}$, so a further application of the projection formula shows that this contribution vanishes. To conclude, we may rearrange \eqref{step 1 recursion} to obtain an expression of the form
+\begin{equation*} \lambda I = \text{recursively known terms} \end{equation*}
+where $\lambda$ is an explicit scalar which is always nonzero; we have thus determined $I$, which completes Step 1.
 
 \newpage
 
