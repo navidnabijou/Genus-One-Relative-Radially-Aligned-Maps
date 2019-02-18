@@ -1,6 +1,7 @@
 \documentclass[11pt]{amsart}
 \linespread{1.25}
 \usepackage[margin=3.5cm]{geometry}
+\usepackage[noend,boxruled]{algorithm2e}
 
 \usepackage[english]{babel}
 \usepackage{appendix}
@@ -318,8 +319,60 @@ This gives the construction of $(\Lcal_k,s_k)$ on $\MLog_{1,\alpha}(\PP^N|H)$; t
 
 \newpage
 
+\section{Quantum Lefschetz recursion}
+Consider a smooth pair $(X,Y)$ with $Y$ very ample, and let $P$ be the projective bundle $P=\PP_Y(\OO(Y)\oplus\OO)$. We assume that the genus zero and reduced genus one Gromov--Witten theories of $X$ are known. From this starting data, we will apply our recursion formula to compute:
+\begin{enumerate}
+\item the genus one \textbf{reduced restricted absolute Gromov--Witten theory} of $Y$;
+\item the genus one \textbf{reduced relative Gromov--Witten theory} of the pair $(X,Y)$;
+\item a certain slice of the genus one \textbf{reduced rubber theory} of $P$.
+\end{enumerate}
 
-\subsection{Recursion procedure for reduced rubber integrals} \footnote{(Navid) To be superseded by general recursion section} In the recursion above, certain terms appear which are integrals over moduli spaces of reduced log stable maps to rubber (as defined in \S \ref{}):
+\subsection{Reduced absolute, relative and special rubber invariants} To be precise: by a reduced invariant of $Y$ we mean an integral over $\VZ_{1,n}(Y,\beta)$ of products of pullbacks of evaluation and psi classes along morphisms which forget a subset $S$ of the marked points (taking $S=\emptyset$ gives the ordinary evaluation and psi classes). Here the evaluation maps are viewed as mapping into $X$ (hence the adjective ``restricted''). Reduced relative invariants of $(X,Y)$ are defined in the same way, except now the forgetful morphism maps into a space of absolute maps:
+\begin{equation*} \fgt_S \colon \VZ_{1,\alpha}(X|Y,\beta) \to \VZ_{1,n-\#S}(X,\beta).\end{equation*}
+In particular, all the psi classes which we consider are \emph{collapsed psi classes}, meaning that they are relative cotangent line classes for the corresponding collapsed stable map. Note that, unlike in the absolute case, in the relative case it may well be the case that the entire insertion is pulled back along a forgetful map $\fgt_S$.
+
+The reduced rubber invariants of $P$ are defined similarly (again using collapsed psi classes). The particular slice we are interested in is the theory of \textbf{special reduced rubber invariants}. These are by definition the rubber invariants which involve at least one marked point of negative tangency (meaning nonzero tangency to $Y_0$), and such that the negative-tangency markings carry only primary insertions. The significance of this class of rubber invariants will become clear during the recursion. 
+
+The systems of invariants defined above are equivalent to the classical systems of invariants (which do not use forgetful morphisms) by well-known topological recursion relations.
+
+\subsection{Fictitious and true markings} The recursion procedure is rather delicate. Roughly speaking, we will induct on the degree (meaning $d=Y\cdot\beta$), number of marked points and total tangency. To make sense of these last two in the relative setting, we introduce the notion of \textbf{fictitious markings}. Consider a moduli space $\VZ_{1,\alpha}(X|Y,\beta)$ of reduced relative stable maps and a corresponding integrand $\gamma$. We let $F \subseteq \{1,\ldots,m\}$ be the maximal subset of marked points such that:
+\begin{enumerate}
+\item $\alpha_i = 1$ for all $i \in F$;
+\item the integrand $\gamma$ is pulled back along $\fgt_F$.
+\end{enumerate}
+This subset is uniquely determined, and its elements are referred to as \textbf{fictitious markings}. Markings which are not fictitious are referred to as \textbf{true}. When inducing on relative invariants we will always be interested in the number of true markings (as opposed to the total number of markings) and the true tangency
+\begin{equation*} \sum_{i \in T} \alpha_i \leq d=Y\cdot \beta \end{equation*}
+where $T = \{1,\ldots,m\} \setminus F$ is the set of true markings.
+
+\subsection{Structure of the recursion} Given the genus-zero Gromov--Witten theory of $X$, the arguments of \cite{Ga} give an effective algorithm to reconstruct the genus-zero theories of $Y$ and $(X,Y)$. Moreover, the genus-zero rubber theory of $P$ is identical to the genus-zero theory of $Y$ \cite{GathmannThesis}. Thus we may assume that all genus-zero data is known. We assume in addition that we know the genus one reduced theory of $X$. The structure of the recursion is then as follows:
+
+\begin{algorithm}
+\DontPrintSemicolon
+\For{$d \geq 0$}{
+\For{$n \geq 0$}{
+\For{$t \geq 0$\medskip}{
+\textbf{\, Step 1: } Compute forgetful relative invariants of $(X,Y)$ (degree~$d$, $n+1$ true markings, true tangency $t$).
+}
+\medskip \textbf{Step 2: } Compute absolute invariants of $Y$ (degree $d$, $n$ markings).\;
+\For{$t \geq 0$\medskip}{
+\textbf{\, Step 3: } Compute relative invariants of $(X,Y)$ (degree $d$, $n$ true markings, true tangency $t$).\;
+}
+}
+\For{$n \geq 0$\medskip}{
+\textbf{\, Step 4: } Compute special rubber invariants of $P$ (degree $d$, $n$ relative markings).
+}
+}
+\end{algorithm}
+\noindent Here a \textbf{forgetful relative invariant} of $(X,Y)$ is by definition a reduced relative invariant with a marked point $x_0$ such that all of the insertions are pulled back along $\fgt_{x_0}$. In our recursion, we first deal with this special class of relative invariants (with $n+1$ true markings), before computing the absolute invariants (with $n$ markings) and then returning to compute the general relative invariants (with $n$ true markings). The separate treatment of a particular subclass of relative invariants is an inescapable feature of the genus one recursion.
+
+The base terms of the recursion all have $d=0$ and as such are easy to compute: the relative invariants of $(X,Y)$ are nothing but absolute invariants of $X$, the absolute invariants of $Y$ are given by obstruction bundle integrals over Deligne--Mumford spaces, and the special rubber invariants of $P$ are also given by integrals over Deligne--Mumford spaces, using the formula for the double ramification cycle \cite{Hain,JPPZ}. We will now explain how to perform each of the four steps outlined above.
+
+\subsection*{Step 1: } Suppose we are given a relative space $\VZ_{1,\alpha}(X|Y,\beta)$ of degree $d$, with $n+1$ relative markings and true tangency $t$, and a special marking $x_0$ such that the insertion $\gamma$ is pulled back along $\fgt_{x_0}$.
+
+
+\newpage
+
+\section{Recursion procedure for reduced rubber integrals} \footnote{(Navid) To be superseded by general recursion section} In the recursion above, certain terms appear which are integrals over moduli spaces of reduced log stable maps to rubber (as defined in \S \ref{}):
 \begin{equation*}\VZ_{1,\alpha}(P|H_0+H_\infty)_{\Gm}.\end{equation*}
 In this section we provide a recursive algorithm for computing such integrals. We have three main techniques at our disposal: direct comparison with the double ramification cycle, forgetting of a marking with no insertion, and rubber recursion. Each technique has its own domain of applicability, and these domains have non-trivial intersection. For convenience we denote the \textbf{horizontal degree} of the rubber map by:
 \begin{equation*} d := \sum_{i=1}^n \alpha_i .\end{equation*}
