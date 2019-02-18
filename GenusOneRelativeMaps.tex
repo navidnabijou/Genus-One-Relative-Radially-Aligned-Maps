@@ -1,7 +1,10 @@
 \documentclass[11pt]{amsart}
 \linespread{1.25}
 \usepackage[margin=3.5cm]{geometry}
+
 \usepackage[noend,boxruled]{algorithm2e}
+%Customize appearance using line below:
+\SetKwFor{For}{\normalfont{for}}{:}{endfor}
 
 \usepackage[english]{babel}
 \usepackage{appendix}
@@ -241,6 +244,7 @@
 \newtheorem{claim}{Claim}
 \newtheorem{question}[thm]{Question}
 \newtheorem{conj}[thm]{Conjecture}
+\newtheorem{notation}[thm]{Notation}
 
 \newtheorem{innercustomthm}{Theorem}
 \newenvironment{customthm}[1]
@@ -329,7 +333,7 @@ Consider a smooth pair $(X,Y)$ with $Y$ very ample, and let $P$ be the projectiv
 
 \subsection{Reduced absolute, relative and special rubber invariants} To be precise: by a reduced invariant of $Y$ we mean an integral over $\VZ_{1,n}(Y,\beta)$ of products of pullbacks of evaluation and psi classes along morphisms which forget a subset $S$ of the marked points (taking $S=\emptyset$ gives the ordinary evaluation and psi classes). Here the evaluation maps are viewed as mapping into $X$ (hence the adjective ``restricted''). Reduced relative invariants of $(X,Y)$ are defined in the same way, except now the forgetful morphism maps into a space of absolute maps:
 \begin{equation*} \fgt_S \colon \VZ_{1,\alpha}(X|Y,\beta) \to \VZ_{1,n-\#S}(X,\beta).\end{equation*}
-In particular, all the psi classes which we consider are \emph{collapsed psi classes}, meaning that they are relative cotangent line classes for the corresponding collapsed stable map. Note that, unlike in the absolute case, in the relative case it may well be the case that the entire insertion is pulled back along a forgetful map $\fgt_S$.
+In particular, all the psi classes which we consider are \emph{collapsed psi classes}, meaning that they are relative cotangent line classes for the corresponding collapsed stable map. Note that, unlike in the absolute case, in the relative case it may well be the case that the entire insertion is pulled back along a single forgetful map $\fgt_S$.
 
 The reduced rubber invariants of $P$ are defined similarly (again using collapsed psi classes). The particular slice we are interested in is the theory of \textbf{special reduced rubber invariants}. These are by definition the rubber invariants which involve at least one marked point of negative tangency (meaning nonzero tangency to $Y_0$), and such that the negative-tangency markings carry only primary insertions. The significance of this class of rubber invariants will become clear during the recursion. 
 
@@ -338,13 +342,13 @@ The systems of invariants defined above are equivalent to the classical systems 
 \subsection{Fictitious and true markings} The recursion procedure is rather delicate. Roughly speaking, we will induct on the degree (meaning $d=Y\cdot\beta$), number of marked points and total tangency. To make sense of these last two in the relative setting, we introduce the notion of \textbf{fictitious markings}. Consider a moduli space $\VZ_{1,\alpha}(X|Y,\beta)$ of reduced relative stable maps and a corresponding integrand $\gamma$. We let $F \subseteq \{1,\ldots,m\}$ be the maximal subset of marked points such that:
 \begin{enumerate}
 \item $\alpha_i = 1$ for all $i \in F$;
-\item the integrand $\gamma$ is pulled back along $\fgt_F$.
+\item the entire integrand $\gamma$ is pulled back along $\fgt_F$.
 \end{enumerate}
-This subset is uniquely determined, and its elements are referred to as \textbf{fictitious markings}. Markings which are not fictitious are referred to as \textbf{true}. When inducing on relative invariants we will always be interested in the number of true markings (as opposed to the total number of markings) and the true tangency
-\begin{equation*} \sum_{i \in T} \alpha_i \leq d=Y\cdot \beta \end{equation*}
-where $T = \{1,\ldots,m\} \setminus F$ is the set of true markings.
+This subset is uniquely determined, and its elements are referred to as \textbf{fictitious markings}. Markings which are not fictitious are referred to as \textbf{true}. When inducting on relative invariants we will always be interested in the number of true markings (as opposed to the total number of markings) and the true tangency
+\begin{equation*} \sum_{i \not\in F} \alpha_i \leq d=Y\cdot \beta \end{equation*}
+as opposed to the total tangency, which is always $d$.
 
-\subsection{Structure of the recursion} Given the genus-zero Gromov--Witten theory of $X$, the arguments of \cite{Ga} give an effective algorithm to reconstruct the genus-zero theories of $Y$ and $(X,Y)$. Moreover, the genus-zero rubber theory of $P$ is identical to the genus-zero theory of $Y$ \cite{GathmannThesis}. Thus we may assume that all genus-zero data is known. We assume in addition that we know the genus one reduced theory of $X$. The structure of the recursion is then as follows:
+\subsection{Structure of the recursion} Given the genus-zero Gromov--Witten theory of $X$, the arguments of \cite{Ga} give an effective algorithm to reconstruct the genus-zero theories of $Y$ and $(X,Y)$; moreover, the genus-zero rubber theory of $P$ is identical to the genus-zero theory of $Y$ \cite{GathmannThesis}. Thus we may assume that all genus-zero data is known. We assume in addition that we know the genus one reduced theory of $X$. The structure of the recursion is then as follows:
 
 \begin{algorithm}
 \DontPrintSemicolon
@@ -363,11 +367,27 @@ where $T = \{1,\ldots,m\} \setminus F$ is the set of true markings.
 }
 }
 \end{algorithm}
-\noindent Here a \textbf{forgetful relative invariant} of $(X,Y)$ is by definition a reduced relative invariant with a marked point $x_0$ such that all of the insertions are pulled back along $\fgt_{x_0}$. In our recursion, we first deal with this special class of relative invariants (with $n+1$ true markings), before computing the absolute invariants (with $n$ markings) and then returning to compute the general relative invariants (with $n$ true markings). The separate treatment of a particular subclass of relative invariants is an inescapable feature of the genus one recursion.
+\noindent Although the loops involving $d$ and $n$ have infinite length, in order to compute any single invariant it is only necessarily to iterate the preceding loops for a finite amount of time. Here a \textbf{forgetful relative invariant} of $(X,Y)$ is by definition a reduced relative invariant with a marked point $x_0$ such that all of the insertions are pulled back along $\fgt_{x_0}$. In our recursion, we first deal with this special class of relative invariants (with $n+1$ true markings), before computing the absolute invariants (with $n$ markings) and then returning to compute the general relative invariants (with $n$ true markings). This separate treatment of a particular subclass of relative invariants is an inescapable feature of the genus one recursion.
 
-The base terms of the recursion all have $d=0$ and as such are easy to compute: the relative invariants of $(X,Y)$ are nothing but absolute invariants of $X$, the absolute invariants of $Y$ are given by obstruction bundle integrals over Deligne--Mumford spaces, and the special rubber invariants of $P$ are also given by integrals over Deligne--Mumford spaces, using the formula for the double ramification cycle \cite{Hain,JPPZ}. We will now explain how to perform each of the four steps outlined above.
+The base terms of the recursion all have $d=0$ and as such are easy to compute: the relative invariants of $(X,Y)$ are nothing but absolute invariants of $X$, the absolute invariants of $Y$ are given by obstruction bundle integrals over Deligne--Mumford spaces, and the special rubber invariants of $P$ are also given by integrals over Deligne--Mumford spaces, using the formula for the double ramification cycle \cite{Hain,JPPZ} in terms of tautological classes. We will now explain how to perform each of the four steps outlined above.
 
-\subsection*{Step 1: } Suppose we are given a relative space $\VZ_{1,\alpha}(X|Y,\beta)$ of degree $d$, with $n+1$ relative markings and true tangency $t$, and a special marking $x_0$ such that the insertion $\gamma$ is pulled back along $\fgt_{x_0}$.
+\begin{notation}Given tuples $\mathbf{a}=(a_1,\ldots,a_n)$ and $\mathbf{b}=(b_1,\ldots,b_n)$, we say that $\mathbf{a}<\mathbf{b}$ if there exists an $i \in \{1,\ldots,n\}$ such that $a_j = b_j$ for $j < i$ and $a_i < b_i$.\end{notation}
+
+\subsection*{Step 1: } Suppose we are given a forgetful relative invariant to compute. That is, we have a relative space $\VZ_{1,\alpha}(X|Y,\beta)$ of degree $d$, with $n+1$ relative markings and true tangency $t$, and a special marking $x_0$ such that the insertion $\gamma$ is pulled back along $\fgt_{x_0}$, and we are trying to compute the integral $G$ of $\gamma$ over the relative space. We assume inductively that every absolute, relative and special rubber invariant with $(d^\prime,n^\prime) < (d,n)$ is known, and also that every forgetful relative invariant with $(d^\prime,n^\prime,t^\prime) < (d,n+1,t)$ is known. Choose a true marking $x_1$ with $\alpha_1 \geq 1$ and consider the space:
+\begin{equation*} \VZ_{1,(\alpha-e_1) \cup (1)}(X|Y,\beta). \end{equation*}
+Denote the newly-introduced marking by $y$ and consider the integrand $\tilde\gamma$ obtained from $\gamma$ by introducing $\fgt_y^\st$ everywhere. Applying our recursion formula to $x_1$, we obtain:
+\begin{equation*}\left( (\alpha_1-1)\psi_1 + \ev_1^\st H\right) \tilde\gamma \cap [\VZ_{1,(\alpha-e_1) \cup (1)}(X|Y,\beta)] = \tilde\gamma \cap [\Dcal(1)].\end{equation*}
+Let us first examine the left-hand side. The class $\psi_1$ differs from $\fgt_y^\st \psi_1$ by the locus where $x_1$ and $y$ are contained on a contracted rational bubble. This locus consists of reduced relative stable maps of the form \medskip
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+\draw (0,0) -- (3,0) -- (3,2) -- (0,2) -- (0,0);
+\draw [blue] plot [smooth cycle, tension=0.5] coordinates{(3,1) (1,1.7) (0.5,1) (1,0.3)};
+\draw [blue] plot [smooth] coordinates {(1.1,0.9) (1.4,1.1) (1.7,0.9)};
+
+\draw (3,0) -- (6,0) -- (6,2) -- (3,2) -- (3,0);
+\end{tikzpicture}
+\end{center}
 
 
 \newpage
@@ -938,16 +958,15 @@ The recursion formula in $\VZ_{1,\alpha}(\PP^N|H,d)$ immediately pulls back alon
 \bigskip\bigskip
 
 \noindent Luca Battistella\\
-Department of Mathematics, Imperial College London \\
-\texttt{l.battistella14@imperial.ac.uk}\\
+Max-Planck-Institut f\"ur Mathematik, Bonn \\
+\href{mailto:battistella@mpim-bonn.mpg.de}{battistella@mpim-bonn.mpg.de}\\
 
 \noindent Navid Nabijou \\
-Department of Mathematics, Imperial College London \\
-\texttt{navid.nabijou09@imperial.ac.uk}\\
+School of Mathematics and Statistics, University of Glasgow \\
+\href{mailto:Navid.Nabijou@glasgow.ac.uk}{navid.nabijou@glasgow.ac.uk}\\
 
 \noindent Dhruv Ranganathan \\
-Department of Mathematics, Massachusetts Institute of Technology \\
-\texttt{dhruvr@mit.edu}
-
+DPMMS, University of Cambridge \\
+\href{mailto:dr508@cam.ac.uk}{dr508@cam.ac.uk}
 
 \end{document}
