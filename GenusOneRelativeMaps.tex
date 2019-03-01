@@ -1,6 +1,10 @@
 \documentclass[11pt]{amsart}
 \linespread{1.25}
-\usepackage[margin=3cm]{geometry}
+\usepackage[margin=3.5cm]{geometry}
+
+\usepackage[noend,boxruled]{algorithm2e}
+%Customize appearance using line below:
+\SetKwFor{For}{\normalfont{for}}{:}{endfor}
 
 \usepackage[english]{babel}
 \usepackage{appendix}
@@ -122,6 +126,7 @@
 \newcommand{\M}[4]{\overline{\mathcal{M}}_{#1,#2}(#3,#4)}
 
 \newcommand{\Mlog}[4]{\overline{\mathcal{M}}^{\operatorname{log}}_{#1,#2}(#3,#4)}
+\newcommand{\MLog}{\overline{\mathcal{M}}^{\operatorname{log}}}
 \newcommand{\Mpunct}[4]{\overline{\mathcal{M}}^{\operatorname{punct}}_{#1,#2}(#3,#4)}
 \newcommand{\MG}[4]{\overline{\mathcal{M}}^{\rm G}_{#1,#2}(#3,#4)}
 \newcommand{\Q}[4]{\mathcal{Q}_{#1,#2}(#3,#4)}
@@ -141,7 +146,6 @@
 \newcommand{\stab}{\rm{stab}}
 \newcommand{\st}{\star}
 \newcommand{\stC}{C'}
-\newcommand{\stf}{f'}
 \newcommand{\stpi}{\pi'}
 \newcommand{\sts}{s'}
 \newcommand{\N}{\mathbb{N}}
@@ -213,8 +217,11 @@
 \newcommand{\Mcal}{\mathcal{M}}
 \newcommand{\Dcal}{\mathcal{D}}
 \newcommand{\Ncal}{\mathcal{N}}
+\newcommand{\Lcal}{\mathcal{L}}
+\newcommand{\Ccal}{\mathcal{C}}
 \newcommand{\Pcal}{\mathcal{P}}
 \newcommand{\Ycal}{\mathcal{Y}}
+\newcommand{\cchern}{\mathrm{c}}
 \newcommand{\ol}[1]{\overline{#1}}
 \newcommand{\ul}[1]{\underline{#1}}
 \newcommand{\op}[1]{\operatorname{#1}}
@@ -237,6 +244,7 @@
 \newtheorem{claim}{Claim}
 \newtheorem{question}[thm]{Question}
 \newtheorem{conj}[thm]{Conjecture}
+\newtheorem{notation}[thm]{Notation}
 
 \newtheorem{innercustomthm}{Theorem}
 \newenvironment{customthm}[1]
@@ -262,7 +270,7 @@
 
 \newcommand{\ilemph}[1]{\emph{#1}}
 
-\setcounter{tocdepth}{1}
+\setcounter{tocdepth}{2}
 
 \newcommand{\todo}[1]{\vspace{5mm}\par \noindent
 \framebox{\begin{minipage}[c]{0.95 \textwidth} \tt #1\end{minipage}} \vspace{5mm} \par}
@@ -275,16 +283,14 @@
 \newcommand{\thismonthyear}{{\thismonth} {\number\year}}
 \newcommand{\thisdaymonthyear}{{\number\day} {\thismonth} {\number\year}}
 
-\title[Genus One Reduced Relative Invariants]{Relative Stable Maps in Genus One via Central Alignments}
+\title{Gromov--Witten theory of hypersurfaces in genus one}
 \author{Luca Battistella, Navid Nabijou and Dhruv Ranganathan}
 \date{\thismonthyear}
 
 \begin{document}
 
 
-\begin{abstract} [OLD] For a smooth projective variety $X$ and a smooth very ample hypersurface $Y \subseteq X$, we define moduli spaces of relative stable maps to $(X,Y)$ in genus one, as closed substacks of the moduli space of maps from centrally aligned curves, constructed in \cite{RSPW}. We construct virtual classes for these moduli spaces, which we use to define \emph{reduced relative Gromov--Witten invariants} in genus one.
-
-[GOALS: We prove a recursion formula which allows us to completely determine these invariants in terms of the reduced Gromov--Witten invariants, as defined in [REF]. We also prove a relative version of the Li--Zinger formula, relating our invariants to the usual relative Gromov--Witten invariants. Also say something about quasimaps.]
+\begin{abstract}
 \end{abstract}
 
 \maketitle
@@ -292,118 +298,438 @@
 \appendixtitletocoff
 \tableofcontents
 
-\section{Introduction}
+\newpage
 
-\subsection{Statement of the problem} Contrary to the genus zero case, the moduli space of genus one maps to projective space - with or without markings - is far from smooth; indeed it has various boundary components of different dimensions, representing maps that contract a genus one curve and have all the degree supported on a number of rational tails. The many incarnations of relative moduli spaces also suffer of the same undesirable feature.
+\section{Gathmann's line bundle via tropical geometry} For each marking $x_k$ we consider the locus in $\VZ_{1,\alpha}(\PP^N|H)$ where $x_k$ belongs to an internal component of the collapsed map. We use the log structure on $\VZ_{1,\alpha}(\PP^N|H)$ to construct a line bundle $\Lcal_k$ together with a section $s_k$ vanishing along this locus. We use the correspondence with tropical geometry to identify $\cchern_1(\Lcal_k)$ in terms of tautological classes on $\VZ_{1,\alpha}(\PP^N|H)$, and to compute the vanishing order of $s_k$ along the components of its zero set.
 
-Since the work of Vakil--Zinger and Ranganathan--Santos-Parker--Wise, it has been clear that it is possible to identify a desingularisation of the main component by adding the extra data of a contraction of the source curve $\nu\colon C\to \bar{C}$ - where the latter is allowed to acquire a Smyth singularity - and requiring the stable map $f\colon C\to \PP^N$ to factor through $\nu$.
+The pair $(\Lcal_k,s_k)$ is most naturally constructed on the moduli space $\MLog_{1,\alpha}(\PP^N|H)$ of non-expanded log maps; the corresponding pair on $\VZ_{1,\alpha}(\PP^N|H)$ will be obtained via pull-back. Consider therefore a moduli point in $\MLog_{1,\alpha}(\PP^N|H)$ and let $Q^\vee_{\RR}$ be the corresponding tropical moduli space (viewed as a rational polyhedral cone). Over this cone we have a universal tropical curve and map
+\bcd
+\sqC \ar[d,"\pi"] \ar[r,"f"] & \RR_{\geq 0} \\
+Q^\vee_{\RR} \ar[u, bend left=40pt, "x_k" left]
+\ecd
+where $x_k$ is the section which for every point $\lambda \in Q^\vee_{\RR}$ picks out the vertex of $\sqC_\lambda$ containing the leg $x_k$. The composition $f \circ x_k \colon Q^\vee_{\RR} \to \RR_{\geq 0}$ defines a piecewise-linear function on $Q_{\RR}^\vee$ whose preimage over the open cone $\RR_{>0}$ consists of those tropical maps where $x_k$ belongs to an internal component. Dually we obtain an element of the minimal monoid $Q$ at the moduli point, and this globalises to produce a section of the ghost sheaf on $\MLog_{1,\alpha}(\PP^N|H)$. In the usual way this induces a line bundle and section $(\Lcal_k,s_k)$ on the moduli space, and the tropical description above shows that the zero locus of $s_k$ is (set-theoretically) the locus where $x_k$ belongs to an internal component.
 
-\subsection{Choice of relative space and desingularisation} We focus on the space of logarithmic stable maps to $(\PP^N|H)$, following ACGS. We perform a log modification of this space as detailed below. For a log curve $C\to S=\Spec(k=\bar k)$, modify the dual graph of $C$ by replacing the minimal genus one subcurve (in case it is a circle of $\PP^1$) by a single vertex of genus one, called the \emph{core} and denoted by $\circ$, and define a piecewise linear function with values in $\overline{\pazocal M}_S$ on such a graph by setting \[\lambda(v)=\sum_{q\in[\circ,v]}\rho_q,\]
-where the $\rho_q$ are the smoothing parameters of the nodes $q$ separating $v$ from the core. Such a function is related to the log canonical bundle of $C\to S$. When the map contracts a subcurve of genus one, we endow it with the extra data of a radius $\delta\in\overline{\pazocal M}_S$ subject to the following compatibility condition:
+We now calculate $\cchern_1(\Lcal_k)$. Choose a family of log stable maps over $S$ and let $\mu \in \Gamma(S,\ol{M}_S)$ be the global section of the ghost sheaf constructed in the previous paragraph. This pulls back along $\pi$ to give a global section $\pi^\flat(\mu) \in \Gamma(C,\ol{M}_C)$.  Interpreted as a piecewise-linear function on the tropicalisation $\sqC$ with values in $\ol{M}_S$ \cite[Remark 7.3]{CavalieriChanUlirschWise}, this assigns $\mu$ to every vertex and has slope zero along every edge. By construction, the line bundle associated to this section is $\pi^\st \Lcal_k$. Consider on the other hand the generator $1 \in \N = \Gamma(\PP^N,\ol{M})$ with associated line bundle $\OO(H)$. The section $f^\flat(1) \in \Gamma(C,\ol{M}_C)$ has associated line bundle $f^\st\OO(H)$. If we let $v$ denote the vertex containing $x_k$, then by construction $f^\flat(1)$ assigns $\mu$ to $v$ and has slope $\alpha_k$ along the leg $x_k$. Thus if we consider the difference $f^\flat(1) - \pi^\flat(\mu)$ then this assigns $0$ to $v$ and still has slope $\alpha_k$ along $x_k$. Thus by \cite[Proposition 2.4.1]{RSPW} the corresponding line bundle restricted to $C_v$ is given by
+\begin{equation*} \OO_{C_v} \left(\alpha_k x_k + \sum_e \mu_e x_e \right) \end{equation*}
+where the sum is over the edges $e$ adjacent to $v$ and distinct from $x_k$. Thus we see that:
+\begin{equation*} \left( f^\st\OO(H) \otimes \pi^\st \Lcal_k^{-1} \right) \big|_{C_v} = \OO_{C_v} \left(\alpha_k x_k + \sum_e \mu_e x_e \right).\end{equation*}
+Since $x_k$ factors through $C_v$ we may pull back along $x_k$ to obtain
+\begin{equation*} \Lcal_k = x_k^\st\pi^\st \Lcal_k = x_k^\st \OO_{C_k}(-\alpha_k x_k) \otimes x_k^\st f^\st\OO(H) = x_k^\st \OO_{C_k}(-\alpha_k x_k) \otimes \ev_k^\st \OO(H) \end{equation*}
+and taking Chern classes gives:
+\begin{equation*} \cchern_1(\Lcal_k) = \alpha_k \psi_k + \ev_k^\st H.\end{equation*}
+This gives the construction of $(\Lcal_k,s_k)$ on $\MLog_{1,\alpha}(\PP^N|H)$; the construction on $\VZ_{1,\alpha}(\PP^N|H)$ is given by pull-back. Notice in particular that $\psi_k$ should be interpreted as a \textbf{collapsed psi class} on $\VZ_{1,\alpha}(\PP^N|H)$, i.e. a psi class coming from the stabilised curve of the collapsed map. All of the psi classes we deal with will be collapsed psi classes.
 
-(*) \emph{the circle of radius $\delta$ around $\circ$ passes through $\geq1$ vertex of positive $f$-degree}.
+\begin{remark} This construction gives the natural logarithmic analogue of Gathmann's line bundle and section \cite[Construction 2.1]{Ga}. A benefit of the logarithmic approach is to make the computation of vanishing orders entirely combinatorial (see \S \ref{} below), circumventing the difficult technical calculation given by Gathmann. \end{remark}
 
-\noindent Furthermore, we require all the values of $\lambda$ to be comparable with $\delta$, and among themselves whenever they are $\leq \delta$. This is called a \emph{centrally aligned} log structure and carries enough information to define a contraction $\nu\colon C\to \bar{C}$, possibly after a semistabilisation of $(C,f)$ - in fact even more. The space thus obtained, $\widetilde \VZ_{1,\alpha}(\PP^N|H,d)$, is a log modification of $\M{1}{\alpha}{\PP^N|H}{d}$.
+\newpage
 
-The main component $\VZ_{1,\alpha}(\PP^N|H,d)$ is then identified by a double factorisation condition:
+\section{Quantum Lefschetz recursion}
+Consider a smooth pair $(X,Y)$ with $Y$ very ample, and let $P$ be the projective bundle $P=\PP_Y(\operatorname{N}_{Y|X} \oplus\OO_Y)$. We assume that the genus zero and reduced genus one Gromov--Witten theories of $X$ are known. From this starting data, we will apply our recursion formula to compute:
 \begin{enumerate}
- \item If $f$ contracts a genus one subcurve, then $f$ is required to factor through the Smyth singularity $\nu\colon C\to \bar C$ determined by the contraction radius $\delta$ as above.
- \item If furthermore the core is contracted by the associated tropical map $\phi$, let $\delta_2$ be the minimal distance from $\circ$ to a vertex supporting a flag that escapes $\phi^{-1}(\phi(\circ))$; we require $f$ to factor through $\nu_2\colon C\to\bar C_2$.
+\item the genus one \textbf{reduced restricted absolute Gromov--Witten theory} of $Y$;
+\item the genus one \textbf{reduced relative Gromov--Witten theory} of the pair $(X,Y)$;
+\item a certain slice of the genus one \textbf{reduced rubber theory} of $P$.
 \end{enumerate}
-The main result is that
-\begin{thm}
- $\VZ_{1,\alpha}(\PP^N|H,d)$ is (log) smooth.
-\end{thm}
 
-\subsection{Gathmann-type recursion} There is a forgetful morphism \[\VZ_{1,\alpha}(\PP^N|H,d)\to \VZ_{1,n}(\PP^N,d),\] hitting Gathmann's relative space. We may therefore pullback Gathmann's line bundle and section, cutting out the locus where the $k$-th marking is tangent to $H$ to order $\alpha_k+1$. Because $\alpha$ was maximal ($\sum\alpha=d$) by assumption, this means that the curve has to break, and $x_k$ has to lie on an internal component - one which is entirely mapped into $H$. We identify the zero locus of Gathmann's section explicitly. Here is an interesting remark: the combinatorics of such boundary loci is governed by tropical geometry, and it is otherwise very hard to districate the interaction between the relative condition and the exceptional loci of the Vakil--Zinger blow-up.
-\begin{cor}
- $\VZ_{1,\alpha}(\PP^N|H,d)$ is smooth over its Artin fan, in particular codimension one logarithmic strata can be read off from the latter.
-\end{cor}
-The Artin fan is a tropical gadget. Its local structure is given by subdividing the ACGS minimal monoid according to the alignment. We are only interested in picking its rays. The upshot is that the combinatorics is slightly more involved than in the genus zero case: the alignment may force some teeth of the comb to break.
-\begin{thm}[Gathmann-type formula, maximal tangency, $(\PP^N|H)$ case]
- \[(\alpha_k\psi_k+\ev_k^*H)[\VZ_{1,\alpha}(\PP^N|H,d)]=[D_{1,\alpha;k}(\PP^N|H,d)],\]
- the latter being a sum of broken comb loci indexed by rays of the tropical fan.
-\end{thm}
-Importantly, the broken comb loci admit a very explicit description in terms of tautological integrals on the underlying boundary of Gathmann's relative space.
-\begin{thm}
- Up to a finite cover of the underlying boundary stratum - which is a combinatorially-determined fiber product of moduli spaces of genus zero and one, absolute and relative maps with lower numerical invariants - every component of $D_{\alpha,k}(\PP^N|H,d)$ can be described as the transverse intersection of two loci in a projective bundle, where:
- \begin{itemize}
-  \item the latter parametrises the possible line bundle isomorphisms imposed by the alignment of the log structure;
-  \item the first locus is a subbundle representing the residual isomorphisms after fixing the ones virtually imposed by tropical continuity;
-  \item the second locus is determined by the factorisation conditions.
- \end{itemize}
-\end{thm}
-The upshot is that we may then push the formula down to the Gathmann's space, so as to obtain multiplicities and tautological classes.
-\begin{cor}
- \[(\alpha_k\psi_k+\ev_k^*H)[\VZ^G_{1,\alpha}(\PP^N|H,d)]=[D^G_{1,\alpha;k}(\PP^N|H,d)],\]
- the latter being expressible as a weighted sum of tautological classes on Gathmann's comb loci.
-\end{cor}
-Once we have this formula, the following extensions are classical:
-\begin{itemize}
- \item A similar formula for raising the tangency holds in the non-maximal tangency case. It can be proven by adding auxiliary markings of contact order $1$; forgetting them is then a $(d-\sum\alpha)!:1$ cover because the nice locus is dense inside Gathmann's relative spaces.
- \item The formula holds more generally for any smooth projective target $X$ relative to a generic hyperplane section $Y=X\cap H\subseteq \PP^N$. This follows via virtual pullback.
-\end{itemize}
-Finally the recursive structure of the boundary allows us to prove the following
-\begin{thm}[In-principle quantum Lefschetz]
- The restricted reduced genus one invariants of $Y$ can be inductively deducted from the full descendant genus zero and one (reduced) Gromov-Witten theory of $X$.
-\end{thm}
-The proof is more delicate than its genus zero analogue because invariants with the same numerical data appear intertwined in the last steps of the recursion.
+\subsection{Reduced absolute, relative and special rubber invariants} To be precise: by a reduced invariant of $Y$ we mean an integral over $\VZ_{1,n}(Y,\beta)$ of products of pullbacks of evaluation and psi classes along morphisms which forget a subset $S$ of the marked points (taking $S=\emptyset$ gives the ordinary evaluation and psi classes). Here the evaluation maps are viewed as mapping into $X$ (hence the adjective ``restricted''). Reduced relative invariants of $(X,Y)$ are defined in the same way, except now the forgetful morphism maps into a space of absolute maps:
+\begin{equation*} \fgt_S \colon \VZ_{1,\alpha}(X|Y,\beta) \to \VZ_{1,m-\#S}(X,\beta).\end{equation*}
+In particular, all the psi classes which we consider are \emph{collapsed psi classes}, meaning that they are relative cotangent line classes for the corresponding collapsed stable map. Note that, unlike in the absolute case, in the relative case it may well be the case that the entire insertion is pulled back along a single forgetful map $\fgt_S$.
 
-\section{Desingularisation of the moduli space of log stable maps}
-The ultimate goal of the paper is to apply Gathmann's techniques to the Vakil-Zinger desingularisation $\VZ_{1,n}(\PP^N,d)$ and to obtain a quantum Lefschetz result for reduced invariants under some positivity assumption. The key step is to study the unobstructed case $(\PP^N|H)$. We approach the problem by lifting it to the ACGS space of log stable maps. This allows us to exploit the tools developed in \cite{RSPW,RSPW2}. We are in an intermediate situation between those two papers, and indeed we get an intermediate answer.
+The reduced rubber invariants of $P$ are defined similarly (again using collapsed psi classes). The particular slice we are interested in is the theory of \textbf{special reduced rubber invariants}. These are by definition the rubber invariants which involve at least one marked point of negative tangency (meaning nonzero tangency to $Y_0$), and such that the negative-tangency markings carry only primary insertions. The significance of this class of rubber invariants will become clear during the recursion. 
 
-\subsection{The ACGS minimal monoid and central alignments}
+The systems of invariants defined above are equivalent to the classical systems of invariants (which do not use forgetful morphisms) by well-known topological recursion relations.
 
-\begin{prop}
- The map $\oM_{1,\alpha}^{\mathrm{cen}}(\PP^N|H,d)\to\oM_{1,\alpha}(\PP^N|H,d)$ is a log modification. In particular $\oM_{1,\alpha}^{\mathrm{cen}}(\PP^N|H,d)$ is a log algebraic stack.
-\end{prop}
+\subsection{Fictitious and true markings} The recursion procedure is rather delicate. Roughly speaking, we will induct on the degree (meaning $Y\cdot\beta$), number of marked points and total tangency. To get the correct notion of number of markings and total tangency in  the relative setting, we introduce the concept of \textbf{fictitious markings}. Consider a moduli space $\VZ_{1,\alpha}(X|Y,\beta)$ of reduced relative stable maps and a corresponding integrand $\gamma$. We let $F \subseteq \{1,\ldots,m\}$ be the maximal subset of marked points such that:
+\begin{enumerate}
+\item $\alpha_i = 1$ for all $i \in F$;
+\item the entire integrand $\gamma$ is pulled back along $\fgt_F$.
+\end{enumerate}
+This subset is uniquely determined, and its elements are referred to as \textbf{fictitious markings}. Markings which are not fictitious are referred to as \textbf{true}. When inducting on relative invariants we will always be interested in the number of true markings (as opposed to the total number of markings) and the true tangency
+\begin{equation*} \sum_{i \not\in F} \alpha_i \leq d=Y\cdot \beta \end{equation*}
+as opposed to the total tangency, which is always $d$. This formalises the idea that relative invariants with non-maximal tangency $t<d$ can be obtained by adding $d-t$ fictitious markings of tangency $1$; see \cite[Lemma 1.15(i)]{Ga}.
 
-{\color{gray} possibly start pointing out that the log structure is already partially aligned by the map to $(\PP^N|H)$}
+\subsection{Structure of the recursion} Given the genus-zero Gromov--Witten theory of $X$, the arguments of \cite{Ga} give an effective algorithm to reconstruct the genus-zero theories of $Y$ and $(X,Y)$; moreover, the genus-zero rubber theory of $P$ is identical to the genus-zero theory of $Y$ \cite{GathmannThesis}. Thus we may assume that all genus-zero data is known. We assume in addition that we know the genus one reduced theory of $X$. The structure of the recursion is then as follows:
 
-\subsection{Factorisation conditions}
+\begin{algorithm}
+\DontPrintSemicolon
+\For{$d \geq 0$}{
+\For{$n \geq 0$}{
+\For{$t \geq 0$\medskip}{
+\textbf{\, Step 1: } Compute forgetful relative invariants of $(X,Y)$ (degree~$d$, $n+1$ true markings, true tangency $t$); see below.
+}
+\medskip \textbf{Step 2: } Compute absolute invariants of $Y$ (degree $d$, $n$ markings).\;
+\For{$t \geq 0$\medskip}{
+\textbf{\, Step 3: } Compute relative invariants of $(X,Y)$ (degree $d$, $n$ true markings, true tangency $t$).\;
+}
+}
+\For{$n \geq 0$\medskip}{
+\textbf{\, Step 4: } Compute special rubber invariants of $P$ (degree $d$, $n$ relative markings).
+}
+}
+\end{algorithm}
+\noindent Although the loops involving $d$ and $n$ have infinite length, in order to compute any single invariant it is only necessarily to iterate the preceding loops for a finite amount of time. A \textbf{forgetful relative invariant} of $(X,Y)$ is by definition a reduced relative invariant with a marked point $x_0$ such that all of the insertions are pulled back along $\fgt_{x_0}$. In our recursion, we first deal with this special class of relative invariants (with $n+1$ true markings), before computing the absolute invariants (with $n$ markings) and then returning to compute all of the relative invariants (with $n$ true markings). This need to treat separately a particular subclass of the relative invariants is an inescapable feature of the genus one recursion.
 
-\begin{prop}
- Factoring through the Smyth curve is a closed condition. In particular $\VZ_{1,\alpha}(\PP^N|H,d)\subseteq_{\mathrm{cl}}\oM_{1,\alpha}^{\mathrm{cen}}(\PP^N|H,d)$ is a log algebraic stack.
-\end{prop}
+The base terms of the recursion all have $d=0$ and as such are easy to compute: the relative invariants of $(X,Y)$ are nothing but absolute invariants of $X$, the absolute invariants of $Y$ are given by obstruction bundle integrals over Deligne--Mumford spaces, and the special rubber invariants of $P$ are also given by integrals over Deligne--Mumford spaces, using the formula for the double ramification cycle \cite{Hain,JPPZ} in terms of tautological classes. We will now explain how to perform each of the four inductive steps outlined above.
 
-\subsection{Log smoothness}
-\begin{thm}
- $\VZ_{1,\alpha}(\PP^N|H,d)$ is log smooth.
-\end{thm}
-\begin{proof}
- We reduce to the situation dealt with in \cite{RSPW2} by adding generic extra hyperplanes $H_1,\ldots, H_N$.
- 
- First, note that, for divisors $D_1\subseteq D_2$ in $X$, there is a morphism of log schemes $(X,\pazocal M_{D_2})\to (X,\pazocal M_{D_1})$, or equivalently a morphism of log structures $\pazocal M_{D_1}\to\pazocal M_{D_2}$ over $i\!d_X$, because functions invertible off $D_1$ are in particular invertible off $D_2$ as well, and divisorial log structures are subsheaves of the structure sheaf $\pazocal M_{D}\subseteq\OO_X$.
- 
- Now fix a point $[(C,f)]\in\VZ_{1,\alpha}(\PP^N|H,d)$. Choose hyperplanes $H_1,\ldots, H_N$ in such a way that they intersect the image of $f$ transversally, namely $f^{-1}(H_1\cup\ldots\cup H_N)$ is a reduced collection of points $\{q^i_j\}_{\substack{i=1,\ldots,N \\ j=1,\ldots,d}}$ in the smooth locus of $C$. This condition will then hold in an open neighbourhood of $[(C,f)]$. Mark $C$ at these points, end endow it with the pullback along $f$ of the divisorial log structure $(\PP^N,\Delta)$, where $\Delta=H+\sum_{i=1}^N H_i$. Then \[f\colon (C,\{p_k\}_{k=1,\ldots,n}\{q^i_j\}_{\substack{i=1,\ldots,N \\ j=1,\ldots,d}})\to(\PP^N,\Delta)\]
- is a lift of $[(C,f)]$ to $\oM_{1,\alpha}(\PP^N|\Delta,d)$ (under the forgetful morphism discussed in the previous paragraph).
- 
- Looking at the associated tropical map $\phi$, observe that:
- \begin{itemize}
-  \item new flags have been attached only to vertices of positive degree, and these already have a flag escaping $\phi^{-1}\phi(v)$, because the sum of the incoming slopes is not zero (by modified balancing);
-  \item the image of the new tropical map $\tilde\phi$ is entirely contained in the ray of the tropicalisation of $(\PP^N,\Delta)$ corresponding to $H$, with new flags going off to infinity in all the new ray directions from every vertex of positive degree.
- \end{itemize}
- In particular, for every quotient $N'$ of the lattice $N$, the associated tropical map $\tilde\phi'$ will either
- \begin{enumerate}
-  \item have image contained in the ray corresponding to $H$, isomorphically to the original $\phi$, so the contraction radius can be seen to coincide with $\delta_2$, or
-  \item collapse the entire curve to the zero-cell of the fan, in which case we argue from the previous remarks that the contraction radius is $\delta$.
- \end{enumerate}
+\begin{notation}Given tuples $\mathbf{a}=(a_1,\ldots,a_n)$ and $\mathbf{b}=(b_1,\ldots,b_n)$, we say that $\mathbf{a}<\mathbf{b}$ if there exists an $i \in \{1,\ldots,n\}$ such that $a_j = b_j$ for $j < i$ and $a_i < b_i$.\end{notation}
 
- Hence the lift of $[(C,f)]$ is centrally aligned and satisfies the factorisation property for every subtorus $H<T$, therefore it is well-spaced (see \cite[Definition 3.4.2]{RSPW2}) and it belongs to $\VZ_{1,\tilde\alpha}(\PP^N|\Delta,d)$. Note that the deformation spaces of $(C,f)$ and its lift are isomorphic by construction, as can be checked by the infinitesimal criterion - an infinitesimal deformation of $(C,f)$ brings along a unique deformation of the $\{q^i_j\}$ compatible with the map to $(\PP^N,\Delta)$. At the logarithmic level, observe that the ACGS minimal monoid is the same, because no component of $C$ is entirely mapped into any of the newly added hyperplanes; since the global contraction radius $\delta$ is the same, the subdivisions corresponding to the alignment procedure do coincide as well. This shows that the forgetful morphism is (log) \'etale in a neighbourhood of the lift of $[(C,f)]$, hence we may conclude by appealing to \cite[Theorem 3.5.1]{RSPW2}.
-\end{proof}
+\subsection*{Step 1} Suppose we are given a forgetful relative invariant to compute. That is, we have a relative space $\VZ_{1,\alpha}(X|Y,\beta)$ of degree $d$, with $n+1$ true markings and true tangency $t$, and a marking $x_0$ such that the insertion $\gamma$ is pulled back along $\fgt_{x_0}$. We assume inductively that every absolute, relative and special rubber invariant with $(d^\prime,n^\prime) < (d,n)$ is known, and also that every forgetful relative invariant with $(d^\prime,n^\prime,t^\prime) < (d,n+1,t)$ is known. Choose a true marking $x_1$ with $\alpha_1 \geq 1$ and consider the space:
+\begin{equation*} \VZ_{1,(\alpha-e_1) \cup (1)}(X|Y,\beta). \end{equation*}
+Denote the newly-introduced marking by $y$ and consider the integrand $\tilde\gamma$ obtained from $\gamma$ by introducing $\fgt_y^\st$ everywhere. Applying our recursion formula to $x_1$, we obtain:
+\begin{equation}\label{step 1 recursion}\left( (\alpha_1-1)\psi_1 + \ev_1^\st Y\right) \tilde\gamma \cap [\VZ_{1,(\alpha-e_1) \cup (1)}(X|Y,\beta)] = \tilde\gamma \cap [\Dcal(1)].\end{equation}
+Let us first examine the left-hand side. The class $\psi_1$ differs from $\fgt_y^\st \psi_1$ by the locus where $x_1$ and $y$ are contained on a contracted rational bubble. This locus consists of reduced relative stable maps of the form \medskip
 
-\begin{cor}\label{cor:log_smooth}
- $\VZ_{1,\alpha}(\PP^N|H,d)$ is smooth over its Artin fan.
-\end{cor}
+\begin{center}
+\begin{tikzpicture}[scale=1]
+%edge
+\draw (0,0) to (2,0);
+\draw [color=blue] (1,0) node[above]{\tiny$\alpha_1$};
 
-{\color{gray} describe the latter as explicitly as possible; comment on the cones that are (possibly?) not there because of the compatibility of the alignment with the log map (this is probably awkward, useless, and superceded by saying ``we align subdivide the ACGS minimal dual monoid'') and because of smoothability/factorisation (this is probably related to tropical well-spacedness)}
+%C_1
+\draw [fill=white] (0,0) circle[radius=3pt];
+\draw (0,-0.1) node[below]{\small$d$};
+\draw (0,0) node[above]{\small$\sqC_1$};
 
-%\subsection{A desingularisation of punctured log maps}
-%Describe an analogous desingularisation for punctured log maps. The degree zero case seems more delicate and complicated, even though it should just be a substack of a moduli space of marked curves after all (the log structure is possibly trickier).
-%\begin{dfn}
-% A $(z,g,n)$-punctured log map is a punctured log map where the markings with negative contact order to $H$ have an extra label, either $z$ (the tropical map sends them to $z$ero), or $g$ (stands for gluing), or $n$ (stands for nihil, nothing...)
-%\end{dfn}
-%We would like to extend the minimal monoid in order to account for some of the punctures, i.e. take the sum of $p^*\mathcal M_{C^\circ}$ (for every such puncture $p$) fibered over the log structure of the base, which seems to have the same effect as topping those edges with a uertex (which doesn't carry any other information). This looks to me like sprouting a $\PP^1$ at those puncture. Now, the point of the $(z,g,n)$-labelling is that: we only extend the log structure at the $z$ and $g$ punctures; uertices labelled with a $z$ are sent under the tropical map to $0$, so continuity applies to them (therefore the extension of the log structure is fake because that edge length is determined by the position of the adjacent vertex); while uertices labelled with an $n$ are free to roam about. Finally, we perform a radial alignment (and we take rays). This distinction comes about when you split your centrally aligned map according to the strict interior of the $\delta$-circle and the outside; the intersection of a tree with the $\delta$-circle can either be a vertex over $0$, or another vertex (corresponding to a degeneration of the genus zero map outside), or not a vertex.
+%C_0
+\draw [fill=black] (2,0) circle[radius=3pt];
+\draw (2,-0.1) node[below]{\small$0$};
+\draw (2,0) node[above]{\small$\sqC_0$};
+
+%x_1
+\draw [->] (2,0.1) -- (4,0.1);
+\draw (3.9,0.1) node[above]{\small$x_1$};
+\draw [color=blue](3,0.1) node[above]{\tiny$\alpha_1-1$};
+
+%y
+\draw [->] (2,-0.1) -- (4,-0.1);
+\draw (3.9,-0.1) node[below]{\small$y$};
+\draw [color=blue] (3,-0.1) node[below]{\tiny$1$};
+
+%down arrow
+\draw [color=blue,->] (1,-0.3) -- (1,-0.7);
+
+%target
+\draw [color=blue,->] (0,-1) to (2,-1);
+\draw [fill=blue,color=blue] (0,-1) circle[radius=3pt];
+\draw [color=blue] (2,-1) node[right]{\small$\Sigma(X|Y)$};
+\end{tikzpicture}
+\end{center}
+% Algebro-geometric picture; replaced by tropical picture.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{comment}
+\begin{center}
+\begin{tikzpicture}[scale=1.5]
+%Draw target
+\draw (0,0) -- (3,0) -- (3,2) -- (0,2) -- (0,0);
+\draw (3,0) -- (6,0) -- (6,2) -- (3,2) -- (3,0);
+
+%Draw genus one curve on left-hand side
+\draw [blue] (3,0.5) to [out=90,in=270] (2.7,1) to [out=90,in=270] (3,1.5) to [out=90,in=0] (1,1.7) to [out=180,in=90] (0.5,1) to [out=270,in=180] (1,0.3) to [out=0,in=270] (3,0.5);
+\draw [blue] (1.1,0.9) to [out=40, in=180] (1.4,1.1) to [out=0,in=140] (1.7,0.9);
+\draw [blue] (1.2,1) to [out=300, in=180] (1.4,0.9) to [out=0,in=240] (1.6,1);
+
+%Draw nodal blobs
+\draw [fill=blue,color=blue] (3,0.5) circle[radius=1pt];
+\draw [color=blue] (3,0.5) node[left]{\small$\alpha_2$};
+\draw [fill=blue,color=blue] (3,1.5) circle[radius=1pt];
+\draw [color=blue] (3,1.5) node[left]{\small$\alpha_1$};
+%Draw rational bubble with x_1 and y
+\draw [blue] (3,1.5) to [out=70,in=190] (5.5,1.9) to [out=0,in=90] (6,1.8) to [out=270,in=90] (5.75,1.5) to [out=270,in=90] (6,1.2) to [out=270,in=10] (5.5,1.1) to [out=180,in=290] (3,1.5);
+
+%Draw right-hand markings
+\draw [fill=blue,color=blue] (6,1.8) circle[radius=1pt];
+\draw [color=blue] (6,1.8) node[left]{\small{$\alpha_1-1$}};
+\draw (6,1.8) node[right]{$x_1$};
+\draw [fill=blue,color=blue] (6,1.2) circle[radius=1pt];
+\draw [color=blue] (6,1.2) node[left]{\small{$1$}};
+\draw (6,1.2) node[right]{$y$};
+
+%Draw ldots
+\draw [color=blue] (4,0.5) node[right]{$\ldots$};
+\end{tikzpicture}
+\end{center}
+\end{comment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+with all other marked points contained on $\sqC_1$. This is isomorphic to $\VZ_{1,\alpha}(X|Y,\beta)$ and when we restrict $\tilde\gamma$ to this locus we obtain precisely the class $\gamma$ which we started with. Thus the left-hand side of \eqref{step 1 recursion} may be written as
+\begin{equation*} (\alpha_1-1) I + \fgt_y^\st \left( (\alpha_1-1)\psi_1 + \ev_1^\st Y\right)  \tilde\gamma \cap [\VZ_{1,(\alpha-e_1)\cup(1)}(X|Y,\beta)]\end{equation*}
+where $I$ is the invariant we are trying to compute. The second term is a forgetful relative invariant with the same degree and number of true markings (since $y$ is fictitious), and strictly smaller true tangency; hence it is recursively known. We now examine the right-hand side of \eqref{step 1 recursion}. Recall that all of the genus zero data has already been computed, so we only need to focus on the genus one pieces. First consider the type $A$ loci. The genus one piece has strictly smaller degree (and hence is recursively known) exept in the following situation (with some stable distribution of the remaining markings):
+\begin{center}
+\begin{tikzpicture}[scale=1]
+\draw (0,0) to (2,0);
+\draw [fill=white] (0,0) circle[radius=3pt];
+\draw (0,-0.1) node[below]{\small$d$};
+\draw (0,0) node[above]{\small$\sqC_1$};
+\draw [fill=black] (2,0) circle[radius=3pt];
+\draw (2,-0.1) node[below]{\small$0$};
+\draw (2,0) node[above]{\small$\sqC_0$};
+\draw [->] (2,0) -- (3,0);
+\draw (2.9,0) node[right]{$x_1$};
+
+\draw [color=blue,->] (1,-0.3) -- (1,-0.7);
+
+\draw [color=blue,->] (0,-1) to (2,-1);
+\draw [fill=blue,color=blue] (0,-1) circle[radius=3pt];
+\draw [color=blue] (2,-1) node[right]{\small$\Sigma(X|Y)$};
+\end{tikzpicture}
+\end{center}
+In this situation, $C_1$ contains at most $n+1$ true markings. If it has $n-1$ or fewer, than it is known recursively. If it has exactly $n$ this means that $C_0$ contains exactly one true marking (besides $x_1$, which may be true or fictitious). We claim that in this situation we must have $y \in C_1$, since otherwise we would have a moduli space for $C_0$ given by $\ol\Mcal_{0,k}$ with $k \geq 4$, and  applying the projection formula with $\fgt_y$ we would conclude that the contribution is zero. Thus we have $y \in C_1$, and so the genus one contribution is a forgetful relative invariant with $n$ true markings, and hence is recursively known.
+
+Finally, if $C_1$ contains exactly $n+1$ true markings, then the only additional markings on $C_0$ are fictitious, and by the same argument as in the previous paragraph there can only be one. Thus for each fictitious marked point we obtain a locus isomorphic to $\VZ_{1,\alpha}(X|Y,\beta)$ and $\tilde\gamma$ restricts to $\gamma$ here (from the point of view of computing invariants, the fictitious marked points are indistinguishable, meaning that the contributions are all the same). Thus for each fictitious marked point (of which there is at least one, namely $y$) we get a contribution of $\alpha_1 I$ to the right-hand side of \eqref{step 1 recursion}.
+
+The contributions of the type $B$ loci only involve genus zero data and hence are known. The contributions of the type $C^0$ loci are determined by genus zero data and tautological integrals on Deligne--Mumford space, hence are also known. It remains to consider type $C^+$ loci. Notice that the rubber integrals which appear are always special rubber invariants, as defined above. If the degree of the genus one piece is less than $d$ then we have a special rubber invariant of strictly smaller degree. The only other possibility is that the entire curve is mapped into the divisor. In this case we may apply the projection formula with $\fgt_y$ to identify this with an integral over $\VZ_{1,m}(Y,\beta)$ for some (possibly large) number $m$ of marked points. But by assumption there is another marked point $x_0$ with all of the insertions pulled back along $\fgt_{x_0}$, so a further application of the projection formula shows that this contribution vanishes. To conclude, we may rearrange \eqref{step 1 recursion} to obtain an expression of the form
+\begin{equation*} \lambda I = \text{recursively known terms} \end{equation*}
+where $\lambda$ is an explicit scalar which is always nonzero; we have thus determined $I$, which completes Step 1.
+
+\subsection*{Step 2} Consider now the absolute space $\VZ_{1,n}(Y,\beta)$ with an insertion $\gamma$, and suppose inductively that we have computed all forgetful relative invariants with $(d^\prime,n^\prime) \leq (d,n+1)$, all relative invariants and absolute invariants with $(d^\prime,n^\prime) < (d,n)$, and all special rubber invariants with $d^\prime < d$. Consider the following moduli space with $n+1$ markings:
+\begin{equation*} \VZ_{1,(d,0,\ldots,0)}(X|Y,\beta). \end{equation*}
+Let $x_0$ denote the relative marking and consider the integrand $\tilde\gamma$ obtained from $\gamma$ by introducing $\fgt^\st_{x_0}$ everywhere. Now recurse at $x_1$ to obtain:
+\begin{equation}\label{step 2 recursion} \ev_1^\st Y \cdot \tilde\gamma \cap [\VZ_{1,(d,0,\ldots,0)}(X|Y,\beta)] = \tilde\gamma\cap[\Dcal(1)].\end{equation}
+The left-hand side is a forgetful relative invariant of degree $d$ and $\leq n+1$ true markings, and so has already been computed. For the right-hand side, let us begin with loci of type $A$. The genus one contributions from each loci have $(d^\prime,n^\prime) < (d,n)$ except in the following case
+\begin{center}
+\begin{tikzpicture}[scale=1]
+%edge
+\draw (0,0) to (2,0);
+\draw [color=blue] (1,0) node[above]{\tiny$d$};
+
+%C_1
+\draw [fill=white] (0,0) circle[radius=3pt];
+\draw (0,-0.1) node[below]{\small$d$};
+\draw (0,0) node[above]{\small$\sqC_1$};
+
+%C_0
+\draw [fill=black] (2,0) circle[radius=3pt];
+\draw (2,-0.1) node[below]{\small$0$};
+\draw (2,0) node[above]{\small$\sqC_0$};
+
+%x_1
+\draw [->] (2,0.1) -- (4,0.1);
+\draw (3.9,0.1) node[above]{\small$x_1$};
+\draw [color=blue](3,0.1) node[above]{\tiny$0$};
+
+%y
+\draw [->] (2,-0.1) -- (4,-0.1);
+\draw (3.9,-0.1) node[below]{\small$x_0$};
+\draw [color=blue] (3,-0.1) node[below]{\tiny$d$};
+
+%down arrow
+\draw [color=blue,->] (1,-0.3) -- (1,-0.7);
+
+%target
+\draw [color=blue,->] (0,-1) to (2,-1);
+\draw [fill=blue,color=blue] (0,-1) circle[radius=3pt];
+\draw [color=blue] (2,-1) node[right]{\small$\Sigma(X|Y)$};
+\end{tikzpicture}
+\end{center}
+which gives a contribution of
+\begin{equation*} d\cdot \gamma \cap [\VZ_{1,(d,\underbrace{0,\ldots,0}_{n-1})}(X|Y,\beta)] \footnote{(Navid) Fix formatting}\end{equation*}
+to the right-hand side of \eqref{step 2 recursion}. Here $\gamma$ is the insertion we started with; the difference is that we are now considering relative maps to $(X,Y)$ with maximal tangency at $x_1$, rather than absolute maps to $Y$. The type $B$ and $C^0$ loci are recursively determined as in Step~1, and similarly the type $C^+$ loci are recursively determined except for the locus where the entire curve is mapped into the divisor. On this locus we may apply $\fgt_{x_0}$ and identify the contribution with
+\begin{equation*} d^2 \cdot \gamma \cap [\VZ_{1,n}(Y,\beta)] = d^2 \cdot I \end{equation*}
+where $I$ is the invariant we are trying to compute. Putting this all together, we obtain
+\begin{equation}\label{step 2 recursion 2} I = (-\gamma/d) \cap [\VZ_{1,(d,\underbrace{0,\ldots,0}_{n-1})}(X|Y,\beta)] + \text{recursively known terms} \end{equation}
+where on the right-hand side there are $n-1$ non-relative markings $x_2,\ldots,x_n$, and a relative marking $x_1$. We now apply the recursion again to the right-hand side, by considering the space
+\begin{equation*} \VZ_{1,(d-1,1,0,\ldots,0)}(X|Y,\beta) \end{equation*}
+where $x_1$ now has tangency $d-1$ and we have introduced a new marking $y$ with tangency $1$. We consider a new insertion, denoted $\tilde\gamma$ as usual, by introducing $\fgt_y^\st$ everywhere. Recursing at $x_1$ we obtain:
+\begin{equation}\label{step 2 recursion 2} \left( (d-1)\psi_1 + \ev_1^\st Y \right)\cdot(-\tilde\gamma/d) \cap [\VZ_{1,(d-1,1,0,\ldots,0)}(X|Y,\beta)] = (-\tilde\gamma/d) \cap [\Dcal(1)].\end{equation}
+The difference between $\psi_1$ and $\fgt_y^\st \psi_1$ is given by the locus where $x_1$ and $y$ belong to a collapsed rational bubble:
+\begin{center}
+\begin{tikzpicture}[scale=1]
+%edge
+\draw (0,0) to (2,0);
+\draw [color=blue] (1,0) node[above]{\tiny$d$};
+
+%C_1
+\draw [fill=white] (0,0) circle[radius=3pt];
+\draw (0,-0.1) node[below]{\small$d$};
+\draw (0,0) node[above]{\small$\sqC_1$};
+
+%C_0
+\draw [fill=black] (2,0) circle[radius=3pt];
+\draw (2,-0.1) node[below]{\small$0$};
+\draw (2,0) node[above]{\small$\sqC_0$};
+
+%x_1
+\draw [->] (2,0.1) -- (4,0.1);
+\draw (3.9,0.1) node[above]{\small$y$};
+\draw [color=blue](3,0.1) node[above]{\tiny$1$};
+
+%y
+\draw [->] (2,-0.1) -- (4,-0.1);
+\draw (3.9,-0.1) node[below]{\small$x_1$};
+\draw [color=blue] (3,-0.1) node[below]{\tiny$d-1$};
+
+%down arrow
+\draw [color=blue,->] (1,-0.3) -- (1,-0.7);
+
+%target
+\draw [color=blue,->] (0,-1) to (2,-1);
+\draw [fill=blue,color=blue] (0,-1) circle[radius=3pt];
+\draw [color=blue] (2,-1) node[right]{\small$\Sigma(X|Y)$};
+\end{tikzpicture}
+\end{center}
+The contribution of this locus to the left-hand side of \eqref{step 2 recursion 2} is:
+\begin{equation*} (d-1)\cdot(-\gamma/d) \cap [\VZ_{1,(d,\underbrace{0,\ldots,0}_{n-1})}(X|Y,\beta)].\end{equation*}
+What remains on the left-hand side is a forgetful relative invariant of degree $d$ and $\leq n+1$ true markings ($y$ being the ``forgetful'' marking), hence is recursively known. On the right-hand side, the type $A$ loci are recursively known except possibly in the following special cases (with some stable distribution of the remaining non-relative markings):
+\begin{center}
+\begin{minipage}{0.4\textwidth}
+\begin{tikzpicture}[scale=1]
+%edge
+\draw (0,-0.1) to (2,-0.1);
+\draw [color=blue] (1,-0.1) node[below]{\tiny$d-1$};
+
+%C_1
+\draw [fill=white] (0,0) circle[radius=3pt];
+\draw (0,-0.1) node[below]{\small$d$};
+\draw (0,0) node[above]{\small$\sqC_1$};
+
+%C_0
+\draw [fill=black] (2,0) circle[radius=3pt];
+\draw (2,-0.1) node[below]{\small$0$};
+\draw (2,0) node[above]{\small$\sqC_0$};
+
+%x_1
+\draw [->] (0,0.1) -- (1.5,0.1);
+\draw (1.5,0.1) node[above]{\small$y$};
+\draw [color=blue](0.75,0.1) node[above]{\tiny$1$};
+
+%y
+\draw [->] (2,0) -- (4,0);
+\draw (3.9,0) node[below]{\small$x_1$};
+\draw [color=blue] (3,0) node[below]{\tiny$d-1$};
+
+%down arrow
+\draw [color=blue,->] (1,-0.5) -- (1,-0.9);
+
+%target
+\draw [color=blue,->] (0,-1) to (2,-1);
+\draw [fill=blue,color=blue] (0,-1) circle[radius=3pt];
+\draw [color=blue] (2,-1) node[right]{\small$\Sigma(X|Y)$};
+
+\draw (2,-1.3) node[below]{\small{Case 1}};
+\end{tikzpicture}
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+\begin{tikzpicture}[scale=1]
+%edge
+\draw (0,0) to (2,0);
+\draw [color=blue] (1,0) node[above]{\tiny$d$};
+
+%C_1
+\draw [fill=white] (0,0) circle[radius=3pt];
+\draw (0,-0.1) node[below]{\small$d$};
+\draw (0,0) node[above]{\small$\sqC_1$};
+
+%C_0
+\draw [fill=black] (2,0) circle[radius=3pt];
+\draw (2,-0.1) node[below]{\small$0$};
+\draw (2,0) node[above]{\small$\sqC_0$};
+
+%x_1
+\draw [->] (2,0.1) -- (4,0.1);
+\draw (3.9,0.1) node[above]{\small$y$};
+\draw [color=blue](3,0.1) node[above]{\tiny$1$};
+
+%y
+\draw [->] (2,-0.1) -- (4,-0.1);
+\draw (3.9,-0.1) node[below]{\small$x_1$};
+\draw [color=blue] (3,-0.1) node[below]{\tiny$d-1$};
+
+%down arrow
+\draw [color=blue,->] (1,-0.3) -- (1,-0.7);
+
+%target
+\draw [color=blue,->] (0,-1) to (2,-1);
+\draw [fill=blue,color=blue] (0,-1) circle[radius=3pt];
+\draw [color=blue] (2,-1) node[right]{\small$\Sigma(X|Y)$};
+
+\draw (2,-1.3) node[below]{\small{Case 2}};
+\end{tikzpicture}
+\end{minipage}
+\end{center}
+In Case 1 the contribution from $C_1$ is a forgetful relative invariant with $\leq n$ true markings, hence is recursively known. In Case 2, we first note that there cannot be any more markings on $C_0$ (since otherwise we could apply $\fgt_y$ and conclude that the contribution vanishes). Thus we obtain a single locus, which contributes precisely
+\begin{equation*} d\cdot(-\gamma/d) \cap [\VZ_{1,(d,\underbrace{0,\ldots,0}_{n-1})}(X|Y,\beta)] = -\gamma\cap[\VZ_{1,(d,\underbrace{0,\ldots,0}_{n-1})}(X|Y,\beta)]\end{equation*}
+which gives us the first term on the right-hand side of \eqref{step 2 recursion 2}. As usual the type $B$ and $C^0$ contributions are known recursively, and the only type $C^+$ contribution not known recursively occurs when the entire curve is mapped into the divisor, in which case we apply $\fgt_y$ to calculate the contribution as:
+\begin{equation*} (-\gamma/d) \cap [\VZ_{1,n}(Y,\beta)] = -I/d.\end{equation*}
+Substituting into \eqref{step 2 recursion 2} we end up with
+\begin{equation*} I(1-d^{-1}) = \text{recursively known terms} \end{equation*}
+which completes the recursion step as long as $d \neq 1$. But since $\VZ_{1,n}(H,1)=\emptyset$ it follows that $\VZ_{1,n}(Y,\beta)=\emptyset$ if $d=Y\cdot\beta=1$, so we may always assume $d \geq 2$ in the recursion.
+
+\subsection*{Step 3} Now suppose we are given a relative space $\VZ_{1,\alpha}(X|Y,\beta)$ with an insertion $\gamma$, and suppose inductively that we have computed all forgetful relative invariants with $(d^\prime,n^\prime) \leq (d,n+1)$, all absolute invariants with $(d^\prime,n^\prime) \leq (d,n)$, all relative invariants with $(d^\prime,n^\prime,t^\prime)<(d,n,t)$ and all special rubber invariants with $d^\prime < d$. Choose a true marking $x_1$ with $\alpha_1 \geq 1$ and consider the moduli space
+\begin{equation*} \VZ_{1,(\alpha-e_1)\cup(1)}(X|Y,\beta) \end{equation*}
+where $y$ is the newly-introduced marking. As usual consider the insertion $\tilde\gamma$ obtained from $\gamma$ by introducing $\fgt_y$ everywhere. Recursing at $x_1$ we obtain:
+\begin{equation*} \left( (\alpha_1-1)\psi_1 + \ev_1^\st H\right) \tilde\gamma \cap [\VZ_{1,(\alpha-e_1)\cup(1)}(X|Y,\beta)] = \tilde\gamma \cap [\Dcal(1)].\end{equation*}
+The left-hand side is a relative invariant with the same degree and number of true markings, but smaller true tangency: hence it is recursively known. On the right-hand side, the type $A$ contributions are recursively known except for those of the following form
+
+\begin{center}
+\begin{tikzpicture}[scale=1]
+\draw (0,0) to (2,0);
+\draw [color=blue] (1,-0.05) node[above]{\tiny$\alpha_1$};
+\draw [fill=white] (0,0) circle[radius=3pt];
+\draw (0,-0.1) node[below]{\small$d$};
+\draw (0,0) node[above]{\small$\sqC_1$};
+\draw [fill=black] (2,0) circle[radius=3pt];
+\draw (2,-0.1) node[below]{\small$0$};
+\draw (2,0) node[above]{\small$\sqC_0$};
+\draw [->] (2,0) -- (4,0);
+\draw (3.9,0) node[right]{$x_1$};
+\draw [color=blue] (3,-0.05) node[above]{\tiny$\alpha_1-1$};
+
+\draw [color=blue,->] (1,-0.3) -- (1,-0.7);
+
+\draw [color=blue,->] (0,-1) to (2,-1);
+\draw [fill=blue,color=blue] (0,-1) circle[radius=3pt];
+\draw [color=blue] (2,-1) node[right]{\small$\Sigma(X|Y)$};
+\end{tikzpicture}
+\end{center}
+where $C_0$ contains a single fictitious marking (if it had multiple fictitious markings then the contribution would vanish by projection formula) and all the other markings are on $C_1$. Thus for each fictitious marking we get a contribution of $\alpha_1 I$ where $I$ is the invariant we are trying to compute. Note that $\alpha_1 \neq 0$, and that this term appears at least once since $y$ is a fictitious marking; so we get a nonzero multiple of $I$.
+
+As usual the type $B$ and $C^0$ contributions are recursively known. The type $C^+$ contributions are determined by lower-degree special rubber invariants, except for when the whole curve is mapped into $Y$; however in this case we may apply $\fgt_y$ to identify the contribution with an absolute invariant of $Y$ with degree $d$ and $n$ markings, which is also recursively known. Thus we have determined the invariant $I$.
+
+\subsection*{Step 4} Finally, suppose we are given a special reduced rubber invariant to compute. So we have a reduced rubber space $\VZ_{1,\alpha}(P|Y_0+Y_\infty,\beta)_{\Gm}$ together with an insertion $\gamma$ satisfying the conditions outlined above. We first note that if there exists a relative marking with no insertion, we may forget this marking and identify the rubber invariant with a recursively-known absolute invariant (up to some boundary terms which can also be computed recursively). This approach will suffice for the majority of computations.
+
+[TO BE FINISHED]
+
+\newpage
+
+\section{Recursion procedure for reduced rubber integrals} \footnote{(Navid) To be superseded by general recursion section} In the recursion above, certain terms appear which are integrals over moduli spaces of reduced log stable maps to rubber (as defined in \S \ref{}):
+\begin{equation*}\VZ_{1,\alpha}(P|H_0+H_\infty)_{\Gm}.\end{equation*}
+In this section we provide a recursive algorithm for computing such integrals. We have three main techniques at our disposal: direct comparison with the double ramification cycle, forgetting of a marking with no insertion, and rubber recursion. Each technique has its own domain of applicability, and these domains have non-trivial intersection. For convenience we denote the \textbf{horizontal degree} of the rubber map by:
+\begin{equation*} d := \sum_{i=1}^n \alpha_i .\end{equation*}
+Recall that the $\alpha_i$ may be positive or negative (recording tangencies with respect to $H_\infty$ and $H_0$, respectively) and that $d \geq 0$ always. First suppose that $d=0$. Then the usual rubber moduli space decomposes as
+\begin{equation*} \MLog_{1,\alpha}(P|H_0 + H_\infty)_{\Gm} = \MLog_{1,\alpha}(\PP^1|0+\infty)_{\Gm} \times H \end{equation*}
+and the first term on the right-hand side is birational to the double ramification locus in $\ol\Mcal_{1,n}$. This locus has a main component (the closure of the locus of smooth curves) and one other ``exceptional'' component, consisting of split curves where all the markings belong to the rational tail. The corresponding reduced rubber space is birational to the main component, and thus we can identify its class by subtracting off the class of the exceptional component. This gives
+\begin{equation*} \pi_\st [\VZ_{1,\alpha}(P|H_0+H_\infty)_{\Gm}] = \left( [\ol\Mcal_{1,n}^\alpha] - [D] \right) \times [H] \in \Achow_\st ( \ol\Mcal_{1,n} \times H ) = \Achow_\st ( \ol\Mcal_{1,n}(H,0) ) \end{equation*}
+where $\pi \colon \VZ_{1,\alpha}(P|H_0+H_\infty)_{\Gm} \to \ol\Mcal_{1,n}(H,0)$ is the map which forgets the log structure and collapses the map, $D$ is the boundary locus of split curves described above, and $[\ol\Mcal_{1,n}^\alpha]$ is the classical double ramification cycle, which has an explicit formula in terms of tautological classes \cite{Hain,JPPZ}. These observations allow us to compute the integral over the rubber space as a tautological integral on the moduli space of curves.
+
+Now suppose that $d>0$. If there is a marking $x_k$ which carries no insertion and has $\alpha_k \neq 0$, then consider the morphism which forgets $x_k$ and collapses the map:
+\begin{equation*} \VZ_{1,\alpha}(P|H_0+H_\infty)_{\Gm} \xrightarrow{\pi} \VZ_{1,n-1}(H,d). \end{equation*}
+The moduli spaces above are log smooth and of the same dimension. Over the nice locus in $\VZ_{1,n-1}(H,d)$, $\pi$ has degree $\alpha_k^2$, arising from a choice of $\alpha_k$-torsion point on the source elliptic curve. Thus we have:
+\begin{equation*} \pi_\st [\VZ_{1,\alpha}(P|H_0+H_\infty)_{\Gm}] = \alpha_k^2\cdot [\VZ_{1,n-1}(H,d)].\end{equation*}
+Since all the insertions are pulled back from the right-hand side (up to modifying psi classes by some boundary strata which we can then also compute recursively) we can perform the integral on $\VZ_{1,n-1}(H,d)$ inductively. Notice that, when we apply our recursion \ref{} to compute a reduced invariant of $H$, the only non-trivial reduced rubber integrals which appear will have smaller degree than the one we started with, so the calculation is not circular.
+
+It remains to deal with the case where all of the relative markings carry insertions. The idea is to reduce to the case above by introducing an additional marking. Note first that every reduced rubber integral which appears in our recursion must either have a marking of negative tangency (i.e. tangent to $H_0$), or a marking with no insertions: indeed, the only boundary loci with no negative-tangency markings have the entire curve mapped to higher level, in which case (since we are assuming $d>0$, so we are not in the $C_0$ case) the curve is generically irreducible, and on this curve we have at least one fictitious marking (of positive tangency $1$) with no insertion.
+
+Therefore we may assume that there is at least one point of negative tangency, corresponding to a node at which we will glue. Notice that in our recursion these points only ever carry evaluation classes. Consider the following rubber space of dimension one higher, obtained by introducing an additional non-relative marking:
+\begin{equation} \label{bigger rubber space}\VZ_{1,\alpha \cup (0)}(P|H_0+H_\infty)_{\Gm}. \end{equation}
+Given a moduli point in this space, consider the piecewise-linear function on the associated tropical moduli space which sends a tropical map to the sum of the target edge lengths. This defines a line bundle and section on the space \eqref{bigger rubber space} which vanishes precisely on the locus where the target splits; moreover the vanishing orders may be read off from the tropical data as in \S \ref{}. It is not hard to see \cite{EKatz} that the first Chern class of the line bundle is
+$\Psi_0 + \Psi_\infty$, a sum of target psi classes which may be identified with evaluation and psi classes on the source curve as in \cite[Construction 5.1.17]{GathmannThesis}. 
+
+Now choose a negative-tangency point $x_1$ which carries only evaluation classes, and let $x_0$ denote the new non-relative marking we have introduced. If $\gamma$ was the class we were originally trying to integrate, consider the class $\tilde\gamma$ on \eqref{bigger rubber space} obtained from $\gamma$ by replacing $\ev_1^\st$ by $\ev_0^\st$. We obtain a recursion formula:
+\begin{equation*} (\Psi_0+\Psi_\infty)\cdot \tilde\gamma \cap [\VZ_{1,\alpha\cup(0)}(P|H_0+H_\infty)_{\Gm}] = \sum_{\Gamma} m_\Gamma \cdot \tilde\gamma \cap [\ol\Mcal_{\Gamma}]. \end{equation*}
+The right-hand side is a sum over irreducible components $\ol\Mcal_\Gamma$ of the locus where the target splits, with multiplicites $m_\Gamma$ calculated from the tropical data. Each of these components can be written as a fibre product of (reduced) rubber spaces. One of these components is the locus where $x_0$ and $x_1$ belong to a trivial rational bubble:
+
+[FIGURE]
+
+The corresponding moduli space is $\VZ_{1,\alpha}(P|H_0+H_\infty)_{\Gm}$ and we have $\ev_0=\ev_1$ here, so the contribution of this locus is precisely the original rubber integral we were trying to calculate. The remaining terms on the right-hand side can be written either as a product of rubber integrals of smaller degree (which we can compute recursively), or rubber integrals of the same degree but with no insertion at $x_1$ (which we can compute by forgetting $x_1$). Finally, the left-hand side also has no insertion at $x_1$ and so can be computed by the same method. Here we are assuming that $x_1$ is not the only negative-tangency marking, so that $\Psi_0$ can be interpreted as an insertion on a marking different from $x_1$.
+
+If $x_1$ is in fact the only negative-tangency marking, then we can modify the above argument by considering the following rubber space of dimension two larger:
+\begin{equation}\label{rubber space two extra markings} \VZ_{1,\alpha\cup(0,0)}(P|H_0+H_\infty)_{\Gm} \end{equation}
+Let us denote the newly-introduced non-relative markings by $x_0$ and $x_{n+1}$. We now let $\tilde\gamma$ denote the class obtained from $\gamma$ by replacing $\ev_1^\st$ by $\ev_0^\st$ and then multiplying by $\psi_{n+1}$. Following \cite{EKatz}\footnote{(Navid) Tropica interpretation of this? Vanishing multiplicities?}, there is a line bundle with a section cutting out the locus where $x_{n+1}$ does not belong to the leftmost component of the target. The first Chern class of this line bundle is $\Psi_\infty+\ev_{n+1}^\st H$, which we may multiply with $\tilde\gamma$ and integrate over \eqref{rubber space two extra markings} to obtain a rubber integral with no insertion at $x_1$ (which we may then compute by forgetting $x_1$). On the right-hand side we obtain the integral of $\tilde\gamma$ over the loci where $x_{n+1}$ does not belong to the leftmost component of the target (this is just a union of some of the irreducible components of the split locus described above). One such locus is the following
+[FIGURE]
+and integrating $\tilde\gamma$ over this locus gives
+\begin{equation*} \gamma\cdot\psi_{n+1}\cap [\VZ_{1,\alpha\cup(0)}(P|H_0+H_\infty)_{\Gm}] \end{equation*}
+which we may identify with a (nonzero) multiple of our original rubber integral via the rubber dilaton equation (see\cite{MaulikPandharipande}; the same proof carries over to the reduced setting\footnote{(Navid) Think about this a bit}). The remaining loci may be computed recursively exactly as before, and thus we obtain a complete recursion procedure.
+
+\begin{remark} This idea --- of finding a section of a line bundle cutting out the locus of split curves, and using this to derive recursion formulae for rubber integrals --- has been pursued in the non-reduced setting in \cite{EKatz}.\end{remark}
 
 \newpage
 
@@ -623,128 +949,6 @@ We now illustrate this is in some examples:
 
 \section{Splitting axiom and recursion formula for $(\PP^N|H)$}
 
-\noindent  In the previous section we explained how to determine the logarithmic strata of $\VZ$. We now focus our attention on certain logarithmic divisors, providing a recursive description for these loci: that is, a description in terms of fibre products of smaller moduli spaces. This is the technically most difficult part of the paper. The recursive description bears some similarities with the recursive description of the boundary of the absolute space $\VZ_{1,n}(\PP^N,d)$ given in \cite{VZ}; in keeping with the theme of this paper, however, we will see that log geometry provides a convenient framework for dealing with the combinatorics.
-
-The end result is that we obtain an explicit formula for tautological integrals over these boundary loci. This produces a Gathmann recursion  for relative invariants in genus one.
-
-The plan for this section is as follows \footnote{(Navid) Finish this}
-
-\subsection{Recursion setup} Consider an element of $\VZ$ and choose a marked point $x_k\in C$. We note that by the existence of a log morphism, either $f$ has contact order $\alpha_k$ to $H$ at the marking $x_k$, or else the irreducible component of $C$ containing $x_k$ is mapped entirely inside $H$ (we say ``$x_k$ belongs to an internal component'' in this case).
-
-By pulling back the equation defining $H$ along $f$ and then taking its $\alpha_k$-th derivative at $x_k$ (which makes sense since all the lower-order derivatives vanish by assumption) we obtain a section of a jet bundle on $\VZ$ whose vanishing locus coincides (set-theoretically) with the locus where $x_k$ belongs to an internal component. As in \cite[Construction 2.1]{Ga} there is an exact sequence of jet bundles
-\begin{equation*} 0\to x_k^*\omega_{\mathcal{C}/\VZ}^{\otimes\alpha_k}\otimes\ev_k^*\OO_{\PP^N}(H)\to x_k^*\mathcal J^{\alpha_k}(f^*\OO_{\PP^N}(H))\to x_k^*\mathcal J^{\alpha_k-1}(f^*\OO_{\PP^N}(H))\to 0 \end{equation*}
-and thus we obtain a section of the line bundle $x_k^*\omega_{\mathcal{C}/\VZ}^{\otimes\alpha_k}\otimes\ev_k^*\OO_{\PP^N}(H)$ with vanishing locus equal to the locus where $x_k$ belongs to an internal component. Writing this locus as
-\begin{equation*} \Dcal(k) = \Dcal_{1,\alpha}^k(\PP^N|H,d) \subseteq \VZ_{1,\alpha}(\PP^N|H,d) = \VZ \end{equation*}
-we obtain:
-\begin{lem} $(\alpha_k\psi_k+\ev_k^*H)\cap[\VZ]=[\Dcal(k)].\footnote{(Navid) Should we work out the vanishing orders of the section at this point?}$\end{lem}
-\noindent The remainder of this section will be devoted to providing an explicit recursive description of the class $[\Dcal(k)]$ in terms of tautological classes on spaces of maps with smaller numerical invariants. As we will see, this provides an algorithm for computing reduced relative invariants, as well as a quantum Lefschetz algorithm for reduced (absolute) invariants in genus one.
-
-\subsection{Identifying the irreducible components of $\Dcal(k)$} Here we explain the strategy for identifying the irreducible components of $\Dcal(k)$ via tropical geometry.
-
-\begin{lemma} Every irreducible component of $\Dcal(k)$ is a codimension-$1$ logarithmic stratum.\end{lemma}
-\begin{proof} This is not hard to see: the locus where the log structure is trivial coincides precisely with the  locus where the source curve is smooth and not mapped inside $H$, and since $\VZ$ is log smooth this locus is open and dense. By definition $\Dcal(k)$ is disjoint from this locus, hence is contained in the  complement of this locus, which (by the very definition of logarithmic strata) can be written as a union of logarithmic strata of positive codimension. Since $\Dcal(k)$ has codmension $1$, it must therefore be equal to a union of logarithmic divisors.\end{proof}
-
-In the previous section we discussed at length a procedure for describing the logarithmic strata of $\VZ$. This shows that every divisorial logarithmic stratum is obtained via a three-step process:
-\begin{enumerate}
-\item choose the combinatorial type of a tropical map;
-\item subdivide the corresponding tropical moduli space;
-\item choose a ray in this subdivision.
-\end{enumerate}
-Notice that this process contains some redundancies: once we choose a ray of the tropical moduli space, we obtain a generisation of the intial combinatorial type, given by contracting some edges of the dual graph.
-
-\begin{example} \end{example}
-
-Whenever we consider a logarithmic stratum in $\VZ$, by its combinatorial type we will always mean the generisation of the ``initial'' combinatorial type induced by our choice of cone in the polyhedral subdivision. This does not depend on the choice of initial combinatorial type.
-
-Now, the logarithmic divisors which are contained in $\Dcal(k)$ are precisely those whose corresponding combinatorial type has the vertex of the dual graph containing $x_k$ mapped into the interior $\RR_{>0} \subseteq \RR_{\geq 0}$.
-
-Thus, via the above procedure, we are able to enumerate the irreducible components of $\Dcal(k)$ in a combinatorial manner. The combinatorial type and choice of ray allows us to describe the general element of such a component. What we are still lacking is a recursive description of the components, which we need in order to compute integrals over them. This is the subject of the remainder of this section.
-
-\subsection{Splitting and gluing punctured logarithmic maps}\label{subsection punctured maps} We still start by considering the usual moduli space $\Mcal$ of log stable maps. In \cite{PuncturedMaps}, a recursive description of the logarithmic strata of $\Mcal$ is given, in terms of moduli spaces of punctured maps. As discussed above, the logarithmic strata $\Scal$ of $\Mcal$ are indexed by combinatorial types of tropical curves. Given such a combinatorial type $\Delta$, each vertex $v$ of the associated graph defines a moduli space of punctured stable maps:
-\begin{equation*} \ol\Mcal_v = \Mpunct{g(v)}{\alpha(v)}{Z_v}{d_v}. \end{equation*}
-Here $g(v)$ and $d(v)$ are the genus and degree assigned to the vertex, while $Z_v$ is the logarithmic stratum of the target corresponding to the tropical stratum into which the vertex is mapped by the combinatorial type (in our setting, $Z_v=\PP^N$ or $H$). The length of the vector $\alpha(v)$ is given by the number of edges and legs adjacent to $v$, and the entries (which represent tangencies, and may be positive or negative) are given by the expansion factors along those edges and legs. Note that if all of the tangencies are positive, then this is nothing but an ordinary moduli space of log stable maps. The corresponding logarithmic stratum is then obtained as a fibre product over evaluation maps:
-\bcd
-\Scal \ar[r] \ar[d] \ar[rd,phantom,"\square"] & \prod_v \ol\Mcal_v \ar[d] \\
-\prod_{e} Z_e \ar[r] & \prod_{e} Z_e\times Z_e.
-\ecd
-This fibre product must be take in the fs log category. However, in our setting, the ordinary fibre product is automatically integral\footnote{(Navid) Justify this}, so all that is required is a saturation. This means that the fs fibre product is just a finite cover of the ordinary fibre product, and we may calculate the degree directly.\footnote{(Navid) How, again?}
-
-This gives a recursion description of the logarithmic strata in $\Mcal$. We will now\footnote{(Navid) Really, after the next section, which maybe we should move to an appendix} use this to obtain a similar (though somewhat more complicated) description of the strata in $\VZ$.
-
-\subsection{Punctured maps and double ramification loci}\footnote{(Navid) Move this to an appendix?} We will now present some arguments and constructions aimed at demystifying the moduli spaces of punctured stable maps. In our context, we only ever encounter these spaces when the associated logarithmic stratum $Z_v$ of the target is the divisor $H$. Consider therefore a moduli space of punctured stable maps
-\begin{equation}\label{punctured space} \Mpunct{g}{\alpha}{H}{d} \end{equation}
-where $g \in \{0,1\}$ and $\alpha$ is a vector of tangency orders. The target $H$ is given the log structure pulled back from $\PP^N$, and consequently is not log smooth. As such, the natural obstruction theory on the above moduli space will not, in general, be perfect. This is not really a problem for us, since we are mainly interested in studying the non-virtual geometry of our moduli spaces. Indeed, we will see that the space \eqref{punctured space} is birational to the moduli space of ordinary stable maps to $H$ satisfying the condition:
-\begin{equation}\label{DRC condition} f^*[H] - \sum_{i=1}^n \alpha_ix_i =0 \in \Achow_0(C).\end{equation}
-This space forms a closed substack
-\begin{equation*} \ol\Mcal^{\alpha}_{g,n}(H,d) \subseteq \M{g}{n}{H}{d} \end{equation*}
-and is referred to as the \emph{double ramification locus}. These moduli spaces have been the focus of intense study over the years (see, for instance, \cite{GathmannThesis} \cite{DRCBundle}). The double ramification locus is a closed substack of $\M{g}{n}{H}{d}$ of virtual codimension $g$ (though, as with $\M{g}{n}{H}{d}$ itself, it typically has excess dimension).
-
-\begin{prop} Suppose that $g \in \{0,1\}$ and consider the morphism forgetting all log structures:
-\begin{equation*} \Mpunct{g}{\alpha}{H}{d} \to \M{g}{n}{H}{d}. \end{equation*}
-This factors through the double ramification locus, and is in fact birational onto its image.\end{prop}
-\begin{proof} The fact that the forgetful morphism factors through the double ramification locus is an immediate consequence of the balancing condition satisfied by punctured stable maps, interpreted as a condition in $\Pic(C)$ (the more familiar balancing condition is obtained from this one by restricting to a component of $C$ and then taking degrees). Thus indeed we have a map:
-\begin{equation*} \varphi \colon \Mpunct{g}{\alpha}{H}{d} \to \ol\Mcal^\alpha_{g,n}(H,d). \end{equation*}
-To show that $\varphi$ is birational, we will choose an open dense locus of the domain and show that $\varphi$ induces an isomorphism on geometric points when restricted to this locus. The locus we take is the preimage of the locus inside $\ol\Mcal^\alpha_{g,n}(H,d)$ consisting of curves of compact type (i.e. those whose dual graph has genus zero); essentially we are excluding stable maps whose source curve contains a cycle of $\PP^1$s. The fact that this is open dense in $\ol\Mcal^\alpha_{g,n}(H,d)$ is not hard to see: when $g=1$ (the only case in which non-compact type curves can arise), the double ramification locus contains many components, but on every such component the maximal genus one subcurve of the source will be generically smooth, which shows again that the locus of stable maps not of compact type is closed inside $\ol\Mcal^\alpha_{g,n}(H,d)$. Once we show that $\varphi$ is bijective on geometric points when restricted to the preimage of this locus, it follows (since $\varphi$ is a finite morphism) that the preimage of this locus is dense in $\Mpunct{g}{\alpha}{H}{d}$, and hence that $\varphi$ is birational.
-
-So, let us start with a compact type stable map which belongs to the double ramification locus:
-\bcd
-C \ar[r,"f"] \ar[d] & H \\
-S=\Spec\kfield
-\ecd
-We will show that there exists a unique lift of this to a punctured stable map. Since $C$ has compact type, there is a unique choice of associated combinatorial type $\Delta$. This determines a minimal monoid $Q$ such that any punctured map enhancing the given stable map has base log structure given by:
-\begin{align*}
-Q \oplus \kfield^\st & \to \kfield \\
-(q,\lambda) & \mapsto \begin{cases} \lambda \qquad \text{if } q =0 \\ 0 \qquad \text{otherwise} \end{cases}
-\end{align*}
-If we let $r$ denote the number of nodes of $C$ then by construction there is a natural map $\N^r \to Q$ and by the universal property of minimality our punctured curve must be obtained by puncturing a log smooth curve pulled back along a morphism of log schemes:
-\begin{equation*} (\Spec\kfield,Q \oplus \kfield^\st) \to (\Spec\kfield,\N^r\oplus\kfield^\st).\end{equation*}
-This log morphism must enhance the given map $\N^r \to Q$ on the level of ghost sheaves. The moduli for such a log map is $\Gm^r$, but all these choices are canceled out by automorphisms of $(\Spec\kfield,Q\oplus\kfield^\st)$\footnote{(Navid) Here we are using the fact that $Q$ is in some sense bigger than $\N^r$.}. Thus we obtain, by pulling back the minimal log smooth curve over $(\Spec\kfield,\N^r \oplus\kfield^\st)$, a unique log smooth curve:
-\begin{equation*} (C,\Mcal_C) \to (\Spec\kfield,Q\oplus\kfield^\st).\end{equation*}
-We must now construct the puncturing $\Mcal_{C^\circ}$. Let $\Pcal_C$ denote the divisorial log structure on $C$ with respect to the punctures. It is easy to see that there is a unique log structure $\Mcal$ on $C$ such that
-\begin{equation*} \Mcal_C = \Mcal \oplus_{\OO_C^\st} \Pcal_C \end{equation*}
-where the pushout is taken in the category of monoid sheaves. We consider the sheaf:
-\begin{equation*} \Ncal_C = \Mcal \oplus_{\OO_C^\st} \Pcal^{\gp}_C. \end{equation*}
-By definition the puncturing $\Mcal_{C^\circ}$ should be an intermediate sheaf:
-\begin{equation*} \Mcal_C \subseteq \Mcal_{C^\circ} \subseteq \Ncal_C. \end{equation*}
-We will now construct this, and argue that our construction gives the only puncturing possible. First we note that it is sufficient to define $\Mcal_{C^\circ}$ on a base for the topology on $C$. We choose a base such that for each base open set $U$:
-\begin{enumerate}
-\item $U$ is connected;
-\item $U$ contains at most one of the punctures of $C$;
-\item if $U$ contains a puncture $p \in C$, then $U$ does not contain any of the nodes or markings of $C$, and $\OO_C(p)|_U$ is trivial.
-\end{enumerate}
-Note that these properties are stable under taking subsets, so to obtain such a base we simply choose an open cover with this property (which is certainly possible) and then take the collection of all open subsets of our chosen cover.
-
-Now let $U$ be such an open set in our base. If $U$ does not contain a puncture then $\Mcal_C|_U = \Ncal_C|_U$ and so we set
-\begin{equation*} \Mcal_{C^\circ}(U) = \Mcal_C(U).\end{equation*}
-If $U$ contains a puncture $p$ then by assumption $U \setminus \{ p\}$ contains only smooth unmarked points, and hence we have a splitting
-\begin{equation*} \Ncal_C|_U = \left( \pi^\st \Mcal_S|_U \right) \oplus_{\OO_U^\st} \left(\Pcal_p^{\gp}|_U \right) \end{equation*}
-where $\Pcal_p$ is the divisorial log structure with respect to $p$. Since $\Mcal_S = Q \oplus \kfield^\st$ it follows that $\pi^*\Mcal_S|_U = \ul{Q} \oplus \OO_U^\st$. Thus we see that
-\begin{equation*} \Ncal_C|_U = \ul{Q} \oplus \Pcal_p^{\gp}|_U\end{equation*}
-and similarly:
-\begin{equation*} \Mcal_C|_U = \ul{Q} \oplus \Pcal_p|_U.\end{equation*}
-We therefore have (since $U$ is connected):
-\begin{equation*} \Ncal_C(U) = Q \oplus \Pcal_p^{\gp}(U) \end{equation*}
-Recall we are assuming that $\OO_C(p)|_U$ is trivial. Choosing a trivialisation, we obtain a function $s \in \OO_U(U)$ such that $p=\{s=0\}$ on $U$. Then $\Pcal_p(U)$ consists of functions of the form $\lambda \cdot s^n$ for $n \in \N$ and $\lambda \in \OO_U^\st(U)$. Groupifying, we obtain:
-\begin{equation*} \Pcal^{\gp}_p(U) = \left\{ \lambda \cdot s^k \, \vert \, \lambda \in \OO_U^\st(U), k \in \Z \right\}. \end{equation*}
-(Indeed, $\Pcal_p^{\gp}$ can be described as the sheaf of rational functions which are regular and invertible outside of $p$.) Recall that $p$ has attached to it a tangency order $\alpha_p \in \Z_{<0}$. If we let $\eta$ denote the generic point of the component of $C$ containing $p$, then we also have a pullback map $\ol\varphi_\eta \colon \N \to Q$ which is sharp (i.e. it is not the zero map). We define $\Mcal_{C^\circ}(U) \subseteq \Ncal_C(U)$ to be the submonoid generated by $Q \oplus \Pcal_p(U)$ and the element:
-\begin{equation*} (\ol\varphi_\eta(1),s^{\alpha_p}). \end{equation*}
-This clearly satisfies the conditions to be a puncturing, and by the prestability condition it is the only possibility for $\Mcal_{C^\circ}$. We thus have a punctured curve:
-\begin{equation*} (C,\Mcal_{C^\circ}) \to (C,\Mcal_C) \to (\Spec\kfield,Q\oplus\kfield^\st). \end{equation*}
-It remains to construct the log enhancement of the map $f \colon C \to H$. The map $f^\flat \colon f^\st \Mcal_H \to \Mcal_{C^\circ}$ is already determined on the level of ghost sheaves. To enhance this to a map on the level of log structures entails choosing an isomorphism of line bundles:
-\begin{equation*} f^* \OO_H(1) \cong \OO_C\left(\ol{f}^\flat(1)\right). \end{equation*}
-The component-wise description of the right-hand side in \cite{RSPW} (together with the fact that $C$ is compact type, so its Picard group is simply the product of the Picard groups of its components) shows that such an isomorphism exists if and only if the original stable map is in the double ramification locus. There is a $\Gm$ worth of choices for such a map, but these are canceled out by the automorphisms of $(C,\Mcal_{C^\circ})$ induced by pulling back along (strict) automorphisms of $(\Spec\kfield,Q\oplus\kfield^\st)$. This completes the proof of unique punctured lifting.
-\end{proof}
-
-Thus, the spaces of punctured maps we encounter are always birational to double ramification loci. We now briefly discuss the geometry of these loci. In the genus zero case, the double ramification locus is equal to the entire space
-\begin{equation*} \ol\Mcal^{\alpha}_{0,n}(H,d) = \M{0}{n}{H}{d} \end{equation*}
-which is smooth. Thus tautological integrals over $\ol\Mcal^{\alpha}_{0,n}(H,d)$ are determined by the genus-zero Gromov--Witten theory of $H$.
-
-The genus one case is more delicate: there is a ``main component'' of the double ramification locus, obtained as the closure of the locus where the source curve is smooth. This forms a divisor inside the main component of the moduli space of stable maps:
-\begin{equation*} \ol\Mcal^{\alpha,\circ}_{1,n}(H,d) \subseteq \ol\Mcal^\circ_{1,n}(H,d). \end{equation*}
-However, we know that $\M{1}{n}{H}{d}$ contains many other components besides $\ol\Mcal^\circ_{1,n}(H,d)$, some of which have excess dimension. Certainly the double ramification locus intersects these other components, and sometimes it can do so in quite dramatic fashion. For instance, consider the locus where the source curve splits into a contracted elliptic component and a rational component containing all the markings. This locus forms an irreducible component of the moduli space, isomorphic to
-\begin{equation*}\ol\Mcal_{1,1} \times \M{0}{n+1}{H}{d} \end{equation*}
-which has excess dimension $N-2$. This entire component belongs to the double ramification locus, since the condition \eqref{DRC condition} becomes entirely numerical here. Thus, we see that the double ramification locus can be quite badly-behaved in genus one. Fortunately, we will only be interested in the main component of this locus (which is birational to the main component of the moduli space of punctured maps); see \S \ref{} below.
-
 \subsection{Recursive description of the divisors: types $A,B$ and $C^+$}
 
 The basic idea is as follows. Choose an irreducible component $\Dcal \subseteq \Dcal(k)$. As discussed above, we can obtain this by choosing an ``initial'' combinatorial type together with a ray of the resulting subdivision of the tropical moduli space. Without loss of generality we may assume that this ``initial'' combinatorial type coincides with the ``true'' combinatorial type of $\Dcal$ obtained by performing the edge contractions specified by the choice of ray.
@@ -853,13 +1057,21 @@ is generically finite, of degree $\alpha_i^2$ (except in one special case, descr
  
  For a different proof: notice that we should obtain the class of the main component from the full double ramification cycle by subtracting the boundary class $[D_{1,\emptyset|0,\{1,\ldots,n\}}]$. The latter pushes forward to $0$ under $\fgt_i$, unless $n=2$. Therefore we may apply $\fgt_{i,*}$ to the Hain-Pixton formula:
  \[DR_1(A)=\frac{1}{2}\left(\sum_{i=1}^na_i^2\psi_i-\sum_{\substack{I\subseteq\{1,\ldots,n\}\\|I|\geq 2}}a_I^2[D_{1,I^c|0,I}]-\frac{1}{12}\delta_0\right),\]
- where $a_I=\sum_{i\in I}a_i$ and $\delta_0=\operatorname{glue}_*([\oM_{0,n+2}])$. From $\psi_j=\fgt_i^*\psi_j+[D_{i,j}]$ for $i\neq j$, and the dilaton equation, we see that $\fgt_{i,*}\psi_j=1$ and $\fgt_{i,*}\psi_i=n-1$. On the other hand, the only surviving boundary classes are $[D_{i,j}]$, and they push down to $1$. Hence the formula pushes down to $\frac{1}{2}\left(\sum_{j\neq i}\alpha_j^2+(n-1)\alpha_i^2-\sum_{j\neq i}(\alpha_j+\alpha_i)^2\right)=-\alpha_i\left(\sum_{j\neq i}\alpha_j\right)=\alpha_i^2.$
+ where $a_I=\sum_{i\in I}a_i$ and $\delta_0=\operatorname{glue}_*([\oM_{0,n+2}])$. From $\psi_j=\fgt_i^\st\psi_j+[D_{i,j}]$ for $i\neq j$, and the dilaton equation, we see that $\fgt_{i,*}\psi_j=1$ and $\fgt_{i,*}\psi_i=n-1$. On the other hand, the only surviving boundary classes are $[D_{i,j}]$, and they push down to $1$. Hence the formula pushes down to $\frac{1}{2}\left(\sum_{j\neq i}\alpha_j^2+(n-1)\alpha_i^2-\sum_{j\neq i}(\alpha_j+\alpha_i)^2\right)=-\alpha_i\left(\sum_{j\neq i}\alpha_j\right)=\alpha_i^2.$
 \end{proof}
 
 
 
 \newpage
 
+\begin{definition} A combinatorial type $\Delta$ of a tropical curve consists of the following data:
+\begin{enumerate}
+\item $G$ a finite graph, with a set $V(G)$ of vertices, a set $F(G)$ of flags and an involution $\iota \colon F(G) \to F(G)$ with $\iota^2=\Id$. We let $L(G)$ denote the fixed set of $\iota$, and think of its elements as infinite legs; we let $E(G)$ denote the set of equivalence classes of elements not fixed by $\iota$, and think of them as finite edges connecting two (possibly equal) vertices of $G$;
+\item a genus assignment $g \colon V(G) \to \Z_{\geq 0}$;
+\item a degree assignment $\deg \colon V(G) \to \Z_{\geq 0}$;
+\item a weight assignment $u \colon F(G)  \to \Z$ such that for every edge $e \in E(G)$ we have $u(f_1)=-u(f_2)$ where $e=[f_1]=[f_2]$, and $u(l) \geq 0$ for any $l \in L(G)$;
+\end{enumerate}
+\end{definition}
 
 
 \footnote{(Luca) to be made homogeneous with what comes earlier} Review here the process of gluing for punctured maps. In particular the basic monoid should be modified in order to make the relevant evaluations log morphisms. Claim: evaluations are strict. Consequence: the fiber product in the category of log stacks is fine. We have then to apply saturation. This is a finite morphism of degree... (I think it could be $\frac{\prod m^{(i)}}{lcm(m^{(i)})}$).
@@ -876,7 +1088,22 @@ is generically finite, of degree $\alpha_i^2$ (except in one special case, descr
  \end{itemize}
 \end{lemma}
 
-\subsection{Recursive description of the divisors: type $C_0$}
+\subsection{Recursive description of the divisors: type $C_0$} Consider now a combinatorial type $\Delta$ such that the circuit is contracted into the divisor. The corresponding stratum $\Dcal_\Mcal \subseteq \Mcal$ is contained in the blown-up locus. Our task is to identify the logarithmic divisors in the preimage of $\Dcal_\Mcal$ under the map $\VZ \to \Mcal$. As discussed, these are indexed by choices of ray in the subdivision of the tropical moduli space. Suppose we have fixed such data.
+
+\begin{claim} The teeth of the comb can break at most once, along the circuit.\end{claim}
+
+\begin{proof} If not there would be more parameters in the tropical moduli space. \end{proof}
+
+\begin{prop} Let $\Delta$ be a combinatorial type as above. Then:
+\begin{enumerate}
+\item the circuit is a single vertex, and is mapped to the interior $\RR_{>0} \subseteq \RR_{\geq 0}$;
+\item the degree of the circuit is zero;
+\item there is a vertex which is adjacent to the circuit and mapped to the interior $0 \in \RR_{\geq 0}$;
+\item let $e \in E(\sqC)$ be an edge which is adjacent to the circuit, and such that $u(e)$ is maximal among the edges adjacent to the circuit. Then the other vertex $v$ contained in $e$ is mapped to $0 \in \RR_{\geq 0}$, and $v$ lies on the (absolute) radius;
+\item if $v \in V(\sqC)$ and $\lambda(v) > \delta$ then $f(v)=0$.
+\end{enumerate}
+\end{prop}
+
 On the other hand, when there is a contracted elliptic subcurve - and it will be contracted into the hyperplane, because otherwise it wouldn't be generic, by density of the nice locus in $\VZ_{1,\alpha^\prime}(\PP^N|H,d^\prime)$ - the picture becomes more complicated due to the alignment. The combs may break. We label these loci $\mathcal{Y}_C^0$.
 \begin{figure}
 
@@ -928,7 +1155,7 @@ In the following we describe the rays of the tropical moduli space.
  F\ar[r]\ar[d]& \M{0}{(2,0)}{\PP^N|H}{2}\times\M{0}{(2,0)}{\PP^N|H}{2}\ar[d]\\
  H\ar[r] & H\times H
  \ecd
- At the level of ghost sheaves, $\oM_F=\mathbb N\oplus_{\mathbb N^2}\oM_1^{\rm{enl}}\oplus\oM_2^{\rm{enl}}$, where the map $\mathbb N^2\to\mathbb N$ is the sum, and the map $\mathbb N^2\to\oM_1^{\rm{enl}}\oplus\oM_2^{\rm{enl}}$ generically is multiplication by $2$, so $\oM_F=\mathbb N^2/(2e=2f)$ generically. Saturation gives a finite cover $G\to F$ with $\oM_G=\mathbb N_{e=f}$ generically. Lifting this to actual log structures, what we are doing (again generically) is taking a square root of the isomorphism $T_{R_1,q_1}^{\otimes 2}\simeq T_{R_2,q_2}^{\otimes 2}$, which is obtained passing through $N_{H/\PP^N,f(Z)}$ via $\operatorname{d}f_{|R_i,q_i}$. This breaks when $f_{|R_i}$ is not tangent to $H$ of order exactly $2$ at $q_i$, for either $i$; but by the maximality assumption this happens precisely along Gathmann's comb loci $\Delta_i$. So in fact, rather than with $T_{R_i,q_i}^{\otimes 2}$, we should be working with $T_{R_i,q_i}^{\otimes 2}(-\Delta_i)$: but this is exactly $\ev_i^*(-H)$ by Gathmann's genus zero formula, and the isomorphism $\ev_1^*(H)=\ev_2^*(H)$ holds on all of $F$.
+ At the level of ghost sheaves, $\oM_F=\mathbb N\oplus_{\mathbb N^2}\oM_1^{\rm{enl}}\oplus\oM_2^{\rm{enl}}$, where the map $\mathbb N^2\to\mathbb N$ is the sum, and the map $\mathbb N^2\to\oM_1^{\rm{enl}}\oplus\oM_2^{\rm{enl}}$ generically is multiplication by $2$, so $\oM_F=\mathbb N^2/(2e=2f)$ generically. Saturation gives a finite cover $G\to F$ with $\oM_G=\mathbb N_{e=f}$ generically. Lifting this to actual log structures, what we are doing (again generically) is taking a square root of the isomorphism $T_{R_1,q_1}^{\otimes 2}\simeq T_{R_2,q_2}^{\otimes 2}$, which is obtained passing through $N_{H/\PP^N,f(Z)}$ via $\operatorname{d}f_{|R_i,q_i}$. This breaks when $f_{|R_i}$ is not tangent to $H$ of order exactly $2$ at $q_i$, for either $i$; but by the maximality assumption this happens precisely along Gathmann's comb loci $\Delta_i$. So in fact, rather than with $T_{R_i,q_i}^{\otimes 2}$, we should be working with $T_{R_i,q_i}^{\otimes 2}(-\Delta_i)$: but this is exactly $\ev_i^\st(-H)$ by Gathmann's genus zero formula, and the isomorphism $\ev_1^\st(H)=\ev_2^\st(H)$ holds on all of $F$.
  
  On the other hand, generically on $\VZ_{1,(-2,-2,4)}$ we have $T_{q_1}Z\simeq T_{q_2}Z$ by exploiting the group structure on the elliptic curve. This breaks when either (but not both) is on a rational tail. Yet we have $T_{q_1}Z(\Delta_{1\in P})\simeq T_{q_2}Z(\Delta_{2\in P})$ by Vakil-Zinger's construction of a universal $\psi$-class (i.e. by comparing both with $\pi_*\omega(\Delta)$; notice that our further blow-up has the only effect of twisting \emph{all} the relevant line bundles by $\Delta_{1,2\notin P}$).
  
@@ -939,7 +1166,7 @@ In the following we describe the rays of the tropical moduli space.
   \item it is not globally a $\PP^1$-bundle (so it relates with further stages of the blow-up; it also has to do with a choice of compactification for the moduli space of attachments);
   \item it has the effect of replacing $T_{q_i}Z$ with Vakil-Zinger's universal $\mathbb T$, so that this can be factored out of the projective bundle, and in fact we are left with a projective bundle $\mathbb P=\PP(T_{q_1}R_1\oplus T_{q_2}R_2)$ over $F$, and its open part $\operatorname{Iso}(T_{q_1}R_1\oplus T_{q_2}R_2)$ represents the attachment data for a contraction to a tacnode $R_1\sqcup_q R_2\to\bar{C}$.
  \end{itemize}
-On $\PP$ there is a natural vector bundle map \[s\colon \OO_{\PP}(-1)\hookrightarrow p^*(T_{q_1}R_1\oplus T_{q_2}R_2)\xrightarrow{+\operatorname{d}f}\ev_q^*T\PP^N\]
+On $\PP$ there is a natural vector bundle map \[s\colon \OO_{\PP}(-1)\hookrightarrow p^\st(T_{q_1}R_1\oplus T_{q_2}R_2)\xrightarrow{+\operatorname{d}f}\ev_q^\st T\PP^N\]
 that vanishes along the locus where $f$ descends to $\bar C$. In general, it is not a transversal section:
 \begin{itemize}
  \item we should replace $T\PP^N$ by $TH$ as long as all the $m^{(i)}$ are $\geq2$;
@@ -949,9 +1176,9 @@ On the other hand, the finite cover $G\to F$ factors through $\PP$, because the 
 \[\left(G\cap V(\tilde{s})\subseteq\PP\right)\times\VZ_{1,(-2,-2,4)}.\]
 This has the expected dimension (codimension $N-1$ with respect to $X$). To compute its class, we can pull $\PP$ back to $G$, and then notice that $G\hookrightarrow\PP_G$ is the inclusion of a (trivial) subbundle.
 \begin{lem}
- The class of $\PP(\mathcal F)\subseteq\PP(\mathcal E)$ is $c_{\rm{top}}(\OO_\mathcal{E}(1)\otimes p^*(\mathcal{E}/\mathcal{F}))$.
+ The class of $\PP(\mathcal F)\subseteq\PP(\mathcal E)$ is $c_{\rm{top}}(\OO_\mathcal{E}(1)\otimes p^\st(\mathcal{E}/\mathcal{F}))$.
 \end{lem}
-See \cite[Prop. 9.13]{EH3264}. It is a good time to remember that $\mathcal E$ was in fact $(\bigoplus_{i=1}^rTR_{i,q_i})\otimes\mathbb T$. By writing $c$ for $c_1(\OO_\mathcal{E}(1))$, $\psi_i$ for $c_1(T^*R_{i,q_i})$, $\psi_Z$ for Vakil-Zinger's universal psi class, and $H$ for $\ev_q^*H$, we need to compute
+See \cite[Prop. 9.13]{EH3264}. It is a good time to remember that $\mathcal E$ was in fact $(\bigoplus_{i=1}^rTR_{i,q_i})\otimes\mathbb T$. By writing $c$ for $c_1(\OO_\mathcal{E}(1))$, $\psi_i$ for $c_1(T^\st R_{i,q_i})$, $\psi_Z$ for Vakil-Zinger's universal psi class, and $H$ for $\ev_q^\st H$, we need to compute
 \begin{align*}
 p_*\left((c-\psi_1-\psi_2-2\psi_Z)[(1+c+H)^N(1+c)^{-1}]_{N-1}\right)= \\
 p_*\left((c-\psi_1-\psi_2-2\psi_Z)(\sum_{k=0}^{N-1}\binom{N}{1+k}c^kH^{N-1-k})\right)=\\
@@ -982,13 +1209,13 @@ Let us now deal with vertices of type \ref{specialvertices}.
  On $F$ there is a canonical isomorphism $\mathbb L_{q_i}\cong\mathbb L_{q_j}$\footnote{(Luca) check how it degenerates}, the latter being the cotangent line bundles at the gluing markings on two different components $i$ and $j$. Furthermore, $\underline F$ is a finite cover of degree $m^{r-1}$ of the fiber product of the underlying stacks.
 \end{lem}
 \begin{proof}
- Recall that each $\M{0}{\alpha^{(i)}\cup\{ m\}}{\PP^N|H}{d_i}$ is endowed with the log structure induced by pulling back along $q_i$ the divisorial log structure of the universal curve at the image of $q_i$ itself. Thus $\ev_{q_i}$ is made into a log morphism to $H$ with its induced DF(1) log structure. We claim that the subtext of such morphism is Gathmann's formula; namely, the log morphism to $H$ corresponds to an isomorphism betwee $\ev_{q_i}^*\OO_H(-H)$ on one side, and $\mathcal I_{D_i}\otimes\mathbb L_{q_i}^m$ on the other, where $\mathcal I_{D_i}$ is the ideal sheaf of the union of the comb loci $D_i$ in $\M{0}{\alpha^{(i)}\cup\{ m\}}{\PP^N|H}{d_i}$.
+ Recall that each $\M{0}{\alpha^{(i)}\cup\{ m\}}{\PP^N|H}{d_i}$ is endowed with the log structure induced by pulling back along $q_i$ the divisorial log structure of the universal curve at the image of $q_i$ itself. Thus $\ev_{q_i}$ is made into a log morphism to $H$ with its induced DF(1) log structure. We claim that the subtext of such morphism is Gathmann's formula; namely, the log morphism to $H$ corresponds to an isomorphism betwee $\ev_{q_i}^\st\OO_H(-H)$ on one side, and $\mathcal I_{D_i}\otimes\mathbb L_{q_i}^m$ on the other, where $\mathcal I_{D_i}$ is the ideal sheaf of the union of the comb loci $D_i$ in $\M{0}{\alpha^{(i)}\cup\{ m\}}{\PP^N|H}{d_i}$.
  
- On the fiber product there is a canonical isomorphism between $\ev_{q_i}^*H$ and $\ev_{q_j}^*H$.
+ On the fiber product there is a canonical isomorphism between $\ev_{q_i}^\st H$ and $\ev_{q_j}^\st H$.
  
  Say something about integrality.
  
- Saturation is a local operation, as much as computing the degree, hence we can concentrate on the dense open locus where all the curves we are gluing are smooth, and they are not mapped entirely into $H$. There the minimal log structure on $\M{0}{\alpha^{(i)}\cup\{ m\}}{\PP^N|H}{d_i}$ is trivial, therefore the isomorphism between $\ev_{q_i}^*H$ and $\ev_{q_j}^*H$ translates into an isomorphism $\mathbb L_{q_i}^m\cong \mathbb L_{q_j}^m$. The saturation $F$ is obtained by taking an $m$-th root of this isomorphism.
+ Saturation is a local operation, as much as computing the degree, hence we can concentrate on the dense open locus where all the curves we are gluing are smooth, and they are not mapped entirely into $H$. There the minimal log structure on $\M{0}{\alpha^{(i)}\cup\{ m\}}{\PP^N|H}{d_i}$ is trivial, therefore the isomorphism between $\ev_{q_i}^\st H$ and $\ev_{q_j}^\st H$ translates into an isomorphism $\mathbb L_{q_i}^m\cong \mathbb L_{q_j}^m$. The saturation $F$ is obtained by taking an $m$-th root of this isomorphism.
 \end{proof}
 Let us denote by $\mathbb L_F$ the universal cotangent line at $q$.
 
@@ -996,7 +1223,7 @@ The projective bundle we are seeking has base
 \[\mathcal X=\left(F\times \prod_{i=1}^s\oM_{0,\tilde\alpha^{(i)}\cup\{m_i\}}^{\rm{punct}}(H,\tilde d_i)\right)\times_{H^{s+1}}H\]
 (with $m_i<m$) and it is \[\PP=\Proj_{\mathcal X}\left(\mathbb T_F\oplus\bigoplus_{i=1}^s\mathbb T_{\tilde q_i}\right).\]
 We are interested in the vanishing locus of the section
-\[s\colon\OO_{\PP}(-1)\hookrightarrow p^*\left(\mathbb T_F\oplus\bigoplus_{i=1}^s\mathbb T_{\tilde q_i}\right)\xrightarrow{+df_q} f^*(\operatorname{T}\PP^N)_q,\]
+\[s\colon\OO_{\PP}(-1)\hookrightarrow p^\st\left(\mathbb T_F\oplus\bigoplus_{i=1}^s\mathbb T_{\tilde q_i}\right)\xrightarrow{+df_q} f^\st(\operatorname{T}\PP^N)_q,\]
 because it represents the geometric condition that $f\colon C\to \PP^N$ factors through the normalisation map $C\to\bar C$ prescribed by the given point of $\PP$. As is, $s$ is not transverse to the zero section. First of all, unless $m=1$, $\operatorname{T}\PP^N$ can be replaced by $\operatorname{T}H$ in the definition of $s$ above, because the projection of all $\operatorname{d}f_i(\operatorname{T}_{q_i}R_i)$ to $N_{H/\PP^N}$ is zero. The case $m=1$ has to be dealt with separately and it turns out that, once $s$ is made transverse, the dimension of its zero locus is smaller than the expected dimension, hence the corresponding combinatorial types are in fact irrelevant.
 
 The procedure to make $s$ transverse is the same as described in \cite[\S 3]{VZ}, namely we need to blow up inside $\PP$ the projective subbundle $\PP(\mathcal E)$ of $\PP_{|\mathcal X_\sigma}$, where $\mathcal X_\sigma$ is the closed substack of $\mathcal X$ where some of the tails degenerate so that the corresponding gluing marking lies on a component contracted by $f$, and $\mathcal E$ is the sum of the tangent line bundles at such subset of the gluing markings. Because $\oM_{0,\tilde\alpha^{(i)}\cup\{m_i\}}^{\rm{punct}}(H,\tilde d_i)$ is isomorphic to $\M{0}{\tilde n_i}{H}{d_i}$, the construction of Vakil and Zinger in the section ``A blowup of a moduli space of genus-zero maps'' of their paper carries through unchanged. The result of the blow-up is to replace $T_{q_i}R_i$ with $T_{q_i}R_i\otimes\bigoplus_{j=1}^kT_{\tilde q_j}R_i\otimes T_{\tilde q_j} S_{ij}$. We interpret this in terms of alignments.\footnote{(Luca) this has to be written properly}
@@ -1023,95 +1250,21 @@ Since $\VZ_{1,n}(\PP^N,d)$ is smooth and $\VZ_{1,n}(X,\beta)$ carries a natural 
 \begin{equation*} \virt{\VZ_{1,\alpha}(X|Y,\beta)} := i_\Delta^! [\VZ_{1,\alpha}(\PP^N|H,d)]. \end{equation*}
 The recursion formula in $\VZ_{1,\alpha}(\PP^N|H,d)$ immediately pulls back along $i$ to give a recursion formula in $\VZ_{1,\alpha}(X|Y,\beta)$. \footnote{(Navid) Is it clear how to compute integrals over the pulled back classes?}
 
-
-\section{Quantum Lefschetz in genus one}
-
- Assume \footnote{(Luca) copied and pasted from my thesis} we want to compute $\langle\tau_{h_1}H^{k_1},\ldots,\tau_{h_1}H^{k_1}\rangle^{\PP^{N-1},\rm{red}}_{1,n,d}$ by writing it as $\frac{1}{d^2}(\psi_1^{\{n+1\}})^{h_1}H^{k_1}\cdots(\psi_n^{\{n+1\}})^{h_n}H^{k_n}\cdot[\VZ{(0,\ldots,0,d)}{\PP^N|H}{d}^\thicksim]$. Let me start from the recursion step $H_1\cdot[\VZ{(0,\ldots,0,d)}{\PP^N|H}{d}]=\ldots:$
- 
- \begin{description}
-  \item[$\mathcal Y_a$:] $d\ {\tikz[baseline=-3pt,scale=.7]{
-\draw (2,0) node[above]{$\{x_1,x_{n+1}\}$} -- (0,0)node[below]{$d$};
-\draw (2,0) circle(2pt)[fill=black];
-\draw (0,0) circle(2pt)[fill=white];
-\draw (-1,1.5) -- (1,1.5) -- (1,-1.5) -- (-1,-1.5) -- (-1,1.5);
-\draw (1,1.5) -- (3,2) -- (3,-1) -- (1,-1.5);
-}}$ contributes $\frac{1}{d}\psi_1^{h_1}H^{k_1}\cdots\psi_n^{h_n}H^{k_n}\cdot[\VZ{(d,\ldots,0)}{\PP^N|H}{d}]$; if this is the curve configuration, while there is any other marking at level one, then $\fgt_{n+1}$ has positive dimensional fibers; otherwise there must be another component of positive horizontal degree (these contributions are computed inductively on $d$);
-\item[$\mathcal Y_b$:] is an entirely rational story;
-\item[$\mathcal Y_c$:] {\tikz[baseline=-3pt,scale=.7]{
-\draw (2,0) node[above]{$\{x_1,\ldots,x_{n+1}\}$} node[below]{$d$};
-\draw (2,0) circle(2pt)[fill=white];
-\draw (-1,1.5) -- (1,1.5) -- (1,-1.5) -- (-1,-1.5) -- (-1,1.5);
-\draw (1,1.5) -- (3,2) -- (3,-1) -- (1,-1.5);
-}} is the term we are meant to compute, while all other terms will include a DRC integral of lower degree.
- \end{description}
-I shall look one step further into the recursion for computing $[\VZ{(0,\ldots,0,d)}{\PP^N|H}{d}]$: in order to do so consider the formula for $((d-1)\psi_{n+1}+H_{n+1})\cdot[\VZ{(0,\ldots,0,d-1,1)}{\PP^N|H}{d}]$. This produces:
-\begin{description}
-  \item[$\mathcal Y_a$:] $d\ {\tikz[baseline=-3pt,scale=.7]{
-\draw (2,0) node[above]{$\{x_{n+1},x_{n+2}\}$} -- (0,0)node[below]{$d$};
-\draw (2,0) circle(2pt)[fill=black];
-\draw (0,0) circle(2pt)[fill=white];
-\draw (-1,1.5) -- (1,1.5) -- (1,-1.5) -- (-1,-1.5) -- (-1,1.5);
-\draw (1,1.5) -- (3,2) -- (3,-1) -- (1,-1.5);
-}}$ this is the one we are after; while
-$(d-1){\tikz[baseline=-3pt,scale=.7]{
-\draw (2,.5) node[above]{$\{x_{k},x_{n+1}\}$} -- (0,0)node[below]{$d$};
-\draw (2,-.5) node[above]{$\{x_{n+2}\}$} -- (0,0);
-\draw (2,.5) circle(2pt)[fill=black];
-\draw (2,-.5) circle(2pt)[fill=black];
-\draw (0,0) circle(2pt)[fill=white];
-\draw (-1,1.5) -- (1,1.5) -- (1,-1.5) -- (-1,-1.5) -- (-1,1.5);
-\draw (1,1.5) -- (3,2) -- (3,-1) -- (1,-1.5);
-}}$ gives a lower tangency condition $[\VZ{(0,\ldots,d-1,\ldots,0)}{\PP^N|H}{d}]$; and all other terms have lower degree.
-\item[$\mathcal Y_c$:] {\tikz[baseline=-3pt,scale=.7]{
-\draw (2,0) node[above]{$\{x_1,\ldots,x_{n+1},x_{n+2}\}$} node[below]{$d$};
-\draw (2,0) circle(2pt)[fill=white];
-\draw (-1,1.5) -- (1,1.5) -- (1,-1.5) -- (-1,-1.5) -- (-1,1.5);
-\draw (1,1.5) -- (3,2) -- (3,-1) -- (1,-1.5);
-}} has positive dimensional fibers for $\fgt_{n+1,n+2}$, and all other terms have lower degree.
- \end{description}
- Finally, let me look one step further into the reduction of $[\VZ{(d,\ldots,0)}{\PP^N|H}{d}]$: we have $((d-1)\psi_1^{\{n+1\}}+H_1)\cdot[\VZ{(d-1,\ldots,0,1)}{\PP^N|H}{d}]=\ldots:$
- \begin{description}
-  \item[$\mathcal Y_a$:] $d\ {\tikz[baseline=-3pt,scale=.7]{
-\draw (2,0) node[above]{$\{x_{1},x_{n+1}\}$} -- (0,0)node[below]{$d$};
-\draw (2,0) circle(2pt)[fill=black];
-\draw (0,0) circle(2pt)[fill=white];
-\draw (-1,1.5) -- (1,1.5) -- (1,-1.5) -- (-1,-1.5) -- (-1,1.5);
-\draw (1,1.5) -- (3,2) -- (3,-1) -- (1,-1.5);
-}}$ is the one we care about;
-$(d-1)\ {\tikz[baseline=-3pt,scale=.7]{
-\draw (2,.5) node[above]{$\{x_{k},x_{1}\}$} -- (0,0)node[below]{$d$};
-\draw (2,-.5) node[above]{$\{x_{n+1}\}$} -- (0,0);
-\draw (2,.5) circle(2pt)[fill=black];
-\draw (2,-.5) circle(2pt)[fill=black];
-\draw (0,0) circle(2pt)[fill=white];
-\draw (-1,1.5) -- (1,1.5) -- (1,-1.5) -- (-1,-1.5) -- (-1,1.5);
-\draw (1,1.5) -- (3,2) -- (3,-1) -- (1,-1.5);
-}}$ has a lower number of markings (indeed $\psi_1^{\{n+1\}}$ and $\psi_k^{\{n+1\}}$ restrict to $0$ on this locus, and $\ev_1\equiv\ev_k$); while all other terms have lower degree.
-\item[$\mathcal Y_c$:] {\tikz[baseline=-3pt,scale=.7]{
-\draw (2,0) node[above]{$\{x_1,\ldots,x_{n+1}\}$} node[below]{$d$};
-\draw (2,0) circle(2pt)[fill=white];
-\draw (-1,1.5) -- (1,1.5) -- (1,-1.5) -- (-1,-1.5) -- (-1,1.5);
-\draw (1,1.5) -- (3,2) -- (3,-1) -- (1,-1.5);
-}} contributes $\frac{1}{d}\psi_1^{h_1}H^{k_1}\cdots\psi_n^{h_n}H^{k_n}\cdot[\VZ{(0,\ldots,0,d)}{\PP^N|H}{d}^\thicksim]$ so \emph{there is no cancellation}, while all other terms have lower degree.
- \end{description}
- To sum up, it is possible to determine the reduced genus one restricted invariants of $H$ in terms of those of $\PP^N$ and the genus zero theory, by induction on the degree, number of markings, and total tangency order.
-
 \bibliographystyle{alpha}
 \bibliography{Bibliography}
 
 \bigskip\bigskip
 
 \noindent Luca Battistella\\
-Department of Mathematics, Imperial College London \\
-\texttt{l.battistella14@imperial.ac.uk}\\
+Max-Planck-Institut f\"ur Mathematik, Bonn \\
+\href{mailto:battistella@mpim-bonn.mpg.de}{battistella@mpim-bonn.mpg.de}\\
 
 \noindent Navid Nabijou \\
-Department of Mathematics, Imperial College London \\
-\texttt{navid.nabijou09@imperial.ac.uk}\\
+School of Mathematics and Statistics, University of Glasgow \\
+\href{mailto:Navid.Nabijou@glasgow.ac.uk}{navid.nabijou@glasgow.ac.uk}\\
 
 \noindent Dhruv Ranganathan \\
-Department of Mathematics, Massachusetts Institute of Technology \\
-\texttt{dhruvr@mit.edu}
-
+DPMMS, University of Cambridge \\
+\href{mailto:dr508@cam.ac.uk}{dr508@cam.ac.uk}
 
 \end{document}
