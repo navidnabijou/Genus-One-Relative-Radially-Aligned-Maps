@@ -686,65 +686,7 @@ As usual the type $B$ and $C^0$ contributions are recursively known. The type $C
 
 \subsection*{Step 4} Finally, suppose we are given a special reduced rubber invariant to compute. So we have a reduced rubber space $\VZ_{1,\alpha}(P|Y_0+Y_\infty,\beta)_{\Gm}$ together with an insertion $\gamma$ satisfying the conditions outlined above. We first note that if there exists a relative marking with no insertion, we may forget this marking and identify the rubber invariant with a recursively-known absolute invariant (up to some boundary terms which can also be computed recursively). This approach will suffice for the majority of computations.
 
-If such a relative marking does not exist, we will instead compute the invariant by recursing on the following space:
-\begin{equation*} \VZ_{1,\alpha \cup (0,0)}(P|Y_0+Y_\infty,\beta)_{\Gm}. \end{equation*}
-We denote the newly-introduced markings by $x_0$ and $y$. Choose a negative-tangency marking $x_1$ and consider the insertion $\tilde\gamma$ obtained from $\gamma$ by replacing every $\ev_1^\st$ by $\ev_0^\st$ and introducing $\fgt_{x_1}^\st$ everywhere.
-
-Following \cite{EKatz}, there is a line bundle $L_{y}^{\neq\operatorname{bot}}$ equipped with a section whose vanishing locus $\Dcal(y)$ consists of boundary strata where the marking $y$ is not mapped into the bottom level of the expansion.\footnote{(Navid) Can we actually find a tropical description of this} The first Chern class of this line bundle is given by $\Psi_\infty + \ev_y^\st Y$ and $\Psi_\infty$ may be identified with $\alpha_2 \hat\psi_2 + \ev_2^\st Y$ where $x_2$ is any positive-tangency marking. Here $\hat\psi_2$ is a \emph{non-collapsed psi class} (recall that previously all our psi classes have been collapsed). Multiplying this by the insertion $\tilde\gamma \cdot \fgt_{x_1}^\st y$ we obtain:
-\begin{equation}\label{step 4 recursion} \left( \alpha_2 \hat\psi_2 + \ev_2^\st Y + \ev_y^\st Y \right) \tilde\gamma \cdot \fgt_{x_1}^\st \psi_y \cap [\VZ_{1,\alpha \cup (0,0)}(P|Y_0+Y_\infty,\beta)_{\Gm}] = \tilde\gamma \cdot \fgt_{x_1}^\st \psi_y \cap [\Dcal(y)].\end{equation}
-Start by examining the left-hand side; everything is pulled back along $\fgt_{x_1}$ except for $\hat\psi_2$. The difference between $\hat\psi_2$ and $\psi_2$ is given by the locus where $x_2$ belongs to a trivial bubble. In this case the curve must split into a number of pieces, and these are all known recursively except perhaps when all of the genus and degree is supported on one of these pieces $C^\prime$. When this happens we distinguish two cases, depending on whether $C^\prime$ is mapped into the top or the bottom piece of the expansion.
-
-In the former case, we have a special reduced rubber invariant with the same degree and strictly fewer relative markings, so this is recursively known. In the latter case we must have $x_1 \in C^\prime$ and since all the insertions are pulled back along $\fgt_{x_1}$ we may apply the projection formula to identify the contribution with an absolute invariant of $Y$. Note that this absolute invariant may have more than $n$ markings (since $n$ is only the number of \emph{relative} markings) but the structure of the recursion is such that we are assuming we have computed \emph{all} absolute invariants of $Y$ of degree $d$. So this term is recursively known.
-
-Thus, up to recursively known terms, we may replace $\hat\psi_2$ by $\psi_2$ in the left-hand side of \eqref{step 4 recursion}. In the same vein, the difference between $\psi_2$ and $\fgt_{x_1}^\st \psi_2$ is given by the locus where $x_1$ and $x_2$ are contained on a collapsed rational bubble. In this case the contribution of this locus is given by a special rubber invariant with $n-2$ relative markings, and hence is recursively known. So we may further replace $\psi_2$ by $\fgt_{x_1}^\st \psi_2$. Then the left-hand side of \eqref{step 4 recursion} has all its insertions pulled back along $\fgt_{x_1}$ and so we may apply the projection formula to identify this with a (recursively-known) absolute invariant of $Y$. Now examine the right-hand side. There is a locus where the curve breaks as follows
-\begin{center}
-\begin{tikzpicture}[scale=1]
-%edge
-\draw (0,0) to (2,0);
-\draw [color=blue] (1,0) node[below]{\tiny$\alpha_1$};
-
-%C_1
-\draw [fill=black] (0,0) circle[radius=3pt];
-\draw (0,-0.1) node[below]{\small$0$};
-
-%x_0
-\draw [->] (0,0) -- (0,1);
-\draw (0,0.9) node[left]{$x_0$};
-\draw [color=blue] (0,0.5) node[right]{\tiny$0$};
-
-%x_1
-\draw [->] (0,0) -- (-1.5,0);
-\draw (-1.5,0) node[above]{\small$x_1$};
-\draw [color=blue](-0.75,0) node[below]{\tiny$\alpha_1$};
-
-%y
-\draw [->] (2,0) -- (2,1);
-\draw (2,0.9) node[left]{$y$};
-\draw [color=blue] (2,0.5) node[right]{\tiny$0$};
-
-%C_0
-\draw [fill=white] (2,0) circle[radius=3pt];
-\draw (2,-0.1) node[below]{\small$\alpha_1$};
-
-%down arrow
-\draw [color=blue,->] (1,-0.5) -- (1,-0.9);
-
-%target
-\draw [color=blue] (0,-1) to (2,-1);
-\draw [fill=blue,color=blue] (0,-1) circle[radius=3pt];
-\draw [fill=blue,color=blue] (2,-1) circle[radius=3pt];
-\draw [color=blue,->] (2,-1) -- (3,-1);
-\draw [color=blue,->] (0,-1) -- (-1,-1);
-\end{tikzpicture}
-\end{center}
-with all other markings concentrated on the genus one piece. The contribution of this locus is given by
-\begin{equation*} \alpha_1 \cdot \psi_y \cdot \gamma \cap [\VZ_{1,\alpha\cup(0)}(P|Y_0+Y_\infty)]_{\Gm} \end{equation*}
-and by the dilaton equation for reduced rubber invariants (see \S \ref{}) we may identify this with a (nonzero) multiple of the invariant $I$ we are trying to compute (note that $\psi_y = \hat\psi_y$ because $y$ is a non-relative marking).
-
-Now consider the other loci which contribute to the right-hand side of \eqref{step 4 recursion}. Their contributions are recursively known except for when one of the curve pieces $C^\prime$ has degree $d$ and $n$ relative points. If $C^\prime$ is mapped to the bottom level of the expanded target, then we may apply the projection formula with $\fgt_{x_1}$ to identify the contribution with an absolute invariant of $Y$. If $C^\prime$ is mapped to the top level, then we must have $x_1$ contained in a collapsed rational bubble on the left-hand side. This bubble has at most three special points; any more and the projection formula with $\fgt_{x_1}$ will cause the contribution to vanish. Thus the bubble contains at most one non-relative marking.
-
-[DOESN'T SEEM LIKE WE CAN CONTROL THIS?]
-
+[TO BE FINISHED]
 
 \newpage
 
