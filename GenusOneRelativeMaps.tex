@@ -1,5 +1,5 @@
 \documentclass[11pt]{amsart}
-\linespread{1.25}
+%\linespread{1.25}
 \usepackage[margin=3.5cm]{geometry}
 
 \usepackage[noend,boxruled]{algorithm2e}
@@ -297,6 +297,219 @@
 
 \appendixtitletocoff
 \tableofcontents
+
+
+\section{Introduction}
+
+\noindent Gromov-Witten theory in genus zero has been studied intensely using a large assortment of techniques, many of which rely crucially on the remarkable geometry of the Kontsevich space of genus zero maps to projective space. On the other hand, the higher genus spaces have uncontrollable singularities, and an entirely different set of techniques must be appealed to. Indeed, much less is known in higher genus, though the last few years have seen remarkable progress. 
+
+\subsection{The transition point in genus one} The singularities of the space of maps in genus one are delicate, but understandable. Vakil and Zinger exhibited this by giving an explicit blowup algorithmic that desingularized the space of maps to projective space, giving rise to ``reduced’’ Gromov—Witten invariants, which are closer to enumerative counts~\cite{VZ}. Certain tools, such as localization and quantum Lefschetz, can thus be extended to genus one. However, there is as yet no degeneration formula for the Vakil—Zinger invariants. 
+
+Recently, a more conceptual and geometric understanding of Vakil and Zinger’s construction has come out of tropical geometry and logarithmic Gromov—Witten theory. Specifically, Ranganathan, Santos-Parker, and Wise give a modular interpretation of the construction and a deformation theoretic proof its smoothness by using the geometry of elliptic singularities~\cite{RSPW,RSPW2}. In this paper we seek an understanding of Vakil—Zinger invariants in relative geometries and the degeneration formula.
+
+\subsection{Results} Our first contribution is a definition and construction of relative reduced Gromov-Witten theory of projective space relative to a hyperplane. The geometric content is the following.
+
+\begin{customthm}{A}
+There exists a smooth and proper Deligne—Mumford stack giving a modular compactification for the space of genus $1$ maps to projective space with fixed contact order with a hyperplane. 
+\end{customthm}
+
+With regards to the degeneration formula, we pursue the strategy laid out by Vakil and Gathmann, building on work of Caporaso and Harris. We reinterpret and extend their methods using logarithmic geometry and tropical techniques. We present a recursive scheme to calculate the invariants of a hypersurface from the invariants of projective space. 
+
+\begin{customthm}{B}
+There is an explicit recursive algorithm to calculate the reduced genus one Gromov--Witten invariants of a hypersurface from that of the ambient variety. 
+\end{customthm}
+
+By standard virtual pullback techniques, virtual versions of our results apply for smooth ample pairs $(X,D)$.
+
+\subsection{Broader contributions} Beyond genus one, we pass through a number of seemingly useful general techniques. First, we explain how to describe degenerate moduli spaces as fiber products. This is substantially more delicate than the standard situation because of the need to work with elliptic singularities and aligned logarithmic structures. This interaction of the degeneration formula with the geometry of curve singularities is a new phenomenon. The results of~\cite{RSPW} suggest the existence of a reduced higher genus Gromov--Witten theory formed by replacing contracted elliptic components with singularities. The discussion here is likely to carry over to this setting.
+
+Second, a key step in our recursion is a description of the locus of maps with higher than prescribed tangency, which was identified by Gathmann. We realize the locus as the vanishing locus of a section of a line bundle that comes from tropical geometry — from a piecewise linear function on the fan. The systematic understanding of logarithmic line bundles arising in this fashion is likely to play an important in logarithmic enumerative geometry.
+
+Our analysis leads naturally to a study of a ``main component’’ double ramification cycle for target manifolds in genus one. The virtual geometry of this was studied in recent work of Janda, Pandharipande, Pixton, and Zvonkine~\cite{DRCBundle}. We do not know how to calculate an expression for this main component contribution but we repurpose Maulik and Pandharipande’s rubber calculus techniques, and relations coming from the stack of target expansions, to complete our recursion. We note that even in genus one, an understanding of the main component contributions of the double ramification cycle for target manifolds would be interesting.
+
+Finally, we note that our results require us to encounter several variants of the space of relative/logarithmic stable maps, with both fixed and expanded target. The conceptual features of one space are often computational bugs, and vice versa, and we believe that the techniques developed in the genus one case here will be used repeatedly in logarithmic Gromov--Witten theory calculations. In particular, we use frequently use Kato's perspective on logarithmic blowups as subfunctors that was applied in~\cite{RSPW,RSPW2}. 
+
+\section{The moduli space and its deformation theory}
+
+Let $\mathfrak M_{1,n}$ be the logarithmic algebraic stack of genus $1$ $n$-pointed prestable curves. Let $\plC$ be a $n$-pointed genus $1$ tropical curve. Let $C$ be a logarithmic curve over $S$, let $\plC$ denote its tropicalization, and let $\lambda$ be the section of $\overline{M}_{C/S}$ giving the distance from the circuit. 
+
+We begin by recalling the logarithmic moduli spaces of genus $1$ curves constructed in~\cite[Sections 2 \& 4]{RSPW}. Given a family of tropical curves over a base $\sigma$, a central alignment is a piecewise-linearly varying choice of radius $\delta_s$ for $s\in\sigma$, together with a consistent ordering of the vertices that lie inside the circle of radius $s$ around the circuit components. Precisely, let $T$ be a geometric point with logarithmic structure.
+
+\begin{definition}
+A \textbf{central alignment} of $C/T$ is an element $\delta\in\overline{M}_S$ such that
+\begin{enumerate}
+    \item the section $\delta$ is comparable to $\lambda(v)$ for all vertices $v$ of $\plC$,
+    \item for any pair of vertices $v$ and $w$ at distance less than $\delta$, the sections $\lambda(v)$ and $\lambda(w)$ are comparable.
+\end{enumerate}
+\end{definition}
+
+The moduli stack $\mathfrak M_{1,n}^{\mathrm{cen}}$ is a logarithmic algebraic stack in the smooth topology. The main construction of~\cite{RSPW} canonically associates to any radially aligned family of curves $\mathcal C_S$ a partial destabilization $\widetilde{\mathcal C_S}$ and a contraction
+\[
+\widetilde{\mathcal C_S}\to \overline{\mathcal C_S},
+\]
+where $\overline{\mathcal C_S}$ is a Gorenstein elliptic singular curve. The number of branches is equal to the number of excident edges at the circle of radius $\delta$. This data uniquely determines the singularity.
+
+The space of stable maps $\overline{\mathcal M}^{\mathrm{cen}}_{1,n}(\mathbb P^N,d)$ from the universal nodal curve $\mathcal C$ over the stack $\mathfrak M_{1,n}^{\mathrm{cen}}$ is a proper and algebraic, with projective coarse moduli. The \textbf{factorization condition} that the map $\mathcal C\to \mathbb P^N$ factors through the contraction $\widetilde{\mathcal C}\to \overline{\mathcal C}$ is a closed condition. 
+\begin{thm}[{\cite[Theorem B]{RSPW}}]
+The substack $\mathcal{VZ}_{1,n}(\mathbb P^N,d)$ of $\overline{\mathcal M}^{\mathrm{cen}}_{1,n}(\mathbb P^N,d)$ parameterizing maps to $\mathbb P^N$ that satisfy the factorization property is smooth and proper of the expected dimension.
+\end{thm}
+
+\subsection{Relative geometry: compactification} Fix $H\subset \mathbb P^N$ be a hyperplane. Let $\alpha$ be a partition of the degree $d$. Consider the moduli space $\mathcal M_{1,\alpha}^\circ(\mathbb P^N|H)$ of maps from smooth elliptic curves $C\to \mathbb P^N$ that meet $H$ at finitely many marked points with vanishing orders given by the partition $\alpha$. This is a smooth non-compact Deligne--Mumford stack. 
+
+We will first compactify the space described above, and then desingularize it. For the compactification, we begin with Abramovich--Chen--Gross--Siebert's space of logarithmic stable maps, though we will typically work with various subcategories and variants. 
+
+The moduli space $\overline{\mathcal{M}}^{\operatorname{log}}_{1,\alpha}(\mathbb P^N|H)$ is a fibred category over logarithmic schemes, whose fiber over $(S,M_S)$ is the groupoid of logarithmic curves of genus $1$ over $(S,M_S)$ equipped with a map to $\mathbb P^N$ of degree $d$ and contact order $\alpha$. It is a fundamental fact in the subject that this category is representable by a proper algebraic stack with logarithmic structure. 
+
+There is a representable finite logarithmic morphism to the Kontsevich space, forgetting the logarithmic structure on the target:
+$$
+\overline{\mathcal M}^{\mathrm{log}}_{1,\alpha}(\mathbb P^N|H) \to \overline{\mathcal M}_{1,n}(\mathbb P^N,d).
+$$
+The space of centrally aligned maps is a logarithmic modification
+$$
+\overline{\mathcal M}^{\mathrm{cen}}_{1,n}(\mathbb P^N,d)\to\overline{ \mathcal M}_{1,n}(\mathbb P^N,d)
+$$ 
+The fiber product leads to a fourth moduli space of \textbf{centrally aligned logarithmic maps to $(\mathbb P^n,H)$}, which we denote $\widetilde{\mathcal{VZ}}_{1,\alpha}(\mathbb P^N|H)$.
+
+
+\subsection{Relative geometry: expansions} Our next task is to pick out a non-singular principal component in $\widetilde{\mathcal{VZ}}_{1,\alpha}(\mathbb P^N|H)$. The principal component of this space, consisting of the closure of the space of maps from nonsingular curves, maps into the principal component of $\overline{\mathcal M}^{\mathrm{cen}}_{1,n}(\mathbb P^N,d)$. Indeed, smoothable logarithmic maps are, in particular, smoothable as ordinary maps. However, an additional condition is required to isolate the principal component of the space of logarithmic maps. 
+
+In order make the obstruction theory more geometric, we expand the target. To elucidate the connection with the static target, consider a logarithmic stable map $[C\to (\mathbb P|H)]$ over $\mathrm{Spec} \ (\mathbb N\to \mathbb C)$. At the level of tropicalizations, we have a map of fans
+\[
+\plC\to \mathbb R_{\geq 0}.
+\]
+Choose a subdivision of $\mathbb R_{\geq 0}$ whose vertices consist of the images of vertices of $\plC$. Pull this subdivision back to $\plC$ by marking all preimages of the vertices of $\mathbb R_{\geq 0}$. Denote the resulting map $\widetilde \plC \to \widetilde{\mathbb R}_{\geq 0}$. 
+
+These subdivisions induce logarithmic modifications
+\[
+\widetilde C\to \mathbb P^N[s],
+\]
+see~\cite{AW}. Here the latter is the $s$-times iterated deformation to the normal cone of $H$ in $\mathbb P^N$. The number of components is equal to the number of vertices in $\widetilde{\mathbb R}_{\geq 0}$. The curve is modified by adding rational components corresponding to the newly introduced vertices.
+
+The result is a logarithmic stable map to an expanded target $\mathbb P^N[s]$, together with a contraction to the main target component $\mathbb P^N[s]\to\mathbb P^N$. More generally, this construction is easily modified for any family of logarithmic maps, such that the vertices of $\plC$ are totally ordered in the family, see~\cite{} for details.
+
+Globally, Kim constructs a moduli space of logarithmic stable maps to expanded degenerations, which on logarithmic points, reduces to the above construction~\cite{KimLog}. Indeed, by above description, Kim's space is identified with a subcategory of the Abramovich--Chen--Gross--Siebert space, and its minimal objects are identified with a logarithmic modification of the unexpanded space.
+
+\subsection{Relative geometry: factorization} Let $[C\to \mathbb P^N[s]\to \mathbb P^N]$ be a logarithmic map from a centrally aligned curve to an expansion. Recall that $\mathbb P^N[s]$ consists of a union of $\mathbb P^N$ with the projective bundle $\mathbb P(\mathcal O\oplus \mathcal O(1))$. We refer to these latter components as \textbf{the higher levels}. Thus, we will say that subcurve $D\subset C$ maps to \textbf{higher level} if the collapsed map
+\[
+D\to \mathbb P^N
+\]
+is contained in $H\subset \mathbb P^N$. 
+
+Let $D_1\subset C$ be the maximal genus $1$ subcurve that is mapped to higher level contracted by the map $C\to \mathbb P^N[s]$ in the fiber direction. Let $\delta_1$ be the associated radius from the circuit to the nearest non-contract component. Let $D_2$ be the maximal genus $1$ subcurve that is contracted by the collapsed map to $\mathbb P^N$, and let $\delta_2$ be the associated radius. This coincides with the radius of the underlying map to $\mathbb P^N$. Of course, $\delta_1\leq \delta_2$.
+
+The datum $(\delta_1,\delta_2)$ determines a destabilization $\widetilde C$ of $C$ together with successive contractions $\widetilde C\to \overline C_1\to\overline C_2$. Keeping this definition, we come to the key definition.
+
+\begin{definition}
+The map $[C\to \mathbb P^N[s]\to \mathbb P^N]$ \textbf{factorizes completely} if
+\begin{itemize}
+\item the map $C\to \mathbb P^N[s]$ factors through $\overline C_1$ such that at least one branch of $\overline C_1$ has positive degree in the fiber direction. 
+\item the collapsed map to $\mathbb P^N$ factorizes through $\overline C_2$ such that at least one branch of $\overline C_2$ has positive degree.
+\end{itemize}
+\end{definition}
+
+In particular, if $[C\to \mathbb P^N[s]\to \mathbb P^N]$ is a family of centrally aligned maps over $S$ that factorizes completely, there is a forgetful moduli map $S\to \mathcal{VZ}_{1,n}(\mathbb P^N,d)$, to the principal component of the space of absolute maps.
+
+Let $\mathcal{VZ}_{1,\alpha}(\mathbb P^N|H)$ be stack of maps from centrally aligned curves to expansions of $\mathbb P^N$ that factorize completely.
+
+\begin{thm}\label{thm: log-smoothness}
+The stack $\mathcal{VZ}_{1,\alpha}(\mathbb P^N|H)$ is proper and logarithmically non-singular over $\mathrm{Spec} \ \mathbb C$. 
+\end{thm}
+
+\begin{proof}
+We prove the results via the forgetful morphism
+$$
+\nu: \mathcal{VZ}_{1,\alpha}(\mathbb P^N|H)\to \mathcal{VZ}_{1,n}(\mathbb P^N,d),
+$$
+which remembers only the stabilization of the collapsed map. The map is certainly centrally aligned, and we have already argued above that it satisfies the factorization property for $\mathbb P^N$ after composition. The morphism $\nu$ is in fact proper: the verification for the valuative criterion is the essential content of Vakil's Lemma~\cite[Lemma~5.9]{Vak}, and a detailed proof may be found in~\cite[Theorem~4.3]{RSPW}.
+
+We come to logarithmic smoothness. Assume first that the elliptic curve maps into higher level. Note that the relative logarithmic tangent bundle of the expansion, over the base $\mathbb P^N$ is a trivial line bundle of rank $1$, as the fibers are toric. Consider an $S$-family of maps. After replacing the source $C$ by a destabilization, we have maps
+\[
+C\to \overline{C}_1\to\overline{C}_2\to \mathbb P^N[s]\to \mathbb P^N
+\]
+factorizing completely. Let $f_B$ and $f_T$ be the maps from $C$ to the base and total space respectively. Examining the morphism $\nu$, we see that there is a map
+\[
+\mathrm{Def}(C,f_B)\to \mathrm{Obs}(f_T) = H^1(\overline{C}_1,\mathcal O_{\overline{C}_1}),
+\]
+where the former is the space of deformations of the curve and map to the base, as a factorized centrally aligned map. The latter is the space of obstructions to lifting a map to the base into the total space. The cokernel of this map are the absolute obstructions, which we will show vanishes, proving logarithmic smoothness.
+
+We recall how the group $H^1(\overline{C}_1,\mathcal O_{\overline{C}_1})$ functions as the obstruction group for the lifting. It suffices to work near the minimal grnus $1$ subcurve $D_1$ of $C_1$, since the rest of the curve is rational. This lifting is given by a rational function with prescribed orders of poles given by the slopes of the tropicalization map. That is, if $\alpha$ be the piecewise linear function giving this tropical map, then the lifting is described by a section of the associated bundle $\mathcal O_{C_1}(-\alpha)$.
+
+Given a strict square-zero extension $S'$ of $S$, the piecewise linear function $\alpha$ extends uniquely by strictness to any deformation of the curve. The resulting deformation of $\mathcal O_{C_1}(-\alpha)$ produces an infinitesimal deformation of the trivial bundle in the Picard group, whose class in $H^1(\overline{C}_1,\mathcal O_{\overline{C}_1})$, is the obstruction to deformation. We will show that it is possible to choose a deformation of $(C,f_B)$ that cancels out the obstruction to lifting to $f_T$, and thus the map to the obstruction space above is surjective. 
+
+The line bundle $\mathcal O_{C_1}(-\alpha)$ is equivalent to the divisor $\sum a_i x_i$ where $x_i$ are the points connecting $D_1$ to the rest of the curve, and $a_i$ are the slopes of $\alpha$ along the edges corresponding to the $x_i$. Infinitesimally moving the point $x_i$ is a deformation of the curve that is unobstructed by the map $f_B$, since the map is constant on the interiors of the circuits. By deforming the $x_i$, at least one of which is nonzero, we produce a one-dimensional space of obstructions. The absolute obstructions therefore vanish, since they are the cokernel of a surjective map, so the result follows.  
+%Consider an $S$-family of expanded maps $[F: C\to \mathbb P^N[s]$. Choose $N$ generic hyperplanes in and let $\Delta = \{H\}\cup\{H_1,\ldots,H_N}$ be this set of hyperplanes. There is a morphism of logarithmic schemes $(\mathbb P^N,\Delta)\to (\mathbb P^N,H)$. This induces a new expansion $\mathbb P^N[\Delta,s]$. Moreover, by the genericity of the $H_i$, they each intersect the image of $C$ in finitely many reduced points. Pulling back the logarithmic structure, we obtain a new logarithmic map 
+%\[
+%F': C'\to \mathbb P^N[\Delta,s].
+%\]
+%We make two observations. First, since the logarithmic structure on $C'$ is strict away from $H$, unobstructedness of deformations for $F'$ is equivalent to unobstructedness for $F$. Second, the target degeneration is now a toric degeneration, and the logarithmic tangent bundle is trivial.
+
+\end{proof}
+
+The above theorem guarantees that the singularities of the space of totally factorized maps to expansions is logarithmically smooth. In fact, one can say more in this case.
+
+\begin{cor}
+The logarithmically smooth stack $\mathcal{VZ}_{1,\alpha}(\mathbb P^N|H)$ has at worst orbifold singularities, and consequently admits a non-representable cover by a smooth Deligne--Mumford stack.
+\end{cor}
+
+\begin{proof}
+Since $\mathcal{VZ}_{1,\alpha}(\mathbb P^N|H)$ is logarithmically smooth, it will suffice to show that the cones of its tropicalization are simplicial. To see this, consider a logarithmic stable map to an expansion $C\to \mathbb P^N[s]$ without a central alignment. The tropical moduli cone obtained as the dual of the minimal base monoid can be identified with $\mathbb R_{\geq 0}^{s}$, see for instance~\cite[Section~2.2]{ChenDegeneration}. The alignment procedure is an iterated barycentric subdivision at the level of tropical moduli spaces, as explained in~\cite[Section 4.6]{RSPW}, and such subdivisions preserve the property of being simplicial. We conclude from this that the blowup $\widetilde{\mathcal{VZ}}^{\mathrm{exp}}_{1,\alpha}(\mathbb P^N|H)$ obtained by centrally aligning Kim's spaces has simplicial cones. Finally, the morphism $\mathcal{VZ}_{1,\alpha}(\mathbb P^N|H)\to \widetilde{\mathcal{VZ}}^{\mathrm{exp}}_{1,\alpha}(\mathbb P^N|H)$ is strict, so the cones of $\mathcal{VZ}_{1,\alpha}(\mathbb P^N|H)$ are simplicial, as claimed.
+\end{proof}
+
+\subsection{Stratification} The logarithmic smoothness established in Theorem~\ref{thm: log-smoothness} implies that $\mathcal{VZ}_{1,\alpha}(\mathbb P^N|H)$ is an orbifold toroidal embeddeding. Consequently, the irreducible components of its boundary and their intersections form a stratification of the space. This stratification will be important in the sequel. 
+
+The tropicalizations of logarithmic maps that factorize completely satisfy a natural combinatorial condition known as well-spacedness. The version we use here is essentially identical to~
+\cite{RSPW2}. 
+
+\begin{definition}
+Let $\plC$ be a tropical curve of genus $1$ and let $\plC_0$ be its minimal subcurve of genus $1$. A tropical map $F: \plC\to \mathbb R_{\geq 0}$ is said to be \textbf{well-spaced} if one of the following two conditions are satisfied:
+\begin{enumerate}
+    \item no open neighborhood of $\plC_0$ is contracted to a point in $\mathbb R_{>0}$, or
+    \item if an open neighborhood of $\plC_0$ is contracted and $t_1,\ldots,t_k$ are the vertex-edge direction flags whose vertex is mapped to $F(\plC_0)$, but along which $F$ has nonzero slope; then, the minimum of the distances from $\plC_0$ to $t_i$ occurs for at least two indices $i$.
+\end{enumerate}
+\end{definition}
+
+\begin{prop}\label{prop: well-spaced}
+Let $[C\to \mathbb P^N]$ be a logarithmic stable map from a centrally aligned curve to an expansion, that factorizes completely. Then the tropicalization $\plC\to \mathbb R_{\geq 0}$ is well-spaced.
+\end{prop}
+
+\begin{proof}
+The required result is essentially contained in~\cite[Section 4]{RSPW2}, so we explain how to deduce the requisite result from the one in loc. cit. We may focus on a single component of the expansion $\mathbb P^N[s]$ that contains the image of a contracted genus $1$ subcurve, as this is the only relevant case. We may thus replace the target with the projective bundle $\mathbb P(\mathcal O(1)\oplus \mathcal O)$ over $\mathbb P^{N-1}$ equipped with the divisorial logarithmic structure from the $0$ and $\infty$ sections. Let $p$ be the point to which the genus $1$ subcurve is contracted. Passing to an open neighborhood of $p$, the map to the bundle is given by a rational function $f$ on an open curve $C^\circ$, determined by the the subgraph formed by $\plC_0$ and the flags $t_i$ described in the definition above. To describe the tropical map to $\mathbb R_{>0}$, we observe that $\plC_0$ is contracted to a fixed point $q\in\mathbb R_{>0}$. The flags at the vertex bases at $t_i$ correspond to nodes or markings of $C$. The pole orders of $f$ at these distinguished points determine the slopes of the tropical map. We are now exactly in the situation considered in~\cite[Second Paragraph of Section~4.6]{RSPW2}, and Lemma~4.6.1 of loc. cit. guarantees the well-spacedness as required.
+\end{proof}
+
+\subsubsection{The cone complex} To understand the stratification via combinatorial data, we will build the straification from known objects. 
+
+\noindent
+\textbf{Step 1}. Let $\Sigma^{\mathrm{log}}$ be the tropical moduli space of genus $1$ tropical stable maps to $\mathbb R_{\geq 0}$. This is naturally identified with the tropicalization (in the logarithmic sense) of the Abramovich--Chen--Gross--Siebert space of logarithmic stable maps to the pair $(\mathbb P^N,H)$. \\
+
+\noindent
+\textbf{Step 2}. Given such a tropical stable map, we may subdivide $\mathbb R_{\geq 0}$ such that the image of every vertex of $\plC$ is a vertex of $\mathbb R_{\geq 0}$. Call this subdivision $\widetilde{\mathbb R}_{\geq 0}$. The preimages of vertices of the subdivision form a subdivision of $\plC$. After this procedure, the vertices of $\plC$ with positive image are totally ordered in a manner extending the partial order obtained from the map to $\mathbb R_{\geq 0}$. The combinatorial types of such \textbf{ordered} maps produce the cones of a subdivision of $\Sigma^{\mathrm{log}}$ which we denote $\Sigma^{\mathrm{Kim}}$.\\
+
+\noindent
+\textbf{Step 3}. Given a tropical map $F: \plC\to \mathbb R_{\geq 0}$ parameterized by $\Sigma^{\mathrm{Kim}}$, there is a largest radius $\delta$ (possible equal to $0$) such that every vertex strictly contained in the circle of radius $\delta$ around the core is contracted to a point in $\mathbb R_{>0}$. Let $
+\Sigma^{\mathrm{cen}}$ be the subdivision obtained by requiring that the vertices contained with the circle of radius $\delta$ around the core of $\plC$ are totally ordered. \\
+
+\noindent
+\textbf{Step 4}. Let $
+\Sigma_{1,\alpha}(\mathbb P^N|H)$ be the subcomplex of $\Sigma^{\mathrm{cen}}$ obtained by passing to the subcomplex of $\Sigma^{\mathrm{cen}}$ that consists of well-spaced tropical maps.
+
+\begin{prop}
+The cone complex $
+\Sigma_{1,\alpha}(\mathbb P^N|H)$ is the fan of the toroidal embedding $
+\mathcal{VZ}_{1,\alpha}(\mathbb P^N|H)$. In particular, the codimension $k$ strata of $
+\mathcal{VZ}_{1,\alpha}(\mathbb P^N|H)$ are in inclusion reversing bijection with the dimension $k$ cones in $
+\Sigma_{1,\alpha}(\mathbb P^N|H)$.
+\end{prop}
+
+\begin{proof}
+The construction above has been given to mimic the construction of the space $
+\mathcal{VZ}_{1,\alpha}(\mathbb P^N|H)$. Specifically, the fact that cone complex $\Sigma^{\mathrm{cen}}$ is the cone complex attached to the logarithmic stack $\widetilde{\mathcal{VZ}}_{1,\alpha}(\mathbb P^N|H)$ of centrally aligned maps to expansions, follows immediately from its description as a subcategory of the fibered category (over logarithmic schemes) of $\mathcal M^{\mathrm{log}}_{1,\alpha}(\mathbb P^N|H)$. To complete the result, we note that $
+\mathcal{VZ}_{1,\alpha}(\mathbb P^N|H)$ has a strict map to $
+\mathcal{VZ}_{1,\alpha}(\mathbb P^N|H)$, so its cone complex is a subcomplex of $\Sigma^{\mathrm{cen}}$. The fact that it must be contained in the subcomplex of well-spaced curves is immediate from Proposition~\ref{prop: well-spaced}.
+\end{proof}
+
+\subsection{Rubber variants} In our implementation of the relative theory, we will need the naturally ``rubber'' variant of the space of maps $
+\mathcal{VZ}_{1,\alpha}(\mathbb P^N|H)$, where the entire curve is mapped into higher levels. 
+
 
 \newpage
 
