@@ -1246,9 +1246,12 @@ Now let $(X|Y)$ be a smooth pair with $Y$ very ample. The complete linear system
 \VZ_{1,n}(X,\beta) \ar[r,"i"] & \VZ_{1,n}(\PP^N,d).
 \ecd
 \end{lemma}
+\begin{proof} It is clear from the modular description that this square is cartesian in the category of fs log stacks. But the morphism $i$ is strict, which implies that the square is also cartesian in the category of coherent log stacks. Since fibre products in the latter category are compatible with the functor forgetting log structures, the claim follows.\end{proof}
+
+
 Since $\VZ_{1,n}(\PP^N,d)$ is smooth and $\VZ_{1,n}(X,\beta)$ carries a natural virtual class, there is a diagonal pull-back morphism which we use to define the virtual class on the space of maps to $(X|Y)$:
 \begin{equation*} \virt{\VZ_{1,\alpha}(X|Y,\beta)} := i_\Delta^! [\VZ_{1,\alpha}(\PP^N|H,d)]. \end{equation*}
-The recursion formula in $\VZ_{1,\alpha}(\PP^N|H,d)$ immediately pulls back along $i$ to give a recursion formula in $\VZ_{1,\alpha}(X|Y,\beta)$. \footnote{(Navid) Is it clear how to compute integrals over the pulled back classes?}
+The recursion formula in $\VZ_{1,\alpha}(\PP^N|H,d)$ immediately pulls back along $i$ to give a recursion formula in $\VZ_{1,\alpha}(X|Y,\beta)$.
 
 \bibliographystyle{alpha}
 \bibliography{Bibliography}
