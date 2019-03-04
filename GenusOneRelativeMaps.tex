@@ -686,59 +686,59 @@ As usual the type $B$ and $C^0$ contributions are recursively known. The type $C
 
 \subsection*{Step 4} Finally, consider a rubber space $\VZ_{1,\alpha}(P|Y_0+Y_\infty,\beta)_{\Gm}$ with insertion $\gamma$. Suppose inductively that we have computed all absolute and relative invariants with $d^\prime \leq d$ and all rubber invariants with $(d^\prime,n^\prime,m^\prime) < (d,n,m)$.
 
-We first note the following important reduction: if there exists a relative marking $x_k$ such that all insertions are pulled back along $\fgt_{x_k}$, then we may apply the projection formula, together with the fact that
-\begin{equation*} (\fgt_{x_k})_\st [\VZ_{1,\alpha}(P|Y_0+Y_\infty,\beta)_{\Gm}] = \alpha_k^2 \cdot [\VZ_{1,n+m-1}(Y,\beta)] \end{equation*}
+We first note the following important reduction: if there exists a relative marking $x_k$ such that all insertions are pulled back along $\fgt_{k}$, then we may apply the projection formula, together with the fact that
+\begin{equation*} (\fgt_{k})_\st [\VZ_{1,\alpha}(P|Y_0+Y_\infty,\beta)_{\Gm}] = \alpha_k^2 \cdot [\VZ_{1,n+m-1}(Y,\beta)] \end{equation*}
 to identify the rubber invariant with a multiple of a reduced invariant of $Y$, which has the same degree and hence is known recursively.
 
 We will deal with the general case by reducing to the one above. Consider the moduli space
-\begin{equation*} \VZ_{1,\alpha\cup (0)}(P|Y_0+Y_\infty,\beta)_{\Gm}\end{equation*}
-obtained by introducing a marked point $y$ with no tangency. Let $x_1$ be a positive-tangency marking (such a marking always exists since $d \geq 2$) and let $\tilde\gamma$ be the insertion obtained from $\gamma$ by replacing $\ev_1$ and $\psi_1$ by $\ev_y$ and $\psi_y$, and then introducing $\fgt_{x_1}^\st$ everywhere. Following \cite{EKatz}, there is a line bundle $L_y^{\not\in \operatorname{bot}}$ together with a section $s_y^{\not\in\operatorname{bot}}$ whose vanishing locus consists of the locus $\Dcal(y)$ of maps where $y$ is not mapped into the bottom level of the expanded target. As in \S \ref{}, we can give a logarithmic interpretation of this data: it corresponds to the piecewise-linear function on the tropical moduli space which associates, to every rubber tropical map, the distance between $\varphi(\sqC_y)$ and the leftmost vertex of the tropical target, where $\sqC_y$ is the vertex of the source curve containing the flag corresponding to $y$. Using this tropical description, we may easily calculate the vanshing orders of $s_y^{\not\in\operatorname{bot}}$ along the various components of $\Dcal(y)$. Moreover we may use this description to show (see also \cite{EKatzLB}) that $\cchern_1(L_y^{\not\in\operatorname{bot}}) = \Psi_0 - \ev_y^\st Y$, from which we conclude
-\begin{equation}\label{step 4 recursion} (\Psi_0 - \ev_y^\st Y) \tilde\gamma \cap [VZ_{1,\alpha\cup(0)}(P|Y_0+Y_\infty,\beta)_{\Gm}] = \tilde\gamma \cap [\Dcal(y)]\end{equation}
-where the fundamental class $[\Dcal(y)]$ is weighted by vanishing orders. We will first show that the left-hand side is recursively known. By construction the class $\tilde\gamma$ is pulled back along $\fgt_{x_0}$, and the same is true for $\ev_y^\st Y$. Let us examine $\Psi_0$. If there exists a negative-tangency marking $x_2$, then we have \cite{GathmannThesis}
-\begin{equation*} \Psi_0 = -\alpha_2 \hat\psi_2 - \ev_2^\st Y \end{equation*}
-where $\hat\psi_2$ is a \emph{non-collapsed} psi class. (If there are no negative-tangency markings then the construction \cite[\S 1.5.2]{MaulikPandharipande} gives $\Psi_0=0$.)
-\newpage
+\begin{equation*}\label{step 4 recursion space} \VZ_{1,\alpha\cup (0)}(P|Y_0+Y_\infty,\beta)_{\Gm}\end{equation*}
+obtained by introducing a marked point $y$ with no tangency. Let $x_1$ be a positive-tangency marking (such a marking always exists since $d \geq 2$) and let $\tilde\gamma$ be the insertion obtained from $\gamma$ by replacing $\ev_1$ and $\psi_1$ by $\ev_y$ and $\psi_y$, and then introducing $\fgt_{1}^\st$ everywhere.
 
-\section{Recursion procedure for reduced rubber integrals} \footnote{(Navid) To be superseded by general recursion section} In the recursion above, certain terms appear which are integrals over moduli spaces of reduced log stable maps to rubber (as defined in \S \ref{}):
-\begin{equation*}\VZ_{1,\alpha}(P|H_0+H_\infty)_{\Gm}.\end{equation*}
-In this section we provide a recursive algorithm for computing such integrals. We have three main techniques at our disposal: direct comparison with the double ramification cycle, forgetting of a marking with no insertion, and rubber recursion. Each technique has its own domain of applicability, and these domains have non-trivial intersection. For convenience we denote the \textbf{horizontal degree} of the rubber map by:
-\begin{equation*} d := \sum_{i=1}^n \alpha_i .\end{equation*}
-Recall that the $\alpha_i$ may be positive or negative (recording tangencies with respect to $H_\infty$ and $H_0$, respectively) and that $d \geq 0$ always. First suppose that $d=0$. Then the usual rubber moduli space decomposes as
-\begin{equation*} \MLog_{1,\alpha}(P|H_0 + H_\infty)_{\Gm} = \MLog_{1,\alpha}(\PP^1|0+\infty)_{\Gm} \times H \end{equation*}
-and the first term on the right-hand side is birational to the double ramification locus in $\ol\Mcal_{1,n}$. This locus has a main component (the closure of the locus of smooth curves) and one other ``exceptional'' component, consisting of split curves where all the markings belong to the rational tail. The corresponding reduced rubber space is birational to the main component, and thus we can identify its class by subtracting off the class of the exceptional component. This gives
-\begin{equation*} \pi_\st [\VZ_{1,\alpha}(P|H_0+H_\infty)_{\Gm}] = \left( [\ol\Mcal_{1,n}^\alpha] - [D] \right) \times [H] \in \Achow_\st ( \ol\Mcal_{1,n} \times H ) = \Achow_\st ( \ol\Mcal_{1,n}(H,0) ) \end{equation*}
-where $\pi \colon \VZ_{1,\alpha}(P|H_0+H_\infty)_{\Gm} \to \ol\Mcal_{1,n}(H,0)$ is the map which forgets the log structure and collapses the map, $D$ is the boundary locus of split curves described above, and $[\ol\Mcal_{1,n}^\alpha]$ is the classical double ramification cycle, which has an explicit formula in terms of tautological classes \cite{Hain,JPPZ}. These observations allow us to compute the integral over the rubber space as a tautological integral on the moduli space of curves.
+We will make use of a recursion formula for rubber spaces analogous to the recursion formula for relative spaces used in Steps 1--3. Following \cite{EKatz}, there is a line bundle $L_y^{\not\in \operatorname{bot}}$ on $\VZ_{1,\alpha\cup (0)}(P|Y_0+Y_\infty,\beta)_{\Gm}$, together with a section $s_y^{\not\in\operatorname{bot}}$ whose vanishing locus consists of the locus $\Dcal(y)$ of rubber maps where $y$ is not mapped into the bottom level of the expanded target. As in \S \ref{}, we can give a logarithmic interpretation of this: it corresponds to the piecewise-linear function on the tropical moduli space which associates, to every rubber tropical map, the distance between $\varphi(\sqC_y)$ and the leftmost vertex of the tropical target, where $\sqC_y$ is the vertex of the source curve containing the flag corresponding to $y$. Using this tropical description, we may easily calculate the vanshing orders of $s_y^{\not\in\operatorname{bot}}$ along the various components of $\Dcal(y)$, and show that $\cchern_1(L_y^{\not\in\operatorname{bot}}) = \Psi_0 - \ev_y^\st Y$ (see also \cite{EKatzLB}, where similar results in the non-reduced setting are obtained, using different methods). From this, we obtain a rubber recursion formula
+\begin{equation}\label{step 4 recursion} (\Psi_0 - \ev_y^\st Y) \tilde\gamma \cap [\VZ_{1,\alpha\cup(0)}(P|Y_0+Y_\infty,\beta)_{\Gm}] = \tilde\gamma \cap [\Dcal(y)]\end{equation}
+where the fundamental class $[\Dcal(y)]$ is weighted by vanishing orders on the components. We will first show that the left-hand side is recursively known. By construction the class $\tilde\gamma$ is pulled back via $\fgt_{1}^\st$, and the same is true for $\ev_y^\st Y$. It remains to examine $\Psi_0$. If there exists a negative-tangency marking $x_2$, then we have \cite[Construction 5.1.17]{GathmannThesis}
+\begin{equation*}\label{Psi0 formula} \Psi_0 = -\alpha_2 \hat\psi_2 - \ev_2^\st Y \end{equation*}
+where $\hat\psi_2$ is a \emph{non-collapsed} psi class. (If there are no negative-tangency markings, then the construction given in \cite[\S 1.5.2]{MaulikPandharipande} shows that $\Psi_0=0$.) Now, $\hat\psi_2 - \psi_2$ is given by the loci where $x_2$ belongs to a trivial bubble. This entails a splitting of the curve into pieces, each of which contributes a rubber integral. Typically each of these pieces will have $(g^\prime,d^\prime,n^\prime,m^\prime) < (1,d,n,m)$ and hence be recursively known. The one exception is when all of the genus and degree is concentrated on the top level of the expansion, with the bottom level containing only a single non-relative marking in addition to all the negative-tangency markings. But in this case the contribution is a rubber invariant where all of the insertions are pulled back via $\fgt_1^\st$, and hence we may apply the projection formula to identify this with an absolute invariant of $Y$ which is recursively known. We conclude that, up to recursively knwon terms, we may replace $\hat\psi_2$ by $\psi_2$ in the left-hand side of \eqref{step 4 recursion}. If we now compare $\psi_2$ with $\fgt_1^\st \psi_2$ we see that the difference is given by the locus where $x_1$ and $x_2$ belong to a collapsed rational piece. The contribution of this locus consists of rubber invariant with strictly fewer relative markings, and hence is recursively known. So up to recursively-known terms \eqref{step 4 recursion} becomes
+\begin{equation*} \fgt_1^\st (-\alpha_2\psi_2 - \ev_y^\st Y)\tilde\gamma \cap [\VZ_{1,\alpha\cup(0)}(P|Y_0+Y_\infty,\beta)_{\Gm}] = \tilde\gamma\cap[\Dcal(y)]\end{equation*}
+and now the left-hand side is also recursively known, by the projection formula. Let us now examine the right-hand side. The components of $\Dcal(y)$ are indexed by splittings of the curve, and certainly the contributions are recursively known unless there is a piece of the curve carrying all of the genus and degree, so we may restrict to examining these contributions.
 
-Now suppose that $d>0$. If there is a marking $x_k$ which carries no insertion and has $\alpha_k \neq 0$, then consider the morphism which forgets $x_k$ and collapses the map:
-\begin{equation*} \VZ_{1,\alpha}(P|H_0+H_\infty)_{\Gm} \xrightarrow{\pi} \VZ_{1,n-1}(H,d). \end{equation*}
-The moduli spaces above are log smooth and of the same dimension. Over the nice locus in $\VZ_{1,n-1}(H,d)$, $\pi$ has degree $\alpha_k^2$, arising from a choice of $\alpha_k$-torsion point on the source elliptic curve. Thus we have:
-\begin{equation*} \pi_\st [\VZ_{1,\alpha}(P|H_0+H_\infty)_{\Gm}] = \alpha_k^2\cdot [\VZ_{1,n-1}(H,d)].\end{equation*}
-Since all the insertions are pulled back from the right-hand side (up to modifying psi classes by some boundary strata which we can then also compute recursively) we can perform the integral on $\VZ_{1,n-1}(H,d)$ inductively. Notice that, when we apply our recursion \ref{} to compute a reduced invariant of $H$, the only non-trivial reduced rubber integrals which appear will have smaller degree than the one we started with, so the calculation is not circular.
+Let us denote the piece of the curve carrying all of the genus and degree by $C^\prime\subseteq C$. If $C^\prime$ is mapped to top level, then either it contains $x_1$, in which case we apply $\fgt_1$ to compute the contribution, or it does not contains $x_1$, in which case it has fewer than $n$ relative markings and is known recursively.  If on the other hand $C^\prime$ is not mapped to top level, then generically it is mapped to the bottom level (since generically the circuit is not contracted on this locus, so the desingularisation process does nothing). One possible contribution is given by the following locus
+\begin{center}
+\begin{tikzpicture}[scale=1]
+%edge
+\draw (0,0) to (2,0);
+\draw [color=blue] (1,0) node[below]{\tiny$\alpha_1$};
 
-It remains to deal with the case where all of the relative markings carry insertions. The idea is to reduce to the case above by introducing an additional marking. Note first that every reduced rubber integral which appears in our recursion must either have a marking of negative tangency (i.e. tangent to $H_0$), or a marking with no insertions: indeed, the only boundary loci with no negative-tangency markings have the entire curve mapped to higher level, in which case (since we are assuming $d>0$, so we are not in the $C_0$ case) the curve is generically irreducible, and on this curve we have at least one fictitious marking (of positive tangency $1$) with no insertion.
+%C_1
+\draw [fill=white] (0,0) circle[radius=3pt];
+\draw (0,-0.1) node[below]{\small$d$};
 
-Therefore we may assume that there is at least one point of negative tangency, corresponding to a node at which we will glue. Notice that in our recursion these points only ever carry evaluation classes. Consider the following rubber space of dimension one higher, obtained by introducing an additional non-relative marking:
-\begin{equation} \label{bigger rubber space}\VZ_{1,\alpha \cup (0)}(P|H_0+H_\infty)_{\Gm}. \end{equation}
-Given a moduli point in this space, consider the piecewise-linear function on the associated tropical moduli space which sends a tropical map to the sum of the target edge lengths. This defines a line bundle and section on the space \eqref{bigger rubber space} which vanishes precisely on the locus where the target splits; moreover the vanishing orders may be read off from the tropical data as in \S \ref{}. It is not hard to see \cite{EKatz} that the first Chern class of the line bundle is
-$\Psi_0 + \Psi_\infty$, a sum of target psi classes which may be identified with evaluation and psi classes on the source curve as in \cite[Construction 5.1.17]{GathmannThesis}. 
+%y
+\draw [->] (2,0) -- (2,1);
+\draw (2,0.9) node[left]{$y$};
+\draw [color=blue] (2,0.5) node[right]{\tiny$0$};
 
-Now choose a negative-tangency point $x_1$ which carries only evaluation classes, and let $x_0$ denote the new non-relative marking we have introduced. If $\gamma$ was the class we were originally trying to integrate, consider the class $\tilde\gamma$ on \eqref{bigger rubber space} obtained from $\gamma$ by replacing $\ev_1^\st$ by $\ev_0^\st$. We obtain a recursion formula:
-\begin{equation*} (\Psi_0+\Psi_\infty)\cdot \tilde\gamma \cap [\VZ_{1,\alpha\cup(0)}(P|H_0+H_\infty)_{\Gm}] = \sum_{\Gamma} m_\Gamma \cdot \tilde\gamma \cap [\ol\Mcal_{\Gamma}]. \end{equation*}
-The right-hand side is a sum over irreducible components $\ol\Mcal_\Gamma$ of the locus where the target splits, with multiplicites $m_\Gamma$ calculated from the tropical data. Each of these components can be written as a fibre product of (reduced) rubber spaces. One of these components is the locus where $x_0$ and $x_1$ belong to a trivial rational bubble:
+%x_1
+\draw [->] (2,0) -- (3,0);
+\draw (3,0) node[right]{$x_1$};
+\draw [color=blue] (2.5,0) node[below]{\tiny$\alpha_1$};
 
-[FIGURE]
+%C_0
+\draw [fill=black] (2,0) circle[radius=3pt];
+\draw (2,-0.1) node[below]{\small$0$};
 
-The corresponding moduli space is $\VZ_{1,\alpha}(P|H_0+H_\infty)_{\Gm}$ and we have $\ev_0=\ev_1$ here, so the contribution of this locus is precisely the original rubber integral we were trying to calculate. The remaining terms on the right-hand side can be written either as a product of rubber integrals of smaller degree (which we can compute recursively), or rubber integrals of the same degree but with no insertion at $x_1$ (which we can compute by forgetting $x_1$). Finally, the left-hand side also has no insertion at $x_1$ and so can be computed by the same method. Here we are assuming that $x_1$ is not the only negative-tangency marking, so that $\Psi_0$ can be interpreted as an insertion on a marking different from $x_1$.
+%down arrow
+\draw [color=blue,->] (1,-0.5) -- (1,-0.9);
 
-If $x_1$ is in fact the only negative-tangency marking, then we can modify the above argument by considering the following rubber space of dimension two larger:
-\begin{equation}\label{rubber space two extra markings} \VZ_{1,\alpha\cup(0,0)}(P|H_0+H_\infty)_{\Gm} \end{equation}
-Let us denote the newly-introduced non-relative markings by $x_0$ and $x_{n+1}$. We now let $\tilde\gamma$ denote the class obtained from $\gamma$ by replacing $\ev_1^\st$ by $\ev_0^\st$ and then multiplying by $\psi_{n+1}$. Following \cite{EKatz}\footnote{(Navid) Tropica interpretation of this? Vanishing multiplicities?}, there is a line bundle with a section cutting out the locus where $x_{n+1}$ does not belong to the leftmost component of the target. The first Chern class of this line bundle is $\Psi_\infty+\ev_{n+1}^\st H$, which we may multiply with $\tilde\gamma$ and integrate over \eqref{rubber space two extra markings} to obtain a rubber integral with no insertion at $x_1$ (which we may then compute by forgetting $x_1$). On the right-hand side we obtain the integral of $\tilde\gamma$ over the loci where $x_{n+1}$ does not belong to the leftmost component of the target (this is just a union of some of the irreducible components of the split locus described above). One such locus is the following
-[FIGURE]
-and integrating $\tilde\gamma$ over this locus gives
-\begin{equation*} \gamma\cdot\psi_{n+1}\cap [\VZ_{1,\alpha\cup(0)}(P|H_0+H_\infty)_{\Gm}] \end{equation*}
-which we may identify with a (nonzero) multiple of our original rubber integral via the rubber dilaton equation (see\cite{MaulikPandharipande}; the same proof carries over to the reduced setting\footnote{(Navid) Think about this a bit}). The remaining loci may be computed recursively exactly as before, and thus we obtain a complete recursion procedure.
-
-\begin{remark} This idea --- of finding a section of a line bundle cutting out the locus of split curves, and using this to derive recursion formulae for rubber integrals --- has been pursued in the non-reduced setting in \cite{EKatz}.\end{remark}
+%target
+\draw [color=blue] (0,-1) to (2,-1);
+\draw [fill=blue,color=blue] (0,-1) circle[radius=3pt];
+\draw [fill=blue,color=blue] (2,-1) circle[radius=3pt];
+\draw [color=blue,->] (2,-1) -- (3,-1);
+\draw [color=blue,->] (0,-1) -- (-1,-1);
+\end{tikzpicture}
+\end{center}
+which contributes a nonzero multiple of the invariant $I$ we are trying to compute. For the other possibilities, first note that, unless every component at the top level contains a single positive-tangency marking and a single node (together with possibly some tangency-zero markings), then $C^\prime$ has fewer than $n$ relative markings and hence the contribution is known recursively. On the other hand, if any non-relative marking other than $y$ is mapped to the top level, $C^\prime$ has $\leq n$ relative markings and less than $m$ non-relative markings, and hence again the contribution is known recursively. The only remaining possibilities are when $x_1$ is replaced by another positive-tangency marking $x_k$ in the above picture; but then the contribution can be calculated by applying the projection formula to $\fgt_{1}$. We therefore conclude that the only contribution to the right-hand side of \eqref{step 4 recursion} which is not known recursively is a nonzero multiple of the invariant we were trying to compute. This completes the recursion step.
 
 \newpage
 
