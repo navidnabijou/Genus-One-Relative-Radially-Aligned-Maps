@@ -565,6 +565,28 @@ The sum is over irreducible components $\Dcal$ of the divisor $\Dcal(k) \subsete
 \section{Recursive description of boundary strata: the reduced splitting axiom}
 In this section, the most technically difficult in the entire paper, we provide an explicit description of the terms appearing on the right-hand side of \eqref{equation recursion} above. For each term, we provide a combinatorial means to calculate the vanishing order $\lambda_\Dcal$, and a recursive description of the stratum $\Dcal$ in terms of fibre products of moduli spaces with smaller numerical data.
 
+
+\subsection{Identifying the irreducible components of $\Dcal(k)$} Here we explain the strategy for identifying the irreducible components of $\Dcal(k)$ via tropical geometry.
+
+\begin{lemma} Every irreducible component of $\Dcal(k)$ is a codimension-$1$ logarithmic stratum.\end{lemma}
+\begin{proof} This is not hard to see: the locus where the log structure is trivial coincides precisely with the  locus where the source curve is smooth and not mapped inside $H$, and since $\VZ$ is log smooth this locus is open and dense. By definition $\Dcal(k)$ is disjoint from this locus, hence is contained in the  complement of this locus, which (by the very definition of logarithmic strata) can be written as a union of logarithmic strata of positive codimension. Since $\Dcal(k)$ has codmension $1$, it must therefore be equal to a union of logarithmic divisors.\end{proof}
+
+In the previous section we discussed at length a procedure for describing the logarithmic strata of $\VZ$. This shows that every divisorial logarithmic stratum is obtained via a three-step process:
+\begin{enumerate}
+\item choose the combinatorial type of a tropical map;
+\item subdivide the corresponding tropical moduli space;
+\item choose a ray in this subdivision.
+\end{enumerate}
+Notice that this process contains some redundancies: once we choose a ray of the tropical moduli space, we obtain a generisation of the intial combinatorial type, given by contracting some edges of the dual graph.
+
+\begin{example} \end{example}
+
+Whenever we consider a logarithmic stratum in $\VZ$, by its combinatorial type we will always mean the generisation of the ``initial'' combinatorial type induced by our choice of cone in the polyhedral subdivision. This does not depend on the choice of initial combinatorial type.
+
+Now, the logarithmic divisors which are contained in $\Dcal(k)$ are precisely those whose corresponding combinatorial type has the vertex of the dual graph containing $x_k$ mapped into the interior $\RR_{>0} \subseteq \RR_{\geq 0}$.
+
+Thus, via the above procedure, we are able to enumerate the irreducible components of $\Dcal(k)$ in a combinatorial manner. The combinatorial type and choice of ray allows us to describe the general element of such a component. What we are still lacking is a recursive description of the components, which we need in order to compute integrals over them. This is the subject of the remainder of this section.
+
 \subsection{Recursive description of the divisors: types $A,B$ and $C^+$}
 
 The basic idea is as follows. Choose an irreducible component $\Dcal \subseteq \Dcal(k)$. As discussed above, we can obtain this by choosing an ``initial'' combinatorial type together with a ray of the resulting subdivision of the tropical moduli space. Without loss of generality we may assume that this ``initial'' combinatorial type coincides with the ``true'' combinatorial type of $\Dcal$ obtained by performing the edge contractions specified by the choice of ray.
