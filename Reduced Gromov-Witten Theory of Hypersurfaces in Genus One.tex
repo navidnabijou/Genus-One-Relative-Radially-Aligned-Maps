@@ -448,7 +448,6 @@ The line bundle $\mathcal O_{C_1}(-\alpha)$ is equivalent to the divisor $\sum a
 %F': C'\to \mathbb P^N[\Delta,s].
 %\]
 %We make two observations. First, since the logarithmic structure on $C'$ is strict away from $H$, unobstructedness of deformations for $F'$ is equivalent to unobstructedness for $F$. Second, the target degeneration is now a toric degeneration, and the logarithmic tangent bundle is trivial.
-
 \end{proof}
 
 The above theorem guarantees that the singularities of the space of totally factorized maps to expansions is logarithmically smooth. In fact, one can say more in this case.
@@ -461,7 +460,7 @@ The logarithmically smooth stack $\mathcal{VZ}_{1,\alpha}(\mathbb P^N|H)$ has at
 Since $\mathcal{VZ}_{1,\alpha}(\mathbb P^N|H)$ is logarithmically smooth, it will suffice to show that the cones of its tropicalization are simplicial. To see this, consider a logarithmic stable map to an expansion $C\to \mathbb P^N[s]$ without a central alignment. The tropical moduli cone obtained as the dual of the minimal base monoid can be identified with $\mathbb R_{\geq 0}^{s}$, see for instance~\cite[Section~2.2]{ChenDegeneration}. The alignment procedure is an iterated barycentric subdivision at the level of tropical moduli spaces, as explained in~\cite[Section 4.6]{RSPW}, and such subdivisions preserve the property of being simplicial. We conclude from this that the blowup $\widetilde{\mathcal{VZ}}^{\mathrm{exp}}_{1,\alpha}(\mathbb P^N|H)$ obtained by centrally aligning Kim's spaces has simplicial cones. Finally, the morphism $\mathcal{VZ}_{1,\alpha}(\mathbb P^N|H)\to \widetilde{\mathcal{VZ}}^{\mathrm{exp}}_{1,\alpha}(\mathbb P^N|H)$ is strict, so the cones of $\mathcal{VZ}_{1,\alpha}(\mathbb P^N|H)$ are simplicial, as claimed.
 \end{proof}
 
-\section{Stratification} The logarithmic smoothness established in Theorem~\ref{thm: log-smoothness} implies that $\mathcal{VZ}_{1,\alpha}(\mathbb P^N|H)$ is an orbifold toroidal embeddeding. Consequently, the irreducible components of its boundary and their intersections form a stratification of the space. This stratification will be important in the sequel. 
+\section{Stratification} The logarithmic smoothness established in Theorem~\ref{thm: log-smoothness} implies that $\mathcal{VZ}_{1,\alpha}(\mathbb P^N|H,d)$ is an orbifold toroidal embeddeding. Consequently, the irreducible components of its boundary and their intersections form a stratification of the space. This stratification will be important in the sequel. 
 
 The tropicalizations of logarithmic maps that factorize completely satisfy a natural combinatorial condition known as well-spacedness. The version we use here is essentially identical to~
 \cite{RSPW2}. 
@@ -482,28 +481,28 @@ Let $[C\to \mathbb P^N]$ be a logarithmic stable map from a centrally aligned cu
 The required result is essentially contained in~\cite[Section 4]{RSPW2}, so we explain how to deduce the requisite result from the one in loc. cit. We may focus on a single component of the expansion $\mathbb P^N[s]$ that contains the image of a contracted genus $1$ subcurve, as this is the only relevant case. We may thus replace the target with the projective bundle $\mathbb P(\mathcal O(1)\oplus \mathcal O)$ over $\mathbb P^{N-1}$ equipped with the divisorial logarithmic structure from the $0$ and $\infty$ sections. Let $p$ be the point to which the genus $1$ subcurve is contracted. Passing to an open neighborhood of $p$, the map to the bundle is given by a rational function $f$ on an open curve $C^\circ$, determined by the the subgraph formed by $\plC_0$ and the flags $t_i$ described in the definition above. To describe the tropical map to $\mathbb R_{>0}$, we observe that $\plC_0$ is contracted to a fixed point $q\in\mathbb R_{>0}$. The flags at the vertex bases at $t_i$ correspond to nodes or markings of $C$. The pole orders of $f$ at these distinguished points determine the slopes of the tropical map. We are now exactly in the situation considered in~\cite[Second Paragraph of Section~4.6]{RSPW2}, and Lemma~4.6.1 of loc. cit. guarantees the well-spacedness as required.
 \end{proof}
 
-\subsubsection{The cone complex} To understand the stratification via combinatorial data, we will build the straification from known objects. 
+\subsection{The cone complex} To understand the stratification via combinatorial data, we will build the straification from known objects. \\
 
 \noindent
 \textbf{Step 1}. Let $\Sigma^{\mathrm{log}}$ be the tropical moduli space of genus $1$ tropical stable maps to $\mathbb R_{\geq 0}$. This is naturally identified with the tropicalization (in the logarithmic sense) of the Abramovich--Chen--Gross--Siebert space of logarithmic stable maps to the pair $(\mathbb P^N,H)$. \\
 
 \noindent
-\textbf{Step 2}. Given such a tropical stable map, we may subdivide $\mathbb R_{\geq 0}$ such that the image of every vertex of $\plC$ is a vertex of $\mathbb R_{\geq 0}$. Call this subdivision $\widetilde{\mathbb R}_{\geq 0}$. The preimages of vertices of the subdivision form a subdivision of $\plC$. After this procedure, the vertices of $\plC$ with positive image are totally ordered in a manner extending the partial order obtained from the map to $\mathbb R_{\geq 0}$. The combinatorial types of such \textbf{ordered} maps produce the cones of a subdivision of $\Sigma^{\mathrm{log}}$ which we denote $\Sigma^{\mathrm{Kim}}$.\\
+\textbf{Step 2}. Given such a tropical stable map, we may subdivide $\mathbb R_{\geq 0}$ such that the image of every vertex of $\plC$ is a vertex of $\mathbb R_{\geq 0}$. Call this subdivision $\widetilde{\mathbb R}_{\geq 0}$. The preimages of vertices of the subdivision form a subdivision of $\plC$. After this procedure, the images of vertices of $\plC$ which lie in $\RR_{>0}$ are totally ordered, in a manner extending the partial order obtained from the map to $\mathbb R_{\geq 0}$. The combinatorial types of such \textbf{image-ordered} maps produce the cones of a subdivision of $\Sigma^{\mathrm{log}}$ which we denote $\Sigma^{\mathrm{Kim}}$.\\
 
 \noindent
-\textbf{Step 3}. Given a tropical map $F: \plC\to \mathbb R_{\geq 0}$ parameterized by $\Sigma^{\mathrm{Kim}}$, there is a largest radius $\delta$ (possible equal to $0$) such that every vertex strictly contained in the circle of radius $\delta$ around the core is contracted to a point in $\mathbb R_{>0}$. Let $
-\Sigma^{\mathrm{cen}}$ be the subdivision obtained by requiring that the vertices contained with the circle of radius $\delta$ around the core of $\plC$ are totally ordered. \\
+\textbf{Step 3}. Given a tropical map $F: \plC\to \mathbb R_{\geq 0}$ parameterized by $\Sigma^{\mathrm{Kim}}$, there is a largest radius $\delta$ (possible equal to $0$) such that every vertex strictly contained in the circle of radius $\delta$ around the core has degree-marking $d=0$. Let $
+\Sigma^{\mathrm{cen}}$ be the subdivision obtained by requiring that the vertices contained with the circle of radius $\delta$ around the core of $\plC$ are totally ordered. This involves introducing cones along which certain $\Z$-linear combinations of edge lengths are identified.\\
 
 \noindent
 \textbf{Step 4}. Let $
-\Sigma_{1,\alpha}(\mathbb P^N|H)$ be the subcomplex of $\Sigma^{\mathrm{cen}}$ obtained by passing to the subcomplex of $\Sigma^{\mathrm{cen}}$ that consists of well-spaced tropical maps.
+\Sigma_{1,\alpha}(\mathbb P^N|H,d)$ be the subcomplex of $\Sigma^{\mathrm{cen}}$ obtained by passing to the subcomplex of $\Sigma^{\mathrm{cen}}$ that consists of well-spaced tropical maps.
 
 \begin{prop}
 The cone complex $
-\Sigma_{1,\alpha}(\mathbb P^N|H)$ is the fan of the toroidal embedding $
+\Sigma_{1,\alpha}(\mathbb P^N|H,d)$ is the fan of the toroidal embedding $
 \mathcal{VZ}_{1,\alpha}(\mathbb P^N|H)$. In particular, the codimension $k$ strata of $
 \mathcal{VZ}_{1,\alpha}(\mathbb P^N|H)$ are in inclusion reversing bijection with the dimension $k$ cones in $
-\Sigma_{1,\alpha}(\mathbb P^N|H)$.
+\Sigma_{1,\alpha}(\mathbb P^N|H,d)$.
 \end{prop}
 
 \begin{proof}
@@ -513,13 +512,28 @@ The construction above has been given to mimic the construction of the space $
 \mathcal{VZ}_{1,\alpha}(\mathbb P^N|H)$, so its cone complex is a subcomplex of $\Sigma^{\mathrm{cen}}$. The fact that it must be contained in the subcomplex of well-spaced curves is immediate from Proposition~\ref{prop: well-spaced}.
 \end{proof}
 
-\section{Rubber variants and virtual geometry}
+\subsection{Indexing the strata} The dimension-$k$ cones in $\Sigma_{1,\alpha}(\PP^N|H,d)$ can be enumerated as follows. First, the cones in $\Sigma^{\operatorname{log}}$ are indexed by \textbf{combinatorial types} of tropical maps to $\RR_{\geq 0}$. Here a combinatorial type encodes all of the data of a tropical map, except for the edge lengths and precise vertex positions. To be more precise, a combinatorial type $\Delta$ consists of:
+\begin{enumerate}
+\item a finite graph;
+\item genus, degree and marking assignments on the vertices
+\item the data of which stratum of $\RR_{\geq 0}$ each vertex is mapped to;
+\item integral slopes along the edges (both finite and infinite).
+\end{enumerate}
+The corresponding cone $\sigma \in \Sigma^{\operatorname{log}}$ is then given by the resulting moduli space of tropical maps, given by choices of edge lengths and vertex positions which produce a continuous tropical map. Given $\sigma\in \Sigma^{\operatorname{log}}$ we then produce all the cones in $\Sigma_{1,\alpha}(\PP^N|H,d)$ mapping to $\sigma$ by performing Steps 2--4 outlined above. This amounts to taking a particular subdivision of $\sigma$. Note that in this process, new cones are created which map into larger-dimensional cones of $\Sigma^{\operatorname{log}}$. The process for enumerating the codimension $k$ strata of $\VZ_{1,\alpha}(\PP^N|H,d)$ is therefore:
+\begin{enumerate}
+\item fix a combinatorial type $\Delta$;
+\item perform the subdvidision of the resulting cone $\sigma \in \Sigma^{\operatorname{log}}$;
+\item identify the dimension $k$ cones of that subdivision.
+\end{enumerate}
+In \S \ref{} we will perform this analysis in the case $k=1$.
+
+\section{Rubber variants and virtual construction}
 
 \subsection{The rubber space} In our implementation of the relative theory, we will need the naturally ``rubber'' variant of the space of maps $
 \mathcal{VZ}_{1,\alpha}(\mathbb P^N|H)$, where the entire curve is mapped into higher levels. 
 
 
-\subsection{Virtual geometry for very ample pairs}
+\subsection{Virtual construction for very ample pairs}
 Now let $(X,Y)$ be a smooth pair with $Y$ very ample. The definition given in \S \ref{subsection factorisation} applies in this setting as well, producing a moduli space $\VZ_{1,\alpha}(X|Y,\beta)$ together with a morphism
 \begin{equation*} \VZ_{1,\alpha}(X|Y,\beta) \to \ol\Mcal^{\operatorname{log}}_{1,\alpha}(X|Y,\beta)\end{equation*}
 obtained by performing a logarithmic modification and then passing to a closed substack. This moduli space will not in general be logarithmically smooth, but we may equip it with a virtual class as follows. The complete linear system $|\OO_X(Y)|$ defines an embedding $X \hookrightarrow \PP^N$ with $Y=X\cap H$ for $H$ some hyperplane.
@@ -539,18 +553,18 @@ Since $\VZ_{1,\alpha}(X|Y,\beta)$ comes equipped with evaluation maps and cotang
 
 \part{The recursion formula and applications} \noindent In this part we derive topological recursion relations on the moduli space of reduced stable maps (Theorem \ref{theorem recursion}), inspired by the constructions of Vakil and Gathmann, but going beyond theirs in several key respects. We apply these to produce a quantum Lefschetz algorithm in genus one, which reconstructs the absolute theory of $Y$ and the relative theory of $(X,Y)$ from the absolute theory of $X$. Along the way we prove a splitting axiom for the reduced relative theory, in which involves non-trivial obstruction bundle terms make an appearance.
 
-The strategy is to first prove everything in the unobstructed case $(\PP^N,H)$; the general case follows by pullback along $i$.
+The strategy is to first prove everything in the unobstructed case $(\PP^N,H)$; the general case follows by pullback along $i$ (see \S \ref{}).
 
 \section{Gathmann's line bundle through tropical geometry} Consider a reduced relative space $\VZ_{1,\alpha}(\PP^N|H,d)$. For each marking $x_k$ we consider the locus $\Dcal(k) \subseteq \VZ_{1,\alpha}(\PP^N|H,d)$ where $x_k$ belongs to an internal component of the collapsed map. In this section, we use the log structure on $\VZ_{1,\alpha}(\PP^N|H,d)$ to construct a line bundle $\Lcal_k$ together with a section $s_k$ which vanishes precisely along $\Dcal(k)$. We use the correspondence with tropical geometry to identify $\cchern_1(\Lcal_k)$ in terms of tautological classes on $\VZ_{1,\alpha}(\PP^N|H,d)$, and to compute the vanishing order of $s_k$ along the components of $\Dcal(k)$. Combined with the splitting axioms established in the next section, we obtain a recursion relation inside $\VZ_{1,\alpha}(\PP^N|H,d)$
 
-The pair $(\Lcal_k,s_k)$ is most naturally constructed on the moduli space $\MLog_{1,\alpha}(\PP^N|H,d)$ of non-expanded log maps; the corresponding pair on $\VZ_{1,\alpha}(\PP^N|H,d)$ will be obtained via pull-back. Consider therefore a moduli point in $\MLog_{1,\alpha}(\PP^N|H,d)$ and let $Q^\vee_{\RR}$ be the corresponding tropical moduli space (viewed as a rational polyhedral cone). Over this cone we have a universal tropical curve and map
+The pair $(\Lcal_k,s_k)$ is most naturally constructed on the moduli space $\MLog_{1,\alpha}(\PP^N|H,d)$ of non-expanded log maps; the corresponding pair on $\VZ_{1,\alpha}(\PP^N|H,d)$ will be obtained via pull-back. Consider therefore the tropicalisation $\Sigma^{\log}$ of $\MLog_{1,\alpha}(\PP^N|H,d)$, identified as usual with the moduli space of tropical maps to $\RR_{\geq 0}$. We have a universal family
 \bcd
 \sqC \ar[d,"\pi"] \ar[r,"f"] & \RR_{\geq 0} \\
-Q^\vee_{\RR} \ar[u, bend left=40pt, "x_k" left]
+\Sigma^{\log} \ar[u, bend left=40pt, "x_k" left]
 \ecd
-where $x_k$ is the section which for every point $\lambda \in Q^\vee_{\RR}$ picks out the vertex of $\sqC_\lambda$ containing the leg $x_k$. The composition $f \circ x_k \colon Q^\vee_{\RR} \to \RR_{\geq 0}$ defines a piecewise-linear function on $Q_{\RR}^\vee$ whose preimage over the open cone $\RR_{>0}$ consists of those tropical maps where $x_k$ belongs to an internal component. Dually we obtain an element of the minimal monoid $Q$ at the moduli point, which globalises to produce a section of the ghost sheaf on $\MLog_{1,\alpha}(\PP^N|H,d)$. In the usual way this induces a line bundle and section $(\Lcal_k,s_k)$ on the moduli space, and the tropical description above shows that the zero locus of $s_k$ is (set-theoretically) the locus where $x_k$ belongs to an internal component.
+where $x_k$ is the section which for every point $\lambda \in \Sigma^{\log}$ picks out the vertex of $\sqC_\lambda$ containing the leg $x_k$. The composition $f \circ x_k \colon \Sigma^{\log} \to \RR_{\geq 0}$ defines a piecewise-linear function on $\Sigma^{\log}$ whose preimage over the open cone $\RR_{>0}$ consists of those tropical maps where $x_k$ belongs to an internal component. This produces a section of the ghost sheaf on $\MLog_{1,\alpha}(\PP^N|H,d)$, which in the usual way induces a line bundle and section $(\Lcal_k,s_k)$ on the moduli space, and the tropical description above shows that the zero locus of $s_k$ is (set-theoretically) the locus where $x_k$ belongs to an internal component.
 
-We now calculate $\cchern_1(\Lcal_k)$. Choose a family of log stable maps over $S$ and let $\mu \in \Gamma(S,\ol{M}_S)$ be the global section of the ghost sheaf constructed in the previous paragraph. This pulls back along $\pi$ to give a global section $\pi^\flat(\mu) \in \Gamma(C,\ol{M}_C)$.  Interpreted as a piecewise-linear function on the tropicalisation $\sqC$ with values in $\ol{M}_S$ \cite[Remark 7.3]{CavalieriChanUlirschWise}, this assigns $\mu$ to every vertex and has slope zero along every edge. By construction, the line bundle associated to this section is $\pi^\st \Lcal_k$. Consider on the other hand the generator $1 \in \N = \Gamma(\PP^N,\ol{M})$ with associated line bundle $\OO(H)$. The section $f^\flat(1) \in \Gamma(C,\ol{M}_C)$ has associated line bundle $f^\st\OO(H)$. If we let $v$ denote the vertex containing $x_k$, then by construction $f^\flat(1)$ assigns $\mu$ to $v$ and has slope $\alpha_k$ along the leg $x_k$. Thus if we consider the difference $f^\flat(1) - \pi^\flat(\mu)$ then this assigns $0$ to $v$ and still has slope $\alpha_k$ along $x_k$. Thus by \cite[Proposition 2.4.1]{RSPW} the corresponding line bundle restricted to $C_v$ is given by
+We now calculate $\cchern_1(\Lcal_k)$. Choose a family of log stable maps over $S$ and let $\mu \in \Gamma(S,\ol{M}_S)$ be the global section of the ghost sheaf constructed in the previous paragraph. This pulls back along $\pi$ to give a global section $\pi^\flat(\mu) \in \Gamma(C,\ol{M}_C)$.  Interpreted as a piecewise-linear function on the tropicalisation $\sqC$ with values in $\ol{M}_S$ \cite[Remark 7.3]{CavalieriChanUlirschWise}, this assigns $\mu$ to every vertex and has slope zero along every edge. By construction, the line bundle associated to this section is $\pi^\st \Lcal_k$. Consider on the other hand the generator $1 \in \N = \Gamma(\PP^N,\ol{M}_{\PP^N})$ with associated line bundle $\OO(H)$. The section $f^\flat(1) \in \Gamma(C,\ol{M}_C)$ has associated line bundle $f^\st\OO(H)$. If we let $v$ denote the vertex containing $x_k$, then by construction $f^\flat(1)$ assigns $\mu$ to $v$ and has slope $\alpha_k$ along the leg $x_k$. Thus if we consider the difference $f^\flat(1) - \pi^\flat(\mu)$ then this assigns $0$ to $v$ and still has slope $\alpha_k$ along $x_k$. Thus by \cite[Proposition 2.4.1]{RSPW} the corresponding line bundle restricted to $C_v$ is given by
 \begin{equation*} \OO_{C_v} \left(\alpha_k x_k + \sum_e \mu_e x_e \right) \end{equation*}
 where the sum is over the edges $e$ adjacent to $v$ and distinct from $x_k$. Thus we see that:
 \begin{equation*} \left( f^\st\OO(H) \otimes \pi^\st \Lcal_k^{-1} \right) \big|_{C_v} = \OO_{C_v} \left(\alpha_k x_k + \sum_e \mu_e x_e \right).\end{equation*}
@@ -562,7 +576,7 @@ This gives the construction of $(\Lcal_k,s_k)$ on $\MLog_{1,\alpha}(\PP^N|H,d)$;
 
 \begin{thm} \label{theorem recursion} We have the following relation in the Chow ring of $\VZ_{1,\alpha}(\PP^N|H,d)$:
 \begin{equation}\label{equation recursion} (\alpha_k \psi_k + \ev_k^\st H) \cap [\VZ_{1,\alpha}(\PP^N|H,d)] = \sum_{\Dcal} \lambda_\Dcal [ \Dcal ].\end{equation}
-The sum is over irreducible components $\Dcal$ of the divisor $\Dcal(k) \subseteq \VZ_{1,\alpha}(\PP^N|H,d)$, and $\lambda_\Dcal$ is the vanishing order of $s_k$ along this component. By pull-back we obtain the same formula with $(\PP^N,H)$ replaced by $(X,Y)$. \end{thm}
+The sum is over irreducible components $\Dcal$ of the divisor $\Dcal(k) \subseteq \VZ_{1,\alpha}(\PP^N|H,d)$, and $\lambda_\Dcal$ is the vanishing order of $s_k$ along this component. \end{thm}
 
 \begin{remark} This construction gives the natural logarithmic analogue of Gathmann's line bundle and section \cite[Construction 2.1]{Ga}. A benefit of the logarithmic approach is to make the computation of vanishing orders entirely combinatorial (see \S \ref{} below), circumventing the difficult technical calculation given by Gathmann. \end{remark}
 
@@ -877,6 +891,8 @@ We claim that $\tilde s$ obtained from $s$ by twisting by the exceptional diviso
  \item moduli of genus zero maps relative to $(\PP^N|H)$, corresponding to vertices of type \ref{boringvertices} above.
 \end{itemize}
 Finally, we claim that integrals of psi and evaluation classes over these loci can be translated into tautological integrals, i.e. descendant Gromov--Witten invariants, whose numerics is governed by the combinatorial type of the tropical map.
+
+\section{Recursion for general $(X,Y)$}
 
 \section{Quantum Lefschetz algorithm}
 Consider a smooth pair $(X,Y)$ with $Y$ very ample, and let $P$ be the projective bundle $P=\PP_Y(\operatorname{N}_{Y|X} \oplus\OO_Y)$. We assume that the genus zero and reduced genus one Gromov--Witten theories of $X$ are known. From this starting data, we will apply our recursion formula to compute:
