@@ -65,9 +65,12 @@
 \draw (0,-.25) node{$\vdots$};
 \draw (0,-1) circle(2pt)[fill=black];
 \draw [red,fill=red] (0,-2) circle[radius=2pt];
-\draw [->,red,thick] (0,-2) -- (2,-2);
-\draw (2,-2) node[right,red]{\tiny{$\Sigma(\PP^N|H)$}};
+\draw [->,red,thick] (0,-2) -- (3,-2);
+\draw [red,fill=red] (2,-2) circle[radius=2pt];
 \draw [->,red] (1,-0.9) -- (1,-1.6);
+
+\draw [red] (2,-2) node[above]{\tiny$\diamond$};
+\draw [red] (0,-2) node[above]{\tiny$0$};
 
 \draw (2.05,0) node[above]{\tiny{$\sqC_0$}};
 \draw (0,1) node[left]{\tiny{$\sqC_1$}};
@@ -85,9 +88,11 @@
 \draw (0,-.25) node{$\vdots$};
 \draw (0,-1) circle(2pt)[fill=black];
 \draw [red,fill=red] (0,-2) circle[radius=2pt];
-\draw [->,red,thick] (0,-2) -- (2,-2);
-\draw (2,-2) node[right,red]{\tiny{$\Sigma(\PP^N|H)$}};
+\draw [->,red,thick] (0,-2) -- (3,-2);
+\draw [red,fill=red] (2,-2) circle[radius=2pt];
 \draw [->,red] (1,-0.9) -- (1,-1.6);
+\draw [red] (2,-2) node[above]{\tiny$\diamond$};
+\draw [red] (0,-2) node[above]{\tiny$0$};
 
 \draw (2.05,0) node[above]{\tiny{$\sqC_0$}};
 \draw (0,1) node[left]{\tiny{$\sqC_1$}};
@@ -105,8 +110,10 @@
 \draw (0,-.25) node{$\vdots$};
 \draw (0,-1) circle(2pt)[fill=black];
 \draw [red,fill=red] (0,-2) circle[radius=2pt];
-\draw [->,red,thick] (0,-2) -- (2,-2);
-\draw (2,-2) node[right,red]{\tiny{$\Sigma(\PP^N|H)$}};
+\draw [->,red,thick] (0,-2) -- (3,-2);
+\draw [red,fill=red] (2,-2) circle[radius=2pt];
+\draw [red] (2,-2) node[above]{\tiny$\diamond$};
+\draw [red] (0,-2) node[above]{\tiny$0$};
 \draw [->,red] (1,-0.9) -- (1,-1.6);
 
 \draw (2.05,0) node[above]{\tiny{$\sqC_0$}};
@@ -120,6 +127,7 @@
 
 \newcommand{\sqC}{\scalebox{0.8}[1.3]{$\sqsubset$}}
 \newcommand{\Kim}{\operatorname{Kim}}
+\newcommand{\ACGS}{\operatorname{ACGS}}
 
 \newcommand{\pM}{\pazocal{M}}
 \newcommand{\TT}{\operatorname{T}}
@@ -582,68 +590,66 @@ The sum is over irreducible components $\Dcal$ of the divisor $\Dcal(k) \subsete
 \begin{remark} This construction gives the natural logarithmic analogue of Gathmann's line bundle and section \cite[Construction 2.1]{Ga}. A benefit of the logarithmic approach is to make the computation of vanishing orders entirely combinatorial (see \S \ref{} below), circumventing the difficult technical calculation given by Gathmann. \end{remark}
 
 \section{Recursive description of boundary strata: the reduced splitting axiom}
-In this section, the most technically difficult of the paper, we provide an explicit description of the terms appearing on the right-hand side of \eqref{equation recursion} above. For each term, we provide a combinatorial means to calculate the vanishing order $\lambda_\Dcal$, and a recursive description of the stratum $\Dcal$ in terms of fibre products of moduli spaces with smaller numerical data.
+In this section we provide an explicit description of the terms appearing on the right-hand side of \eqref{equation recursion} above. For each such term, we provide a combinatorial method to calculate the vanishing order $\lambda_\Dcal$, and a recursive description of the stratum $\Dcal$ in terms of fibre products of moduli spaces with smaller numerical data. This constitutes the most technically difficult part of the paper. 
 
 
 \subsection{Identifying the irreducible components of $\Dcal(k)$} Here we explain the strategy for identifying the irreducible components of $\Dcal(k)$ via tropical geometry.
 
-\begin{lemma} Every irreducible component of $\Dcal(k)$ is a codimension $1$ log stratum.\end{lemma}
+\begin{lemma} \label{Lemma components are log divisors} Every irreducible component of $\Dcal(k)$ is a codimension $1$ log stratum.\end{lemma}
 \begin{proof} This is not hard to see: the locus where the log structure is trivial coincides precisely with the  locus where the source curve is smooth and not mapped inside $H$, and since $\VZ_{1,\alpha}(\PP^N|H,d)$ is log smooth this locus is open and dense \cite{Niziol}. By definition $\Dcal(k)$ is contained in the  complement of this locus, which (by the very definition of logarithmic strata) can be written as a union of log strata of positive codimension. Since $\Dcal(k)$ has codmension $1$, it must therefore be equal to a union of log divisors.\end{proof}
-In \S \ref{} we discussed a procedure for enumerating the log strata of $\VZ_{1,\alpha}(\PP^N|H,d)$, using the cones of the tropicalisation $\Sigma_{1,\alpha}(\PP^N|H,d)$.. This shows that every divisorial logarithmic stratum is obtained via a three-step process:
+In \S \ref{} we discussed a procedure for enumerating the log strata of $\VZ_{1,\alpha}(\PP^N|H,d)$, using the cones of the tropicalisation $\Sigma_{1,\alpha}(\PP^N|H,d)$. To recap: every divisorial logarithmic stratum is obtained via a three-step process:
 \begin{enumerate}
 \item choose a combinatorial type $\Delta$ of a tropical map;
 \item subdivide the corresponding tropical moduli space $\sigma$;
 \item choose a ray in this subdivision.
 \end{enumerate}
-Notice that this process contains some redundancies: once we choose a ray of the tropical moduli space, we obtain a \textbf{generisation} of the intial combinatorial type, given by contracting some edges of the dual graph and/or moving some vertices from $\RR_{>0}$ to $0$. By the combinatorial type of a stratum in $\VZ_{1,\alpha}(\PP^N|H,d)$ we will always mean this generisation of the ``initial'' combinatorial type $\Delta$; this is independent of the choice of $\Delta$.
+Notice that this process contains some redundancies: upon choosing a ray in the tropical moduli space, some of the edge lengths or vertex positions may get set to $0$. This induces a generisation of the intial combinatorial type $\Delta$, given by contracting the corresponding edges of the dual graph and moving the corresponding vertices from $\RR_{>0}$ to $0$. By the combinatorial type of a stratum in $\VZ_{1,\alpha}(\PP^N|H,d)$ we will always mean this generisation. This is independent of the choice of $\Delta$, and in fact we can (and will) always choose $\Delta$ to coincide with the generisation.
 
-The log divisors contained in $\Dcal(k)$ are precisely those whose  combinatorial type has the vertex of the dual graph containing $x_k$ mapped into the interior $\RR_{>0} \subseteq \RR_{\geq 0}$. Thus via the above procedure, we are able to enumerate the irreducible components of $\Dcal(k)$ in a combinatorial manner. The combinatorial type allows us to describe the general element of such a component. What we are still lacking is a recursive description of the components, which we need in order to compute integrals over them. This is the subject of the remainder of this section.
+The log divisors contained in $\Dcal(k)$ are precisely those whose  combinatorial types map the vertex of the dual graph containing $x_k$  into the interior $\RR_{>0} \subseteq \RR_{\geq 0}$. Thus via the above procedure, we are able to enumerate the irreducible components of $\Dcal(k)$ in a combinatorial manner, and the combinatorial type $\Delta$ allows us to describe the general element of such a component. What we are still lacking is a recursive description of the components, which we need in order to compute integrals over them. This is the subject of the remainder of this section.
 
-\subsection{Recursive description of the divisors: types $A,B$ and $C^+$} Choose an irreducible component $\Dcal \subseteq \Dcal(k)$. This is a log divisor, and hence may be written as:
+\subsection{Recursive description of the divisors: types $A,B$ and $C^+$} Choose an irreducible component $\Dcal \subseteq \Dcal(k)$. By Lemma \ref{Lemma components are log divisors} this is a log divisor, and hence may be written as:
 \begin{equation*} \Dcal = \widetilde\Dcal \cap \VZ_{1,\alpha}(\PP^N|H,d) \end{equation*}
 for a unique log stratum $\widetilde\Dcal \subseteq \widetilde{\VZ}_{1,\alpha}(\PP^N|H,d)$. Since
 \begin{equation*}\widetilde{\VZ}_{1,\alpha}(\PP^N|H,d) \to \ol\Mcal^{\Kim}_{1,\alpha}(\PP^N|H,d)\end{equation*}
 is a log modification, $\widetilde{\Dcal}$ is either exceptional or the proper transform of a log divisor. These cases correspond, respectively, to when the circuit is assigned zero degree or nonzero degree by the combinatorial type. To begin with we will focus on the latter case. Suppose therefore that $\widetilde{\Dcal}$ is the proper transform of a divisor:
-\begin{equation*} \Dcal_\Mcal \subseteq \ol\Mcal^{\Kim}_{1,\alpha}(\PP^N|H,d). \end{equation*}
-The birational map $\widetilde{\Dcal} \to \Dcal_\Mcal$ induces a morphism $\rho \colon \Dcal \to \Dcal_\Mcal$. The remainder of this subsection will be devoted to showing how $\rho$ may be interpreted as a ``desingularisation of the main component''. Since $\Dcal_\Mcal$ admits a recursive description (in terms of relative and rubber moduli spaces), this will allow us to compute integrals over $\Dcal$ recursively.
+\begin{equation*} \Dcal^{\Kim} \subseteq \ol\Mcal^{\Kim}_{1,\alpha}(\PP^N|H,d). \end{equation*}
+The birational map $\widetilde{\Dcal} \to \Dcal^{\Kim}$ induces a morphism $\rho \colon \Dcal \to \Dcal^{\Kim}$. The remainder of this subsection will be devoted to showing how $\rho$ may be interpreted as a ``desingularisation of the main component''. Since $\Dcal^{\Kim}$ admits a recursive description (in terms of relative and rubber moduli spaces), this will allow us to compute integrals over $\Dcal$.
 
-\begin{lemma} Let $\Dcal \subseteq \Dcal(k)$ be an irreducible component and let $\Delta$ be the corresponding combinatorial type. Suppose that $\Delta$ assigns positive degree to the circuit. Then $\Delta$ takes one of the following forms:
+\begin{lemma} Let $\Dcal \subseteq \Dcal(k)$ be an irreducible component which contributes nontrivially to the recursion, and let $\Delta$ be the corresponding combinatorial type. Suppose that $\Delta$ assigns positive degree to the circuit. Then $\Delta$ takes one of the following forms:
 \begin{figure}[h]
     \centering
     \begin{minipage}{0.3\textwidth}
         \centering
         \Yagraph
-        \caption{$\mathcal Y_A$}
+        \caption{$A$}
     \end{minipage}\hfill
     \begin{minipage}{0.3\textwidth}
         \centering
         \Ybgraph
-        \caption{$\mathcal Y_B$}
+        \caption{$B$}
     \end{minipage}\hfill
     \begin{minipage}{0.3\textwidth}
         \centering
         \Ycgraph
-        \caption{$\Ycal_C^+$}
+        \caption{$C^+$}
     \end{minipage}
 \end{figure}
 
-\noindent The terminology is due to Vakil, and the picture in this case is very similar to \cite{Vre} (as we will see later, when the circuit is contracted the picture becomes \emph{very} different). Note that in these pictures we have omitted the marked points (apart from $x_k$), the degree of each vertex, and the expansion factors of the edges. These combinatorial data can be distributed arbitrarily, as long as:
+\noindent The terminology is due to Vakil, and the picture in this case is very similar to \cite{Vre} (as we will see later, when the circuit is contracted the picture becomes \emph{very} different). Note that in these pictures we have deliberately omitted the marked points (except for $x_k$), the degree of each vertex, and the expansion factors of the edges. The omitted combinatorial data can be distributed arbitrarily, as long as:
 \begin{enumerate}
-\item the vertices $\sqC_1,\ldots,\sqC_r$ have positive degree (and the circuit always has positive degree);
+\item the vertices $\sqC_1,\ldots,\sqC_r$ have positive degree;
+\item the ellipse\footnote{(Navid) Didn't we decide this was our new terminology for the circuit?} has positive degree;
 \item every vertex is stable;
 \item the balancing condition is satisfied.
 \end{enumerate}\end{lemma}
 
-\begin{proof}
-Recall that we have $\Dcal\subseteq\VZ$ obtained by a choice of combinatorial type and ray in the subdivison of the tropical moduli space. In this situation, since the circuit has positive degree no alignment is necessary (both radii are zero), and hence the subdivision is trivial. Following our procedure, we choose a ray of the tropical moduli space $Q^\vee_{\RR}$. Since this is generated by edge lengths, and we are assuming that the initial and generised combinatorial types coincide, we conclude that the tropical moduli space must be $\RR_{\geq 0}$. Since we are assuming that $\Dcal \subseteq \Dcal(k)$, we know that the vertex of the tropicalisation which contains the flag $x_k$ must map into the interior $\RR_{>0}\subseteq \RR_{\geq 0}$.
+\begin{proof} Let $\sigma \in \Sigma^{\Kim}$ be the cone corresponding to the stratum $\Dcal^{\Kim} \subseteq \ol\Mcal^{\Kim}_{1,\alpha}(\PP^N|H,d)$. By the discussion above $\Dcal$ corresponds to a ray in the subdivision of $\sigma$ given by imposing the central alignment condition. But since the ellipse is assigned positive degree, both radii are equal to $0$ and the subdivision is trivial. We conclude that $\sigma=\RR_{\geq 0}$ (recall we are assuming that the initial and generised combinatorial types coincide). Since there must be at least one vertex mapped to higher level, we conclude that the tropical target $\tilde\RR_{\geq 0}$ is obtained from $\RR_{\geq 0}$ by subdividing at a single point $\diamond \in \RR_{> 0}$.
 
-We claim that this is the only vertex of the tropical curve mapped into the interior; if there were more, the positions of their images in $\RR_{> 0}$ would be independent, and thus the tropical moduli space would have dimension $\geq 2$, a contradiction.\footnote{(Luca) Say something about rigid tropical curves as in ACGS and KLR}
+In order to have $\sigma=\RR_{\geq 0}$, the dual graph $\Gamma$ must be a bipartite graph with vertices over $0$ and $\diamond$. The cases $A,B$ and $C^+$ enumerated above cover situations where there is a single vertex mapped to $\diamond$. We claim that if there is more than one such vertex, then the contribution to the recursion is trivial. To see this, we consider the locus
+\begin{equation*} \Dcal^{\ACGS} \subseteq \ol\Mcal^{\log}_{1,\alpha}(\PP^N|H,d) \end{equation*}
+to which $\Dcal^{\Kim}$ maps under the collapsing map. The codimension of $\Dcal^{\ACGS}$ is given by the dimension of the associated tropical moduli space; if there is more than one vertex mapped to higher level then this is strictly larger than $1$, which is the codimension of $\Dcal^{\Kim}$. Thus the map $\Dcal^{\Kim} \to \Dcal^{\ACGS}$ has positive-dimensional fibres, and since all insertions are pulled back from the latter space the contribution vanishes by the projection formula.\end{proof}
 
-Thus there is a single vertex $\sqC_0$ mapped into the interior $\RR_{>0} \subseteq \RR_{\geq 0}$ and a number of vertices $\sqC_1,\ldots,\sqC_r$ mapped onto the vertex $0 \in \RR_{\geq 0}$. No pair of $\sqC_1,\ldots,\sqC_r$ can be connected by an edge, since this would introduce an extra edge length to the tropical moduli space, which then once again would have dimension $\geq 2$. Each of $\sqC_1,\ldots,\sqC_r$ must have positive degree by the tropical balancing condition and must be connected to $\sqC_0$ (since the tropical curve must be connected).
-
-Thus, we see that the combinatorial type takes the form of a bipartite graph, with $\sqC_0$ on the right-hand side and $\sqC_1,\ldots,\sqC_r$ on the left-hand side. Note that the continuity of the tropical map identifies all of the edge lengths, up to weights given by the expansion factors (i.e. tangency orders) at the edges; thus the tropical moduli space is isomorphic to $\RR_{\geq 0}$ and so we have a divisor as expected.
-
-We distinguish three cases, depending on the position of the circuit, giving the three forms presented in the statement of the lemma.\end{proof}
+\begin{remark} The difference in dimensions between $\Dcal^{\Kim}$ and $\Dcal^{\ACGS}$ may be interpreted as the difference in dimensions between moduli spaces of \emph{disonnected} rubber and their images under the collapsing map (see \ref{} below). \end{remark}
 
 We now now investigate the three types $A,B,C^+$ separately, giving a recursive description of the boundary locus in each case.
 
