@@ -52,6 +52,7 @@
 
 \newcommand{\plC}{\scalebox{0.8}[1.3]{$\sqsubset$}}
 \newcommand{\sidenote}[1]{\marginpar{\textbf{\color{red}#1}}}
+\newcommand{\lcm}{\operatorname{lcm}}
 
 % FIGURES FOR USE LATER
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -64,13 +65,13 @@
 \draw (0,.5) circle(2pt)[fill=black];
 \draw (0,-.25) node{$\vdots$};
 \draw (0,-1) circle(2pt)[fill=black];
-\draw [red,fill=red] (0,-2) circle[radius=2pt];
-\draw [->,red,thick] (0,-2) -- (3,-2);
-\draw [red,fill=red] (2,-2) circle[radius=2pt];
-\draw [->,red] (1,-0.9) -- (1,-1.6);
+\draw [blue,fill=blue] (0,-2) circle[radius=2pt];
+\draw [->,blue,thick] (0,-2) -- (3,-2);
+\draw [blue,fill=blue] (2,-2) circle[radius=2pt];
+\draw [->,blue] (1,-0.9) -- (1,-1.6);
 
-\draw [red] (2,-2) node[above]{\tiny$\diamond$};
-\draw [red] (0,-2) node[above]{\tiny$0$};
+\draw [blue] (2,-2) node[above]{\tiny$\diamond$};
+\draw [blue] (0,-2) node[above]{\tiny$0$};
 
 \draw (2.05,0) node[above]{\tiny{$\sqC_0$}};
 \draw (0,1) node[left]{\tiny{$\sqC_1$}};
@@ -87,12 +88,12 @@
 \draw (0,.5) circle(2pt)[fill=black];
 \draw (0,-.25) node{$\vdots$};
 \draw (0,-1) circle(2pt)[fill=black];
-\draw [red,fill=red] (0,-2) circle[radius=2pt];
-\draw [->,red,thick] (0,-2) -- (3,-2);
-\draw [red,fill=red] (2,-2) circle[radius=2pt];
-\draw [->,red] (1,-0.9) -- (1,-1.6);
-\draw [red] (2,-2) node[above]{\tiny$\diamond$};
-\draw [red] (0,-2) node[above]{\tiny$0$};
+\draw [blue,fill=blue] (0,-2) circle[radius=2pt];
+\draw [->,blue,thick] (0,-2) -- (3,-2);
+\draw [blue,fill=blue] (2,-2) circle[radius=2pt];
+\draw [->,blue] (1,-0.9) -- (1,-1.6);
+\draw [blue] (2,-2) node[above]{\tiny$\diamond$};
+\draw [blue] (0,-2) node[above]{\tiny$0$};
 
 \draw (2.05,0) node[above]{\tiny{$\sqC_0$}};
 \draw (0,1) node[left]{\tiny{$\sqC_1$}};
@@ -109,12 +110,12 @@
 \draw (0,.5) circle(2pt)[fill=black];
 \draw (0,-.25) node{$\vdots$};
 \draw (0,-1) circle(2pt)[fill=black];
-\draw [red,fill=red] (0,-2) circle[radius=2pt];
-\draw [->,red,thick] (0,-2) -- (3,-2);
-\draw [red,fill=red] (2,-2) circle[radius=2pt];
-\draw [red] (2,-2) node[above]{\tiny$\diamond$};
-\draw [red] (0,-2) node[above]{\tiny$0$};
-\draw [->,red] (1,-0.9) -- (1,-1.6);
+\draw [blue,fill=blue] (0,-2) circle[radius=2pt];
+\draw [->,blue,thick] (0,-2) -- (3,-2);
+\draw [blue,fill=blue] (2,-2) circle[radius=2pt];
+\draw [blue] (2,-2) node[above]{\tiny$\diamond$};
+\draw [blue] (0,-2) node[above]{\tiny$0$};
+\draw [->,blue] (1,-0.9) -- (1,-1.6);
 
 \draw (2.05,0) node[above]{\tiny{$\sqC_0$}};
 \draw (0,1) node[left]{\tiny{$\sqC_1$}};
@@ -564,7 +565,7 @@ Since $\VZ_{1,\alpha}(X|Y,\beta)$ comes equipped with evaluation maps and cotang
 
 The strategy is to first prove everything in the unobstructed case $(\PP^N,H)$; the general case follows by pullback along $i$ (see \S \ref{}).
 
-\section{Gathmann's line bundle through tropical geometry} Consider a reduced relative space $\VZ_{1,\alpha}(\PP^N|H,d)$. For each marking $x_k$ we consider the locus $\Dcal(k) \subseteq \VZ_{1,\alpha}(\PP^N|H,d)$ where $x_k$ belongs to an internal component of the collapsed map. In this section, we use the log structure on $\VZ_{1,\alpha}(\PP^N|H,d)$ to construct a line bundle $\Lcal_k$ together with a section $s_k$ which vanishes precisely along $\Dcal(k)$. We use the correspondence with tropical geometry to identify $\cchern_1(\Lcal_k)$ in terms of tautological classes on $\VZ_{1,\alpha}(\PP^N|H,d)$, and to compute the vanishing order of $s_k$ along the components of $\Dcal(k)$. Combined with the splitting axioms established in the next section, we obtain a recursion relation inside $\VZ_{1,\alpha}(\PP^N|H,d)$
+\section{Gathmann's line bundle through tropical geometry}\label{Section Gathmann line bundle} Consider a reduced relative space $\VZ_{1,\alpha}(\PP^N|H,d)$. For each marking $x_k$ we consider the locus $\Dcal(k) \subseteq \VZ_{1,\alpha}(\PP^N|H,d)$ where $x_k$ belongs to an internal component of the collapsed map. In this section, we use the log structure on $\VZ_{1,\alpha}(\PP^N|H,d)$ to construct a line bundle $\Lcal_k$ together with a section $s_k$ which vanishes precisely along $\Dcal(k)$. We use the correspondence with tropical geometry to identify $\cchern_1(\Lcal_k)$ in terms of tautological classes on $\VZ_{1,\alpha}(\PP^N|H,d)$, and to compute the vanishing order of $s_k$ along the components of $\Dcal(k)$. Combined with the splitting axioms established in the next section, we obtain a recursion relation inside $\VZ_{1,\alpha}(\PP^N|H,d)$
 
 The pair $(\Lcal_k,s_k)$ is most naturally constructed on the moduli space $\MLog_{1,\alpha}(\PP^N|H,d)$ of non-expanded log maps; the corresponding pair on $\VZ_{1,\alpha}(\PP^N|H,d)$ will be obtained via pull-back. Consider therefore the tropicalisation $\Sigma^{\log}$ of $\MLog_{1,\alpha}(\PP^N|H,d)$, identified as usual with the moduli space of tropical maps to $\RR_{\geq 0}$. We have a universal family
 \bcd
@@ -590,7 +591,7 @@ The sum is over irreducible components $\Dcal$ of the divisor $\Dcal(k) \subsete
 \begin{remark} This construction gives the natural logarithmic analogue of Gathmann's line bundle and section \cite[Construction 2.1]{Ga}. A benefit of the logarithmic approach is to make the computation of vanishing orders entirely combinatorial (see \S \ref{} below), circumventing the difficult technical calculation given by Gathmann. \end{remark}
 
 \section{Recursive description of boundary strata: the reduced splitting axiom}
-In this section we provide an explicit description of the terms appearing on the right-hand side of \eqref{equation recursion} above. For each such term, we provide a combinatorial method to calculate the vanishing order $\lambda_\Dcal$, and a recursive description of the stratum $\Dcal$ in terms of fibre products of moduli spaces with smaller numerical data. This constitutes the most technically difficult part of the paper. 
+In this section we provide an explicit description of the terms appearing on the right-hand side of \eqref{equation recursion} above. For each such term, we provide a combinatorial method to calculate the vanishing order $\lambda_\Dcal$, and a recursive description of the stratum $\Dcal$ in terms of fibre products of moduli spaces with smaller numerical data. The form which this recursive description takes is non-obvious, in the sense that additional tautological classes appear, which must be calculated. This constitutes the most technically difficult part of the paper. 
 
 
 \subsection{Identifying the irreducible components of $\Dcal(k)$} Here we explain the strategy for identifying the irreducible components of $\Dcal(k)$ via tropical geometry.
@@ -645,34 +646,43 @@ The birational map $\widetilde{\Dcal} \to \Dcal^{\Kim}$ induces a morphism $\rho
 
 \begin{proof} Let $\sigma \in \Sigma^{\Kim}$ be the cone corresponding to the stratum $\Dcal^{\Kim} \subseteq \ol\Mcal^{\Kim}_{1,\alpha}(\PP^N|H,d)$. By the discussion above $\Dcal$ corresponds to a ray in the subdivision of $\sigma$ given by imposing the central alignment condition. But since the ellipse is assigned positive degree, both radii are equal to $0$ and the subdivision is trivial. We conclude that $\sigma=\RR_{\geq 0}$ (recall we are assuming that the initial and generised combinatorial types coincide). Since there must be at least one vertex mapped to higher level, we conclude that the tropical target $\tilde\RR_{\geq 0}$ is obtained from $\RR_{\geq 0}$ by subdividing at a single point $\diamond \in \RR_{> 0}$.
 
-In order to have $\sigma=\RR_{\geq 0}$, the dual graph $\Gamma$ must be a bipartite graph with vertices over $0$ and $\diamond$. The cases $A,B$ and $C^+$ enumerated above cover situations where there is a single vertex mapped to $\diamond$. We claim that if there is more than one such vertex, then the contribution to the recursion is trivial. To see this, we consider the locus
+In order to have $\sigma=\RR_{\geq 0}$, the dual graph $\Gamma$ must be a bipartite graph with vertices over $0$ and $\diamond$. The cases $A,B$ and $C^+$ enumerated above cover situations where there is a single vertex mapped to $\diamond$. We claim that if there is more than one such vertex, then the contribution to the recursion vanishes. To see this, we consider the stratum
 \begin{equation*} \Dcal^{\ACGS} \subseteq \ol\Mcal^{\log}_{1,\alpha}(\PP^N|H,d) \end{equation*}
-to which $\Dcal^{\Kim}$ maps under the collapsing map. The codimension of $\Dcal^{\ACGS}$ is given by the dimension of the associated tropical moduli space; if there is more than one vertex mapped to higher level then this is strictly larger than $1$, which is the codimension of $\Dcal^{\Kim}$. Thus the map $\Dcal^{\Kim} \to \Dcal^{\ACGS}$ has positive-dimensional fibres, and since all insertions are pulled back from the latter space the contribution vanishes by the projection formula.\end{proof}
+to which $\Dcal^{\Kim}$ maps under the collapsing morphism. The codimension of $\Dcal^{\ACGS}$ is given by the dimension of the associated cone in the tropicalisation $\Sigma^{\log}$; if there is more than one vertex mapped to higher level then this is strictly greater than $1$, in contrast to the cone in $\Sigma^{\Kim}$. Therefore the map $\Dcal^{\Kim} \to \Dcal^{\ACGS}$ has positive-dimensional fibres, and since all insertions are pulled back from the latter space the contribution vanishes by the projection formula.\end{proof}
 
 \begin{remark} The difference in dimensions between $\Dcal^{\Kim}$ and $\Dcal^{\ACGS}$ may be interpreted as the difference in dimensions between moduli spaces of \emph{disonnected} rubber and their images under the collapsing map (see \ref{} below). \end{remark}
 
 We now now investigate the three types $A,B,C^+$ separately, giving a recursive description of the boundary locus in each case.
 
 
-\subsubsection{Type $A$} Let $\Delta$ be a combinatorial type of type $A$ and let $\Dcal\subseteq\VZ$ be the corresponding logarithmic divisor (note there is no choice of ray here). The corresponding locus $\Dcal_\Mcal\subseteq\Mcal$ is given (up to a finite cover) by\footnote{(Navid) Include short appendix on integralisation/saturation when gluing punctured maps in our setting?}:
-\begin{equation*}\Dcal_\Mcal=\Mpunct{0}{\alpha^{(0)}\cup (-m_1,\ldots,-m_r)}{H}{d_0}\times_{H^r}\left( \Mlog{1}{\alpha^{(1)}\cup(m_1)}{\PP^N|H}{d_1} \times \prod_{i=2}^r\Mlog{0}{\alpha^{(i)}\cup(m_i)}{\PP^N|H}{d_i} \right). \end{equation*}
-\begin{lemma}We have the following description of $\Dcal$\begin{equation}\label{type A splitting axiom}\Dcal=\Mpunct{0}{\alpha^{(0)}\cup (-m_1,\ldots,-m_r)}{H}{d_0}\times_{H^r}\left(\VZ_{1,\alpha^{(1)}\cup(m_1)}(\PP^N|H,d_1)\times\prod_{i=2}^r\Mlog{0}{\alpha^{(i)}\cup(m_i)}{\PP^N|H}{d_i}\right) \end{equation}
-i.e. the map $\Dcal\to\Dcal_\Mcal$ is given by blowing up one of the factors of the fibre product.\end{lemma} Note that there is a birational map which forgets the log structures
-\begin{equation*} \Mpunct{0}{\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}{H}{d_0} \to \M{0}{n_0+r}{H}{d_0} \end{equation*}
-and all of our insertions are pulled back from the latter space. Therefore the integrals over the punctured space are determined by the genus zero Gromov--Witten theory of $H\cong\PP^{N-1}$.
+\subsubsection{Type $A$} Let $\Delta$ be a combinatorial type of type $A$ and let $\Dcal\subseteq\VZ_{1,\alpha}(\PP^N|H,d)$ be the corresponding logarithmic divisor. The corresponding locus $\Dcal^{\Kim} \subseteq \ol\Mcal^{\Kim}_{1,\alpha}(\PP^N|H,d)$ admits a finite splitting morphism to the fibre product
+\begin{equation*} \Dcal^{\Kim} \xrightarrow{\rho^{\Kim}} \ol\Mcal^{\Kim \leftrightarrow}_{0,\alpha^{(0)}\cup (-m_1,\ldots,-m_r)}(P|H_0+H_\infty,d_0)\times_{H^r}\left( \ol\Mcal^{\Kim}_{1,\alpha^{(1)}\cup(m_1)}(\PP^N|H,d_1) \times \prod_{i=2}^r \ol\Mcal^{\Kim}_{0,\alpha^{(i)}\cup(m_i)}(\PP^N|H,d_i) \right) \end{equation*}
+where the degree of $\rho^{\Kim}$ is given by
+\begin{equation} \label{degree of gluing} \dfrac{\prod_{i=1}^r m_i}{\lcm(m_1,\ldots,m_r)} \end{equation}
+and is calculated in the usual way, by examining the base order of the corresponding family of targets \cite[\S 5]{ACGSDecomposition}. 
 
-%DEPRECATED?/WRONG?
+\begin{lemma} \label{Lemma type A gluing} $\Dcal$ admits a natural morphism
+\begin{equation*}\Dcal \xrightarrow{\rho} \ol\Mcal^{\Kim \leftrightarrow}_{0,\alpha^{(0)}\cup (-m_1,\ldots,-m_r)}(P|H_0+H_\infty,d_0)\times_{H^r}\left(\VZ_{1,\alpha^{(1)}\cup(m_1)}(\PP^N|H,d_1)\times\prod_{i=2}^r \ol\Mcal^{\Kim}_{0,\alpha^{(i)}\cup(m_i)}(\PP^N|H,d_i)\right) \end{equation*}
+of degree the same given by the same formula \eqref{degree of gluing}, such that the map $\Dcal \to \Dcal^{\Kim}$ covers the map on fibre products obtained by desingularising the main component of the $C_1$ factor.\end{lemma}
 
-%Note that if $\sqC_0$ degenerates further then it may be the case that there are components of $\sqC_0$ contained inside the contraction radius for $\sqC$, and thus once we contract to a Smyth curve there are components of $\sqC_0$ adjacent to the genus one singularity. However, in this case when we split off $\sqC_1$ these components disappear, and if the factorisation condition holds for $\sqC$ then it holds a fortiori for $\sqC_1$.\footnote{(Navid) I think this is right, but could someone check? Maybe there's a better way to say this.} Thus we obtain a morphism from $\Dcal$ to the fibre product on the right-hand side of \eqref{type A splitting axiom}.
 \begin{proof}
-Note first of all that the map $\Dcal\to\Dcal_\Mcal$ is an isomorphism away from the blown-up locus, which is contained inside the locus where the circuit is contracted. Given an element of $\Dcal$ we can split it along the nodes $q_1,\ldots,q_r$ as in \cite{PuncturedMaps}. It is then clear that $\sqC_1$ is aligned. We claim that $\sqC$ satisfies the factorisation property if and only if $\sqC_1$ does. This is enough to show \eqref{type A splitting axiom}.
+Note first of all that the map $\Dcal\to\Dcal^{\Kim}$ is an isomorphism away from the blown-up locus, which is contained inside the locus where the circuit is contracted. Given an element of $\Dcal$ we can split it along the nodes $q_1,\ldots,q_r$ as in \cite{}. It is then clear that $\sqC_1$ is aligned. We claim that $\sqC$ satisfies the factorisation property if and only if $\sqC_1$ does. This immediately implies the lemma.
 
-On $\sqC$ there is an associated contraction radius $\delta$ passing through a non-contracted vertex, such that the strict interior only contains contracted vertices.
-\begin{lemma}\label{type A radius lemma}$\lambda(\sqC^\prime) > \delta$ for any component $\sqC^\prime$ of $\sqC_0$.\end{lemma}
-\noindent Assuming this holds, we see as a consequence that $\sqC_0,\sqC_2,\ldots,\sqC_r$ must lie outside the contraction radius. Consequently the aligned curve $\sqC$ satisfies the factorisation condition if and only if $\sqC_1$ does, so \eqref{type A splitting axiom} holds.
+On $\sqC$ there are associated contraction radii $\delta_1,\delta_2$. Let $\delta \in \{\delta_1,\delta_2\}$. By Lemma \ref{type A radius lemma} below, we have $\lambda(\sqC^\prime) > \delta$ for any component $\sqC^\prime$ of $\sqC_0$. This means that $\sqC_0,\sqC_2,\sqC_3,\ldots,\sqC_r$ lie outside both contraction radii, and so the aligned curve $\sqC$ satisfies the factorisation condition if and only if $\sqC_1$ does. \end{proof}
 
-\begin{proof} The basic point is that $\Dcal$ consists of the union of the locally closed logarithmic strata adjacent to the locally closed stratum where all the $\sqC_i$ are irreducible. If we look at one of these boundary strata, the tropical moduli space contains a ray $\sigma$ corresponding to the stratum where all the $\sqC_i$ are irreducible; this amounts to setting all edge lengths other than $e_1,\ldots,e_r$ to zero. If $f_1,\ldots,f_l$ are some number of these additional edge lengths (corresponding to internal nodes in degenerations of the $\sqC_i$) then all of the cones of the subdivision adjacent to $\sigma$ will have $f_1+\ldots+f_l < e_j$ for all $j\in\{1,\ldots,r\}$, since $f_1=\ldots=f_l=0$ and $e_j \neq 0$ on $\sigma$. In particular, if $\sqC_1$ is degenerate and if $f$ denotes the minimal distance from the circuit to a non-contracted vertex of $\sqC_1$ (which certainly exists since $\sqC_1$ has positive degree) then $f < e_1 \leq \lambda(\sqC^\prime)$. Thus $\delta=f$ and $\delta < \lambda(\sqC^\prime)$ as claimed.\footnote{(Navid) Do an example?}\end{proof}
-\noindent Notice we did not specify whether $\delta$ was the relative or absolute radius. The point is that it does not matter; the proof goes through the same in either case. Thus we see that $\sqC$ satisfies the (double) factorisation condition if and only if $\sqC_1$ does.\end{proof}
+\begin{lemma}\label{type A radius lemma} $\lambda(\sqC^\prime) > \delta$ for any component $\sqC^\prime$ of $\sqC_0$ (with notation as in the proof above).\end{lemma}
+\begin{proof} The basic point is that $\Dcal$ is obtained as the disjoint union of the locally closed logarithmic strata contained in the closure of the stratum where all of the $\sqC_i$ are irreducible. If we look at one of these boundary strata, then by definition the associated cone $\sigma \in \Sigma_{1,\alpha}(\PP^N|H,d)$ contains a ray $\tau$ corresponding to the stratum where all the $\sqC_i$ are irreducible; this amounts to setting all edge lengths other than $e_1,\ldots,e_r$ to zero. If $f_1,\ldots,f_l$ are some collection of additional edge lengths in $\sigma$ (corresponding to internal nodes in degenerations of the $\sqC_i$) then since $\sigma$ is adjacent to $\tau$ we must have (by construction of the subdivision) $f_1+\ldots+f_l < e_j$ for all $j\in\{1,\ldots,r\}$, since $f_1=\ldots=f_l=0$ and $e_j \neq 0$ on $\tau$. In particular, if $\sqC_1$ is degenerate and if $\delta$ denotes the minimal distance from the circuit to a non-contracted vertex of $\sqC_1$ (which certainly exists since $\sqC_1$ has positive degree) then $\delta < e_1 \leq \lambda(\sqC^\prime)$, as claimed.\end{proof}
+
+Lemma \ref{Lemma type A gluing} provides a means to calculate integrals over $\Dcal$ in terms of integrals over the factors in the fibre product. The missing piece is the vanishing order $\lambda_\Dcal$ of the section $s_k$ (constructed in \S \ref{Section Gathmann line bundle} above) along $\Dcal$.
+
+\begin{lemma} \label{lemma vanishing order type A} $\lambda_\Dcal = \lcm(m_1,\ldots,m_r).$ \end{lemma}
+\begin{proof} Let $\tau \in \Sigma_{1,\alpha}(\PP^N|H,d)$ be the cone corresponding to $\Dcal$ and let
+\begin{equation*} \varphi \colon \Sigma_{1,\alpha}(\PP^N|H,d) \to \Sigma^{\log} \to \RR_{\geq 0} \end{equation*}
+be the piecewise-linear function constructed in \S \ref{Section Gathmann line bundle}. It follows from the tropical description that $\lambda_\Dcal$ is equal to the index of the map $\tau \to \RR_{\geq 0}$ obtained by restricting $\varphi$. The cone $\tau$ has as an integral generator $f=m_i e_i/\lcm(m_1,\ldots,m_r)$. Given $v \in \tau$ the target edge length $\varphi(v)$ is given by
+\begin{equation*} l=m_i e_i = \lcm(m_1,\ldots,m_r) f \end{equation*}
+which shows that the index $\lambda_\Dcal = \lcm(m_1,\ldots,m_r)$.\end{proof}
+
+Lemma \ref{lemma vanishing order type A} together with the degree calculation \eqref{degree of gluing} determines the numerics of integrals over $\lambda_\Dcal [\Dcal]$.
 
 \subsubsection{Type $B$}
 Now let $\Dcal\subseteq\VZ$ be a component of $\Dcal(k)$ with combinatorial type $\Delta$ of type $B$. In this case, it is impossible for the circuit to be contracted. Thus, $\Dcal_\Mcal \subseteq \Mcal$ is disjoint from the blown-up locus, and the map
