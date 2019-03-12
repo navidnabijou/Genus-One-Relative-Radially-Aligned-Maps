@@ -652,21 +652,23 @@ to which $\Dcal^{\Kim}$ maps under the collapsing morphism. The codimension of $
 
 \begin{remark} The difference in dimensions between $\Dcal^{\Kim}$ and $\Dcal^{\ACGS}$ may be interpreted as the difference in dimensions between moduli spaces of \emph{disonnected} rubber and their images under the collapsing map (see \ref{} below). \end{remark}
 
-We now now investigate the three types $A,B,C^+$ separately, giving a recursive description of the boundary locus in each case.
+We now now investigate the three types $A,B,C^+$ separately, giving a recursive description of the boundary divisor in each case. For the remainder of this subsection, therefore, we fix a one-dimensional cone $\tau \in \Sigma_{1,\alpha}(\PP^N|H,d)$, let $\Dcal \subseteq \VZ_{1,\alpha}(\PP^N|H,d)$ be the associated log divisor, and assume that $\Dcal \subseteq \Dcal(k)$ and is of type $A,B$ or $C^+$. We let $\Dcal^{\Kim} \subseteq \ol\Mcal_{1,\alpha}^{\Kim}(\PP^N|H,d)$ be the log stratum into which $\Dcal$ is mapped. Note that (since we are restricting to the type $A,B,C^+$ cases), $\Dcal^{\Kim}$ is also a log divisor, indexed by a cone $\epsilon \in \Sigma^{\Kim}$ which corresponds to a combinatorial type $\Delta$. Moreover, $\Dcal$ is the proper transform of $\Dcal^{\Kim}$ under the blow-up map.
 
 
-\subsubsection{Type $A$} Let $\Delta$ be a combinatorial type of type $A$ and let $\Dcal\subseteq\VZ_{1,\alpha}(\PP^N|H,d)$ be the corresponding logarithmic divisor. The corresponding locus $\Dcal^{\Kim} \subseteq \ol\Mcal^{\Kim}_{1,\alpha}(\PP^N|H,d)$ admits a finite splitting morphism to the fibre product
+\subsubsection{Type $A$}\label{subsubsection type A} Suppose $\Delta$ is of type $A$. Then \cite[\S 7]{ChenDegeneration} $\Dcal^{\Kim}$ admits a finite splitting morphism onto the fibre product
 \begin{equation*} \Dcal^{\Kim} \xrightarrow{\rho^{\Kim}} \ol\Mcal^{\Kim \leftrightarrow}_{0,\alpha^{(0)}\cup (-m_1,\ldots,-m_r)}(P|H_0+H_\infty,d_0)\times_{H^r}\left( \ol\Mcal^{\Kim}_{1,\alpha^{(1)}\cup(m_1)}(\PP^N|H,d_1) \times \prod_{i=2}^r \ol\Mcal^{\Kim}_{0,\alpha^{(i)}\cup(m_i)}(\PP^N|H,d_i) \right) \end{equation*}
-where the degree of $\rho^{\Kim}$ is given by
-\begin{equation} \label{degree of gluing} \dfrac{\prod_{i=1}^r m_i}{\lcm(m_1,\ldots,m_r)} \end{equation}
-and is calculated in the usual way, by examining the base order of the corresponding family of targets \cite[\S 5]{ACGSDecomposition}. 
+where the degree of $\rho^{\Kim}$ is given by:
+\begin{equation} \label{degree of gluing} \dfrac{\prod_{i=1}^r m_i}{\lcm(m_1,\ldots,m_r)}. \end{equation}
+This is calculated in the usual way, by examining the base order of the corresponding family of targets.
 
 \begin{lemma} \label{Lemma type A gluing} $\Dcal$ admits a natural morphism
 \begin{equation*}\Dcal \xrightarrow{\rho} \ol\Mcal^{\Kim \leftrightarrow}_{0,\alpha^{(0)}\cup (-m_1,\ldots,-m_r)}(P|H_0+H_\infty,d_0)\times_{H^r}\left(\VZ_{1,\alpha^{(1)}\cup(m_1)}(\PP^N|H,d_1)\times\prod_{i=2}^r \ol\Mcal^{\Kim}_{0,\alpha^{(i)}\cup(m_i)}(\PP^N|H,d_i)\right) \end{equation*}
-of degree the same given by the same formula \eqref{degree of gluing}, such that the map $\Dcal \to \Dcal^{\Kim}$ covers the map on fibre products obtained by desingularising the main component of the $C_1$ factor.\end{lemma}
+of degree given by the same formula \eqref{degree of gluing}, such that the map $\Dcal \to \Dcal^{\Kim}$ covers the map on fibre products obtained by desingularising the main component of the factor corresponding to $\sqC_1$.\end{lemma}
 
 \begin{proof}
-Note first of all that the map $\Dcal\to\Dcal^{\Kim}$ is an isomorphism away from the blown-up locus, which is contained inside the locus where the circuit is contracted. Given an element of $\Dcal$ we can split it along the nodes $q_1,\ldots,q_r$ as in \cite{}. It is then clear that $\sqC_1$ is aligned. We claim that $\sqC$ satisfies the factorisation property if and only if $\sqC_1$ does. This immediately implies the lemma.
+The choices involved in gluing log maps to expansions (which accounts for the degrees of the splitting morphisms above) is not affected by the introduction of alignments, so for the purposes of this proof we may act as if $\rho$ and $\rho^{\Kim}$ are the identity maps.
+
+Note that the map $\Dcal\to\Dcal^{\Kim}$ is an isomorphism away from the blown-up locus, which is contained inside the locus where the circuit is contracted. Given an element of $\Dcal$ we can split it along the nodes $q_1,\ldots,q_r$ as in \cite{}. It is then clear that $\sqC_1$ is aligned. We claim that $\sqC$ satisfies the factorisation property if and only if $\sqC_1$ does. This immediately implies the lemma.
 
 On $\sqC$ there are associated contraction radii $\delta_1,\delta_2$. Let $\delta \in \{\delta_1,\delta_2\}$. By Lemma \ref{type A radius lemma} below, we have $\lambda(\sqC^\prime) > \delta$ for any component $\sqC^\prime$ of $\sqC_0$. This means that $\sqC_0,\sqC_2,\sqC_3,\ldots,\sqC_r$ lie outside both contraction radii, and so the aligned curve $\sqC$ satisfies the factorisation condition if and only if $\sqC_1$ does. \end{proof}
 
@@ -678,27 +680,27 @@ Lemma \ref{Lemma type A gluing} provides a means to calculate integrals over $\D
 \begin{lemma} \label{lemma vanishing order type A} $\lambda_\Dcal = \lcm(m_1,\ldots,m_r).$ \end{lemma}
 \begin{proof} Let $\tau \in \Sigma_{1,\alpha}(\PP^N|H,d)$ be the cone corresponding to $\Dcal$ and let
 \begin{equation*} \varphi \colon \Sigma_{1,\alpha}(\PP^N|H,d) \to \Sigma^{\log} \to \RR_{\geq 0} \end{equation*}
-be the piecewise-linear function constructed in \S \ref{Section Gathmann line bundle}. It follows from the tropical description that $\lambda_\Dcal$ is equal to the index of the map $\tau \to \RR_{\geq 0}$ obtained by restricting $\varphi$. The cone $\tau$ has as an integral generator $f=m_i e_i/\lcm(m_1,\ldots,m_r)$. Given $v \in \tau$ the target edge length $\varphi(v)$ is given by
-\begin{equation*} l=m_i e_i = \lcm(m_1,\ldots,m_r) f \end{equation*}
-which shows that the index $\lambda_\Dcal = \lcm(m_1,\ldots,m_r)$.\end{proof}
+be the piecewise-linear function constructed in \S \ref{Section Gathmann line bundle}. It follows from the tropical description that $\lambda_\Dcal$ is equal to the index of the map of integral cones $\tau \to \RR_{\geq 0}$ obtained by restricting $\varphi$. By tropical continuity we have $\tau \subseteq \RR_{\geq 0}^r$ with integral generator:
+\begin{equation*} w = \left( \dfrac{\lcm(m_1,\ldots,m_r)}{m_1},\ldots,\dfrac{\lcm(m_1,\ldots,m_r)}{m_r} \right).\end{equation*}
+The map $\tau \to \RR_{\geq 0}$ is given by projecting onto the $i$th factor and then multiplying by $m_i$ (this is independent of $i$). Thus we conclude that the index is equal to $\lcm(m_1,\ldots,m_r)$ as claimed.\end{proof}
 
-Lemma \ref{lemma vanishing order type A} together with the degree calculation \eqref{degree of gluing} determines the numerics of integrals over $\lambda_\Dcal [\Dcal]$.
+\noindent This lemma, together with the degree calculation \eqref{degree of gluing}, determines the numerics of integrals over $\lambda_\Dcal [\Dcal]$.
 
 \subsubsection{Type $B$}
-Now let $\Dcal\subseteq\VZ$ be a component of $\Dcal(k)$ with combinatorial type $\Delta$ of type $B$. In this case, it is impossible for the circuit to be contracted. Thus, $\Dcal_\Mcal \subseteq \Mcal$ is disjoint from the blown-up locus, and the map
-\begin{equation*} \Dcal \to \Dcal_\Mcal \end{equation*}
-is an isomorphism. Thus we obtain:
-\begin{equation*} \Dcal = \Mpunct{0}{\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}{H}{d_0}\times_{H^r}\left(\Mlog{0}{\alpha^{(1)}\cup(m_1,m_2)}{\PP^N|H}{d_1}\times\prod_{i=3}^r\Mlog{0}{\alpha^{(i)}\cup(m_i)}{\PP^N|H}{d_i}\right).\end{equation*}
-As before, the integrals over the punctured space are determined by the Gromov--Witten theory of $H$.
+Now suppose $\Delta$ is of type $B$. Note that in this case, it is impossible for the circuit to be contracted. Hence $\Dcal^{\Kim}$ is disjoint from the blown-up locus, and the map $\Dcal \to \Dcal_\Mcal$ is an isomorphism. We thus obtain a finite map
+\begin{equation*} \Dcal = \ol\Mcal^{\Kim \leftrightarrow}_{0,\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}(P|H_0+H_\infty,d_0)\times_{H^r}\left(\ol\Mcal^{\Kim}_{0,\alpha^{(1)}\cup(m_1,m_2)}(\PP^N|H,d_1)\times\prod_{i=3}^r \ol\Mcal^{\Kim}_{0,\alpha^{(i)}\cup(m_i)}(\PP^N|H,d_i)\right).\end{equation*}
+The degree of $\rho$ and the vanishing order $\lambda_\Dcal$ are identical to the type $A$ case treated in \S \ref{subsubsection type A} above.
 
-\subsubsection{Type $C^+$} Finally let $\Dcal \subseteq \VZ$ be a component of $\Dcal(k)$ with combinatorial type $\Delta$ of type $C^+$. The corresponding locus in $\Mcal$ can be written as:
-\begin{equation*} \Dcal_\Mcal = \Mpunct{1}{\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}{H}{d_0} \times_{H^r} \left( \prod_{i=1}^r \Mlog{0}{\alpha^{(i)}\cup(m_i)}{\PP^N|H}{d_i} \right). \end{equation*}
-Then the same argument as in Lemma \ref{type A radius lemma} shows that given any point in $\Dcal$ the interior of the radius can only contain components of $C_0$. Thus the alignment and factorisation condition apply exclusively to $C_0$, which shows that:
-\begin{equation*}\Dcal = \VZ^{\operatorname{punct}}_{1,\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}(H,d_0) \times_{H^r} \left( \prod_{i=1}^r \Mlog{0}{\alpha^{(i)}\cup(m_i)}{\PP^N|H}{d_i} \right). \end{equation*}
-Here the first factor
-\begin{equation*}\VZ^{\operatorname{punct}}_{1,\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}(H,d_0) \end{equation*}
-is the logarithmic blow-up of the moduli space of punctured maps, obtained by imposing an alignment and factorisation condition. To be more precise: its elements consist of punctured maps to $H$ which are aligned in the sense of Definition \ref{}, and satisfy the (double) factorisation condition (simply replace $\PP^N$ by $H$ everywhere in that definition). As in \S \ref{}, this construction produces a closed substack of a logarithmic modification
-\begin{equation*} \VZ^{\operatorname{punct}}_{1,\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}(H,d_0)\subseteq \widetilde{\VZ}^{\operatorname{punct}}_{1,\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}(H,d_0) \xrightarrow{\psi} \Mpunct{1}{\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}{H}{d_0} \end{equation*}
+\subsubsection{Type $C^+$} Finally suppose that $\Delta$ is of type $C^+$. As before we have a finite morphism:
+\begin{equation*} \Dcal^{\Kim} \to \ol\Mcal^{\Kim \leftrightarrow}_{1,\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}(P|H_0+H_\infty,d_0) \times_{H^r} \left( \prod_{i=1}^r \ol\Mcal^{\Kim}_{0,\alpha^{(i)}\cup(m_i)}(\PP^N|H,d_i) \right). \end{equation*}
+The same arguments as in \S \ref{subsubsection type A} apply to give a map
+\begin{equation*}\Dcal \to \VZ^{\leftrightarrow}_{1,\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}(P|H_0+H_\infty,d_0) \times_{H^r} \left( \prod_{i=1}^r \ol\Mcal^{\Kim}_{0,\alpha^{(i)}\cup(m_i)}(\PP^N|H,d_i) \right). \end{equation*}
+of degree given by \eqref{degree of gluing}, such that $\Dcal \to \Dcal^{\Kim}$ corresponds to the obvious map on fibre products. The vanishing order $\lambda_\Dcal$ is the same as in the previous two cases. Here the first factor in the fibre product is the logarithmic blow-up of the moduli space of rubber maps constructed in \S \ref{}. We will compute integrals over such spaces as part of the recursion (see \S \ref{section recursion algorithm}).\newpage
+
+\subsection{Recursive description of the divisors: type $C^0$} It remains to consider the components $\Dcal \subseteq \Dcal(k)$ contained in the exceptional locus of
+\begin{equation*} \VZ_{1,\alpha}(\PP^N|H,d) \to \ol\Mcal^{\Kim}_{1,\alpha}(\PP^N|H,d). \end{equation*}
+In this case the corresponding cone $\tau \in \Sigma_{1,\alpha}(\PP^N|H,d)$ is a ray in the subdivision of a larger-dimensional cone $\sigma \in \Sigma^{\Kim}$, corresponding to a combinatorial type $\Delta$ which assigns degree zero to the circuit. The associated stratum $\Dcal^{\Kim} \subseteq \ol\Mcal^{\Kim}_{1,\alpha}(\PP^N|H,d)$ has smaller dimension than $\Dcal$.
+
 
 \begin{lem} The logarithmic modification $\psi$ restricts to a birational map:
 \begin{equation*}\VZ^{\operatorname{punct}}_{1,\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}(H,d) \to \ol\Mcal^{\operatorname{punct},\circ}_{1,\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}(H,d).\end{equation*}
@@ -901,7 +903,7 @@ Finally, we claim that integrals of psi and evaluation classes over these loci c
 
 \section{Recursion for general $(X,Y)$}
 
-\section{Quantum Lefschetz algorithm}
+\section{Quantum Lefschetz algorithm}\label{section recursion algorithm}
 Consider a smooth pair $(X,Y)$ with $Y$ very ample, and let $P$ be the projective bundle $P=\PP_Y(\operatorname{N}_{Y|X} \oplus\OO_Y)$. We assume that the genus zero and reduced genus one Gromov--Witten theories of $X$ are known. From this starting data, we will apply our recursion formula to compute:
 \begin{enumerate}
 \item the genus one \textbf{reduced restricted absolute Gromov--Witten theory} of $Y$;
