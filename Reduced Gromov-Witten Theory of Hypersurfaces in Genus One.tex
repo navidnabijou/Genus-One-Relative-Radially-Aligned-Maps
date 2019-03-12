@@ -561,9 +561,10 @@ Since $\VZ_{1,n}(\PP^N,d)$ is smooth and $\VZ_{1,n}(X,\beta)$ carries a natural 
 Since $\VZ_{1,\alpha}(X|Y,\beta)$ comes equipped with evaluation maps and cotangent line classes, we immediately arrive at a definition of reduced Gromov--Witten invariants for the pair $(X,Y)$.
 
 
-\part{The recursion formula and applications} \noindent In this part we derive topological recursion relations on the moduli space of reduced stable maps (Theorem \ref{theorem recursion}), inspired by the constructions of Vakil and Gathmann, but going beyond theirs in several key respects. We apply these to produce a quantum Lefschetz algorithm in genus one, which reconstructs the absolute theory of $Y$ and the relative theory of $(X,Y)$ from the absolute theory of $X$. Along the way we prove a splitting axiom for the reduced relative theory, in which involves non-trivial obstruction bundle terms make an appearance.
+\part{The recursion formula and applications} \noindent In this part we derive recursion relations on the moduli space of reduced stable maps (Theorem \ref{theorem recursion}). These are inspired by the constructions of Vakil and Gathmann, but go beyond these in several key respects, one of which is a full treatment of descendant invariants. We apply the recursions to produce a quantum Lefschetz algorithm in genus one, reconstructing the absolute theory of $Y$ and the relative theory of $(X,Y)$ from the absolute theory of $X$. Along the way we prove a splitting axiom for the reduced relative theory,  whose statement is nontrivial insofar as it involves the introduction of additional tautological classes.
 
-The strategy is to first prove everything in the unobstructed case $(\PP^N,H)$; the general case follows by pullback along $i$ (see \S \ref{}).
+[FINISH THIS]
+
 
 \section{Gathmann's line bundle through tropical geometry}\label{Section Gathmann line bundle} Consider a reduced relative space $\VZ_{1,\alpha}(\PP^N|H,d)$. For each marking $x_k$ we consider the locus $\Dcal(k) \subseteq \VZ_{1,\alpha}(\PP^N|H,d)$ where $x_k$ belongs to an internal component of the collapsed map. In this section, we use the log structure on $\VZ_{1,\alpha}(\PP^N|H,d)$ to construct a line bundle $\Lcal_k$ together with a section $s_k$ which vanishes precisely along $\Dcal(k)$. We use the correspondence with tropical geometry to identify $\cchern_1(\Lcal_k)$ in terms of tautological classes on $\VZ_{1,\alpha}(\PP^N|H,d)$, and to compute the vanishing order of $s_k$ along the components of $\Dcal(k)$. Combined with the splitting axioms established in the next section, we obtain a recursion relation inside $\VZ_{1,\alpha}(\PP^N|H,d)$
 
@@ -582,7 +583,9 @@ Since $x_k$ factors through $C_v$ we may pull back along $x_k$ to obtain
 \begin{equation*} \Lcal_k = x_k^\st\pi^\st \Lcal_k = x_k^\st \OO_{C_k}(-\alpha_k x_k) \otimes x_k^\st f^\st\OO(H) = x_k^\st \OO_{C_k}(-\alpha_k x_k) \otimes \ev_k^\st \OO(H) \end{equation*}
 and taking Chern classes gives:
 \begin{equation*} \cchern_1(\Lcal_k) = \alpha_k \psi_k + \ev_k^\st H.\end{equation*}
-This gives the construction of $(\Lcal_k,s_k)$ on $\MLog_{1,\alpha}(\PP^N|H,d)$; the construction on $\VZ_{1,\alpha}(\PP^N|H,d)$ is given by pull-back. Notice in particular that $\psi_k$ should be interpreted as a \textbf{collapsed psi class} on $\VZ_{1,\alpha}(\PP^N|H,d)$, i.e. a psi class coming from the stabilised curve of the collapsed map. All of the psi classes we deal with will be collapsed psi classes. We immediately arrive at:
+This gives the construction of $(\Lcal_k,s_k)$ on $\MLog_{1,\alpha}(\PP^N|H,d)$; the construction on $\VZ_{1,\alpha}(\PP^N|H,d)$ is given by pull-back. The relevant piecewise-linear function is the composition:
+\begin{equation*} \Sigma_{1,\alpha}(\PP^N|H,d) \to \Sigma^{\log} \to \RR_{\geq 0}.\end{equation*}
+Notice in particular that $\psi_k$ should be interpreted as a \textbf{collapsed psi class} on $\VZ_{1,\alpha}(\PP^N|H,d)$, i.e. a psi class coming from the stabilised curve of the collapsed map. In this paper, all psi classes are collapsed unless stated otherwise. We immediately arrive at:
 
 \begin{thm} \label{theorem recursion} We have the following relation in the Chow ring of $\VZ_{1,\alpha}(\PP^N|H,d)$:
 \begin{equation}\label{equation recursion} (\alpha_k \psi_k + \ev_k^\st H) \cap [\VZ_{1,\alpha}(\PP^N|H,d)] = \sum_{\Dcal} \lambda_\Dcal [ \Dcal ].\end{equation}
