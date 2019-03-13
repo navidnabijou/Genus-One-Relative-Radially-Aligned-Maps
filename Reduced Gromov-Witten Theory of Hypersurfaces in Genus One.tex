@@ -226,7 +226,9 @@
 \newcommand{\Scal}{\mathcal{S}}
 \newcommand{\Mcal}{\mathcal{M}}
 \newcommand{\Dcal}{\mathcal{D}}
+\newcommand{\Ecal}{\mathcal{E}}
 \newcommand{\Ncal}{\mathcal{N}}
+\newcommand{\Fcal}{\mathcal{F}}
 \newcommand{\Lcal}{\mathcal{L}}
 \newcommand{\Ccal}{\mathcal{C}}
 \newcommand{\Pcal}{\mathcal{P}}
@@ -439,12 +441,13 @@ $$
 which remembers only the stabilization of the collapsed map. The map is certainly centrally aligned, and we have already argued above that it satisfies the factorization property for $\mathbb P^N$ after composition. The morphism $\nu$ is in fact proper: the verification for the valuative criterion is the essential content of Vakil's Lemma~\cite[Lemma~5.9]{Vak}, and a detailed proof may be found in~\cite[Theorem~4.3]{RSPW}.
 
 We come to logarithmic smoothness. Assume first that the elliptic curve maps into higher level. Note that the relative logarithmic tangent bundle of the expansion, over the base $\mathbb P^N$ is a trivial line bundle of rank $1$, as the fibers are toric. Consider an $S$-family of maps. After replacing the source $C$ by a destabilization, we have maps
-\[
-C\to \overline{C}_1\to\overline{C}_2\to \mathbb P^N[s]\to \mathbb P^N
-\]
+\bcd
+C \ar[r] & \overline{C}_1 \ar[r] \ar[d] & \overline{C}_2 \ar[d] \\
+& \mathbb P^N[s] \ar[r] & \mathbb P^N
+\ecd
 factorizing completely. Let $f_B$ and $f_T$ be the maps from $C$ to the base and total space respectively. Examining the morphism $\nu$, we see that there is a map
 \[
-\mathrm{Def}(C,f_B)\to \mathrm{Obs}(f_T) = H^1(\overline{C}_1,\mathcal O_{\overline{C}_1}),
+\mathrm{Def}(C,f_B)\to \mathrm{Obs}(f_T/(C,f_B)) = H^1(\overline{C}_1,\mathcal O_{\overline{C}_1}),
 \]
 where the former is the space of deformations of the curve and map to the base, as a factorized centrally aligned map. The latter is the space of obstructions to lifting a map to the base into the total space. The cokernel of this map are the absolute obstructions, which we will show vanishes, proving logarithmic smoothness.
 
@@ -519,10 +522,10 @@ The cone complex $
 The construction above has been given to mimic the construction of the space $
 \mathcal{VZ}_{1,\alpha}(\mathbb P^N|H)$. Specifically, the fact that cone complex $\Sigma^{\mathrm{cen}}$ is the cone complex attached to the logarithmic stack $\widetilde{\mathcal{VZ}}_{1,\alpha}(\mathbb P^N|H)$ of centrally aligned maps to expansions, follows immediately from its description as a subcategory of the fibered category (over logarithmic schemes) of $\mathcal M^{\mathrm{log}}_{1,\alpha}(\mathbb P^N|H)$. To complete the result, we note that $
 \mathcal{VZ}_{1,\alpha}(\mathbb P^N|H)$ has a strict map to $
-\mathcal{VZ}_{1,\alpha}(\mathbb P^N|H)$, so its cone complex is a subcomplex of $\Sigma^{\mathrm{cen}}$. The fact that it must be contained in the subcomplex of well-spaced curves is immediate from Proposition~\ref{prop: well-spaced}.
+\mathcal{VZ}_{1,\alpha}(\mathbb P^N|H)$, so its cone complex is a subcomplex of $\Sigma^{\mathrm{cen}}$. The fact that it must be contained in the subcomplex of well-spaced curves is immediate from Proposition~\ref{prop: well-spaced}.l
 \end{proof}
 
-\subsection{Indexing the strata} The dimension-$k$ cones in $\Sigma_{1,\alpha}(\PP^N|H,d)$ can be enumerated as follows. First, the cones in $\Sigma^{\operatorname{log}}$ are indexed by \textbf{combinatorial types} of tropical maps to $\RR_{\geq 0}$. Here a combinatorial type encodes all of the data of a tropical map, except for the edge lengths and precise vertex positions. To be more precise, a combinatorial type $\Delta$ consists of:
+\subsection{Indexing the strata} \label{subsection indexing strata} The dimension-$k$ cones in $\Sigma_{1,\alpha}(\PP^N|H,d)$ can be enumerated as follows. First, the cones in $\Sigma^{\operatorname{log}}$ are indexed by \textbf{combinatorial types} of tropical maps to $\RR_{\geq 0}$. Here a combinatorial type encodes all of the data of a tropical map, except for the edge lengths and precise vertex positions. To be more precise, a combinatorial type $\Delta$ consists of:
 \begin{enumerate}
 \item a finite graph;
 \item genus, degree and marking assignments on the vertices
@@ -561,12 +564,11 @@ Since $\VZ_{1,n}(\PP^N,d)$ is smooth and $\VZ_{1,n}(X,\beta)$ carries a natural 
 Since $\VZ_{1,\alpha}(X|Y,\beta)$ comes equipped with evaluation maps and cotangent line classes, we immediately arrive at a definition of reduced Gromov--Witten invariants for the pair $(X,Y)$.
 
 
-\part{The recursion formula and applications} \noindent In this part we derive recursion relations on the moduli space of reduced stable maps (Theorem \ref{theorem recursion}). These are inspired by the constructions of Vakil and Gathmann, but go beyond these in several key respects, one of which is a full treatment of descendant invariants. We apply the recursions to produce a quantum Lefschetz algorithm in genus one, reconstructing the absolute theory of $Y$ and the relative theory of $(X,Y)$ from the absolute theory of $X$. Along the way we prove a splitting axiom for the reduced relative theory,  whose statement is nontrivial insofar as it involves the introduction of additional tautological classes.
+\part{The recursion formula and applications}\footnote{(Navid) From here on, when I write a relative space without any decoration, I mean a Kim space. We should establish this convention from the start} \noindent In this part we prove recursion relations on the moduli space of reduced stable maps (Theorem \ref{theorem recursion}). These are inspired by the constructions of Vakil and Gathmann, but go beyond these in several key respects, giving a full treatment of descendant invariants for very ample pairs. We apply the recursions to produce a quantum Lefschetz algorithm in genus one, reconstructing the absolute theory of $Y$ and the relative theory of $(X,Y)$ from the absolute theory of $X$. Along the way we prove a splitting axiom for the reduced relative theory; the form of this splitting axiom is nontrivial, insofar as it involves the introduction of additional tautological classes.
 
-[FINISH THIS]
+In \S\S \ref{Section Gathmann line bundle}--\ref{section reduced splitting axiom} we prove the recursion formula for $(\PP^N,H)$. In \S \ref{section recursion for general pair} we indicate how to obtain from this the recursion formula for an arbitrary very ample pair $(X,Y)$. Finally in \S \ref{section recursion algorithm} we describe the quantum Lefschetz algorithm.
 
-
-\section{Gathmann's line bundle through tropical geometry}\label{Section Gathmann line bundle} Consider a reduced relative space $\VZ_{1,\alpha}(\PP^N|H,d)$. For each marking $x_k$ we consider the locus $\Dcal(k) \subseteq \VZ_{1,\alpha}(\PP^N|H,d)$ where $x_k$ belongs to an internal component of the collapsed map. In this section, we use the log structure on $\VZ_{1,\alpha}(\PP^N|H,d)$ to construct a line bundle $\Lcal_k$ together with a section $s_k$ which vanishes precisely along $\Dcal(k)$. We use the correspondence with tropical geometry to identify $\cchern_1(\Lcal_k)$ in terms of tautological classes on $\VZ_{1,\alpha}(\PP^N|H,d)$, and to compute the vanishing order of $s_k$ along the components of $\Dcal(k)$. Combined with the splitting axioms established in the next section, we obtain a recursion relation inside $\VZ_{1,\alpha}(\PP^N|H,d)$
+\section{Gathmann's line bundle via tropical geometry}\label{Section Gathmann line bundle} Consider a reduced relative space $\VZ_{1,\alpha}(\PP^N|H,d)$. For each marking $x_k$ we consider the locus $\Dcal_{1,\alpha,k}(\PP^N|H,d) \subseteq \VZ_{1,\alpha}(\PP^N|H,d)$ where $x_k$ belongs to an internal component of the collapsed map. In this section, we use the log structure on $\VZ_{1,\alpha}(\PP^N|H,d)$ to construct a line bundle $\Lcal_k$ together with a section $s_k$ which vanishes precisely along $\Dcal_{1,\alpha,k}(\PP^N|H,d)$. We use the correspondence with tropical geometry to identify $\cchern_1(\Lcal_k)$ in terms of tautological classes on $\VZ_{1,\alpha}(\PP^N|H,d)$, and to compute the vanishing order of $s_k$ along the components of $\Dcal_{1,\alpha,k}(\PP^N|H,d)$. Combined with the splitting axioms established in the next section, we obtain a recursion relation inside $\VZ_{1,\alpha}(\PP^N|H,d)$
 
 The pair $(\Lcal_k,s_k)$ is most naturally constructed on the moduli space $\MLog_{1,\alpha}(\PP^N|H,d)$ of non-expanded log maps; the corresponding pair on $\VZ_{1,\alpha}(\PP^N|H,d)$ will be obtained via pull-back. Consider therefore the tropicalisation $\Sigma^{\log}$ of $\MLog_{1,\alpha}(\PP^N|H,d)$, identified as usual with the moduli space of tropical maps to $\RR_{\geq 0}$. We have a universal family
 \bcd
@@ -589,19 +591,19 @@ Notice in particular that $\psi_k$ should be interpreted as a \textbf{collapsed 
 
 \begin{thm} \label{theorem recursion} We have the following relation in the Chow ring of $\VZ_{1,\alpha}(\PP^N|H,d)$:
 \begin{equation}\label{equation recursion} (\alpha_k \psi_k + \ev_k^\st H) \cap [\VZ_{1,\alpha}(\PP^N|H,d)] = \sum_{\Dcal} \lambda_\Dcal [ \Dcal ].\end{equation}
-The sum is over irreducible components $\Dcal$ of the divisor $\Dcal(k) \subseteq \VZ_{1,\alpha}(\PP^N|H,d)$, and $\lambda_\Dcal$ is the vanishing order of $s_k$ along this component. \end{thm}
+The sum is over irreducible components $\Dcal$ of the divisor $\Dcal_{1,\alpha,k}(\PP^N|H,d) \subseteq \VZ_{1,\alpha}(\PP^N|H,d)$, and $\lambda_\Dcal$ is the vanishing order of $s_k$ along this component. \end{thm}
 
 \begin{remark} This construction gives the natural logarithmic analogue of Gathmann's line bundle and section \cite[Construction 2.1]{Ga}. A benefit of the logarithmic approach is to make the computation of vanishing orders entirely combinatorial (see \S \ref{} below), circumventing the difficult technical calculation given by Gathmann. \end{remark}
 
-\section{Recursive description of boundary strata: the reduced splitting axiom}
+\section{Recursive description of boundary strata: the reduced splitting axiom}\label{section reduced splitting axiom}
 In this section we provide an explicit description of the terms appearing on the right-hand side of \eqref{equation recursion} above. For each such term, we provide a combinatorial method to calculate the vanishing order $\lambda_\Dcal$, and a recursive description of the stratum $\Dcal$ in terms of fibre products of moduli spaces with smaller numerical data. The form which this recursive description takes is non-obvious, in the sense that additional tautological classes appear, which must be calculated. This constitutes the most technically difficult part of the paper. 
 
 
-\subsection{Identifying the irreducible components of $\Dcal(k)$} Here we explain the strategy for identifying the irreducible components of $\Dcal(k)$ via tropical geometry.
+\subsection{Identifying the irreducible components of $\Dcal_{1,\alpha,k}(\PP^N|H,d)$} Here we explain the strategy for identifying the irreducible components of $\Dcal_{1,\alpha,k}(\PP^N|H,d)$ via tropical geometry.
 
-\begin{lemma} \label{Lemma components are log divisors} Every irreducible component of $\Dcal(k)$ is a codimension $1$ log stratum.\end{lemma}
-\begin{proof} This is not hard to see: the locus where the log structure is trivial coincides precisely with the  locus where the source curve is smooth and not mapped inside $H$, and since $\VZ_{1,\alpha}(\PP^N|H,d)$ is log smooth this locus is open and dense \cite{Niziol}. By definition $\Dcal(k)$ is contained in the  complement of this locus, which (by the very definition of logarithmic strata) can be written as a union of log strata of positive codimension. Since $\Dcal(k)$ has codmension $1$, it must therefore be equal to a union of log divisors.\end{proof}
-In \S \ref{} we discussed a procedure for enumerating the log strata of $\VZ_{1,\alpha}(\PP^N|H,d)$, using the cones of the tropicalisation $\Sigma_{1,\alpha}(\PP^N|H,d)$. To recap: every divisorial logarithmic stratum is obtained via a three-step process:
+\begin{lemma} \label{Lemma components are log divisors} Every irreducible component of $\Dcal_{1,\alpha,k}(\PP^N|H,d)$ is a codimension $1$ log stratum.\end{lemma}
+\begin{proof} This is not hard to see: the locus where the log structure is trivial coincides precisely with the  locus where the source curve is smooth and not mapped inside $H$, and since $\VZ_{1,\alpha}(\PP^N|H,d)$ is log smooth this locus is open and dense \cite{Niziol}. By definition $\Dcal_{1,\alpha,k}(\PP^N|H,d)$ is contained in the  complement of this locus, which (by the very definition of logarithmic strata) can be written as a union of log strata of positive codimension. Since $\Dcal_{1,\alpha,k}(\PP^N|H,d)$ has codmension $1$, it must therefore be equal to a union of log divisors.\end{proof}
+In \S \ref{subsection indexing strata} we discussed a procedure for enumerating the log strata of $\VZ_{1,\alpha}(\PP^N|H,d)$, using the cones of the tropicalisation $\Sigma_{1,\alpha}(\PP^N|H,d)$. To recap: every divisorial logarithmic stratum is obtained via a three-step process:
 \begin{enumerate}
 \item choose a combinatorial type $\Delta$ of a tropical map;
 \item subdivide the corresponding tropical moduli space $\sigma$;
@@ -609,17 +611,17 @@ In \S \ref{} we discussed a procedure for enumerating the log strata of $\VZ_{1,
 \end{enumerate}
 Notice that this process contains some redundancies: upon choosing a ray in the tropical moduli space, some of the edge lengths or vertex positions may get set to $0$. This induces a generisation of the intial combinatorial type $\Delta$, given by contracting the corresponding edges of the dual graph and moving the corresponding vertices from $\RR_{>0}$ to $0$. By the combinatorial type of a stratum in $\VZ_{1,\alpha}(\PP^N|H,d)$ we will always mean this generisation. This is independent of the choice of $\Delta$, and in fact we can (and will) always choose $\Delta$ to coincide with the generisation.
 
-The log divisors contained in $\Dcal(k)$ are precisely those whose  combinatorial types map the vertex of the dual graph containing $x_k$  into the interior $\RR_{>0} \subseteq \RR_{\geq 0}$. Thus via the above procedure, we are able to enumerate the irreducible components of $\Dcal(k)$ in a combinatorial manner, and the combinatorial type $\Delta$ allows us to describe the general element of such a component. What we are still lacking is a recursive description of the components, which we need in order to compute integrals over them. This is the subject of the remainder of this section.
+The log divisors contained in $\Dcal_{1,\alpha,k}(\PP^N|H,d)$ are precisely those whose  combinatorial types map the vertex of the dual graph containing $x_k$  into the interior $\RR_{>0} \subseteq \RR_{\geq 0}$. Thus via the above procedure, we are able to enumerate the irreducible components of $\Dcal_{1,\alpha,k}(\PP^N|H,d)$ in a combinatorial manner, and the combinatorial type $\Delta$ allows us to describe the general element of such a component. What we are still lacking is a recursive description of the components, which we need in order to compute integrals over them. This is the subject of the remainder of this section.
 
-\subsection{Recursive description of the divisors: types $A,B$ and $C^+$} Choose an irreducible component $\Dcal \subseteq \Dcal(k)$. By Lemma \ref{Lemma components are log divisors} this is a log divisor, and hence may be written as:
+\subsection{Recursive description of the divisors: types $A,B$ and $C^+$} Choose an irreducible component $\Dcal \subseteq \Dcal_{1,\alpha,k}(\PP^N|H,d)$. By Lemma \ref{Lemma components are log divisors} this is a log divisor, and hence may be written as:
 \begin{equation*} \Dcal = \widetilde\Dcal \cap \VZ_{1,\alpha}(\PP^N|H,d) \end{equation*}
 for a unique log stratum $\widetilde\Dcal \subseteq \widetilde{\VZ}_{1,\alpha}(\PP^N|H,d)$. Since
-\begin{equation*}\widetilde{\VZ}_{1,\alpha}(\PP^N|H,d) \to \ol\Mcal^{\Kim}_{1,\alpha}(\PP^N|H,d)\end{equation*}
-is a log modification, $\widetilde{\Dcal}$ is either exceptional or the proper transform of a log divisor. These cases correspond, respectively, to when the circuit is assigned zero degree or nonzero degree by the combinatorial type. To begin with we will focus on the latter case. Suppose therefore that $\widetilde{\Dcal}$ is the proper transform of a divisor:
-\begin{equation*} \Dcal^{\Kim} \subseteq \ol\Mcal^{\Kim}_{1,\alpha}(\PP^N|H,d). \end{equation*}
-The birational map $\widetilde{\Dcal} \to \Dcal^{\Kim}$ induces a morphism $\rho \colon \Dcal \to \Dcal^{\Kim}$. The remainder of this subsection will be devoted to showing how $\rho$ may be interpreted as a ``desingularisation of the main component''. Since $\Dcal^{\Kim}$ admits a recursive description (in terms of relative and rubber moduli spaces), this will allow us to compute integrals over $\Dcal$.
+\begin{equation*}\widetilde{\VZ}_{1,\alpha}(\PP^N|H,d) \to \ol\Mcal_{1,\alpha}(\PP^N|H,d)\end{equation*}
+is a log modification, $\widetilde{\Dcal}$ is either exceptional or the proper transform of a log divisor. These cases correspond, respectively, to when the circuit is assigned zero degree or nonzero degree by the combinatorial type. To begin with we will focus on the latter case. Suppose therefore that $\widetilde{\Dcal}$ is the proper transform of a log divisor:
+\begin{equation*} \Ecal \subseteq \ol\Mcal_{1,\alpha}(\PP^N|H,d). \end{equation*}
+The birational map $\widetilde{\Dcal} \to \Ecal$ induces a morphism $\Dcal \to \Ecal$. In the remainder of this subsection, we will show how to interpret this morphism as a ``desingularisation of the main component''. Since $\Ecal$ admits a recursive description in terms of relative and rubber moduli spaces, this will allow us to compute integrals over $\Dcal$.
 
-\begin{lemma} Let $\Dcal \subseteq \Dcal(k)$ be an irreducible component which contributes nontrivially to the recursion, and let $\Delta$ be the corresponding combinatorial type. Suppose that $\Delta$ assigns positive degree to the circuit. Then $\Delta$ takes one of the following forms:
+\begin{lemma} Let $\Dcal \subseteq \Dcal_{1,\alpha,k}(\PP^N|H,d)$ be an irreducible component which contributes nontrivially to the recursion, and let $\Delta$ be the corresponding combinatorial type. Suppose that $\Delta$ assigns positive degree to the circuit. Then $\Delta$ takes one of the following forms:
 \begin{figure}[h]
     \centering
     \begin{minipage}{0.3\textwidth}
@@ -639,7 +641,7 @@ The birational map $\widetilde{\Dcal} \to \Dcal^{\Kim}$ induces a morphism $\rho
     \end{minipage}
 \end{figure}
 
-\noindent The terminology is due to Vakil, and the picture in this case is very similar to \cite{Vre} (as we will see later, when the circuit is contracted the picture becomes \emph{very} different). Note that in these pictures we have deliberately omitted the marked points (except for $x_k$), the degree of each vertex, and the expansion factors of the edges. The omitted combinatorial data can be distributed arbitrarily, as long as:
+\noindent The terminology is due to Vakil, and the pictures in this case are very similar to \cite{Vre} (we will see later that when the circuit is assigned zero degree the picture becomes \emph{very} different). Note that in these pictures we have deliberately omitted the marked points (except for $x_k$), the degree of each vertex, and the expansion factors of the edges. The omitted combinatorial data can be distributed arbitrarily, as long as:
 \begin{enumerate}
 \item the vertices $\sqC_1,\ldots,\sqC_r$ have positive degree;
 \item the ellipse\footnote{(Navid) Didn't we decide this was our new terminology for the circuit?} has positive degree;
@@ -647,62 +649,66 @@ The birational map $\widetilde{\Dcal} \to \Dcal^{\Kim}$ induces a morphism $\rho
 \item the balancing condition is satisfied.
 \end{enumerate}\end{lemma}
 
-\begin{proof} Let $\sigma \in \Sigma^{\Kim}$ be the cone corresponding to the stratum $\Dcal^{\Kim} \subseteq \ol\Mcal^{\Kim}_{1,\alpha}(\PP^N|H,d)$. By the discussion above $\Dcal$ corresponds to a ray in the subdivision of $\sigma$ given by imposing the central alignment condition. But since the ellipse is assigned positive degree, both radii are equal to $0$ and the subdivision is trivial. We conclude that $\sigma=\RR_{\geq 0}$ (recall we are assuming that the initial and generised combinatorial types coincide). Since there must be at least one vertex mapped to higher level, we conclude that the tropical target $\tilde\RR_{\geq 0}$ is obtained from $\RR_{\geq 0}$ by subdividing at a single point $\diamond \in \RR_{> 0}$.
+\begin{proof} Let $\sigma \in \Sigma$ be the cone corresponding to the stratum $\Ecal \subseteq \ol\Mcal_{1,\alpha}(\PP^N|H,d)$. By the discussion above $\Dcal$ corresponds to a ray in the subdivision of $\sigma$ given by imposing the central alignment condition. But since the ellipse is assigned positive degree, both radii are equal to $0$ and the subdivision is trivial. We conclude that $\sigma=\RR_{\geq 0}$ (recall we are assuming that the initial and generised combinatorial types coincide). Since there must be at least one vertex mapped to higher level, we conclude that the tropical target $\widetilde\RR_{\geq 0}$ is obtained from $\RR_{\geq 0}$ by subdividing at a single point $\diamond \in \RR_{> 0}$.
 
 In order to have $\sigma=\RR_{\geq 0}$, the dual graph $\Gamma$ must be a bipartite graph with vertices over $0$ and $\diamond$. The cases $A,B$ and $C^+$ enumerated above cover situations where there is a single vertex mapped to $\diamond$. We claim that if there is more than one such vertex, then the contribution to the recursion vanishes. To see this, we consider the stratum
-\begin{equation*} \Dcal^{\ACGS} \subseteq \ol\Mcal^{\log}_{1,\alpha}(\PP^N|H,d) \end{equation*}
-to which $\Dcal^{\Kim}$ maps under the collapsing morphism. The codimension of $\Dcal^{\ACGS}$ is given by the dimension of the associated cone in the tropicalisation $\Sigma^{\log}$; if there is more than one vertex mapped to higher level then this is strictly greater than $1$, in contrast to the cone in $\Sigma^{\Kim}$. Therefore the map $\Dcal^{\Kim} \to \Dcal^{\ACGS}$ has positive-dimensional fibres, and since all insertions are pulled back from the latter space the contribution vanishes by the projection formula.\end{proof}
+\begin{equation*} \Ecal^{\text{\tiny{log}}} \subseteq \ol\Mcal^{\text{\tiny{log}}}_{1,\alpha}(\PP^N|H,d) \end{equation*}
+to which $\Ecal$ maps under the collapsing morphism, and examine the composition $\Dcal \to \Ecal \to \Ecal^{\text{\tiny{log}}}$. If we let $\Fcal^{\text{\tiny{log}}}$ denote the intersection of $\Ecal^{\text{\tiny{log}}}$ with the main component of the moduli space, then we obtain a factorisation $\Dcal \to \Fcal^{\text{\tiny{log}}} \hookrightarrow \Ecal^{\text{\tiny{log}}}$. Since the moduli space is generically unobstructed along $\Fcal^{\text{\tiny{log}}}$, the codimension of $\Fcal^{\text{\tiny{log}}}$ is given by the dimension of the associated cone in the tropicalisation $\Sigma^{\text{\tiny{log}}}$. If there is more than one vertex mapped to higher level, then this cone has dimension $\geq 2$. Therefore the map $\Dcal \to \Fcal^{\text{\tiny{log}}}$ has positive-dimensional fibres, and since all insertions are pulled back from the latter space the contribution vanishes by the projection formula.\end{proof}
 
-\begin{remark} The difference in dimensions between $\Dcal^{\Kim}$ and $\Dcal^{\ACGS}$ may be interpreted as the difference in dimensions between moduli spaces of \emph{disonnected} rubber and their images under the collapsing map (see \ref{} below). \end{remark}
+\begin{remark} The difference in dimensions between $\Dcal$ and $\Fcal^{\text{\tiny{log}}}$ (or equivalently, the difference in virtual dimensions between $\Ecal$ and $\Ecal^{\text{\tiny{log}}}$) may be interpreted as the difference in dimensions between moduli spaces of \emph{disconnected} rubber and their images under the collapsing morphisms (see \ref{} below). \end{remark}
 
-We now now investigate the three types $A,B,C^+$ separately, giving a recursive description of the boundary divisor in each case. For the remainder of this subsection, therefore, we fix a one-dimensional cone $\tau \in \Sigma_{1,\alpha}(\PP^N|H,d)$, let $\Dcal \subseteq \VZ_{1,\alpha}(\PP^N|H,d)$ be the associated log divisor, and assume that $\Dcal \subseteq \Dcal(k)$ and is of type $A,B$ or $C^+$. We let $\Dcal^{\Kim} \subseteq \ol\Mcal_{1,\alpha}^{\Kim}(\PP^N|H,d)$ be the log stratum into which $\Dcal$ is mapped. Note that (since we are restricting to the type $A,B,C^+$ cases), $\Dcal^{\Kim}$ is also a log divisor, indexed by a cone $\epsilon \in \Sigma^{\Kim}$ which corresponds to a combinatorial type $\Delta$. Moreover, $\Dcal$ is the proper transform of $\Dcal^{\Kim}$ under the blow-up map.
+We now investigate the three types $A,B,C^+$ separately, giving a recursive description of the boundary divisor in each case. For the remainder of this subsection, therefore, we fix a one-dimensional cone $\tau \in \Sigma_{1,\alpha}(\PP^N|H,d)$, let $\Dcal \subseteq \VZ_{1,\alpha}(\PP^N|H,d)$ be the associated log divisor, and assume that $\Dcal$ is contained in $\Dcal_{1,\alpha,k}(\PP^N|H,d)$ and is of type $A,B$ or $C^+$. We let $\Ecal \subseteq \ol\Mcal_{1,\alpha}(\PP^N|H,d)$ be the log stratum into which $\Dcal$ is mapped; this is indexed by a cone $\epsilon \in \Sigma$ corresponding to a combinatorial type $\Delta$, and $\epsilon$ is one-dimensional since we are restricting to the type $A,B,C^+$ cases.
 
 
-\subsubsection{Type $A$}\label{subsubsection type A} Suppose $\Delta$ is of type $A$. Then \cite[\S 7]{ChenDegeneration} $\Dcal^{\Kim}$ admits a finite splitting morphism onto the fibre product
-\begin{equation*} \Dcal^{\Kim} \xrightarrow{\rho^{\Kim}} \ol\Mcal^{\Kim \leftrightarrow}_{0,\alpha^{(0)}\cup (-m_1,\ldots,-m_r)}(P|H_0+H_\infty,d_0)\times_{H^r}\left( \ol\Mcal^{\Kim}_{1,\alpha^{(1)}\cup(m_1)}(\PP^N|H,d_1) \times \prod_{i=2}^r \ol\Mcal^{\Kim}_{0,\alpha^{(i)}\cup(m_i)}(\PP^N|H,d_i) \right) \end{equation*}
-where the degree of $\rho^{\Kim}$ is given by:
-\begin{equation} \label{degree of gluing} \dfrac{\prod_{i=1}^r m_i}{\lcm(m_1,\ldots,m_r)}. \end{equation}
-This is calculated in the usual way, by examining the base order of the corresponding family of targets.
+\subsubsection{Type $A$}\label{subsubsection type A} Suppose $\Delta$ is of type $A$. Then $\Ecal$ admits a finite splitting morphism onto the fibre product:
+\begin{equation*} \Ecal \to \ol\Mcal_{0,\alpha^{(0)}\cup (-m_1,\ldots,-m_r)}(P|H_0+H_\infty,d_0)\times_{H^r}\left( \ol\Mcal_{1,\alpha^{(1)}\cup(m_1)}(\PP^N|H,d_1) \times \prod_{i=2}^r \ol\Mcal_{0,\alpha^{(i)}\cup(m_i)}(\PP^N|H,d_i) \right). \end{equation*}
 
-\begin{lemma} \label{Lemma type A gluing} $\Dcal$ admits a natural morphism
-\begin{equation*}\Dcal \xrightarrow{\rho} \ol\Mcal^{\Kim \leftrightarrow}_{0,\alpha^{(0)}\cup (-m_1,\ldots,-m_r)}(P|H_0+H_\infty,d_0)\times_{H^r}\left(\VZ_{1,\alpha^{(1)}\cup(m_1)}(\PP^N|H,d_1)\times\prod_{i=2}^r \ol\Mcal^{\Kim}_{0,\alpha^{(i)}\cup(m_i)}(\PP^N|H,d_i)\right) \end{equation*}
-of degree given by the same formula \eqref{degree of gluing}, such that the map $\Dcal \to \Dcal^{\Kim}$ covers the map on fibre products obtained by desingularising the main component of the factor corresponding to $\sqC_1$.\end{lemma}
+\begin{lemma} \label{Lemma type A gluing} $\Dcal$ admits a natural splitting morphism
+\begin{equation*}\Dcal \xrightarrow{\rho} \ol\Mcal^{\leftrightarrow}_{0,\alpha^{(0)}\cup (-m_1,\ldots,-m_r)}(P|H_0+H_\infty,d_0)\times_{H^r}\left(\VZ_{1,\alpha^{(1)}\cup(m_1)}(\PP^N|H,d_1)\times\prod_{i=2}^r \ol\Mcal_{0,\alpha^{(i)}\cup(m_i)}(\PP^N|H,d_i)\right) \end{equation*}
+such that the map $\Dcal \to \Ecal$ covers the map on fibre products obtained by desingularising the main component of the factor corresponding to $\sqC_1$.\end{lemma}
 
 \begin{proof}
-The choices involved in gluing log maps to expansions (which accounts for the degrees of the splitting morphisms above) is not affected by the introduction of alignments, so for the purposes of this proof we may act as if $\rho$ and $\rho^{\Kim}$ are the identity maps.
+The choices involved in gluing log maps to expansions (which accounts for the degrees of the splitting morphisms above) is not affected by the introduction of alignments, so for the purposes of this proof we may pretend as if these splitting morphisms are the identity maps.
 
-Note that the map $\Dcal\to\Dcal^{\Kim}$ is an isomorphism away from the blown-up locus, which is contained inside the locus where the circuit is contracted. Given an element of $\Dcal$ we can split it along the nodes $q_1,\ldots,q_r$ as in \cite{}. It is then clear that $\sqC_1$ is aligned. We claim that $\sqC$ satisfies the factorisation property if and only if $\sqC_1$ does. This immediately implies the lemma.
+Note that the map $\Dcal\to\Ecal$ is an isomorphism away from the blown-up locus, which is contained inside the locus where the circuit is contracted. Given an element of $\Dcal$ we can split it along the nodes $q_1,\ldots,q_r$ as in \cite{}. It is then clear that $\sqC_1$ is aligned. We claim that $\sqC$ satisfies the factorisation property if and only if $\sqC_1$ does. This immediately implies the lemma.
 
 On $\sqC$ there are associated contraction radii $\delta_1,\delta_2$. Let $\delta \in \{\delta_1,\delta_2\}$. By Lemma \ref{type A radius lemma} below, we have $\lambda(\sqC^\prime) > \delta$ for any component $\sqC^\prime$ of $\sqC_0$. This means that $\sqC_0,\sqC_2,\sqC_3,\ldots,\sqC_r$ lie outside both contraction radii, and so the aligned curve $\sqC$ satisfies the factorisation condition if and only if $\sqC_1$ does. \end{proof}
 
 \begin{lemma}\label{type A radius lemma} $\lambda(\sqC^\prime) > \delta$ for any component $\sqC^\prime$ of $\sqC_0$ (with notation as in the proof above).\end{lemma}
 \begin{proof} The basic point is that $\Dcal$ is obtained as the disjoint union of the locally closed logarithmic strata contained in the closure of the stratum where all of the $\sqC_i$ are irreducible. If we look at one of these boundary strata, then by definition the associated cone $\sigma \in \Sigma_{1,\alpha}(\PP^N|H,d)$ contains a ray $\tau$ corresponding to the stratum where all the $\sqC_i$ are irreducible; this amounts to setting all edge lengths other than $e_1,\ldots,e_r$ to zero. If $f_1,\ldots,f_l$ are some collection of additional edge lengths in $\sigma$ (corresponding to internal nodes in degenerations of the $\sqC_i$) then since $\sigma$ is adjacent to $\tau$ we must have (by construction of the subdivision) $f_1+\ldots+f_l < e_j$ for all $j\in\{1,\ldots,r\}$, since $f_1=\ldots=f_l=0$ and $e_j \neq 0$ on $\tau$. In particular, if $\sqC_1$ is degenerate and if $\delta$ denotes the minimal distance from the circuit to a non-contracted vertex of $\sqC_1$ (which certainly exists since $\sqC_1$ has positive degree) then $\delta < e_1 \leq \lambda(\sqC^\prime)$, as claimed.\end{proof}
 
-Lemma \ref{Lemma type A gluing} provides a means to calculate integrals over $\Dcal$ in terms of integrals over the factors in the fibre product. The missing piece is the vanishing order $\lambda_\Dcal$ of the section $s_k$ (constructed in \S \ref{Section Gathmann line bundle} above) along $\Dcal$.
+Lemma \ref{Lemma type A gluing} provides a means to calculate integrals over the class $\lambda_\Dcal[\Dcal]$ appearing on the right-hand side of Theorem \ref{theorem recursion}, provided that we can calculate $\lambda_\Dcal$ and the degree of the splitting morphism. Simple closed formulae for these are given in \S \ref{subsubsection splitting degree} below.
 
-\begin{lemma} \label{lemma vanishing order type A} $\lambda_\Dcal = \lcm(m_1,\ldots,m_r).$ \end{lemma}
+\subsubsection{Type $B$}
+Now suppose $\Delta$ is of type $B$. Note that in this case, it is impossible for the circuit to be contracted. Hence $\Ecal$ is disjoint from the blown-up locus, and the map $\Dcal \to \Ecal$ is an isomorphism. We thus obtain a finite splitting morphism:
+\begin{equation*} \Dcal \xrightarrow{\rho} \ol\Mcal^{\leftrightarrow}_{0,\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}(P|H_0+H_\infty,d_0)\times_{H^r}\left(\ol\Mcal_{0,\alpha^{(1)}\cup(m_1,m_2)}(\PP^N|H,d_1)\times\prod_{i=3}^r \ol\Mcal_{0,\alpha^{(i)}\cup(m_i)}(\PP^N|H,d_i)\right).\end{equation*}
+
+\subsubsection{Type $C^+$} \label{subsubsection type C+} Finally suppose that $\Delta$ is of type $C^+$. As before we have a finite morphism:
+\begin{equation*} \Ecal \to \ol\Mcal^{\leftrightarrow}_{1,\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}(P|H_0+H_\infty,d_0) \times_{H^r} \left( \prod_{i=1}^r \ol\Mcal_{0,\alpha^{(i)}\cup(m_i)}(\PP^N|H,d_i) \right). \end{equation*}
+The same arguments as in \S \ref{subsubsection type A} then apply to give a finite morphism map
+\begin{equation*}\Dcal \xrightarrow{\rho} \VZ^{\leftrightarrow}_{1,\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}(P|H_0+H_\infty,d_0) \times_{H^r} \left( \prod_{i=1}^r \ol\Mcal_{0,\alpha^{(i)}\cup(m_i)}(\PP^N|H,d_i) \right). \end{equation*}
+ such that $\Dcal \to \Ecal$ corresponds to the obvious map on fibre products. Here the first factor in the fibre product is the logarithmic blow-up of the moduli space of rubber maps constructed in \S \ref{}. We will compute integrals over such spaces as part of the recursion (see \S \ref{section recursion algorithm}).
+
+\subsubsection{Splitting degree and vanishing order} \label{subsubsection splitting degree} In each of the subsections \ref{subsubsection type A}--\ref{subsubsection type C+} above, we obtained a finite splitting morphism $\rho$ from $\Dcal$ to a fibre product of moduli spaces with smaller numerical data. Here we explain the degree of $\rho$ and calculate the vanishing order $\lambda_\Dcal$ of the section $s_k$ constructed in \S \ref{Section Gathmann line bundle}. This gives a complete recursive description of the terms appearing on the right-hand side of Theorem \ref{theorem recursion} which are of type $A,B$ or $C^+$.
+
+\begin{lemma} The degree of $\rho$ is given by:
+\begin{equation*} \label{degree of gluing} \dfrac{\prod_{i=1}^r m_i}{\lcm(m_1,\ldots,m_r)}. \end{equation*}\end{lemma}
+\begin{proof} This is calculated in the usual way, by examining the base order of the corresponding family of targets. See, for instance \cite{ChenDegeneration}, \cite{ACGSDecomposition}.
+\end{proof}
+
+\begin{lemma} \label{lemma vanishing order} $\lambda_\Dcal = \lcm(m_1,\ldots,m_r).$ \end{lemma}
 \begin{proof} Let $\tau \in \Sigma_{1,\alpha}(\PP^N|H,d)$ be the cone corresponding to $\Dcal$ and let
 \begin{equation*} \varphi \colon \Sigma_{1,\alpha}(\PP^N|H,d) \to \Sigma^{\log} \to \RR_{\geq 0} \end{equation*}
 be the piecewise-linear function constructed in \S \ref{Section Gathmann line bundle}. It follows from the tropical description that $\lambda_\Dcal$ is equal to the index of the map of integral cones $\tau \to \RR_{\geq 0}$ obtained by restricting $\varphi$. By tropical continuity we have $\tau \subseteq \RR_{\geq 0}^r$ with integral generator:
 \begin{equation*} w = \left( \dfrac{\lcm(m_1,\ldots,m_r)}{m_1},\ldots,\dfrac{\lcm(m_1,\ldots,m_r)}{m_r} \right).\end{equation*}
 The map $\tau \to \RR_{\geq 0}$ is given by projecting onto the $i$th factor and then multiplying by $m_i$ (this is independent of $i$). Thus we conclude that the index is equal to $\lcm(m_1,\ldots,m_r)$ as claimed.\end{proof}
+Thus, the contribution of each term $\lambda_\Dcal [\Dcal]$ is given by integrating over the appropriate fibre product and then multiplying the result by $\lambda_\Dcal \cdot \deg\rho = \prod_{i=1}^r m_i$.
 
-\noindent This lemma, together with the degree calculation \eqref{degree of gluing}, determines the numerics of integrals over $\lambda_\Dcal [\Dcal]$.
+\newpage
 
-\subsubsection{Type $B$}
-Now suppose $\Delta$ is of type $B$. Note that in this case, it is impossible for the circuit to be contracted. Hence $\Dcal^{\Kim}$ is disjoint from the blown-up locus, and the map $\Dcal \to \Dcal_\Mcal$ is an isomorphism. We thus obtain a finite map
-\begin{equation*} \Dcal = \ol\Mcal^{\Kim \leftrightarrow}_{0,\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}(P|H_0+H_\infty,d_0)\times_{H^r}\left(\ol\Mcal^{\Kim}_{0,\alpha^{(1)}\cup(m_1,m_2)}(\PP^N|H,d_1)\times\prod_{i=3}^r \ol\Mcal^{\Kim}_{0,\alpha^{(i)}\cup(m_i)}(\PP^N|H,d_i)\right).\end{equation*}
-The degree of $\rho$ and the vanishing order $\lambda_\Dcal$ are identical to the type $A$ case treated in \S \ref{subsubsection type A} above.
-
-\subsubsection{Type $C^+$} Finally suppose that $\Delta$ is of type $C^+$. As before we have a finite morphism:
-\begin{equation*} \Dcal^{\Kim} \to \ol\Mcal^{\Kim \leftrightarrow}_{1,\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}(P|H_0+H_\infty,d_0) \times_{H^r} \left( \prod_{i=1}^r \ol\Mcal^{\Kim}_{0,\alpha^{(i)}\cup(m_i)}(\PP^N|H,d_i) \right). \end{equation*}
-The same arguments as in \S \ref{subsubsection type A} apply to give a map
-\begin{equation*}\Dcal \to \VZ^{\leftrightarrow}_{1,\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}(P|H_0+H_\infty,d_0) \times_{H^r} \left( \prod_{i=1}^r \ol\Mcal^{\Kim}_{0,\alpha^{(i)}\cup(m_i)}(\PP^N|H,d_i) \right). \end{equation*}
-of degree given by \eqref{degree of gluing}, such that $\Dcal \to \Dcal^{\Kim}$ corresponds to the obvious map on fibre products. The vanishing order $\lambda_\Dcal$ is the same as in the previous two cases. Here the first factor in the fibre product is the logarithmic blow-up of the moduli space of rubber maps constructed in \S \ref{}. We will compute integrals over such spaces as part of the recursion (see \S \ref{section recursion algorithm}).\newpage
-
-\subsection{Recursive description of the divisors: type $C^0$} It remains to consider the components $\Dcal \subseteq \Dcal(k)$ contained in the exceptional locus of
-\begin{equation*} \VZ_{1,\alpha}(\PP^N|H,d) \to \ol\Mcal^{\Kim}_{1,\alpha}(\PP^N|H,d). \end{equation*}
-In this case the corresponding cone $\tau \in \Sigma_{1,\alpha}(\PP^N|H,d)$ is a ray in the subdivision of a larger-dimensional cone $\sigma \in \Sigma^{\Kim}$, corresponding to a combinatorial type $\Delta$ which assigns degree zero to the circuit. The associated stratum $\Dcal^{\Kim} \subseteq \ol\Mcal^{\Kim}_{1,\alpha}(\PP^N|H,d)$ has smaller dimension than $\Dcal$.
+\subsection{Recursive description of the divisors: type $C^0$} It remains to consider the components $\Dcal \subseteq \Dcal_{1,\alpha,k}(\PP^N|H,d)$ contained in the exceptional locus of
+\begin{equation*} \VZ_{1,\alpha}(\PP^N|H,d) \to \ol\Mcal_{1,\alpha}(\PP^N|H,d). \end{equation*}
+In this case the corresponding cone $\tau \in \Sigma_{1,\alpha}(\PP^N|H,d)$ is a ray in the subdivision of a larger-dimensional cone $\sigma \in \Sigma$, corresponding to a combinatorial type $\Delta$ which assigns degree zero to the circuit. The associated stratum $\Ecal \subseteq \ol\Mcal_{1,\alpha}(\PP^N|H,d)$ has smaller dimension than $\Dcal$.
 
 
 \begin{lem} The logarithmic modification $\psi$ restricts to a birational map:
@@ -904,7 +910,7 @@ We claim that $\tilde s$ obtained from $s$ by twisting by the exceptional diviso
 \end{itemize}
 Finally, we claim that integrals of psi and evaluation classes over these loci can be translated into tautological integrals, i.e. descendant Gromov--Witten invariants, whose numerics is governed by the combinatorial type of the tropical map.
 
-\section{Recursion for general $(X,Y)$}
+\section{Recursion for general $(X,Y)$}\label{section recursion for general pair}
 
 \section{Quantum Lefschetz algorithm}\label{section recursion algorithm}
 Consider a smooth pair $(X,Y)$ with $Y$ very ample, and let $P$ be the projective bundle $P=\PP_Y(\operatorname{N}_{Y|X} \oplus\OO_Y)$. We assume that the genus zero and reduced genus one Gromov--Witten theories of $X$ are known. From this starting data, we will apply our recursion formula to compute:
