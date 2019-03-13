@@ -680,14 +680,17 @@ On $\sqC$ there are associated contraction radii $\delta_1,\delta_2$. Let $\delt
 Lemma \ref{Lemma type A gluing} provides a means to calculate integrals over the class $\lambda_\Dcal[\Dcal]$ appearing on the right-hand side of Theorem \ref{theorem recursion}, provided that we can calculate $\lambda_\Dcal$ and the degree of the splitting morphism. Simple closed formulae for these are given in \S \ref{subsubsection splitting degree} below.
 
 \subsubsection{Type $B$}
-Now suppose $\Delta$ is of type $B$. Note that in this case, it is impossible for the circuit to be contracted. Hence $\Ecal$ is disjoint from the blown-up locus, and the map $\Dcal \to \Ecal$ is an isomorphism. We thus obtain a finite splitting morphism:
-\begin{equation*} \Dcal \xrightarrow{\rho} \ol\Mcal^{\leftrightarrow}_{0,\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}(P|H_0+H_\infty,d_0)\times_{H^r}\left(\ol\Mcal_{0,\alpha^{(1)}\cup(m_1,m_2)}(\PP^N|H,d_1)\times\prod_{i=3}^r \ol\Mcal_{0,\alpha^{(i)}\cup(m_i)}(\PP^N|H,d_i)\right).\end{equation*}
+Now suppose $\Delta$ is of type $B$. Note that in this case, it is impossible for the circuit to be contracted. Hence $\Ecal$ is disjoint from the blown-up locus, and the map $\Dcal \to \Ecal$ is an isomorphism. We thus obtain:
+\begin{lemma} $\Dcal$ admits a finite splitting morphism:
+\begin{equation*} \Dcal \xrightarrow{\rho} \ol\Mcal^{\leftrightarrow}_{0,\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}(P|H_0+H_\infty,d_0)\times_{H^r}\left(\ol\Mcal_{0,\alpha^{(1)}\cup(m_1,m_2)}(\PP^N|H,d_1)\times\prod_{i=3}^r \ol\Mcal_{0,\alpha^{(i)}\cup(m_i)}(\PP^N|H,d_i)\right).\end{equation*}\end{lemma}
 
 \subsubsection{Type $C^+$} \label{subsubsection type C+} Finally suppose that $\Delta$ is of type $C^+$. As before we have a finite morphism:
 \begin{equation*} \Ecal \to \ol\Mcal^{\leftrightarrow}_{1,\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}(P|H_0+H_\infty,d_0) \times_{H^r} \left( \prod_{i=1}^r \ol\Mcal_{0,\alpha^{(i)}\cup(m_i)}(\PP^N|H,d_i) \right). \end{equation*}
-The same arguments as in \S \ref{subsubsection type A} then apply to give a finite morphism map
-\begin{equation*}\Dcal \xrightarrow{\rho} \VZ^{\leftrightarrow}_{1,\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}(P|H_0+H_\infty,d_0) \times_{H^r} \left( \prod_{i=1}^r \ol\Mcal_{0,\alpha^{(i)}\cup(m_i)}(\PP^N|H,d_i) \right). \end{equation*}
- such that $\Dcal \to \Ecal$ corresponds to the obvious map on fibre products. Here the first factor in the fibre product is the logarithmic blow-up of the moduli space of rubber maps constructed in \S \ref{}. We will compute integrals over such spaces as part of the recursion (see \S \ref{section recursion algorithm}).
+The same arguments as in \S \ref{subsubsection type A} then apply to give:
+\begin{lemma} $\Dcal$ admits a finite splitting morphism
+\begin{equation*}\Dcal \xrightarrow{\rho} \VZ^{\leftrightarrow}_{1,\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}(P|H_0+H_\infty,d_0) \times_{H^r} \left( \prod_{i=1}^r \ol\Mcal_{0,\alpha^{(i)}\cup(m_i)}(\PP^N|H,d_i) \right)\end{equation*}
+such that $\Dcal \to \Ecal$ corresponds to the obvious map on fibre products.\end{lemma}
+Here the first factor in the fibre product is the logarithmic blow-up of the moduli space of rubber maps constructed in \S \ref{}. We will compute integrals over such spaces as part of the recursion (see \S \ref{section recursion algorithm}).
 
 \subsubsection{Splitting degree and vanishing order} \label{subsubsection splitting degree} In each of the subsections \ref{subsubsection type A}--\ref{subsubsection type C+} above, we obtained a finite splitting morphism $\rho$ from $\Dcal$ to a fibre product of moduli spaces with smaller numerical data. Here we explain the degree of $\rho$ and calculate the vanishing order $\lambda_\Dcal$ of the section $s_k$ constructed in \S \ref{Section Gathmann line bundle}. This gives a complete recursive description of the terms appearing on the right-hand side of Theorem \ref{theorem recursion} which are of type $A,B$ or $C^+$.
 
