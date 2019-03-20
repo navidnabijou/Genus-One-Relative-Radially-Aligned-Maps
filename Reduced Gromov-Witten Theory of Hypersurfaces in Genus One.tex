@@ -680,7 +680,7 @@ On $\sqC$ there are associated contraction radii $\delta_1,\delta_2$. Let $\delt
 Lemma \ref{Lemma type A gluing} provides a means to calculate integrals over the class $\lambda_\Dcal[\Dcal]$ appearing on the right-hand side of Theorem \ref{theorem recursion}, provided that we can calculate $\lambda_\Dcal$ and the degree of the splitting morphism. Simple closed formulae for these are given in \S \ref{subsubsection splitting degree} below.
 
 \subsubsection{Type $B$}
-Now suppose $\Delta$ is of type $B$. Note that in this case, it is impossible for the circuit to be contracted. Hence $\Ecal$ is disjoint from the blown-up locus, and the map $\Dcal \to \Ecal$ is an isomorphism. We thus obtain:
+Now suppose $\Delta$ is of type $B$. Note that in this case, it is impossible for the circuit to be contracted. Hence $\Ecal$ is disjoint from the blown-up locus, and the map $\Dcal \to \Ecal$ is an isomorphism. We thus obtain the following description, entirely in terms of genus zero data:
 \begin{lemma} $\Dcal$ admits a finite splitting morphism:
 \begin{equation*} \Dcal \xrightarrow{\rho} \left(\ol\Mcal_{0,\alpha^{(1)}\cup(m_1,m_2)}(\PP^N|H,d_1)\times\prod_{i=3}^r \ol\Mcal_{0,\alpha^{(i)}\cup(m_i)}(\PP^N|H,d_i)\right) \times_{H^r} \ol\Mcal^{\leftrightarrow}_{0,\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}(P|H_0+H_\infty,d_0).\end{equation*}\end{lemma}
 
@@ -692,11 +692,11 @@ The same arguments as in \S \ref{subsubsection type A} then apply to give:
 such that $\Dcal \to \Ecal$ corresponds to the obvious map on fibre products.\end{lemma}
 Here the first factor in the fibre product is the logarithmic blow-up of the moduli space of rubber maps constructed in \S \ref{}. We will compute integrals over such spaces as part of the recursion (see \S \ref{section recursion algorithm}).
 
-\subsubsection{Splitting degree and vanishing order} \label{subsubsection splitting degree} In each of the subsections \ref{subsubsection type A}--\ref{subsubsection type C+} above, we obtained a finite splitting morphism $\rho$ from $\Dcal$ to a fibre product of moduli spaces with smaller numerical data. Here we explain the degree of $\rho$ and calculate the vanishing order $\lambda_\Dcal$ of the section $s_k$ constructed in \S \ref{Section Gathmann line bundle}. This gives a complete recursive description of the terms appearing on the right-hand side of Theorem \ref{theorem recursion} which are of type $A,B$ or $C^+$.
+\subsubsection{Splitting degree and vanishing order} \label{subsubsection splitting degree} In each of the subsections \ref{subsubsection type A}--\ref{subsubsection type C+} above, we obtained a finite splitting morphism $\rho$ from $\Dcal$ to a fibre product of moduli spaces with smaller numerical data. Here we describe the degree of $\rho$ and calculate the vanishing order $\lambda_\Dcal$ of the section $s_k$ constructed in \S \ref{Section Gathmann line bundle}. This gives a complete recursive description of the terms appearing on the right-hand side of Theorem \ref{theorem recursion} which are of type $A,B$ or $C^+$.
 
 \begin{lemma} The degree of $\rho$ is given by:
 \begin{equation*} \label{degree of gluing} \dfrac{\prod_{i=1}^r m_i}{\lcm(m_1,\ldots,m_r)}. \end{equation*}\end{lemma}
-\begin{proof} This is calculated in the usual way, by examining the base order of the corresponding family of targets. See, for instance \cite{ChenDegeneration}, \cite{ACGSDecomposition}.
+\begin{proof} This calculation is by now standard, and is given by examining the base order of the corresponding family of targets. See, for instance \cite{ChenDegeneration}, \cite{ACGSDecomposition}.
 \end{proof}
 
 \begin{lemma} \label{lemma vanishing order} $\lambda_\Dcal = \lcm(m_1,\ldots,m_r).$ \end{lemma}
@@ -704,8 +704,8 @@ Here the first factor in the fibre product is the logarithmic blow-up of the mod
 \begin{equation*} \varphi \colon \Sigma_{1,\alpha}(\PP^N|H,d) \to \Sigma^{\log} \to \RR_{\geq 0} \end{equation*}
 be the piecewise-linear function constructed in \S \ref{Section Gathmann line bundle}. It follows from the tropical description that $\lambda_\Dcal$ is equal to the index of the map of integral cones $\tau \to \RR_{\geq 0}$ obtained by restricting $\varphi$. By tropical continuity we have $\tau \subseteq \RR_{\geq 0}^r$ with integral generator:
 \begin{equation*} w = \left( \dfrac{\lcm(m_1,\ldots,m_r)}{m_1},\ldots,\dfrac{\lcm(m_1,\ldots,m_r)}{m_r} \right).\end{equation*}
-The map $\tau \to \RR_{\geq 0}$ is given by projecting onto the $i$th factor and then multiplying by $m_i$ (this is independent of $i$). Thus we conclude that the index is equal to $\lcm(m_1,\ldots,m_r)$ as claimed.\end{proof}
-Thus, the contribution of each term $\lambda_\Dcal [\Dcal]$ is given by integrating over the appropriate fibre product and then multiplying the result by $\lambda_\Dcal \cdot \deg\rho = \prod_{i=1}^r m_i$.
+The map $\tau \to \RR_{\geq 0}$ is given by projecting onto the $i$th factor and then multiplying by $m_i$ (this is independent of $i$ by continuity of the tropical map). Thus we conclude that the index is equal to $\lcm(m_1,\ldots,m_r)$ as claimed.\end{proof}
+In summary, then: the contribution of each term $\lambda_\Dcal [\Dcal]$ is given by integrating over the appropriate fibre product and then multiplying the result by $\lambda_\Dcal \cdot \deg\rho = \prod_{i=1}^r m_i$.
 
 \subsection{Recursive description of the divisors: type $C^0$}
 
