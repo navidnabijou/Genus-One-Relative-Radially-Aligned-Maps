@@ -322,7 +322,7 @@ Recently, a more conceptual and geometric understanding of Vakil and Zinger’s 
 \subsection{Results} Our first contribution is a definition and construction of relative reduced Gromov--Witten theory of projective space relative to a hyperplane. The geometric content is the following.
 
 \begin{customthm}{A}
-There exists a log smooth and proper Deligne—Mumford stack giving a modular compactification for the space of genus $1$ maps to projective space with fixed contact order with a hyperplane. 
+There exists a logarithmically smooth and proper Deligne--Mumford stack giving a modular compactification for the space of genus one maps to projective space with fixed contact order with a hyperplane. 
 \end{customthm}
 
 With regards to the degeneration formula, we pursue the strategy laid out by Vakil and Gathmann, building on work of Caporaso and Harris. We reinterpret and extend their methods using logarithmic geometry and tropical techniques. Our main result is the following.
@@ -337,13 +337,15 @@ Given a smooth pair $(X,Y)$ with $Y$ very ample, there is an explicit recursive 
 from the invariants of the ambient variety $X$.
 \end{customthm}
 
-\subsection{Broader contributions} Beyond genus one, we pass through a number of seemingly useful general techniques. First, we explain how to describe degenerate moduli spaces as fiber products. This is substantially more delicate than the standard situation because of the need to work with elliptic singularities and aligned logarithmic structures. This interaction of the degeneration formula with the geometry of curve singularities is a new phenomenon. The results of~\cite{RSPW} suggest the existence of a reduced higher genus Gromov--Witten theory formed by replacing contracted elliptic components with singularities. The discussion here is likely to carry over to this setting.
+\subsection{Broader contributions} Beyond genus one, we pass through a number of seemingly useful general techniques. First, we explain how to describe degenerate moduli spaces as fiber products. This is substantially more delicate than the standard situation because of the need to work with elliptic singularities and aligned logarithmic structures. This interaction of the degeneration formula with the geometry of curve singularities is a new phenomenon. The results of~\cite{RSPW} suggest the existence of a reduced higher genus Gromov--Witten theory formed by replacing contracted elliptic components with singularities\footnote{We have been informed by Jonathan Wise that his Ph.D. candidate Sebastian Bozlee has constructed these higher genus reduced Gromov--Witten invariants. A manuscript is in preparation.}. The discussion here is likely to carry over to this setting.
 
 Second, a key step in our recursion is a description of the locus of maps with higher than prescribed tangency, which was identified by Gathmann. We realize the locus as the vanishing locus of a section of a line bundle that comes from tropical geometry — from a piecewise linear function on the fan. The systematic understanding of logarithmic line bundles arising in this fashion is likely to play an important in logarithmic enumerative geometry.
 
 Our analysis leads naturally to a study of a ``main component’’ double ramification cycle for target manifolds in genus one. The virtual geometry of this was studied in recent work of Janda, Pandharipande, Pixton, and Zvonkine~\cite{DRCBundle}. We do not know how to calculate an expression for this main component contribution, but we repurpose E.~Katz's topological recursion relations \cite{EKatz} to complete the algorithm. We note that even in genus one, an understanding of the main component contributions of the double ramification cycle for target manifolds would be interesting.
 
-Finally, we note that our results require us to encounter several variants of the space of relative/logarithmic stable maps, with both fixed and expanded target. The conceptual features of one space are often computational bugs, and vice versa, and we believe that the techniques developed in the genus one case here will be used repeatedly in logarithmic Gromov--Witten theory calculations. In particular, we use frequently use Kato's perspective on logarithmic blowups as subfunctors that was applied in~\cite{RSPW,RSPW2}. 
+Finally, we note that our results require us to encounter several variants of the space of relative/logarithmic stable maps, with both fixed and expanded target. The conceptual features of one space are often computational bugs, and vice versa, and we believe that the techniques developed in the genus one case here will be used repeatedly in logarithmic Gromov--Witten theory calculations. In particular, we use frequently use Kato's perspective on logarithmic blowups as subfunctors that was applied in~\cite{RSPW,RSPW2}.
+
+\subsection*{Acknowledgements} We have benefited from fruitful conversations with friends and colleagues, including Davesh Maulik, Jonathan Wise, and [other people]. Important  aspects of this work were completed while L.B. and N.N. were visiting MIT in Spring 2018 and the University of Cambridge in Winter 2019, and we thank these institutions for their hospitality.
 
 \part{The moduli space and its deformation theory}
 
@@ -466,14 +468,16 @@ The line bundle $\mathcal O_{C_1}(-\alpha)$ is equivalent to the divisor $\sum a
 The above theorem guarantees that the singularities of the space of totally factorized maps to expansions is logarithmically smooth. In fact, one can say more in this case.
 
 \begin{cor}
-The logarithmically smooth stack $\mathcal{VZ}_{1,\alpha}(\mathbb P^N|H)$ has at worst orbifold singularities, and consequently admits a non-representable cover by a smooth Deligne--Mumford stack.
+The logarithmically smooth stack $\mathcal{VZ}_{1,\alpha}(\mathbb P^N|H)$ has at worst orbifold singularities, i.e. admits a non-representable cover by a smooth Deligne--Mumford stack.
 \end{cor}
 
 \begin{proof}
 Since $\mathcal{VZ}_{1,\alpha}(\mathbb P^N|H)$ is logarithmically smooth, it will suffice to show that the cones of its tropicalization are simplicial. To see this, consider a logarithmic stable map to an expansion $C\to \mathbb P^N[s]$ without a central alignment. The tropical moduli cone obtained as the dual of the minimal base monoid can be identified with $\mathbb R_{\geq 0}^{s}$, see for instance~\cite[Section~2.2]{ChenDegeneration}. The alignment procedure is an iterated barycentric subdivision at the level of tropical moduli spaces, as explained in~\cite[Section 4.6]{RSPW}, and such subdivisions preserve the property of being simplicial. We conclude from this that the blowup $\widetilde{\mathcal{VZ}}^{\mathrm{exp}}_{1,\alpha}(\mathbb P^N|H)$ obtained by centrally aligning Kim's spaces has simplicial cones. Finally, the morphism $\mathcal{VZ}_{1,\alpha}(\mathbb P^N|H)\to \widetilde{\mathcal{VZ}}^{\mathrm{exp}}_{1,\alpha}(\mathbb P^N|H)$ is strict, so the cones of $\mathcal{VZ}_{1,\alpha}(\mathbb P^N|H)$ are simplicial, as claimed.
 \end{proof}
 
-\section{Stratification} The logarithmic smoothness established in Theorem~\ref{thm: log-smoothness} implies that $\mathcal{VZ}_{1,\alpha}(\mathbb P^N|H,d)$ is an orbifold toroidal embeddeding. Consequently, the irreducible components of its boundary and their intersections form a stratification of the space. This stratification will be important in the sequel. 
+\section{Stratification}
+
+\noindent The logarithmic smoothness established in Theorem~\ref{thm: log-smoothness} implies that $\mathcal{VZ}_{1,\alpha}(\mathbb P^N|H,d)$ is an orbifold toroidal embeddeding. Consequently, the irreducible components of its boundary and their intersections form a stratification of the space. This stratification will be important in the sequel. 
 
 The tropicalizations of logarithmic maps that factorize completely satisfy a natural combinatorial condition known as well-spacedness. The version we use here is essentially identical to~
 \cite{RSPW2}. 
@@ -542,9 +546,41 @@ In \S \ref{} we will perform this analysis in the case $k=1$.
 
 \section{Rubber variants and virtual construction}
 
-\subsection{The rubber space} In our implementation of the relative theory, we will need the naturally ``rubber'' variant of the space of maps $
+\subsection{Rubber variants} In our implementation of the relative theory, we will need the naturally ``rubber'' variant of the space of maps $
 \mathcal{VZ}_{1,\alpha}(\mathbb P^N|H)$, where the entire curve is mapped into higher levels. 
 
+Specifically, let $\mathbb P$ denote the projective bundle $\mathbb P(\mathcal O(1)\oplus\mathcal O)$ on $\mathbb P^{N-1}$. Equip this space with the logarithmic structure coming from the $0$ and $\infty$ sections of the bundle. Consider the moduli space $\mathcal{VZ}_{1,\alpha}(\mathbb P/\mathbb G_m)$ of logarithmic maps
+\[
+C\to \mathbb P[s]\to \mathbb P^{N-1},
+\]
+which factorize completely, and where automorphisms are considered over the space of maps to $\mathbb P^{N-1}$. Specifically, two maps that differ by a $\mathbb G_m$ translate in the fiber direction are considered equivalent. Total factorization, similar to the previous case, means that the map to the bundle and the map to the base $\mathbb P^{N-1}$ both factorize through possibly different singularities. 
+
+\begin{thm}
+The stack $\mathcal{VZ}_{1,\alpha}(\mathbb P/\mathbb G_m)$ is logarithmically smooth.
+\end{thm}
+
+It is convenient to work with the logarithmic multiplicative group and its torsors. Recall that the \textit{logarithmic multiplicative group} $\mathbb G_{\mathrm{log}}$ is the functor on logarithmic schemes whose value on a logarithmic scheme $S$ is the group of global sections $H^0(S,M_S^{\mathrm{gp}})$. This functor is representable only after a logarithmically \'etale cover. 
+
+The bundle $\mathbb P\to \mathbb P^{N-1}$ gives rise to a $\mathbb G_m$-torsors by deleting the zero and infinity sections. Replacing these fibers by their $\mathbb G_{\mathrm{log}}$ compactifications, we obtain a non-representable functor on logarithmic schemes $\mathbb P_{\mathrm{log}}$ and a logarithmically \'etale modification
+\[
+\mathbb P\to \mathbb P_{\mathrm{log}}.
+\]
+
+{\bf Add reference to Wise--R '19 and Marcus--Wise '17 for the multiplicative group.}
+
+\begin{proof}
+Consider the stack over logarithmic schemes $\mathcal{VZ}_{1,\alpha}(\mathbb P_{\mathrm{log}})$ of stable logarithmic maps that factorize completely. Here, stability for the map coincides with stability for the projection to $\mathbb P^{N-1}$. The arguments in the previous section show that maps to $\mathbb P$ that factorize completely are unobstructed. Since this space is a logarithmically \'etale cover of $\mathcal{VZ}_{1,\alpha}(\mathbb P_{\mathrm{log}})$, logarithmic smoothness of the latter follows.
+
+The logarithmic multiplicative group $\mathbb G_{\mathrm{log}}$ acts on $\mathcal{VZ}_{1,\alpha}(\mathbb P_{\mathrm{log}})$ by translation. Tautologically, $\mathcal{VZ}_{1,\alpha}(\mathbb P_{\mathrm{log}})$ is a $\mathbb G_{\mathrm{log}}$-torsor over the moduli problem of maps up to this $\mathbb G_{\mathrm{log}}$ translation. It is representable after a logarithmically \'etale modification by a family of nodal curves. It follows that the space  $\mathcal{VZ}_{1,\alpha}(\mathbb P_{\mathrm{log}}/\mathbb G_{\mathrm{log}})$ of maps up to translation that factorize completely is logarithmically smooth. 
+
+To conclude the main result, we compare the stacks $\mathcal{VZ}_{1,\alpha}(\mathbb P_{\mathrm{log}}/\mathbb G_{\mathrm{log}})$ and  $\mathcal{VZ}_{1,\alpha}(\mathbb P/\mathbb G_m)$. Since a map to $\mathbb P$ gives rise immediately to a map to $\mathbb P_{\mathrm{log}}$, there is a morphism
+\[
+\mathcal{VZ}_{1,\alpha}(\mathbb P/\mathbb G_m)\to \mathcal{VZ}_{1,\alpha}(\mathbb P_{\mathrm{log}}/\mathbb G_{\mathrm{log}}).
+\]
+A straightforward application of the infinitesimal lifting criterion shows that this map is logarithmically \'etale, so the result follows.
+\end{proof}
+
+The main point in the proof above is that on the space of non-degenerate maps with smooth domains, the map from $\mathcal{VZ}^\circ_{1,\alpha}(\mathbb P)\to \mathcal{VZ}^\circ_{1,\alpha}(\mathbb P/\mathbb G_m)$ is a $\mathbb G_m$ torsor, and correspondingly on the compact spaces it is a $\mathbb G_{\mathrm{log}}$-torsor. The logarithmically \'etale modification guarantee representability, and turn this into a nodal curve fibration.
 
 \subsection{Virtual construction for very ample pairs}
 Now let $(X,Y)$ be a smooth pair with $Y$ very ample. The definition given in \S \ref{subsection factorisation} applies in this setting as well, producing a moduli space $\VZ_{1,\alpha}(X|Y,\beta)$ together with a morphism
