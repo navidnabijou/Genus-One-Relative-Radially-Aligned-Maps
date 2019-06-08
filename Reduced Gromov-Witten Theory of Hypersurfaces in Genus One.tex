@@ -32,7 +32,51 @@
 \usepackage{xcolor}
 \usepackage{xfrac}
 \usepackage{tikz,tikz-cd}
-\usetikzlibrary{decorations.pathmorphing,decorations.pathreplacing,patterns}
+\usetikzlibrary{decorations.pathmorphing,decorations.pathreplacing,patterns,arrows.meta}
+\usetikzlibrary{ipe} % ipe compatibility library
+
+\tikzstyle{ipe stylesheet} = [
+  ipe import,
+  even odd rule,
+  line join=round,
+  line cap=butt,
+  ipe pen normal/.style={line width=0.4},
+  ipe pen heavier/.style={line width=0.8},
+  ipe pen fat/.style={line width=1.2},
+  ipe pen ultrafat/.style={line width=2},
+  ipe pen normal,
+  ipe mark normal/.style={ipe mark scale=3},
+  ipe mark large/.style={ipe mark scale=5},
+  ipe mark small/.style={ipe mark scale=2},
+  ipe mark tiny/.style={ipe mark scale=1.1},
+  ipe mark normal,
+  /pgf/arrow keys/.cd,
+  ipe arrow normal/.style={scale=7},
+  ipe arrow large/.style={scale=10},
+  ipe arrow small/.style={scale=5},
+  ipe arrow tiny/.style={scale=3},
+  ipe arrow normal,
+  /tikz/.cd,
+  ipe arrows, % update arrows
+  <->/.tip = ipe normal,
+  ipe dash normal/.style={dash pattern=},
+  ipe dash dashed/.style={dash pattern=on 4bp off 4bp},
+  ipe dash dotted/.style={dash pattern=on 1bp off 3bp},
+  ipe dash dash dotted/.style={dash pattern=on 4bp off 2bp on 1bp off 2bp},
+  ipe dash dash dot dotted/.style={dash pattern=on 4bp off 2bp on 1bp off 2bp on 1bp off 2bp},
+  ipe dash normal,
+  ipe node/.append style={font=\normalsize},
+  ipe stretch normal/.style={ipe node stretch=1},
+  ipe stretch normal,
+  ipe opacity 10/.style={opacity=0.1},
+  ipe opacity 30/.style={opacity=0.3},
+  ipe opacity 50/.style={opacity=0.5},
+  ipe opacity 75/.style={opacity=0.75},
+  ipe opacity opaque/.style={opacity=1},
+  ipe opacity opaque,
+]
+
+\definecolor{red}{rgb}{1,0,0}
 
 \usepackage[all]{xy}
 \usepackage{bbm}
@@ -657,7 +701,7 @@ is a log modification, $\widetilde{\Dcal}$ is either exceptional or the proper t
 \begin{equation*} \Ecal \subseteq \ol\Mcal_{1,\alpha}(\PP^N|H,d). \end{equation*}
 The birational map $\widetilde{\Dcal} \to \Ecal$ induces a morphism $\Dcal \to \Ecal$. In the remainder of this subsection, we will show how to interpret this morphism as a ``desingularisation of the main component''. Since $\Ecal$ admits a recursive description in terms of relative and rubber moduli spaces, this will allow us to compute integrals over $\Dcal$.
 
-\begin{lemma} Let $\Dcal \subseteq \Dcal_{1,\alpha,k}(\PP^N|H,d)$ be an irreducible component which contributes nontrivially to the recursion, and let $\Delta$ be the corresponding combinatorial type. Suppose that $\Delta$ assigns positive degree to the circuit. Then $\Delta$ takes one of the following forms:
+\begin{lemma}\label{lem:combs} Let $\Dcal \subseteq \Dcal_{1,\alpha,k}(\PP^N|H,d)$ be an irreducible component which contributes nontrivially to the recursion, and let $\Delta$ be the corresponding combinatorial type. Suppose that $\Delta$ assigns positive degree to the circuit. Then $\Delta$ takes one of the following forms:
 \begin{figure}[h]
     \centering
     \begin{minipage}{0.3\textwidth}
@@ -730,12 +774,12 @@ Here the first factor in the fibre product is the logarithmic blow-up of the mod
 
 \subsubsection{Splitting degree and vanishing order} \label{subsubsection splitting degree} In each of the subsections \ref{subsubsection type A}--\ref{subsubsection type C+} above, we obtained a finite splitting morphism $\rho$ from $\Dcal$ to a fibre product of moduli spaces with smaller numerical data. Here we describe the degree of $\rho$ and calculate the vanishing order $\lambda_\Dcal$ of the section $s_k$ constructed in \S \ref{Section Gathmann line bundle}. This gives a complete recursive description of the terms appearing on the right-hand side of Theorem \ref{theorem recursion} which are of type $A,B$ or $C^+$.
 
-\begin{lemma} The degree of $\rho$ is given by:
+\begin{lemma}\label{lem:saturation} The degree of $\rho$ is given by:
 \begin{equation*} \label{degree of gluing} \dfrac{\prod_{i=1}^r m_i}{\lcm(m_1,\ldots,m_r)}. \end{equation*}\end{lemma}
 \begin{proof} This calculation is by now standard, and is given by examining the base order of the corresponding family of targets. See, for instance \cite{ChenDegeneration}, \cite{ACGSDecomposition}.
 \end{proof}
 
-\begin{lemma} \label{lemma vanishing order} $\lambda_\Dcal = \lcm(m_1,\ldots,m_r).$ \end{lemma}
+\begin{lemma}\label{lemma vanishing order} $\lambda_\Dcal = \lcm(m_1,\ldots,m_r).$ \end{lemma}
 \begin{proof} Let $\tau \in \Sigma_{1,\alpha}(\PP^N|H,d)$ be the cone corresponding to $\Dcal$ and let
 \begin{equation*} \varphi \colon \Sigma_{1,\alpha}(\PP^N|H,d) \to \Sigma^{\log} \to \RR_{\geq 0} \end{equation*}
 be the piecewise-linear function constructed in \S \ref{Section Gathmann line bundle}. It follows from the tropical description that $\lambda_\Dcal$ is equal to the index of the map of integral cones $\tau \to \RR_{\geq 0}$ obtained by restricting $\varphi$. By tropical continuity we have $\tau \subseteq \RR_{\geq 0}^r$ with integral generator:
@@ -743,9 +787,693 @@ be the piecewise-linear function constructed in \S \ref{Section Gathmann line bu
 The map $\tau \to \RR_{\geq 0}$ is given by projecting onto the $i$th factor and then multiplying by $m_i$ (this is independent of $i$ by continuity of the tropical map). Thus we conclude that the index is equal to $\lcm(m_1,\ldots,m_r)$ as claimed.\end{proof}
 In summary, then: the contribution of each term $\lambda_\Dcal [\Dcal]$ is given by integrating over the appropriate fibre product and then multiplying the result by $\lambda_\Dcal \cdot \deg\rho = \prod_{i=1}^r m_i$.
 
-\subsection{Recursive description of the divisors: type $C^0$}
+\subsection{Recursive description of the divisors: type $C^0$} In this case, the core has (horizontal) degree $0$ and is mapped into $H$. We start by describing the relevant combinatorial types of rays in $\widetilde{\VZ}_{1,\alpha}(\PP^N|H,d)$.
+\begin{lemma} In what follows it is understood that we insert trivial bubbles whenever the curve or target need to be subdivided in order for the image and preimage of every polyhedral subcomplex to be a union of polyhedral subcomplexes.
+ \begin{enumerate}
+  \item The core is represented by a single vertex of genus one and degree zero, tropically mapped to $\RR_{>0}$.
+  \item The vertices adjacent to the core with maximal expansion factor are tropically mapped to $0$.
+  \item For every point of the target different from $0$, the fiber of the tropical map contains at most one stable vertex, which either is the core or lies on the circle.
+  \item $x_k$ is supported by a vertex tropically mapped to $\RR_{>0}$.
+ \end{enumerate}
+\end{lemma}
+\begin{proof}
+ By assumption, the core is mapped to $\RR_>0$, hence the distance of its image from $0$ is one parameter $\ell$; since we are describing a ray, all other parameters have to be related to $\ell$, and the only way it can be so is via the alignment. If the fiber over $c>0$ contains two stable vertices, because both the insertions and the factorisation condition are pulled back from the moduli space without expansions, it can be seen as in Lemma \ref{lem:combs} that the collapsing morphism $\Dcal\to\Fcal$ has positive-dimensional fibers (disconnected rubber), so the corresponding combinatorial type does not contribute to the invariants. We conclude that every stable vertex over $\RR_{>0}$ different from the core has to lie on the circle.
+\end{proof}
+\begin{center}
+\begin{figure}
+ \begin{tikzpicture}[ipe import]
+  %\useasboundingbox (0, 0) rectangle (595, 842);
+  \draw
+    (64, 672)
+     -- (128, 688)
+     -- (64, 704)
+     -- (64, 704);
+  \draw
+    (128, 688)
+     -- (64, 736)
+     -- (64, 736);
+  \draw[red]
+    (128, 688) circle[radius=65.9697];
+  \draw
+    (128, 688)
+     -- (112, 752)
+     -- (64, 768)
+     -- (64, 768);
+  \draw
+    (112, 752)
+     -- (64, 784)
+     -- (64, 784);
+  \pic
+     at (64, 672) {ipe disk};
+  \pic
+     at (64, 704) {ipe disk};
+  \pic
+     at (64, 736) {ipe disk};
+  \pic
+     at (64, 768) {ipe disk};
+  \pic
+     at (64, 784) {ipe disk};
+  \pic
+     at (112, 752) {ipe disk};
+  \pic
+     at (75.2242, 727.5818) {ipe cross};
+  \pic
+     at (112, 700) {ipe cross};
+  \pic
+     at (112, 692) {ipe cross};
+  \pic
+     at (112, 684) {ipe cross};
+  \pic
+     at (75.8121, 701.047) {ipe cross};
+  \pic
+     at (75.0705, 674.4385) {ipe cross};
+  \filldraw[fill=white,->]
+    (64, 608)
+     -- (208, 608);
+  \pic
+     at (64, 608) {ipe disk};
+  \draw
+    (128, 688)
+     -- (208, 688);
+  \pic
+     at (73.6978, 608.0203) {ipe cross};
+  \pic
+     at (111.8758, 608.0203) {ipe cross};
+  \pic
+     at (127.6736, 608.0203) {ipe cross};
+  \pic[fill=white]
+     at (128, 688) {ipe fdisk};
+  \node[ipe node]
+     at (86.863, 690.301) {$m$};
+  \node[ipe node]
+     at (87.521, 671.212) {$m$};
+  \node[ipe node]
+     at (48.026, 668.579) {$R_1$};
+  \node[ipe node]
+     at (48.026, 687.668) {$\ldots$};
+  \node[ipe node]
+     at (47.368, 700.832) {$R_k$};
+  \node[ipe node]
+     at (48.026, 725.846) {$R_{k+1}$};
+  \node[ipe node]
+     at (48.026, 784.429) {$R_s$};
+  \node[ipe node]
+     at (48.026, 766.657) {$\ldots$};
+  \node[ipe node]
+     at (108.585, 757.441) {$R_r$};
+  \node[ipe node]
+     at (80, 744.935) {$\ldots$};
+  \node[ipe node]
+     at (130.965, 677.794) {$E$};
+\end{tikzpicture}
+\caption{A ray of type $C^0$.}\label{fig:ray_example}
+\end{figure}
+\end{center}
+
+See Figure \ref{fig:ray_example}. We observe that the corresponding stratum $\Ecal$ of $\ol\Mcal_{1,\alpha}(\PP^N|H,d)$ has logarithmic codimension equal to the number of non-core vertices mapping to $\RR_{>0}$: indeed, the combinatorial type of $\Ecal$ can be read off by forgetting the circle, and the logarithmic codimension in $\ol\Mcal_{1,\alpha}(\PP^N|H,d)$ is accounted for by the number of subdivisions of the target. The discrepancy in dimension is to be expected, as the loci of type $C^0$ are contained in the exceptional locus of the blow-up.
+
+The geometry of $\widetilde\Dcal\to\Ecal$ is encoded by the combinatorics of the alignment. The reader should bear the following toric construction in mind: suppose we subdivide a fan, and we want to describe the relation between the varieties corresponding respectively to a cone $\rho$ of the subdivision, and the original cone $\sigma$ containing it. The fan of $X_\tau$ is obtained by projecting the star of $\tau$ to the quotient $N_\tau=N_{\RR}/\langle\tau\rangle_{\RR}$ of the ambient vector space by the linear span of the cone\footnote{We find it useful to encode this within the formalism of extended tropicalisations \cite{?}.}. Notice that the dimension of the vector spaces $N_\rho$ and $N_\sigma$ (or the corresponding toric varieties) is off by the difference $c$ between the dimension of the cones. Furthermore, we may need to subdivide the fan of $X_\sigma$ in order for cones of $\Sigma_\rho$ to be mapped surjectively to cones of $\Sigma_\sigma$. The geometric interpretation of this is that $X_\tau$ is obtained as an appropriate compactification of a toric bundle of dimension $c$ over $X_\sigma$; observe that the fiber dimension may not be constant (but it can be made so by blowing up $X_{\sigma}$, see \cite[Lemma 4.1]{AK}). It is a fundamental insight due to Tevelev \cite{Tevelev} that a good compactification of the toric bundle is suggested by the tropicalisation of the locus we are interested in: here, ``good'' means that the intersection of the interesting locus with the boundary is dimensionally transverse. In the case at hand, the interesting locus is that of maps satisfying the factorisation property (i.e. smoothable maps), and the tropicalisation has been worked out in \cite{RSPW2} to consist of well-spaced maps.
+
+We proceed to describe $\Dcal$ step-by-step, building on $\Ecal$.
+
+\subsubsection{The fiber product} We start from the finite splitting morphism
+\begin{multline}\label{eq:product}
+ \rho\colon \Ecal \to \left(\prod_{i=1}^k \ol\Mcal_{0,\alpha^{(i)}\cup(m)}(\PP^N|H,d_i) \times \prod_{i=k+1}^s \ol\Mcal_{0,\alpha^{(i)}\cup(m_i)}(\PP^N|H,d_i)\right)\times_{H^s} \\ \prod_{j=k+1}^{r}\ol\Mcal_{0,\alpha^{(j)}\cup(-m_i)_{i \in I_j\subseteq\{k+1,\ldots,s\}}\cup(\mu_j)}^{\leftrightarrow}(P|H_0+H_\infty,d_j)\times_{H^{r-k}} \\
+ \ol\Mcal_{1,\alpha^{(0)}\cup(-m,\ldots,-m,-\mu_{k+1},\ldots,-\mu_r)\cup(-m_i)_{i\in\{k+1,\ldots,s\}\setminus(\bigcup I_j)}}^{\leftrightarrow}(P|H_0+H_\infty,0)
+\end{multline}
+The degree of $\rho$ can be computed as in Lemma \ref{lem:saturation} above. From the logarithmic point of view, $\rho$ is a saturation map; generically it should be thought of as follows. On the fiber product, the tangent vectors of the components on level $0$ (corresponding to the factors in the first line above) are identified with the target tangent line up to finite powers; the saturation is taking roots of these isomorphisms (it is interesting to notice that it fails precisely on Gathmann's boundary comb loci).
+
+\subsubsection{The generic alignment} In the first line of the product above, we have grouped the $k$ factors adjacent to the core with maximal expansion factor $m$. It is fundamental to realise that, generically on $\Ecal$, the vertices corresponding to these factors are (equidistant and) already aligned with respect to the core. We can construct a modification $\widetilde\Ecal$ of $\mathcal E$ by:
+\begin{enumerate}
+ \item radially aligning the core, and imposing the double factorisation condition, thus effectively replacing the factor
+ \[\ol\Mcal_{1,\alpha^{(0)}\cup(-m,\ldots,-m,-\mu_{k+1},\ldots,-\mu_r)\cup(-m_i)_{i\in\{k+1,\ldots,s\}\setminus(\bigcup I_j)}}^{\leftrightarrow}(P|H_0+H_\infty,0)\]
+ by $\VZ_{1,\alpha^{(0)}\cup(-m,\ldots,-m,-\mu_{k+1},\ldots,-\mu_r)\cup(-m_i)_{i\in\{k+1,\ldots,s\}\setminus(\bigcup I_j)}}^{\leftrightarrow}(P|H_0+H_\infty,0)$ in the product above; in particular, there is a universal cotangent line bundle at the markings $\mathbb L_E$, obtained by suitably twisting any marking cotangent line (they are all isomorphic over a smooth elliptic curve) by the appropriate bubbling loci (see \cite[\S 2.3]{VZ});
+ \item aligning the first $k$ factors with respect to the core (this blows up some diagonal subloci of the product, so it is not enough to align the individual factors).
+\end{enumerate}
+See Figure \ref{fig:fwise_align} below. It is obvious that $\widetilde \Dcal\to \Ecal$ factors through $\widetilde\Ecal$. On $\widetilde\Ecal$, we have a tropical line bundle $\OO(\delta)$ representing the minimum distance from the core to the tropical preimage of $0$; generically, this line bundle coincides with the normal bundle of the locus where the node between the core and one (any) of the first $k$ vertices persists, but on the boundary this needs to be twisted by further smoothing parameters according to the (partial) alignment on $\widetilde\Ecal$. We can obtain a line bundle $\mathbb T_R$ accounting only for the behaviour of the rational side of the fiber product by twisting $\OO(\delta)$ with $\mathbb L_E$.
+\begin{figure}
+ \begin{tikzpicture}[ipe stylesheet,scale=.7]
+  %\useasboundingbox (0, 0) rectangle (595, 842);
+  \pic
+     at (129.8488, 703.2932) {ipe disk};
+  \pic
+     at (97.8488, 719.2932) {ipe disk};
+  \pic
+     at (97.8488, 687.2932) {ipe disk};
+  \draw
+    (97.8488, 719.2932)
+     -- (129.8488, 703.2932)
+     -- (97.8488, 687.2932);
+  \draw
+    (129.8488, 703.2932)
+     -- (161.8488, 687.2932);
+  
+  \draw
+    (193.8488, 671.2932)
+     -- (225.8488, 655.2932);
+  \draw
+    (225.8488, 655.2932)
+     -- (193.8488, 639.2932);
+    \draw[ipe dash dashed]
+   (193.8488, 671)
+    -- (161.8488, 687);
+  \draw[ipe dash dashed]
+    (193.8488, 639.2932)
+     -- (161.8488, 623.2932);
+  \draw
+    (161.8488, 623.2932)
+     -- (129.8488, 607.2932);
+  \pic
+     at (146.637, 615.0615) {ipe disk};
+  \draw
+    (129.8488, 607.2932)
+     -- (97.8488, 591.2932)
+     -- (97.8488, 591.2932);
+  \draw
+    (147.2948, 615.0622)
+     -- (97.2686, 638.1002)
+     -- (97.2686, 638.1002);
+  \pic
+     at (96.6103, 637.4422) {ipe disk};
+  \pic
+     at (97.9268, 590.7072) {ipe disk};
+  \pic
+     at (130.1808, 622.9607) {ipe cross};
+  \pic
+     at (130.1808, 607.1635) {ipe cross};
+  \pic
+     at (145.9788, 695.3672) {ipe cross};
+  \draw[-ipe linear]
+    (97.8488, 575.2932)
+     -- (257.8488, 575.2932);
+  \pic
+     at (97.8488, 575.2932) {ipe disk};
+  \pic
+     at (129.8488, 575.2932) {ipe cross};
+  \pic
+     at (145.8488, 575.2932) {ipe cross};
+  \pic
+     at (225.8488, 575.2932) {ipe cross};
+  \draw
+    (129.8488, 703.2932)
+     -- (257.8488, 703.2932);
+  \draw
+    (225.8488, 655.2932)
+     -- (257.8488, 655.2932)
+     -- (257.8488, 655.2932);
+  \draw
+    (146.3018, 614.861)
+     -- (258.5378, 614.404);
+  \node[ipe node]
+     at (189.423, 676.278) {$m$};
+  \node[ipe node]
+     at (189.094, 629.543) {$m$};
+  \node[ipe node]
+     at (111.421, 715.773) {$m_1$};
+  \node[ipe node]
+     at (110.104, 590.707) {$m_2$};
+  \node[ipe node]
+     at (110.763, 564.378) {$\ell_1$};
+  \node[ipe node]
+     at (133.801, 564.377) {$\ell_2$};
+  \node[ipe node]
+     at (146.308, 543.972) {$\frac{\ell_1}{m_1}+\frac{\ell_2}{m} \lesseqgtr \frac{\ell_1+\ell_2}{m_2}$};
+  \pic
+     at (473.6651, 658.9228) {ipe disk};
+  \pic
+     at (353.8488, 719.2932) {ipe disk};
+  \pic
+     at (353.8488, 687.2932) {ipe disk};
+  \draw
+    (353.8488, 719.2932)
+     -- (385.8488, 703.2932)
+     -- (353.8488, 687.2932);
+  \draw
+    (386.7731, 703.2932)
+     -- (418.7731, 687.2932);
+  \draw[ipe dash dashed]
+    (417.8488, 687.2932)
+     -- (449.8488, 671.2932)
+     -- (449.8488, 671.2932);
+  
+  \draw
+    (449.8488, 671.2932)
+     -- (481.8488, 655.2932)
+     -- (481.8488, 655.2932);
+  \draw
+    (481.8488, 655.2932)
+     -- (449.8488, 639.2932)
+     -- (449.8488, 639.2932);
+  \draw[ipe dash dashed]
+    (449.8488, 639.2932)
+     -- (417.8488, 623.2932);
+  \draw
+    (417.8488, 623.2932)
+     -- (385.8488, 607.2932);
+  \pic
+     at (457.1756, 642.7929) {ipe disk};
+  \draw
+    (385.8488, 607.2932)
+     -- (353.8488, 591.2932)
+     -- (353.8488, 591.2932);
+  \pic
+     at (352.6103, 622.6521) {ipe disk};
+  \pic
+     at (353.9268, 590.7072) {ipe disk};
+  \pic
+     at (458.2826, 667.3311) {ipe cross};
+  \pic
+     at (459.207, 575.7344) {ipe cross};
+  \draw[-ipe linear]
+    (353.8488, 575.2932)
+     -- (513.8488, 575.2932);
+  \pic
+     at (353.8488, 575.2932) {ipe disk};
+  \pic
+     at (385.8488, 575.2932) {ipe cross};
+  \pic
+     at (475.7994, 575.2932) {ipe cross};
+  \pic
+     at (481.8488, 575.2932) {ipe cross};
+  \draw[shift={(472.741, 659.847)}, xscale=0.3271, yscale=-1.7893]
+    (0, 0)
+     -- (128, 0);
+  \draw
+    (481.8488, 655.2932)
+     -- (513.8488, 655.2932)
+     -- (513.8488, 655.2932);
+  \draw[shift={(459.26, 642.878)}, xscale=0.4834, yscale=0.4807]
+    (0, 0)
+     -- (112.236, -0.457);
+  \draw[red]
+    (482.3765, 654.0394) circle[radius=9.9987];
+  \draw
+    (354.8117, 621.686)
+     -- (386.2407, 606.8958);
+  \pic
+     at (386.2407, 606.8958) {ipe disk};
+  \pic
+     at (386.2407, 703.956) {ipe disk};
+  \draw[red]
+    (360.3506, 584.6012)
+     arc[start angle=160.4967, end angle=217.0656, x radius=120.4239, y radius=-143.3401];
+  \pic
+     at (473.9974, 650.6919) {ipe cross};
+  \pic
+     at (364.92, 693.131) {ipe cross};
+  \pic
+     at (372.3151, 710.6943) {ipe cross};
+  \pic
+     at (359.3737, 593.2977) {ipe cross};
+  \draw
+    (226.3225, 655.8881)
+     -- (258.6759, 665.1319);
+  \draw
+    (226.3225, 654.0394)
+     -- (258.6759, 646.6443);
+  \draw[-ipe linear]
+    (271.6173, 766.814)
+     -- (337.2485, 767.7384);
+  
+  \pic
+     at (272.5417, 782.5285) {ipe disk};
+  \pic
+     at (271.6173, 815.8063) {ipe disk};
+  \draw
+    (305.8194, 798.2431)
+     -- (272.5417, 815.8063);
+  \draw
+    (305.8194, 798.2431)
+     -- (272.5417, 782.5285)
+     -- (272.5417, 782.5285);
+  \draw
+    (272.5417, 782.5285)
+     -- (336.3241, 782.5285);
+  \draw
+    (272.5417, 815.8063)
+     -- (336.3241, 814.8819);
+  \draw
+    (304.8951, 799.1674)
+     -- (335.3997, 799.1674);
+  \draw
+    (305.8194, 799.1674)
+     -- (336.3241, 804.7137);
+  \draw
+    (305.8194, 798.2431)
+     -- (335.3997, 792.6968);
+  \draw
+    (387.1651, 703.956)
+     -- (511.0324, 703.956)
+     -- (511.0324, 703.0316);
+  \draw
+    (388.0895, 605.0471)
+     -- (511.9568, 605.0471);
+  \pic
+     at (272.5417, 766.814) {ipe disk};
+  \draw[red]
+    (304.8951, 797.3187) circle[radius=35.9679];
+    
+    \pic[fill=white]
+     at (225.8488, 655.2932) {ipe fdisk};
+     
+     \pic[fill=white]
+     at (481.8488, 655.2932) {ipe fdisk};
+     
+     \pic[fill=white]
+     at (304.8951, 799.1674) {ipe fdisk};
+\end{tikzpicture}
+\caption{Two degenerations of the combinatorial type above, which represents a ray. On the left-hand side, the alignment holds only generically. On the right-hand side, it is not enough to align each individual factor.}\label{fig:fwise_align}
+\end{figure}
+
+\subsubsection{The projective bundle}\label{subs:proj_bun} Generically on $\widetilde\Ecal$, the compactified torus bundle $\widetilde \Dcal\to \widetilde\Ecal$ coincides with the following projective bundle:
+\[\mathcal P=\PP_{\widetilde\Ecal}(\mathbb T_R\oplus\bigoplus_{j=k+1}^r \mathbb T_{q_j}R_j),\]
+where $\mathbb T_{q_j}R_J$ is the tangent line at the gluing marking closest to the core on the $j$-th factor of the product in the second line of \eqref{eq:product}. The open stratum in the fiber consists of moduli of attachments (i.e. moduli for the contraction to the Smyth's singularity); the compactification is by adding strictly semistable Gorenstein singularities as in \cite[\S\S 2.2-2.3]{SMY2}. In terms of alignment, a coordinate hyperplane corresponds to pushing the corresponding vertex off the circle, and destabilising the corresponding edge to the core. Tropically, the fibers can be analysed as follows: pushing some of the vertices off the circle creates new finite length edges with coordinates $\ell_j\in\RR_{\geq_0}$ (see Figure \ref{fig:off_we_go}); not all of them can be strictly positive, because the circle needs to pass through at least one vertex of positive horizontal degree. This is patently the fan of a projective space.
+
+\begin{figure}
+\begin{tikzpicture}[ipe import,scale=.8]
+  %\useasboundingbox (0, 0) rectangle (595, 842);
+  \draw
+    (64, 672)
+     -- (128, 688)
+     -- (64, 704)
+     -- (64, 704);
+  \draw
+    (128, 688)
+     -- (64, 736)
+     -- (64, 736);
+  \draw[red]
+    (128, 688) circle[radius=65.9697];
+  \draw
+    (128, 688)
+     -- (112, 752)
+     -- (64, 768)
+     -- (64, 768);
+  \draw
+    (112, 752)
+     -- (64, 784)
+     -- (64, 784);
+  \pic
+     at (64, 672) {ipe disk};
+  \pic
+     at (64, 704) {ipe disk};
+  \pic
+     at (64, 736) {ipe disk};
+  \pic
+     at (64, 768) {ipe disk};
+  \pic
+     at (64, 784) {ipe disk};
+  \pic
+     at (112, 752) {ipe cross};
+  \pic
+     at (75.2242, 727.582) {ipe cross};
+  \pic
+     at (112, 700) {ipe cross};
+  \pic
+     at (112, 692) {ipe cross};
+  \pic
+     at (112, 684) {ipe cross};
+  \pic
+     at (75.8121, 701.047) {ipe cross};
+  \pic
+     at (75.0704, 674.4388) {ipe cross};
+  \filldraw[fill=white]
+    (64, 608)
+     -- (208, 608)
+     -- (208, 608);
+  \pic
+     at (64, 608) {ipe disk};
+  \draw
+    (128, 688)
+     -- (208, 688)
+     -- (208, 688);
+  \pic
+     at (73.6978, 608.02) {ipe cross};
+  \pic
+     at (111.876, 608.0202) {ipe cross};
+  \pic
+     at (127.674, 608.0205) {ipe cross};
+  \pic[fill=white]
+     at (128, 688) {ipe fdisk};
+  \node[ipe node]
+     at (86.863, 690.301) {$m$};
+  \node[ipe node]
+     at (87.521, 671.212) {$m$};
+  \draw
+    (128, 688)
+     -- (91.4703, 741.643);
+  \draw
+    (128, 688)
+     -- (160.586, 745.593)
+     -- (160.586, 745.593);
+  \pic
+     at (91.4703, 741.643) {ipe disk};
+  \pic
+     at (160.486, 745.417) {ipe disk};
+  \draw[shift={(91.47, 741.051)}, xscale=0.95, yscale=0.6996]
+    (0, 0)
+     -- (-26.9879, 7.241)
+     -- (-26.9879, 7.241);
+  \draw
+    (160.486, 745.417)
+     -- (64.4824, 799.569);
+  \draw
+    (160.486, 745.417)
+     -- (208.637, 745.593);
+  \draw
+    (92.1286, 740.985)
+     -- (64.4824, 754.15);
+  \pic
+     at (64.4824, 746.909) {ipe disk};
+  \pic
+     at (64.4824, 798.91) {ipe disk};
+  \pic
+     at (64.4824, 753.492) {ipe disk};
+  \draw
+    (289.118, 672.0005)
+     -- (353.118, 688.0005)
+     -- (289.118, 704.0005)
+     -- (289.118, 704.0005);
+  \draw
+    (353.118, 688.0005)
+     -- (289.118, 736.0005)
+     -- (289.118, 736.0005);
+  \draw[red]
+    (353.118, 688.0005) circle[radius=65.9697];
+  \draw
+    (353.118, 688.0005)
+     -- (337.118, 752.0005)
+     -- (289.118, 768.0005)
+     -- (289.118, 768.0005);
+  \draw
+    (337.118, 752.0005)
+     -- (289.118, 784.0005)
+     -- (289.118, 784.0005);
+  \pic
+     at (289.118, 672.0005) {ipe disk};
+  \pic
+     at (289.118, 704.0005) {ipe disk};
+  \pic
+     at (289.118, 736.0005) {ipe disk};
+  \pic
+     at (289.118, 768.0005) {ipe disk};
+  \pic
+     at (289.118, 784.0005) {ipe disk};
+  \pic
+     at (337.118, 752.0005) {ipe cross};
+  \pic
+     at (300.3422, 727.5825) {ipe cross};
+  \pic
+     at (337.118, 700.0005) {ipe cross};
+  \pic
+     at (337.118, 692.0005) {ipe cross};
+  \pic
+     at (337.118, 684.0005) {ipe cross};
+  \pic
+     at (300.9301, 701.0475) {ipe cross};
+  \pic
+     at (300.1889, 674.4392) {ipe cross};
+  \filldraw[fill=white]
+    (289.118, 608.0005)
+     -- (433.118, 608.0005)
+     -- (433.118, 608.0005);
+  \pic
+     at (289.118, 608.0005) {ipe disk};
+  \draw
+    (353.118, 688.0005)
+     -- (433.118, 688.0005)
+     -- (433.118, 688.0005);
+  \pic
+     at (298.8158, 608.0205) {ipe cross};
+  \pic
+     at (336.994, 608.0207) {ipe cross};
+  \pic
+     at (352.792, 608.0209) {ipe cross};
+  \pic[fill=white]
+     at (353.118, 688.0005) {ipe fdisk};
+  \node[ipe node]
+     at (311.98, 690.301) {$m$};
+  \node[ipe node]
+     at (312.639, 671.212) {$m$};
+  \draw[shift={(353.118, 687.999)}, xscale=1.1287, yscale=1.1615]
+    (0, 0)
+     -- (-36.5297, 53.643);
+  \draw[shift={(353.119, 687.997)}, xscale=1.4269, yscale=1.3567]
+    (0, 0)
+     -- (32.586, 57.593)
+     -- (32.586, 57.593);
+  \pic
+     at (310.6643, 751.5171) {ipe disk};
+  \pic
+     at (400.086, 767.1394) {ipe disk};
+  \draw[shift={(311.745, 750.197)}, xscale=0.8205, yscale=-0.5452]
+    (0, 0)
+     -- (-26.9879, 7.241)
+     -- (-26.9879, 7.241);
+  \draw[shift={(399.543, 767.54)}, xscale=1.1319, yscale=0.5704]
+    (0, 0)
+     -- (-96.0036, 54.152);
+  \draw[shift={(400.744, 767.146)}, xscale=0.6446, yscale=-1.3688]
+    (0, 0)
+     -- (48.151, 0.176);
+  \draw[shift={(311.717, 751.113)}, xscale=0.8, yscale=0.1453]
+    (0, 0)
+     -- (-27.6462, 13.165);
+  \pic
+     at (289.6004, 746.9095) {ipe disk};
+  \pic
+     at (289.6004, 798.9105) {ipe disk};
+  \pic
+     at (289.6004, 753.4925) {ipe disk};
+  \pic
+     at (387.02, 744.935) {ipe cross};
+  \pic
+     at (317.246, 742.961) {ipe cross};
+  \node[ipe node]
+     at (315.273, 748.884) {$\ell_{j_1}$};
+  \node[ipe node]
+     at (397.553, 752.175) {$\ell_{j_2}$};
+\end{tikzpicture}
+\caption{Moving vertices off the circle creates new tropical parameters.}\label{fig:off_we_go}
+\end{figure}
+
+\subsubsection{Factorisation} Assume $m\geq 2$. Over $\mathcal P$ we have a tautological sequence:
+\[\OO_{F}(-1)\hookrightarrow p^*(F)\xrightarrow{+\operatorname{d}f}\operatorname{ev}_E^*(TH),\]
+where $p\colon\mathcal P=\PP(F)\to\widetilde\Ecal$, and $+\operatorname{d}f$ should be interpreted as follows: $k$ copies of $\mathbb T_R$ are taken to account - via the preferred isomorphisms - for all factors of the first product in \eqref{eq:product}; then, the differential of the universal map to $\PP^N$ is applied to each tangent vector (possibly including some of the contracted rational bubbles in the boundary), and the sum of these contributions is taken in $T_{f(E)}\PP^N$ - it actually lies in $T_{f(E)}H$ because all the normal contributions are trivial by assumption. The composition is a section $s$ of $G=\OO_F(1)\otimes \operatorname{ev}_E^*(TH)$, and it vanishes precisely where $f$ factors through the Smyth's singularity determined by the point in the fiber of $p$. Generically on $\widetilde\Ecal$, this is exactly what we are after.
+
+\subsubsection{Dimensional transversality} In general, the vanishing locus of $s$ corresponds to maps $f\colon C\to\PP^N$ and diagrams $C\leftarrow \tilde C\to \bar C$ - with $\bar C$ the elliptic $r$-fold point determined by the position in the fiber of $p\colon\mathcal P\to\widetilde \Ecal$ - such that $f$ factors through $\bar C$. When the curve is allowed to degenerate (so, on the boundary of $\widetilde \Ecal$), this is not always what we want: indeed, due do the combined action of degeneration (in the base direction) and destabilisation (in the fiber direction), it may very well be that $f$ is constant along every component of the elliptic singularity, so that it factors trivially; in other words, the vanishing locus of $s$ is not dimensionally transverse to the boundary of $\mathcal P$.
+\begin{lemma}
+ For every $K\subseteq\{1,\ldots,r\}$ and $K^c=\{1,\ldots,r\}\setminus K$, $s$ vanishes along the loci where the factors corresponding to $K$ in $\widetilde \Ecal$ degenerate so that $f_k\colon R_k\to\PP^N$ is constant in a neighbourhood of $q_k$, and the fiber coordinates $(\lambda_{h})_{h\in K^c}$ along $p\colon\mathcal P\to\widetilde \Ecal$ are set to be $0$.
+\end{lemma}
+Call these loci $\Delta_i,i\in I$. See \cite[\S 3.2]{VZ} for a treatment of the analogous situation in the non-relative case; the study of the normal bundles is also dealt with there.
+
+It is clear that these loci are logarithmic substrata; therefore, there exists a logarithmic blow-up that principalizes them. We claim that $\widetilde\Dcal$ is (possibly a refinement of) this blow-up. This follows from the tropical discussion in Section \ref{subs:proj_bun}, and the fact that the degenerate circle that we are drawing on the $\Delta_i$ falls in the strict interior of the circle of radius $\delta$ on $\widetilde\Dcal$ (because the former only passes through vertices of horizontal degree $0$), thus all the distances from the vertices to the former circle are ordered. See Figure \ref{fig:principalisation} above.
+\begin{figure}
+\begin{tikzpicture}[ipe import]
+  %\useasboundingbox (0, 0) rectangle (595, 842);
+  \draw
+    (64, 720)
+     -- (112, 736)
+     -- (96, 752);
+  \draw[->]
+    (64, 704)
+     -- (128, 704);
+  \pic
+     at (64, 704) {ipe disk};
+  \pic
+     at (64, 720) {ipe disk};
+  \pic
+     at (96, 752) {ipe disk};
+  \draw[red, dotted]
+    (60.6969, 708.808)
+     arc[start angle=-161.5651, end angle=-71.5651, x radius=53.2078, y radius=-65.2105];
+  \pic[fill=white]
+     at (112, 736) {ipe fdisk};
+  \draw
+    (192, 720)
+     -- (240, 736)
+     -- (224, 752);
+  \draw[->]
+    (192, 704)
+     -- (256, 704);
+  \pic
+     at (192, 704) {ipe disk};
+  \pic
+     at (192, 720) {ipe disk};
+  \pic
+     at (224, 752) {ipe disk};
+  \pic[fill=white]
+     at (240, 736) {ipe fdisk};
+  \draw
+    (112, 736)
+     -- (128, 736);
+  \draw
+    (240, 736)
+     -- (256, 736);
+  \draw
+    (208.6374, 743.6181)
+     -- (224.4352, 750.8588);
+  \draw
+    (208.6374, 758.7577)
+     -- (225.0934, 751.517);
+  \pic
+     at (207.9791, 742.9599) {ipe disk};
+  \pic
+     at (207.9791, 758.7577) {ipe disk};
+  \pic
+     at (208, 704) {ipe cross};
+  \pic
+     at (224, 704) {ipe cross};
+  \pic
+     at (240, 704) {ipe cross};
+  \pic
+     at (96, 704) {ipe cross};
+  \pic
+     at (112, 704) {ipe cross};
+  \draw[red, dotted]
+    (231.0126, 755.9018)
+     { [rotate=-17.595] arc[start angle=135, end angle=225, x radius=21.7093, y radius=22.6274] };
+  \draw[red]
+    (188.9249, 712.0225)
+     arc[start angle=-156.5092, end angle=-115.3692, x radius=85.088, y radius=-96.462];
+\end{tikzpicture}
+\caption{On the left, a generic point of $\mathcal P$. On the right, a point $\Delta$. The dotted circle is what we have on $\mathcal P$. The continuous circle is the one of radius $\delta$ on $\widetilde\Dcal$; this principalises the degeneration.}\label{fig:principalisation}
+\end{figure}
+
+Finally, on $\widetilde\Dcal$ there are exceptional divisors $\widetilde \Delta_i$ corresponding to $\Delta_i$ in $\mathcal P$. By the preceding analysis, $s\in\Gamma(\mathcal P,G)$ induces a section $\tilde s\in\Gamma(\widetilde\Dcal,G(-\sum_i\widetilde\Delta_i))$ by pullback, whose vanishing locus is dimensionally transverse to the boundary, and whose open part coincides with the generic point of $\Dcal$, therefore $V(\tilde s)=\Dcal$.
+
+\subsection{Tautological contributions} Expressing the pushforward of the Chern classes of $\OO_F(1)$ and $\OO(\widetilde\Delta_i)$ in terms of tautological classes on the fiber product underlying $\Ecal$, get:
+\begin{cor}
+ After pushforward to $\Ecal$, the contribution of $\Dcal$ to the invariants can be computed in terms of tautological integrals on moduli spaces of maps with lower numerics.
+\end{cor}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \newpage
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \begin{lem} The logarithmic modification $\psi$ restricts to a birational map:
