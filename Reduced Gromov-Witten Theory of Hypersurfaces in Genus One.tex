@@ -397,9 +397,9 @@ Finally, we note that our results require us to encounter several variants of th
 
 \section{Construction and logarithmic smoothness}
 
-\subsection{The absolute story} Let $\mathfrak M_{1,n}$ be the logarithmic algebraic stack of genus $1$ $n$-pointed prestable curves. Let $\plC$ be a $n$-pointed genus $1$ tropical curve. Let $C$ be a logarithmic curve over $S$, let $\plC$ denote its tropicalization, and let $\lambda$ be the section of $\overline{M}_{C/S}$ giving the distance from the circuit. 
+\subsection{The absolute story} Let $\mathfrak M_{1,n}$ be the logarithmic algebraic stack of genus $1$ $n$-pointed prestable curves. Let $\plC$ be a $n$-pointed genus $1$ tropical curve. Let $C$ be a logarithmic curve over $S$, let $\plC$ denote its tropicalization, and let $\lambda$ be the section of $\overline{M}_{C/S}$ giving the distance from the core. 
 
-We begin by recalling the logarithmic moduli spaces of genus $1$ curves constructed in~\cite[Sections 2 \& 4]{RSPW}. Given a family of tropical curves over a base $\sigma$, a central alignment is a piecewise-linearly varying choice of radius $\delta_s$ for $s\in\sigma$, together with a consistent ordering of the vertices that lie inside the circle of radius $s$ around the circuit components. Precisely, let $T$ be a geometric point with logarithmic structure.
+We begin by recalling the logarithmic moduli spaces of genus $1$ curves constructed in~\cite[Sections 2 \& 4]{RSPW}. Given a family of tropical curves over a base $\sigma$, a central alignment is a piecewise-linearly varying choice of radius $\delta_s$ for $s\in\sigma$, together with a consistent ordering of the vertices that lie inside the circle of radius $s$ around the core components. Precisely, let $T$ be a geometric point with logarithmic structure.
 
 \begin{definition}
 A \textbf{central alignment} of $C/T$ is an element $\delta\in\overline{M}_S$ such that
@@ -461,7 +461,7 @@ D\to \mathbb P^N
 \]
 is contained in $H\subset \mathbb P^N$. 
 
-Let $D_1\subset C$ be the maximal genus $1$ subcurve that is mapped to higher level contracted by the map $C\to \mathbb P^N[s]$ in the fiber direction. Let $\delta_1$ be the associated radius from the circuit to the nearest non-contract component. Let $D_2$ be the maximal genus $1$ subcurve that is contracted by the collapsed map to $\mathbb P^N$, and let $\delta_2$ be the associated radius. This coincides with the radius of the underlying map to $\mathbb P^N$. Of course, $\delta_1\leq \delta_2$.
+Let $D_1\subset C$ be the maximal genus $1$ subcurve that is mapped to higher level contracted by the map $C\to \mathbb P^N[s]$ in the fiber direction. Let $\delta_1$ be the associated radius from the core to the nearest non-contract component. Let $D_2$ be the maximal genus $1$ subcurve that is contracted by the collapsed map to $\mathbb P^N$, and let $\delta_2$ be the associated radius. This coincides with the radius of the underlying map to $\mathbb P^N$. Of course, $\delta_1\leq \delta_2$.
 
 The datum $(\delta_1,\delta_2)$ determines a destabilization $\widetilde C$ of $C$ together with successive contractions $\widetilde C\to \overline C_1\to\overline C_2$. Keeping this definition, we come to the key definition.
 
@@ -652,7 +652,7 @@ In \S\S \ref{Section Gathmann line bundle}--\ref{section reduced splitting axiom
 
 \section{Gathmann's line bundle via tropical geometry}\label{Section Gathmann line bundle} Consider a reduced relative space $\VZ_{1,\alpha}(\PP^N|H,d)$. For each marking $x_k$ we consider the locus $\Dcal_{1,\alpha,k}(\PP^N|H,d) \subseteq \VZ_{1,\alpha}(\PP^N|H,d)$ where $x_k$ belongs to an internal component of the collapsed map. In this section, we use the log structure on $\VZ_{1,\alpha}(\PP^N|H,d)$ to construct a line bundle $\Lcal_k$ together with a section $s_k$ which vanishes precisely along $\Dcal_{1,\alpha,k}(\PP^N|H,d)$. We use the correspondence with tropical geometry to identify $\cchern_1(\Lcal_k)$ in terms of tautological classes on $\VZ_{1,\alpha}(\PP^N|H,d)$, and to compute the vanishing order of $s_k$ along the components of $\Dcal_{1,\alpha,k}(\PP^N|H,d)$. Combined with the relative splitting axioms established in the next section, we obtain a recursion relation inside $\VZ_{1,\alpha}(\PP^N|H,d)$
 
-The pair $(\Lcal_k,s_k)$ is most naturally constructed on the moduli space $\MLog_{1,\alpha}(\PP^N|H,d)$ of non-expanded log maps; the corresponding pair on $\VZ_{1,\alpha}(\PP^N|H,d)$ will be obtained via pull-back. Consider therefore the tropicalisation $\Sigma^{\log}$ of $\MLog_{1,\alpha}(\PP^N|H,d)$, identified as usual with the moduli space of tropical maps to $\RR_{\geq 0}$. We have a universal family
+The pair $(\Lcal_k,s_k)$ is most naturally constructed on the moduli space $\MLog_{1,\alpha}(\PP^N|H,d)$ of non-expanded log maps; the corresponding pair on $\VZ_{1,\alpha}(\PP^N|H,d)$ will be obtained via pull-back. Consider therefore the tropicalisation $\Sigma^{\log}$ of $\MLog_{1,\alpha}(\PP^N|H,d)$. By tropicalising the universal family, we obtain a family of tropical maps
 \bcd
 \sqC \ar[d,"\pi"] \ar[r,"f"] & \RR_{\geq 0} \\
 \Sigma^{\log} \ar[u, bend left=40pt, "x_k" left]
@@ -667,7 +667,7 @@ Since $x_k$ factors through $C_v$ we may pull back along $x_k$ to obtain
 \begin{equation*} \Lcal_k = x_k^\st\pi^\st \Lcal_k = x_k^\st \OO_{C_k}(-\alpha_k x_k) \otimes x_k^\st f^\st\OO(H) = x_k^\st \OO_{C_k}(-\alpha_k x_k) \otimes \ev_k^\st \OO(H) \end{equation*}
 and taking Chern classes gives:
 \begin{equation*} \cchern_1(\Lcal_k) = \alpha_k \psi_k + \ev_k^\st H.\end{equation*}
-This gives the construction of $(\Lcal_k,s_k)$ on $\MLog_{1,\alpha}(\PP^N|H,d)$; the construction on $\VZ_{1,\alpha}(\PP^N|H,d)$ is given by pull-back. The relevant piecewise-linear function is the composition:
+This gives the construction of $(\Lcal_k,s_k)$ on $\MLog_{1,\alpha}(\PP^N|H,d)$; the construction on $\VZ_{1,\alpha}(\PP^N|H,d)$ is obtained by pull-back. The relevant piecewise-linear function is simply the composition:
 \begin{equation*} \Sigma_{1,\alpha}(\PP^N|H,d) \to \Sigma^{\log} \to \RR_{\geq 0}.\end{equation*}
 Notice in particular that $\psi_k$ should be interpreted as a \textbf{collapsed psi class} on $\VZ_{1,\alpha}(\PP^N|H,d)$, i.e. a psi class coming from the stabilised curve of the collapsed map. In this paper, all psi classes are collapsed unless stated otherwise. We immediately arrive at:
 
@@ -691,7 +691,7 @@ In \S \ref{subsection indexing strata} we discussed a procedure for enumerating 
 \item subdivide the corresponding tropical moduli space $\sigma$;
 \item choose a ray in this subdivision.
 \end{enumerate}
-Notice that this process contains some redundancies: upon choosing a ray in the tropical moduli space, some of the edge lengths or vertex positions may get set to $0$. This induces a generisation of the intial combinatorial type $\Delta$, given by contracting the corresponding edges of the dual graph and moving the corresponding vertices from $\RR_{>0}$ to $0$. By the combinatorial type of a stratum in $\VZ_{1,\alpha}(\PP^N|H,d)$ we will always mean this generisation. This is independent of the choice of $\Delta$, and in fact we can (and will) always choose $\Delta$ to coincide with the generisation.
+Notice that this process contains some redundancies: when we choose a ray in step (3) above, some of the edge lengths or vertex positions may get set to $0$. This induces a generisation of the intial combinatorial type $\Delta$, given by contracting appropriate edges of the dual graph and/or moving appropriate vertices from $\RR_{>0}$ to $0$. By the combinatorial type of a stratum in $\VZ_{1,\alpha}(\PP^N|H,d)$ we will always mean this generisation. This is independent of the choice of $\Delta$, and in fact we can (and will) always choose $\Delta$ to coincide with the generisation.
 
 The log divisors contained in $\Dcal_{1,\alpha,k}(\PP^N|H,d)$ are precisely those whose  combinatorial types map the vertex of the dual graph containing $x_k$  into the interior $\RR_{>0} \subseteq \RR_{\geq 0}$. Thus via the above procedure, we are able to enumerate the irreducible components of $\Dcal_{1,\alpha,k}(\PP^N|H,d)$ in a combinatorial manner, and the combinatorial type $\Delta$ allows us to describe the general element of such a component. What we are still lacking is a recursive description of the components, which we need in order to compute integrals over them. This is the subject of the remainder of this section.
 
@@ -699,11 +699,11 @@ The log divisors contained in $\Dcal_{1,\alpha,k}(\PP^N|H,d)$ are precisely thos
 \begin{equation*} \Dcal = \widetilde\Dcal \cap \VZ_{1,\alpha}(\PP^N|H,d) \end{equation*}
 for a unique log stratum $\widetilde\Dcal \subseteq \widetilde{\VZ}_{1,\alpha}(\PP^N|H,d)$. Since
 \begin{equation*}\widetilde{\VZ}_{1,\alpha}(\PP^N|H,d) \to \ol\Mcal_{1,\alpha}(\PP^N|H,d)\end{equation*}
-is a log modification, $\widetilde{\Dcal}$ is either exceptional or the proper transform of a log divisor. These cases correspond, respectively, to when the circuit is assigned zero degree or nonzero degree by the combinatorial type. To begin with we will focus on the latter case. Suppose therefore that $\widetilde{\Dcal}$ is the proper transform of a log divisor:
+is a log modification, $\widetilde{\Dcal}$ is either exceptional or the proper transform of a log divisor. These cases correspond, respectively, to when the core is assigned zero degree or nonzero degree by the combinatorial type. To begin with we will focus on the latter case. Suppose therefore that $\widetilde{\Dcal}$ is the proper transform of a log divisor:
 \begin{equation*} \Ecal \subseteq \ol\Mcal_{1,\alpha}(\PP^N|H,d). \end{equation*}
 The birational map $\widetilde{\Dcal} \to \Ecal$ induces a morphism $\Dcal \to \Ecal$. In the remainder of this subsection, we will show how to interpret this morphism as a ``desingularisation of the main component''. Since $\Ecal$ admits a recursive description in terms of relative and rubber moduli spaces, this will allow us to compute integrals over $\Dcal$.
 
-\begin{lemma}\label{lem:combs} Let $\Dcal \subseteq \Dcal_{1,\alpha,k}(\PP^N|H,d)$ be an irreducible component which contributes nontrivially to the recursion, and let $\Delta$ be the corresponding combinatorial type. Suppose that $\Delta$ assigns positive degree to the circuit. Then $\Delta$ takes one of the following forms:
+\begin{lemma}\label{lem:combs} Let $\Dcal \subseteq \Dcal_{1,\alpha,k}(\PP^N|H,d)$ be an irreducible component which contributes nontrivially to the recursion, and let $\Delta$ be the corresponding combinatorial type. Suppose that $\Delta$ assigns positive degree to the core. Then $\Delta$ takes one of the following forms:
 \begin{figure}[h]
     \centering
     \begin{minipage}{0.3\textwidth}
@@ -723,15 +723,15 @@ The birational map $\widetilde{\Dcal} \to \Ecal$ induces a morphism $\Dcal \to \
     \end{minipage}
 \end{figure}
 
-\noindent The terminology is due to Vakil, and the pictures in this case are very similar to \cite{Vre} (we will see later that when the circuit is assigned zero degree the picture becomes \emph{very} different). Note that in these pictures we have deliberately omitted the marked points (except for $x_k$), the degree of each vertex, and the expansion factors of the edges. The omitted combinatorial data can be distributed arbitrarily, as long as:
+\noindent The terminology is due to Vakil, and the pictures in this case are very similar to \cite{Vre} (as we will see later, when the core is assigned zero degree the picture becomes \emph{very} different). Note that in these pictures we have deliberately omitted  the degree of each vertex, the expansion factors of the edges and the marked points (except for $x_k$). The omitted combinatorial data can be distributed arbitrarily, as long as:
 \begin{enumerate}
 \item the vertices $\sqC_1,\ldots,\sqC_r$ have positive degree;
-\item the ellipse\footnote{(Navid) Didn't we decide this was our new terminology for the circuit?} has positive degree;
+\item the core has positive degree;
 \item every vertex is stable;
 \item the balancing condition is satisfied.
 \end{enumerate}\end{lemma}
 
-\begin{proof} Let $\sigma \in \Sigma$ be the cone corresponding to the stratum $\Ecal \subseteq \ol\Mcal_{1,\alpha}(\PP^N|H,d)$. By the discussion above $\Dcal$ corresponds to a ray in the subdivision of $\sigma$ given by imposing the central alignment condition. But since the ellipse is assigned positive degree, both radii are equal to $0$ and the subdivision is trivial. We conclude that $\sigma=\RR_{\geq 0}$ (recall we are assuming that the initial and generised combinatorial types coincide). Since there must be at least one vertex mapped to higher level, we conclude that the tropical target $\widetilde\RR_{\geq 0}$ is obtained from $\RR_{\geq 0}$ by subdividing at a single point $\diamond \in \RR_{> 0}$.
+\begin{proof} Let $\sigma \in \Sigma$ be the cone corresponding to the stratum $\Ecal \subseteq \ol\Mcal_{1,\alpha}(\PP^N|H,d)$. By the discussion above $\Dcal$ corresponds to a ray in the subdivision of $\sigma$ given by imposing the central alignment condition. But since the core is assigned positive degree, both radii are equal to $0$ and the subdivision is trivial. We conclude that $\sigma=\RR_{\geq 0}$ (recall we are assuming that the initial and generised combinatorial types coincide). Since there must be at least one vertex mapped to higher level, we conclude that the tropical target $\widetilde\RR_{\geq 0}$ is obtained from $\RR_{\geq 0}$ by subdividing at a single point $\diamond \in \RR_{> 0}$.
 
 In order to have $\sigma=\RR_{\geq 0}$, the dual graph $\Gamma$ must be a bipartite graph with vertices over $0$ and $\diamond$. The cases $A,B$ and $C^+$ enumerated above cover situations where there is a single vertex mapped to $\diamond$. We claim that if there is more than one such vertex, then the contribution to the recursion vanishes. To see this, we consider the stratum
 \begin{equation*} \Ecal^{\text{\tiny{log}}} \subseteq \ol\Mcal^{\text{\tiny{log}}}_{1,\alpha}(\PP^N|H,d) \end{equation*}
@@ -739,7 +739,7 @@ to which $\Ecal$ maps under the collapsing morphism, and examine the composition
 
 \begin{remark} The difference in dimensions between $\Dcal$ and $\Fcal^{\text{\tiny{log}}}$ (or equivalently, the difference in virtual dimensions between $\Ecal$ and $\Ecal^{\text{\tiny{log}}}$) may be interpreted as the difference in dimensions between moduli spaces of \emph{disconnected} rubber and their images under the collapsing morphisms (see \ref{} below). \end{remark}
 
-We now investigate the three types $A,B,C^+$ separately, giving a recursive description of the boundary divisor in each case. For the remainder of this subsection, therefore, we fix a one-dimensional cone $\tau \in \Sigma_{1,\alpha}(\PP^N|H,d)$, let $\Dcal \subseteq \VZ_{1,\alpha}(\PP^N|H,d)$ be the associated log divisor, and assume that $\Dcal$ is contained in $\Dcal_{1,\alpha,k}(\PP^N|H,d)$ and is of type $A,B$ or $C^+$. We let $\Ecal \subseteq \ol\Mcal_{1,\alpha}(\PP^N|H,d)$ be the log stratum into which $\Dcal$ is mapped; this is indexed by a cone $\epsilon \in \Sigma$ corresponding to a combinatorial type $\Delta$, and $\epsilon$ is one-dimensional since we are restricting to the type $A,B,C^+$ cases.
+We now investigate the three types $A,B,C^+$ separately, giving a recursive description of the boundary divisor in each case. For the remainder of this subsection, therefore, we fix a one-dimensional cone $\tau \in \Sigma_{1,\alpha}(\PP^N|H,d)$, let $\Dcal \subseteq \VZ_{1,\alpha}(\PP^N|H,d)$ be the associated log divisor, and assume that $\Dcal$ is contained in $\Dcal_{1,\alpha,k}(\PP^N|H,d)$ and is of type $A,B$ or $C^+$. We let $\Ecal \subseteq \ol\Mcal_{1,\alpha}(\PP^N|H,d)$ be the log stratum into which $\Dcal$ is mapped; this is indexed by a cone $\sigma \in \Sigma$ corresponding to a combinatorial type $\Delta$, and $\sigma$ is one-dimensional since we are restricting to the type $A,B,C^+$ cases.
 
 
 \subsubsection{Type $A$}\label{subsubsection type A} Suppose $\Delta$ is of type $A$. Then $\Ecal$ admits a finite splitting morphism onto the fibre product:
@@ -750,19 +750,19 @@ We now investigate the three types $A,B,C^+$ separately, giving a recursive desc
 such that the map $\Dcal \to \Ecal$ covers the map on fibre products obtained by desingularising the main component of the factor corresponding to $\sqC_1$.\end{lemma}
 
 \begin{proof}
-The choices involved in gluing log maps to expansions (which accounts for the degrees of the splitting morphisms above) is not affected by the introduction of alignments, so for the purposes of this proof we may pretend as if these splitting morphisms are the identity maps.
+The choices involved in gluing log maps to expansions (which account for the degrees of the splitting morphisms above) is not affected by the introduction of alignments, so for the purposes of this proof we may act as if these splitting morphisms are the identity maps.
 
-Note that the map $\Dcal\to\Ecal$ is an isomorphism away from the blown-up locus, which is contained inside the locus where the circuit is contracted. Given an element of $\Dcal$ we can split it along the nodes $q_1,\ldots,q_r$ as in \cite{}. It is then clear that $\sqC_1$ is aligned. We claim that $\sqC$ satisfies the factorisation property if and only if $\sqC_1$ does. This immediately implies the lemma.
+Note that the map $\Dcal\to\Ecal$ is an isomorphism away from the blown-up locus, which is contained inside the locus where the core is contracted. Given an element of $\Dcal$ we can split it along the nodes $q_1,\ldots,q_r$ as in \cite{}. It is then clear that $\sqC_1$ is aligned. We claim that $\sqC$ satisfies the factorisation property if and only if $\sqC_1$ does. This immediately implies the lemma.
 
 On $\sqC$ there are associated contraction radii $\delta_1,\delta_2$. Let $\delta \in \{\delta_1,\delta_2\}$. By Lemma \ref{type A radius lemma} below, we have $\lambda(\sqC^\prime) > \delta$ for any component $\sqC^\prime$ of $\sqC_0$. This means that $\sqC_0,\sqC_2,\sqC_3,\ldots,\sqC_r$ lie outside both contraction radii, and so the aligned curve $\sqC$ satisfies the factorisation condition if and only if $\sqC_1$ does. \end{proof}
 
 \begin{lemma}\label{type A radius lemma} $\lambda(\sqC^\prime) > \delta$ for any component $\sqC^\prime$ of $\sqC_0$ (with notation as in the proof above).\end{lemma}
-\begin{proof} The basic point is that $\Dcal$ is obtained as the disjoint union of the locally closed logarithmic strata contained in the closure of the stratum where all of the $\sqC_i$ are irreducible. If we look at one of these boundary strata, then by definition the associated cone $\sigma \in \Sigma_{1,\alpha}(\PP^N|H,d)$ contains a ray $\tau$ corresponding to the stratum where all the $\sqC_i$ are irreducible; this amounts to setting all edge lengths other than $e_1,\ldots,e_r$ to zero. If $f_1,\ldots,f_l$ are some collection of additional edge lengths in $\sigma$ (corresponding to internal nodes in degenerations of the $\sqC_i$) then since $\sigma$ is adjacent to $\tau$ we must have (by construction of the subdivision) $f_1+\ldots+f_l < e_j$ for all $j\in\{1,\ldots,r\}$, since $f_1=\ldots=f_l=0$ and $e_j \neq 0$ on $\tau$. In particular, if $\sqC_1$ is degenerate and if $\delta$ denotes the minimal distance from the circuit to a non-contracted vertex of $\sqC_1$ (which certainly exists since $\sqC_1$ has positive degree) then $\delta < e_1 \leq \lambda(\sqC^\prime)$, as claimed.\end{proof}
+\begin{proof} The basic point is that $\Dcal$ is obtained as the disjoint union of the locally closed logarithmic strata contained in the closure of the locally closed stratum on which all of the $\sqC_i$ are irreducible. If we look at one of these boundary strata, then by definition the associated cone $\sigma \in \Sigma_{1,\alpha}(\PP^N|H,d)$ contains a ray $\tau$ corresponding to the stratum where all the $\sqC_i$ are irreducible; this amounts to setting all edge lengths other than $e_1,\ldots,e_r$ to zero. If $f_1,\ldots,f_l$ are some collection of additional edge lengths in $\sigma$ (corresponding to internal nodes in degenerations of the $\sqC_i$) then since $\sigma$ is adjacent to $\tau$ we must have (by construction of the subdivision) $f_1+\ldots+f_l < e_j$ for all $j\in\{1,\ldots,r\}$, since $f_1=\ldots=f_l=0$ and $e_j \neq 0$ on $\tau$. In particular, if $\sqC_1$ is degenerate and if $\delta$ denotes the minimal distance from the core to a non-contracted vertex of $\sqC_1$ (which certainly exists since $\sqC_1$ has positive degree) then $\delta < e_1 \leq \lambda(\sqC^\prime)$, as claimed.\end{proof}
 
 Lemma \ref{Lemma type A gluing} provides a means to calculate integrals over the class $\lambda_\Dcal[\Dcal]$ appearing on the right-hand side of Theorem \ref{theorem recursion}, provided that we can calculate $\lambda_\Dcal$ and the degree of the splitting morphism. Simple closed formulae for these are given in \S \ref{subsubsection splitting degree} below.
 
 \subsubsection{Type $B$}
-Now suppose $\Delta$ is of type $B$. Note that in this case, it is impossible for the circuit to be contracted. Hence $\Ecal$ is disjoint from the blown-up locus, and the map $\Dcal \to \Ecal$ is an isomorphism. We thus obtain the following description, entirely in terms of genus zero data:
+Now suppose $\Delta$ is of type $B$. Note that in this case, it is impossible for the core to be contracted. Hence $\Ecal$ is disjoint from the blown-up locus, and the map $\Dcal \to \Ecal$ is an isomorphism. We thus obtain the following description, entirely in terms of genus zero data:
 \begin{lemma} $\Dcal$ admits a finite splitting morphism:
 \begin{equation*} \Dcal \xrightarrow{\rho} \left(\ol\Mcal_{0,\alpha^{(1)}\cup(m_1,m_2)}(\PP^N|H,d_1)\times\prod_{i=3}^r \ol\Mcal_{0,\alpha^{(i)}\cup(m_i)}(\PP^N|H,d_i)\right) \times_{H^r} \ol\Mcal^{\leftrightarrow}_{0,\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}(P|H_0+H_\infty,d_0).\end{equation*}\end{lemma}
 
@@ -772,7 +772,7 @@ The same arguments as in \S \ref{subsubsection type A} then apply to give:
 \begin{lemma} $\Dcal$ admits a finite splitting morphism
 \begin{equation*}\Dcal \xrightarrow{\rho} \left( \prod_{i=1}^r \ol\Mcal_{0,\alpha^{(i)}\cup(m_i)}(\PP^N|H,d_i) \right) \times_{H^r} \VZ^{\leftrightarrow}_{1,\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}(P|H_0+H_\infty,d_0)\end{equation*}
 such that $\Dcal \to \Ecal$ corresponds to the obvious map on fibre products.\end{lemma}
-Here the first factor in the fibre product is the logarithmic blow-up of the moduli space of rubber maps constructed in \S \ref{}. We will compute integrals over such spaces as part of the recursion (see \S \ref{section recursion algorithm}).
+Here the first factor in the fibre product is the logarithmic blow-up of the moduli space of rubber maps constructed in \S \ref{}. We will compute integrals over such spaces as part of the recursion (see \S \ref{section recursion algorithm}).\footnote{(Navid) Say something about reduced rubber for target spaces here?}
 
 \subsubsection{Splitting degree and vanishing order} \label{subsubsection splitting degree} In each of the subsections \ref{subsubsection type A}--\ref{subsubsection type C+} above, we obtained a finite splitting morphism $\rho$ from $\Dcal$ to a fibre product of moduli spaces with smaller numerical data. Here we describe the degree of $\rho$ and calculate the vanishing order $\lambda_\Dcal$ of the section $s_k$ constructed in \S \ref{Section Gathmann line bundle}. This gives a complete recursive description of the terms appearing on the right-hand side of Theorem \ref{theorem recursion} which are of type $A,B$ or $C^+$.
 
@@ -787,21 +787,21 @@ Here the first factor in the fibre product is the logarithmic blow-up of the mod
 be the piecewise-linear function constructed in \S \ref{Section Gathmann line bundle}. It follows from the tropical description that $\lambda_\Dcal$ is equal to the index of the map of integral cones $\tau \to \RR_{\geq 0}$ obtained by restricting $\varphi$. By tropical continuity we have $\tau \subseteq \RR_{\geq 0}^r$ with integral generator:
 \begin{equation*} w = \left( \dfrac{\lcm(m_1,\ldots,m_r)}{m_1},\ldots,\dfrac{\lcm(m_1,\ldots,m_r)}{m_r} \right).\end{equation*}
 The map $\tau \to \RR_{\geq 0}$ is given by projecting onto the $i$th factor and then multiplying by $m_i$ (this is independent of $i$ by continuity of the tropical map). Thus we conclude that the index is equal to $\lcm(m_1,\ldots,m_r)$ as claimed.\end{proof}
+
+\begin{remark} A similar line bundle and section is considered in \cite{Ga} in the genus zero setting. The computation of $\lambda_{\Dcal}$ is the most difficult technical part of that paper. One of our contributions here is to observe that the tropical description reduces this computation to simple combinatorics.\end{remark}
+
 In summary, then: the contribution of each term $\lambda_\Dcal [\Dcal]$ is given by integrating over the appropriate fibre product and then multiplying the result by $\lambda_\Dcal \cdot \deg\rho = \prod_{i=1}^r m_i$.
 
-\subsection{Recursive description of the divisors: type $C^0$} In this case, the core has (horizontal) degree $0$ and is mapped into $H$. We start by describing the relevant combinatorial types of rays in $\widetilde{\VZ}_{1,\alpha}(\PP^N|H,d)$.
-\begin{lemma} In what follows it is understood that we insert trivial bubbles whenever the curve or target need to be subdivided in order for the image and preimage of every polyhedral subcomplex to be a union of polyhedral subcomplexes.
- \begin{enumerate}
-  \item The core is represented by a single vertex of genus one and degree zero, tropically mapped to $\RR_{>0}$.
-  \item The vertices adjacent to the core with maximal expansion factor are tropically mapped to $0$.
-  \item For every point of the target different from $0$, the fiber of the tropical map contains at most one stable vertex, which either is the core or lies on the circle.
-  \item $x_k$ is supported by a vertex tropically mapped to $\RR_{>0}$.
- \end{enumerate}
+\subsection{Recursive description of the divisors: type $C^0$} 
+
+\subsubsection{Restricting the possible combinatorial types} Recall that a boundary divisor $\Dcal \subseteq \Dcal_{1,\alpha,k}(\PP^N|H,d)$ is said to be of \textbf{type $C^0$} if the core is assigned zero degree by the combinatorial type. In this case, the combinatorial type is not as tightly constrained as previously (it need not be a bipartite graph with a single interior vertex). Nevertheless, we have the following lemma:
+\begin{lemma} 
+Let $\Dcal \subseteq \Dcal_{1,\alpha,k}(\PP^N|H,d)$ be a locus of type $C^0$ and let $\Delta$ be the corresponding combinatorial type. Then for every nonzero vertex $\diamond$ of the expanded target, the fibre of the tropical map over $\diamond$ contains exactly one stable vertex (together with a number of trivial bubbles), and at least one vertex which lies on the radius (which may or may not be stable).
 \end{lemma}
 \begin{proof}
- By assumption, the core is mapped to $\RR_>0$, hence the distance of its image from $0$ is one parameter $\ell$; since we are describing a ray, all other parameters have to be related to $\ell$, and the only way it can be so is via the alignment. If the fiber over $c>0$ contains two stable vertices, because both the insertions and the factorisation condition are pulled back from the moduli space without expansions, it can be seen as in Lemma \ref{lem:combs} that the collapsing morphism $\Dcal\to\Fcal$ has positive-dimensional fibers (disconnected rubber), so the corresponding combinatorial type does not contribute to the invariants. We conclude that every stable vertex over $\RR_{>0}$ different from the core has to lie on the circle.
-\end{proof}
+By stability we always need at least one stable vertex lying over each  vertex of the target. If there was more than one, then (since both the insertions and the factorisation condition are pulled back from the moduli space of maps without expansions) it can be seen, as in the proof of Lemma \ref{lem:combs}, that the contribution vanishes.
 
+Furthermore, for each vertex of the target there must always be a vertex in the preimage which lies on the radius, since otherwise there would be at least two independent tropical parameters, and so $\Dcal$ would not be a divisor.\end{proof}
 
 %%%%%%%%
 \begin{comment}
@@ -898,18 +898,22 @@ In summary, then: the contribution of each term $\lambda_\Dcal [\Dcal]$ is given
 \end{comment}
 %%%%%%%%%%
 
-See Figure \ref{fig:ray_example}. We observe that the corresponding stratum $\Ecal$ of $\ol\Mcal_{1,\alpha}(\PP^N|H,d)$ has logarithmic codimension equal to the number of non-core vertices mapping to $\RR_{>0}$: indeed, the combinatorial type of $\Ecal$ can be read off by forgetting the circle, and the logarithmic codimension in $\ol\Mcal_{1,\alpha}(\PP^N|H,d)$ is accounted for by the number of subdivisions of the target. The discrepancy in dimension is to be expected, as the loci of type $C^0$ are contained in the exceptional locus of the blow-up.
+We observe that the cone $\sigma \in \Sigma^{\Kim}$ corresponding to the stratum $\Ecal \subseteq \ol\Mcal_{1,\alpha}(\PP^N|H,d)$ is isomorphic to $\N^r$ where $r$ is the number of target expansions.
+The discrepancy between the dimension of $\sigma$ and the dimension of the ray $\tau$ is to be expected, since the loci of type $C^0$ are contained in the exceptional locus of the blow-up.
 
+We write $\Delta_0$ for the collection of stable vertices of the combinatorial type which are mapped to $0$ by the tropical map, and $\Delta_{>0}$ for the stable vertices which are mapped to $\RR_{>0}$. For each vertex $v$ there is associated discrete data $\Gamma_v$, which defines a moduli space of relative stable maps if $v \in \Delta_0$ and a moduli space of rubber maps if $v \in \Delta_{>0}$. Then $\Ecal$ admits a finite splitting morphism onto the fibre product
+\begin{equation*} \Ecal \xrightarrow{\rho} \left( \prod_{v \in \Delta_0} \ol\Mcal_{\Gamma_v}(\PP^N|H) \times \prod_{v \in \Delta_{>0}} \ol\Mcal^{\leftrightarrow}_{\Gamma_v}(P|H_0+H_\infty) \right) \times_{H^{2E}} H^E \end{equation*}
+where $E$ is the number of edges of the (stabilised) dual graph, and the fibre product is taken over the appropriate evaluation maps. Note that only the factor corresponding to the core vertex has non-zero genus, and that it must have zero degree.
+
+\begin{remark}As in \S \ref{subsubsection splitting degree} above, we should calculate the degree of $\rho$ and the vanishing order $\lambda_{\Dcal}$ of the section $s_k$ along $\Dcal$. The degree of $\rho$ is given exactly as in Lemma \ref{lem:saturation}, where now we obtain one such factor for each bounded edge of the tropical target. The vanishing order $\lambda_{\Dcal}$ is slightly more delicate, but may be computed as the index of an explicit morphism of one-dimensional lattices, as explained in the proof of Lemma \ref{lemma vanishing order} above.
+\end{remark}
+
+Typically, $\Ecal$ will have true dimension larger than that of $\Dcal$. We will study the map $\Dcal \to \Ecal$ in two steps: first, we will describe the map $\widetilde\Dcal \to \Ecal$, and then we will explain how to express the class of the substack $\Dcal \subseteq \widetilde\Dcal$ in terms of tautological classes.
+
+\subsubsection{Constructing $\widetilde\Dcal$ from $\Ecal$}
 The geometry of $\widetilde\Dcal\to\Ecal$ is encoded by the combinatorics of the alignment. The reader should bear the following toric construction in mind: suppose we subdivide a fan, and we want to describe the relation between the varieties corresponding respectively to a cone $\rho$ of the subdivision, and the original cone $\sigma$ containing it. The fan of $X_\tau$ is obtained by projecting the star of $\tau$ to the quotient $N_\tau=N_{\RR}/\langle\tau\rangle_{\RR}$ of the ambient vector space by the linear span of the cone\footnote{We find it useful to encode this within the formalism of extended tropicalisations \cite{?}.}. Notice that the dimension of the vector spaces $N_\rho$ and $N_\sigma$ (or the corresponding toric varieties) is off by the difference $c$ between the dimension of the cones. Furthermore, we may need to subdivide the fan of $X_\sigma$ in order for cones of $\Sigma_\rho$ to be mapped surjectively to cones of $\Sigma_\sigma$. The geometric interpretation of this is that $X_\tau$ is obtained as an appropriate compactification of a toric bundle of dimension $c$ over $X_\sigma$; observe that the fiber dimension may not be constant (but it can be made so by blowing up $X_{\sigma}$, see \cite[Lemma 4.1]{AK}). It is a fundamental insight due to Tevelev \cite{Tevelev} that a good compactification of the toric bundle is suggested by the tropicalisation of the locus we are interested in: here, ``good'' means that the intersection of the interesting locus with the boundary is dimensionally transverse. In the case at hand, the interesting locus is that of maps satisfying the factorisation property (i.e. smoothable maps), and the tropicalisation has been worked out in \cite{RSPW2} to consist of well-spaced maps.
 
 We proceed to describe $\Dcal$ step-by-step, building on $\Ecal$.
-
-\subsubsection{The fiber product} We start from the finite splitting morphism
-\begin{multline}\label{eq:product}
- \rho\colon \Ecal \to \left(\prod_{i=1}^k \ol\Mcal_{0,\alpha^{(i)}\cup(m)}(\PP^N|H,d_i) \times \prod_{i=k+1}^s \ol\Mcal_{0,\alpha^{(i)}\cup(m_i)}(\PP^N|H,d_i)\right)\times_{H^s} \\ \prod_{j=k+1}^{r}\ol\Mcal_{0,\alpha^{(j)}\cup(-m_i)_{i \in I_j\subseteq\{k+1,\ldots,s\}}\cup(\mu_j)}^{\leftrightarrow}(P|H_0+H_\infty,d_j)\times_{H^{r-k}} \\
- \ol\Mcal_{1,\alpha^{(0)}\cup(-m,\ldots,-m,-\mu_{k+1},\ldots,-\mu_r)\cup(-m_i)_{i\in\{k+1,\ldots,s\}\setminus(\bigcup I_j)}}^{\leftrightarrow}(P|H_0+H_\infty,0)
-\end{multline}
-The degree of $\rho$ can be computed as in Lemma \ref{lem:saturation} above. From the logarithmic point of view, $\rho$ is a saturation map; generically it should be thought of as follows. On the fiber product, the tangent vectors of the components on level $0$ (corresponding to the factors in the first line above) are identified with the target tangent line up to finite powers; the saturation is taking roots of these isomorphisms (it is interesting to notice that it fails precisely on Gathmann's boundary comb loci).
 
 \subsubsection{The generic alignment} In the first line of the product above, we have grouped the $k$ factors adjacent to the core with maximal expansion factor $m$. It is fundamental to realise that, generically on $\Ecal$, the vertices corresponding to these factors are (equidistant and) already aligned with respect to the core. We can construct a modification $\widetilde\Ecal$ of $\mathcal E$ by:
 \begin{enumerate}
@@ -1373,7 +1377,7 @@ where $\mathbb T_{q_j}R_J$ is the tangent line at the gluing marking closest to 
 \end{comment}
 %%%%%%%%%%%%%
 
-\subsubsection{Factorisation} Assume $m\geq 2$. Over $\mathcal P$ we have a tautological sequence:
+\subsubsection{Factorisation: obtaining $\Dcal$ from $\widetilde\Dcal$} Assume $m\geq 2$. Over $\mathcal P$ we have a tautological sequence:
 \[\OO_{F}(-1)\hookrightarrow p^*(F)\xrightarrow{+\operatorname{d}f}\operatorname{ev}_E^*(TH),\]
 where $p\colon\mathcal P=\PP(F)\to\widetilde\Ecal$, and $+\operatorname{d}f$ should be interpreted as follows: $k$ copies of $\mathbb T_R$ are taken to account - via the preferred isomorphisms - for all factors of the first product in \eqref{eq:product}; then, the differential of the universal map to $\PP^N$ is applied to each tangent vector (possibly including some of the contracted rational bubbles in the boundary), and the sum of these contributions is taken in $T_{f(E)}\PP^N$ - it actually lies in $T_{f(E)}H$ because all the normal contributions are trivial by assumption. The composition is a section $s$ of $G=\OO_F(1)\otimes \operatorname{ev}_E^*(TH)$, and it vanishes precisely where $f$ factors through the Smyth's singularity determined by the point in the fiber of $p$. Generically on $\widetilde\Ecal$, this is exactly what we are after.
 
@@ -1481,221 +1485,6 @@ Finally, on $\widetilde\Dcal$ there are exceptional divisors $\widetilde \Delta_
 
 
 
-
-
-\newpage
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\begin{lem} The logarithmic modification $\psi$ restricts to a birational map:
-\begin{equation*}\VZ^{\operatorname{punct}}_{1,\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}(H,d) \to \ol\Mcal^{\operatorname{punct},\circ}_{1,\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}(H,d).\end{equation*}
-\end{lem}
-Note that the latter space (the main component of the moduli space of punctured maps) is birational to the main component of the double ramification locus. In Lemma \ref{Lemma forget marking} below we explain how to compute integrals over this.cd 
-\begin{proof}
-If it is true, we might be able to prove it via deformation theory. For this it might be useful to notice that there is a morphism $\Mpunct{g}{\alpha}{H}{d}\to \Mpunct{g}{\alpha}{\PP^N}{d}$ (because $H\subseteq\PP^N$ is strict), which is probably a closed immersion, and the loci with smooth source curve are isomorphic under this map. It seems plausible that the main omponent is log smooth over $B\Gm\subseteq[\Aaff^1/\Gm]$ (or the standard log point).
-\end{proof}
-
-%We probably want the latter statement to hold under imposing alignment and factorisation (keeping the log structure on the source curve, but forgetting that the map is log).
-Integrals over the main component of the double ramification locus can be computed using the following lemma.
-\begin{lem} \label{Lemma forget marking}The morphism which forgets a marking
-\begin{equation*} \fgt_i\colon\ol\Mcal_{1,n}^{\alpha,\circ}(H,d)\to\ol\Mcal^{\circ}_{1,n-1}(H,d)\end{equation*}
-is generically finite, of degree $\alpha_i^2$ (except in one special case, described in the proof).
-\end{lem}
-\begin{proof}
- Let us consider the case $d=0$ first. We may assume the source curve is smooth elliptic $E$. The map \[ \phi\colon E\to \Pic^0(E),\qquad x\mapsto\OO_E\left(\alpha_ix+\sum_{j=1,\ldots,\hat i\ldots,n}\alpha_jp_j\right)\]
- is an isogeny of degree $\alpha_i^2$. The locus of $(C,p_1,\ldots,\hat{p_i},\ldots,p_n)$ such that the kernel of $\phi$ contains one of the points $\{p_1,\ldots,\hat{p_i},\ldots,p_n\}$ is itself a double ramification locus inside $\oM_{1,n}$, hence non-generic - with one exception: namely, when $n=2$, $x=p_1$ is always a solution, but the curve lying above such point bubbles off a $\PP^1$. To see that it does not belong to the closure of the nice locus, notice that the rational function trivialising $\OO_C(\alpha_1p_1-\alpha_2p_2)$ should descend to the cusp, thus having a ramification point at the node; yet its ramification profile is determined by Riemann-Hurwitz, and it is entirely supported on $p_1$ and $p_2$.
- 
- For a different proof: notice that we should obtain the class of the main component from the full double ramification cycle by subtracting the boundary class $[D_{1,\emptyset|0,\{1,\ldots,n\}}]$. The latter pushes forward to $0$ under $\fgt_i$, unless $n=2$. Therefore we may apply $\fgt_{i,*}$ to the Hain-Pixton formula:
- \[DR_1(A)=\frac{1}{2}\left(\sum_{i=1}^na_i^2\psi_i-\sum_{\substack{I\subseteq\{1,\ldots,n\}\\|I|\geq 2}}a_I^2[D_{1,I^c|0,I}]-\frac{1}{12}\delta_0\right),\]
- where $a_I=\sum_{i\in I}a_i$ and $\delta_0=\operatorname{glue}_*([\oM_{0,n+2}])$. From $\psi_j=\fgt_i^\st\psi_j+[D_{i,j}]$ for $i\neq j$, and the dilaton equation, we see that $\fgt_{i,*}\psi_j=1$ and $\fgt_{i,*}\psi_i=n-1$. On the other hand, the only surviving boundary classes are $[D_{i,j}]$, and they push down to $1$. Hence the formula pushes down to $\frac{1}{2}\left(\sum_{j\neq i}\alpha_j^2+(n-1)\alpha_i^2-\sum_{j\neq i}(\alpha_j+\alpha_i)^2\right)=-\alpha_i\left(\sum_{j\neq i}\alpha_j\right)=\alpha_i^2.$
-\end{proof}
-
-
-
-\newpage
-
-\begin{definition} A combinatorial type $\Delta$ of a tropical curve consists of the following data:
-\begin{enumerate}
-\item $G$ a finite graph, with a set $V(G)$ of vertices, a set $F(G)$ of flags and an involution $\iota \colon F(G) \to F(G)$ with $\iota^2=\Id$. We let $L(G)$ denote the fixed set of $\iota$, and think of its elements as infinite legs; we let $E(G)$ denote the set of equivalence classes of elements not fixed by $\iota$, and think of them as finite edges connecting two (possibly equal) vertices of $G$;
-\item a genus assignment $g \colon V(G) \to \Z_{\geq 0}$;
-\item a degree assignment $\deg \colon V(G) \to \Z_{\geq 0}$;
-\item a weight assignment $u \colon F(G)  \to \Z$ such that for every edge $e \in E(G)$ we have $u(f_1)=-u(f_2)$ where $e=[f_1]=[f_2]$, and $u(l) \geq 0$ for any $l \in L(G)$;
-\end{enumerate}
-\end{definition}
-
-
-\footnote{(Luca) to be made homogeneous with what comes earlier} Review here the process of gluing for punctured maps. In particular the basic monoid should be modified in order to make the relevant evaluations log morphisms. Claim: evaluations are strict. Consequence: the fiber product in the category of log stacks is fine. We have then to apply saturation. This is a finite morphism of degree... (I think it could be $\frac{\prod m^{(i)}}{lcm(m^{(i)})}$).
-
-
-
-
-\begin{lemma}[Virtual pushforward] The following hold.
- \begin{itemize}
-  \item $\fgt_*[\M{0}{\alpha}{\PP^N|H}{d}]=[\MG{0}{\alpha}{\PP^N|H}{d}]$ (follows from \cite{GathmannThesis,AbramovichMarcusWiseComparison}).
-  \item $\fgt_*[\VZc{1}{\alpha}{\PP^N|H}{d}]$ computes the reduced relative invariants by definition.
-  \item $\fgt_*[\M{0}{\mu}{H}{d_0}^\sim]=[\M{0}{\lvert\mu\rvert}{H}{d_0}]$ (follows from \cite{GathmannThesis} and... comparison of punctured with rubber invariants).
-  \item $\fgt_*[\VZc{1}{\mu}{H}{d_0}^\sim]$ here we should need a variation on Pixton's DRC formula; hopefully it's enough to avoid the graphs that tropical well-spacedness discards.
- \end{itemize}
-\end{lemma}
-
-\subsection{Recursive description of the divisors: type $C_0$} Consider now a combinatorial type $\Delta$ such that the circuit is contracted into the divisor. The corresponding stratum $\Dcal_\Mcal \subseteq \Mcal$ is contained in the blown-up locus. Our task is to identify the logarithmic divisors in the preimage of $\Dcal_\Mcal$ under the map $\VZ \to \Mcal$. As discussed, these are indexed by choices of ray in the subdivision of the tropical moduli space. Suppose we have fixed such data.
-
-\begin{claim} The teeth of the comb can break at most once, along the circuit.\end{claim}
-
-\begin{proof} If not there would be more parameters in the tropical moduli space. \end{proof}
-
-\begin{prop} Let $\Delta$ be a combinatorial type as above. Then:
-\begin{enumerate}
-\item the circuit is a single vertex, and is mapped to the interior $\RR_{>0} \subseteq \RR_{\geq 0}$;
-\item the degree of the circuit is zero;
-\item there is a vertex which is adjacent to the circuit and mapped to the interior $0 \in \RR_{\geq 0}$;
-\item let $e \in E(\sqC)$ be an edge which is adjacent to the circuit, and such that $u(e)$ is maximal among the edges adjacent to the circuit. Then the other vertex $v$ contained in $e$ is mapped to $0 \in \RR_{\geq 0}$, and $v$ lies on the (absolute) radius;
-\item if $v \in V(\sqC)$ and $\lambda(v) > \delta$ then $f(v)=0$.
-\end{enumerate}
-\end{prop}
-
-On the other hand, when there is a contracted elliptic subcurve - and it will be contracted into the hyperplane, because otherwise it wouldn't be generic, by density of the nice locus in $\VZ_{1,\alpha^\prime}(\PP^N|H,d^\prime)$ - the picture becomes more complicated due to the alignment. The combs may break. We label these loci $\mathcal{Y}_C^0$.
-\begin{figure}
-
- \tikz{
- \draw[red] (2,0) circle(2); %circle
- \draw (0,0) circle(2pt)[fill=black] (0,2) circle(2pt)[fill=black] (0,4) circle(2pt)[fill=black] (0,6) circle(2pt)[fill=black] (0,-2) circle(2pt)[fill=black] (1.1,1.78) circle(2pt)[fill=black] (3.42,1.42) circle(2pt)[fill=black] (.58,-1.42) circle(2pt)[fill=black] (0,1) circle(2pt)[fill=black]; %black vertices
- \draw (2,0) -- node[above]{4} (0,0) (2,0) --node[above]{2} (1.1,1.78) --node[above]{1} (0,2) (1.1,1.78) --node[above]{1} (0,4) (2,0) --node[above]{1} (3.42,1.42) (2,0) --node[above]{3} (.58,-1.42) (3.42,1.42) --node[above]{5} (0,6) (.58,-1.42) --node[above]{1} (0,-2) (2,0) -- node[above]{2} (0,1); %edges
- \draw (.58,-1.42) -- (5,-1.42) node[right]{1} (3.42,1.42) -- (5,1.42) node[right]{2} (2,0) -- (5,.5) node[right]{3} (2,0) -- (5,-.5) node[right]{7}; %markings
- \draw (2,0) circle(2pt)[fill=white]; %core
- \draw[->] (0,-3) circle(2pt)[fill=black] edge (5,-3); %trop(P^N|H)
- }
- 
- \caption{The degrees can be figured out from the balancing equation.}
-\end{figure}
-
-In the following we describe the rays of the tropical moduli space.
-\begin{lem}
- A one-parameter tropical map $\phi$ to $\mathbb R_{\geq 0}$ is a decorated tree (with expansion factors - \emph{contact orders} - along edges and legs, and degrees on vertices, satisfying the balancing condition) with a circle (of radius $\delta$) around the root (sometimes called the \emph{core} and denoted by $\circ$) satisfying:
- \begin{enumerate}
- \item the circle of radius $\delta$ passes through at least one vertex of $\phi^{-1}(0)$ - which necessarily has positive degree - call $m$ its contact order with $H$;
- \item teeth may break only when they intersect the circle of radius $\delta$; in particular, $\circ$ is the only vertex contained in its strict interior, and every edge heading out from the circle goes directly to a vertex of $\phi^{-1}(0)$;
- \item every tooth that starts with contact order $m$ goes directly to a vertex of $\operatorname{circle}(\circ,\delta)\cap\phi^{-1}(0)$, and every other tooth starts with contact order $<m$ (possibly negative).
- \end{enumerate}
-\end{lem}
-\begin{proof}
- Otherwise there would be more than one parameters.
-\end{proof}
-
-\begin{remark}
- The core being contracted in the fiber of the tropical map is not a phenomenon that we should worry about in codimension one. Indeed, assume that the core is contracted in the fiber along a ray. Then all the edges departing from the core have expansion factor $0$; call the corresponding coordinates $U=\{u_i\}_{i\in I}$. Call the remaining coordinates $E=\{e_j\}_{j\in J}$. Note that tropical continuity involves only $E$. Alignments on the other hand assume the form $\lambda(v)=\lambda(v^\prime)$, where $\lambda(v)=\sum_{i\in I(v)}u_i\sum_{j\in J(v)}e_j$. Pick the shortest elements of $U$; then these can be shortened to zero without affecting the rest (by hypothesis, alignments can only identify them among themselves). This shows that we could not have started with a ray.
-\end{remark}
-
-\begin{ex}
- We look at the following example in some detail.
- \begin{figure}[h]
-  \tikz{
-  \draw (0,1) circle(2pt)[fill=black] --node[above]{2} (2,0);
-  \draw (0,-1) circle(2pt)[fill=black] --node[above]{2} (2,0);
-  \draw (2,0) -- (2.5,0) node[right]{4};
-  \draw (2,0)  circle(2pt)[fill=white];
-  \draw (0,1) -- (.33,1.33) node[above right]{0};
-  \draw (0,-1) -- (.33,-1.33) node[below right]{0};
-  \draw[red] (2,0) circle(2.23);
-  \draw[->] (0,-2.5)node[left]{0} circle(2pt)[fill=black] edge (4,-2.5);
-  }
- \end{figure}
- The ambient space is $\VZc{1}{(4,0,0)}{\PP^N|H}{4}$, of dimension $4N+3$. The underlying moduli space is $X=\M{0}{(2,0)}{\PP^N|H}{2}\times_H\M{0}{(2,0)}{\PP^N|H}{2}\times\VZ_{1,(-2,-2,4)}$ of dimension $5N+1$. Consider the fiber product:
- \bcd
- F\ar[r]\ar[d]& \M{0}{(2,0)}{\PP^N|H}{2}\times\M{0}{(2,0)}{\PP^N|H}{2}\ar[d]\\
- H\ar[r] & H\times H
- \ecd
- At the level of ghost sheaves, $\oM_F=\mathbb N\oplus_{\mathbb N^2}\oM_1^{\rm{enl}}\oplus\oM_2^{\rm{enl}}$, where the map $\mathbb N^2\to\mathbb N$ is the sum, and the map $\mathbb N^2\to\oM_1^{\rm{enl}}\oplus\oM_2^{\rm{enl}}$ generically is multiplication by $2$, so $\oM_F=\mathbb N^2/(2e=2f)$ generically. Saturation gives a finite cover $G\to F$ with $\oM_G=\mathbb N_{e=f}$ generically. Lifting this to actual log structures, what we are doing (again generically) is taking a square root of the isomorphism $T_{R_1,q_1}^{\otimes 2}\simeq T_{R_2,q_2}^{\otimes 2}$, which is obtained passing through $N_{H/\PP^N,f(Z)}$ via $\operatorname{d}f_{|R_i,q_i}$. This breaks when $f_{|R_i}$ is not tangent to $H$ of order exactly $2$ at $q_i$, for either $i$; but by the maximality assumption this happens precisely along Gathmann's comb loci $\Delta_i$. So in fact, rather than with $T_{R_i,q_i}^{\otimes 2}$, we should be working with $T_{R_i,q_i}^{\otimes 2}(-\Delta_i)$: but this is exactly $\ev_i^\st(-H)$ by Gathmann's genus zero formula, and the isomorphism $\ev_1^\st(H)=\ev_2^\st(H)$ holds on all of $F$.
- 
- On the other hand, generically on $\VZ_{1,(-2,-2,4)}$ we have $T_{q_1}Z\simeq T_{q_2}Z$ by exploiting the group structure on the elliptic curve. This breaks when either (but not both) is on a rational tail. Yet we have $T_{q_1}Z(\Delta_{1\in P})\simeq T_{q_2}Z(\Delta_{2\in P})$ by Vakil-Zinger's construction of a universal $\psi$-class (i.e. by comparing both with $\pi_*\omega(\Delta)$; notice that our further blow-up has the only effect of twisting \emph{all} the relevant line bundles by $\Delta_{1,2\notin P}$).
- 
- Now, the fiber of the Vakil-Zinger blow-up over $X$ can be described as follows. Generically it looks like \[\PP(T_{q_1}R_1\otimes T_{q_1}Z\oplus T_{q_2}R_2\otimes T_{q_2}Z)\]
- but this has to be modified along the boundary:
- \begin{itemize}
-  \item this has to do with the fact that the normal bundle of the strict transform is the pullback of the normal bundle twisted by the intersection with the exceptional divisor (so it relates with previous steps of the blow-up);
-  \item it is not globally a $\PP^1$-bundle (so it relates with further stages of the blow-up; it also has to do with a choice of compactification for the moduli space of attachments);
-  \item it has the effect of replacing $T_{q_i}Z$ with Vakil-Zinger's universal $\mathbb T$, so that this can be factored out of the projective bundle, and in fact we are left with a projective bundle $\mathbb P=\PP(T_{q_1}R_1\oplus T_{q_2}R_2)$ over $F$, and its open part $\operatorname{Iso}(T_{q_1}R_1\oplus T_{q_2}R_2)$ represents the attachment data for a contraction to a tacnode $R_1\sqcup_q R_2\to\bar{C}$.
- \end{itemize}
-On $\PP$ there is a natural vector bundle map \[s\colon \OO_{\PP}(-1)\hookrightarrow p^\st(T_{q_1}R_1\oplus T_{q_2}R_2)\xrightarrow{+\operatorname{d}f}\ev_q^\st T\PP^N\]
-that vanishes along the locus where $f$ descends to $\bar C$. In general, it is not a transversal section:
-\begin{itemize}
- \item we should replace $T\PP^N$ by $TH$ as long as all the $m^{(i)}$ are $\geq2$;
- \item Vakil and Zinger construct a blow-up of $\PP$ along the vanishing loci of $s$ of low codimension, and twist $s$ by the exceptional divisors, so that it becomes a transverse section $\tilde{s}$.
-\end{itemize}
-On the other hand, the finite cover $G\to F$ factors through $\PP$, because the two vertices are already aligned on $G$. We claim that the boundary locus of $\VZc{1}{(4,0,0)}{\PP^N|H}{4}$ corresponding to the combinatorial type of the tropical map above is the transverse intersection
-\[\left(G\cap V(\tilde{s})\subseteq\PP\right)\times\VZ_{1,(-2,-2,4)}.\]
-This has the expected dimension (codimension $N-1$ with respect to $X$). To compute its class, we can pull $\PP$ back to $G$, and then notice that $G\hookrightarrow\PP_G$ is the inclusion of a (trivial) subbundle.
-\begin{lem}
- The class of $\PP(\mathcal F)\subseteq\PP(\mathcal E)$ is $c_{\rm{top}}(\OO_\mathcal{E}(1)\otimes p^\st(\mathcal{E}/\mathcal{F}))$.
-\end{lem}
-See \cite[Prop. 9.13]{EH3264}. It is a good time to remember that $\mathcal E$ was in fact $(\bigoplus_{i=1}^rTR_{i,q_i})\otimes\mathbb T$. By writing $c$ for $c_1(\OO_\mathcal{E}(1))$, $\psi_i$ for $c_1(T^\st R_{i,q_i})$, $\psi_Z$ for Vakil-Zinger's universal psi class, and $H$ for $\ev_q^\st H$, we need to compute
-\begin{align*}
-p_*\left((c-\psi_1-\psi_2-2\psi_Z)[(1+c+H)^N(1+c)^{-1}]_{N-1}\right)= \\
-p_*\left((c-\psi_1-\psi_2-2\psi_Z)(\sum_{k=0}^{N-1}\binom{N}{1+k}c^kH^{N-1-k})\right)=\\
-\sum_{k=0}^{N-1}\binom{N}{k}H^{N-1-k}\big(s_k(\mathcal E)-s_{k-1}(\mathcal E)(\psi_1+\psi_2+\psi_Z)\big)
-\end{align*}
-\end{ex}
-
-We now generalise this picture. Recall that the map $C\to\bar C$ is given by a (generic) line in the sum of the tangent spaces to the rational tails at the nodes that join them to the contracted curve of genus one. This is equivalent to an alignment, and it is parametrised by an open subset of a projective bundle over the moduli space for the tails corresponding to vertices of the dual graph lying on the circle of radius $\delta$. Yet, notice that those vertices lying in $\phi^{-1}(0)$ are already aligned among themselves. This is why we find it convenient to distinguish among four groups of vertices:
-\begin{enumerate}
- \item the core;
- \item\label{specialvertices} vertices on $\phi^{-1}(0)\cap\operatorname{circle}(\circ,\delta)$;
- \item vertices on $\operatorname{circle}(\circ,\delta)\setminus\phi^{-1}(0)$;
- \item\label{boringvertices} vertices on $\phi^{-1}(0)\setminus\operatorname{circle}(\circ,\delta)$.
-\end{enumerate}
-We shall first argue that gluing of log maps can be performed separately for the exterior and interior of the circle (the analogous classical picture is that, since the core is contracted, this moduli space is the product of a genus one curve, and a fiber product of genus zero maps under evaluation morphisms).
-
-\begin{lem}
- $\VZ^{\operatorname{punct}}_{1,\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}(H,0)\simeq \VZ^{\operatorname{punct}}_{1,\alpha^{(0)}\cup(-m_1,\ldots,-m_r)}(\Spec(k\oplus\mathbb N))\times H$.\footnote{(Luca) check log structure, could be fibered over std log point}
-\end{lem}
-
-Let us now deal with vertices of type \ref{specialvertices}.
-\begin{lem}
- Consider the following fiber product in the category of fs log stacks:
- \bcd
- F\ar[d]\ar[r] & \prod_{i=1}^r\M{0}{\alpha^{(i)}\cup\{ m\}}{\PP^N|H}{d_i}\ar[d,"\ev_{q_i}"]\\
- H\ar[r] & H^r
- \ecd
- On $F$ there is a canonical isomorphism $\mathbb L_{q_i}\cong\mathbb L_{q_j}$\footnote{(Luca) check how it degenerates}, the latter being the cotangent line bundles at the gluing markings on two different components $i$ and $j$. Furthermore, $\underline F$ is a finite cover of degree $m^{r-1}$ of the fiber product of the underlying stacks.
-\end{lem}
-\begin{proof}
- Recall that each $\M{0}{\alpha^{(i)}\cup\{ m\}}{\PP^N|H}{d_i}$ is endowed with the log structure induced by pulling back along $q_i$ the divisorial log structure of the universal curve at the image of $q_i$ itself. Thus $\ev_{q_i}$ is made into a log morphism to $H$ with its induced DF(1) log structure. We claim that the subtext of such morphism is Gathmann's formula; namely, the log morphism to $H$ corresponds to an isomorphism betwee $\ev_{q_i}^\st\OO_H(-H)$ on one side, and $\mathcal I_{D_i}\otimes\mathbb L_{q_i}^m$ on the other, where $\mathcal I_{D_i}$ is the ideal sheaf of the union of the comb loci $D_i$ in $\M{0}{\alpha^{(i)}\cup\{ m\}}{\PP^N|H}{d_i}$.
- 
- On the fiber product there is a canonical isomorphism between $\ev_{q_i}^\st H$ and $\ev_{q_j}^\st H$.
- 
- Say something about integrality.
- 
- Saturation is a local operation, as much as computing the degree, hence we can concentrate on the dense open locus where all the curves we are gluing are smooth, and they are not mapped entirely into $H$. There the minimal log structure on $\M{0}{\alpha^{(i)}\cup\{ m\}}{\PP^N|H}{d_i}$ is trivial, therefore the isomorphism between $\ev_{q_i}^\st H$ and $\ev_{q_j}^\st H$ translates into an isomorphism $\mathbb L_{q_i}^m\cong \mathbb L_{q_j}^m$. The saturation $F$ is obtained by taking an $m$-th root of this isomorphism.
-\end{proof}
-Let us denote by $\mathbb L_F$ the universal cotangent line at $q$.
-
-The projective bundle we are seeking has base
-\[\mathcal X=\left(F\times \prod_{i=1}^s\oM_{0,\tilde\alpha^{(i)}\cup\{m_i\}}^{\rm{punct}}(H,\tilde d_i)\right)\times_{H^{s+1}}H\]
-(with $m_i<m$) and it is \[\PP=\Proj_{\mathcal X}\left(\mathbb T_F\oplus\bigoplus_{i=1}^s\mathbb T_{\tilde q_i}\right).\]
-We are interested in the vanishing locus of the section
-\[s\colon\OO_{\PP}(-1)\hookrightarrow p^\st\left(\mathbb T_F\oplus\bigoplus_{i=1}^s\mathbb T_{\tilde q_i}\right)\xrightarrow{+df_q} f^\st(\operatorname{T}\PP^N)_q,\]
-because it represents the geometric condition that $f\colon C\to \PP^N$ factors through the normalisation map $C\to\bar C$ prescribed by the given point of $\PP$. As is, $s$ is not transverse to the zero section. First of all, unless $m=1$, $\operatorname{T}\PP^N$ can be replaced by $\operatorname{T}H$ in the definition of $s$ above, because the projection of all $\operatorname{d}f_i(\operatorname{T}_{q_i}R_i)$ to $N_{H/\PP^N}$ is zero. The case $m=1$ has to be dealt with separately and it turns out that, once $s$ is made transverse, the dimension of its zero locus is smaller than the expected dimension, hence the corresponding combinatorial types are in fact irrelevant.
-
-The procedure to make $s$ transverse is the same as described in \cite[\S 3]{VZ}, namely we need to blow up inside $\PP$ the projective subbundle $\PP(\mathcal E)$ of $\PP_{|\mathcal X_\sigma}$, where $\mathcal X_\sigma$ is the closed substack of $\mathcal X$ where some of the tails degenerate so that the corresponding gluing marking lies on a component contracted by $f$, and $\mathcal E$ is the sum of the tangent line bundles at such subset of the gluing markings. Because $\oM_{0,\tilde\alpha^{(i)}\cup\{m_i\}}^{\rm{punct}}(H,\tilde d_i)$ is isomorphic to $\M{0}{\tilde n_i}{H}{d_i}$, the construction of Vakil and Zinger in the section ``A blowup of a moduli space of genus-zero maps'' of their paper carries through unchanged. The result of the blow-up is to replace $T_{q_i}R_i$ with $T_{q_i}R_i\otimes\bigoplus_{j=1}^kT_{\tilde q_j}R_i\otimes T_{\tilde q_j} S_{ij}$. We interpret this in terms of alignments.\footnote{(Luca) this has to be written properly}
-
-We claim that $\tilde s$ obtained from $s$ by twisting by the exceptional divisors of the blowup is a transverse section. We also claim that comb loci of type $\mathcal Y_c^0$ can be described as a fibered product of 
-\begin{itemize}
- \item moduli of genus one punctured maps to the standard log point, radially aligned and satisfying factorisation;
- \item $V(\tilde s)$;
- \item moduli of genus zero maps relative to $(\PP^N|H)$, corresponding to vertices of type \ref{boringvertices} above.
-\end{itemize}
-Finally, we claim that integrals of psi and evaluation classes over these loci can be translated into tautological integrals, i.e. descendant Gromov--Witten invariants, whose numerics is governed by the combinatorial type of the tropical map.
 
 \section{Recursion for general $(X,Y)$}\label{section recursion for general pair}
 
@@ -2078,7 +1867,7 @@ where $\hat\psi_2$ is a \emph{non-collapsed} psi class. (If there are no negativ
 \begin{equation*} \fgt_1^\st (-\alpha_2\psi_2 - \ev_y^\st Y)\tilde\gamma \cap [\VZ_{1,\alpha\cup(0)}(P|Y_0+Y_\infty,\beta)_{\Gm}] = \tilde\gamma\cap[\Dcal(y)]\end{equation*}
 and now the left-hand side is also recursively known, by the projection formula. Let us now examine the right-hand side. The components of $\Dcal(y)$ are indexed by splittings of the curve, and certainly the contributions are recursively known unless there is a piece of the curve carrying all of the genus and degree, so we may restrict to examining these contributions.
 
-Let us denote the piece of the curve carrying all of the genus and degree by $C^\prime\subseteq C$. If $C^\prime$ is mapped to top level, then either it contains $x_1$, in which case we apply $\fgt_1$ to compute the contribution, or it does not contains $x_1$, in which case it has fewer than $n$ relative markings and is known recursively.  If on the other hand $C^\prime$ is not mapped to top level, then generically it is mapped to the bottom level (since generically the circuit is not contracted on this locus, so the desingularisation process does nothing). One possible contribution is given by the following locus
+Let us denote the piece of the curve carrying all of the genus and degree by $C^\prime\subseteq C$. If $C^\prime$ is mapped to top level, then either it contains $x_1$, in which case we apply $\fgt_1$ to compute the contribution, or it does not contains $x_1$, in which case it has fewer than $n$ relative markings and is known recursively.  If on the other hand $C^\prime$ is not mapped to top level, then generically it is mapped to the bottom level (since generically the core is not contracted on this locus, so the desingularisation process does nothing). One possible contribution is given by the following locus
 \begin{center}
 \begin{tikzpicture}[scale=1]
 %edge
