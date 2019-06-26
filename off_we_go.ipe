@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70107" creator="Ipe 7.1.10">
-<info created="D:20190608171958" modified="D:20190608174418"/>
+<info created="D:20190608171958" modified="D:20190626171050"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -220,13 +220,13 @@ h
 <dashstyle name="dash dotted" value="[4 2 1 2] 0"/>
 <dashstyle name="dash dot dotted" value="[4 2 1 2 1 2] 0"/>
 <textsize name="large" value="\large"/>
+<textsize name="small" value="\small"/>
+<textsize name="tiny" value="\tiny"/>
 <textsize name="Large" value="\Large"/>
 <textsize name="LARGE" value="\LARGE"/>
 <textsize name="huge" value="\huge"/>
 <textsize name="Huge" value="\Huge"/>
-<textsize name="small" value="\small"/>
 <textsize name="footnote" value="\footnotesize"/>
-<textsize name="tiny" value="\tiny"/>
 <textstyle name="center" begin="\begin{center}" end="\end{center}"/>
 <textstyle name="itemize" begin="\begin{itemize}" end="\end{itemize}"/>
 <textstyle name="item" begin="\begin{itemize}\item{}" end="\end{itemize}"/>
@@ -254,7 +254,13 @@ h
 <page>
 <layer name="alpha"/>
 <view layers="alpha" active="alpha"/>
-<path layer="alpha" stroke="black">
+<path layer="alpha" stroke="red">
+65.9697 0 0 65.9697 128 688 e
+</path>
+<path matrix="1 0 0 1 225.118 0.00045055" stroke="red">
+65.9697 0 0 65.9697 128 688 e
+</path>
+<path stroke="black">
 64 672 m
 128 688 l
 64 704 l
@@ -264,9 +270,6 @@ h
 128 688 m
 64 736 l
 64 736 l
-</path>
-<path stroke="red">
-65.9697 0 0 65.9697 128 688 e
 </path>
 <path stroke="black">
 128 688 m
@@ -305,7 +308,6 @@ h
 <use name="mark/cross(sx)" pos="73.6978 608.02" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 0 0.658242" name="mark/cross(sx)" pos="111.876 607.362" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 0 1.31648" name="mark/cross(sx)" pos="127.674 606.704" size="normal" stroke="black"/>
-<use name="mark/fdisk(sfx)" pos="128 688" size="normal" stroke="black" fill="white"/>
 <text matrix="1 0 0 1 0.658242 -5.92418" transformations="translations" pos="86.2044 696.225" stroke="black" type="label" width="8.747" height="4.289" depth="0" valign="baseline">$m$</text>
 <text matrix="1 0 0 1 1.31646 -25.0132" transformations="translations" pos="86.2044 696.225" stroke="black" type="label" width="8.747" height="4.289" depth="0" valign="baseline">$m$</text>
 <path stroke="black">
@@ -317,7 +319,7 @@ h
 160.586 745.593 l
 160.586 745.593 l
 </path>
-<use name="mark/disk(sx)" pos="91.4703 741.643" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 -1.01268 0.50634" name="mark/disk(sx)" pos="91.4703 741.643" size="normal" stroke="black"/>
 <use name="mark/disk(sx)" pos="160.486 745.417" size="normal" stroke="black"/>
 <path matrix="0.95 0 0 0.69956 4.57352 223.148" stroke="black">
 91.4703 740.327 m
@@ -350,9 +352,6 @@ h
 64 736 l
 64 736 l
 </path>
-<path matrix="1 0 0 1 225.118 0.00045055" stroke="red">
-65.9697 0 0 65.9697 128 688 e
-</path>
 <path matrix="1 0 0 1 225.118 0.00045055" stroke="black">
 128 688 m
 112 752 l
@@ -374,23 +373,17 @@ h
 <use matrix="1 0 0 1 225.118 0.00045055" name="mark/cross(sx)" pos="112 700" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 225.118 0.00045055" name="mark/cross(sx)" pos="112 692" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 225.118 0.00045055" name="mark/cross(sx)" pos="112 684" size="normal" stroke="black"/>
-<use matrix="1 0 0 1 225.118 0.00045055" name="mark/cross(sx)" pos="75.8121 701.047" size="normal" stroke="black"/>
-<use matrix="1 0 0 1 223.802 -0.657791" name="mark/cross(sx)" pos="76.3869 675.097" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 224.634 0.161838" name="mark/cross(sx)" pos="75.8121 701.047" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 223.802 -0.41571" name="mark/cross(sx)" pos="76.3869 675.097" size="normal" stroke="black"/>
 <path matrix="1 0 0 1 225.118 0.00045055" stroke="black" fill="white">
 64 608 m
 208 608 l
 208 608 l
 </path>
 <use matrix="1 0 0 1 225.118 0.00045055" name="mark/disk(sx)" pos="64 608" size="normal" stroke="black"/>
-<path matrix="1 0 0 1 225.118 0.00045055" stroke="black">
-128 688 m
-208 688 l
-208 688 l
-</path>
 <use matrix="1 0 0 1 225.118 0.00045055" name="mark/cross(sx)" pos="73.6978 608.02" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 225.118 0.658693" name="mark/cross(sx)" pos="111.876 607.362" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 225.118 1.31693" name="mark/cross(sx)" pos="127.674 606.704" size="normal" stroke="black"/>
-<use matrix="1 0 0 1 225.118 0.00045055" name="mark/fdisk(sfx)" pos="128 688" size="normal" stroke="black" fill="white"/>
 <text matrix="1 0 0 1 225.776 -5.92373" transformations="translations" pos="86.2044 696.225" stroke="black" type="label" width="8.747" height="4.289" depth="0" valign="baseline">$m$</text>
 <text matrix="1 0 0 1 226.435 -25.0127" transformations="translations" pos="86.2044 696.225" stroke="black" type="label" width="8.747" height="4.289" depth="0" valign="baseline">$m$</text>
 <path matrix="1.12874 0 0 1.1615 208.639 -111.113" stroke="black">
@@ -413,7 +406,7 @@ h
 160.486 745.417 m
 64.4824 799.569 l
 </path>
-<path matrix="0.644577 0 0 -1.36877 297.298 1787.45" stroke="black">
+<path matrix="0.644543 0.00663151 0.0140821 -1.3687 286.806 1786.17" stroke="black">
 160.486 745.417 m
 208.637 745.593 l
 </path>
@@ -426,7 +419,30 @@ h
 <use matrix="1 0 0 1 225.118 0.00045055" name="mark/disk(sx)" pos="64.4824 753.492" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 275.144 137.573" name="mark/cross(sx)" pos="111.876 607.362" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 205.37 135.599" name="mark/cross(sx)" pos="111.876 607.362" size="normal" stroke="black"/>
-<text matrix="1 0 0 1 -3.94945 -0.658242" transformations="translations" pos="319.222 749.542" stroke="black" type="label" width="11.834" height="6.919" depth="2.85" valign="baseline">$\ell_{j_1}$</text>
-<text matrix="1 0 0 1 -2.63297 3.29121" transformations="translations" pos="400.186 748.884" stroke="black" type="label" valign="baseline">$\ell_{j_2}$</text>
+<text matrix="1 0 0 1 -20.6976 -8.83758" transformations="translations" pos="319.222 749.542" stroke="black" type="label" width="12.523" height="6.919" depth="2.49" valign="baseline">$\ell_{v_1}$</text>
+<text matrix="1 0 0 1 -2.63297 3.29121" transformations="translations" pos="400.186 748.884" stroke="black" type="label" width="12.523" height="6.919" depth="2.49" valign="baseline">$\ell_{v_2}$</text>
+<path stroke="black" pen="fat">
+386.856 744.691 m
+400.326 766.76 l
+400.326 766.76 l
+</path>
+<path stroke="black" pen="fat">
+316.71 743.014 m
+311.522 751.18 l
+311.522 751.18 l
+</path>
+<use name="mark/cross(sx)" pos="316.585 715.736" size="normal" stroke="black"/>
+<use name="mark/cross(sx)" pos="316.975 697.041" size="normal" stroke="black"/>
+<use name="mark/cross(sx)" pos="316.975 678.735" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 0 0.389492" name="mark/cross(sx)" pos="316.975 607.458" size="normal" stroke="black"/>
+<path matrix="1 0 0 1 225.118 0.00045055" stroke="black">
+128 688 m
+208 688 l
+208 688 l
+</path>
+<use matrix="1 0 0 1 225.118 0.00045055" name="mark/fdisk(sfx)" pos="128 688" size="normal" stroke="black" fill="white"/>
+<use name="mark/fdisk(sfx)" pos="128 688" size="normal" stroke="black" fill="white"/>
+<use name="mark/cross(sx)" pos="386.554 607.62" size="normal" stroke="black"/>
+<use name="mark/cross(sx)" pos="160.727 608.126" size="normal" stroke="black"/>
 </page>
 </ipe>

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70107" creator="Ipe 7.1.10">
-<info created="D:20190608192325" modified="D:20190608192325"/>
+<info created="D:20190608192325" modified="D:20190626172036"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -220,13 +220,13 @@ h
 <dashstyle name="dash dotted" value="[4 2 1 2] 0"/>
 <dashstyle name="dash dot dotted" value="[4 2 1 2 1 2] 0"/>
 <textsize name="large" value="\large"/>
+<textsize name="small" value="\small"/>
+<textsize name="tiny" value="\tiny"/>
 <textsize name="Large" value="\Large"/>
 <textsize name="LARGE" value="\LARGE"/>
 <textsize name="huge" value="\huge"/>
 <textsize name="Huge" value="\Huge"/>
-<textsize name="small" value="\small"/>
 <textsize name="footnote" value="\footnotesize"/>
-<textsize name="tiny" value="\tiny"/>
 <textstyle name="center" begin="\begin{center}" end="\end{center}"/>
 <textstyle name="itemize" begin="\begin{itemize}" end="\end{itemize}"/>
 <textstyle name="item" begin="\begin{itemize}\item{}" end="\end{itemize}"/>
@@ -254,36 +254,42 @@ h
 <page>
 <layer name="alpha"/>
 <view layers="alpha" active="alpha"/>
-<path layer="alpha" stroke="black">
+<path layer="alpha" matrix="0.914541 -0.290021 0.302286 0.953217 -203.261 103.747" stroke="red" dash="dotted">
+224 752 m
+22.6274 0 0 22.6274 240 736 224 720 a
+</path>
+<path matrix="1.05281 0 0 1.19355 -14.0994 -147.239" stroke="red">
+192.84 719.921 m
+80.8195 0 0 -80.8195 266.961 687.707 232.334 760.732 a
+</path>
+<path matrix="1.05161 0 0 1.28884 -6.6063 -218.255" stroke="red" dash="dotted">
+64 720 m
+50.5964 0 0 -50.5964 112 704 128 752 a
+</path>
+<path stroke="black">
 64 720 m
 112 736 l
 96 752 l
 </path>
-<path stroke="black" arrow="normal/normal">
+<path stroke="black">
 64 704 m
 128 704 l
 </path>
 <use name="mark/disk(sx)" pos="64 704" size="normal" stroke="black"/>
 <use name="mark/disk(sx)" pos="64 720" size="normal" stroke="black"/>
 <use name="mark/disk(sx)" pos="96 752" size="normal" stroke="black"/>
-<path matrix="1.05161 0 0 1.28884 -6.6063 -219.154" stroke="red" dash="dotted">
-64 720 m
-50.5964 0 0 -50.5964 112 704 128 752 a
-</path>
-<use name="mark/fdisk(sfx)" pos="112 736" size="normal" stroke="black" fill="white"/>
 <path matrix="1 0 0 1 128 0" stroke="black">
 64 720 m
 112 736 l
 96 752 l
 </path>
-<path matrix="1 0 0 1 128 0" stroke="black" arrow="normal/normal">
+<path matrix="1 0 0 1 128 0" stroke="black">
 64 704 m
 128 704 l
 </path>
 <use matrix="1 0 0 1 128 0" name="mark/disk(sx)" pos="64 704" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 128 0" name="mark/disk(sx)" pos="64 720" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 128 0" name="mark/disk(sx)" pos="96 752" size="normal" stroke="black"/>
-<use matrix="1 0 0 1 128 0" name="mark/fdisk(sfx)" pos="112 736" size="normal" stroke="black" fill="white"/>
 <path stroke="black">
 112 736 m
 128 736 l
@@ -292,7 +298,7 @@ h
 240 736 m
 256 736 l
 </path>
-<path stroke="black">
+<path matrix="0.994848 0.101373 -0.101373 0.994848 75.3673 -18.7007" stroke="black">
 208.637 743.618 m
 224.435 750.859 l
 </path>
@@ -307,13 +313,9 @@ h
 <use name="mark/cross(sx)" pos="240 704" size="normal" stroke="black"/>
 <use name="mark/cross(sx)" pos="96 704" size="normal" stroke="black"/>
 <use name="mark/cross(sx)" pos="112 704" size="normal" stroke="black"/>
-<path matrix="0.914541 -0.290021 0.302286 0.953217 -201.164 104.047" stroke="red" dash="dotted">
-224 752 m
-22.6274 0 0 22.6274 240 736 224 720 a
-</path>
-<path matrix="1.05281 0 0 1.19355 -14.0994 -147.239" stroke="red">
-192.84 719.921 m
-80.8195 0 0 -80.8195 266.961 687.707 232.334 760.732 a
-</path>
+<use name="mark/fdisk(sfx)" pos="112 736" size="normal" stroke="black" fill="white"/>
+<use matrix="1 0 0 1 128 0" name="mark/fdisk(sfx)" pos="112 736" size="normal" stroke="black" fill="white"/>
+<use matrix="1 0 0 1 -3.59531 -0.299609" name="mark/cross(sx)" pos="221.432 729.029" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 -3.29605 -24.8674" name="mark/cross(sx)" pos="221.432 729.029" size="normal" stroke="black"/>
 </page>
 </ipe>
