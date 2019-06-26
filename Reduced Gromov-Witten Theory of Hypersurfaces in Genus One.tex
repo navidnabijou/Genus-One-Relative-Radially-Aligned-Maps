@@ -792,32 +792,34 @@ The map $\tau \to \RR_{\geq 0}$ is given by projecting onto the $i$th factor and
 
 In summary, then: the contribution of each term $\lambda_\Dcal [\Dcal]$ is given by integrating over the appropriate fibre product and then multiplying the result by $\lambda_\Dcal \cdot \deg\rho = \prod_{i=1}^r m_i$.
 
-\subsection{Recursive description of the divisors: type IIIb} The treatment of the type I, II and IIIa cases above is a fairly straightforward extension of the ideas of Vakil and Gathmann (albeit updated with logarithmic and tropical technology, which streamlines the presentation and simplifies the proofs). The remaining type IIIb case, however, is entirely new. In this section we provide a recursive description of these boundary divisors; this constitutes the technical heart of the paper.
+\subsection{Recursive description of the divisors: type IIIb} The treatment of the type I, II and IIIa cases above is a fairly straightforward extension of the ideas of Vakil and Gathmann (albeit updated with logarithmic and tropical technology, which streamlines the presentation and simplifies the proofs). The remaining type IIIb case, however, is entirely new. In this section we provide a recursive description of these boundary divisors. This constitutes the technical heart of the paper.
 
-\subsubsection{Description of the possible combinatorial types} Recall that a boundary divisor $\Dcal \subseteq \Dcal_{1,\alpha,k}(\PP^N|H,d)$ is said to be of type IIIb if the core is assigned degree zero by the combinatorial type (this is the only case which we did not treat in Lemma \ref{lem:combs}). In this case, the combinatorial type is not as tightly constrained as before; the target may expand multiple times, and as such the combinatorial type need not be a bipartite graph with a single interior vertex. Nevertheless, we have the following lemma:
+\subsubsection{Possible combinatorial types} Recall that a boundary divisor $\Dcal \subseteq \Dcal_{1,\alpha,k}(\PP^N|H,d)$ is said to be of type IIIb if the core is assigned degree zero by the combinatorial type (this is the case which was ignored in Lemma \ref{lem:combs} and the subsequent discussion). In this case, the combinatorial type is not as tightly constrained as before; the target may expand multiple times, and as such the combinatorial type need not be a bipartite graph with a single interior vertex. Nevertheless, we have the following lemma:
 \begin{lemma} 
-Let $\Dcal$ be a locus of type IIIb and let $\Delta$ be the corresponding combinatorial type. Then for every nonzero vertex $\diamond$ of the expanded tropical target, the fibre of the tropical map over $\diamond$ contains:
-\begin{enumerate}
-\item exactly one stable vertex (together with a number of trivial bubbles);
-\item at least one vertex which lies on the radius (which may or may not be stable).
-\end{enumerate}
+Let $\Dcal$ be a locus of type IIIb and let $\Delta$ be the corresponding combinatorial type. Then for every nonzero vertex $\diamond$ of the expanded tropical target, the fibre of the tropical map over $\diamond$ contains exactly one stable vertex, which lies on the radius.
 \end{lemma}
 \begin{proof}
 By stability, we must always have at least one stable vertex lying over each  vertex of the target. If there was more than one, then (since both the insertions and the factorisation condition are pulled back from the moduli space of maps without expansions) we can show, as in the proof of Lemma \ref{lem:combs}, that the contribution vanishes.
 
-Furthermore, for each vertex of the target there must always be a vertex in the preimage which lies on the radius, since otherwise there would be at least two independent tropical parameters, and so $\Dcal$ would not be a divisor.\end{proof}
+Furthermore, for each vertex of the target there must always be at least one vertex in the preimage which lies on the radius, since otherwise there would be at least two independent tropical parameters, and so $\Dcal$ would not be a divisor.
+
+A priori it could be that the stable vertex is not amongst those vertices lying on the radius. But in this case the corresponding locus $\Fcal$ in the moduli space of unexpanded maps has larger codimension (for the same reason as before), and so the contribution vanishes by the projection formula. 
+\end{proof}
+
+
+
 
 \subsubsection{Recursive description of $\Ecal$}
-Similarly to before, we let $\tau \in \Sigma$ be the ray corresponding to $\Dcal \subseteq \VZ_{1,\alpha}(\PP^N|H,d)$, $\sigma \in \Sigma^{\Kim}$ be the minimal cone containing $\tau$ and $\Ecal \subseteq \ol\Mcal_{1,\alpha}(\PP^N|H,d)$ be the stratum corresponding to $\sigma$, so that we have a map $\Dcal \to \Ecal$ (and $\Ecal$ is the minimal stratum through which the map from $\Dcal$ factors). Recall that we also have a unique stratum $\widetilde\Dcal \subseteq \widetilde\VZ_{1,\alpha}(\PP^N|H,d)$ such that $\Dcal = \widetilde\Dcal \cap \VZ_{1,\alpha}(\PP^N|H,d)$. Note that the cone $\sigma$ has dimension equal to the number of levels of the target expansion in the combinatorial type, which in this case may well be strictly larger than $1$. 
+Just as before, we let $\tau \in \Sigma$ be the ray corresponding to $\Dcal \subseteq \VZ_{1,\alpha}(\PP^N|H,d)$, $\sigma \in \Sigma^{\Kim}$ be the minimal cone containing $\tau$ and $\Ecal \subseteq \ol\Mcal_{1,\alpha}(\PP^N|H,d)$ be the stratum corresponding to $\sigma$, so that we have a map $\Dcal \to \Ecal$ (and $\Ecal$ is the minimal stratum through which the map from $\Dcal$ factors). Recall that we also have a unique stratum $\widetilde\Dcal \subseteq \widetilde\VZ_{1,\alpha}(\PP^N|H,d)$ such that $\Dcal = \widetilde\Dcal \cap \VZ_{1,\alpha}(\PP^N|H,d)$. Note that the cone $\sigma$ has dimension equal to the number of levels of the target expansion in the combinatorial type, which in this case could possibly be larger than $1$. 
 
 We can describe the locus $\Ecal$ in a simple recursive manner. We write $\Delta_0$ for the collection of stable vertices of the combinatorial type which are mapped to $0$ by the tropical map, and $\Delta_{>0}$ for the stable vertices which are mapped to $\RR_{>0}$. For each vertex $v$ there is associated discrete data $\Gamma_v$, which defines a moduli space of relative stable maps if $v \in \Delta_0$ and a moduli space of rubber maps if $v \in \Delta_{>0}$. Then $\Ecal$ admits a finite splitting morphism onto the fibre product
 \begin{equation}\label{IIIa fibre product} \Ecal \xrightarrow{\rho} \left( \prod_{v \in \Delta_0} \ol\Mcal_{\Gamma_v}(\PP^N|H) \times \prod_{v \in \Delta_{>0}} \ol\Mcal^{\leftrightarrow}_{\Gamma_v}(P|H_0+H_\infty) \right) \times_{H^{2\epsilon}} H^{\epsilon} \end{equation}
 where $\epsilon$ is the number of edges of the (stabilised) dual graph, and the fibre product is taken over the appropriate evaluation maps. Thus, tautological integrals over $\Ecal$ are completely determined in terms of integrals over moduli spaces with ``smaller'' combinatorial data.
 
-Notice that the actual dimension of $\Ecal$ will typically be larger than that of $\Dcal$, since $\Ecal$ is contained inside the excess components of the moduli space. We will describe $\Dcal$ in terms of the map $\Dcal \to \Ecal$, proceeding in two steps:
+Notice that the actual dimension of $\Ecal$ will typically be larger than that of $\Dcal$, since $\Ecal$ is contained inside the excess components of the moduli space. We will explain how to compute integrals over $\Dcal$ in two steps:
 \begin{enumerate}
-\item obtaining $\widetilde\Dcal$ from $\Ecal$;
-\item expressing the class of $\Dcal \subseteq \widetilde\Dcal$ in terms of tautological classes.
+\item we explain how to construct $\widetilde\Dcal$ from $\Ecal$ in \S \ref{};
+\item we explain how to express the class of $\Dcal \subseteq \widetilde\Dcal$ in terms of tautological classes in \S \ref{}.
 \end{enumerate}
 
 \begin{remark}[Splitting degree and vanishing order, revisited] Similarly to \S \ref{subsubsection splitting degree} above, we can calculate the degree of $\rho$ and the vanishing order $\lambda_{\Dcal}$ of the section $s_k$ along $\Dcal$. The degree of $\rho$ is given exactly as in Lemma \ref{lem:saturation}, where now we obtain one such factor for each bounded edge of the tropical target. The vanishing order $\lambda_{\Dcal}$ is slightly more delicate, but may be computed as the index of an explicit morphism of one-dimensional lattices, as explained in the proof of Lemma \ref{lemma vanishing order}.\end{remark}
@@ -825,19 +827,35 @@ Notice that the actual dimension of $\Ecal$ will typically be larger than that o
 
 \subsubsection{$\widetilde\Dcal$ from $\Ecal$} Recall that the map $\widetilde\Dcal \to \Ecal$ is obtained by restricting the logarithmic blow-up
 \begin{equation*} \widetilde\VZ_{1,\alpha}(\PP^N|H,d) \to \ol\Mcal_{1,\alpha}(\PP^N|H,d)\end{equation*}
-to the locus $\widetilde\Dcal$. In toric geometry, the method for studying this restriction is as follows. The fan of $\widetilde\Dcal$ is obtained by projecting the star of the ray $\tau$ onto the quotient lattice, and similarly for $\Ecal$. The map $\widetilde\Dcal \to \Ecal$ is then a toric morphism, given by the obvious map of fans. In order to describe this morphism, we first subdivide the fan of $\Ecal$ so that every cone in the fan of $\widetilde\Dcal$ maps surjectively onto a cone. This amounts to taking a toric blow-up of $\Ecal$ which we denote by $\widetilde\Ecal$. There is a natural morphism $\widetilde\Dcal \to \widetilde\Ecal$ which is now flat, and this may be described as a compactification of a torus bundle on $\widetilde\Ecal$.
+to the locus $\widetilde\Dcal$. In toric geometry, the method for studying this restriction is as follows. The fan of $\widetilde\Dcal$ (respectively, $\Ecal$) is obtained by projecting the star of the ray $\tau$ (respectively, the cone $\sigma$) onto the quotient lattice. The map $\widetilde\Dcal \to \Ecal$ is then a toric morphism, induced by the obvious map of fans. In order to describe this morphism, we first subdivide the fan of $\Ecal$ by taking the images of cones in the fan of $\widetilde\Dcal$. This induces a toric blow-up of $\Ecal$ which we denote by $\widetilde\Ecal$. The morphism $\widetilde\Dcal \to \Ecal$ naturally factors through a morphism $\widetilde\Dcal \to \widetilde\Ecal$ which is now flat (in contrast to $\widetilde\Dcal \to \Ecal$), and now $\Dcal$ can be described as a compactification of a torus bundle over $\widetilde\Ecal$, with strata determined by the combinatorics of the fan.
 
-In the logarithmic setting, we proceed as follows. The stratum $\widetilde\Dcal$ has a natural \emph{reduced} logarithmic structure, obtained by restricting the logarithmic structure on $\widetilde\VZ_{1,\alpha}(\PP^N|H,d)$ and then quotienting out by the normal direction to $\widetilde\Dcal$. Similarly, $\Ecal$ has a natural reduced logarithmic structure, which coincides with the pull-back of the product logarithmic structure on the fibre product \eqref{IIIa fibre product}.
+Returning to the logarithmic setting, the first step is to define appropriate logarithmic structures on $\widetilde\Dcal$ and $\Ecal$. We equip $\widetilde\Dcal$ with the logarithmic structure obtained by first restricting the logarithmic structure on $\widetilde\VZ_{1,\alpha}(\PP^N|H,d)$ and then quotienting by the normal direction to $\widetilde\Dcal$. By the same process we may also define a logarithmic structure on $\Ecal$, and this coincides with the pull-back along $\rho$ of the product logarithmic structure on the fibre product in \eqref{IIIa fibre product}. The map $\widetilde\Dcal \to \Ecal$ is then naturally a logarithmic map.
 
-We would like to describe the tropicalisations of these logarithmic stacks. In fact, it is more convenient to describe the \emph{extended tropicalisations} \cite{}. Let $l_1,\ldots,l_m$ denote the edge lengths of the tropical target, forming co-ordinates on the cone $\sigma$. Then the extended tropicalisation of $\Ecal$ is obtained by intersecting the star of $\sigma$ with the face $l_1=\ldots=l_m=\infty$.
+The next step is to construct $\widetilde\Ecal$ as a logarithmic modification of $\Ecal$, and to do this we need to understand the tropicalisation of the map $\widetilde\Dcal \to \Ecal$. In fact, it is more convenient to consider the \emph{extended tropicalisation} \cite{}. We begin by fixing notation. Associated to the combinatorial type $\Delta$, we have stable vertices $\sqC_0,\sqC_1,\ldots,\sqC_r$ with $\sqC_0$ corresponding to the core and $\sqC_1,\ldots,\sqC_r$ corresponding to stable vertices which lie on the raidus (see Lemma \ref{} above). For $i \in \{1,\ldots,r\}$ let $e_i$ denote the sum of the edge lengths separating $\sqC_i$ from $\sqC_0$. These form co-ordinates on the cone $\sigma$, and in these co-ordinates $\tau$ is the ray given by the equations $e_1=\ldots=e_r$. Moreover, the $e_i$ define functions on any cone in the star of $\sigma$.
 
-For $\widetilde\Dcal$ we have on $\tau$ edge lengths $e_1=\ldots=e_r=e$ separating the core from the vertices on the radius. The extended tropicalisation of $\widetilde\Dcal$ is obtained by intersecting the star of $\tau$ with the face $e=\infty$. Since $l_1=\ldots=l_m=\infty$ implies $e=\infty$ there is certainly a morphism between these cone complexes, and it is clear this morphism is a subdivsion.
+Now consider the extended tropicalisation of $\widetilde\Dcal$. This is obtained inside the extended tropicalisation of $\widetilde\VZ_{1,\alpha}(\PP^N|H,d)$ by intersecting the star of $\tau$ with the locus $e_1=\ldots=e_r=\infty$. On the other hand, the extended tropicalisation of $\Ecal$ is obtained inside the extended tropicalisation of $\ol\Mcal_{1,\alpha}(\PP^N|H,d)$ by intersecting the star of $\sigma$ with the same locus. It is therefore clear that the extended tropicalisation of $\widetilde\Dcal$ is a subdivision of that of $\Ecal$. Moreover we claim that we can describe this subdivision explicitly.
 
-Moreover we may describe the subdivision explicitly.
+Consider any cone $\rho$ in the star of $\tau$. This is defined by a number of equalities and inequalities involving edge lengths coming from the combinatorial type on $\rho$. Amongst these edge lengths are $e_1,\ldots,e_r$ which corresponding to the separating nodes which persist on all of $\widetilde\Dcal$; there are also other edge lengths, corresponding to nodes over $\rho$ which are smoothed out on $\tau$. We first deal with the (in)equalities relating distances of vertices obtained by degenerating $\sqC_1,\ldots,\sqC_r$. By the definition of a well-spaced tropical map, we see that these are all of the form
+\begin{equation*} f + e_i = g + e_j \end{equation*}
+where $f$ and $g$ are positive linear combinations of additional edge length parameters which are set to zero in $\tau$. We may now pass to the subcone of $\rho$ obtained by imposing the additional equations $e_1=\ldots=e_r$. Note that this is \emph{not} a subcone of $\tau$ in general, since there are additional edge lengths which must be set to zero if one wishes to recover $\tau$. The additional equations mean that we can rewrite our previous (in)equalities in the form
+\begin{equation*} f = g \end{equation*}
+and this is now well-defined in the limit $e_1=\ldots=e_r=\infty$. We thus obtain a cone in the subdivision of the extended tropicalisation of $\Ecal$, and all such cones are obtained in this manner.
 
+Taking this subdivision amounts to the following modular blow-up of the fibre product of the moduli spaces attached to the vertices $\sqC_1,\ldots,\sqC_r$: given a logarithmic map with splitting nodes $q_1,\ldots,q_r$ as specified by the shape of $\Delta$, we glue together the $r$ vertices of the tropicalisation which carry the splitting nodes, and declare the resulting special vertex to be the root of the resulting tree. We then impose a central alignment condition, entirely analogous to the genus one construction, where the special root takes on the role previously occupied by the core.
 
-\subsubsection{$\Dcal$ from $\widetilde\Dcal$}
+It remains to deal with the (in)equalities relating distances of vertices obtained by degenerating $\sqC_0$. These are not affected at all in the limit $e_1=\ldots=e_r=\infty$ and so the effect is to replace the factor of $\Ecal$ attached to the vertex $\sqC_0$
+\begin{equation*} \ol\Mcal^{\leftrightarrow}_{\Gamma_{\tiny{\sqC_0}}}(P|H_0+H_\infty) \end{equation*}
+with the centrally aligned rubber space:
+\begin{equation*} \VZ^{\leftrightarrow}_{\Gamma_{\tiny{\sqC_0}}}(P|H_0+H_\infty).\end{equation*}
+The factorisation condition here is accounting for the ``fibre-direction'' factorisation; the ``base-direction'' factorisation has not entered the picture yet, but will appear when we come to describe $\Dcal$.
 
+In this way, we obtain a logarithmic modification $\tilde\Ecal \to \Ecal$. By definition the map $\tilde\Dcal \to \Ecal$ is a compactification of a torus bundle over $\Ecal$, whose strata can be read off from the tropicalisation of $\tilde\Dcal$.
+
+[LUCA SAYS MORE HERE, ABOUT HOW IT'S GENERICALLY A PROJECTIVE BUNDLE.]
+
+\subsubsection{$\Dcal$ from $\widetilde\Dcal$} On $\widetilde\Dcal$ there is a natural vector bundle arising from the modular desription of $\widetilde\VZ_{1,\alpha}(\PP^N|H,d)$, namely:
+\begin{equation*} F = \OO(\delta)^{\oplus r}. \end{equation*}
+We may use this to identify tangent spaces.
 
 
 
