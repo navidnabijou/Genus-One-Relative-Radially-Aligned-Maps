@@ -845,9 +845,9 @@ Taking this subdivision amounts to the following modular blow-up of the fibre pr
 
 It remains to deal with the (in)equalities relating distances of vertices obtained by degenerating $\sqC_0$. These are not affected at all in the limit $e_1=\ldots=e_r=\infty$ and so the effect is to replace the factor of $\Ecal$ attached to the vertex $\sqC_0$
 \begin{equation*} \ol\Mcal^{\leftrightarrow}_{\Gamma_{\tiny{\sqC_0}}}(P|H_0+H_\infty) \end{equation*}
-with the centrally aligned rubber space:
+with the radially aligned rubber space:
 \begin{equation*} \VZ^{\leftrightarrow}_{\Gamma_{\tiny{\sqC_0}}}(P|H_0+H_\infty).\end{equation*}
-The factorisation condition here is accounting for the ``fibre-direction'' factorisation; the ``base-direction'' factorisation has not entered the picture yet, but will appear when we come to describe $\Dcal$.
+The factorisation condition here is accounting for the ``fibre-direction'' factorisation; the ``base-direction'' factorisation has not entered the picture yet, and will appear when we come to describe $\Dcal$.
 
 In this way, we obtain a logarithmic modification $\tilde\Ecal \to \Ecal$. By definition the map $\tilde\Dcal \to \Ecal$ is a compactification of a torus bundle over $\Ecal$, whose strata can be read off from the tropicalisation of $\tilde\Dcal$.
 
@@ -855,17 +855,25 @@ In this way, we obtain a logarithmic modification $\tilde\Ecal \to \Ecal$. By de
 
 \subsubsection{$\Dcal$ from $\widetilde\Dcal$} On $\widetilde\Dcal$ there is a natural vector bundle arising from the modular desription of $\widetilde\VZ_{1,\alpha}(\PP^N|H,d)$, namely:
 \begin{equation*} F = \OO(\delta)^{\oplus r}. \end{equation*}
-We may use this to identify tangent spaces.
+We claim that the fibre of $F$ over a moduli point can be naturally identified with
+\begin{equation*} \left( \bigoplus_{i=1}^r \TT_{p_i} C_i^\prime \right) \otimes \TT_{C_0} \end{equation*}
+where $C_i^\prime$ is a component of $C_i$ which lies on the radius, $p_i$ is the adjacent node which points towards the core, and $\TT_{C_0}$ is the universal tangent line bundle on the radially aligned rubber space.
 
+For let us choose a component $C_i^\prime$ of the curve which lies on the radius. Then $\OO(\delta)$ can be expressed as a tensor product of tangent line bundles along the path connecting $C_i^\prime$ to the core. However, this lage product of line bundles is telescoping: any vertex which appears in the middle of the path will have an incoming and outgoing node, and since the vertex corresponds to a smooth rational curve these tangent spaces are naturally isomorphic \ref{VZ}. Thus the product collapses into a contribution $\TT_{p_i}C_i^\prime$ from the left-hand side and a contribution from the right-hand side. Note that the final term on the right hand side is not given by $\TT_{q_i} C_0$ (where $q_i$ is the appropriate splitting node) but rather the tangent space to the core (which could be further away if $C_0$ has degenerated). Thus we obtain the universal tangent line bundle $\TT_{C_0}$ as the contribution to the right-hand side.
 
+[EXAMPLE]
 
+Note that $C_i^\prime$ is \emph{a} component of $C_i$ which lies on the radius. There may be more than one, but if this is the case then their tangent spaces are naturally identified by the logarithmic structure. Thus we obtain a natural morphism
+\begin{equation*} \sum \operatorname{d}\!f \colon F(-\TT_{C_0}) \to \ev_q^\st \TT_H \end{equation*}
+given by summing the derivatives at \emph{all} the inward-pointing nodes on the radius. Now, over $\widetilde\Dcal$ there is a natural section of the projective bundle $\PP(F) \to \widetilde\Dcal$ (obtained by projectivising the diagonal embedding). If we therefore lift the above morphism to the projectivisation, we obtain a composition: 
+\begin{equation*} \OO_{\PP(F)}(-1) \to \pi^\st F \to \pi^\st(\ev_q^\st \TT_H (\TT_{C_0})).\end{equation*}
+The vanishing locus of this section is given by an Euler class calculation on $\PP(F)$. In order to obtain $\Dcal$ we must then intersect this vanishing locus with $\OO_{\PP(F)}(1)$ (which represents the natural section $\widetilde\Dcal \to \PP(F)$.
 
+Finally, we note that the class of $F$ is computable in terms of data pulled back from the base. To be more precise, we may consider the following bundle on $\Ecal$:
+\begin{equation*} E = \bigoplus_{i=1}^r \TT_{q_i}C_i \otimes \TT_{q_i}C_0. \end{equation*}
+We may then identify $F$ with the pullback of $E$ twisted by the exceptional loci. (This agrees with the more classical-minded description of $F$ as a bundle which resolves an otherwise non-transverse section of $E$.) We illustrate this in an example, which brings out the beauty of the interplay between logarithmic moduli and blow-ups.
 
-
-
-
-
-
+[EXAMPLE]
 
 
 
