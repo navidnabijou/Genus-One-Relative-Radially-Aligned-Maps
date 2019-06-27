@@ -310,7 +310,7 @@
 \newcommand{\thismonthyear}{{\thismonth} {\number\year}}
 \newcommand{\thisdaymonthyear}{{\number\day} {\thismonth} {\number\year}}
 
-\title[Reduced relative GW theory in genus 1]{Curve counting in genus one: elliptic singularities {\it \&} relative geometry}
+\title[Curve counting in genus one: elliptic singularities and relative geometry]{Curve counting in genus one: elliptic singularities {\it \&} relative geometry}
 \author{Luca Battistella, Navid Nabijou and Dhruv Ranganathan}
 \date{\thismonthyear}
 
@@ -897,12 +897,9 @@ This procedure induces a logarithmic modification $\widetilde\Ecal \to \Ecal$ wh
 By construction, we have a map $\widetilde\Dcal \to \widetilde\Ecal$ which is a compactification of a torus bundle over $\widetilde\Ecal$. The strata of $\widetilde\Dcal$ can be read off from its tropicalisation, and in particular we have the information of how (polynomials in) the classes of boundary strata push forward to $\widetilde\Ecal$.
 
 We have produced a factorization
-\[
-\widetilde\Dcal\to\widetilde \Ecal\to\Ecal,
-\]
-where the first map is flat and the second map is a logarithmic modification. The generic fiber can be interpreted geometrically. 
-
-{\bf \color{red} This lemma should be there, but the notation needs to be changed and the proof needs to be cleaned up. Luca?
+\begin{equation*}\widetilde\Dcal\to\widetilde \Ecal\to\Ecal,
+\end{equation*}
+where the first map is flat and the second map is a logarithmic modification. $\widetilde\Dcal$ is a compactification of a torus bundle over $\widetilde\Ecal$ whose strata can be read off from the tropicalization; in particular, we have the information of how (polynomials in) the classes of boundary strata push forward to $\widetilde\Ecal$. In fact, the generic fibre of $\widetilde\Dcal \to \widetilde\Ecal$ can be read off geometrically.
 
 \begin{lemma}
  Generically on $\Ecal$, $\widetilde \Dcal\to\widetilde\Ecal$ is isomorphic to $\mathcal P=\PP_{\widetilde\Ecal}(\bigoplus_{v\in \{V_{0,\delta}\}\cup V_{>0,\delta}}\OO(\delta_v))$.
@@ -910,7 +907,7 @@ where the first map is flat and the second map is a logarithmic modification. Th
 
 \begin{proof}
  All of the line bundles $\OO(\delta_v)$ share a common factor $\mathbb T_E$, the universal tangent line to the elliptic curve. By removing this factor, we see that when the dual graph is fixed, $\OO(\delta_v)$ is isomorphic to the tangent line to the rational tail $R_v$ at the gluing node $q_v$. We make the caveat here that(with the caveat that all those corresponding to $V_{0,\delta}$ are canonically identified). This is the open stratum of the moduli space of attaching data \cite[\S\S 2.2-2.3]{SMY2}. On the fiber boundary, the circle of radius $\delta$ will pass through a subset of $\{V_{0,\delta}\}\cup V_{>0,\delta}$, while cutting the complementary subset along the edge between the core and $v$; correspondingly, there is a destabilisation of the curve, and an elliptic singularity containing strictly semistable branches. Tropically, pushing some of the vertices off the circle creates new finite-length edges with coordinates $\ell_v\in\RR_{\geq_0}$ (see Figure \ref{fig:off_we_go}); not all of them can be strictly positive, because the circle needs to pass through at least one vertex (of positive horizontal degree). This is patently the fan of a projective space.
-\end{proof}}
+\end{proof}
 
 \begin{figure}
 \includegraphics[scale=.3]{off_we_go}
@@ -1085,6 +1082,11 @@ where we have used the telescoping trick $\TT_{f_1}C_1^0 \otimes \TT_{e_1} C_1^0
 & = \TT_{g_3} C_2^2 \otimes \TT_{e_2} C_0.\end{align*}
 This observation generalises, giving a precise relation between the intrinsically-defined vector bundle $F$ on $\widetilde\Dcal$ (which we use to impose the factorisation condition) and the the vector bundle $E$ pulled back from $\Ecal$. This allows us to express the Chern classes of $F$ in terms of pull-backs of tautological classes from $\Ecal$ and boundary strata on $\widetilde\Dcal$, which is necessary to compute integrals.
 \end{example}
+
+\subsection{Recursion for general $(X,Y)$}\label{section recursion for general pair} We now let $(X,Y)$ be a general smooth very ample pair. In \S \ref{} we studied the moduli space $\VZ_{1,\alpha}(X|Y,\beta)$ of centrally aligned maps to $(X,Y)$ and equipped it with a virtual fundamental class by diagonal pull-back from $\VZ_{1,\alpha}(\PP^N|H,d)$.
+
+This construction of the virtual fundamental class means that once we have established a recursion formula for $(\PP^N,H)$, it immediately pulls back to give a recursion formula for $(X,Y)$. To be more precise, Theorem \ref{theorem recursion} holds \emph{mutatis mutandis}, with the same values of $\lambda_\Dcal$. The computation of the splitting orders is exactly the same, and the recursive description of the boundary strata pulls back to give an entirely analogous description on $\VZ_{1,\alpha}(X|Y,\beta)$.
+
 
 \section{Lefschetz algorithm}\label{section recursion algorithm}
 Consider a smooth pair $(X,Y)$ with $Y$ very ample, and let $P$ be the projective bundle $P=\PP_Y(\operatorname{N}_{Y|X} \oplus\OO_Y)$. We assume that the genus zero and reduced genus one Gromov--Witten theories of $X$ are known. From this starting data, we will apply our recursion formula to compute:
