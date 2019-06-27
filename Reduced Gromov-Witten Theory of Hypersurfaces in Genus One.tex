@@ -792,7 +792,7 @@ The map $\tau \to \RR_{\geq 0}$ is given by projecting onto the $i$th factor and
 
 In summary, then: the contribution of each term $\lambda_\Dcal [\Dcal]$ is given by integrating over the appropriate fibre product and then multiplying the result by $\lambda_\Dcal \cdot \deg\rho = \prod_{i=1}^r m_i$.
 
-\subsection{Recursive description of the divisors: type IIIb} The treatment of the type I, II and IIIa cases above is a fairly straightforward extension of the ideas of Vakil and Gathmann (albeit updated with logarithmic and tropical technology, which streamlines the presentation and simplifies the proofs). The remaining type IIIb case, however, is entirely new. In this section we provide a recursive description of these boundary divisors. This constitutes the technical heart of the paper.
+\subsection{Recursive description of the divisors: type IIIb}\label{subsection C0} The treatment of the type I, II and IIIa cases above is a fairly straightforward extension of the ideas of Vakil and Gathmann (albeit updated with logarithmic and tropical technology, which streamlines the presentation and simplifies the proofs). The remaining type IIIb case, however, is entirely new. In this section we provide a recursive description of these boundary divisors. This constitutes the technical heart of the paper.
 
 \subsubsection{Possible combinatorial types} Recall that a boundary divisor $\Dcal \subseteq \Dcal_{1,\alpha,k}(\PP^N|H,d)$ is said to be of type IIIb if the core is assigned degree zero by the combinatorial type (this is the case which was ignored in Lemma \ref{lem:combs} and the subsequent discussion). In this case, the combinatorial type is not as tightly constrained as before; the generic target may expand multiple times, and as such the combinatorial type need not be a bipartite graph with a single interior vertex. Nevertheless, we have the following lemma:
 \begin{lemma} \label{lemma type C0 combinatorial types}
@@ -1021,7 +1021,10 @@ where we have used the telescoping trick $\TT_{f_1}C_1^0 \otimes \TT_{e_1} C_1^0
 This observation generalises, giving a precise relation between the intrinsically-defined vector bundle $F$ on $\widetilde\Dcal$ (which we use to impose the factorisation condition) and the resolution of the vector bundle $E$ pulled back from $\Ecal$. This allows us to express the Chern classes of $F$ in terms of pull-backs of tautological classes from $\Ecal$ and boundary strata on $\widetilde\Dcal$, which is what we need in order to compute our integrals.
 
 
-\section{Recursion for general $(X,Y)$}\label{section recursion for general pair}
+\section{Recursion for general $(X,Y)$}\label{section recursion for general pair} We now let $(X,Y)$ be a general smooth very ample pair. In \S \ref{} we studied the moduli space $\VZ_{1,\alpha}(X|Y,\beta)$ of centrally aligned maps to $(X,Y)$ and equipped it with a virtual fundamental class by diagonal pull-back from $\VZ_{1,\alpha}(\PP^N|H,d)$.
+
+This construction of the virtual fundamental class means that once we have established a recursion formula for $(\PP^N,H)$, it immediately pulls back to give a recursion formula for $(X,Y)$. To be more precise, Theorem \ref{theorem recursion} holds \emph{mutatis mutandis}, with the same values of $\lambda_\Dcal$. The computation of the splitting orders is exactly the same, and the recursive description of the boundary strata pulls back to give an entirely analogous description on $\VZ_{1,\alpha}(X|Y,\beta)$.
+
 
 \section{Quantum Lefschetz algorithm}\label{section recursion algorithm}
 Consider a smooth pair $(X,Y)$ with $Y$ very ample, and let $P$ be the projective bundle $P=\PP_Y(\operatorname{N}_{Y|X} \oplus\OO_Y)$. We assume that the genus zero and reduced genus one Gromov--Witten theories of $X$ are known. From this starting data, we will apply our recursion formula to compute:
