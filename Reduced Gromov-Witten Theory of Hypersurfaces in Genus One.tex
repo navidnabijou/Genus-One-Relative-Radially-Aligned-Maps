@@ -872,22 +872,153 @@ We claim that the fibre of $F$ over a moduli point can be naturally identified w
 \begin{equation*} \left( \bigoplus_{i=1}^r \TT_{p_i} C_i^\prime \right) \otimes \TT_{C_0} \end{equation*}
 where $C_i^\prime$ is a component of $C_i$ which lies on the radius, $p_i$ is the adjacent node which points towards the core, and $\TT_{C_0}$ is the universal tangent line bundle on the radially aligned rubber space.
 
-For let us choose a component $C_i^\prime$ of the curve which lies on the radius. Then $\OO(\delta)$ can be expressed as a tensor product of tangent line bundles along the path connecting $C_i^\prime$ to the core. However, this lage product of line bundles is telescoping: any vertex which appears in the middle of the path will have an incoming and outgoing node, and since the vertex corresponds to a smooth rational curve these tangent spaces are naturally dual to each other \cite{VZ}. Thus these terms cancel, and product collapses into a contribution $\TT_{p_i}C_i^\prime$ from the left-hand side and a contribution from the right-hand side. Note that the final term on the right hand side is not given by $\TT_{q_i} C_0$ (where $q_i$ is the appropriate splitting node) but rather the tangent space to the core (which could be further away if $C_0$ has degenerated). Thus we obtain the universal tangent line bundle $\TT_{C_0}$ as the contribution to the right-hand side.
+Let us choose a component $C_i^\prime$ of the curve which lies on the radius. Then $\OO(\delta)$ can be expressed as a tensor product of tangent line bundles along the path connecting $C_i^\prime$ to the core. However, this lage product of line bundles is telescoping: any vertex which appears in the middle of the path will have an incoming and outgoing node, and since the vertex corresponds to a smooth rational curve these tangent spaces are naturally dual to each other \cite{VZ}. Thus these terms cancel, and product collapses into a contribution $\TT_{p_i}C_i^\prime$ from the left-hand side and a contribution from the right-hand side. Note that the final term on the right hand side is not given by $\TT_{q_i} C_0$ (where $q_i$ is the appropriate splitting node) but rather the tangent space to the core (which could be further away if $C_0$ degenerates). Therefore we obtain the universal tangent line bundle $\TT_{C_0}$ as the contribution to the right-hand side.
 
-[EXAMPLE]
-
-Note that $C_i^\prime$ is \emph{a} component of $C_i$ which lies on the radius. There may be more than one, but if this is the case then their tangent spaces are naturally identified by the logarithmic structure. Thus we obtain a natural morphism
+We said that $C_i^\prime$ is \emph{a} component of $C_i$ which lies on the radius. There may be more than one, but if this is the case then their tangent spaces are naturally identified by the logarithmic structure. Thus we obtain a natural morphism
 \begin{equation*} \sum \operatorname{d}\!f \colon F(-\TT_{C_0}) \to \ev_q^\st \TT_H \end{equation*}
 given by summing the derivatives at \emph{all} the inward-pointing nodes on the radius. Now, over $\widetilde\Dcal$ there is a natural section of the projective bundle $\PP(F) \to \widetilde\Dcal$ (obtained by projectivising the diagonal embedding). If we therefore lift the above morphism to the projectivisation, we obtain a composition: 
 \begin{equation*} \OO_{\PP(F)}(-1) \to \pi^\st F \to \pi^\st(\ev_q^\st \TT_H (\TT_{C_0})).\end{equation*}
 The vanishing locus of this section is given by an Euler class calculation on $\PP(F)$. In order to obtain $\Dcal$ we must then intersect this vanishing locus with $\OO_{\PP(F)}(1)$ (which represents the natural section $\widetilde\Dcal \to \PP(F)$.
 
 Finally, we note that the class of $F$ is computable in terms of data pulled back from the base. To be more precise, we may consider the following bundle on $\Ecal$:
-\begin{equation*} E = \bigoplus_{i=1}^r \TT_{q_i}C_i \otimes \TT_{q_i}C_0. \end{equation*}
+\begin{equation*} E = \bigoplus_{i=1}^r \left( \TT_{q_i}C_i \otimes \TT_{q_i}C_0\right). \end{equation*}
 We may then identify $F$ with the pullback of $E$ twisted by the exceptional loci. (This agrees with the more classical-minded description of $F$ as a bundle which resolves an otherwise non-transverse section of $E$.) We illustrate this in an example, which brings out the beauty of the interplay between logarithmic moduli and blow-ups.
 
-[EXAMPLE]
+Consider the following ray $\tau$ and sublocus $\rho$:
+\begin{figure}[h]
 
+\begin{minipage}{0.3\textwidth}
+\centering
+\begin{tikzpicture}
+\draw [red] plot [smooth cycle] coordinates {(0,-2) (-0.5,-1) (0,0) (1,0.5) (3,-1) (1,-2.5)};
+
+\draw[fill=black] (0,0) circle[radius=2pt];
+\draw (0,0) node[above]{\small$\sqC_1$};
+\draw[fill=black] (0,0) -- (2,-1);
+\draw (1,-0.95) node[above]{\small$e_1$};
+\draw[color=blue] (1,-0.5) node[above]{\small$2$};
+
+\draw[fill=black] (0,-2) circle[radius=2pt];
+\draw (0,-2) node[above]{\small$\sqC_2$};
+
+\draw[->] (0,-2) -- (0,-2.5);
+\draw[color=blue] (0,-2.5) node[below]{\small$0$};
+
+\draw[fill=black] (0,-2) -- (2,-1);
+\draw (1,-2) node[above]{\small$e_2$};
+\draw[color=blue] (1,-1.5) node[above]{\small$2$};
+
+\draw[fill=black,->] (2,-1) -- (3.5,-1);
+\draw[color=blue] (2.35,-1) node[above]{\small$4$};
+
+\draw[fill=white] (2,-1) circle[radius=2pt];
+\draw (2,-1) node[below]{\small$\sqC_0$};
+
+\draw[color=blue,->] (2,-2) -- (2,-3);
+
+\draw[color=blue,->] (0,-3.5) -- (3,-3.5);
+\draw[fill=blue] (0,-3.5) circle[radius=2pt];
+\draw[fill=blue] (2,-3.5) circle[radius=2pt];
+\end{tikzpicture}
+\caption{$\tau$}
+\end{minipage}\hfill
+\begin{minipage}{0.7\textwidth}
+\centering
+\begin{tikzpicture}
+\draw [red] plot [smooth cycle] coordinates {(-4,-2) (-2,-1) (-2,1) (0,1) (3,-1) (-1,-3.5)};
+
+\draw[fill=black] (0,0) circle[radius=2pt];
+\draw (0,0) node[above]{\small$\sqC_1^0$};
+\draw[fill=black] (0,0) -- (2,-1);
+\draw (1,-0.95) node[above]{\small$e_1$};
+\draw[color=blue] (1,-0.5) node[above]{\small$2$};
+
+\draw[fill=black] (0,-2) circle[radius=2pt];
+\draw (0,-2) node[above]{\small$\sqC_2^0$};
+\draw[fill=black] (0,-2) -- (2,-1);
+\draw (1,-2) node[above]{\small$e_2$};
+\draw[color=blue] (1,-1.5) node[above]{\small$2$};
+
+\draw[fill=black,->] (2,-1) -- (3.5,-1);
+\draw[color=blue] (2.35,-1) node[above]{\small$4$};
+
+\draw[fill=white] (2,-1) circle[radius=2pt];
+\draw (2,-1) node[below]{\small$\sqC_0$};
+
+\draw (-2,1) -- (0,0);
+\draw[fill=black] (-2,1) circle[radius=2pt];
+\draw (-2,1) node[above]{\small$\sqC_1^1$};
+\draw (-1,0.5) node[below]{\small$f_1$};
+\draw[color=blue] (-1,0.5) node[above]{\small$1$};
+
+\draw (-2,1) -- (-4,1);
+\draw[fill=black] (-4,1) circle[radius=2pt];
+\draw (-4,1) node[above]{\small$\sqC_1^3$};
+\draw (-3,1) node[below]{\small$g_1$};
+\draw[color=blue] (-3,1) node[above]{\small$1$};
+
+\draw (-2,-1) -- (0,0);
+\draw[fill=black] (-2,-1) circle[radius=2pt];
+\draw (-2,-1) node[above]{\small$\sqC_1^2$};
+\draw (-1,-0.5) node[below]{\small$f_2$};
+\draw[color=blue] (-1,-0.5) node[above]{\small$1$};
+
+\draw (-2,-1) -- (-4,-1);
+\draw[fill=black] (-4,-1) circle[radius=2pt];
+\draw (-4,-1) node[above]{\small$\sqC_1^4$};
+\draw (-3,-1) node[below]{\small$g_2$};
+\draw[color=blue] (-3,-1) node[above]{\small$1$};
+
+\draw (0,-2) -- (-2,-2);
+\draw[fill=black] (-2,-2) circle[radius=2pt];
+\draw (-2,-2) node[above]{\small$\sqC_2^1$};
+\draw (-1,-2) node[below]{\small$f_3$};
+\draw[color=blue] (-1,-2) node[above]{\small$2$};
+\draw[->] (-2,-2) -- (-2,-2.5);
+\draw[color=blue] (-2,-2.5) node[below]{\small$0$};
+
+\draw (-2,-2) -- (-4,-2);
+\draw[fill=black] (-4,-2) circle[radius=2pt];
+\draw (-4,-2) node[above]{\small$\sqC_2^2$};
+\draw (-3,-2) node[below]{\small$g_3$};
+\draw[color=blue] (-3,-2) node[above]{\small$2$};
+
+\draw[color=blue,->] (0,-2.5) -- (0,-3.5);
+
+\draw[color=blue,->] (-4,-4) -- (3,-4);
+\draw[fill=blue] (0,-4) circle[radius=2pt];
+\draw[fill=blue] (2,-4) circle[radius=2pt];
+\draw[fill=blue] (-2,-4) circle[radius=2pt];
+\draw[fill=blue] (-4,-4) circle[radius=2pt];
+\end{tikzpicture}
+\caption{$\rho$}
+\end{minipage}
+\end{figure}
+
+\noindent On the cone $\rho$ we have the following continuity equations
+\begin{align*}
+e:=e_1 = e_2 \\
+f:=f_1 = f_2 = 2f_3 \\
+g:=g_1 = g_2 = 2g_3
+\end{align*}
+together with the equation imposed by the choice of alignment:
+\begin{align*} & e_1 + f_1 = e_2 + f_3 + g_3 \\
+\Leftrightarrow \ & e + f = e + f/2 + g/2 \\
+\Leftrightarrow \ & f = g.
+\end{align*}
+Notice that setting $f=g=0$ we recover $\tau$. We claim that if we twist the bundle
+\begin{equation*} E = \left( \TT_{q_1} C_1 \otimes \TT_{q_1} C_0 \right) \oplus \left( \TT_{q_2} C_2 \otimes \TT_{q_2} C_0 \right) \end{equation*}
+by the line bundle corresponding to the divisor in $\widetilde\Dcal$ defined by $\rho$, we will obtain the bundle
+\begin{equation*} F = \left( \TT_{f_1}C_1^1 \otimes \TT_{e_1} C_0 \right) \oplus \left( \TT_{g_2} C_2^2 \otimes \TT_{e_2} C_0 \right). \end{equation*}
+described earlier. The line bundle corresponding to $\rho$ is simply $\OO(f)=\OO(g)$. We have:
+\begin{align*} \left( \TT_{q_1} C_1 \otimes \TT_{q_1} C_0 \right) \otimes \OO(f) & = \TT_{q_1}C_1 \otimes \TT_{q_1} C_0 \otimes \TT_{f_1} C_1^0 \otimes \TT_{f_1} C_1^1 \\
+& = \TT_{e_1} C_1^0 \otimes \TT_{e_1} C_0 \otimes \TT_{f_1} C_1^0 \otimes \TT_{f_1} C_1^1\\
+&  = \TT_{f_1} C_1^1 \otimes \TT_{e_1} C_0\end{align*}
+where we have used the telescoping trick $\TT_{f_1}C_1^0 \otimes \TT_{e_1} C_1^0 \cong \OO$. On the other hand, for the $C_2$ summand we write $f=f/2 + g/2=f_3+g_3$ to obtain:
+\begin{align*} \left( \TT_{q_2}C_2 \otimes \TT_{q_2}C_0\right) \otimes \OO(f) & = \TT_{e_2} C_0 \otimes \TT_{e_2} C_2^0 \otimes \OO(f_3) \otimes \OO(g_3) \\
+& = \TT_{e_2} C_0 \otimes \TT_{e_2} C_2^0 \otimes \TT_{f_3} C_2^0 \otimes \TT_{f_3} C_2^1 \otimes \TT_{g_3} C_2^1 \otimes \TT_{g_3} C_2^2 \\
+& = \TT_{g_3} C_2^2 \otimes \TT_{e_2} C_0.\end{align*}
+This observation generalises, giving a precise relation between the intrinsically-defined vector bundle $F$ on $\widetilde\Dcal$ (which we use to impose the factorisation condition) and the resolution of the vector bundle $E$ pulled back from $\Ecal$. This allows us to express the Chern classes of $F$ in terms of pull-backs of tautological classes from $\Ecal$ and boundary strata on $\widetilde\Dcal$, which is what we need in order to compute our integrals.
 
 
 \section{Recursion for general $(X,Y)$}\label{section recursion for general pair}
