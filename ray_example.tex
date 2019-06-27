@@ -1,0 +1,131 @@
+
+% Otherwise some colors may look a bit different in ipe and TeX
+\PassOptionsToPackage{rgb}{xcolor}
+
+\documentclass{article}
+\usepackage[papersize={595bp,842bp},scale=1,margin=0pt]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,patterns}
+\usetikzlibrary{ipe} % ipe compatibility library
+
+\definecolor{red}{rgb}{1,0,0}
+\definecolor{green}{rgb}{0,1,0}
+\definecolor{blue}{rgb}{0,0,1}
+\definecolor{yellow}{rgb}{1,1,0}
+\definecolor{orange}{rgb}{1,0.647,0}
+\definecolor{gold}{rgb}{1,0.843,0}
+\definecolor{purple}{rgb}{0.627,0.125,0.941}
+\definecolor{gray}{rgb}{0.745,0.745,0.745}
+\definecolor{brown}{rgb}{0.647,0.165,0.165}
+\definecolor{navy}{rgb}{0,0,0.502}
+\definecolor{pink}{rgb}{1,0.753,0.796}
+\definecolor{seagreen}{rgb}{0.18,0.545,0.341}
+\definecolor{turquoise}{rgb}{0.251,0.878,0.816}
+\definecolor{violet}{rgb}{0.933,0.51,0.933}
+\definecolor{darkblue}{rgb}{0,0,0.545}
+\definecolor{darkcyan}{rgb}{0,0.545,0.545}
+\definecolor{darkgray}{rgb}{0.663,0.663,0.663}
+\definecolor{darkgreen}{rgb}{0,0.392,0}
+\definecolor{darkmagenta}{rgb}{0.545,0,0.545}
+\definecolor{darkorange}{rgb}{1,0.549,0}
+\definecolor{darkred}{rgb}{0.545,0,0}
+\definecolor{lightblue}{rgb}{0.678,0.847,0.902}
+\definecolor{lightcyan}{rgb}{0.878,1,1}
+\definecolor{lightgray}{rgb}{0.827,0.827,0.827}
+\definecolor{lightgreen}{rgb}{0.565,0.933,0.565}
+\definecolor{lightyellow}{rgb}{1,1,0.878}
+\definecolor{black}{rgb}{0,0,0}
+\definecolor{white}{rgb}{1,1,1}
+
+\begin{document}
+\thispagestyle{empty}
+\noindent
+\begin{tikzpicture}[ipe import]
+  \useasboundingbox (0, 0) rectangle (595, 842);
+  \draw
+    (64, 672)
+     -- (128, 688)
+     -- (64, 704)
+     -- (64, 704);
+  \draw
+    (128, 688)
+     -- (64, 736)
+     -- (64, 736);
+  \draw[red]
+    (128, 688) circle[radius=65.9697];
+  \draw
+    (128, 688)
+     -- (112, 752)
+     -- (64, 768)
+     -- (64, 768);
+  \draw
+    (112, 752)
+     -- (64, 784)
+     -- (64, 784);
+  \pic
+     at (64, 672) {ipe disk};
+  \pic
+     at (64, 704) {ipe disk};
+  \pic
+     at (64, 736) {ipe disk};
+  \pic
+     at (64, 768) {ipe disk};
+  \pic
+     at (64, 784) {ipe disk};
+  \pic
+     at (112, 752) {ipe cross};
+  \pic
+     at (75.2242, 727.5818) {ipe cross};
+  \pic
+     at (112, 700) {ipe cross};
+  \pic
+     at (112, 692) {ipe cross};
+  \pic
+     at (112, 684) {ipe cross};
+  \pic
+     at (75.8121, 701.047) {ipe cross};
+  \pic
+     at (75.0705, 674.4385) {ipe cross};
+  \filldraw[-linear, fill=white]
+    (64, 608)
+     -- (208, 608)
+     -- (208, 608);
+  \pic
+     at (64, 608) {ipe disk};
+  \draw[->]
+    (128, 688)
+     -- (208, 688)
+     -- (208, 688);
+  \pic
+     at (73.6978, 608.0203) {ipe cross};
+  \pic
+     at (111.8758, 608.0203) {ipe cross};
+  \pic
+     at (127.6736, 608.0203) {ipe cross};
+  \pic[fill=white]
+     at (128, 688) {ipe fdisk};
+  \node[ipe node]
+     at (86.863, 690.301) {$m$};
+  \node[ipe node]
+     at (87.521, 671.212) {$m$};
+  \node[ipe node]
+     at (48.026, 668.579) {$R_1$};
+  \node[ipe node]
+     at (48.026, 687.668) {$\ldots$};
+  \node[ipe node]
+     at (47.368, 700.832) {$R_k$};
+  \node[ipe node]
+     at (48.026, 725.846) {$R_{k+1}$};
+  \node[ipe node]
+     at (48.026, 784.429) {$R_s$};
+  \node[ipe node]
+     at (48.685, 766.657) {$\ldots$};
+  \node[ipe node]
+     at (108.585, 757.441) {$R_r$};
+  \node[ipe node]
+     at (81.597, 744.935) {$\ldots$};
+  \node[ipe node]
+     at (130.965, 677.794) {$E$};
+\end{tikzpicture}
+\end{document}
+
