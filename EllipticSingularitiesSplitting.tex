@@ -382,34 +382,31 @@ Finally, we note that our results require us to encounter several variants of th
 
 \section{Constructions and logarithmic smoothness}\label{section construction}
 
-\subsection{The absolute case} Let $\mathfrak M_{1,n}$ be the logarithmic algebraic stack of $n$-pointed prestable curves of genus one. Let $C$ be a logarithmically smooth curve over $S$, let $\plC$ denote its tropicalization, and let $\lambda$ be the section of $\overline{M}_{C/S}$ given by the distance from each vertex to the minimal genus one subcurve.
-
-We begin by recalling the logarithmic moduli spaces of genus one curves constructed in~\cite[\S\S 2 \& 4]{RSPW}. Given a family of tropical curves over a base $\sigma$, a central alignment is a piecewise-linearly varying choice of radius $\delta_s\in \overline{M}_S$ for $s\in\sigma$, together with a consistent ordering of the vertices that lie inside the circle of radius $\delta_s$ around the core. Precisely, let $T$ be a geometric point with logarithmic structure.
-
+\subsection{The absolute case} Let $\mathfrak M_{1,n}$ be the logarithmic algebraic stack of $n$-pointed prestable curves of genus one. We begin by recalling the logarithmic moduli spaces of genus one curves constructed in~\cite[\S 2 \& \S 4]{RSPW}. Given a logarithmically smooth curve $C$ over a logarithmic geometric point $S$, let $\plC$ denote its tropicalization, and let $\lambda \in \overline{M}_{S}$ be the piecewise-linear function giving the distance from each vertex of $\sqC$ to the minimal genus one subcurve.
 \begin{definition}
-A \textbf{centrally aligned curve} is a pair $(C/T,\delta)$, where $\delta\in\overline{M}_T$, such that:
+A \textbf{centrally aligned curve} is a pair $(C/S,\delta)$, where $\delta\in\overline{M}_S$, such that:
 \begin{enumerate}
-    \item the section $\delta$ is comparable to $\lambda(v)$ for all vertices $v$ of $\plC$,
-    \item for any pair of vertices $v$ and $w$ at distance less than $\delta$, the sections $\lambda(v)$ and $\lambda(w)$ are comparable.
+    \item the section $\delta$ is comparable to $\lambda(v)$ for all vertices $v$ of $\plC$;
+    \item for any pair of vertices $v$ and $w$ of distance less than $\delta$, the sections $\lambda(v)$ and $\lambda(w)$ are comparable.
 \end{enumerate}
 \end{definition}
 
 \tred{In essence, this is a family of curves where every vertex of the tropical curve $\plC$ is either inside or outside the circle of radius $\delta$ around the core genus one subcurve.}
 
-The moduli stack $\mathfrak M_{1,n}^{\mathrm{cen}}$ is a logarithmic algebraic stack in the smooth topology, and $\mathfrak M_{1,n}^{\mathrm{cen}}\to\mathfrak M_{1,n}$ is a logarithmic modification. The main construction of~\cite{RSPW} canonically associates to any centrally aligned family of curves $\mathcal C_S$ a partial destabilisation $\widetilde{\mathcal C}_S$ and a contraction
+The moduli stack $\mathfrak M_{1,n}^{\mathrm{cen}}$  of centrally aligned curves is a logarithmic algebraic stack in the smooth topology, and $\mathfrak M_{1,n}^{\mathrm{cen}}\to\mathfrak M_{1,n}$ is a logarithmic modification. The main construction of~\cite{RSPW} canonically associates to any centrally aligned family of curves $\mathcal C_S$ a partial destabilisation $\widetilde{\mathcal C}_S$ and a contraction
 \[
 \widetilde{\mathcal C}_S\to \overline{\mathcal C}_S,
 \]
 where $\overline{\mathcal C}_S$ may contain a Gorenstein elliptic singularity \cite{SMY1}. The number of branches is equal to the sum of the number of vertices which lie on the circle of radius $\delta$ and the number of edges which are split by the same circle. This data uniquely determines the singularity.
 
-The space of stable maps $\widetilde\VZ_{1,n}(\PP^N,d)$ from the universal nodal curve $\mathcal C$ over the stack $\mathfrak M_{1,n}^{\mathrm{cen}}$ is a proper and algebraic, with projective coarse moduli space. A compatibility condition between the alignment and the map is required, namely that the circle of radius $\delta$ passes through at least one component of positive degree. A stable map in this space is said to satisfy the \textbf{factorisation condition} if the map $\mathcal C\to \mathbb P^N$ factors through the contraction $\widetilde{\mathcal C}\to \overline{\mathcal C}$.
+The space of stable maps $\widetilde\VZ_{1,n}(\PP^N,d)$ from the universal nodal curve $\mathcal C$ over the stack $\mathfrak M_{1,n}^{\mathrm{cen}}$ is proper and algebraic, with projective coarse moduli space. A compatibility condition between the alignment and the map is required, namely that the circle of radius $\delta$ passes through at least one component of positive degree. A stable map in this space is said to satisfy the \textbf{factorisation condition} if the map $\mathcal C\to \mathbb P^N$ factors through the contraction $\widetilde{\mathcal C}\to \overline{\mathcal C}$.
 
  
 \begin{thm}[{\cite[Theorem B]{RSPW}}]
-The substack $\VZ_{1,n}(\mathbb P^N,d)$ of $\widetilde\VZ_{1,n}(\PP^N,d)$ parameterizing maps to $\mathbb P^N$ that satisfy the factorisation property is smooth and proper of the expected dimension.
+The substack $\VZ_{1,n}(\mathbb P^N,d)$ of $\widetilde\VZ_{1,n}(\PP^N,d)$ parameterizing maps to $\mathbb P^N$ that satisfy the factorisation condition is smooth and proper of the expected dimension.
 \end{thm}
 
-The remainder of this section lifts this condition to the category of relative maps to the pair $(\mathbb P^N,H)$. The core of the result is identifying the necessary factorisation conditions that remove the obstructions. 
+The remainder of this section lifts this construction to the category of relative maps to the pair $(\mathbb P^N,H)$. The core of the result is identifying the necessary factorisation conditions that remove the obstructions. 
 
 \subsection{Relative geometry: compactification} Fix a hyperplane $H\subseteq \mathbb P^N$. Let $\alpha$ be a partition of the degree $d>0$. Consider the moduli space $\mathcal M_{1,\alpha}^\circ(\mathbb P^N|H,d)$ of maps from smooth elliptic curves $C\to \mathbb P^N$ that meet $H$ at finitely many marked points with vanishing orders given by the partition $\alpha$. This is a smooth, but non-proper Deligne--Mumford stack. 
 
