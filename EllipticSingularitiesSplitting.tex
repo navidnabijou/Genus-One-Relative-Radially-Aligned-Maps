@@ -367,11 +367,14 @@ We pursue a strategy laid out by Vakil and Gathmann, building on work of Caporas
 
 Second, a key step in our recursion is a description of the locus of maps with higher than prescribed tangency, which was identified by Gathmann. We realize the locus as the vanishing locus of a section of a line bundle that comes from tropical geometry — from a piecewise linear function on the fan. The systematic understanding of logarithmic line bundles arising in this fashion is likely to play an important r\^ole in logarithmic enumerative geometry.
 
-Our analysis leads naturally to the study of a ``main component’’ double ramification cycle for target manifolds in genus one. The virtual geometry of this was studied in recent work of Janda, Pandharipande, Pixton, and Zvonkine~\cite{DRCBundle}. We do not know how to calculate a closed formula for this main component contribution, but we repurpose E.~Katz's topological recursion relations \cite{EKatz} to complete the algorithm. We note that even in genus one, an understanding of the main component contributions of the double ramification cycle for target manifolds would be interesting.
+\tred{We rephrase Gathmann's idea of increasing the tangency requirement within the framework of logarithmic stable maps (where maximal tangency is always assumed) by introducing \emph{fictitious markings}, and identifying the space of maps with higher contact order with a boundary stratum inside that of lower contact order and more (fictitious) markings.}
+
+Our analysis leads naturally to \tred{the} study of a ``main component’’ double ramification cycle for target manifolds in genus one. The virtual geometry of this was studied in recent work of Janda, Pandharipande, Pixton, and Zvonkine~\cite{DRCBundle}. We do not know how to calculate a \tred{closed formula} for this main component contribution, but we repurpose E.~Katz's topological recursion relations \cite{EKatz} to complete the algorithm. We note that even in genus one, an understanding of the main component contributions of the double ramification cycle for target manifolds would be interesting.
 
 Finally, we note that our results require us to encounter several variants of the space of relative/logarithmic stable maps, with both fixed and expanded target. The conceptual features of one space are often computational bugs, and vice versa, and we believe that the techniques developed in the genus one case here will be used repeatedly in logarithmic Gromov--Witten theory calculations. In particular, we frequently use Kato's perspective on logarithmic blowups as subfunctors that was applied in~\cite{RSPW,RSPW2}.
 
-\subsection*{Acknowledgements} We have benefited from fruitful conversations with friends and colleagues, including Francesca Carocci, Davesh Maulik, Jonathan Wise, and \tred{[other people]}. Important aspects of this work were completed while L.B. and N.N. were visiting MIT in Spring 2018 and the University of Cambridge in Winter 2019, and we thank these institutions for their hospitality. \tred{L.B. would like to thank Imperial College London, the LSGNT, the Royal Society, 3CinG, the MSRI program ''Enumerative Geometry beyond Numbers``, and MPIM-Bonn for support.}
+\subsection*{Acknowledgements} We have benefited from fruitful conversations with friends and colleagues, including Francesca Carocci, Cristina Manolache, Davesh Maulik, Jonathan Wise, and [other people]. Important aspects of this work were completed while L.B. and N.N. were visiting MIT in Spring 2018 and the University of Cambridge in Winter 2019, and we thank these institutions for their hospitality. L.B. would like to thank Imperial College London, the LSGNT, the Royal Society, 3CinG, the MSRI program ''Enumerative Geometry beyond Numbers``, and MPIM-Bonn for support.
+
 
 \newpage
 
@@ -503,7 +506,7 @@ The line bundle $\mathcal O_{C}(-\alpha)$ is equivalent to the divisor $\sum a_i
 %We make two observations. First, since the logarithmic structure on $C'$ is strict away from $H$, unobstructedness of deformations for $F'$ is equivalent to unobstructedness for $F$. Second, the target degeneration is now a toric degeneration, and the logarithmic tangent bundle is trivial.
 \end{proof}
 
-The above theorem guarantees that the singularities of the space of totally factorised maps to expansions is logarithmically smooth. In fact, one can say more in this case.\marginpar{I don't understand the point of this Cor. Can we make it into a short remark?}
+The above theorem guarantees that the singularities of the space of totally factorised maps to expansions is logarithmically smooth. In fact, one can say more in this case.
 
 \begin{cor}
 The logarithmically smooth stack $\VZ_{1,\alpha}(\mathbb P^N|H,d)$ has at worst orbifold singularities, i.e. admits a non-representable cover by a smooth Deligne--Mumford stack.
@@ -795,13 +798,17 @@ We summarize that the contribution of each term $\lambda_\Dcal [\Dcal]$ is given
 
 We begin with the following lemma:
 \begin{lemma} \label{lemma type C0 combinatorial types}
-Let $\Dcal$ be a locus of type IIIb with combinatorial type $\Delta$ which contributes nontrivially to the Gromov--Witten invariant. For every nonzero vertex $\diamond$ of the tropical target, the fibre of the tropical map over $\diamond$ contains exactly one stable vertex, which lies on the radius.
+Let $\Dcal$ be a locus of type IIIb with combinatorial type $\Delta$ which contributes nontrivially to the Gromov--Witten invariant. For every nonzero vertex $\diamond$ of the tropical target, the fibre of the tropical map over $\diamond$ contains exactly one stable vertex, which either is the core, or lies on the circle. Besides, the maximal contact order at the core is $m>1$.
 \end{lemma}
 
 \begin{proof}
 Stability guarantees that at least one stable vertex lies over each vertex of the target. If there is more than one stable vertex, as in the proof of Lemma \ref{lem:combs}, the corresponding locus $\Fcal$ in the moduli space of unexpanded maps has high codimension. As both insertions and the factorisation property for the collapsed map to $\mathbb P^N$ are pulled back from the moduli space of maps without expansions, the contribution vanishes by the projection formula.
 
-For each vertex of the target there must always be at least one vertex in the preimage which lies on the radius. This is implied by the fact that the combinatorial type $\Delta$ is a ray. In fact, we make the stronger assertion that the stable vertex mapping to $\diamond$ lies on the radius. The alternative is that a vertex dual to a trivial bubble lies on the radius. This latter condition implies that $\Dcal \to \Ecal$ has positive-dimensional fibres, so the contribution vanishes. 
+For each vertex of the target there must always be at least one vertex in the preimage which lies on the circle. This is implied by the fact that the combinatorial type $\Delta$ is a ray. If the vertex on the circle is strictly semistable - in particular the collapsed map $f_B$ is constant along the corresponing component -, it can be seen that the factorisation condition is unaffected by $\Gm$-scaling the coordinate corresponding to that vertex in the moduli space of attachments, so the map $\Dcal\to\Ecal$ has generic fiber of positive dimension.
+
+In particular, notice that vertices lying on the circle and tropically mapped to $0\in\mathbb R_{\geq0}$ all have the same contact order at the core, because by the previous paragraph we may assume that only strictly semistable vertices are encountered on these paths. For the same reason, this contact order $m$ is maximal among those of the edges adjacent to the core.
+
+Finally, in case the maximal contact order is $m=1$, the image tangent vectors must be linearly dependent, in which case we can deduce as above that factorisation will be satisfied indepedently of the choice of alignment.
 \end{proof}
 
 
@@ -860,7 +867,8 @@ Equipped with the strata logarithmic structures, the morphism
 \[
 \widetilde \Dcal\to \Ecal
 \]
-is a logarithmic morphism. The generic fibre of this morphism is toric variety.  \medskip
+
+is a logarithmic morphism. The generic fiber of this morphism is a toric variety.  \medskip
 
 \noindent
 {\bf Flattening the map to $\Ecal$.} The morphism $\widetilde \Dcal\to \Ecal$ is not flat. In order to push integrals forward, it will be convenient to flatten the map by blowing up $\Ecal$. This can be done in a universal manner, following~\cite{AK,Mol16}. 
@@ -882,17 +890,23 @@ with the radially aligned rubber space:
 \begin{equation*} \VZ^{\leftrightarrow}_{\Gamma_{\tiny{\sqC_0}}}(P|H_0+H_\infty).\end{equation*}
 \end{enumerate}
 
-This procedure induces a logarithmic modification $\widetilde\Ecal \to \Ecal$ which admits a modular description as a fibre product of genus zero centrally aligned maps coming from the vertices $\sqC_1,\ldots,\sqC_r$, and genus one aligned rubber maps satisfying fibre-direction factorisation from the vertex $\sqC_0$). We have thus produced a factorisation
+This procedure induces a logarithmic modification $\widetilde\Ecal \to \Ecal$ which admits a modular description as a fibre product of genus zero centrally aligned maps coming from the vertices $\sqC_1,\ldots,\sqC_r$, and genus one aligned rubber maps satisfying fibre-direction factorisation from the vertex $\sqC_0$.
+
+By construction, we have a map $\widetilde\Dcal \to \widetilde\Ecal$ which is a compactification of a torus bundle over $\widetilde\Ecal$. The strata of $\widetilde\Dcal$ can be read off from its tropicalisation, and in particular we have the information of how (polynomials in) the classes of boundary strata push forward to $\widetilde\Ecal$.
+
+We have produced a factorization
 \begin{equation*}\widetilde\Dcal\to\widetilde \Ecal\to\Ecal,
 \end{equation*}
 where the first map is flat and the second map is a logarithmic modification. $\widetilde\Dcal$ is a compactification of a torus bundle over $\widetilde\Ecal$ whose strata can be read off from the tropicalization; in particular, we have the information of how (polynomials in) the classes of boundary strata push forward to $\widetilde\Ecal$. In fact, the generic fibre of $\widetilde\Dcal \to \widetilde\Ecal$ can be read off geometrically.
 
-\begin{lemma}
- Generically on $\Ecal$, $\widetilde \Dcal\to\widetilde\Ecal$ is isomorphic to $\mathcal P=\PP_{\widetilde\Ecal}(\bigoplus_{v\in \{V_{0,\delta}\}\cup V_{>0,\delta}}\OO(\delta_v))$.
+\begin{lemma}\label{lem:generic_proj_bundle}
+ Generically on $\Ecal$, $\widetilde \Dcal\to\widetilde\Ecal$ is given by an explicit projective bundle.
 \end{lemma}
 
 \begin{proof}
- All of the line bundles $\OO(\delta_v)$ share a common factor $\mathbb T_E$, the universal tangent line to the elliptic curve. By removing this factor, we see that when the dual graph is fixed, $\OO(\delta_v)$ is isomorphic to the tangent line to the rational tail $R_v$ at the gluing node $q_v$. We make the caveat here that(with the caveat that all those corresponding to $V_{0,\delta}$ are canonically identified). This is the open stratum of the moduli space of attaching data \cite[\S\S 2.2-2.3]{SMY2}. On the fibre boundary, the circle of radius $\delta$ will pass through a subset of $\{V_{0,\delta}\}\cup V_{>0,\delta}$, while cutting the complementary subset along the edge between the core and $v$; correspondingly, there is a destabilisation of the curve, and an elliptic singularity containing strictly semistable branches. Tropically, pushing some of the vertices off the circle creates new finite-length edges with coordinates $\ell_v\in\RR_{\geq_0}$ (see Figure \ref{fig:off_we_go}); not all of them can be strictly positive, because the circle needs to pass through at least one vertex (of positive horizontal degree). This is patently the fan of a projective space.
+Let us assume that the curve does not degenerate, so that the dual graph is as prescribed by $\Delta$, in particular there are components $\sqC_1,\ldots,\sqC_r$ generically lying on the circle of radius $\delta$; the moduli space of attachments for the elliptic singularity is the complement of the coordinate hyperplanes in $\PP(\bigoplus_{i=1}^rT_{q_i}C_i)$. On the boundary, the circle is allowed to miss some of the $\sqC_i$ - but not all of them! -, cutting the edge between them and the core (correspondingly, there is a destabilisation of the curve, and an elliptic singularity containing strictly semistable branches). Tropically, pushing some of the vertices off the circle creates new finite-length edges with coordinates $\ell_i\in\RR_{\geq_0}$ (see Figure \ref{fig:off_we_go}). Since not all of them can be strictly positive, this represents the fan of a projective space.
+
+A slight modification of this argument is required to account for the fact that all vertices that lie on the circle and are mapped to $0\in\mathbb R_{\geq0}$ by the tropical map are generically aligned on $\Ecal$: indeed, by Lemma \ref{lemma type C0 combinatorial types}, they all have the same contact order $m$, therefore their $T_{q_i}C_i^{\otimes m}$ can be identified via the target tangent line on the fiber product \eqref{IIIa fibre product}, and, after saturation, the $T_{q_i}C_i$ themselves are canonically isomorphic on $\Ecal$. Thus, only one factor should be taken to represent all of them in the projective bundle above.
 \end{proof}
 
 \begin{figure}
@@ -916,7 +930,14 @@ Choose a component $C_i^\prime$ of the curve which lies on the radius. Then $\OO
 %Note that the final term on the right hand side is not given by $\TT_{q_i} C_0$ (where $q_i$ is the appropriate splitting node) but rather the tangent space to the core. 
 \end{proof}
 
-We said that $C_i^\prime$ is \emph{a} component of $C_i$ which lies on the radius. There may be more than one, but if this is the case then their tangent spaces are naturally identified. We obtain a natural morphism
+We said that $C_i^\prime$ is \emph{a} component of $C_i$ which lies on the radius. There may be more than one, but if this is the case then their tangent spaces are naturally identified. 
+
+The following construction allows us to give a canonical description of $\Dcal$ inside $\widetilde\Dcal$. Over $\widetilde\Dcal$ there is a natural section of the projective bundle $\PP(F) \to \widetilde\Dcal$ (obtained by projectivising the diagonal embedding). We may then pullback to $\widetilde\Dcal$ the map of vector bundles
+\begin{equation}\label{eq:factorisation} \OO_{\PP(F)}(-1)(-\TT_{C_0}) \xrightarrow{\text{can}(-\TT_{C_0})} \pi^\st F(-\TT_{C_0}) \xrightarrow{\pi^*\sum\operatorname{d}f} \pi^\st(\ev_q^\st \TT_H),\end{equation}\footnote{We may assume the latter factors through $\ev_q^\st \TT_H\subseteq\ev_q^\st \TT_{\PP^N}$ by virtue of Lemma \ref{lemma type C0 combinatorial types}.}
+whose vanishing tautologically expresses the condition that the stable map $f$ descend to the elliptic singularity associated to a point of $\widetilde\Dcal$. Thus, the class of $\Dcal$ can be represented via an Euler class computation. Note that the vector bundle $F$ can be explicitly realised by twisting the pullback of $\bigoplus_{i=1}^rT_{q_i}C_i$ from $\Ecal$ with a number of exceptional boundary corrections.
+
+\begin{comment}
+We obtain a natural morphism
 \begin{equation*} \sum \operatorname{d}\!f \colon F(-\TT_{C_0}) \to \ev_q^\st \TT_H \end{equation*}
 given by summing the derivatives at \emph{all} the inward-pointing nodes on the radius. {\bf \color{red} What does this next part mean?} Now, over $\widetilde\Dcal$ there is a natural section of the projective bundle $\PP(F) \to \widetilde\Dcal$ (obtained by projectivising the diagonal embedding). If we therefore lift the above morphism to the projectivisation, we obtain a composition: 
 \begin{equation*} \OO_{\PP(F)}(-1) \to \pi^\st F \to \pi^\st(\ev_q^\st \TT_H (\TT_{C_0})).\end{equation*}
@@ -927,6 +948,7 @@ Finally, we note that the class of $F$ {\bf \color{red} What class of $F$?} is c
 We may then identify $F$ with the pullback of $E$ twisted by the exceptional loci. 
 
 {\bf \color{red} More needs to be said here.}
+\end{comment}
 
 The main features of the discussion above are visible in the following example, which brings out the interplay between logarithmic moduli and blow-ups.
 
@@ -1069,7 +1091,41 @@ where we have used the telescoping trick $\TT_{f_1}C_1^0 \otimes \TT_{e_1} C_1^0
 This observation generalises, giving a precise relation between the intrinsically-defined vector bundle $F$ on $\widetilde\Dcal$ (which we use to impose the factorisation condition) and the the vector bundle $E$ pulled back from $\Ecal$. This allows us to express the Chern classes of $F$ in terms of pull-backs of tautological classes from $\Ecal$ and boundary strata on $\widetilde\Dcal$, which is necessary to compute integrals.
 \end{example}
 
-\subsection{Recursion for general $(X,Y)$}\label{section recursion for general pair} We now let $(X,Y)$ be a general smooth very ample pair. In \S \ref{subsection virtual} we studied the moduli space $\VZ_{1,\alpha}(X|Y,\beta)$ of centrally aligned maps to $(X,Y)$ and equipped it with a virtual fundamental class by diagonal pull-back from $\VZ_{1,\alpha}(\PP^N|H,d)$.
+
+To establish a more direct connection with the geometry of the fibre product \eqref{IIIa fibre product}, recall that $\widetilde\Ecal$ has been built as an explicit modification of a finite cover of \eqref{IIIa fibre product}. For every $v\in\{\sqC_1,\ldots,\sqC_r\}$ - with the convention established at the end of Lemma \ref{lem:generic_proj_bundle} -, on $\widetilde\Ecal$ it makes sense to consider the line bundle $\OO(\delta_v)$ associated to a shortest path from the core to the circle in the $v$-direction. Construct $\mathcal P=\PP_{\widetilde\Ecal}(\bigoplus_{v\in \{\sqC_1,\ldots,\sqC_r\}}\OO(\delta_v))$; since $\sqC_1,\ldots,\sqC_r$ are always ordered on $\widetilde \Dcal$ (they may lie on the circle, be the first component off the circle, or degenerate and lie in the strict interior), there is a morphism $\widetilde \Dcal\to\mathcal P$ lifting $\widetilde \Dcal\to\widetilde\Ecal$. Consider the map of vector bundles on $\mathcal P$ (analogous to \eqref{eq:factorisation}):
+\[ \OO_{\mathcal P}(-1)\to p^*(\bigoplus_{v\in \{\sqC_1,\ldots,\sqC_r\}}\OO(\delta_v))\xrightarrow{\sum\operatorname{d}f}\ev_{C_0}^*T_H.\]
+
+The composite, regarded as a section $s$ of $G=\OO_{\mathcal P}(1)\otimes \operatorname{ev}_{C_0}^*(T_H)$, vanishes precisely where $f$ factors through the Smyth's singularity determined by the point in the fiber of $p$. Generically on $\widetilde\Ecal$, this is exactly what we are after - compare with Lemma \ref{lem:generic_proj_bundle}. On the boundary, though, it may happen that a simultaneous degeneration in the base and the fiber makes this factorisation trivial, in the sense that $\bar f$ would be constant on all the branches of the elliptic singularity.
+
+\begin{lemma}
+ For every $\Lambda_B\subseteq \{\sqC_1,\ldots,\sqC_r\}$ and $\Lambda_F=\{\sqC_1,\ldots,\sqC_r\}\setminus \Lambda_B$, $s$ vanishes along the loci where the factors corresponding to $\Lambda_B$ in $\widetilde \Ecal$ degenerate so that $f_i\colon C_i\to\PP^N$ is constant in a neighbourhood of $q_i$, and the fiber coordinates $(\lambda_j)_{j\in\Lambda_F}$ along $p\colon\mathcal P\to\widetilde \Ecal$ are set to be $0$.
+\end{lemma}
+Call these loci $\Xi_i,i\in I$ (compare with \cite[\S 3.2]{VZ} for an analogous phenomenon in the non-relative case); clearly, they may be in excess with respect to the expected codimension of $V(s)$, that is $N-1$. These loci are logarithmic substrata; therefore, there exists a logarithmic blow-up that principalizes them. We claim that $\widetilde\Dcal$ is (possibly a refinement of) such a blow-up. 
+\begin{lemma}
+ The pullback of $\Xi_i$ is principal in $\widetilde\Dcal$.
+\end{lemma}
+\begin{proof}
+ Let us analyse the ideal of $\Xi_i$: it is generated by
+ \begin{enumerate}[leftmargin=.5 cm]
+  \item equations on $\widetilde\Ecal$ cutting the locus where $C_i$ degenerates so that $f_i$ is constant on a neighbourhood of $q_v$, $i\in \Lambda_B$: these correspond to the tropical functions $\delta_i-\operatorname{dist}(q_i,\circ)$;
+  \item equations on the fiber of $p$ for the linear subspace corresponding to $j\in \Lambda_F$: tropically, these correspond to the $\ell_j$ discussed above.
+ \end{enumerate}
+By construction, on $\widetilde \Dcal$ it is always possible to tell which of these tropical lengths is the shortest (the circle we have drawn on $\Xi$ is degenerate - it passes through no vertex of positive horizontal degree -, therefore we need to decide for a strictly larger circle in order to lift to $\widetilde D$), which corresponds to principalising the ideal (see Figure \ref{fig:principalisation}).
+\end{proof}
+
+\begin{figure}
+\includegraphics[scale=.5]{principalisation}
+\caption{On the left, a generic point of $\mathcal P$. On the right, a point of $\Xi$. The dotted circle is the one we draw on $\mathcal P$. The continuous circle represents one of the possible choices of $\delta$ enlarging the dotted one (a stratum of $\widetilde\Dcal$).}\label{fig:principalisation}
+\end{figure}
+
+Finally, on $\widetilde\Dcal$ (or, in fact, on an intermediate blow-up $\widetilde{\mathcal P}\to\mathcal P$) there are exceptional divisors $\widetilde \Xi_i$ corresponding to $\Xi_i$ in $\mathcal P$. Since the $\Xi_i$ exhaust all the excess-dimensional components of the vanishing locus of $s\in\Gamma(\mathcal P,G)$, the latter induces a section $\tilde s\in\Gamma(\widetilde\Dcal,G(-\sum_i\widetilde\Xi_i))$ by pullback and twisting, whose vanishing locus is dimensionally transverse to the boundary, and whose open part coincides with the generic point of $\Dcal$, therefore $V(\tilde s)=\Dcal$.
+
+Expressing the pushforward of the Chern classes of $\OO_F(1)$ and $\OO(\widetilde\Xi_i)$ in terms of tautological classes on the fiber product underlying $\Ecal$, we get:
+\begin{cor}
+ After pushforward to $\Ecal$, the contribution of $\Dcal$ to the invariants can be computed in terms of tautological integrals on moduli spaces of maps with lower numerics.
+\end{cor}
+
+\subsection{Recursion for general $(X,Y)$}\label{section recursion for general pair} We now let $(X,Y)$ be a general smooth very ample pair. In \S \ref{} we studied the moduli space $\VZ_{1,\alpha}(X|Y,\beta)$ of centrally aligned maps to $(X,Y)$ and equipped it with a virtual fundamental class by diagonal pull-back from $\VZ_{1,\alpha}(\PP^N|H,d)$.
 
 This construction of the virtual fundamental class means that once we have established a recursion formula for $(\PP^N,H)$, it immediately pulls back to give a recursion formula for $(X,Y)$. To be more precise, Theorem \ref{theorem recursion} holds \emph{mutatis mutandis}, with the same values of $\lambda_\Dcal$. The computation of the splitting orders is exactly the same, and the recursive description of the boundary strata pulls back to give an entirely analogous description on $\VZ_{1,\alpha}(X|Y,\beta)$.
 
