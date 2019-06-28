@@ -1114,16 +1114,16 @@ This construction of the virtual fundamental class means that once we have estab
 
 
 \section{Quantum Lefschetz algorithm}\label{section recursion algorithm}
-Consider a smooth pair $(X,Y)$ with $Y$ very ample, and let $P$ be the projective bundle $P=\PP_Y(\operatorname{N}_{Y|X} \oplus\OO_Y)$. We assume that the genus zero and reduced genus one Gromov--Witten theories of $X$ are known. From this starting data, we will apply our recursion formula to compute:
+Consider a smooth pair $(X,Y)$ with $Y$ very ample, and let $\mathbb{P}$ be the projective bundle $\mathbb{P}=\PP_Y(\operatorname{N}_{Y|X} \oplus\OO_Y)$. We assume that the genus zero and reduced genus one Gromov--Witten theories of $X$ are known. From this starting data, we will apply our recursion formula to compute:
 \begin{enumerate}
 \item the genus one \textbf{reduced restricted absolute Gromov--Witten theory} of $Y$;
 \item the genus one \textbf{reduced relative Gromov--Witten theory} of the pair $(X,Y)$;
-\item the genus one \textbf{reduced rubber theory} of $P$.
+\item the genus one \textbf{reduced rubber theory} of $\mathbb{P}$.
 \end{enumerate}
 
 \subsection{Reduced absolute, relative and rubber invariants} To be precise: by a reduced invariant of $Y$ we mean an integral over $\VZ_{1,n}(Y,\beta)$ of products of pullbacks of evaluation and psi classes along morphisms which forget a subset $S$ of the marked points (taking $S=\emptyset$ gives the ordinary evaluation and psi classes). Here the evaluation maps are viewed as mapping into $X$ (hence the adjective ``restricted''). Reduced relative invariants of $(X,Y)$ are defined in the same way, except now the forgetful morphism maps into a space of absolute maps:
 \begin{equation*} \fgt_S \colon \VZ_{1,\alpha}(X|Y,\beta) \to \VZ_{1,m-\#S}(X,\beta).\end{equation*}
-In particular, all the psi classes which we consider are \emph{collapsed psi classes}, meaning that they are relative cotangent line classes for the corresponding collapsed stable map. Note that, unlike in the absolute case, in the relative case it may well be the case that the entire insertion is pulled back along a single forgetful map $\fgt_S$. The reduced rubber invariants of $P$ are defined similarly (again using collapsed psi classes).
+In particular, all the psi classes which we consider are \emph{collapsed psi classes}, meaning that they are relative cotangent line classes for the corresponding collapsed stable map. Note that, unlike in the absolute case, in the relative case it may well be the case that the entire insertion is pulled back along a single forgetful map $\fgt_S$. The reduced rubber invariants of $\mathbb{P}$ are defined similarly (again using collapsed psi classes).
 
 The systems of invariants defined above are equivalent to the classical systems of invariants (which do not use forgetful morphisms) by well-known topological recursion relations.
 
@@ -1136,7 +1136,7 @@ This subset is uniquely determined, and its elements are referred to as \textbf{
 \begin{equation*} \sum_{i \not\in F} \alpha_i \leq d=Y\cdot \beta \end{equation*}
 as opposed to the total tangency, which is always $d$. This formalises the idea that relative invariants with non-maximal tangency $t<d$ can be obtained by adding $d-t$ fictitious markings of tangency $1$; see \cite[Lemma 1.15(i)]{Ga}.
 
-\subsection{Structure of the recursion} Given the genus-zero Gromov--Witten theory of $X$, the arguments of \cite{Ga} give an effective algorithm to reconstruct the genus-zero theories of $Y$ and $(X,Y)$; moreover, the genus-zero rubber theory of $P$ is identical to the genus-zero theory of $Y$ \cite{GathmannThesis}. Thus we may assume that all genus-zero data is known. We assume in addition that we know the genus one reduced theory of $X$. The structure of the recursion is then as follows:
+\subsection{Structure of the recursion} Given the genus-zero Gromov--Witten theory of $X$, the arguments of \cite{Ga} give an effective algorithm to reconstruct the genus-zero theories of $Y$ and $(X,Y)$; moreover, the genus-zero rubber theory of $\mathbb{P}$ is identical to the genus-zero theory of $Y$ \cite{GathmannThesis}. Thus we may assume that all genus-zero data is known. We assume in addition that we know the genus one reduced theory of $X$. The structure of the recursion is then as follows:
 
 \begin{algorithm}
 \DontPrintSemicolon
@@ -1152,14 +1152,14 @@ as opposed to the total tangency, which is always $d$. This formalises the idea 
 }
 \For{$n \geq 0$\medskip}{
 \For{$m \geq 0$\medskip}{
-\textbf{\, Step 4: } Compute rubber invariants of $P$ (degree $d$, $n$ relative markings, $m$ non-relative markings).
+\textbf{\, Step 4: } Compute rubber invariants of $\mathbb{P}$ (degree $d$, $n$ relative markings, $m$ non-relative markings).
 }
 }
 }
 \end{algorithm}
 \noindent Although the loops involving $d, n$ and $m$ have infinite length, in order to compute any single invariant it is only necessarily to iterate the preceding loops for a finite amount of time. A \textbf{forgetful relative invariant} of $(X,Y)$ is by definition a reduced relative invariant with a marked point $x_0$ such that all of the insertions are pulled back along $\fgt_{x_0}$. In our recursion, we first deal with this special class of relative invariants (with $n+1$ true markings), before computing the absolute invariants (with $n$ markings) and then returning to compute all of the relative invariants (with $n$ true markings). This need to treat separately a particular subclass of the relative invariants is an inescapable feature of the genus one recursion.
 
-The base terms of the recursion all have $d=0$ and as such are easy to compute: the relative invariants of $(X,Y)$ are nothing but absolute invariants of $X$ and the absolute invariants of $Y$ are given by obstruction bundle integrals over Deligne--Mumford spaces. The rubber invariants of $P$ in degree zero are given by integrals over the main component of the double ramification cycle; this can likewise be computed as an integral over Deligne--Mumford space, by correcting the formula for the ordinary double ramification cycle \cite{Hain,JPPZ} by the obvious contribution from the boundary irreducible component (the observation which makes this easy to do in genus one is that the rubber moduli space is pure-dimensional, so that the virtual class is simply the sum of the fundamental classes of the irreducible components). We will now explain how to perform each of the four inductive steps outlined above.
+The base terms of the recursion all have $d=0$ and as such are easy to compute: the relative invariants of $(X,Y)$ are nothing but absolute invariants of $X$ and the absolute invariants of $Y$ are given by obstruction bundle integrals over Deligne--Mumford spaces. The rubber invariants of $\mathbb{P}$ in degree zero are given by integrals over the main component of the double ramification cycle; this can likewise be computed as an integral over Deligne--Mumford space, by correcting the formula for the ordinary double ramification cycle \cite{Hain,JPPZ} by the obvious contribution from the boundary irreducible component (the observation which makes this easy to do in genus one is that the rubber moduli space is pure-dimensional, so that the virtual class is simply the sum of the fundamental classes of the irreducible components). We will now explain how to perform each of the four inductive steps outlined above.
 
 \begin{notation}Given tuples $\mathbf{a}=(a_1,\ldots,a_n)$ and $\mathbf{b}=(b_1,\ldots,b_n)$, we say that $\mathbf{a}<\mathbf{b}$ if there exists an $i \in \{1,\ldots,n\}$ such that $a_j = b_j$ for $j < i$ and $a_i < b_i$.\end{notation}
 
