@@ -332,7 +332,7 @@ We construct and study the reduced, relative, genus one Gromov--Witten theory of
 
 The Kontsevich moduli space of stable maps from genus zero curves to projective space exhibits remarkable geometry -- it is a smooth orbifold with a ``self-similar'' normal crossings boundary. These facts have combined to produce a very {satisfactory} understanding of Gromov--Witten theory in genus zero. 
 
-While the higher genus situation is much more difficult, in the last several years, substantial theory has been developed towards a conceptual understanding of the genus one case. This began over a decade ago with the pioneering work of Li, Vakil, and Zinger~\cite{redgone,VZ,LZ,lz2,zingerstvsred,zingred}, and was recently reinvigorated involving ideas from logarithmic geometry and singularity theory~\cite{BCM18,CM18,HL,RSPW,RSPW2,SMY1,VISC}. The result is a \textit{reduced} Gromov--Witten theory, which removes certain degenerate contributions from the ordinary theory. While the Atiyah--Bott localization for the reduced invariants was used to great effect by Zinger in his proof of the BCOV conjectures, two major components of the standard theory -- relative invariants and the degeneration formula -- have not been developed in this setting. Our results in this paper provide these as new {structural} tools in reduced genus one Gromov--Witten theory\footnote{Further motivation to consider the genus one case specifically comes simply from the fact that for Calabi--Yau geometries in dimension larger than $3$, Gromov--Witten theory vanishes in genera greater than one.}. 
+While the higher genus situation is much more difficult, in the last several years, substantial theory has been developed towards a conceptual understanding of the genus one case. This began over a decade ago with the pioneering work of Li, Vakil, and Zinger~\cite{redgone,VZ,LZ,lz2,zingerstvsred,zingred}, and was recently reinvigorated involving ideas from logarithmic geometry and singularity theory~\cite{BCM18,CM18,HL,RSPW,RSPW2,SMY1,VISC}. The result is a \textbf{reduced} Gromov--Witten theory, which removes certain degenerate contributions from the ordinary theory. While the Atiyah--Bott localization for the reduced invariants was used to great effect by Zinger in his proof of the BCOV conjectures, two major components of the standard theory -- relative invariants and the degeneration formula -- have not been developed in this setting. Our results in this paper provide these as new {structural} tools in reduced genus one Gromov--Witten theory\footnote{Further motivation to consider the genus one case specifically comes simply from the fact that for Calabi--Yau geometries in dimension larger than $3$, Gromov--Witten theory vanishes in genera greater than one.}. 
 
 
 \subsection{Results} Our first contribution is a definition and construction of relative reduced Gromov--Witten theory of projective space relative to a hyperplane. The geometric content is the following, see \S \ref{section construction} for a precise formulation.
@@ -390,8 +390,7 @@ A \textbf{centrally aligned curve} is a pair $(C/S,\delta)$, where $\delta\in\ov
     \item for any pair of vertices $v$ and $w$ of distance less than $\delta$, the sections $\lambda(v)$ and $\lambda(w)$ are comparable.
 \end{enumerate}
 \end{definition}
-
-\tred{In essence, this is a family of curves where every vertex of the tropical curve $\plC$ is either inside or outside the circle of radius $\delta$ around the core genus one subcurve.}
+In essence, this says that the curve $\sqC$ is such that all vertices are either inside, outside, or on the circle of radius $\delta$, and that the collection of vertices inside the circle is totally ordered.
 
 The moduli stack $\mathfrak M_{1,n}^{\mathrm{cen}}$  of centrally aligned curves is a logarithmic algebraic stack in the smooth topology, and $\mathfrak M_{1,n}^{\mathrm{cen}}\to\mathfrak M_{1,n}$ is a logarithmic modification. The main construction of~\cite{RSPW} canonically associates to any centrally aligned family of curves $\mathcal C_S$ a partial destabilisation $\widetilde{\mathcal C}_S$ and a contraction
 \[
@@ -413,16 +412,22 @@ We will first compactify the space described above, and then desingularize it. F
 
 Let $\PP^N$ be endowed with the divisorial logarithmic structure induced by $H$. The moduli space $\overline{\mathcal{M}}^{\operatorname{log}}_{1,\alpha}(\mathbb P^N|H,d)$ is a fibred category over logarithmic schemes, whose fibre over $(S,M_S)$ is the groupoid of logarithmically smooth curves of genus one over $(S,M_S)$ equipped with a logarithmic map to $\mathbb P^N$ of degree $d$ and contact order $\alpha$. It is a fundamental fact in the subject that this category is representable by a proper algebraic stack with logarithmic structure, parameterizing minimal objects~\cite{ChenLog}. 
 
+%%%%%
+\begin{comment}
 There is a representable finite logarithmic morphism to the Kontsevich space, forgetting the logarithmic structure on the target:
 $$
 \overline{\mathcal M}^{\mathrm{log}}_{1,\alpha}(\mathbb P^N|H,d) \to \overline{\mathcal M}_{1,n}(\mathbb P^N,d).
 $$
-We require the logarithmic structure of the source curve to be aligned in a compatible way with the map to $\PP^N$. We thus get the moduli space of \textbf{centrally aligned logarithmic maps to $(\mathbb P^n,H)$}, which we denote $\widetilde{\VZ}_{1,\alpha}(\mathbb P^N|H,d)$. It is a logarithmic modification of $\overline{\mathcal M}^{\mathrm{log}}_{1,\alpha}(\mathbb P^N|H,d)$, and it maps down to $\widetilde\VZ_{1,n}(\PP^N,d)$ under forgetting the logarithmic structure of the target.
+\end{comment}
+%%%%%%%%%%%%%%
+As in the absolute setting, we consider the space of logarithmic morphisms from the universal curve $\mathcal{C} \to \mathfrak{M}_{1,n}^{\mathrm{cen}}$ to the logarithmic scheme $(\PP^N,H)$. We impose a compatibility condition, which says that the radius must pass through a vertex of positive degree in $\PP^N$ and contain only vertices of degree zero in its strict interior. In this way we obtain a logarithmic modification
+\begin{equation*} \widetilde\VZ_{1,\alpha}(\PP^N|H,d) \to \ol\Mcal^{\mathrm{log}}_{1,\alpha}(\PP^N|H,d)\end{equation*}
+which we refer to as the \textbf{moduli space of centrally aligned maps to $(\PP^N,H)$}. It is a logarithmic modification of $\overline{\mathcal M}^{\mathrm{log}}_{1,\alpha}(\mathbb P^N|H,d)$. We note that by definition this space maps down to $\widetilde\VZ_{1,n}(\PP^N,d)$, by forgetting the logarithmic structure of the target.
 
 
 \subsection{Relative geometry: expansions} Our next task is to pick out a non-singular principal component in $\widetilde{\VZ}_{1,\alpha}(\mathbb P^N|H,d)$. The principal component of this space, consisting of the closure of the space of maps from nonsingular curves, maps into the principal component of $\widetilde\VZ_{1,n}(\PP^N,d)$. Indeed, smoothable logarithmic maps are, in particular, smoothable as ordinary maps. An additional condition is required to isolate the principal component of the space of logarithmic maps. 
 
-In order make the obstruction theory more geometric, we expand the target. To elucidate the connection with the static target, consider a logarithmic stable map $[C\to (\mathbb P|H)]$ over $\mathrm{Spec} \ (\mathbb N\to \mathbb C)$. At the level of tropicalizations, there is a map of fans
+In order make the obstruction theory more geometric, we expand the target. To elucidate the connection with the static target, consider a logarithmic stable map $[C\to (\mathbb P^N,H)]$ over $\mathrm{Spec} \ (\mathbb N\to \mathbb C)$. At the level of tropicalizations, there is a map of fans
 \[
 \plC\to \mathbb R_{\geq 0}.
 \]
@@ -432,11 +437,15 @@ These subdivisions induce logarithmic modifications
 \[
 \widetilde C\to \mathbb P^N[s],
 \]
-see~\cite{AW}. Here the latter is the $s$-times iterated deformation to the normal cone of $H$ in $\mathbb P^N$. The components of the target are in bijection with the vertices in $\widetilde{\mathbb R}_{\geq 0}$. The curve is modified by adding rational components corresponding to the newly introduced vertices.
+see~\cite{AW}. Here the latter is the $s$-times iterated deformation to the normal cone of $H$ in $\mathbb P^N$. The irreducible components of the target are in bijection with the vertices in $\widetilde{\mathbb R}_{\geq 0}$. The curve is modified by adding rational components corresponding to the newly introduced vertices.
 
 The result is a logarithmic stable map to an expanded target $\mathbb P^N[s]$, together with a contraction to the main target component $\mathbb P^N[s]\to\mathbb P^N$. Two maps are considered equivalent if they differ by $\Gm$-scaling the target at higher level.
 
 Globally, Kim constructs a moduli space of logarithmic stable maps to expanded degenerations, which on logarithmic points, reduces to the above construction~\cite{KimLog}. Indeed, by the above description, Kim's space is identified with a subcategory of the Abramovich--Chen--Gross--Siebert space, and its dual minimal monoids are cones in a subdivision of the dual minimal cones of the unexpanded space. This process is outlined in complete generality in~\cite[\S~2]{R19}. 
+
+Since we will work mostly with expansions, we will use the notation
+\begin{equation*} \ol\Mcal_{1,\alpha}(\PP^N|H,d) \end{equation*}
+for Kim's space of logarithmic stable maps, with the understanding that this may just as easily be viewed as a logarithmic modification of the Abramovich--Chen--Gross--Siebert space.
 
 \subsection{Relative geometry: factorisation}\label{subsection factorisation} Let $[C\to \mathbb P^N[s]\to \mathbb P^N]$ be a logarithmic map from a centrally aligned curve to an expansion. Recall that $\mathbb P^N[s]$ consists of a union of $\mathbb P^N$ with $s$ copies of the projective bundle $\mathbb{P} = \mathbb P(\mathcal O_H\oplus \mathcal O_H(1))$. We refer to these latter components as \textbf{the higher levels}. Thus, we will say that a subcurve $D\subseteq C$ maps to \textbf{higher level} if the collapsed map
 \[
@@ -452,10 +461,10 @@ The following condition identifies the locus of smoothable maps.
 
 \begin{definition}
 The map $[C\to \mathbb P^N[s]\to \mathbb P^N]$ \textbf{factorises completely} if
-\begin{itemize}
+\begin{enumerate}
 \item the map $C\to \mathbb P^N[s]$ factors through $\overline C_F$ such that at least one branch of $\overline C_F$ has positive degree in the fibre direction; 
 \item the collapsed map to $\mathbb P^N$ factorises through $\overline C_B$ such that at least one branch of $\overline C_B$ has positive degree.
-\end{itemize}
+\end{enumerate}
 \end{definition}
 
 In particular, if $[C\to \mathbb P^N[s]\to \mathbb P^N]$ is a family of centrally aligned maps over $S$ that factorises completely, there is a forgetful moduli map $S\to \VZ_{1,n}(\mathbb P^N,d)$, to the principal component of the space of absolute maps.
@@ -521,7 +530,7 @@ which factorise completely, and where automorphisms are considered over the spac
 The stack $\VZ^{\leftrightarrow}_{1,\alpha}(\mathbb P|H_0+H_\infty,d)$ is logarithmically smooth.
 \end{thm}
 
-The main point in the proof of this statement is that on the space of non-degenerate maps with smooth domains, the map from $\VZ^\circ_{1,\alpha}(\mathbb P|H_0+H_\infty,d)\to \VZ^{\leftrightarrow,\circ}_{1,\alpha}(\mathbb P|H_0+H_\infty,d)$ is a $\mathbb G_{\operatorname{m}}$-torsor. Correspondingly, the map on compact moduli spaces is a nodal curve fibration. To prove this, it is convenient to work with the logarithmic multiplicative group and its torsors. Recall that the \textit{logarithmic multiplicative group} $\mathbb G_{\mathrm{log}}$ is the functor on logarithmic schemes whose value on a logarithmic scheme $S$ is the group of global sections $H^0(S,M_S^{\mathrm{gp}})$; it is a proper group functor, and it contains $\Gm$ as a subfunctor. This functor is representable only after a logarithmically \'etale cover. Background may be found in~\cite{MW17,RW19}.
+The main point in the proof of this statement is that on the space of non-degenerate maps with smooth domains, the map from $\VZ^\circ_{1,\alpha}(\mathbb P|H_0+H_\infty,d)\to \VZ^{\leftrightarrow,\circ}_{1,\alpha}(\mathbb P|H_0+H_\infty,d)$ is a $\mathbb G_{\operatorname{m}}$-torsor. Correspondingly, the map on compact moduli spaces is a nodal curve fibration. To prove this, it is convenient to work with the logarithmic multiplicative group and its torsors. Recall that the \textbf{logarithmic multiplicative group} $\mathbb G_{\mathrm{log}}$ is the functor on logarithmic schemes whose value on a logarithmic scheme $S$ is the group of global sections $H^0(S,M_S^{\mathrm{gp}})$; it is a proper group functor, and it contains $\Gm$ as a subfunctor. This functor is representable only after a logarithmically \'etale cover. Background may be found in~\cite{MW17,RW19}.
 
 Each fibre of the bundle $\mathbb P \to \mathbb P^{N-1}$ admits a natural log \'etale morphism to $\mathbb G_{\mathrm{log}}$. Replacing these fibres by $\mathbb G_{\mathrm{log}}$, we obtain a non-representable functor on logarithmic schemes $\mathbb P_{\mathrm{log}}$ and a logarithmically \'etale modification
 \[
@@ -596,7 +605,7 @@ The required result is essentially contained in~\cite[Section 4]{RSPW2}, so we e
 \textbf{Step 1}. Let $\Sigma^{\mathrm{log}}$ be the tropical moduli space of genus one tropical stable maps to $\mathbb R_{\geq 0}$. This is naturally identified with the tropicalization (in the logarithmic sense) of the Abramovich--Chen--Gross--Siebert space of logarithmic stable maps to the pair $(\mathbb P^N,H)$. \\
 
 \noindent
-\textbf{Step 2}. Given such a tropical stable map, we may subdivide $\mathbb R_{\geq 0}$ such that the image of every vertex of $\plC$ is a vertex of $\mathbb R_{\geq 0}$. Call this subdivision $\widetilde{\mathbb R}_{\geq 0}$. The preimages of vertices of the subdivision form a subdivision of $\plC$. After this procedure, the images of vertices of $\plC$ which lie in $\RR_{>0}$ are totally ordered, in a manner extending the partial order obtained from the map to $\mathbb R_{\geq 0}$. The combinatorial types of such \textbf{image-ordered} maps produce the cones of a subdivision of $\Sigma^{\mathrm{log}}$ which we denote $\Sigma^{\mathrm{Kim}}$.\\
+\textbf{Step 2}. Given such a tropical stable map, we may subdivide $\mathbb R_{\geq 0}$ such that the image of every vertex of $\plC$ is a vertex of $\mathbb R_{\geq 0}$. Call this subdivision $\widetilde{\mathbb R}_{\geq 0}$. The preimages of vertices of the subdivision form a subdivision of $\plC$. After this procedure, the images of vertices of $\plC$ which lie in $\RR_{>0}$ are totally ordered, in a manner extending the partial order obtained from the map to $\mathbb R_{\geq 0}$. The combinatorial types of such \textbf{image-ordered} maps produce the cones of a subdivision of $\Sigma^{\mathrm{log}}$ which we denote $\Sigma^{\mathrm{Kim}}$. As the notation suggests, $\Sigma^{\Kim}$ is the tropicalization of Kim's moduli space of logarithmic maps to $(\PP^N,H)$.\\
 
 \noindent
 \textbf{Step 3}.\marginpar{doesn' picking $\delta$ itself imply a subdivision?} Given a tropical map $F: \plC\to \mathbb R_{\geq 0}$ parameterized by $\Sigma^{\mathrm{Kim}}$, there is a largest radius $\delta$ (possibly equal to $0$) such that every vertex strictly contained in the circle of radius $\delta$ around the core has degree-marking $d=0$. Let $
@@ -619,6 +628,10 @@ The construction above has been given to mimic the construction of the space $
 \VZ_{1,\alpha}(\mathbb P^N|H,d)$ has a strict map to $
 \VZ_{1,\alpha}(\mathbb P^N|H,d)$, so its cone complex is a subcomplex of $\Sigma^{\mathrm{cen}}$. The fact that it must be contained in the subcomplex of well-spaced curves is immediate from Proposition~\ref{prop: well-spaced}.
 \end{proof}
+
+\begin{remark} An important observation is that the subdivison $\Sigma_{1,\alpha}(\PP^N|H,d)$ of $\Sigma^{\operatorname{log}}$ is a further refinement of the subdivision $\Sigma^{\Kim}$ of $\Sigma^{\operatorname{log}}$. Thus we have a sequence of logarithmic modifications:
+\begin{equation*} \widetilde\VZ_{1,\alpha}(\PP^N|H,d) \to \ol\Mcal_{1,\alpha}(\PP^N|H,d) \to \ol\Mcal^{\operatorname{log}}_{1,\alpha}(\PP^N|H,d).\end{equation*}
+Consequently, we may view the moduli space of centrally aligned maps as a moduli space of maps to the expanded target. This point of view will be useful in what follows.\end{remark}
 
 \subsection{Indexing the strata} \label{subsection indexing strata} The dimension-$k$ cones in $\Sigma_{1,\alpha}(\PP^N|H,d)$ can be enumerated as follows. First, the cones in $\Sigma^{\operatorname{log}}$ are indexed by \textbf{combinatorial types} of tropical maps to $\RR_{\geq 0}$. Here a combinatorial type encodes all of the data of a tropical map, except for the edge lengths and precise vertex positions. To be more precise, a combinatorial type $\Delta$ consists of:
 \begin{enumerate}
@@ -793,7 +806,7 @@ We summarize that the contribution of each term $\lambda_\Dcal [\Dcal]$ is given
 
 \subsection{Recursive description of the divisors: type $\dag$}\label{subsection C0 splitting} The treatment of the type I, II and III cases above is a fairly straightforward extension of the ideas of Vakil and Gathmann (albeit updated with logarithmic and tropical technology, which streamlines the presentation and simplifies the proofs). The remaining type $\dag$ case, however, is entirely new. In this section we provide a recursive description of these boundary divisors. This constitutes the technical heart of the paper.
 
-\subsubsection{Possible combinatorial types} A boundary divisor $\Dcal \subseteq \Dcal_{1,\alpha,k}(\PP^N|H,d)$ is said to have \textit{type $\dag$} if the core is assigned degree zero by the combinatorial type. Divisors of this type occur as principal components in compactified torus bundles over strata in the space of relative maps. As a result, their combinatorial types exhibit very degenerate behaviour. Precisely, over the generic point of such a divisor, the target may expand multiple times, and the source tropical curve need not be bipartite with a single interior vertex. We stress once again that such degenerate contributions are at the heart of the reduced theory and cannot be removed.  We begin with the following lemma:
+\subsubsection{Possible combinatorial types} A boundary divisor $\Dcal \subseteq \Dcal_{1,\alpha,k}(\PP^N|H,d)$ is said to have \textbf{type $\dag$} if the core is assigned degree zero by the combinatorial type. Divisors of this type occur as principal components in compactified torus bundles over strata in the space of relative maps. As a result, their combinatorial types exhibit very degenerate behaviour. Precisely, over the generic point of such a divisor, the target may expand multiple times, and the source tropical curve need not be bipartite with a single interior vertex. We stress once again that such degenerate contributions are at the heart of the reduced theory and cannot be removed.  We begin with the following lemma:
 \begin{lemma} \label{lemma type C0 combinatorial types}
 Let $\Dcal$ be a locus of type $\dag$ with combinatorial type $\Delta$ which contributes nontrivially to the Gromov--Witten invariant. For every nonzero vertex $\diamond$ of the tropical target, the fibre of the tropical map over $\diamond$ contains exactly one stable vertex, which either is the core, or lies on the circle. Moreover, the maximal contact order at the core is $m>1$.
 \end{lemma}
