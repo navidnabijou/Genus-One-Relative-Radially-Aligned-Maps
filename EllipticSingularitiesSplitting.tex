@@ -382,9 +382,9 @@ Finally, we note that our results require us to encounter several variants of th
 
 \section{Constructions and logarithmic smoothness}\label{section construction}
 
-\subsection{The absolute case} Let $\mathfrak M_{1,n}$ be the logarithmic algebraic stack of $n$-pointed prestable curves of genus $1$. Let $C$ be a logarithmically smooth curve over $S$, let $\plC$ denote its tropicalization, and let $\lambda$ be the section of $\overline{M}_{C/S}$ given by the distance from each vertex to the minimal genus one subcurve.
+\subsection{The absolute case} Let $\mathfrak M_{1,n}$ be the logarithmic algebraic stack of $n$-pointed prestable curves of genus one. Let $C$ be a logarithmically smooth curve over $S$, let $\plC$ denote its tropicalization, and let $\lambda$ be the section of $\overline{M}_{C/S}$ given by the distance from each vertex to the minimal genus one subcurve.
 
-We begin by recalling the logarithmic moduli spaces of genus $1$ curves constructed in~\cite[\S\S 2 \& 4]{RSPW}. Given a family of tropical curves over a base $\sigma$, a central alignment is a piecewise-linearly varying choice of radius $\delta_s\in \overline{M}_S$ for $s\in\sigma$, together with a consistent ordering of the vertices that lie inside the circle of radius $\delta_s$ around the core. Precisely, let $T$ be a geometric point with logarithmic structure.
+We begin by recalling the logarithmic moduli spaces of genus one curves constructed in~\cite[\S\S 2 \& 4]{RSPW}. Given a family of tropical curves over a base $\sigma$, a central alignment is a piecewise-linearly varying choice of radius $\delta_s\in \overline{M}_S$ for $s\in\sigma$, together with a consistent ordering of the vertices that lie inside the circle of radius $\delta_s$ around the core. Precisely, let $T$ be a geometric point with logarithmic structure.
 
 \begin{definition}
 A \textbf{centrally aligned curve} is a pair $(C/T,\delta)$, where $\delta\in\overline{M}_T$, such that:
@@ -394,15 +394,15 @@ A \textbf{centrally aligned curve} is a pair $(C/T,\delta)$, where $\delta\in\ov
 \end{enumerate}
 \end{definition}
 
-\tred{In essence, this is a family of curves where every vertex of the tropical curve $\plC$ is either inside or outside the circle of radius $\delta$ around the core genus $1$ subcurve.}
+\sout{In essence, this is a family of curves where every vertex of the tropical curve $\plC$ is either inside or outside the circle of radius $\delta$ around the core genus $1$ subcurve.}
 
 The moduli stack $\mathfrak M_{1,n}^{\mathrm{cen}}$ is a logarithmic algebraic stack in the smooth topology, and $\mathfrak M_{1,n}^{\mathrm{cen}}\to\mathfrak M_{1,n}$ is a logarithmic modification. The main construction of~\cite{RSPW} canonically associates to any centrally aligned family of curves $\mathcal C_S$ a partial destabilisation $\widetilde{\mathcal C}_S$ and a contraction
 \[
 \widetilde{\mathcal C}_S\to \overline{\mathcal C}_S,
 \]
-where $\overline{\mathcal C}_S$ may contain a Gorenstein elliptic singularity \cite{SMY1}. The number of branches is equal to the sum of the number of vertices which lie on the circle of radius $\delta$ and the number of edges which are split by the same circle. This data uniquely determines the singularity.
+where $\overline{\mathcal C}_S$ may contain a Gorenstein elliptic singularity \cite{SMY1}. The number of branches is equal to the sum of the number of vertices \tred{of $\widetilde{\sqC}$} which lie on the circle of radius $\delta$ \sout{and the number of edges which are split by the same circle}. This data uniquely determines the singularity.
 
-The space of stable maps $\widetilde\VZ_{1,n}(\PP^N,d)$ from the universal nodal curve $\mathcal C$ over the stack $\mathfrak M_{1,n}^{\mathrm{cen}}$ is a proper and algebraic, with projective coarse moduli space. A compatibility condition between the alignment and the map is required, namely that the circle of radius $\delta$ passes through at least one component of positive degree. A stable map in this space is said to satisfy the \textbf{factorisation condition} if the map $\mathcal C\to \mathbb P^N$ factors through the contraction $\widetilde{\mathcal C}\to \overline{\mathcal C}$.
+The space of stable maps $\widetilde\VZ_{1,n}(\PP^N,d)$ from the universal nodal curve $\mathcal C$ over the stack $\mathfrak M_{1,n}^{\mathrm{cen}}$ is algebraic and proper, with projective coarse moduli space. A compatibility condition between the alignment and the map is required, namely that the circle of radius $\delta$ passes through at least one component of positive degree. A stable map in this space is said to satisfy the \textbf{factorisation condition} if the map $\mathcal C\to \mathbb P^N$ factors through the contraction $\widetilde{\mathcal C}\to \overline{\mathcal C}$.
 
  
 \begin{thm}[{\cite[Theorem B]{RSPW}}]
@@ -415,17 +415,13 @@ The remainder of this section lifts this condition to the category of relative m
 
 We will first compactify the space described above, and then desingularize it. For the compactification, we begin with Abramovich--Chen--Gross--Siebert's space of logarithmic stable maps, though we will typically work with various subcategories and variants~\cite{AbramovichChenLog,ChenLog,GrossSiebertLog,KimLog}.
 
-Let $\PP^N$ be endowed with the divisorial logarithmic structure induced by $H$. The moduli space $\overline{\mathcal{M}}^{\operatorname{log}}_{1,\alpha}(\mathbb P^N|H,d)$ is a fibred category over logarithmic schemes, whose fibre over $(S,M_S)$ is the groupoid of logarithmic curves of genus $1$ over $(S,M_S)$ equipped with a map to $\mathbb P^N$ of degree $d$ and contact order $\alpha$. It is a fundamental fact in the subject that this category is representable by a proper algebraic stack with logarithmic structure, parameterizing minimal objects~\cite{ChenLog}. 
+Let $\PP^N$ be endowed with the divisorial logarithmic structure induced by $H$. The moduli space $\overline{\mathcal{M}}^{\operatorname{log}}_{1,\alpha}(\mathbb P^N|H,d)$ is a fibred category over logarithmic schemes, whose fibre over $(S,M_S)$ is the groupoid of logarithmically smooth curves of genus one over $(S,M_S)$ equipped with a logarithmic map to $\mathbb P^N$ of degree $d$ and contact order $\alpha$. It is a fundamental fact in the subject that this category is representable by a proper algebraic stack with logarithmic structure, parameterizing minimal objects~\cite{ChenLog}. 
 
 There is a representable finite logarithmic morphism to the Kontsevich space, forgetting the logarithmic structure on the target:
 $$
 \overline{\mathcal M}^{\mathrm{log}}_{1,\alpha}(\mathbb P^N|H,d) \to \overline{\mathcal M}_{1,n}(\mathbb P^N,d).
 $$
-The space of centrally aligned maps is a logarithmic modification:
-$$
-\widetilde\VZ_{1,n}(\PP^N,d)\to\overline{ \mathcal M}_{1,n}(\mathbb P^N,d).
-$$ 
-The fibre product leads to a fourth moduli space of \textbf{centrally aligned logarithmic maps to $(\mathbb P^n,H)$}, which we denote $\widetilde{\VZ}_{1,\alpha}(\mathbb P^N|H,d)$.
+We require the logarithmic structure of the source curve to be aligned in a compatible way with the map to $\PP^N$. We thus get the moduli space of \textbf{centrally aligned logarithmic maps to $(\mathbb P^n,H)$}, which we denote $\widetilde{\VZ}_{1,\alpha}(\mathbb P^N|H,d)$. It is a logarithmic modification of $\overline{\mathcal M}^{\mathrm{log}}_{1,\alpha}(\mathbb P^N|H,d)$, and it maps down to $\widetilde\VZ_{1,n}(\PP^N,d)$ under forgetting the logarithmic structure of the target.
 
 
 \subsection{Relative geometry: expansions} Our next task is to pick out a non-singular principal component in $\widetilde{\VZ}_{1,\alpha}(\mathbb P^N|H,d)$. The principal component of this space, consisting of the closure of the space of maps from nonsingular curves, maps into the principal component of $\widetilde\VZ_{1,n}(\PP^N,d)$. Indeed, smoothable logarithmic maps are, in particular, smoothable as ordinary maps. An additional condition is required to isolate the principal component of the space of logarithmic maps. 
