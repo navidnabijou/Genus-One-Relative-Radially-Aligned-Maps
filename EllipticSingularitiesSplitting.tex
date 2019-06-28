@@ -939,13 +939,12 @@ We claim that the class $\operatorname{e}(V)$ is tautological and computable. Th
 on $\Ecal$, where $q_i$ is the splitting node. Then $\OO(\delta)$ is isomorphic to the pull-back of $T_i$ to $\widetilde\Dcal$ twisted by all exceptional divisors.\end{lemma}
 We illustrate this lemma in the following example, which brings out the interplay between logarithmic moduli and blow-ups.
 \begin{example}
-Consider the following ray $\tau$ and sublocus $\rho$:
-\begin{figure}[h]
-
+Consider the locus $\Ecal$ given by $\sigma$ below, and the exceptional divisor $\widetilde\Dcal_\rho \subseteq \widetilde\Dcal$ given by $\rho$:
+\begin{figure}[!htbp]
 \begin{minipage}{0.3\textwidth}
 \centering
 \begin{tikzpicture}
-\draw [red] plot [smooth cycle] coordinates {(0,-2) (-0.5,-1) (0,0) (1,0.5) (3,-1) (1,-2.5)};
+%\draw [red] plot [smooth cycle] coordinates {(0,-2) (-0.5,-1) (0,0) (1,0.5) (3,-1) (1,-2.5)};
 
 \draw[fill=black] (0,0) circle[radius=2pt];
 \draw (0,0) node[above]{\small$\sqC_1$};
@@ -975,7 +974,7 @@ Consider the following ray $\tau$ and sublocus $\rho$:
 \draw[fill=blue] (0,-3.5) circle[radius=2pt];
 \draw[fill=blue] (2,-3.5) circle[radius=2pt];
 \end{tikzpicture}
-\caption{$\tau$}
+\caption{$\sigma$}
 \end{minipage}\hfill
 \begin{minipage}{0.7\textwidth}
 \centering
@@ -1050,30 +1049,29 @@ Consider the following ray $\tau$ and sublocus $\rho$:
 \end{minipage}
 \end{figure}
 
-\noindent On the cone $\rho$ we have the following tropical equations
+On the cone $\rho$ we have the following tropical continuity equations
 \begin{align*}
-e:=e_1 = e_2 \\
-f:=f_1 = f_2 = 2f_3 \\
-g:=g_1 = g_2 = 2g_3
+e:=e_1 = e_2, \qquad f:=f_1 = f_2 = 2f_3, \qquad g:=g_1 = g_2 = 2g_3
 \end{align*}
 together with the equation imposed by the choice of alignment:
-\begin{align*} & e_1 + f_1 = e_2 + f_3 + g_3 \\
-\Leftrightarrow \ & e + f = e + f/2 + g/2 \\
-\Leftrightarrow \ & f = g.
+\begin{align*} e_1 + f_1 = e_2 + f_3 + g_3 \qquad (\Longleftrightarrow f = g).
 \end{align*}
-Notice that setting $f=g=0$ we recover $\tau$. We claim that if we twist the bundle
-\begin{equation*} E = \left( \TT_{q_1} C_1 \otimes \TT_{q_1} C_0 \right) \oplus \left( \TT_{q_2} C_2 \otimes \TT_{q_2} C_0 \right) \end{equation*}
-by the line bundle corresponding to the divisor in $\widetilde\Dcal$ defined by $\rho$, we will obtain the bundle
-\begin{equation*} F = \left( \TT_{f_1}C_1^1 \otimes \TT_{e_1} C_0 \right) \oplus \left( \TT_{g_2} C_2^2 \otimes \TT_{e_2} C_0 \right). \end{equation*}
-described earlier. The line bundle corresponding to $\rho$ is simply $\OO(f)=\OO(g)$. We have:
-\begin{align*} \left( \TT_{q_1} C_1 \otimes \TT_{q_1} C_0 \right) \otimes \OO(f) & = \TT_{q_1}C_1 \otimes \TT_{q_1} C_0 \otimes \TT_{f_1} C_1^0 \otimes \TT_{f_1} C_1^1 \\
-& = \TT_{e_1} C_1^0 \otimes \TT_{e_1} C_0 \otimes \TT_{f_1} C_1^0 \otimes \TT_{f_1} C_1^1\\
-&  = \TT_{f_1} C_1^1 \otimes \TT_{e_1} C_0\end{align*}
-where we have used the telescoping trick $\TT_{f_1}C_1^0 \otimes \TT_{e_1} C_1^0 \cong \OO$. On the other hand, for the $C_2$ summand we write $f=f/2 + g/2=f_3+g_3$ to obtain:
-\begin{align*} \left( \TT_{q_2}C_2 \otimes \TT_{q_2}C_0\right) \otimes \OO(f) & = \TT_{e_2} C_0 \otimes \TT_{e_2} C_2^0 \otimes \OO(f_3) \otimes \OO(g_3) \\
-& = \TT_{e_2} C_0 \otimes \TT_{e_2} C_2^0 \otimes \TT_{f_3} C_2^0 \otimes \TT_{f_3} C_2^1 \otimes \TT_{g_3} C_2^1 \otimes \TT_{g_3} C_2^2 \\
-& = \TT_{g_3} C_2^2 \otimes \TT_{e_2} C_0.\end{align*}
-This observation generalises, giving a precise relation between the intrinsically-defined vector bundle $F$ on $\widetilde\Dcal$ (which we use to impose the factorisation condition) and the the vector bundle $E$ pulled back from $\Ecal$. This allows us to express the Chern classes of $F$ in terms of pull-backs of tautological classes from $\Ecal$ and boundary strata on $\widetilde\Dcal$, which is necessary to compute integrals.
+From now on we use the same symbol to denote an edge length and the corresponding node on $\widetilde\Dcal_\rho$. On this locus we have line bundles pulled back from $\Ecal$
+\begin{align*} T_1 & = T_{e_1} C_1^0 \otimes T_{e_1} C_0 \\
+T_2 & = T_{e_2} C_2^0 \otimes T_{e_2} C_0\end{align*}
+as well as the logarithmic line bundle
+\begin{equation*} \OO(\delta) = T_{f_1} C_1^1 \otimes T_{e_1} C_0 = T_{f_2} C_1^2 \otimes T_{e_1} C_0 = T_{g_3} C_2^2 \otimes T_{e_2}C_0 
+\end{equation*}
+where the identifications follow from Lemma \ref{lemma fibres of Odelta}. We claim that: 
+\begin{equation} \label{Odelta eqn} \OO(\delta) = T_1\otimes \OO(\widetilde\Dcal_\rho) = T_2 \otimes \OO(\widetilde\Dcal_\rho).\end{equation}
+Notice that $\OO(\widetilde\Dcal_\rho) = \OO(f)=\OO(g)$. Thus we have
+\begin{align*} T_1 \otimes \OO(\widetilde\Dcal_\rho) & = \OO(f_1) \otimes T_{e_1} C_1^0 \otimes T_{e_1}C_0 \\
+& = T_{f_1}C_1^1 \otimes T_{f_1} C_1^0 \otimes T_{e_1} C_1^0 \otimes T_{e_1}C_0  \\
+& = T_{f_1}C_1^1\otimes T_{e_1}C_0 \qquad (= \OO(\delta))
+\end{align*}
+where in the last line we have used the same telescoping trick $\TT_{f_1}C_1^0 \otimes \TT_{e_1} C_1^0 = \OO$ used in the proof of Lemma \ref{lemma fibres of Odelta}. On the other hand, for $T_2$ we may write $f=f/2 + g/2=f_3+g_3$ in order to obtain:
+\begin{equation*} T_2 \otimes \OO(\widetilde\Dcal_\rho) = \OO(g_3) \otimes \OO(f_3) \otimes T_{e_2} C_2^0 \otimes T_{e_2} C_0 = T_{g_3}C_2^2 \otimes T_{e_2}C_0 = \OO(\delta) \end{equation*}
+where we have used the same telescoping trick. Thus we have proven \eqref{Odelta eqn}. This observation generalises, giving a precise relation between the intrinsically-defined line bundle $\OO(\delta)$ on $\widetilde\Dcal$ (which we use to impose the factorisation condition) and the the line bundles $T_i$ pulled back from $\Ecal$. This allows us to express the Chern classes of $\OO(\delta)$ (and hence $V$) in terms of pull-backs of tautological classes from $\Ecal$ and boundary strata on $\widetilde\Dcal$, which is sufficient in order to compute integrals.
 \end{example}
 
 
