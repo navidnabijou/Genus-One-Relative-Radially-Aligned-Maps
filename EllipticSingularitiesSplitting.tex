@@ -420,12 +420,16 @@ $$
 $$
 \end{comment}
 %%%%%%%%%%%%%%
+
+\begin{comment}
 As in the absolute setting, we consider the space of logarithmic morphisms from the universal curve $\mathcal{C} \to \mathfrak{M}_{1,n}^{\mathrm{cen}}$ to the logarithmic scheme $(\PP^N,H)$. We impose a compatibility condition, which says that the radius must pass through a vertex of positive degree in $\PP^N$ and contain only vertices of degree zero in its strict interior. In this way we obtain a logarithmic modification
 \begin{equation*} \widetilde\VZ_{1,\alpha}(\PP^N|H,d) \to \ol\Mcal^{\mathrm{log}}_{1,\alpha}(\PP^N|H,d)\end{equation*}
 which we refer to as the \textbf{moduli space of centrally aligned maps to $(\PP^N,H)$}. It is a logarithmic modification of $\overline{\mathcal M}^{\mathrm{log}}_{1,\alpha}(\mathbb P^N|H,d)$. We note that by definition this space maps down to $\widetilde\VZ_{1,n}(\PP^N,d)$, by forgetting the logarithmic structure of the target.
+\end{comment}
 
+\subsection{Relative geometry: expansions} 
 
-\subsection{Relative geometry: expansions} Our next task is to pick out a non-singular principal component in $\widetilde{\VZ}_{1,\alpha}(\mathbb P^N|H,d)$. The principal component of this space, consisting of the closure of the space of maps from nonsingular curves, maps into the principal component of $\widetilde\VZ_{1,n}(\PP^N,d)$. Indeed, smoothable logarithmic maps are, in particular, smoothable as ordinary maps. An additional condition is required to isolate the principal component of the space of logarithmic maps. 
+\begin{comment}Our next task is to pick out a non-singular principal component in $\widetilde{\VZ}_{1,\alpha}(\mathbb P^N|H,d)$. The principal component of this space, consisting of the closure of the space of maps from nonsingular curves, maps into the principal component of $\widetilde\VZ_{1,n}(\PP^N,d)$. Indeed, smoothable logarithmic maps are, in particular, smoothable as ordinary maps. An additional condition is required to isolate the principal component of the space of logarithmic maps. \end{comment}
 
 In order make the obstruction theory more geometric, we expand the target. To elucidate the connection with the static target, consider a logarithmic stable map $[C\to (\mathbb P^N,H)]$ over $\mathrm{Spec} \ (\mathbb N\to \mathbb C)$. At the level of tropicalizations, there is a map of fans
 \[
@@ -444,16 +448,23 @@ The result is a logarithmic stable map to an expanded target $\mathbb P^N[s]$, t
 Globally, Kim constructs a moduli space of logarithmic stable maps to expanded degenerations, which on logarithmic points, reduces to the above construction~\cite{KimLog}. Indeed, by the above description, Kim's space is identified with a subcategory of the Abramovich--Chen--Gross--Siebert space, and its dual minimal monoids are cones in a subdivision of the dual minimal cones of the unexpanded space. This process is outlined in complete generality in~\cite[\S~2]{R19}. 
 
 Since we will work mostly with expansions, we will use the notation
-\begin{equation*} \ol\Mcal_{1,\alpha}(\PP^N|H,d) \end{equation*}
+$\ol\Mcal_{1,\alpha}(\PP^N|H,d)$
 for Kim's space of logarithmic stable maps, with the understanding that this may just as easily be viewed as a logarithmic modification of the Abramovich--Chen--Gross--Siebert space.
 
-\subsection{Relative geometry: factorisation}\label{subsection factorisation} Let $[C\to \mathbb P^N[s]\to \mathbb P^N]$ be a logarithmic map from a centrally aligned curve to an expansion. Recall that $\mathbb P^N[s]$ consists of a union of $\mathbb P^N$ with $s$ copies of the projective bundle $\mathbb{P} = \mathbb P(\mathcal O_H\oplus \mathcal O_H(1))$. We refer to these latter components as \textbf{the higher levels}. Thus, we will say that a subcurve $D\subseteq C$ maps to \textbf{higher level} if the collapsed map
+\subsection{Relative geometry: alignment} As in the absolute setting, we consider the space of logarithmic morphisms from the universal curve $\mathcal{C} \to \mathfrak{M}_{1,n}^{\mathrm{cen}}$ to the logarithmic scheme $(\PP^N,H)$. Also as in the absolute case, we impose a compatibility condition, which says that the radius must pass through a vertex of positive degree in $\PP^N$ and contain only vertices of degree zero in its strict interior. In this way we obtain a logarithmic modification of the Abramovich--Chen--Gross--Siebert space. If we further perform the subdivisions of target and source outlined in the previous section, we obtain a logarithmic modification of Kim's space:
+\begin{equation*} \widetilde\VZ_{1,\alpha}(\PP^N|H,d) \to \ol\Mcal_{1,\alpha}(\PP^N|H,d)\end{equation*}
+which we refer to as the \textbf{moduli space of centrally aligned maps} to $(\PP^N,H)$. It parametrises transverse logarithmic maps to the expanded target with an alignment which is compatible with the collapsed map $C \to \PP^N$. Because of this compatibility condition, there is a morphism
+\begin{equation*} \widetilde\VZ_{1,\alpha}(\PP^N|H,d) \to \widetilde\VZ_{1,n}(\PP^N,d)\end{equation*}
+obtained by forgetting the logarithmic structure on the target and collapsing the map.
+
+
+\subsection{Relative geometry: factorisation}\label{subsection factorisation} Let $[C\to \mathbb P^N[s]\to \mathbb P^N]$ be a centrally aligned logarithmic map. Recall that $\mathbb P^N[s]$ consists of a union of $\mathbb P^N$ with $s$ copies of the projective bundle $\mathbb{P} = \mathbb P(\mathcal O_H\oplus \mathcal O_H(1))$. We refer to these latter components as \textbf{the higher levels}. Thus, we will say that a subcurve $D\subseteq C$ maps to \textbf{higher level} if the collapsed map
 \[
 C\to \mathbb P^N
 \]
 maps $D$ into $H\subset \mathbb P^N$. 
 
-Let $D_F\subseteq C$ be the maximal genus one subcurve which is mapped to a higher level and contracted by the map $C\to \mathbb P^N[s]$. Let $\delta_F$ denote the distance from the core to the nearest component of $C \setminus D_F$. Similarly let $D_B\subseteq C$ be the maximal genus one subcurve that is contracted by the collapsed map to $\mathbb P^N$ and let $\delta_B$ be the associated radius. This coincides with the radius of the underlying map to $\mathbb P^N$. Of course, $\delta_F\leq \delta_B$, \tred{so $(C,\delta_F)$ is centrally aligned too}.
+Let $D_F\subseteq C$ be the maximal genus one subcurve which is mapped to a higher level and contracted by the map $C\to \mathbb P^N[s]$. Let $\delta_F$ denote the distance from the core to the nearest component of $C \setminus D_F$. Similarly let $D_B\subseteq C$ be the maximal genus one subcurve that is contracted by the collapsed map to $\mathbb P^N$ and let $\delta_B$ be the associated radius. This coincides with the radius of the underlying map to $\mathbb P^N$. Of course, $\delta_F\leq \delta_B$, so $(C,\delta_F)$ is centrally aligned also.
 
 The datum $(\delta_F,\delta_B)$ determines a destabilisation $\widetilde C$ of $C$ together with successive contractions $\widetilde C\to \overline C_F\to\overline C_B$. The contractions are constructed directly from~\cite[Section~3]{RSPW}.
 
@@ -467,9 +478,9 @@ The map $[C\to \mathbb P^N[s]\to \mathbb P^N]$ \textbf{factorises completely} if
 \end{enumerate}
 \end{definition}
 
-In particular, if $[C\to \mathbb P^N[s]\to \mathbb P^N]$ is a family of centrally aligned maps over $S$ that factorises completely, there is a forgetful moduli map $S\to \VZ_{1,n}(\mathbb P^N,d)$, to the principal component of the space of absolute maps.
-
-Let $\VZ_{1,\alpha}(\mathbb P^N|H,d)$ be the stack of maps from centrally aligned curves to expansions of $\mathbb P^N$ that factorise completely.
+In particular, if $[C\to \mathbb P^N[s]\to \mathbb P^N]$ is a family of centrally aligned maps over $S$ that factorises completely, there is a forgetful moduli map $S\to \VZ_{1,n}(\mathbb P^N,d)$, to the principal component of the space of absolute maps. Let
+\begin{equation*} \VZ_{1,\alpha}(\mathbb P^N|H,d) \subseteq \widetilde\VZ_{1,\alpha}(\PP^N|H,d) \end{equation*}
+be the stack of maps from centrally aligned curves to expansions of $\mathbb P^N$ that factorise completely.
 
 \begin{thm}\label{thm: log-smoothness}
 The stack $\VZ_{1,\alpha}(\mathbb P^N|H,d)$ is proper and logarithmically smooth over $\mathrm{Spec} \ \mathbb C$. 
@@ -629,21 +640,17 @@ The construction above has been given to mimic the construction of the space $
 \VZ_{1,\alpha}(\mathbb P^N|H,d)$, so its cone complex is a subcomplex of $\Sigma^{\mathrm{cen}}$. The fact that it must be contained in the subcomplex of well-spaced curves is immediate from Proposition~\ref{prop: well-spaced}.
 \end{proof}
 
-\begin{remark} An important observation is that the subdivison $\Sigma_{1,\alpha}(\PP^N|H,d)$ of $\Sigma^{\operatorname{log}}$ is a further refinement of the subdivision $\Sigma^{\Kim}$ of $\Sigma^{\operatorname{log}}$. Thus we have a sequence of logarithmic modifications:
-\begin{equation*} \widetilde\VZ_{1,\alpha}(\PP^N|H,d) \to \ol\Mcal_{1,\alpha}(\PP^N|H,d) \to \ol\Mcal^{\operatorname{log}}_{1,\alpha}(\PP^N|H,d).\end{equation*}
-Consequently, we may view the moduli space of centrally aligned maps as a moduli space of maps to the expanded target. This point of view will be useful in what follows.\end{remark}
-
-\subsection{Indexing the strata} \label{subsection indexing strata} The dimension-$k$ cones in $\Sigma_{1,\alpha}(\PP^N|H,d)$ can be enumerated as follows. First, the cones in $\Sigma^{\operatorname{log}}$ are indexed by \textbf{combinatorial types} of tropical maps to $\RR_{\geq 0}$. Here a combinatorial type encodes all of the data of a tropical map, except for the edge lengths and precise vertex positions. To be more precise, a combinatorial type $\Delta$ consists of:
+\subsection{Indexing the strata} \label{subsection indexing strata} The dimension-$k$ cones in $\Sigma_{1,\alpha}(\PP^N|H,d)$ can be enumerated as follows. First, the cones in $\Sigma=\Sigma^{\Kim}$ are indexed by \textbf{combinatorial types} of tropical maps to $\RR_{\geq 0}$. Here a combinatorial type encodes all of the data of a tropical map, except for the edge lengths. To be more precise, a combinatorial type $\Delta$ consists of:
 \begin{enumerate}
-\item a finite graph;
+\item a finite graph $\sqC$ and topological (not metric) subdivision $\widetilde\RR_{\geq 0}$ of $\RR_{\geq 0}$;
 \item genus, degree and marking assignments on the vertices;
-\item the data of which stratum of $\RR_{\geq 0}$ each vertex is mapped to;
+\item the data of which vertex of $\widetilde\RR_{\geq 0}$ each vertex of $\sqC$ is mapped to;
 \item integral slopes along the edges (both finite and infinite).
 \end{enumerate}
-The corresponding cone $\sigma \in \Sigma^{\operatorname{log}}$ is then given by the resulting moduli space of tropical maps, given by choices of edge lengths and vertex positions which produce a continuous tropical map. Given $\sigma\in \Sigma^{\operatorname{log}}$ we then produce all the cones in $\Sigma_{1,\alpha}(\PP^N|H,d)$ mapping to $\sigma$ by performing Steps 2--4 outlined above. This amounts to taking a particular subdivision of $\sigma$. Note that in this process, new cones are created which map into larger-dimensional cones of $\Sigma^{\operatorname{log}}$. The process for enumerating the codimension $k$ strata of $\VZ_{1,\alpha}(\PP^N|H,d)$ is therefore:
+The corresponding cone $\sigma \in \Sigma^{\operatorname{Kim}}$ is then given by the resulting moduli space of tropical maps, given by choices of edge lengths on source and target which produce a continuous tropical map. Given $\sigma\in \Sigma^{\operatorname{Kim}}$ we then produce all the cones in $\Sigma_{1,\alpha}(\PP^N|H,d)$ mapping to $\sigma$ by performing Steps 3--4 outlined above. This amounts to taking a particular subdivision of $\sigma$. Note that in this process, new cones are created which map into larger-dimensional cones of $\Sigma^{\operatorname{Kim}}$. The process for enumerating the codimension $k$ strata of $\VZ_{1,\alpha}(\PP^N|H,d)$ is therefore:
 \begin{enumerate}
 \item fix a combinatorial type $\Delta$;
-\item perform the subdvidision of the resulting cone $\sigma \in \Sigma^{\operatorname{log}}$;
+\item perform the subdvidision of the resulting cone $\sigma \in \Sigma^{\operatorname{Kim}}$;
 \item identify the dimension $k$ cones of that subdivision.
 \end{enumerate}
 In \S \ref{section reduced splitting} we will perform this analysis in the case $k=1$.
