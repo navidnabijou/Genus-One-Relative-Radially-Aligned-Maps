@@ -1,0 +1,318 @@
+
+% Otherwise some colors may look a bit different in ipe and TeX
+\PassOptionsToPackage{rgb}{xcolor}
+
+\documentclass{article}
+\usepackage[papersize={595bp,842bp},scale=1,margin=0pt]{geometry}
+\usepackage{tikz,amssymb}
+\usetikzlibrary{arrows.meta,patterns}
+\usetikzlibrary{ipe} % ipe compatibility library
+
+\tikzstyle{ipe stylesheet} = [
+  ipe import,
+  even odd rule,
+  line join=round,
+  line cap=butt,
+  ipe pen normal/.style={line width=0.4},
+  ipe pen heavier/.style={line width=0.8},
+  ipe pen fat/.style={line width=1.2},
+  ipe pen ultrafat/.style={line width=2},
+  ipe pen normal,
+  ipe mark normal/.style={ipe mark scale=3},
+  ipe mark large/.style={ipe mark scale=5},
+  ipe mark small/.style={ipe mark scale=2},
+  ipe mark tiny/.style={ipe mark scale=1.1},
+  ipe mark normal,
+  /pgf/arrow keys/.cd,
+  ipe arrow normal/.style={scale=7},
+  ipe arrow large/.style={scale=10},
+  ipe arrow small/.style={scale=5},
+  ipe arrow tiny/.style={scale=3},
+  ipe arrow normal,
+  /tikz/.cd,
+  ipe arrows, % update arrows
+  <->/.tip = ipe normal,
+  ipe dash normal/.style={dash pattern=},
+  ipe dash dashed/.style={dash pattern=on 4bp off 4bp},
+  ipe dash dotted/.style={dash pattern=on 1bp off 3bp},
+  ipe dash dash dotted/.style={dash pattern=on 4bp off 2bp on 1bp off 2bp},
+  ipe dash dash dot dotted/.style={dash pattern=on 4bp off 2bp on 1bp off 2bp on 1bp off 2bp},
+  ipe dash normal,
+  ipe node/.append style={font=\normalsize},
+  ipe stretch normal/.style={ipe node stretch=1},
+  ipe stretch normal,
+  ipe opacity 10/.style={opacity=0.1},
+  ipe opacity 30/.style={opacity=0.3},
+  ipe opacity 50/.style={opacity=0.5},
+  ipe opacity 75/.style={opacity=0.75},
+  ipe opacity opaque/.style={opacity=1},
+  ipe opacity opaque,
+]
+
+\definecolor{red}{rgb}{1,0,0}
+\definecolor{green}{rgb}{0,1,0}
+\definecolor{blue}{rgb}{0,0,1}
+\definecolor{yellow}{rgb}{1,1,0}
+\definecolor{orange}{rgb}{1,0.647,0}
+\definecolor{gold}{rgb}{1,0.843,0}
+\definecolor{purple}{rgb}{0.627,0.125,0.941}
+\definecolor{gray}{rgb}{0.745,0.745,0.745}
+\definecolor{brown}{rgb}{0.647,0.165,0.165}
+\definecolor{navy}{rgb}{0,0,0.502}
+\definecolor{pink}{rgb}{1,0.753,0.796}
+\definecolor{seagreen}{rgb}{0.18,0.545,0.341}
+\definecolor{turquoise}{rgb}{0.251,0.878,0.816}
+\definecolor{violet}{rgb}{0.933,0.51,0.933}
+\definecolor{darkblue}{rgb}{0,0,0.545}
+\definecolor{darkcyan}{rgb}{0,0.545,0.545}
+\definecolor{darkgray}{rgb}{0.663,0.663,0.663}
+\definecolor{darkgreen}{rgb}{0,0.392,0}
+\definecolor{darkmagenta}{rgb}{0.545,0,0.545}
+\definecolor{darkorange}{rgb}{1,0.549,0}
+\definecolor{darkred}{rgb}{0.545,0,0}
+\definecolor{lightblue}{rgb}{0.678,0.847,0.902}
+\definecolor{lightcyan}{rgb}{0.878,1,1}
+\definecolor{lightgray}{rgb}{0.827,0.827,0.827}
+\definecolor{lightgreen}{rgb}{0.565,0.933,0.565}
+\definecolor{lightyellow}{rgb}{1,1,0.878}
+\definecolor{black}{rgb}{0,0,0}
+\definecolor{white}{rgb}{1,1,1}
+
+\begin{document}
+\thispagestyle{empty}
+\noindent
+\begin{tikzpicture}[ipe stylesheet]
+  \useasboundingbox (0, 0) rectangle (595, 842);
+  \pic
+     at (129.8488, 703.2932) {ipe disk};
+  \pic
+     at (97.8488, 719.2932) {ipe disk};
+  \pic
+     at (97.8488, 687.2932) {ipe disk};
+  \draw
+    (97.8488, 719.2932)
+     -- (129.8488, 703.2932)
+     -- (97.8488, 687.2932);
+  \draw
+    (129.8488, 703.2932)
+     -- (161.8488, 687.2932);
+  \draw[ipe dash dashed]
+    (769.1682, 353.591)
+     -- (801.1682, 337.591)
+     -- (801.1682, 337.591);
+  
+  \draw
+    (193.8488, 671.2932)
+     -- (225.8488, 655.2932)
+     -- (225.8488, 655.2932);
+  \draw
+    (225.8488, 655.2932)
+     -- (193.8488, 639.2932)
+     -- (193.8488, 639.2932);
+  \draw[ipe dash dashed]
+    (193.8488, 639.2932)
+     -- (161.8488, 623.2932);
+  \draw
+    (161.8488, 623.2932)
+     -- (129.8488, 607.2932);
+  \pic
+     at (146.637, 615.0615) {ipe disk};
+  \draw
+    (129.8488, 607.2932)
+     -- (97.8488, 591.2932)
+     -- (97.8488, 591.2932);
+  \draw
+    (147.2948, 615.0622)
+     -- (97.2686, 638.1002)
+     -- (97.2686, 638.1002);
+  \pic
+     at (96.6103, 637.4422) {ipe disk};
+  \pic
+     at (97.9268, 590.7072) {ipe disk};
+  \pic
+     at (130.1808, 622.9607) {ipe cross};
+  \pic
+     at (130.1808, 607.1635) {ipe cross};
+  \pic
+     at (145.9788, 695.3672) {ipe cross};
+  \draw[-ipe linear]
+    (97.8488, 575.2932)
+     -- (257.8488, 575.2932);
+  \pic
+     at (97.8488, 575.2932) {ipe disk};
+  \pic
+     at (129.8488, 575.2932) {ipe cross};
+  \pic
+     at (145.8488, 575.2932) {ipe cross};
+  \pic
+     at (225.8488, 575.2932) {ipe cross};
+  \draw
+    (129.8488, 703.2932)
+     -- (257.8488, 703.2932);
+  \draw
+    (225.8488, 655.2932)
+     -- (257.8488, 655.2932)
+     -- (257.8488, 655.2932);
+  \draw
+    (146.3018, 614.861)
+     -- (258.5378, 614.404);
+  \node[ipe node]
+     at (189.423, 676.278) {$m$};
+  \node[ipe node]
+     at (189.094, 629.543) {$m$};
+  \node[ipe node]
+     at (111.421, 715.773) {$m_1$};
+  \node[ipe node]
+     at (110.104, 590.707) {$m_2$};
+  \node[ipe node]
+     at (110.763, 564.378) {$\ell_1$};
+  \node[ipe node]
+     at (133.801, 564.377) {$\ell_2$};
+  \node[ipe node]
+     at (146.308, 543.972) {$\frac{\ell_1}{m_1}+\frac{\ell_2}{m} \lesseqgtr \frac{\ell_1+\ell_2}{m_2}$};
+  \pic
+     at (473.6651, 658.9228) {ipe disk};
+  \pic
+     at (353.8488, 719.2932) {ipe disk};
+  \pic
+     at (353.8488, 687.2932) {ipe disk};
+  \draw
+    (353.8488, 719.2932)
+     -- (385.8488, 703.2932)
+     -- (353.8488, 687.2932);
+  \draw
+    (386.7731, 703.2932)
+     -- (418.7731, 687.2932);
+  \draw[ipe dash dashed]
+    (417.8488, 687.2932)
+     -- (449.8488, 671.2932)
+     -- (449.8488, 671.2932);
+  
+  \draw
+    (449.8488, 671.2932)
+     -- (481.8488, 655.2932)
+     -- (481.8488, 655.2932);
+  \draw
+    (481.8488, 655.2932)
+     -- (449.8488, 639.2932)
+     -- (449.8488, 639.2932);
+  \draw[ipe dash dashed]
+    (449.8488, 639.2932)
+     -- (417.8488, 623.2932);
+  \draw
+    (417.8488, 623.2932)
+     -- (385.8488, 607.2932);
+  \pic
+     at (457.1756, 642.7929) {ipe disk};
+  \draw
+    (385.8488, 607.2932)
+     -- (353.8488, 591.2932)
+     -- (353.8488, 591.2932);
+  \pic
+     at (352.6103, 622.6521) {ipe disk};
+  \pic
+     at (353.9268, 590.7072) {ipe disk};
+  \pic
+     at (458.2826, 667.3311) {ipe cross};
+  \pic
+     at (459.207, 575.7344) {ipe cross};
+  \draw[-ipe linear]
+    (353.8488, 575.2932)
+     -- (513.8488, 575.2932);
+  \pic
+     at (353.8488, 575.2932) {ipe disk};
+  \pic
+     at (385.8488, 575.2932) {ipe cross};
+  \pic
+     at (475.7994, 575.2932) {ipe cross};
+  \pic
+     at (481.8488, 575.2932) {ipe cross};
+  \draw[shift={(472.741, 659.847)}, xscale=0.3271, yscale=-1.7893]
+    (0, 0)
+     -- (128, 0);
+  \draw
+    (481.8488, 655.2932)
+     -- (513.8488, 655.2932)
+     -- (513.8488, 655.2932);
+  \draw[shift={(459.26, 642.878)}, xscale=0.4834, yscale=0.4807]
+    (0, 0)
+     -- (112.236, -0.457);
+  \draw[red]
+    (482.3765, 654.0394) circle[radius=9.9987];
+  \draw
+    (354.8117, 621.686)
+     -- (386.2407, 606.8958);
+  \pic
+     at (386.2407, 606.8958) {ipe disk};
+  \pic
+     at (386.2407, 703.956) {ipe disk};
+  \draw[red]
+    (360.3506, 584.6012)
+     arc[start angle=160.4967, end angle=217.0656, x radius=120.4239, y radius=-143.3401];
+  \pic
+     at (473.9974, 650.6919) {ipe cross};
+  \pic
+     at (364.92, 693.131) {ipe cross};
+  \pic
+     at (372.3151, 710.6943) {ipe cross};
+  \pic
+     at (359.3737, 593.2977) {ipe cross};
+  \draw
+    (226.3225, 655.8881)
+     -- (258.6759, 665.1319);
+  \draw
+    (226.3225, 654.0394)
+     -- (258.6759, 646.6443);
+  \draw[-ipe linear]
+    (271.6173, 766.814)
+     -- (337.2485, 767.7384);
+  
+  \pic
+     at (272.5417, 782.5285) {ipe disk};
+  \pic
+     at (271.6173, 815.8063) {ipe disk};
+  \draw
+    (305.8194, 798.2431)
+     -- (272.5417, 815.8063);
+  \draw
+    (305.8194, 798.2431)
+     -- (272.5417, 782.5285)
+     -- (272.5417, 782.5285);
+  \draw
+    (272.5417, 782.5285)
+     -- (336.3241, 782.5285);
+  \draw
+    (272.5417, 815.8063)
+     -- (336.3241, 814.8819);
+  \draw
+    (304.8951, 799.1674)
+     -- (335.3997, 799.1674);
+  \draw
+    (305.8194, 799.1674)
+     -- (336.3241, 804.7137);
+  \draw
+    (305.8194, 798.2431)
+     -- (335.3997, 792.6968);
+  \draw
+    (387.1651, 703.956)
+     -- (511.0324, 703.956)
+     -- (511.0324, 703.0316);
+  \draw
+    (388.0895, 605.0471)
+     -- (511.9568, 605.0471);
+  \pic
+     at (272.5417, 766.814) {ipe disk};
+  \draw[red]
+    (304.8951, 797.3187) circle[radius=35.9679];
+    
+    \pic[fill=white]
+     at (225.8488, 655.2932) {ipe fdisk};
+     
+     \pic[fill=white]
+     at (481.8488, 655.2932) {ipe fdisk};
+     
+     \pic[fill=white]
+     at (304.8951, 799.1674) {ipe fdisk};
+\end{tikzpicture}
+\end{document}
+
