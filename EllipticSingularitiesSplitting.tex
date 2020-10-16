@@ -73,7 +73,7 @@
 \usepackage{xcolor}
 \usepackage{xfrac}
 \usepackage{tikz,tikz-cd}
-\usetikzlibrary{decorations.pathmorphing,decorations.pathreplacing,patterns,arrows.meta}
+\usetikzlibrary{decorations.pathmorphing,decorations.pathreplacing,patterns,arrows.meta,shapes.misc}
 
 
 \definecolor{red}{rgb}{1,0,0}
@@ -431,17 +431,17 @@ Finally, it would be natural to generalize the method of degenerating tangency c
 
 We briefly review some basic tropical structures in the theory of logarithmic curves and logarithmic stable maps. A detailed treatment is given by~\cite[Section~3]{CavalieriChanUlirschWise}. The following paragraphs are meant only as a reminder. 
 
-\subsection*{Curves and tropical curves} A nodal curve $C$ over $\spec \mathbb C$ has an associated dual graph $\Gamma(C)$. Given a toric monoid $P$, there is a logarithmic point $\spec \CC_P$ which may be thought of as remembering the information of an embedding of a closed point into the toric variety $\spec \mathbb C[P]$. For a logarithmically smooth curve $C$ over $\spec \CC_P$, the dual graph $\Gamma(C)$ is enhanced: given an edge $e$ of $\Gamma(C)$, the logarithmic structure keeps track of a generalized ``edge length'' $\ell_e$, which is an element of $P$. These data can be repackaged into a cone complex $\plC$ together with a map to the dual cone $\sigma_P$
+\subsection*{Curves and tropical curves} A nodal curve $C$ over $\spec \mathbb C$ has an associated dual graph $\Gamma(C)$. Given a toric monoid $P$, there is a logarithmic point $\spec \CC_P$ which may be thought of as remembering the information of the embedding of the torus-fixed closed point into the toric variety $\spec \mathbb C[P]$. For a logarithmically smooth curve $C$ over $\spec \CC_P$, the dual graph $\Gamma(C)$ is enhanced: given an edge $e$ of $\Gamma(C)$, the logarithmic structure keeps track of a generalized ``edge length'' $\ell_e$, which is an element of $P$. These data can be repackaged into a cone complex $\plC$ together with a map to the dual cone $\sigma_P$
 \[
 \pi: \plC\to \sigma_P.
 \]
-A fiber of this map $\pi$ is a metric space enhancing the topological space $\Gamma(C)$, with edges given lengths in $\RR_{\geq 0}$. Over the interior of the cone $\sigma_P$ these edge lengths are nonzero, and the fibers are homoemorphic to $\Gamma(C)$. Over the faces of $\sigma_P$, the fibers can be identified with edge collapses. 
+A fiber of this map $\pi$ is a metric space enhancing the topological space $\Gamma(C)$, with edges given lengths in $\RR_{\geq 0}$. Over the interior of the cone $\sigma_P$ these edge lengths are nonzero, and the fibers are homoemorphic to $\Gamma(C)$. Over the faces of $\sigma_P$, the fibers can be identified with edge contractions. 
 
 The discussion is globalized in~\cite{CavalieriChanUlirschWise}, and the construction can be carried out for the universal curve over the moduli space of logarithmic curves. Specifically, there is a stack over the category of cone complexes $\mathfrak M_{g,n}^{\mathrm{trop}}$ equipped with a universal curve 
 \[
 \plC\to \mathfrak M_{g,n}^{\mathrm{trop}}.
 \]
-The reader is encourage to think of $\mathfrak M_{g,n}^{\mathrm{trop}}$ as playing the same role for $\mathfrak M_{g,n}$ as a fan plays for a toric variety. In particular, two constructions are relevant:
+The reader is encouraged to think of $\mathfrak M_{g,n}^{\mathrm{trop}}$ as playing the same role for $\mathfrak M_{g,n}$ as a fan plays for a toric variety. In particular, two constructions are relevant:
 \begin{enumerate}
 \item A subdivision of $\mathfrak M_{g,n}^{\mathrm{trop}}$ gives rise to a birational modification of $\mathfrak M_{g,n}$.
 \item A piecewise linear function on $\mathfrak M_{g,n}^{\mathrm{trop}}$ gives rise to a Cartier divisor on $\mathfrak M_{g,n}$.
@@ -451,19 +451,20 @@ The reader is encourage to think of $\mathfrak M_{g,n}^{\mathrm{trop}}$ as playi
 \[
 \plC\to \RR_{\geq 0}.
 \]
-Each fiber over $\sigma_P$ encodes a metric enhancement of the dual graph, together with a piecewise linear map to $\RR_{\geq 0}$. There is once again a cone stack representing the moduli problem of tropical maps; the technical details are only cosmetically different than those presented in~\cite{CavalieriChanUlirschWise}, and we leave these details to the reader. 
+Each fiber over $\sigma_P$ encodes a metric enhancement of the dual graph, together with a piecewise linear map to $\RR_{\geq 0}$. There is once again a cone stack representing the moduli problem of tropical maps; the technical details are only cosmetically different than those presented in~\cite{CavalieriChanUlirschWise}, and we leave these details to the reader. See also \cite{GrossSiebertLog}.
 
-\subsection{Maps from curves and elliptic singularities} We provide a brief intuitive picture that underlies the work in~\cite{RSPW,RSPW2}. If $C$ is a Gorenstein curve and $f:C\to \mathbb P^N$ is a morphism, the ampleness of the the tangent bundle of $\mathbb P^N$ ensures that if no subcurve of arithmetic genus $1$ is contracted, the deformations of $f$ are unobstructed. In fact, the deformations \textit{over the stack of curves} are also unobstructed. The moduli space of Gorenstein genus $1$ is not smooth. However, a more sophisticated moduli problem, consisting of nodal curves together with a \textit{chosen contraction} to a Gorenstein curve, might be expected to resolve these singularities. The formation of such a moduli problem requires logarithmic geometry, and is achieved in~\cite[Section~3]{RSPW}. Once constructed, the corresponding moduli of stable maps out of a Gorenstein curve is also resolved. Note that maps from nodal genus $1$ curves may have stable limits that contract genus $1$ subcurves, but the allowance of Gorenstein singularities ensures that properness despite disallowing contracted genus $1$ components. 
+\subsection{Maps from curves and elliptic singularities} We provide a brief intuitive picture that underlies the work in~\cite{RSPW,RSPW2}. If $C$ is a Gorenstein curve and $f:C\to \mathbb P^N$ is a morphism, the ampleness of the the tangent bundle of $\mathbb P^N$ ensures that if no subcurve of arithmetic genus $1$ is contracted, the deformations of $f$ are unobstructed. In fact, the deformations \textit{over the stack of curves} are also unobstructed. The moduli space of Gorenstein genus $1$ curves is not smooth. However, a more sophisticated moduli problem, consisting of nodal curves together with a \textit{chosen contraction} to a Gorenstein curve, might be expected to resolve these singularities. The formation of such a moduli problem requires logarithmic geometry, and is achieved in~\cite[Section~3]{RSPW}. Once constructed, the corresponding moduli of stable maps out of a Gorenstein curve is also resolved. Note that maps from nodal genus $1$ curves may have stable limits that contract genus $1$ subcurves, but the allowance of Gorenstein singularities ensures properness despite disallowing contracted genus $1$ components. 
 
-When working with logarithmic geometries such as $(\mathbb P^N,H)$ as we do here, similar ideas may be expected to apply, but the deformation theory of maps becomes more delicate. Indeed, the logarithmic Euler sequence for this pair shows that the logarithmic tangent bundle is a quotient of $\mathcal O\oplus\mathcal O(1)^{\oplus 1}$, and additional obstructions appear. In simple terms, there exist logarithmic maps to the pair $(\mathbb P^N,H)$ with obstructed logarithmic deformations, whose underlying ordinary stable map is unobstructed. 
+When working with logarithmic geometries such as $(\mathbb P^N,H)$, as we do here, similar ideas may be expected to apply, but the deformation theory of maps becomes more delicate. Indeed, the logarithmic Euler sequence for this pair shows that the logarithmic tangent bundle is a quotient of $\mathcal O\oplus\mathcal O(1)^{\oplus N}$, and additional obstructions appear. In simple terms, there exist logarithmic maps to the pair $(\mathbb P^N,H)$ with obstructed logarithmic deformations, whose underlying ordinary stable map is unobstructed. 
 
 \subsection{Absolute geometry: reminders} Let $\mathfrak M_{1,n}$ be the logarithmic algebraic stack of $n$-pointed prestable curves of genus one. We begin by recalling the logarithmic moduli spaces of genus one curves constructed in~\cite[\S 2 \& \S 4]{RSPW}. 
 
-Consider a logarithmically smooth curve $C$ over a logarithmic geometric point $S$ with monoid $P$ and let $\pi: \plC\to \sigma_P$ denote its tropicalization. Given a point $t$ in $\sigma_P$ we obtain a metric graph as explained above. Since the curve in question has genus $1$, there is a minimal genus $1$ subgraph -- either a vertex of genus $1$ or a cycle in the graph. We will refer to this as the \textbf{core}. Given a point $s$ with $\pi(s)$ equal to $t$, there is a well-defined distance in the metric graph $\pi^{-1}(t)$ from $s$ to the core. 
+Consider a logarithmically smooth curve $C$ over a logarithmic geometric point $S$ with monoid $P$ and let $\pi\colon \plC\to \sigma_P$ denote its tropicalization. Given a point $t$ in $\sigma_P$ we obtain a metric graph as explained above. Since the curve in question has genus $1$, there is a minimal genus $1$ subgraph -- either a vertex of genus $1$ or a cycle in the graph. We will refer to this as the \textbf{core}.
 
-In particular, for each vertex $v$ of the dual graph $\Gamma(C)$, i.e. each component of $C$, there is a well-defined function $\lambda(v): \sigma_P\to \RR_{\geq 0}$, defined on the base of the tropical family. Given any other piecewise linear function $\delta$ on $\sigma_P$, say that $\delta$ is \textbf{comparable} to $\lambda(v)$ if there is a global order relation, either $\lambda(v)\leq \delta$ or $\lambda(v)\geq \delta$, that holds at all points of $\sigma_P$. 
+Given a point $s$ with $\pi(s)$ equal to $t$, there is a well-defined distance in the metric graph $\pi^{-1}(t)$ from $s$ to the core. 
+In particular, for each vertex $v$ of the dual graph $\Gamma(C)$, i.e. each component of $C$, there is a well-defined function $\lambda(v): \sigma_P\to \RR_{\geq 0}$, defined on the base of the tropical family. We may as well think of $\boldsymbol{\lambda}$ as a piecewise linear function $\lambda\colon\plC\to\RR_{\geq 0}\times\sigma_P$, see Figure \ref{fig:lambdaexample}. Given any other linear function $\delta$ on $\sigma_P$, say that $\delta$ is \textbf{comparable} to $\lambda(v)$ if there is a global order relation, either $\lambda(v)\leq \delta$ or $\lambda(v)\geq \delta$, that holds at all points of $\sigma_P$. 
 
-Piecewise linear functions on $\sigma_P$ are naturally identified with global sections of the characteristic sheaf $\overline M_S$. Given an arbitrary logarithmically smooth curve $C/S$, conditions involving the comparability of piecewise linear functions can be imposed geometric point-by-point. This leads to the following definition. 
+Piecewise linear functions on $\plC$ are naturally identified with global sections of the characteristic sheaf $\overline M_C$; linear functions on $\sigma_P$ are naturally identified with global sections of the characteristic sheaf $\overline M_S$, and can be pulled back to $C$. Given an arbitrary logarithmically smooth curve $C/S$, conditions involving the comparability of piecewise linear functions can be imposed at the level of geometric points; they determine subdivisions of $\sigma_P$, and, in turn, logarithmic modifications of $S$. %This leads to the following definition. 
 
 \begin{definition}
 A \textbf{centrally aligned curve} is a pair $(C/S,\delta)$, where $\delta\in\overline{M}_S$, such that:
@@ -474,25 +475,56 @@ A \textbf{centrally aligned curve} is a pair $(C/S,\delta)$, where $\delta\in\ov
 \end{definition}
 In other words, for the tropical curve $\sqC$, all vertices are either inside, outside, or on the circle of radius $\delta$ regardless of the point on the base; the collection of vertices inside the circle is totally ordered by their distance to the core.
 
+\begin{figure}
+ \begin{tikzpicture} 
+  \tikzset{cross/.style={cross out, draw=black, fill=none, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt}, cross/.default={3pt}}
+  
+  \foreach \x in {(.5,2.5),(3.3,2.5),(3.65,2.5),(3.7,2.5),(4.4,2.5),(4.65,2.5),(-1.7,2.5)}
+  \draw \x node[cross,rotate=45] {};
+  
+  \foreach \x in {(-1,1),(3.5,1.5),(3.2,2),(-2.5,2.5),(-.5,1.5),(1.5,3.5),(4.8,3),(5.8,3.5),(7,0),(-2,2.8),(4,3.2)}
+  \draw[fill=black] \x circle (2pt);
+  
+  \draw[gray] (0,0) node[left]{$\plC_0$} -- (1,.2) -- (2,0) -- (1,-.2) -- (0,0); %core
+  
+  \draw (0,0) -- (-2.5,2.5) -- (-2.7,4) (-2.5,2.5) -- (-2.3,4) (-1,1)--(1.5,3.5)--(1.3,4) (1.5,3.5)--(1.7,4) (-.5,1.5) -- (-1.7,2.5) -- (-2,2.8) --(-2.2,4) (-2,2.8) --(-1.8,4);
+  \draw (1,.2) -- (4,3.2) -- (3.9,4) (4,3.2) -- (4.1,4);
+  \draw (1,-.2) -- (3.2,2) -- (5,4) (3.2,2) -- (5.2,4);
+  \draw (2,0) -- (3.5,1.5) -- (4.8,3) -- (5.4,4) (4.8,3) -- (5.6,4) (3.5,1.5) -- (5.8,3.5) -- (5.8,4) (5.8,3.5) -- (6,4);
+  
+  \draw[->] (7,0) -- (7,4); %real axis
+  \draw[dashed] (-2.7,1) -- (7.2,1) (-2.7,1.5) -- (7.2,1.5) (-2.7,2) -- (7.2,2); %heights
+  \draw[blue,dashed]  (-2.7,2.5) -- (7.2,2.5) node[right]{$\delta$};
+  \draw [->] (6,1.55) --node[above]{$\lambda$} (6.8,1.55); %arrow-lambda
+   
+  \foreach \x in {(0,0),(1,.2),(1,-.2),(2,0)}
+  \draw[fill=gray] \x circle (2pt);
+ \end{tikzpicture}
+\caption{The function $\lambda$ (distance from the core) and its cutoff value $\delta$.}
+\label{fig:lambdaexample}
+\end{figure}
+
+
+
 The moduli stack $\mathfrak M_{1,n}^{\mathrm{cen}}$  of centrally aligned curves is a logarithmic algebraic stack in the smooth topology, and $\mathfrak M_{1,n}^{\mathrm{cen}}\to\mathfrak M_{1,n}$ is a logarithmic modification. The main construction of~\cite{RSPW} canonically associates to any centrally aligned family of curves $\mathcal C_S$ a partial destabilisation $\widetilde{\mathcal C}_S$, introducing $2$-pointed components, and a contraction
 \[
 \widetilde{\mathcal C}_S\to \overline{\mathcal C}_S,
 \]
-where $\overline{\mathcal C}_S$ may contain a Gorenstein elliptic singularity \cite{SMY1}. Given a family of tropical curves, the function $\delta$ provides a non-negative real number for each point on the base. We may therefore consider the ``circle'' of points on each fiber whose distance from the minimal genus $1$ subgraph is equal to $\delta$. The partial destabilization, or ``bubbling'', introduces $2$-pointed rational curves into the curve by adding vertices to the dual graph at the points that lie on this circle. The number of branches is equal to the number of vertices of $\widetilde{\sqC}$ which lie on the circle of radius $\delta$. %This data uniquely determines the singularity.
+where $\overline{\mathcal C}_S$ may contain a Gorenstein elliptic singularity \cite{SMY1}. Given a family of tropical curves, the function $\delta$ provides a non-negative real number for each point on the base. We may therefore consider the ``\textbf{circle}'' of points on each fiber whose distance from the core is equal to $\delta$. A partial destabilization, or ``bubbling'', introduces $2$-pointed rational curves into the curve by adding vertices to the dual graph at the points that lie on this circle (the crosses at height $\delta$ in Figure \ref{fig:lambdaexample}); we denote this new tropical curve by $\widetilde{\plC}$. The open disc of radius $\delta$, i.e. the locus where $\lambda<\delta$, is then contracted to a Gorenstein singularity in $\overline{\mathcal C}_S$. The number of branches is equal to the number of vertices of $\widetilde{\sqC}$ which lie on the circle. %This data uniquely determines the singularity.
 
-The space of stable maps $\widetilde\VZ_{1,n}(\PP^N,d)$ from the universal nodal curve $\mathcal C$ over the stack $\mathfrak M_{1,n}^{\mathrm{cen}}$ is proper and algebraic, with projective coarse moduli space. A compatibility condition between the alignment and the map is required, namely that the circle of radius $\delta$ passes through at least one component of positive degree. A stable map in this space is said to satisfy the \textbf{factorisation condition} if the map $\mathcal C\to \mathbb P^N$ factors through the contraction $\widetilde{\mathcal C}\to \overline{\mathcal C}$. For ease of language, maps from nodal curves that are not constant on any subcurve of genus $1$ are taken to satisfy this condition. 
+The space of stable maps $\widetilde\VZ_{1,n}(\PP^N,d)$ from the universal nodal curve $\mathcal C$ over the stack $\mathfrak M_{1,n}^{\mathrm{cen}}$ is Deligne-Mumford and proper, with projective coarse moduli space. A compatibility condition between the alignment and the map is required, namely that the circle of radius $\delta$ passes through \emph{at least one component of positive degree}. A stable map in this space is said to satisfy the \textbf{factorisation condition} if the map $\widetilde{\mathcal C}\to \mathcal C\to \mathbb P^N$ factors through the contraction $\widetilde{\mathcal C}\to \overline{\mathcal C}$. Maps that are not constant on any genus $1$ subcurve of $\mathcal C$ automatically satisfy this condition; indeed, the contraction is an isomorphism in this case.
  
 \begin{thm}[{\cite[Theorem B]{RSPW}}]
 The substack $\VZ_{1,n}(\mathbb P^N,d)$ of $\widetilde\VZ_{1,n}(\PP^N,d)$ parameterising maps to $\mathbb P^N$ that satisfy the factorisation condition is smooth and proper of the expected dimension.
 \end{thm}
 
 \begin{remark}[Constant maps]\label{rem: constant-maps}
-When the degree of the map is $1$, maps from smooth genus $1$ curves to $\PP^N$ are constant. The interior of the moduli space of stable maps in this case is empty, though the compactification by stable maps is non-empty. The space of maps satisfying the factorization condition is also empty. Only non-empty cases are considered. 
+When the degree of the map is $1$, maps from smooth genus $1$ curves to $\PP^N$ are constant. The interior of the moduli space of stable maps in this case is empty, though the compactification by stable maps is non-empty. The space of maps satisfying the factorisation condition is also empty. We do not indulge on this any further. 
 \end{remark}
 
 The remainder of this section lifts this construction to the category of relative maps to $(\mathbb P^N,H)$. The core result shows that two factorisation conditions remove the obstructions. 
 
-\subsection{Relative geometry: compactification} Fix a hyperplane $H\subseteq \mathbb P^N$. Let $\alpha$ be a partition of the degree $d>0$. Consider the moduli space $\mathcal M_{1,\alpha}^\circ(\mathbb P^N|H,d)$ of maps from smooth elliptic curves $C\to \mathbb P^N$ that meet $H$ at finitely many marked points with vanishing orders given by the partition $\alpha$. This is a smooth, but non-proper Deligne--Mumford stack. 
+\subsection{Relative geometry: compactification} Fix a hyperplane $H\subseteq \mathbb P^N$. Let $\alpha$ be a partition of the degree $d>0$. Consider the moduli space $\mathcal M_{1,\alpha}^\circ(\mathbb P^N|H,d)$ of maps from smooth genus $1$ curves $C\to \mathbb P^N$ that meet $H$ at finitely many marked points with vanishing orders given by the partition $\alpha$. This is a smooth, but non-proper Deligne--Mumford stack. 
 
 We compactify the space described above, and then desingularise it. For the compactification, we begin with Abramovich--Chen--Gross--Siebert's space of logarithmic stable maps, though we will work with variants~\cite{AbramovichChenLog,ChenLog,GrossSiebertLog,KimLog}.
 
@@ -517,11 +549,11 @@ which we refer to as the \textbf{moduli space of centrally aligned maps to $(\PP
 
 \begin{comment}Our next task is to pick out a non-singular principal component in $\widetilde{\VZ}_{1,\alpha}(\mathbb P^N|H,d)$. The principal component of this space, consisting of the closure of the space of maps from nonsingular curves, maps into the principal component of $\widetilde\VZ_{1,n}(\PP^N,d)$. Indeed, smoothable logarithmic maps are, in particular, smoothable as ordinary maps. An additional condition is required to isolate the principal component of the space of logarithmic maps. \end{comment}
 
-In order make the obstruction theory more geometric, we expand the target. To elucidate the connection with the static target, consider a logarithmic stable map $[C\to (\mathbb P^N,H)]$ over $\mathrm{Spec} \ (\mathbb N\to \mathbb C)$. At the level of tropicalizations, there is a map of fans
+In order to make the obstruction theory more geometric, we expand the target. To elucidate the connection with the static target, consider a logarithmic stable map $[C\to (\mathbb P^N,H)]$ over $\mathrm{Spec} \ (\mathbb N\to \mathbb C)$. At the level of tropicalizations, there is a map of cone complexes:
 \[
 \plC\to \mathbb R_{\geq 0}.
 \]
-Choose a subdivision of $\mathbb R_{\geq 0}$ whose vertices are the images of vertices of $\plC$. Pull this subdivision back to $\plC$ by subdividing preimages of the vertices of $\mathbb R_{\geq 0}$. Denote the resulting map $\widetilde \plC \to \widetilde{\mathbb R}_{\geq 0}$. These subdivisions induce logarithmic modifications
+Choose a subdivision of $\mathbb R_{\geq 0}$ whose vertices are the images of vertices of $\plC$. Pull this subdivision back to $\plC$ by subdividing it along the preimage of the vertices of $\mathbb R_{\geq 0}$. Denote the resulting map $\widetilde \plC \to \widetilde{\mathbb R}_{\geq 0}$. These subdivisions induce logarithmic modifications:
 \[
 \widetilde C\to \mathbb P^N[s],
 \]
@@ -529,7 +561,7 @@ see~\cite{AW}. Here the latter is the $s$-times iterated deformation to the norm
 
 The result is a logarithmic stable map to an expanded target $\mathbb P^N[s]$, together with a contraction to the main target component $\mathbb P^N[s]\to\mathbb P^N$. Two maps are considered equivalent if they differ by $\Gm$-scaling the target at higher level. This is the logarithmic enhancement of the classical theory of relative stable maps, due to Li \cite{Li1,Li2}.
 
-Globally, Kim constructs a moduli space of logarithmic maps to expanded degenerations, which on logarithmic points, reduces to the above construction~\cite{KimLog}. Kim's space is identified with a subcategory of the Abramovich--Chen--Gross--Siebert space, and its dual minimal monoids are cones in a subdivision of the dual minimal cones of the unexpanded space, see~\cite[\S~2]{R19}. 
+Globally, Kim constructs a moduli space of logarithmic maps to expanded degenerations, which on logarithmic points, reduces to the above construction~\cite{KimLog}. Kim's space is identified with a subcategory of the Abramovich--Chen--Gross--Siebert space (as stacks over logarithmic schemes), and its dual minimal monoids are cones in a subdivision of the dual minimal cones of the unexpanded space, see~\cite[\S~2]{R19}. 
 
 We typically work with expansions for convenience, and use the notation
 $\ol\Mcal_{1,\alpha}(\PP^N|H,d)$
@@ -542,26 +574,33 @@ which we refer to as the \textbf{moduli space of centrally aligned maps} to $(\P
 obtained by forgetting the logarithmic structure on the target and collapsing the map.
 
 
-\subsection{Relative geometry: factorisation}\label{subsection factorisation} Let $[C\to \mathbb P^N[s]\to \mathbb P^N]$ be a centrally aligned logarithmic map. Recall that $\mathbb P^N[s]$ consists of a union of $\mathbb P^N$ with $s$ copies of the projective bundle $\mathbb{P} = \mathbb P(\mathcal O_H\oplus \mathcal O_H(1))$. We refer to these latter components as \textbf{the higher levels}. Thus, we will say that a subcurve $D\subseteq C$ maps to \textbf{higher level} if the composite $C\to \mathbb P^N$ maps $D$ into $H\subset \mathbb P^N$. 
+\subsection{Relative geometry: factorisation}\label{subsection factorisation} Let $[C\to \mathbb P^N[s]\to \mathbb P^N]$ be a centrally aligned logarithmic map. Recall that $\mathbb P^N[s]$ consists of a union of $\mathbb P^N$ with $s$ copies of the projective bundle $\mathbb{P} = \mathbb P(\mathcal O_H\oplus \mathcal O_H(1))$. We refer to these latter components as \textbf{the higher levels}. Thus, we will say that a subcurve $D\subseteq C$ \textbf{maps to higher level} if the composite $C\to \mathbb P^N$ maps $D$ into $H\subset \mathbb P^N$. 
 
-Let $D_F\subseteq C$ be the maximal genus one subcurve which is mapped to a higher level and contracted by the map $C\to \mathbb P^N[s]$. Let $\delta_F$ denote the distance from the core to the nearest component of $C \setminus D_F$. Similarly let $D_B\subseteq C$ be the maximal genus one subcurve that is contracted by the collapsed map to $\mathbb P^N$ and let $\delta_B$ be the associated radius. This coincides with the radius of the underlying map to $\mathbb P^N$. Of course, $\delta_F\leq \delta_B$, so $(C,\delta_F)$ is centrally aligned.
+Let $D_F\subseteq C$ be the maximal genus $1$ subcurve which is mapped to a higher level and contracted by the map $C\to \mathbb P^N[s]$. Let $\delta_F$ denote the distance from the core to the nearest component of $C \setminus D_F$. Similarly let $D_B\subseteq C$ be the maximal genus $1$ subcurve that is contracted by the collapsed map to $\mathbb P^N$, and let $\delta_B$ be the associated radius. This coincides with the radius of the underlying map to $\mathbb P^N$. Of course, $\delta_F\leq \delta_B$, so $(C,\delta_F)$ is centrally aligned as well.
 
 The datum $(\delta_F,\delta_B)$ determines a destabilisation $\widetilde C$ of $C$ together with successive contractions $\widetilde C\to \overline C_F\to\overline C_B$. The contractions are constructed by~\cite[Section~3]{RSPW}.
 
-A Gorenstein elliptic singularity has a number of \textbf{branches}. Given a curve $\overline C$ of genus $1$ with such a singularity, define a branch of $\overline C$ to be an irreducible component containing a branch of the singularity. If the curve $C$ is nodal, then its branches will be understood to be the components of its minimal arithmetic genus $1$ subcurve, i.e. its core. The following condition identifies the locus of smoothable maps. 
+%A Gorenstein elliptic singularity has a number of \textbf{branches}. Given a curve $\overline C$ of genus $1$ with such a singularity, define a branch of $\overline C$ to be an irreducible component containing a branch of the singularity. If the curve $C$ is nodal, then its branches will be understood to be the components of its minimal arithmetic genus $1$ subcurve, i.e. its core.
+Recall that we name \emph{core} the minimal genus $1$ subcurve of a Gorenstein curve of arithmetic genus $1$, so the latter decomposes into the nodal union of the core and a (possibly empty) rational forest. If the curve contains an elliptic $m$-fold point, we say a map is non-constant on the core if at least one branch of the singularity is not contracted.
+The following condition identifies the locus of smoothable maps. 
 
 \begin{definition}
-The map $[C\to \mathbb P^N[s]\to \mathbb P^N]$ \textbf{factorises completely} if 
+The map $f\colon C\to \mathbb P^N[s]$ \textbf{factors completely} if 
 \begin{enumerate}
-\item the map $C\to \mathbb P^N[s]$ factors through $\overline C_F$ such that $F$ is non-constant on at least one branch of $\overline C_F$,
-\item the collapsed map to $\mathbb P^N$ factorises through $\overline C_B$ such that at least one branch of $\overline C_B$ has positive degree.
+\item $f$ factors through $\overline C_F$ and it is non-constant on its core,
+\item letting $f_B\colon C\to\PP^N$ denote the composite of $f$ with the collapsing map $\mathbb P^N[s]\to\mathbb P^N$, the map $f_B$ factors through $\overline C_B$ and it is non-constant on its core.
 \end{enumerate}
-The factorisation conditions are understood to be satisfied when $C\to \mathbb P^N[s]$ (resp. $C\to \mathbb P^N$) does not contract a genus $1$ subcurve. 
 \end{definition}
 
-If $[C\to \mathbb P^N[s]\to \mathbb P^N]$ is a family of centrally aligned maps over $S$ that factorises completely, there is a moduli map $S\to \VZ_{1,n}(\mathbb P^N,d)$, to the principal component of the space of absolute maps. Let
+\begin{rem}
+ The factorisation conditions are understood to be satisfied when $C\to \mathbb P^N[s]$ (resp. $C\to \mathbb P^N$) does not contract a genus $1$ subcurve. 
+\end{rem}
+
+Let
 \begin{equation*} \VZ_{1,\alpha}(\mathbb P^N|H,d) \subseteq \widetilde\VZ_{1,\alpha}(\PP^N|H,d) \end{equation*}
-be the stack of maps from centrally aligned curves to expansions that factorise completely.
+be the stack of maps from centrally aligned curves to expansions that factor completely.
+
+If $[C\to \mathbb P^N[s]\to \mathbb P^N]$ is a family of centrally aligned maps over $S$ that factors completely, there is a moduli map $S\to \VZ_{1,n}(\mathbb P^N,d)$, to the principal component of the space of absolute maps. 
 
 \begin{thm}\label{thm: log-smoothness}
 The stack $\VZ_{1,\alpha}(\mathbb P^N|H,d)$ is logarithmically smooth and proper of the expected dimension.
@@ -571,10 +610,12 @@ As noted in Remark~\ref{rem: constant-maps}, maps from elliptic curves to $\PP^N
 
 \begin{proof}
 We examine the geometry of the space of maps to $(\PP^N|H)$ by utilising the forgetful morphism
-$$
-\nu: \VZ_{1,\alpha}(\mathbb P^N|H,d)\to \VZ_{1,n}(\mathbb P^N,d),
-$$
-which remembers only the stabilisation of the collapsed map. To see that the such a forgetful morphism exists, observe for a map $[C\to \mathbb P^N[s]\to \mathbb P^N]$, the stabilised composite map is certainly centrally aligned, and it satisfies the factorization property by construction. The moduli space $\VZ_{1,\alpha}(\mathbb P^N|H,d)$ is proper. Indeed, the verification of the valuative criterion follows from Vakil's Lemma~\cite[Lemma~5.9]{Vre}. A direct proof that the factorisation property is a closed condition may be found in~\cite[Theorem~4.3]{RSPW}.
+\[
+\nu\colon \VZ_{1,\alpha}(\mathbb P^N|H,d)\to \VZ_{1,n}(\mathbb P^N,d),
+\]
+which remembers only the stabilisation of the collapsed map. To see that such a forgetful morphism exists, we have already observed that, for a map $[C\to \mathbb P^N[s]\to \mathbb P^N]$, the stabilised composite map is certainly centrally aligned; moreover, it satisfies the factorisation condition by assumption.
+
+The moduli space $\VZ_{1,\alpha}(\mathbb P^N|H,d)$ is proper. Indeed, the verification of the valuative criterion follows from Vakil's Lemma~\cite[Lemma~5.9]{Vre}. A direct proof that the factorisation property is a closed condition may be found in~\cite[Theorem~4.3]{RSPW}.
 
 We come to logarithmic smoothness. If the elliptic curve does not map into higher level, then deformations of the map are unobstructed exactly as in~\cite[Section~4.5]{RSPW}.
 
@@ -583,25 +624,48 @@ Assume now that the elliptic curve maps into higher level. Note that the relativ
 C \ar[r] & \overline{C}_F \ar[r] \ar[d] & \overline{C}_B \ar[d] \\
 & \mathbb P^N[s] \ar[r] & \mathbb P^N
 \ecd
-factorising completely. Let $f_B$ and $f$ be the maps from $C$ to the base and total space respectively. Examining the morphism $\nu$, we see that there is a map
+factoring completely. Let $f_B$ and $f$ be the maps from $C$ to the collapsed and expanded target respectively. Examining the morphism $\nu$, we see that there is a map
 \[
 \mathrm{Def}(C,f_B)\to \mathrm{Obs}(f/(C,f_B)) = H^1(\overline{C}_F,\mathcal O_{\overline{C}_F}),
 \]
-where the former is the space of logarithmic deformations of the curve and map to the base, as a factorised centrally aligned map. More precisely, consider a strict square zero extension of $S$ and a deformation of the map $(C,f_B)$ satisfying the factorisation property. Since the deformation is strict, there is a canonically induced deformation of the expansion $\mathbb P^N[s]$. The corresponding element in $\mathrm{Obs}(f/(C,f_B))$ is the obstruction to lifting the deformation of $(C,f_B)$ to this canonical deformation of $\mathbb P^N[s]$ over $\mathbb P^N$. By comparing the cotangent complexes of the source, target, and fiber of the morphism $\nu$, we see that the cokernel of this map are the absolute logarithmic obstructions for the map. We will show these vanish, proving logarithmic smoothness.
+where the former is the space of logarithmic deformations of the curve and map to the collapsed target, as a centrally aligned map satisfying simple factorisation.
 
-Consider the manner in which $H^1(\overline{C}_F,\mathcal O_{\overline{C}_F})$ functions as the obstruction group for the lifting. Near the minimal genus one subcurve $D_F$ of $C$, in order to lift the map from $\mathbb P^N$ to the expansion, we must provide a rational function on $D_F$ with poles bounded the divisor associated to the tropicalization, i.e. if $\alpha$ is the piecewise linear function giving this tropical map, the lifting is described by a section of the associated bundle $\mathcal O_{C}(-\alpha)$.
+More precisely, consider a strict square-zero extension of $S$, and a deformation of the map $(C,f_B)$ satisfying the factorisation condition. Since the deformation is strict, there is a canonically induced deformation of the expansion $\mathbb P^N[s]$. The corresponding element in $\mathrm{Obs}(f/(C,f_B))$ is the obstruction to lifting the deformation of $(C,f_B)$ to this canonical deformation of $\mathbb P^N[s]$ over $\mathbb P^N$. By comparing the cotangent complexes of the source, target, and fiber of the morphism $\nu$, we see that the cokernel of this map are the absolute logarithmic obstructions for the map. We will show these vanish, proving logarithmic smoothness.
+
+Consider the manner in which $H^1(\overline{C}_F,\mathcal O_{\overline{C}_F})$ functions as the obstruction group for the lifting. Near the minimal genus one subcurve $D_F$ of $C$, in order to lift the map from $\mathbb P^N$ to the expansion, we must provide a rational function on $D_F$ with poles bounded by the divisor associated to the tropicalization, i.e. if $\alpha$ is the piecewise linear function giving this tropical map, the lifting is described by a section of the associated bundle $\mathcal O_{C}(-\alpha)$.
 
 Given a strict square-zero extension $S'$ of $S$, the piecewise linear function $\alpha$ extends uniquely by strictness to any deformation of the curve. The resulting deformation of $\mathcal O_{C}(-\alpha)$ produces an infinitesimal deformation of the trivial bundle in the Picard group, whose class in $H^1(\overline{C}_F,\mathcal O_{\overline{C}_F})$, is the obstruction to deformation. We will show that it is possible to choose a deformation of $(C,f_B)$ that cancels out the obstruction to lifting to $f$, and thus the map to the obstruction space above is surjective. 
 
-On restricting to the minimal genus $1$ subcurve $D_F$, the line bundle $\mathcal O_{C}(-\alpha)$ is equivalent to the divisor $\sum a_i x_i$ where $x_i$ are the points connecting $D_F$ to the rest of the curve, and $a_i$ are the slopes of $\alpha$ along the edges corresponding to the $x_i$. Infinitesimally moving the point $x_i$ produces a nontrivial deformation of the line bundle $\mathcal O_{C}(-\alpha)$. The moduli space $\VZ_{1,n}(\mathbb P^N,d)$ is a logarithmically fibration over the universal Picard stack over the stack of $n$-pointed genus $1$ curves~\cite[Remark~4.5.3]{RSPW}. As a consequence, it is possible to find a logarithmic deformation of the map $(C,f_B)$ that induces the deformation of the line bundle that is given by infinitesimal motion. The obstruction group is $1$-dimensional, and we have produced a logarithmic deformation of the collapsed map that produces a nontrivial deformation of the line bundle $\mathcal O_{C}(-\alpha)$. Therefore, logarithmic deformations surject onto the obstruction space above. The absolute obstructions, which are the cokernel of this map therefore vanish, and the result follows.  
+On restricting to the minimal genus $1$ subcurve $D_F$, the line bundle $\mathcal O_{C}(-\alpha)$ is equivalent to the divisor $\sum a_i x_i$ where $x_i$ are the points connecting $D_F$ to the rest of the curve, and $a_i$ are the slopes of $\alpha$ along the edges corresponding to the $x_i$. Infinitesimally moving the point $x_i$ produces a nontrivial deformation of the line bundle $\mathcal O_{C}(-\alpha)$. The moduli space $\VZ_{1,n}(\mathbb P^N,d)$ is a logarithmically smooth fibration over the universal Picard stack over the stack of centrally aligned $n$-pointed genus $1$ curves~\cite[Remark~4.5.3]{RSPW}. As a consequence, it is possible to find a logarithmic deformation of the map $(C,f_B)$ that induces the deformation of the line bundle that is given by infinitesimal motion. The obstruction group is $1$-dimensional, and we have produced a logarithmic deformation of the collapsed map that produces a nontrivial deformation of the line bundle $\mathcal O_{C}(-\alpha)$. Therefore, logarithmic deformations surject onto the obstruction space above. The absolute obstructions, which are the cokernel of this map therefore vanish, and the result follows.  
 %Consider an $S$-family of expanded maps $[F: C\to \mathbb P^N[s]$. Choose $N$ generic hyperplanes in and let $\Delta = \{H\}\cup\{H_1,\ldots,H_N}$ be this set of hyperplanes. There is a morphism of logarithmic schemes $(\mathbb P^N,\Delta)\to (\mathbb P^N,H)$. This induces a new expansion $\mathbb P^N[\Delta,s]$. Moreover, by the genericity of the $H_i$, they each intersect the image of $C$ in finitely many reduced points. Pulling back the logarithmic structure, we obtain a new logarithmic map 
 %\[
 %F': C'\to \mathbb P^N[\Delta,s].
 %\]
 %We make two observations. First, since the logarithmic structure on $C'$ is strict away from $H$, unobstructedness of deformations for $F'$ is equivalent to unobstructedness for $F$. Second, the target degeneration is now a toric degeneration, and the logarithmic tangent bundle is trivial.
+\textcolor{red}{luca's rewrite of log smoothness}
+
+The proof is analogous to that of \cite[Theorem 3.5.1]{RSPW2}. There is a forgetful morphism
+\[
+\nu\colon \VZ_{1,\alpha}(\mathbb P^N|H,d)\to \VZ_{1,n}(\mathbb P^N,d),
+\]
+remembering only the stabilisation of the composite $f_B\colon C\to\PP^N[s]\to\PP^N$. A priori, this is in $\overline{\pazocal M}_1(\PP^N,d)$, but in fact by assumption $(C,\delta_B)$ is centrally aligned, and $f_B$ factors through $\overline C_B$, as we have already remarked.
+
+The expanded target $\PP^N[s]$ is logarithmically \'etale over $\PP^N$ with the divisorial log structure associated to $H$, so it is equivalent to study the deformation theory of the unexpanded map to $(\PP^N,H)$. The logarithmic morphism $(\PP^N,H)\to \PP^N$ induces an exact sequence of log tangent bundles:
+\[0\to T_{\PP^N}(-\operatorname{log}H)\to T_{\PP^N}\to\OO_H(H)\to 0,\]
+relating the absolute and relative obstruction theories. This shows that $\nu$ can be obstructed only when a genus one subcurve is mapped to higher level in such a way that it is contracted by the collapsed map $f_B$. In this case, let $C_0$ denote the core, and let $E$ be the connected component of $f_B^{-1}(f_B(C_0))$ of arithmetic genus one.
+
+Let $f\colon C\to\PP^N[s]$ over the base $S$ be a possibly obstructed map to the expansion that factors completely, and let $S^\prime$ be a strict square-zero extension of the base.  The deformation problem is local, so we may as well suppose that $\overline M_S^{\text{gp}}$ is a constant sheaf of monoids with stalk $\overline M_{S,s}^{\text{gp}}=:Q$, for a geometric point $s\in S$. Note that sections of $M_S$ such as $\delta_B$ and $\delta_F$ extend automatically due to strictness. Moreover, it is equivalent to deform $f$ or $f_F\colon\overline C_F\to\PP^N_S$, where $\overline C_F$ is given the trivial logarithmic structure around the elliptic singularity.
+
+The map $f_F\colon \overline C_F\to\PP^N[s]$ induces a tropical map $\alpha\colon\plC_F\to\RR_{\geq 0}\times\sigma_Q$, that we want to think of as a section $\alpha\in H^0(\overline C_F,\overline M_C^{\text{gp}})$. With notation as above, we obtain a trivialisation of the line bundle $\OO_{\overline C_F}(-\alpha)$ upon restriction to $E$. By \cite[Proposition 2.4.1]{RSPW}, the latter is isomorphic to $\OO_E(\sum\mu_i x_i)$, where $\mu_i$ is the slope/expansion factor of $\alpha$ along the edge $e_i$ of $\plC_F$, and $x_i$ the node corresponding to $e_i$ thought of as a smooth marking on $E$. 
+
+The deformation problem for $f_F$ relative to $(C^\prime,\delta_B,f_B^\prime)$ reduces to the problem of extending $\alpha$ as a trivialisation of $\OO_E(\sum\mu_i x_i)$. This gives an interpretation of $\operatorname{Obs}(f/(C,\delta_B,f_B))$ as $H^1(\overline C_F,\OO)$. The latter is a vector space of dimension $1$. Associated to the forgetful morphism $\nu$ at the level of perfect obstruction theories, we find a map:
+\begin{equation}\label{eqn:def-obs}\operatorname{Def}(C,\delta_B,f_B)\to \operatorname{Obs}(f/(C,\delta_B,f_B)).\end{equation}
+The left-hand side contains in particular the space $\operatorname{Def}(E,\mathbf{x})=\operatorname{Ext}^1(\Omega_E(\mathbf x),\OO_E)$, since $E$ is contracted by $f_B$. Since by assumption at least one of the $\mu_i$ is non-zero, $\operatorname{Ext}^1(\Omega_E(\mathbf x),\OO_E)$ surjects onto $H^1(\overline C_F,\OO)$ by \cite[Corollary 3.5.3]{RSPW2}. Looking back at \eqref{eqn:def-obs}, we see that obstructions to deforming $f$ can be killed by an appropriate choice of lift $(C^\prime,\delta_B,f_B^\prime)$.
+
+
 \end{proof}
 
-The theorem guarantees that the singularities of the space of totally factorised maps to expansions is logarithmically smooth. One can say more in this case.
+The theorem guarantees that the singularities of the space of completely factoring maps to expansions is logarithmically smooth. One can say more in this case.
 
 \begin{cor}
 The logarithmically smooth stack $\VZ_{1,\alpha}(\mathbb P^N|H,d)$ has at worst orbifold singularities, i.e. admits a non-representable cover by a smooth Deligne--Mumford stack.
@@ -611,20 +675,19 @@ The logarithmically smooth stack $\VZ_{1,\alpha}(\mathbb P^N|H,d)$ has at worst 
 Since $\VZ_{1,\alpha}(\mathbb P^N|H,d)$ is logarithmically smooth, it will suffice to show that the cones of its tropicalization are simplicial. To see this, consider a logarithmic stable map to an expansion $C\to \mathbb P^N[s]$ without a central alignment. The tropical moduli cone obtained as the dual of the minimal base monoid can be identified with $\mathbb R_{\geq 0}^{s}$, see for instance~\cite[Section~2.2]{ChenDegeneration}. The alignment procedure is an iterated barycentric subdivision at the level of tropical moduli spaces, as explained in~\cite[Section 4.6]{RSPW}, and such subdivisions preserve the property of being simplicial. We conclude from this that the blowup $\widetilde{\VZ}^{\mathrm{exp}}_{1,\alpha}(\mathbb P^N|H,d)$ obtained by centrally aligning Kim's spaces has simplicial cones. The morphism $\VZ_{1,\alpha}(\mathbb P^N|H,d)\to \widetilde{\VZ}^{\mathrm{exp}}_{1,\alpha}(\mathbb P^N|H,d)$ is strict, so the cones of $\VZ_{1,\alpha}(\mathbb P^N|H,d)$ are simplicial, as claimed.
 \end{proof}
 
-\subsection{Rubber variants}\label{subsection rubber} We require a ``rubber'' variant of the space of maps $
-\VZ_{1,\alpha}(\mathbb P^N|H,d)$, where the curve is contained in the higher levels.
+\subsection{Rubber variants}\label{subsection rubber} We require a ``rubber'' variant of the space of maps $\VZ_{1,\alpha}(\mathbb P^N|H,d)$, where the curve is contained in the higher levels.
 
-Let $\mathbb P$ denote the projective bundle $\mathbb P(\mathcal O(1)\oplus\mathcal O)$ on $\mathbb P^{N-1}$. Equip this space with the logarithmic structure coming from the $0$ and $\infty$ sections of the bundle. Consider the moduli space $\VZ^{\leftrightarrow}_{1,\alpha}(\mathbb P|H_0+H_\infty,d)$ of logarithmic maps
+Let $\mathbb P$ denote the projective bundle $\mathbb P(\mathcal O(1)\oplus\mathcal O)$ on $H\simeq\mathbb P^{N-1}$. Equip this space with the logarithmic structure coming from the $0$ and $\infty$ sections of the bundle. Consider the moduli space $\VZ^{\leftrightarrow}_{1,\alpha}(\mathbb P|H_0+H_\infty,d)$ of logarithmic maps
 \[
 C\to \mathbb P[s]\to \mathbb P^{N-1},
 \]
-which factorise completely, and where automorphisms are taken to cover the identity on the map to $\mathbb P^{N-1}$; two maps that differ by a $\mathbb G_{\operatorname{m}}$ translate in the fibre direction are considered equivalent. As previously, the map to the bundle and the map to the base $\mathbb P^{N-1}$ both factorise through possibly different singularities. 
+which factor completely, and where automorphisms are taken to cover the identity on the map to $\mathbb P^{N-1}$; two maps that differ by a $\mathbb G_{\operatorname{m}}$ translate in the fibre direction are considered equivalent. As previously, the map to the bundle and the map to the base $\mathbb P^{N-1}$ both factor through possibly different singularities. 
 
 \begin{thm}\label{thm rubber log smooth}
 The stack $\VZ^{\leftrightarrow}_{1,\alpha}(\mathbb P|H_0+H_\infty,d)$ is logarithmically smooth and proper of the expected dimension.
 \end{thm}
 
-The main point in the proof is that on the space of non-degenerate maps with smooth domains, the map from $\VZ^\circ_{1,\alpha}(\mathbb P|H_0+H_\infty,d)\to \VZ^{\leftrightarrow,\circ}_{1,\alpha}(\mathbb P|H_0+H_\infty,d)$ is a $\mathbb G_{\operatorname{m}}$-torsor. One expects that the map on compact moduli spaces is a nodal curve fibration. To prove this, it is convenient to work with the logarithmic multiplicative group and its torsors. Recall that the \textbf{logarithmic multiplicative group} $\mathbb G_{\mathrm{log}}$ is the functor on logarithmic schemes whose value on a logarithmic scheme $S$ is the group of global sections $H^0(S,M_S^{\mathrm{gp}})$; it is a proper group functor, and it contains $\Gm$ as a subfunctor. This functor is representable only after a logarithmically \'etale cover, see for instance~\cite{MW17,RW19}.
+The main point in the proof is that on the space of non-degenerate maps with smooth domains, the map from $\VZ^\circ_{1,\alpha}(\mathbb P|H_0+H_\infty,d)\to \VZ^{\leftrightarrow,\circ}_{1,\alpha}(\mathbb P|H_0+H_\infty,d)$ is a $\mathbb G_{\operatorname{m}}$-torsor. One expects that the map on compact moduli spaces is a nodal curve fibration. To prove this, it is convenient to work with the logarithmic multiplicative group and its torsors. Recall that the \textbf{logarithmic multiplicative group} $\mathbb G_{\mathrm{log}}$ is the functor on logarithmic schemes whose value on a logarithmic scheme $S$ is the group of global sections $H^0(S,M_S^{\mathrm{gp}})$; it is a proper group functor, and it contains $\Gm$ as a subfunctor (from $\OO^\times_S\subseteq M_S^{\mathrm{gp}}$). This functor is representable only after a logarithmically \'etale cover, see for instance~\cite{MW17,RW19}.
 
 Each fibre of the bundle $\mathbb P \to \mathbb P^{N-1}$ admits a natural log \'etale morphism to $\mathbb G_{\mathrm{log}}$. Replacing these fibres by $\mathbb G_{\mathrm{log}}$, we obtain a non-representable functor on logarithmic schemes $\mathbb P_{\mathrm{log}}$ and a logarithmically \'etale modification
 \[
@@ -642,9 +705,9 @@ The bundle $\mathbb P\to \mathbb P^{N-1}$ gives rise to a $\mathbb G_{\operatorn
 %%%%%%%%%%%%%%
 
 \begin{proof}[Proof of Theorem \ref{thm rubber log smooth}]
-Consider the stack over logarithmic schemes $\VZ_{1,\alpha}(\mathbb P_{\mathrm{log}},d)$ of stable logarithmic maps that factorise completely. Here, stability for the map coincides with stability for the projection to $\mathbb P^{N-1}$. The arguments in the previous section show that maps to $\mathbb P$ that factorise completely are unobstructed. Since this space is a logarithmically \'etale cover of $\VZ_{1,\alpha}(\mathbb P_{\mathrm{log}},d)$, logarithmic smoothness of the latter follows.
+Consider the stack over logarithmic schemes $\VZ_{1,\alpha}(\mathbb P_{\mathrm{log}},d)$ of stable logarithmic maps that factor completely. Here, stability for the map coincides with stability for the projection to $\mathbb P^{N-1}$. The arguments in the previous section show that maps to $\mathbb P$ that factor completely are unobstructed. Since this space is a logarithmically \'etale cover of $\VZ_{1,\alpha}(\mathbb P_{\mathrm{log}},d)$, logarithmic smoothness of the latter follows.
 
-The logarithmic multiplicative group $\mathbb G_{\mathrm{log}}$ acts on $\VZ_{1,\alpha}(\mathbb P_{\mathrm{log}},d)$ by translation. Tautologically, $\VZ_{1,\alpha}(\mathbb P_{\mathrm{log}},d)$ is a $\mathbb G_{\mathrm{log}}$-torsor over the moduli problem of maps up to this $\mathbb G_{\mathrm{log}}$ translation. It is representable after a logarithmically \'etale modification by a family of nodal curves. It follows that the space $\VZ^{\leftrightarrow}_{1,\alpha}(\mathbb P_{\mathrm{log}},d)$ of maps up to $\Glog$-translation that factorise completely is logarithmically smooth. 
+The logarithmic multiplicative group $\mathbb G_{\mathrm{log}}$ acts on $\VZ_{1,\alpha}(\mathbb P_{\mathrm{log}},d)$ by translation. Tautologically, $\VZ_{1,\alpha}(\mathbb P_{\mathrm{log}},d)$ is a $\mathbb G_{\mathrm{log}}$-torsor over the moduli problem of maps up to this $\mathbb G_{\mathrm{log}}$ translation. It is representable after a logarithmically \'etale modification by a family of nodal curves. It follows that the space $\VZ^{\leftrightarrow}_{1,\alpha}(\mathbb P_{\mathrm{log}},d)$ of maps up to $\Glog$-translation that factor completely is logarithmically smooth. 
 
 To conclude the result, we compare $\VZ^{\leftrightarrow}_{1,\alpha}(\mathbb P_{\mathrm{log}},d)$ and  $\VZ^{\leftrightarrow}_{1,\alpha}(\mathbb P|H_0+H_\infty,d)$. Since a map to $(\mathbb P,H_0+H_\infty)$ gives rise immediately to a map to $\mathbb P_{\mathrm{log}}$, there is a morphism
 \[
@@ -656,7 +719,7 @@ The lifting criterion shows that this map is logarithmically \'etale, so the res
 \subsection{Hypersurface pairs}\label{subsection virtual}
 Let $(X,Y)$ be a smooth pair with $Y$ very ample. The definition in \S \ref{subsection factorisation} applies in this setting and yields a moduli space $\VZ_{1,\alpha}(X|Y,\beta)$ with a morphism
 \begin{equation*} \VZ_{1,\alpha}(X|Y,\beta) \to \ol\Mcal^{\operatorname{log}}_{1,\alpha}(X|Y,\beta)\end{equation*}
-obtained by performing a logarithmic modification and passing to a closed substack where the factorization property is satisfied. This moduli space will typically be non-equidimensional, but we equip it with a virtual class as follows. The divisor $Y$ defines an embedding $X \hookrightarrow \PP^N$ with $Y=X\cap H$ for $H$ a hyperplane.
+obtained by performing a logarithmic modification and passing to a closed substack where the factorisation property is satisfied. This moduli space will typically be non-equidimensional, but we equip it with a virtual class as follows. The divisor $Y$ defines an embedding $X \hookrightarrow \PP^N$, with $Y=X\cap H$ for some hyperplane $H$.
 
 \begin{lemma} The following square is cartesian in the category of ordinary stacks:
 \bcd
@@ -666,15 +729,15 @@ obtained by performing a logarithmic modification and passing to a closed substa
 \end{lemma}
 \begin{proof} It is clear from the modular description that this square is cartesian in the category of fs logarithmic stacks, and since $i$ is strict, it is also cartesian in ordinary stacks.\end{proof}
 
-Since $\VZ_{1,n}(\PP^N,d)$ is smooth and $\VZ_{1,n}(X,\beta)$ carries a natural virtual class \cite[Theorem 4.4.1]{RSPW}, the diagonal of $\VZ_{1,n}(\PP^N,d)$ defines a pullback~\cite[Appendix C]{BattistellaNabijou}, and therefore the virtual class on the space of maps to $(X,Y)$:
+Since $\VZ_{1,n}(\PP^N,d)$ is smooth and $\VZ_{1,n}(X,\beta)$ carries a natural virtual class \cite[Theorem 4.4.1]{RSPW}, the diagonal of $\VZ_{1,n}(\PP^N,d)$ defines a pullback~\cite[Appendix A]{BattistellaNabijou}, and therefore the virtual class on the space of maps to $(X,Y)$:
 \begin{equation*} \virt{\VZ_{1,\alpha}(X|Y,\beta)} := i_\Delta^! [\VZ_{1,\alpha}(\PP^N|H,d)]. \end{equation*}
-Note that this parallel to the virtual formalism in~\cite{Ga}. As $\VZ_{1,\alpha}(X|Y,\beta)$ is equipped with evaluation maps and cotangent lines on the universal curve, we arrive at a definition of reduced Gromov--Witten invariants for the pair $(X,Y)$ by the standard mechanics. 
+Note that this is parallel to the virtual formalism in~\cite{Ga}. As $\VZ_{1,\alpha}(X|Y,\beta)$ is equipped with evaluation maps and cotangent lines on the universal curve, we arrive at a definition of reduced Gromov--Witten invariants for the pair $(X,Y)$ by the standard mechanics. 
 
 \section{Stratification and tropicalization}
 
 \noindent The logarithmic smoothnessof Theorem~\ref{thm: log-smoothness} implies that $\VZ_{1,\alpha}(\mathbb P^N|H,d)$ is an orbifold toroidal embedding. The irreducible components of its boundary stratify the space, as we now describe.
 
-The tropicalizations of logarithmic maps that factorise completely are combinatoriall constrained by a condition known as \textbf{well-spacedness}. The version we use here is essentially identical to~
+The tropicalizations of logarithmic maps that factor completely are combinatoriall constrained by a condition known as \textbf{well-spacedness}. The version we use here is essentially identical to~
 \cite{RSPW2}. 
 
 \begin{definition}
@@ -686,7 +749,7 @@ Let $\plC$ be a tropical curve of genus one and let $\plC_0$ be its minimal subc
 \end{definition}
 
 \begin{prop}\label{prop: well-spaced}
-Let $[C\to \mathbb P^N]$ be a logarithmic stable map from a centrally aligned curve to an expansion, that factorises completely. Then the tropicalization $\plC\to \mathbb R_{\geq 0}$ is well-spaced.
+Let $[C\to \mathbb P^N]$ be a logarithmic stable map from a centrally aligned curve to an expansion, that factors completely. Then the tropicalization $\plC\to \mathbb R_{\geq 0}$ is well-spaced.
 \end{prop}
 
 \begin{proof}
