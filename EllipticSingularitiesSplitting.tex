@@ -1034,7 +1034,7 @@ We summarise that the contribution of each term $\lambda_\Dcal [\Dcal]$ is given
 
 \subsection{Recursive description of the divisors: type $\dag$}\label{subsection C0 splitting} The treatment of the type I, II and III cases above is a fairly straightforward extension of the ideas of Vakil and Gathmann (albeit updated with logarithmic and tropical technology, which streamlines the presentation and simplifies the proofs). The remaining type $\dag$ case, however, is entirely new. In this section we provide a recursive description of these boundary divisors. This constitutes the technical heart of the paper.
 
-\subsubsection{Possible combinatorial types} A boundary divisor $\Dcal \subseteq \Dcal_{1,\alpha,k}(\PP^N|H,d)$ is said to have \textbf{type $\dag$} if the core is assigned degree zero by the combinatorial type. Divisors of this type occur as principal components in compactified torus bundles over strata in the space of relative maps. As a result, their combinatorial types exhibit very degenerate behaviour. Precisely, over the generic point of such a divisor, the target may expand multiple times, and the source tropical curve need not be bipartite with a single interior vertex; see the left-hand side of Figure \ref{fig:off_we_go} for a concrete example. We stress once again that such degenerate contributions are at the heart of the reduced theory and cannot be removed.
+\subsubsection{Possible combinatorial types}\label{S:combinatorialdescription} A boundary divisor $\Dcal \subseteq \Dcal_{1,\alpha,k}(\PP^N|H,d)$ is said to have \textbf{type $\dag$} if the core is assigned degree zero by the combinatorial type. Divisors of this type occur as principal components in compactified torus bundles over strata in the space of relative maps. As a result, their combinatorial types exhibit very degenerate behaviour. Precisely, over the generic point of such a divisor, the target may expand multiple times, and the source tropical curve need not be bipartite with a single interior vertex; see the left-hand side of Figure \ref{fig:off_we_go} for a concrete example. We stress once again that such degenerate contributions are at the heart of the reduced theory and cannot be removed.
 
 We begin with a series of lemmas describing the combinatorial types of rays associated to divisorial loci $\Dcal$ of type $\dag$ contributing nontrivially to the Gromov--Witten invariants.
 \begin{lemma} \label{lemma type C0 combinatorial types}
@@ -1108,13 +1108,13 @@ In general, we shall see that the automatic alignment only involves the componen
 \]
 The first morphism is a closed embedding cut out by the two factorisation properties. The second morphism is a logarithmic modification. Let $\tau \in \Sigma_{1,\alpha}(\PP^N|H,d)$ be the ray corresponding to $\Dcal \subseteq \VZ_{1,\alpha}(\PP^N|H,d)$, and to the virtual divisor $\widetilde \Dcal \subseteq \widetilde{\VZ}_{1,\alpha}(\PP^N|H,d)$. 
 
-Let $\sigma \in \Sigma^{\Kim}$ be the minimal cone containing the image of $\tau$. The dimension of this cone could be large (see again the left-hand side of Figure \ref{fig:off_we_go}) -- its dimension is equal to the the number of levels of the target expansion in the type $\Delta$. The cone $\sigma$ determines a stratum $\Ecal \subseteq \ol\Mcal_{1,\alpha}(\PP^N|H,d)$, and the morphism above restricts to 
+Let $\sigma \in \Sigma^{\Kim}$ be the minimal cone containing the image of $\tau$. The dimension of this cone could be large (see again the left-hand side of Figure \ref{fig:off_we_go}) -- its dimension is equal to the number of levels of the target expansion in the type $\Delta$. The cone $\sigma$ determines a stratum $\Ecal \subseteq \ol\Mcal_{1,\alpha}(\PP^N|H,d)$, and the morphism above restricts to 
 \[
 \Dcal \to \Ecal.
 \] 
 
 \noindent
-{\bf Splitting in the ordinary geometry.} The locus $\Ecal$ has the following description. Let $\Lambda_0$ for the collection of stable vertices of the combinatorial type which are mapped to $0\in \RR_{\geq 0}$, and $\Lambda_{>0}$ for the stable vertices which are mapped to $\RR_{>0}$. Each vertex $v$ has associated discrete data $\Gamma_v$. The vertices over $0$ determine moduli spaces of ordinary relative stable maps, while the higher level vertices determine maps to rubber.  Then $\Ecal$ admits a finite splitting morphism
+{\bf Splitting in the ordinary geometry.} The locus $\Ecal$ has the following description. Let $\Lambda_0$ denote the collection of stable vertices of the combinatorial type which are mapped to $0\in \RR_{\geq 0}$, and use $\Lambda_{>0}$ for the stable vertices which are mapped to $\RR_{>0}$. Each vertex $v$ has associated discrete data $\Gamma_v$ (genus, degree, contact order). The vertices over $0$ determine moduli spaces of ordinary relative stable maps, while the higher level vertices determine maps to rubber.  Then $\Ecal$ admits a finite splitting morphism
 \begin{equation}\label{IIIa fibre product} \Ecal \xrightarrow{\rho} \left( \prod_{v \in \Lambda_0} \ol\Mcal_{\Gamma_v}(\PP^N|H) \times \prod_{v \in \Lambda_{>0}} \ol\Mcal^{\leftrightarrow}_{\Gamma_v}(\mathbb{P}|H_0+H_\infty) \right) \times_{H^{2\epsilon}} H^{\epsilon} \end{equation}
 where $\epsilon$ is the number of edges of the stabilised dual graph, and the fibre product is taken over the appropriate evaluation maps. Splitting the diagonal of $H^{2\epsilon}$ we see that tautological integrals over $\Ecal$ are completely determined in terms of integrals over moduli spaces with ``smaller'' combinatorial data.\medskip
 
@@ -1145,13 +1145,13 @@ to the locus $\widetilde\Dcal$. Toroidal geometry gives a construction of $\wide
 %In toric geometry, the means of studying this restriction is as follows. The fan of $\widetilde\Dcal$ (respectively, $\Ecal$) is obtained by projecting the star of the ray $\tau$ (respectively, the star of the cone $\sigma$) onto the quotient lattice. The map $\widetilde\Dcal \to \Ecal$ is then the toric morphism induced by the obvious map of fans. In order to describe this morphism more explicitly, we first subdivide the fan of $\Ecal$ by taking the images of cones in the fan of $\widetilde\Dcal$. This induces a toric blowup of $\Ecal$ which we denote by $\widetilde\Ecal$. The morphism $\widetilde\Dcal \to \Ecal$ naturally factors through a morphism $\widetilde\Dcal \to \widetilde\Ecal$ which is now flat (in contrast to $\widetilde\Dcal \to \Ecal$), and  $\widetilde\Dcal$ may now be described as a compactification of a torus bundle over $\widetilde\Ecal$, with strata determined by the combinatorics of the fan.
 
 \noindent
-{\bf Logarithmic structures on strata.} Let $W\subseteq X$ be an irreducible stratum in a toroidal embedding $X$. The stratum $W$ is itself toroidal, or equivalently, when equipped with the divisorial logarithmic structure coming from intersecting with the toroidal boundary divisors of $X$, the resulting structure makes $W$ logarithmically smooth. Note that this differs from the logarithmic structure pulled back from $X$ along the inclusion of $W$ into $X$. 
+{\bf Logarithmic structures on strata.} Let $W\subseteq X$ be an irreducible stratum in a toroidal embedding $X$. The stratum $W$ is itself toroidal, or, equivalently, when equipped with the divisorial logarithmic structure coming from intersecting with the toroidal boundary of $X$, the resulting structure makes $W$ logarithmically smooth. Note that this differs from the logarithmic structure pulled back from $X$ along the inclusion of $W$ into $X$. 
 
 If $X$ and $W$ are merely logarithmic and not toroidal, there is an analogue of this. There exists a strict map
 \[
 X\to \mathcal A_X,
 \]
-where $ \mathcal A_X$ is the Artin fan of $X$, which is logarithmically \'etale over a point. The logarithmic structure of $\mathcal A_X$ is divisorial in the smooth topology. The Artin fan $\mathcal A_X$ possesses closed strata. Fix an irreducible stratum $\mathcal A_W$. In identical fashion to the paragraph above, this stack $\mathcal A_W$ possesses a logarithmic structure by restricting the divisors on $\mathcal A_X$ and taking the induced logarithmic structure. This equips a logarithmic stratum $W\hookrightarrow X$ with a logarithmic structure by pullback, mirroring the construction for toroidal embeddings above. 
+where $ \mathcal A_X$ is the Artin fan of $X$, which is logarithmically \'etale over a point. The logarithmic structure of $\mathcal A_X$ is divisorial in the smooth topology. The Artin fan $\mathcal A_X$ possesses closed strata. Fix an irreducible stratum $\mathcal A_W$. In identical fashion to the paragraph above, this stack $\mathcal A_W$ possesses a logarithmic structure by restricting the divisors on $\mathcal A_X$ and taking the induced logarithmic structure. This equips a logarithmic stratum $W\hookrightarrow X$ with a logarithmic structure by pullback from the Artin fan, mirroring the construction for toroidal embeddings above. 
 
 \begin{remark}
 Note that the inclusion of a stratum $W\hookrightarrow X$ is \textit{not} a logarithmic morphism. The pullback logarithmic structure on a closed stratum includes residual information about the (virtual) normal bundle directions; the construction above effectively removes these directions. Using the equivalence of Artin fans with cone complexes~\cite{CavalieriChanUlirschWise}, the above construction can be combinatorialised. Given a cone $\sigma$ in a cone stack $\Sigma$, its \textbf{star} consists of all cones of $\Sigma$ that contain $\sigma$; these naturally form a new cone complex. The associated Artin fan gives rise to the logarithmic structure on $W$ above.
@@ -1166,13 +1166,43 @@ is a logarithmic morphism. The generic fibre of this morphism is a toric variety
 \noindent
 {\bf Flattening the map to $\Ecal$.} The morphism $\widetilde \Dcal\to \Ecal$ is not flat. In order to push integrals forward, it will be convenient to flatten the map by blowing up $\Ecal$. This can be done in a universal manner, following~\cite{AK,Mol16}. 
 
+\begin{figure}
+ \begin{tikzpicture}
+ \tikzset{cross/.style={cross out, draw=black, fill=none, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt}, cross/.default={3pt}}
+ 
+ %combinatorial type
+  \draw[fill=black] (1,1) circle (2 pt);
+  \draw[fill=black] (0,-1) circle (2 pt);
+  \draw (1,1)--node[below,blue]{$m_1$} (2,0) (0,-1)--node[below,blue]{$m_1$} (2,0) (2,0)--node[below,blue]{$m_1+m_2$} (4,0);
+  \draw (1,-.5) node[cross]{};
+  \draw[fill=white] (2,0) circle (2 pt);
+  
+  \draw[->] (2,-1) -- (2,-1.8);
+  
+  \draw[fill=black] (0,-2) circle (2 pt);
+  \draw[->] (0,-2)--node[below=.5cm]{$\Delta_\tau$} (4,-2);
+   \draw (1,-2) node[cross]{};
+   \draw (2,-2) node[cross]{};
+  
+  \draw [red] plot [smooth cycle] coordinates {(1,1) (0,-1) (3.5,0)};
+  
+ %subdivision 
+  \draw[->] (6,-2) --node[below=.5cm]{$\sigma$} (10,-2) node[right]{$\ell_1$};
+  \draw[->] (6,-2) -- (6,2) node[above]{$\ell_2$};
+  \draw[gray] (6,-2) -- (10,1) node[right]{$(m_2,m_1)=\operatorname{Im}(\tau)$};
+ \end{tikzpicture}
+\caption{From $\Ecal$ to $\widetilde{\Ecal}$. Typical subdivision of a two-dimensional cone $\sigma$ along the image of a ray $\tau$.}
+\label{fig:Etilde}
+\end{figure}
+
+
 The combinatorics of the flattening can be described explicitly. Consider the map on tropicalizations
 \[
 \widetilde{\Dcal}^{\operatorname{trop}} \to \Ecal^{\operatorname{trop}}.
 \]
-The tropical curves on the left inherit a central alignment from $\widetilde{\VZ}_{1,\alpha}(\PP^N|H,d)$, which orders a certain subset of the edge lengths. The polyhedral criterion for equidimensionality is that every cone of the source maps surjectively onto a cone of the target. There is a universal logarithmic modification $\widetilde\Ecal \to \Ecal$ such that $\widetilde\Dcal \to \widetilde\Ecal$ is flat, constructed by taking the minimal subdivision of $\Ecal^{\operatorname{trop}}$ such that cones map surjectively to cones.
+The tropical curves on the left inherit a central alignment from $\widetilde{\VZ}_{1,\alpha}(\PP^N|H,d)$, which orders a certain subset of the edge lengths. The polyhedral criterion for equidimensionality is that every cone of the source maps surjectively onto a cone of the target. There is a universal logarithmic modification $\widetilde\Ecal \to \Ecal$ such that $\widetilde\Dcal \to \widetilde\Ecal$ is flat, constructed by taking the minimal subdivision of $\Ecal^{\operatorname{trop}}$ such that cones map surjectively to cones (see Figure \ref{fig:Etilde}).
 
-This subdivision is best described using the formalism of extended tropicalizations \cite{Thuillier,ACP}. The subdividing cones are obtained from cones in the star of $\tau$ under the limit $e_1=\cdots=e_r=\infty$. The cones in the star of $\tau$ are given by (in)equalities relating distances of pairs of vertices, and there are three cases to consider:
+This subdivision is best described using the formalism of extended tropicalizations \cite{Thuillier,ACP}. The subdividing cones are obtained from cones in the star of $\tau$ under the limit $e_1=\cdots=e_r=\infty$\marginpar{Was $r$ called $\epsilon$ before?}. The cones in the star of $\tau$ are given by (in)equalities relating distances of pairs of vertices, and there are three cases to consider:
 \begin{enumerate}
 \item both vertices are components of the subgraph $\sqC \setminus \sqC_0$;
 \item both vertices are components of the subgraph $\sqC_0$;
@@ -1191,22 +1221,27 @@ with the radially aligned rubber space:
 \end{enumerate}
 This procedure induces a logarithmic modification $\widetilde\Ecal \to \Ecal$ which admits a modular description as a fibre product of genus zero centrally aligned maps coming from the vertices $\sqC_1,\ldots,\sqC_r$, and genus one aligned rubber maps satisfying fibre-direction factorisation from the vertex $\sqC_0$.
 
-By construction, we have a map $\widetilde\Dcal \to \widetilde\Ecal$ which is a compactification of a torus bundle over $\widetilde\Ecal$. The strata of $\widetilde\Dcal$ can be read off from its tropicalization, and in particular we have the information of how (polynomials in) the classes of boundary strata push forward to $\widetilde\Ecal$.
+%By construction, we have a map $\widetilde\Dcal \to \widetilde\Ecal$ which is a compactification of a torus bundle over $\widetilde\Ecal$. The strata of $\widetilde\Dcal$ can be read off from its tropicalization, and in particular we have the information of how (polynomials in) the classes of boundary strata push forward to $\widetilde\Ecal$.
 
 We have produced a factorisation
 \begin{equation*}\widetilde\Dcal\to\widetilde \Ecal\to\Ecal,
 \end{equation*}
 where the first map is flat and the second map is a logarithmic modification. $\widetilde\Dcal$ is a compactification of a torus bundle over $\widetilde\Ecal$ whose strata can be read off from the tropicalization; in particular, we have the information of how (polynomials in) the classes of boundary strata push forward to $\widetilde\Ecal$. In fact, we can say more and describe the generic fibre of $\widetilde\Dcal \to \widetilde\Ecal$:
 \begin{lemma}\label{lem:generic_proj_bundle}
-Generically over $\Ecal$, the morphism $\widetilde \Dcal\to\widetilde\Ecal$ is the projectivisation of a tautological vector bundle.
+Generically over $\Ecal$, the morphism $\widetilde \Dcal\to\Ecal$ is the projectivisation of a tautological vector bundle.
 \end{lemma}
 
 \begin{proof}
-Let us assume that the curve does not degenerate, so that the dual graph is as prescribed by $\Delta$. In particular there are components $\sqC_1,\ldots,\sqC_r$ generically lying on the circle of radius $\delta$. The moduli space of attaching data for the elliptic singularity is the complement of the coordinate hyperplanes in
-$$\PP\left(\bigoplus_{i=1}^rT_{q_i}C_i\right),$$
-see~\cite[Section~2.2]{SMY2}. A point in this space parameterizes a particular map from the rational multiple point singularity to the elliptic multiple point singularity. On the boundary, the circle is allowed to miss some of the $\sqC_i$ -- but not all of them! --  cutting the edge between them and the core (correspondingly, there is a destabilisation of the curve, and an elliptic singularity containing strictly semistable branches). Tropically, pushing some of the vertices off the circle creates new finite-length edges with coordinates $\ell_i\in\RR_{\geq_0}$ (see Figure \ref{fig:off_we_go}). Since not all of them can be strictly positive, this represents the fan of a projective space.
+Let us assume that the curve does not degenerate, so that the dual graph is as prescribed by $\Delta$. In particular there are vertices $\plC_1,\ldots,\plC_r$ generically lying on the circle of radius $\delta$. The moduli space of attaching data for the elliptic singularity is the complement of the coordinate hyperplanes in
+\begin{equation}\label{eqn:projectivebundle}
+ \PP\left(\bigoplus_{i=1}^rT_{q_i}C_i\right);
+\end{equation}
 
-A slight modification of the argument above is required to account for the fact that all vertices that lie on the circle and are mapped to $0\in\mathbb R_{\geq0}$ by the tropical map are generically aligned on $\Ecal$: indeed, by Lemma \ref{lemma type C0 combinatorial types}, they all have the same contact order $m$, therefore their $T_{q_i}C_i^{\otimes m}$ can be identified via the target tangent line on the fibre product \eqref{IIIa fibre product}, and, after saturation, the $T_{q_i}C_i$ themselves are canonically isomorphic on $\Ecal$. Thus, only one summand should be taken to represent all of them in the projective bundle above.
+this can also be thought of as parametrising compatible identifications $\theta_{i,j}\colon T_{C_i,q_i}\simeq T_{C_j,q_j}$, see \S \ref{S:ellsing}. A point in this space determines in particular a map from the rational $r$-fold singularity to the elliptic $r$-fold singularity. That this coincides with the fibre of the aligned moduli space of curves over the ordinary one is well explained in \cite[\S 3.4]{RSPW}.  Along the boundary, some of the $\plC_i$ -- but not all of them! --  are allowed to move off from the circle, so that the latter cuts the edge between them and the core. Correspondingly, there is a destabilisation of the curve (semistable components are represented by crosses in our figures), and we obtain an elliptic singularity containing strictly semistable branches (\emph{sprouting}). This was already identified by Smyth as a compactification of the moduli space of attaching data carrying a Gorenstein universal curve \cite[\S 2.2]{SMY2}.
+
+Tropically, pushing some of the $\plC_i$ off the circle creates new finite-length edges with coordinates $\ell_i\in\RR_{\geq_0}$ (see the right-hand side of Figure \ref{fig:off_we_go}). Since not all of them can be strictly positive, the resulting fan is that of a projective space. This gives us a fibrewise description of $\widetilde\Dcal\to\Ecal$ over the generic point.
+
+A slight modification of the argument above is required to account for the fact that all vertices that lie on the circle and are mapped to $0\in\mathbb R_{\geq0}$ by the tropical map are generically aligned on $\Ecal$. Indeed, by the combinatorial description of rays in \S \ref{S:combinatorialdescription}, there are no stable vertices inside the circle, so all the edges going from a vertex of $\Lambda_0$ to the core have the same expansion factor $m$ (maximal among the contact orders at the core). Therefore, for all $i$ such that $\plC_i\in\Lambda_0$, the $T_{q_i}C_i^{\otimes m}$ can be identified to the target tangent line on the fibre product \eqref{IIIa fibre product}, and, after saturation, the $T_{q_i}C_i$ themselves are canonically isomorphic on $\Ecal$. Thus, only one summand should be taken to represent all of them in the projective bundle \eqref{eqn:projectivebundle}.
 \end{proof}
 
 \begin{figure}
@@ -1273,8 +1308,7 @@ A slight modification of the argument above is required to account for the fact 
      at (111.876, 608) {ipe cross};
   \pic
      at (127.674, 608) {ipe cross};
-  \pic[fill=white]
-     at (128, 688) {ipe fdisk};
+  
   \node[ipe node]
      at (86.863, 690.301) {$m$};
   \node[ipe node]
@@ -1322,6 +1356,8 @@ A slight modification of the argument above is required to account for the fact 
      at (64.4824, 798.91) {ipe disk};
   \pic
      at (64.4824, 753.492) {ipe disk};
+     \pic[fill=white]
+     at (128, 688) {ipe fdisk};
   \draw
     (289.118, 672.0005)
      -- (353.118, 688.0005)
@@ -1382,8 +1418,7 @@ A slight modification of the argument above is required to account for the fact 
      at (336.994, 608.0207) {ipe cross};
   \pic
      at (352.792, 608.0209) {ipe cross};
-  \pic[fill=white]
-     at (353.118, 688.0005) {ipe fdisk};
+  
   \node[ipe node]
      at (311.98, 690.301) {$m$};
   \node[ipe node]
@@ -1393,7 +1428,6 @@ A slight modification of the argument above is required to account for the fact 
      -- (-36.5297, 53.643);
   \draw[shift={(353.119, 687.997)}, xscale=1.4269, yscale=1.3567]
     (0, 0)
-     -- (32.586, 57.593)
      -- (32.586, 57.593);
   \pic
      at (310, 751.5171) {ipe disk};
@@ -1405,9 +1439,8 @@ A slight modification of the argument above is required to account for the fact 
       \pic
      at (387, 608) {ipe cross};
      
-  \draw[shift={(311.745, 750.197)}, xscale=0.8205, yscale=-0.5452]
+  \draw[shift={(311.745, 750.197)}, xscale=0.8205, yscale=-0.5452,]
     (0, 0)
-     -- (-26.9879, 7.241)
      -- (-26.9879, 7.241);
   \draw[shift={(399.543, 767.54)}, xscale=1.1319, yscale=0.5704]
     (0, 0)
@@ -1440,6 +1473,12 @@ A slight modification of the argument above is required to account for the fact 
      at (315.273, 748.884) {$\ell_{1}$};
   \node[ipe node]
      at (397.553, 752.175) {$\ell_{2}$};
+     %thickenings of l1 and l2
+  \draw[line width=.5mm] (317,743.5)--(310,751.5);
+  \draw[line width=.5mm] (387,744)--(400,767);
+  
+  \pic[fill=white]
+     at (353.118, 688.0005) {ipe fdisk};
 \end{tikzpicture}
 \caption{Moving vertices off the circle creates new tropical parameters.}\label{fig:off_we_go}
 \end{figure}
