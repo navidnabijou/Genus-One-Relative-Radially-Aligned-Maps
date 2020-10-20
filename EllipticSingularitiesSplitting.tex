@@ -73,7 +73,7 @@
 \usepackage{xcolor}
 \usepackage{xfrac}
 \usepackage{tikz,tikz-cd}
-\usetikzlibrary{decorations.pathmorphing,decorations.pathreplacing,patterns,arrows.meta,shapes.misc}
+\usetikzlibrary{ipe,decorations.pathmorphing,decorations.pathreplacing,patterns,arrows.meta,shapes.misc}
 
 
 \definecolor{red}{rgb}{1,0,0}
@@ -93,7 +93,7 @@
 \usepackage[baskervaldx,bigdelims,vvarbb]{newtxmath}
 \usepackage[cal=cm]{mathalfa}
 
-
+\DeclareRobustCommand{\plE}{\text{\reflectbox{$\exists$}}}
 \newcommand{\plC}{\scalebox{0.8}[1.3]{$\sqsubset$}}
 \newcommand{\sidenote}[1]{\marginpar{\textbf{\color{red}#1}}}
 \newcommand{\lcm}{\operatorname{lcm}}
@@ -431,7 +431,7 @@ Finally, it would be natural to generalize the method of degenerating tangency c
 
 We briefly review some basic tropical structures in the theory of logarithmic curves and logarithmic stable maps. A detailed treatment is given by~\cite[Section~3]{CavalieriChanUlirschWise}. The following paragraphs are meant only as a reminder. 
 
-\subsection*{Curves and tropical curves} A nodal curve $C$ over $\spec \mathbb C$ has an associated dual graph $\Gamma(C)$. Given a toric monoid $P$, there is a logarithmic point $\spec \CC_P$ which may be thought of as remembering the information of the embedding of the torus-fixed closed point into the toric variety $\spec \mathbb C[P]$. For a logarithmically smooth curve $C$ over $\spec \CC_P$, the dual graph $\Gamma(C)$ is enhanced: given an edge $e$ of $\Gamma(C)$, the logarithmic structure keeps track of a generalized ``edge length'' $\ell_e$, which is an element of $P$. These data can be repackaged into a cone complex $\plC$ together with a map to the dual cone $\sigma_P$
+\subsection{Curves and tropical curves} A nodal curve $C$ over $\spec \mathbb C$ has an associated dual graph $\Gamma(C)$. Given a toric monoid $P$, there is a logarithmic point $\spec \CC_P$ which may be thought of as remembering the information of the embedding of the torus-fixed closed point into the toric variety $\spec \mathbb C[P]$. For a logarithmically smooth curve $C$ over $\spec \CC_P$, the dual graph $\Gamma(C)$ is enhanced: given an edge $e$ of $\Gamma(C)$, the logarithmic structure keeps track of a generalized ``edge length'' $\ell_e$, which is an element of $P$. These data can be repackaged into a cone complex $\plC$ together with a map to the dual cone $\sigma_P$
 \[
 \pi: \plC\to \sigma_P.
 \]
@@ -447,7 +447,7 @@ The reader is encouraged to think of $\mathfrak M_{g,n}^{\mathrm{trop}}$ as play
 \item A piecewise linear function on $\mathfrak M_{g,n}^{\mathrm{trop}}$ gives rise to a Cartier divisor on $\mathfrak M_{g,n}$.
 \end{enumerate}
 
-\subsection*{Maps and tropical maps}The discussion carries over to the setting of logarithmic maps. Specifically, given a logarithmic curve $C$ and a logarithmic map to a smooth pair $(X,Y)$ over a logarithmic scheme $S$. For simplicity, assume that $S$ is a $P$-logarithmic point, as above. There is an associated \textbf{tropicalization}, i.e. a family of tropical curves $\plC$ over $\sigma_P$, together with a map of cone complexes
+\subsection{Maps and tropical maps}The discussion carries over to the setting of logarithmic maps. Specifically, given a logarithmic curve $C$ and a logarithmic map to a smooth pair $(X,Y)$ over a logarithmic scheme $S$. For simplicity, assume that $S$ is a $P$-logarithmic point, as above. There is an associated \textbf{tropicalization}, i.e. a family of tropical curves $\plC$ over $\sigma_P$, together with a map of cone complexes
 \[
 \plC\to \RR_{\geq 0}.
 \]
@@ -457,9 +457,42 @@ Each fiber over $\sigma_P$ encodes a metric enhancement of the dual graph, toget
 
 When working with logarithmic geometries such as $(\mathbb P^N,H)$, as we do here, similar ideas may be expected to apply, but the deformation theory of maps becomes more delicate. Indeed, the logarithmic Euler sequence for this pair shows that the logarithmic tangent bundle is a quotient of $\mathcal O\oplus\mathcal O(1)^{\oplus N}$, and additional obstructions appear. In simple terms, there exist logarithmic maps to the pair $(\mathbb P^N,H)$ with obstructed logarithmic deformations, whose underlying ordinary stable map is unobstructed. 
 
+\subsection{Singularities and moduli of attachments} Isolated Gorenstein singularities of genus $1$ were classified by Smyth in \cite{SMY1}: for every fixed number of branches $m$, there is only one isomorphism type of curve germs with such characteristics. For $m=1,2$ we find the cusp ($A_2$) and tacnode ($A_3$) respectively; for $m\geq 3$ we find the union of $m$ general lines through the origin of $\Aaff^{m-1}$ - Smyth calls them \emph{elliptic $m$-fold points}.
+
+The problem of constructing an elliptic singularity from its pointed normalisation is more delicate; it was widely studied in van der Wyck's thesis \cite{vdW}. Recall that the seminormalisation $C^\text{sn}$ of a curve $C$ has the same underlying topological space, but its singularities consist of rational $m$-fold points only, i.e. they are locally isomorphic to the union of the axes in $\Aaff^m$.
+
+\begin{lemma}\label{lem:pushout}
+ The seminormalisation $\nu\colon C^\text{sn}\to C$ of an elliptic $m$-fold point is the collapse of a general tangent vector $v$ at the rational $m$-fold point.
+\end{lemma}
+
+This is equivalent to \cite[Lemma 2.2]{SMY1}, where he describes the seminormalisation of an elliptic singularity as the data of a hyperplane in the Zariski cotangent space, not containing the coordinate lines. We call \emph{moduli of attaching data} \cite[\S 2.2]{SMY2} (or \emph{crimping space}) the extra data needed to produce a singularity from its pointed normalisation.
+
+\begin{cor}
+ The moduli of attachments of an elliptic $m$-fold point is isomorphic to $\mathbb G_{\text{m}}^m$.
+\end{cor}
+One way to compactify it is by allowing \emph{sprouting} on the boundary, i.e. replacing a branch $R_i$ of the singularity with a strictly semistable component $\PP^1$ with the singularity at $0$ and the branch $R_i$ glued nodally at $\infty$.
+
+There are other ways to look at these data; we recall a construction from linear algebra. Let $V=\sum_{i=1}^mL_i$ be the presentation of a vector space as the direct sum of $m$ lines. It is equivalent to give compatible isomorphisms $\theta_{i,j}\colon L_i\simeq L_j$ and a general line $\ell$ in $V$ (or a hyperplane in the dual vector space $V^\vee$). Indeed, given a general line $\ell$, a vector $v\in\ell$ can be written as:
+\[v=a_1e_1+\ldots+a_me_m,\qquad a_i\neq 0\ \forall i=1,\ldots,m,\]
+for a fixed basis $\{e_i\in L_i\}$ of $V$. We can then define $\theta_{i,j}$ by:
+\[\theta_{i,j}(e_i)=\frac{a_j}{a_i}e_j;\]
+it is easy to see that it does not depend on any choice made. On the other hand, given the $\theta_{i,j}$, the line $\ell$ can be taken to be the graph of the morphism:
+\[(\theta_{1,2},\ldots,\theta_{1,m})\colon L_1\to L_2\oplus\ldots\oplus L_m.\]
+
+Lemma \ref{lem:pushout} provides a valuable characterisation of maps from an elliptic singularity $C$, that we are going to exploit in \S \ref{section reduced splitting}:
+\begin{cor}
+ A map $C\to X$ is the same as a map $C^\text{sn}\to X$ such that its differential sends $v$ to $0$.
+\end{cor}
+
+Line bundles on an elliptic $m$-fold point admit a similar description, see e.g. \cite[Lemma 7.5.12]{LiuQ}.
+\begin{lemma}\label{lem:PicE}
+ Let $C$ be a curve of arithmetic genus $1$ containing an elliptic $m$-fold point. Then $\operatorname{Pic}^0(C)\simeq\mathbb G_{\text{a}}$.
+\end{lemma}
+
+
 \subsection{Absolute geometry: reminders} Let $\mathfrak M_{1,n}$ be the logarithmic algebraic stack of $n$-pointed prestable curves of genus one. We begin by recalling the logarithmic moduli spaces of genus one curves constructed in~\cite[\S 2 \& \S 4]{RSPW}. 
 
-Consider a logarithmically smooth curve $C$ over a logarithmic geometric point $S$ with monoid $P$ and let $\pi\colon \plC\to \sigma_P$ denote its tropicalization. Given a point $t$ in $\sigma_P$ we obtain a metric graph as explained above. Since the curve in question has genus $1$, there is a minimal genus $1$ subgraph -- either a vertex of genus $1$ or a cycle in the graph. We will refer to this as the \textbf{core}.
+Consider a logarithmically smooth curve $C$ over a logarithmic geometric point $S$ with monoid $P$ and let $\pi\colon \plC\to \sigma_P$ denote its tropicalization. Given a point $t$ in $\sigma_P$ we obtain a metric graph as explained above. Since the curve in question has genus $1$, there is a minimal genus $1$ subgraph -- either a vertex of genus $1$ or a cycle in the graph. We will refer to this as the \textbf{core}, denoted by $\plE$ below.
 
 Given a point $s$ with $\pi(s)$ equal to $t$, there is a well-defined distance in the metric graph $\pi^{-1}(t)$ from $s$ to the core. 
 In particular, for each vertex $v$ of the dual graph $\Gamma(C)$, i.e. each component of $C$, there is a well-defined function $\lambda(v): \sigma_P\to \RR_{\geq 0}$, defined on the base of the tropical family. We may as well think of $\boldsymbol{\lambda}$ as a piecewise linear function $\lambda\colon\plC\to\RR_{\geq 0}\times\sigma_P$, see Figure \ref{fig:lambdaexample}. Given any other linear function $\delta$ on $\sigma_P$, say that $\delta$ is \textbf{comparable} to $\lambda(v)$ if there is a global order relation, either $\lambda(v)\leq \delta$ or $\lambda(v)\geq \delta$, that holds at all points of $\sigma_P$. 
@@ -485,7 +518,7 @@ In other words, for the tropical curve $\sqC$, all vertices are either inside, o
   \foreach \x in {(-1,1),(3.5,1.5),(3.2,2),(-2.5,2.5),(-.5,1.5),(1.5,3.5),(4.8,3),(5.8,3.5),(7,0),(-2,2.8),(4,3.2)}
   \draw[fill=black] \x circle (2pt);
   
-  \draw[gray] (0,0) node[left]{$\plC_0$} -- (1,.2) -- (2,0) -- (1,-.2) -- (0,0); %core
+  \draw[gray] (0,0) node[left]{$\plE$} -- (1,.2) -- (2,0) -- (1,-.2) -- (0,0); %core
   
   \draw (0,0) -- (-2.5,2.5) -- (-2.7,4) (-2.5,2.5) -- (-2.3,4) (-1,1)--(1.5,3.5)--(1.3,4) (1.5,3.5)--(1.7,4) (-.5,1.5) -- (-1.7,2.5) -- (-2,2.8) --(-2.2,4) (-2,2.8) --(-1.8,4);
   \draw (1,.2) -- (4,3.2) -- (3.9,4) (4,3.2) -- (4.1,4);
@@ -671,6 +704,8 @@ The theorem guarantees that the singularities of the space of completely factori
 The logarithmically smooth stack $\VZ_{1,\alpha}(\mathbb P^N|H,d)$ has at worst orbifold singularities, i.e. admits a non-representable cover by a smooth Deligne--Mumford stack.
 \end{cor}
 
+\textcolor{red}{Up to a generalised root construction, $\VZ_{1,\alpha}(\mathbb P^N|H,d)$ is a smooth Deligne-Mumford stack.}
+
 \begin{proof}
 Since $\VZ_{1,\alpha}(\mathbb P^N|H,d)$ is logarithmically smooth, it will suffice to show that the cones of its tropicalization are simplicial. To see this, consider a logarithmic stable map to an expansion $C\to \mathbb P^N[s]$ without a central alignment. The tropical moduli cone obtained as the dual of the minimal base monoid can be identified with $\mathbb R_{\geq 0}^{s}$, see for instance~\cite[Section~2.2]{ChenDegeneration}. The alignment procedure is an iterated barycentric subdivision at the level of tropical moduli spaces, as explained in~\cite[Section 4.6]{RSPW}, and such subdivisions preserve the property of being simplicial. We conclude from this that the blowup $\widetilde{\VZ}^{\mathrm{exp}}_{1,\alpha}(\mathbb P^N|H,d)$ obtained by centrally aligning Kim's spaces has simplicial cones. The morphism $\VZ_{1,\alpha}(\mathbb P^N|H,d)\to \widetilde{\VZ}^{\mathrm{exp}}_{1,\alpha}(\mathbb P^N|H,d)$ is strict, so the cones of $\VZ_{1,\alpha}(\mathbb P^N|H,d)$ are simplicial, as claimed.
 \end{proof}
@@ -735,25 +770,54 @@ Note that this is parallel to the virtual formalism in~\cite{Ga}. As $\VZ_{1,\al
 
 \section{Stratification and tropicalization}
 
-\noindent The logarithmic smoothnessof Theorem~\ref{thm: log-smoothness} implies that $\VZ_{1,\alpha}(\mathbb P^N|H,d)$ is an orbifold toroidal embedding. The irreducible components of its boundary stratify the space, as we now describe.
+\noindent The logarithmic smoothness of Theorem~\ref{thm: log-smoothness} implies that $\VZ_{1,\alpha}(\mathbb P^N|H,d)$ is an orbifold toroidal embedding. The irreducible components of its boundary stratify the space, as we now describe.
 
 The tropicalizations of logarithmic maps that factor completely are combinatoriall constrained by a condition known as \textbf{well-spacedness}. The version we use here is essentially identical to~
 \cite{RSPW2}. 
 
 \begin{definition}
-Let $\plC$ be a tropical curve of genus one and let $\plC_0$ be its minimal subcurve of genus one. A tropical map $F: \plC\to \mathbb R_{\geq 0}$ is said to be \textbf{well-spaced} if one of the following two conditions are satisfied:
+Let $\plC$ be a tropical curve of genus one and let $\plE$ be its minimal subcurve of genus one. A tropical map $F: \plC\to \mathbb R_{\geq 0}$ is said to be \textbf{well-spaced} if one of the following two conditions are satisfied:
 \begin{enumerate}
-    \item no open neighbourhood of $\plC_0$ is contracted to a point in $\mathbb R_{>0}$, or
-    \item if an open neighbourhood of $\plC_0$ is contracted and $t_1,\ldots,t_k$ are the flags whose vertex is mapped to $F(\plC_0)$, but along which $F$ has nonzero slope; then, the minimum of the distances from $\plC_0$ to $t_i$ occurs for at least two indices $i$.
+    \item no open neighbourhood of $\plE$ is contracted to a point in $\mathbb R_{>0}$, or
+    \item\label{pt:well-spaced2} if an open neighbourhood of $\plE$ is contracted and $t_1,\ldots,t_k$ are the flags whose vertex is mapped to $F(\plE)$, but along which $F$ has nonzero slope; then, the minimum of the distances from $\plE$ to a vertex supporting $t_i$ occurs for at least two indices $i$.
 \end{enumerate}
 \end{definition}
+
+\begin{figure}
+ \begin{tikzpicture}
+  %source curve
+  \draw[gray] (0,-1) to[out=150, in=210, edge node={node [left] {$\plE$}}] (0,1);
+  \draw[gray] (0,-1) to[out=30, in=-30] (0,1);
+  \draw (0,1) --node[right]{$\ell_1$} (0,2) --node[above]{$t_1$} (-4,2) (0,2) --node[above]{$t_2$} (4,2);
+  \draw[dotted] (-4.5,2) -- (-4,2) (4,2) -- (4.5,2);
+  \draw (0,-1) --node[right]{$\ell_2$} (0,-2) --node[above]{$t_3$} (-4,-2) (0,-2) --node[above]{$t_4$} (4,-2);
+  \draw[dotted] (-4.5,-2) -- (-4,-2) (4,-2) -- (4.5,-2);
+  \foreach \x in {(0,2), (0,-2)}
+  \draw[fill=black] \x circle (2pt);
+  \foreach \x in {(0,1), (0,-1)}
+  \draw[fill=gray] \x circle (2pt);
+  %arrow
+  \draw[->] (0,-2.5)--node[left]{$F$}(0,-3.5);
+  %target line
+  \draw (-4,-4)--(4,-4);
+  \draw[dotted] (-4.5,-4) -- (-4,-4) (4,-4) -- (4.5,-4);
+  \draw[fill=black] (0,-4) node[below]{$F(\plE)$} circle (2pt);
+  
+ \end{tikzpicture}
+\caption{An example of well-spacedness: condition \eqref{pt:well-spaced2} becomes $\ell_1=\ell_2$.}
+\label{fig:exa_well-spaced}
+\end{figure}
+
+\begin{rem}
+Condition \eqref{pt:well-spaced2} is not relevant as far as rays of the tropical moduli space (i.e. divisors) are concerned, since there are always at least two parameters involved, namely $F(\plE)$ - or the distance from $F(\plE)$ to the origin of $\RR_{\geq 0}$ - and the distance from $\plE$ to the first flag of non-zero slope within $\plC$. As we mostly concentrate on divisors starting from \S \ref{Section Gathmann line bundle}, it will not play much of a role in the rest of the paper.
+\end{rem}
 
 \begin{prop}\label{prop: well-spaced}
 Let $[C\to \mathbb P^N]$ be a logarithmic stable map from a centrally aligned curve to an expansion, that factors completely. Then the tropicalization $\plC\to \mathbb R_{\geq 0}$ is well-spaced.
 \end{prop}
 
 \begin{proof}
-The required result is essentially contained in~\cite[Section 4]{RSPW2}, so we explain how to deduce the requisite result from the one in loc. cit. We may focus on a single component of the expansion $\mathbb P^N[s]$ that contains the image of a contracted genus one subcurve, as this is the only relevant case. We may thus replace the target with the projective bundle $\mathbb P(\mathcal O(1)\oplus \mathcal O)$ over $\mathbb P^{N-1}$ equipped with the divisorial logarithmic structure from the $0$ and $\infty$ sections. Let $p$ be the point to which the genus one subcurve is contracted. Passing to an open neighbourhood of $p$, the map to the bundle is given by a rational function $f$ on an open curve $C^\circ$, determined by the the subgraph formed by $\plC_0$ and the flags $t_i$ described in the definition above. To describe the tropical map to $\mathbb R_{>0}$, we observe that $\plC_0$ is contracted to a fixed point $q\in\mathbb R_{>0}$. The flags at $t_i$ correspond to nodes or markings of $C$. The pole orders of $f$ at these distinguished points determine the slopes of the tropical map. We are now exactly in the situation considered in~\cite[Second Paragraph of \S~4.6]{RSPW2}, and Lemma~4.6.1 of loc. cit. guarantees the well-spacedness.
+The required result is essentially contained in~\cite[Section 4]{RSPW2}, so we explain how to deduce it from the one in loc. cit. We may focus on a single component of the expansion $\mathbb P^N[s]$ that contains the image of a contracted genus one subcurve, as this is the only relevant case. We may thus replace the target with the projective bundle $\mathbb P(\mathcal O(1)\oplus \mathcal O)$ over $\mathbb P^{N-1}$ equipped with the divisorial logarithmic structure from the $0$ and $\infty$ sections. Let $p$ be the point to which the genus one subcurve is contracted. Passing to an open neighbourhood of $p$, the map to the bundle is given by a rational function $f$ on an open curve $C^\circ$, determined by the the subgraph formed by $\plE$ and the flags $t_i$ described in the definition above. To describe the tropical map to $\mathbb R_{>0}$, we observe that $\plE$ is contracted to a fixed point $q\in\mathbb R_{>0}$. The flags at $t_i$ correspond to nodes or markings of $C$. The pole orders of $f$ at these distinguished points determine the slopes of the tropical map. We are now exactly in the situation considered in~\cite[Second Paragraph of \S~4.6]{RSPW2}, and Lemma~4.6.1 of loc. cit. guarantees the well-spacedness.
 \end{proof}
 
 \subsection{The cone complex} To understand the stratification via combinatorial data, we will build the stratification from known objects. \\
@@ -802,7 +866,13 @@ The corresponding cone $\sigma \in \Sigma^{\operatorname{Kim}}$ is then given by
 In \S \ref{section reduced splitting} we will perform this analysis in the case $k=1$.
 
 
-\section{Degeneration of contact order}\label{Section Gathmann line bundle} Consider the moduli space $\VZ_{1,\alpha}(\PP^N|H,d)$ of relative maps that factorize completely. For each marking $x_k$, consider the locus $\Dcal_{1,\alpha,k}(\PP^N|H,d) \subseteq \VZ_{1,\alpha}(\PP^N|H,d)$ where $x_k$ belongs to an \textbf{internal component} of the collapsed map, i.e. a component of the curve that is mapped into $H$. In this section, we use the logarithmic structure on $\VZ_{1,\alpha}(\PP^N|H,d)$ to construct a line bundle $\Lcal_k$ and section $s_k$ which vanishes precisely along $\Dcal_{1,\alpha,k}(\PP^N|H,d)$. We use the correspondence with tropical geometry to identify $\cchern_1(\Lcal_k)$ in terms of tautological classes on $\VZ_{1,\alpha}(\PP^N|H,d)$, and to compute the vanishing order of $s_k$ along the components of $\Dcal_{1,\alpha,k}(\PP^N|H,d)$. Combined with the relative splitting formulas from in the next section, we obtain a recursion relation inside $\VZ_{1,\alpha}(\PP^N|H,d)$
+\section{Degeneration of contact order}\label{Section Gathmann line bundle} Consider the moduli space $\VZ_{1,\alpha}(\PP^N|H,d)$ of relative maps that factor completely.
+\begin{dfn}
+ For each marking $x_k$, consider the locus $\Dcal_{1,\alpha,k}(\PP^N|H,d) \subseteq \VZ_{1,\alpha}(\PP^N|H,d)$ where $x_k$ belongs to an \textbf{internal component} of the collapsed map, i.e. a component of the curve that is mapped into $H$.
+\end{dfn}
+\noindent Equivalently, for the expanded map, $x_k$ does not belong to a \emph{trivial bubble} component.
+
+ In this section, we use the logarithmic structure on $\VZ_{1,\alpha}(\PP^N|H,d)$ to construct a line bundle $\Lcal_k$ and section $s_k$ which vanishes precisely along $\Dcal_{1,\alpha,k}(\PP^N|H,d)$. We use the correspondence with tropical geometry to identify $\cchern_1(\Lcal_k)$ in terms of tautological classes on $\VZ_{1,\alpha}(\PP^N|H,d)$, and to compute the vanishing order of $s_k$ along the components of $\Dcal_{1,\alpha,k}(\PP^N|H,d)$. Combined with the relative splitting formulas from the next section, we obtain a recursion relation inside $\VZ_{1,\alpha}(\PP^N|H,d)$
 
 The pair $(\Lcal_k,s_k)$ is most naturally constructed on the moduli space $\MLog_{1,\alpha}(\PP^N|H,d)$ of non-expanded logarithmic maps; the corresponding pair on $\VZ_{1,\alpha}(\PP^N|H,d)$ will be obtained via pull-back. Consider therefore the tropicalization $\Sigma^{\log}$ of $\MLog_{1,\alpha}(\PP^N|H,d)$, identified as usual with the moduli space of tropical maps to $\RR_{\geq 0}$. We have a universal family
 \bcd
@@ -835,9 +905,9 @@ The sum is over irreducible components of the divisor $\Dcal_{1,\alpha,k}(\PP^N|
 
 \section{Splitting the boundary}\label{section reduced splitting}
 
-A basic phenomenon is responsible for the nature of the forthcoming analysis. In contrast with nodal singularities, the functions on an elliptic singularity are not simply collections of functions on the normalisation that agree at the gluing point. In order to compute integrals, it is necessary to give a tautological description of this additional condition that captures which functions (or maps) descend from the normalization to the singularity. 
+A basic phenomenon is responsible for the nature of the forthcoming analysis. In contrast with nodal singularities, the functions on an elliptic singularity are not simply collections of functions on the normalisation that agree at the gluing point. Rather, the contraction map $C\to\overline C$ corresponds to a linear combination of tangent vectors at the pointed normalisation, whose kernel represents the functions descending to the elliptic singularity \cite[Lemma 2.2]{SMY1}. In order to compute integrals, it is necessary to give a tautological description of this additional condition. % that captures which functions (or maps) descend from the normalization to the singularity. 
 
-We provide an explicit description of the terms appearing in the right-hand side of \eqref{equation recursion}.  For each term, we provide a combinatorial formula for the vanishing order $\lambda_\Dcal$, and a recursive description of the stratum $\Dcal$. 
+We provide an explicit description of the terms appearing in the right-hand side of \eqref{equation recursion}.  For each term, we provide a combinatorial formula for the vanishing order $\lambda_\Dcal$, and a recursive description of the stratum $\Dcal$ 
 in terms of fibre products of moduli spaces with smaller numerical data. The tautological description of the factorisation condition then leads to a recursive structure for calculating integrals. This step is the heart of the analysis. 
 
 \begin{remark}
@@ -886,9 +956,10 @@ The birational map $\widetilde{\Dcal} \to \Ecal$ induces a morphism $\Dcal \to \
         \Ycgraph
         \caption{III}
     \end{minipage}
+   
 \end{figure}
 
-\noindent The degrees of vertices, expansions factors, and remaining markings are distributed arbitrarily, subject to the following constraints:
+\noindent where black vertices represent rational components, white vertices represent genus one. The degrees of vertices, expansions factors, and remaining markings are distributed arbitrarily, subject to the following constraints:
 \begin{enumerate}
 \item the vertices $\sqC_1,\ldots,\sqC_r$ have positive degree;
 \item the core has positive degree;
@@ -963,20 +1034,32 @@ We summarise that the contribution of each term $\lambda_\Dcal [\Dcal]$ is given
 
 \subsection{Recursive description of the divisors: type $\dag$}\label{subsection C0 splitting} The treatment of the type I, II and III cases above is a fairly straightforward extension of the ideas of Vakil and Gathmann (albeit updated with logarithmic and tropical technology, which streamlines the presentation and simplifies the proofs). The remaining type $\dag$ case, however, is entirely new. In this section we provide a recursive description of these boundary divisors. This constitutes the technical heart of the paper.
 
-\subsubsection{Possible combinatorial types} A boundary divisor $\Dcal \subseteq \Dcal_{1,\alpha,k}(\PP^N|H,d)$ is said to have \textbf{type $\dag$} if the core is assigned degree zero by the combinatorial type. Divisors of this type occur as principal components in compactified torus bundles over strata in the space of relative maps. As a result, their combinatorial types exhibit very degenerate behaviour. Precisely, over the generic point of such a divisor, the target may expand multiple times, and the source tropical curve need not be bipartite with a single interior vertex. We stress once again that such degenerate contributions are at the heart of the reduced theory and cannot be removed.  We begin with the following lemma:
+\subsubsection{Possible combinatorial types} A boundary divisor $\Dcal \subseteq \Dcal_{1,\alpha,k}(\PP^N|H,d)$ is said to have \textbf{type $\dag$} if the core is assigned degree zero by the combinatorial type. Divisors of this type occur as principal components in compactified torus bundles over strata in the space of relative maps. As a result, their combinatorial types exhibit very degenerate behaviour. Precisely, over the generic point of such a divisor, the target may expand multiple times, and the source tropical curve need not be bipartite with a single interior vertex; see the left-hand side of Figure \ref{fig:off_we_go} for a concrete example. We stress once again that such degenerate contributions are at the heart of the reduced theory and cannot be removed.
+
+We begin with a series of lemmas describing the combinatorial types of rays associated to divisorial loci $\Dcal$ of type $\dag$ contributing nontrivially to the Gromov--Witten invariants.
 \begin{lemma} \label{lemma type C0 combinatorial types}
-Let $\Dcal$ be a locus of type $\dag$ with combinatorial type $\Delta$ which contributes nontrivially to the Gromov--Witten invariant. For every nonzero vertex $\diamond$ of the tropical target, the fibre of the tropical map over $\diamond$ contains exactly one stable vertex, which either is the core, or lies on the circle. Moreover, the maximal contact order at the core is $m>1$.
+ For every nonzero vertex $\diamond$ of the tropical target, the fibre of the tropical map over $\diamond$ contains exactly one stable vertex, which either is the core, or lies on the circle.
 \end{lemma}
 
-\begin{proof}
-Stability guarantees that at least one stable vertex lies over each vertex of the target. If there is more than one stable vertex, as in the proof of Lemma \ref{lem:combs}, the corresponding locus $\Fcal$ in the moduli space of unexpanded maps has high codimension. As both insertions and the factorisation property for the collapsed map to $\mathbb P^N$ are pulled back from the moduli space of maps without expansions, the contribution vanishes by the projection formula.
+\begin{lemma}\label{lem:stable_vertices} All the vertices on the circle are stable (as opposed to semistable  vertices introduced by subdivision). \end{lemma}
 
-For each vertex of the target there must always be at least one vertex in the preimage which lies on the circle. This is implied by the fact that the cone $\tau$ corresponding to $\Dcal$ is a ray. If the vertex on the circle is strictly semistable -- so that in particular the collapsed map $f_B$ is constant along the corresponding component -- it can be seen that the factorisation condition is unaffected by $\Gm$-scaling the coordinate corresponding to that vertex in the moduli space of attaching data, so the map $\Dcal\to\Ecal$ has generic fibre of positive dimension and the contribution vanishes.
+\begin{lemma}\label{lem:corecontact}
+ Among all the flags supported at the core, at least one must have expansion factor strictly greater than $1$.
+\end{lemma}
 
-In particular, notice that vertices lying on the circle and tropically mapped to $0\in\mathbb R_{\geq0}$ all have the same contact order at the core, because by the previous paragraph we may assume that only strictly semistable vertices are encountered on the paths from these vertices to the core. For the same reason, this contact order $m$ is maximal among those of the edges adjacent to the core.
 
-Finally, in case the maximal contact order is $m=1$, the image tangent vectors must be linearly dependent, in which case we can deduce as above that factorisation will be satisfied independently of the choice of alignment.
+\begin{proof}[Proof of Lemma \ref{lemma type C0 combinatorial types}]
+Stability of maps to an expansion guarantees that at least one stable vertex lies over each vertex of the target. If there is more than one stable vertex, then we can show as in the proof of Lemma \ref{lem:combs} that the corresponding locus $\Fcal$ in the moduli space of unexpanded maps has high codimension, i.e. the collapsing map has fibres of positive dimension. As both insertions and the factorisation property for the collapsed map to $\mathbb P^N$ are pulled back from the moduli space of maps without expansions, the contribution vanishes by the projection formula.
 \end{proof}
+\begin{proof}[Proof of Lemma \ref{lem:stable_vertices}]
+Since we are looking at a one-parameter family of tropical maps, for every vertex of the target there must be at least one vertex above it which lies on the circle. If the vertex on the circle is strictly semistable -- so that in particular the collapsed map $f_B$ is constant along the corresponding component -- the factorisation condition for $f_B$ is unaffected by $\Gm$-scaling the coordinate corresponding to that vertex in the moduli space of attaching data \cite[\S 2.2]{SMY2}, so the map $\Dcal\to\Ecal$ has generic fibre of positive dimension and the contribution vanishes.
+\end{proof}
+\begin{proof}[Proof of Lemma \ref{lem:corecontact}]
+Consider the vertices that lie above $0\in\mathbb R_{\geq0}$ on the circle of radius $\delta$: the edges departing from them go directly (up to bubbling) to the core, since there cannot be stable vertices inside the open disc  when we have only one tropical parameter. In particular, all these edges have the same expansion factor $m$ (see again Figure \ref{fig:off_we_go}), which is maximal among those of the edges adjacent to the core. Indeed, all the edges from the core to the circle have the same length $\delta$, so the ones having maximal contact order are those that reach further from the core, and at least one must reach $0\in\mathbb R_{\geq0}$, for otherwise there would be an extra tropical parameter.
+
+Finally, in case the maximal contact order is $m=1$, in order for $f_B$ to factor, the image of the tangent vectors at the components lying on the circle must be linearly dependent in $T_{\PP^N,x}$, where $x$ denotes the image of the core under $f_B$.in which case we can deduce as above that factorisation will be satisfied independently of the choice of alignment.
+\end{proof}
+
 For the remainder of this section we use the following notation for the combinatorial type $\Delta$; we let $\sqC_0$ denotes the vertex of dual graph corresponding to the core, $\sqC_1,\ldots,\sqC_r$ the other stable vertices (genus zero and lying on the circle, by the previous lemma) and $q_1,\ldots,q_r$ the corresponding splitting nodes.
 
 
@@ -1088,7 +1171,237 @@ A slight modification of the argument above is required to account for the fact 
 \end{proof}
 
 \begin{figure}
-\includegraphics[scale=.3]{off_we_go}
+%\includegraphics[scale=.3]{off_we_go}
+\begin{tikzpicture}[ipe import]
+  %\useasboundingbox (0, 0) rectangle (595, 842);
+  \draw
+    (64, 672)
+     -- (128, 688)
+     -- (64, 704)
+     -- (64, 704);
+  \draw
+    (128, 688)
+     -- (64, 736)
+     -- (64, 736);
+  \draw[red]
+    (128, 688) circle[radius=65.9697];
+  \draw
+    (128, 688)
+     -- (112, 752)
+     -- (64, 768)
+     -- (64, 768);
+  \draw
+    (112, 752)
+     -- (64, 784)
+     -- (64, 784);
+  \pic
+     at (64, 672) {ipe disk};
+  \pic
+     at (64, 704) {ipe disk};
+  \pic
+     at (64, 736) {ipe disk};
+  \pic
+     at (64, 768) {ipe disk};
+  \pic
+     at (64, 784) {ipe disk};
+  \pic
+     at (112, 752) {ipe disk};
+  \pic
+     at (75.2242, 727.582) {ipe cross};
+  \pic
+     at (112, 700) {ipe cross};
+  \pic
+     at (112, 692) {ipe cross};
+  \pic
+     at (112, 684) {ipe cross};
+  \pic
+     at (75.8121, 701.047) {ipe cross};
+  \pic
+     at (75.0704, 674.4388) {ipe cross};
+  \filldraw[fill=white]
+    (64, 608)
+     -- (208, 608)
+     -- (208, 608);
+  \pic
+     at (64, 608) {ipe disk};
+  \draw
+    (128, 688)
+     -- (208, 688)
+     -- (208, 688);
+  \pic
+     at (73.6978, 608) {ipe cross};
+  \pic
+     at (111.876, 608) {ipe cross};
+  \pic
+     at (127.674, 608) {ipe cross};
+  \pic[fill=white]
+     at (128, 688) {ipe fdisk};
+  \node[ipe node]
+     at (86.863, 690.301) {$m$};
+  \node[ipe node]
+     at (87.521, 671.212) {$m$};
+  \draw
+    (128, 688)
+     -- (91, 741.643);
+  \draw
+    (128, 688)
+     -- (160.586, 745.593)
+     -- (160.586, 745.593);
+  \pic
+     at (91, 741.643) {ipe disk};
+   \pic
+     at (91, 715.5) {ipe cross};
+     \pic
+     at (91, 697) {ipe cross};
+     \pic
+     at (91, 678.5) {ipe cross};
+     \pic
+     at (91, 608) {ipe cross};
+  \pic
+     at (160.486, 745.417) {ipe disk};
+     \pic
+     at (160.486, 688) {ipe cross};
+      \pic
+     at (160.486, 608) {ipe cross};
+    
+  \draw[shift={(91.47, 741.051)}, xscale=0.95, yscale=0.6996]
+    (0, 0)
+     -- (-26.9879, 7.241)
+     -- (-26.9879, 7.241);
+  \draw
+    (160.486, 745.417)
+     -- (64.4824, 799.569);
+  \draw
+    (160.486, 745.417)
+     -- (208.637, 745.593);
+  \draw
+    (92.1286, 740.985)
+     -- (64.4824, 754.15);
+  \pic
+     at (64.4824, 746.909) {ipe disk};
+  \pic
+     at (64.4824, 798.91) {ipe disk};
+  \pic
+     at (64.4824, 753.492) {ipe disk};
+  \draw
+    (289.118, 672.0005)
+     -- (353.118, 688.0005)
+     -- (289.118, 704.0005)
+     -- (289.118, 704.0005);
+  \draw
+    (353.118, 688.0005)
+     -- (289.118, 736.0005)
+     -- (289.118, 736.0005);
+  \draw[red]
+    (353.118, 688.0005) circle[radius=65.9697];
+  \draw
+    (353.118, 688.0005)
+     -- (337.118, 752.0005)
+     -- (289.118, 768.0005)
+     -- (289.118, 768.0005);
+  \draw
+    (337.118, 752.0005)
+     -- (289.118, 784.0005)
+     -- (289.118, 784.0005);
+  \pic
+     at (289.118, 672.0005) {ipe disk};
+  \pic
+     at (289.118, 704.0005) {ipe disk};
+  \pic
+     at (289.118, 736.0005) {ipe disk};
+  \pic
+     at (289.118, 768.0005) {ipe disk};
+  \pic
+     at (289.118, 784.0005) {ipe disk};
+  \pic
+     at (337.118, 752.0005) {ipe disk};
+  \pic
+     at (300.3422, 727.5825) {ipe cross};
+  \pic
+     at (337.118, 700.0005) {ipe cross};
+  \pic
+     at (337.118, 692.0005) {ipe cross};
+  \pic
+     at (337.118, 684.0005) {ipe cross};
+  \pic
+     at (300.9301, 701.0475) {ipe cross};
+  \pic
+     at (300.1889, 674.4392) {ipe cross};
+  \filldraw[fill=white]
+    (289.118, 608.0005)
+     -- (433.118, 608.0005)
+     -- (433.118, 608.0005);
+  \pic
+     at (289.118, 608.0005) {ipe disk};
+  \draw
+    (353.118, 688.0005)
+     -- (433.118, 688.0005)
+     -- (433.118, 688.0005);
+  \pic
+     at (298.8158, 608.0205) {ipe cross};
+  \pic
+     at (336.994, 608.0207) {ipe cross};
+  \pic
+     at (352.792, 608.0209) {ipe cross};
+  \pic[fill=white]
+     at (353.118, 688.0005) {ipe fdisk};
+  \node[ipe node]
+     at (311.98, 690.301) {$m$};
+  \node[ipe node]
+     at (312.639, 671.212) {$m$};
+  \draw[shift={(353.118, 687.999)}, xscale=1.1287, yscale=1.1615]
+    (0, 0)
+     -- (-36.5297, 53.643);
+  \draw[shift={(353.119, 687.997)}, xscale=1.4269, yscale=1.3567]
+    (0, 0)
+     -- (32.586, 57.593)
+     -- (32.586, 57.593);
+  \pic
+     at (310, 751.5171) {ipe disk};
+  \pic
+     at (400.086, 767.1394) {ipe disk};
+     
+           \pic
+     at (387, 688) {ipe cross};
+      \pic
+     at (387, 608) {ipe cross};
+     
+  \draw[shift={(311.745, 750.197)}, xscale=0.8205, yscale=-0.5452]
+    (0, 0)
+     -- (-26.9879, 7.241)
+     -- (-26.9879, 7.241);
+  \draw[shift={(399.543, 767.54)}, xscale=1.1319, yscale=0.5704]
+    (0, 0)
+     -- (-96.0036, 54.152);
+  \draw[shift={(400.744, 767.146)}, xscale=0.6446, yscale=-1.3688]
+    (0, 0)
+     -- (48.151, 0.176);
+  \draw[shift={(311.717, 751.113)}, xscale=0.8, yscale=0.1453]
+    (0, 0)
+     -- (-27.6462, 13.165);
+  \pic
+     at (289.6004, 746.9095) {ipe disk};
+  \pic
+     at (289.6004, 798.9105) {ipe disk};
+  \pic
+     at (289.6004, 753.4925) {ipe disk};
+  \pic
+     at (387.02, 744.935) {ipe cross};
+  \pic
+     at (317.246, 742.961) {ipe cross};
+      \pic
+     at (317, 715.5) {ipe cross};
+     \pic
+     at (317, 697) {ipe cross};
+     \pic
+     at (317, 678.5) {ipe cross};
+     \pic
+     at (317, 608) {ipe cross};
+  \node[ipe node]
+     at (315.273, 748.884) {$\ell_{1}$};
+  \node[ipe node]
+     at (397.553, 752.175) {$\ell_{2}$};
+\end{tikzpicture}
 \caption{Moving vertices off the circle creates new tropical parameters.}\label{fig:off_we_go}
 \end{figure}
 
