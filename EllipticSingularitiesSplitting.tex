@@ -480,7 +480,7 @@ it is easy to see that it does not depend on any choice made. On the other hand,
 \[(\theta_{1,2},\ldots,\theta_{1,m})\colon L_1\to L_2\oplus\ldots\oplus L_m.\]
 
 Lemma \ref{lem:pushout} provides a valuable characterisation of maps from an elliptic singularity $C$, that we are going to exploit in \S \ref{section reduced splitting}:
-\begin{cor}
+\begin{cor}\label{cor:maps_from_elliptic_sing}
  A map $C\to X$ is the same as a map $C^\text{sn}\to X$ such that its differential sends $v$ to $0$.
 \end{cor}
 
@@ -1065,7 +1065,7 @@ Finally, in case the maximal contact order is $m=1$, in order for $f_B$ to facto
 For the remainder of this section we use the following notation for the combinatorial type $\Delta$; we let $\sqC_0$ denotes the vertex of dual graph corresponding to the core, $\sqC_1,\ldots,\sqC_r$ the other stable vertices (genus zero and lying on the circle, by the previous lemma) and $q_1,\ldots,q_r$ the corresponding splitting nodes.
  
 \end{comment}
-\subsubsection{Lines}
+\subsubsection{Lines}\label{S:lines}
 We begin with a description of the boundary divisor corresponding to a comb whose teeth all have degree $1$. This is at the same time more concrete and peculiar, since the teeth are generically transverse (not just dimensionally) to the hyperplane $H$. For simplicity, we assume that the contact order is $(d)$, concentrated at a marking $x_1$ supported on the elliptic curve $E$ contracted to $H$. The combinatorial type looks as in Figure \ref{fig:comb111}.
 
 \begin{figure}
@@ -1483,24 +1483,31 @@ A slight modification of the argument above is required to account for the fact 
 \caption{Moving vertices off the circle creates new tropical parameters.}\label{fig:off_we_go}
 \end{figure}
 
-\subsubsection{$\Dcal$ from $\widetilde\Dcal$: first way}\label{subsection D from Dtilde} On $\widetilde\Dcal$ there is a tautological line bundle arising from the modular description of $\widetilde\VZ_{1,\alpha}(\PP^N|H,d)$, namely $\OO(\delta)$. Recall that the piecewise linear function $\delta$ may be viewed as a global section of the characteristic sheaf of the logarithmic structure on $\widetilde\VZ_{1,\alpha}(\PP^N|H,d)$. The toric geometry dictionary gives rise to an associated Cartier divisor. Alternatively, for any logarithmic stack $X$, the natural coboundary map induced by $$0\to \mathcal O_X^\star\to M_X\to \overline M_X\to 0$$ associates a $\mathcal O_X^\star$-torsor to a global section of the characteristic sheaf. 
+\subsubsection{$\Dcal$ from $\widetilde\Dcal$: first way}\label{subsection D from Dtilde} On $\widetilde\Dcal$ there is a tautological line bundle arising from the modular description of $\widetilde\VZ_{1,\alpha}(\PP^N|H,d)$, namely $\OO(\delta)$. Recall that the piecewise linear function $\delta$ may be viewed as a global section of the characteristic sheaf of the logarithmic structure on $\widetilde\VZ_{1,\alpha}(\PP^N|H,d)$. The toric geometry dictionary gives rise to an associated Cartier divisor. Alternatively\marginpar{worth moving to the preliminary section?}, for any logarithmic stack $X$, the natural coboundary map induced by $$0\to \mathcal O_X^\star\to M_X^\text{gp}\to \overline M_X^\text{gp}\to 0$$ associates a $\mathcal O_X^\star$-torsor to a global section of the characteristic sheaf. 
 
 
 \begin{lemma}\label{lemma fibres of Odelta}
 The fibre of $\OO(\delta)$ over a moduli point is naturally isomorphic to
-\begin{equation*} T_{p}C^\prime \otimes T C_0\end{equation*}
-where $C^\prime$ is any component of $C$ which lies on the circle, $p$ is the adjacent node which points towards the core, and $T C_0$ is the universal tangent line bundle on the moduli space for $\sqC_0$.
+\begin{equation*} T_{p}C^\prime \otimes \mathbb T \end{equation*}
+where $C^\prime$ is any component of $C$ which lies on the circle of radius $\delta$, $p$ is the node separating it from the core, and $\mathbb T$ is the universal tangent line bundle on the moduli space for $\sqC_0$.
 \end{lemma}
 
+The moduli space of radially aligned curves of genus one $\VZ_{1,n}^\text{rad}$ coincides with the Vakil-Zinger blow-up of  $\overline \Mcal_{1,n}$ \cite[\S 2.3]{VZ}. In particular, up to twisting by exceptional divisors, the tangent line bundles at two marking $\widetilde{\mathbb T}_i$ and $\widetilde{\mathbb T}_j$ are identified (via the dual Hodge bundle $\mathbb E^\vee$), extending the identification on the smooth locus provided by regarding the elliptic curve as an algebraic group. The pullback of this to $\VZ^\leftrightarrow_{\Gamma_{\sqsubset_0}}$ is what we mean by  the universal tangent line bundle $\mathbb T$.
+
 \begin{proof}
-Choose a component $C^\prime$ of the curve which lies on the circle. Then $\OO(\delta)$ is equal to the tensor product of tangent line bundles along the path of edges connecting $C^\prime$ to the core. However, this tensor product of line bundles is telescoping: any vertex which appears in the middle of the path will have an incoming and outgoing node, and since the vertex corresponds to a smooth rational curve these tangent spaces are naturally dual to each other~\cite[\S 2.2]{VZ}. Thus these factors cancel, and the result follows.
+Choose a component $C^\prime$ of the curve which lies on the circle. Then $\OO(\delta)$ is equal to the tensor product of tangent line bundles along the path of edges connecting $C^\prime$ to the core. However, this tensor product of line bundles is telescoping: any vertex which appears in the middle of the path will have an incoming and outgoing node (and possibly other nodes that are irrelevant for this product), and since the vertex corresponds to a smooth rational curve these tangent spaces are naturally dual to each other~\cite[\S 2.2]{VZ}. Thus these factors cancel, and the result follows.
 %Note that the final term on the right hand side is not given by $\TT_{q_i} C_0$ (where $q_i$ is the appropriate splitting node) but rather the tangent space to the core. 
 \end{proof}
-The content of Lemma \ref{lemma fibres of Odelta} is that the choice of point in the fibre of $\widetilde\Dcal \to \widetilde\Ecal$ provides a natural identification between the inward-pointing tangent spaces on the circle. This identification amounts to a specific linear dependence relation between the tangent vectors, which gives a point in the moduli space of attaching data for the corresponding elliptic singularity \cite[\S 2.2]{SMY2}. We may therefore express the factorisation condition in terms of the following natural morphism of vector bundles on $\widetilde\Dcal$:
-\begin{equation*} \Sigma \operatorname{d}\!f \colon \OO(\delta)\otimes TC_0^\vee \to \ev_q^\st T H. \end{equation*}
-Here $\Sigma \operatorname{d}\!f$ is defined by summing the images of the tangent vectors at the inward-pointing nodes on the circle, using the natural identification of each of these tangent spaces with $\OO(\delta)\otimes TC_0^\vee$ established above. By Lemma \ref{lemma type C0 combinatorial types} we have that it takes values in $TH$, rather than $T\PP^N$. This gives a section of the vector bundle
-\begin{equation*} V = (\ev_q^\st TH) \otimes (TC_0) \otimes \OO(-\delta) \end{equation*}
-which is transverse and whose vanishing locus coincides with $\Dcal$. Thus we obtain:
+The content of Lemma \ref{lem:generic_proj_bundle} is that the choice of a point in the fibre of $\widetilde\Dcal \to \Ecal$ provides a natural identification between the inward-pointing tangent lines on the circle. According to Lemma \ref{lemma fibres of Odelta}, they can further be identified with the line bundle $\OO(\delta)\otimes \mathbb T^\vee$ on $\widetilde\Dcal$. %This identification amounts to a specific linear dependence relation between the tangent vectors, which gives a point in the moduli space of attaching data for the corresponding elliptic singularity \cite[\S 2.2]{SMY2}.
+After Corollary \ref{cor:maps_from_elliptic_sing}, we can therefore express the factorisation condition in terms of degeneracy of the following natural morphism of vector bundles on $\widetilde\Dcal$:
+\begin{equation*} \Sigma \operatorname{d}\!f \colon \OO(\delta)\otimes \mathbb T^\vee \to \ev_q^\st T H. \end{equation*}
+Here $\Sigma \operatorname{d}\!f$ is defined by summing the images of the tangent vectors at the inward-pointing nodes on the circle, using the natural identification of each of these tangent spaces with $\OO(\delta)\otimes \mathbb T^\vee$ established above. Apart from the case dealt with in \S \ref{S:lines}, the composite:
+\[\operatorname{pr}\circ\Sigma \operatorname{d}\!f \colon \OO(\delta)\otimes \mathbb T^\vee \to \ev_q^\st T \PP^N\to \ev_q^* N_{H/\PP^N}\]
+ vanishes, because the contact order of the exterior components with $H$ is strictly higher than $1$. So, $\Sigma \operatorname{d}\!f$ takes values in $TH$, rather than $T\PP^N$. 
+ 
+ This gives a section of the vector bundle
+\begin{equation*} V = (\ev_q^\st TH) \otimes \mathbb T \otimes \OO(-\delta) \end{equation*}
+which is transverse and whose vanishing locus coincides with $\Dcal$. Transversality follows from the construction, because any stratum of the boundary on which $\Sigma \operatorname{d}\!f$ may have vanished has been (blown up and) included into $\mathbb T \otimes \OO(-\delta)$ as a twist. In other words, the circle of radius $\delta$ always passes through at least one component which is not contracted by the map to the expansion. Now, if the vanishing locus of $\Sigma \operatorname{d}\!f$ does not contain any stratum of the boundary, then it is the closure of its intersection with the open stratum, which can be seen to be transverse. Thus we obtain:
 \begin{prop} \label{class of D} $[\Dcal] = \operatorname{e}(V) \cap [\widetilde\Dcal]$.\end{prop}
 We claim that the class $\operatorname{e}(V)$ is tautological and computable. The only part which needs justification is $\OO(\delta)$. We claim that this can be obtained by pulling back a line bundle from $\Ecal$ and twisting by exceptional divisors.
 \begin{lemma} For $i\in \{1,\ldots,r\}$ consider the line bundle
@@ -1508,7 +1515,7 @@ We claim that the class $\operatorname{e}(V)$ is tautological and computable. Th
 on $\Ecal$, where $q_i$ is the splitting node. Then $\OO(\delta)$ is isomorphic to the pull-back of $T_i$ to $\widetilde\Dcal$ twisted by all exceptional divisors.\end{lemma}
 We illustrate this lemma in the following example, which brings out the interplay between logarithmic moduli and blowups.
 \begin{example}
-Consider the locus $\Ecal$ given by $\sigma$ below, and the exceptional divisor $\widetilde\Dcal_\rho \subseteq \widetilde\Dcal$ given by $\rho$:
+Consider the locus $\Ecal$ given by $\sigma$ below, and the codimension one locus $\widetilde\Dcal_\rho \subseteq \widetilde\Dcal_\sigma$ given by the two-dimensional (due to the alignment) cone $\rho$:
 \begin{figure}[!htbp]
 \begin{minipage}{0.3\textwidth}
 \centering
@@ -1625,6 +1632,9 @@ e:=e_1 = e_2, \qquad f:=f_1 = f_2 = 2f_3, \qquad g:=g_1 = g_2 = 2g_3
 together with the equation imposed by the choice of alignment:
 \begin{align*} e_1 + f_1 = e_2 + f_3 + g_3 \qquad (\Longleftrightarrow f = g).
 \end{align*}
+
+In this example we have:
+\[\lambda(\plC^0_1)=\lambda(\plC^0_2)=e,\quad \lambda(\plC^1_1)=\lambda(\plC^2_1)=\lambda(\plC^2_2)=e+f=\delta,\quad \lambda(\plC^3_1)=\lambda(\plC^4_1)=e+2f.\]
 From now on we use the same symbol to denote an edge length and the corresponding node on $\widetilde\Dcal_\rho$. On this locus we have line bundles pulled back from $\Ecal$
 \begin{align*} T_1 & = T_{e_1} C_1^0 \otimes T_{e_1} C_0 \\
 T_2 & = T_{e_2} C_2^0 \otimes T_{e_2} C_0\end{align*}
