@@ -457,7 +457,7 @@ Each fiber over $\sigma_P$ encodes a metric enhancement of the dual graph, toget
 
 When working with logarithmic geometries such as $(\mathbb P^N,H)$, as we do here, similar ideas may be expected to apply, but the deformation theory of maps becomes more delicate. Indeed, the logarithmic Euler sequence for this pair shows that the logarithmic tangent bundle is a quotient of $\mathcal O\oplus\mathcal O(1)^{\oplus N}$, and additional obstructions appear. In simple terms, there exist logarithmic maps to the pair $(\mathbb P^N,H)$ with obstructed logarithmic deformations, whose underlying ordinary stable map is unobstructed. 
 
-\subsection{Singularities and moduli of attachments} Isolated Gorenstein singularities of genus $1$ were classified by Smyth in \cite{SMY1}: for every fixed number of branches $m$, there is only one isomorphism type of curve germs with such characteristics. For $m=1,2$ we find the cusp ($A_2$) and tacnode ($A_3$) respectively; for $m\geq 3$ we find the union of $m$ general lines through the origin of $\Aaff^{m-1}$ - Smyth calls them \emph{elliptic $m$-fold points}.
+\subsection{Singularities and moduli of attachments}\label{S:ellsing} Isolated Gorenstein singularities of genus $1$ were classified by Smyth in \cite{SMY1}: for every fixed number of branches $m$, there is only one isomorphism type of curve germs with such characteristics. For $m=1,2$ we find the cusp ($A_2$) and tacnode ($A_3$) respectively; for $m\geq 3$ we find the union of $m$ general lines through the origin of $\Aaff^{m-1}$ - Smyth calls them \emph{elliptic $m$-fold points}.
 
 The problem of constructing an elliptic singularity from its pointed normalisation is more delicate; it was widely studied in van der Wyck's thesis \cite{vdW}. Recall that the seminormalisation $C^\text{sn}$ of a curve $C$ has the same underlying topological space, but its singularities consist of rational $m$-fold points only, i.e. they are locally isomorphic to the union of the axes in $\Aaff^m$.
 
@@ -704,7 +704,7 @@ The theorem guarantees that the singularities of the space of completely factori
 The logarithmically smooth stack $\VZ_{1,\alpha}(\mathbb P^N|H,d)$ has at worst orbifold singularities, i.e. admits a non-representable cover by a smooth Deligne--Mumford stack.
 \end{cor}
 
-\textcolor{red}{Up to a generalised root construction, $\VZ_{1,\alpha}(\mathbb P^N|H,d)$ is a smooth Deligne-Mumford stack.}
+\textcolor{red}{Luca's rewrite of the Corollary: Up to a generalised root construction, $\VZ_{1,\alpha}(\mathbb P^N|H,d)$ is a smooth Deligne-Mumford stack.}
 
 \begin{proof}
 Since $\VZ_{1,\alpha}(\mathbb P^N|H,d)$ is logarithmically smooth, it will suffice to show that the cones of its tropicalization are simplicial. To see this, consider a logarithmic stable map to an expansion $C\to \mathbb P^N[s]$ without a central alignment. The tropical moduli cone obtained as the dual of the minimal base monoid can be identified with $\mathbb R_{\geq 0}^{s}$, see for instance~\cite[Section~2.2]{ChenDegeneration}. The alignment procedure is an iterated barycentric subdivision at the level of tropical moduli spaces, as explained in~\cite[Section 4.6]{RSPW}, and such subdivisions preserve the property of being simplicial. We conclude from this that the blowup $\widetilde{\VZ}^{\mathrm{exp}}_{1,\alpha}(\mathbb P^N|H,d)$ obtained by centrally aligning Kim's spaces has simplicial cones. The morphism $\VZ_{1,\alpha}(\mathbb P^N|H,d)\to \widetilde{\VZ}^{\mathrm{exp}}_{1,\alpha}(\mathbb P^N|H,d)$ is strict, so the cones of $\VZ_{1,\alpha}(\mathbb P^N|H,d)$ are simplicial, as claimed.
@@ -905,7 +905,7 @@ The sum is over irreducible components of the divisor $\Dcal_{1,\alpha,k}(\PP^N|
 
 \section{Splitting the boundary}\label{section reduced splitting}
 
-A basic phenomenon is responsible for the nature of the forthcoming analysis. In contrast with nodal singularities, the functions on an elliptic singularity are not simply collections of functions on the normalisation that agree at the gluing point. Rather, the contraction map $C\to\overline C$ corresponds to a linear combination of tangent vectors at the pointed normalisation, whose kernel represents the functions descending to the elliptic singularity \cite[Lemma 2.2]{SMY1}. In order to compute integrals, it is necessary to give a tautological description of this additional condition. % that captures which functions (or maps) descend from the normalization to the singularity. 
+A basic phenomenon is responsible for the nature of the forthcoming analysis. In contrast with nodal singularities, the functions on an elliptic singularity are not simply collections of functions on the normalisation that agree at the gluing point. Rather, the contraction map $C\to\overline C$ corresponds to a linear combination of tangent vectors at the pointed normalisation, whose kernel represents the functions descending to the elliptic singularity - see \S \ref{S:ellsing}. In order to compute integrals, it is necessary to give a tautological description of this additional condition. % that captures which functions (or maps) descend from the normalization to the singularity. 
 
 We provide an explicit description of the terms appearing in the right-hand side of \eqref{equation recursion}.  For each term, we provide a combinatorial formula for the vanishing order $\lambda_\Dcal$, and a recursive description of the stratum $\Dcal$ 
 in terms of fibre products of moduli spaces with smaller numerical data. The tautological description of the factorisation condition then leads to a recursive structure for calculating integrals. This step is the heart of the analysis. 
@@ -1043,9 +1043,9 @@ We begin with a series of lemmas describing the combinatorial types of rays asso
 
 \begin{lemma}\label{lem:stable_vertices} All the vertices on the circle are stable (as opposed to semistable  vertices introduced by subdivision). \end{lemma}
 
-\begin{lemma}\label{lem:corecontact}
- Among all the flags supported at the core, at least one must have expansion factor strictly greater than $1$.
-\end{lemma}
+%\begin{lemma}\label{lem:corecontact}
+% Among all the flags supported at the core, at least one must have expansion factor strictly greater than $1$.
+%\end{lemma}
 
 
 \begin{proof}[Proof of Lemma \ref{lemma type C0 combinatorial types}]
@@ -1054,6 +1054,8 @@ Stability of maps to an expansion guarantees that at least one stable vertex lie
 \begin{proof}[Proof of Lemma \ref{lem:stable_vertices}]
 Since we are looking at a one-parameter family of tropical maps, for every vertex of the target there must be at least one vertex above it which lies on the circle. If the vertex on the circle is strictly semistable -- so that in particular the collapsed map $f_B$ is constant along the corresponding component -- the factorisation condition for $f_B$ is unaffected by $\Gm$-scaling the coordinate corresponding to that vertex in the moduli space of attaching data \cite[\S 2.2]{SMY2}, so the map $\Dcal\to\Ecal$ has generic fibre of positive dimension and the contribution vanishes.
 \end{proof}
+\begin{comment}
+
 \begin{proof}[Proof of Lemma \ref{lem:corecontact}]
 Consider the vertices that lie above $0\in\mathbb R_{\geq0}$ on the circle of radius $\delta$: the edges departing from them go directly (up to bubbling) to the core, since there cannot be stable vertices inside the open disc  when we have only one tropical parameter. In particular, all these edges have the same expansion factor $m$ (see again Figure \ref{fig:off_we_go}), which is maximal among those of the edges adjacent to the core. Indeed, all the edges from the core to the circle have the same length $\delta$, so the ones having maximal contact order are those that reach further from the core, and at least one must reach $0\in\mathbb R_{\geq0}$, for otherwise there would be an extra tropical parameter.
 
@@ -1061,7 +1063,44 @@ Finally, in case the maximal contact order is $m=1$, in order for $f_B$ to facto
 \end{proof}
 
 For the remainder of this section we use the following notation for the combinatorial type $\Delta$; we let $\sqC_0$ denotes the vertex of dual graph corresponding to the core, $\sqC_1,\ldots,\sqC_r$ the other stable vertices (genus zero and lying on the circle, by the previous lemma) and $q_1,\ldots,q_r$ the corresponding splitting nodes.
+ 
+\end{comment}
+\subsubsection{Lines}
+We begin with a description of the boundary divisor corresponding to a comb whose teeth all have degree $1$. This is at the same time more concrete and peculiar, since the teeth are generically transverse (not just dimensionally) to the hyperplane $H$. For simplicity, we assume that the contact order is $(d)$, concentrated at a marking $x_1$ supported on the elliptic curve $E$ contracted to $H$. The combinatorial type looks as in Figure \ref{fig:comb111}.
 
+\begin{figure}
+ \begin{tikzpicture}
+ \tikzset{cross/.style={cross out, draw=black, fill=none, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt}, cross/.default={3pt}}
+  \foreach \x in {(0,2),(0,1),(0,-1),(0,-2)}
+  \draw[fill=black] \x circle (2pt);
+  \foreach \x in {(0,2),(0,1),(0,-1)}
+  \draw \x --node[below]{\color{blue} $1$} (4,0);
+  \draw (0,0) node{$\ldots$};
+  \draw (4,0) --node[below]{\color{blue} $d$} (8,0);
+  \draw[->] (0,-2)--(8,-2);
+  \draw[fill=white] (4,0) circle (2pt);
+  \draw (4,-2) node[cross]{};
+  \draw [red] plot [smooth cycle] coordinates {(0,2) (0,1) (0,-1) (2,-1.5) (7,0) (2,2.5)};
+ \end{tikzpicture}
+ \caption{The combinatorial type of a comb with degree $1$ teeth.}
+ \label{fig:comb111}
+\end{figure}
+
+
+Start from the moduli space of logarithmic maps. There is a finite splitting morphism:
+\[\Ecal \to \left(\M{0}{(1)}{\PP^N}{1}^{\times N}\times_{H^N}H\right)\times \Mcal^{\leftrightarrow}_{1,(-1,\ldots,-1,d)},\]
+where the latter is the moduli space of genus one curves satisfying the \emph{double ramification} condition. As for $\widetilde{\Dcal}$, the latter should be replaced by $\VZ^{\leftrightarrow}_{1,(-1,\ldots,-1,d)}$, see \S \ref{subsection rubber}.
+
+The left-hand factor can be described very concretely as the choice of a point $p$ of $H$, and $d$ lines through it. A very important observation is that, at least generically, the vertices lying on the circle of radius $\delta$ over $0\in\mathbb R_{\geq 0}$ are automatically aligned. Indeed, if $R_i$ denotes the $i$-th tail of the curve, glued to $E$ at the node $q_i$, then the stable maps provide us with identifications:
+\[\operatorname{d}\! f_{i,q_i}\colon T_{R_i,q_i}\simeq N_{H/\PP^N,p}\]
+that can be combined into the $\theta_{i,j}$ of \S \ref{S:ellsing}. So, without further ado, we may produce a contraction $C\to\overline C$ to an elliptic $d$-fold point.
+
+Assume for example that $d\leq N$. Then, for the absolute factorisation to hold, the $d$ lines $f_i(R_i)$ have better to span a $(d-1)$-dimensional subspace of $T_{\PP^N,p}$. The dimension of the moduli space $\widetilde\Dcal$ is then $dN+d-2$. Without loss of generality, we may assume that $H$ is the hyperplane $\{z_0=0\}$, $p$ is the point $[0:\ldots:0:1]$, and that the $d$ lines span the subspace $\{z_{d-1}=\ldots=z_{N-1}=0\}$. The sections $z_i,\ i=d-1,\ldots,N,$ vanish identically near $E$, so they descend automatically to the singularity. The section $z_0$ does so by the construction of $\overline C$. Finally, the sections $z_i,\ i=1,\ldots,d-2,$ impose independent conditions to descend to $\overline C$. All in all, we find that $\Dcal$ has dimension $dN$, making it into a divisor in $\VZ_{1,(d)}(\PP^N|H,d)$.
+
+We can express the factorisation condition tautologically by combining the isomorphisms $\theta_{i,j}$ above, and the differential of $f$. It correponds to the vanishing of the following vector bundle map:
+\[T_{R_1,q_1}\xrightarrow{(1,\theta_{1,2}\ldots,\theta_{1,d})}\bigoplus_{i=1}^d T_{R_i,q_i}\xrightarrow{\sum\circ\operatorname{d}\!f=\operatorname{d}\!z_1+\ldots\operatorname{d}\!z_{d-2}}N_{H\cap\PP^{d-1}/\PP^{d-1},p}.\]
+
+In general, we shall see that the automatic alignment only involves the components corresponding to vertices on the circle that lie over $0$. The internal components on the circle must be aligned by hand. This means that $\widetilde\Dcal$ is a compactified torus bundle over $\Ecal$, see \ref{S:ellsing}. On the other hand, for higher contact order, the vector bundle map $\sum\circ\operatorname{d}\!f$ to $T_{\PP^N,p}$ factors naturally through $T_{H,p}$.
 
 \subsubsection{Recursive description of $\Ecal$} Recall that we have maps
 \[
@@ -1069,18 +1108,18 @@ For the remainder of this section we use the following notation for the combinat
 \]
 The first morphism is a closed embedding cut out by the two factorisation properties. The second morphism is a logarithmic modification. Let $\tau \in \Sigma_{1,\alpha}(\PP^N|H,d)$ be the ray corresponding to $\Dcal \subseteq \VZ_{1,\alpha}(\PP^N|H,d)$, and to the virtual divisor $\widetilde \Dcal \subseteq \widetilde{\VZ}_{1,\alpha}(\PP^N|H,d)$. 
 
-Let $\sigma \in \Sigma^{\Kim}$ be the minimal cone containing the image of $\tau$. The dimension of this cone could be large -- its dimension is equal to the the number of levels of the target expansion in the type $\Delta$. The cone $\sigma$ determines a stratum $\Ecal \subseteq \ol\Mcal_{1,\alpha}(\PP^N|H,d)$, and the morphism above restricts to 
+Let $\sigma \in \Sigma^{\Kim}$ be the minimal cone containing the image of $\tau$. The dimension of this cone could be large (see again the left-hand side of Figure \ref{fig:off_we_go}) -- its dimension is equal to the the number of levels of the target expansion in the type $\Delta$. The cone $\sigma$ determines a stratum $\Ecal \subseteq \ol\Mcal_{1,\alpha}(\PP^N|H,d)$, and the morphism above restricts to 
 \[
 \Dcal \to \Ecal.
 \] 
 
 \noindent
-{\bf Splitting in the ordinary geometry.} The locus $\Ecal$ has the following description. Let $\Lambda_0$ for the collection of stable vertices of the combinatorial type which are mapped to $0\in \RR_{\geq 0}$, and $\Lambda_{>0}$ for the stable vertices which are mapped to $\RR_{>0}$. Each vertex $v$ has associated discrete data $\Gamma_v$. The vertices over $0$ determine moduli spaces of ordinary relative stable maps, while the higher level vertices determine maps to rubber.  Then $\Ecal$ admits a finite and surjective splitting morphism
+{\bf Splitting in the ordinary geometry.} The locus $\Ecal$ has the following description. Let $\Lambda_0$ for the collection of stable vertices of the combinatorial type which are mapped to $0\in \RR_{\geq 0}$, and $\Lambda_{>0}$ for the stable vertices which are mapped to $\RR_{>0}$. Each vertex $v$ has associated discrete data $\Gamma_v$. The vertices over $0$ determine moduli spaces of ordinary relative stable maps, while the higher level vertices determine maps to rubber.  Then $\Ecal$ admits a finite splitting morphism
 \begin{equation}\label{IIIa fibre product} \Ecal \xrightarrow{\rho} \left( \prod_{v \in \Lambda_0} \ol\Mcal_{\Gamma_v}(\PP^N|H) \times \prod_{v \in \Lambda_{>0}} \ol\Mcal^{\leftrightarrow}_{\Gamma_v}(\mathbb{P}|H_0+H_\infty) \right) \times_{H^{2\epsilon}} H^{\epsilon} \end{equation}
 where $\epsilon$ is the number of edges of the stabilised dual graph, and the fibre product is taken over the appropriate evaluation maps. Splitting the diagonal of $H^{2\epsilon}$ we see that tautological integrals over $\Ecal$ are completely determined in terms of integrals over moduli spaces with ``smaller'' combinatorial data.\medskip
 
 \noindent
-{\bf Exportation to the ordinary geometry.}  Observe that we have a virtual divisor $\widetilde\Dcal \subseteq \widetilde\VZ_{1,\alpha}(\PP^N|H,d)$ such that 
+{\bf Exportation to the reduced geometry.}  Observe that we have a virtual divisor $\widetilde\Dcal \subseteq \widetilde\VZ_{1,\alpha}(\PP^N|H,d)$ such that 
 \[
 \Dcal = \widetilde\Dcal \cap \VZ_{1,\alpha}(\PP^N|H,d).
 \]
