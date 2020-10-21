@@ -1,7 +1,7 @@
 \documentclass[11pt]{amsart}
 %DIF LATEXDIFF DIFFERENCE FILE
 %DIF DEL arXiv_EllipticSingularitiesSplitting.tex   Fri Jun 28 20:15:41 2019
-%DIF ADD EllipticSingularitiesSplitting.tex         Thu Oct 15 10:11:18 2020
+%DIF ADD EllipticSingularitiesSplitting.tex         Wed Oct 21 17:34:52 2020
 %\linespread{1.25}
 \usepackage[margin=3.5cm]{geometry}
 
@@ -90,7 +90,11 @@
 \usepackage{xcolor}
 \usepackage{xfrac}
 \usepackage{tikz,tikz-cd}
-\usetikzlibrary{decorations.pathmorphing,decorations.pathreplacing,patterns,arrows.meta}
+%DIF 49c76
+%DIF < \usetikzlibrary{decorations.pathmorphing,decorations.pathreplacing,patterns,arrows.meta}
+%DIF -------
+\usetikzlibrary{ipe,decorations.pathmorphing,decorations.pathreplacing,patterns,arrows.meta,shapes.misc} %DIF > 
+%DIF -------
 
 
 \definecolor{red}{rgb}{1,0,0}
@@ -110,7 +114,11 @@
 \usepackage[baskervaldx,bigdelims,vvarbb]{newtxmath}
 \usepackage[cal=cm]{mathalfa}
 
-
+%DIF 69c96
+%DIF < 
+%DIF -------
+\DeclareRobustCommand{\plE}{\text{\reflectbox{$\exists$}}} %DIF > 
+%DIF -------
 \newcommand{\plC}{\scalebox{0.8}[1.3]{$\sqsubset$}}
 \newcommand{\sidenote}[1]{\marginpar{\textbf{\color{red}#1}}}
 \newcommand{\lcm}{\operatorname{lcm}}
@@ -417,7 +425,11 @@ The Kontsevich moduli space of stable maps from genus zero curves to projective 
 \cite{BCM18,CM18,HL,SMY1,VISC} }%DIFAUXCMD
 }\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
 \cite{BCM18,HL,SMY1,VISC} }%DIFAUXCMD
-}\DIFaddend and logarithmic geometry~\cite{RSPW,RSPW2}. The result is a \textbf{reduced} Gromov--Witten theory, which removes \DIFdelbegin \DIFdel{certain }\DIFdelend degenerate contributions from the ordinary theory. While the Atiyah--Bott localisation for the reduced invariants was used to great effect by Zinger in his proof of the BCOV conjectures, two major components of the \DIFdelbegin \DIFdel{standard theory }\DIFdelend \DIFaddbegin \DIFadd{subject }\DIFaddend -- relative invariants and the degeneration formula -- have not been developed in this setting. Our \DIFdelbegin \DIFdel{results in this paper provide }\DIFdelend \DIFaddbegin \DIFadd{work provides }\DIFaddend these as new {structural} tools in reduced genus one Gromov--Witten theory\footnote{Further motivation to consider the genus one case specifically comes simply from the fact that for Calabi--Yau geometries in dimension larger than $3$, Gromov--Witten theory vanishes in genera greater than one.}. \DIFaddbegin \DIFadd{While the essential starting point is the early work on relative Gromov--Witten theory by Gathmann, modern tools are required in our setting. We establish both the conceptual framework and the formula by combining tropical geometry and logarithmic Gromov--Witten theory, as developed by Abramovich--Chen--Gross--Siebert, with the recent understanding of elliptic singularities and their interactions with logarithmic structures. 
+}\DIFaddend and logarithmic geometry~\DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\cite{RSPW,RSPW2}}%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\cite{RSPW,RSPW2,BC20}}%DIFAUXCMD
+}\DIFaddend . The result is a \textbf{reduced} Gromov--Witten theory, which removes \DIFdelbegin \DIFdel{certain }\DIFdelend degenerate contributions from the ordinary theory. While the Atiyah--Bott localisation for the reduced invariants was used to great effect by Zinger in his proof of the BCOV conjectures, two major components of the \DIFdelbegin \DIFdel{standard theory }\DIFdelend \DIFaddbegin \DIFadd{subject }\DIFaddend -- relative invariants and the degeneration formula -- have not been developed in this setting. Our \DIFdelbegin \DIFdel{results in this paper provide }\DIFdelend \DIFaddbegin \DIFadd{work provides }\DIFaddend these as new {structural} tools in reduced genus one Gromov--Witten theory\footnote{Further motivation to consider the genus one case specifically comes simply from the fact that for Calabi--Yau geometries in dimension larger than $3$, Gromov--Witten theory vanishes in genera greater than one.}. \DIFaddbegin \DIFadd{While the essential starting point is the early work on relative Gromov--Witten theory by Gathmann, modern tools are required in our setting. We establish both the conceptual framework and the formula by combining tropical geometry and logarithmic Gromov--Witten theory, as developed by Abramovich--Chen--Gross--Siebert, with the recent understanding of elliptic singularities and their interactions with logarithmic structures. 
 }\DIFaddend 
 
 
@@ -434,18 +446,21 @@ The Kontsevich moduli space of stable maps from genus zero curves to projective 
 There exists a logarithmically smooth and proper Deligne--Mumford stack $\VZ_{1,\alpha}(\mathbb P^N|H,d)$ having expected dimension, and containing $\mathcal M_{1,\alpha}^\circ(\mathbb P^N|H,d)$  as a dense open subset. A point in this moduli space \DIFdelbegin \DIFdel{parameterises maps
 }\DIFdelend \DIFaddbegin \DIFadd{determines commutative diagrams
 }\DIFaddend
-\DIFaddbegin \DIFadd{where $C$ is a nodal genus $1$ curve, $\overline C_1$ and $\overline C_2$ are Gorenstein curves of genus $1$, the map $C\to \PP^N[s]$ is a logarithmic map }\DIFaddend to an $s$-fold expansion of \DIFdelbegin \DIFdel{$\mathbb P^N$ }\DIFdelend \DIFaddbegin \DIFadd{$\PP^N$ }\DIFaddend along $H$\DIFdelbegin \DIFdel{such that the map to the expansion and composite map $C\to \mathbb P^N$ each factor nontrivially through an elliptic singularity}\DIFdelend \DIFaddbegin \DIFadd{, and each of the vertical is }\textbf{\DIFadd{non-degenerate}}\DIFaddend .
-\end{customthm}
+\DIFaddbegin \DIFadd{where $C$ is a nodal genus $1$ curve, $\overline C_1$ and $\overline C_2$ are Gorenstein curves of genus $1$, the map $C\to \PP^N[s]$ is a logarithmic map }\DIFaddend to an $s$-fold expansion of \DIFdelbegin \DIFdel{$\mathbb P^N$ }\DIFdelend \DIFaddbegin \DIFadd{$\PP^N$ }\DIFaddend along $H$\DIFdelbegin \DIFdel{such that the map to the expansion and composite map $C\to \mathbb P^N$ each factor nontrivially through an elliptic singularity. 
+}\DIFdelend \DIFaddbegin \DIFadd{, and each of the vertical maps does not contract the minimal subcurve of genus $1$.
+}\DIFaddend \end{customthm}
 
-\DIFdelbegin \DIFdel{The moduli space above is constructed by identifying two closed conditions that must be satisfied by the space of maps to the pair $(\mathbb P^N,H)$. Each condition requires the stable map to factor through an elliptic singularity. The behaviour mixes the geometry in ~\mbox{%DIFAUXCMD
+\DIFdelbegin \DIFdel{The moduli space above is constructed by identifying two closed conditions that must be satisfied by the space of maps to the pair $(\mathbb P^N,H)$. Each condition requires the stable map to factor through an elliptic singularity.
+The behaviour mixes the geometry in~\mbox{%DIFAUXCMD
 \cite{RSPW} }%DIFAUXCMD
 and~\mbox{%DIFAUXCMD
 \cite{RSPW2}}%DIFAUXCMD
 . }%DIFDELCMD < {%%%
-\DIFdel{Together with an analysis of the deformation theory of such maps, we are led to Theorem~\ref{thm: desingularization}}%DIFDELCMD < }%%%
-\DIFdelend \DIFaddbegin \DIFadd{Intuitively, non-degeneracy is the condition that the maps in question are non-constant on some branch of the minimal genus $1$ subcurve, see  \S \ref{section construction} for details}\DIFaddend .
+\DIFdel{Together with an analysis of the deformation theoryof such maps, we are led to Theorem~\ref{thm: desingularization}}%DIFDELCMD < }%%%
+\DIFdel{.
+}\DIFdelend %DIF > Intuitively, non-degeneracy is the condition that the maps in question are non-constant on some branch of the minimal genus $1$ subcurve, see  \S \ref{section construction} for %details.
 
-\DIFdelbegin \DIFdel{Our second result explains how to do practical calculations on this space of stable maps}\DIFdelend %DIF > The moduli space above is constructed by identifying two closed conditions that must be satisfied by maps to the pair $(\mathbb P^N,H)$. Each condition requires the stable map to factor through an elliptic singularity, and the conditions together are required for the relative and absolute reduced theories to be related appropriately.  {An analysis of the deformation theory of such maps leads to Theorem~\ref{thm: desingularization}}.
+\DIFdelbegin \DIFdel{Our second resultexplains how to do practical calculations on this space of stable maps}\DIFdelend %DIF > The moduli space above is constructed by identifying two closed conditions that must be satisfied by maps to the pair $(\mathbb P^N,H)$. Each condition requires the stable map to factor through an elliptic singularity, and the conditions together are required for the relative and absolute reduced theories to be related appropriately.  {An analysis of the deformation theory of such maps leads to Theorem~\ref{thm: desingularization}}.
 \DIFaddbegin 
 
 \DIFadd{The information involving singularities adds substantial complexity to the theory, and this motivates our next result, which shows that calculations are nonetheless possible}\DIFaddend . 
@@ -468,7 +483,7 @@ Novelties are introduced in both steps. In the first, we describe the locus of d
 
 For the second step, we \DIFaddbegin \DIFadd{are forced to }\DIFaddend contend with the interaction of the relative splitting formula and the geometry of elliptic singularities, which is entirely new (\S \ref{subsection C0 splitting}). We express the factorisation condition -- central to the constructions in~\cite{RSPW,RSPW2} -- in terms of tautological classes, leading to Theorem~\ref{thm: recursion}.
 
-\subsection{\DIFdelbegin \DIFdel{Broader contributions}\DIFdelend \DIFaddbegin \DIFadd{Context and further discussion}\DIFaddend } \DIFdelbegin \DIFdel{Beyond genus one, we pass through some useful general techniques . First, we }\DIFdelend \DIFaddbegin \DIFadd{This paper is a most directly related to recent work on aligned logarithmic structures, elliptic singularities, and stable maps, as developed in~\mbox{%DIFAUXCMD
+\subsection{\DIFdelbegin \DIFdel{Broader contributions}\DIFdelend \DIFaddbegin \DIFadd{Context and further discussion}\DIFaddend } \DIFdelbegin \DIFdel{Beyond genus one, we pass through some useful general techniques . First, we }\DIFdelend \DIFaddbegin \DIFadd{This paper is most directly related to recent work on aligned logarithmic structures, elliptic singularities, and stable maps, as developed in~\mbox{%DIFAUXCMD
 \cite{RSPW,RSPW2}}%DIFAUXCMD
 . The moduli spaces we construct lie in between the absolute and toric-boundary-relative geometries studied in the first and second of those papers, respectively. The degeneration algorithm presented here as a first practical implementation of the theory developed in that work. 
 }
@@ -477,17 +492,17 @@ For the second step, we \DIFaddbegin \DIFadd{are forced to }\DIFaddend contend w
 \cite{R19}}%DIFAUXCMD
 . The main text provides }\DIFaddend a first systematic procedure that \DIFdelbegin \DIFdel{explains how to use }\DIFdelend \DIFaddbegin \DIFadd{uses }\DIFaddend tropical geometry to calculate with these torus bundles\DIFdelbegin \DIFdel{~\mbox{%DIFAUXCMD
 \cite{R19}}%DIFAUXCMD
-.
-}%DIFDELCMD < 
+}\DIFdelend . 
 
-%DIFDELCMD < %%%
-\DIFdel{In addition, the results of~\mbox{%DIFAUXCMD
+\DIFdelbegin \DIFdel{In addition, the results of~\mbox{%DIFAUXCMD
 \cite{RSPW} }%DIFAUXCMD
 suggest the existence of a reduced higher genus Gromov--Witten theory formed by replacing contracted elliptic components with singularities}\footnote{\DIFdel{We have been informed by Jonathan Wise that his Ph.D. candidate Sebastian Bozlee has constructed these higher genus reduced Gromov--Witten invariants. A manuscript is in preparation.}}%DIFAUXCMD
 \addtocounter{footnote}{-1}%DIFAUXCMD
-\DIFdel{. The discussion here is likely to carry over to this setting}\DIFdelend . 
+\DIFdel{. The discussion here is likely to carry over to this setting.
+}%DIFDELCMD < 
 
-\DIFdelbegin \DIFdel{Second, a }\DIFdelend \DIFaddbegin \DIFadd{A }\DIFaddend key step in our recursion is a description of the locus of maps with higher than prescribed tangency, which was identified by Gathmann. We realise the locus as the vanishing locus of a section of a line bundle that comes from tropical geometry — from a piecewise linear function on the fan. The systematic understanding of logarithmic line bundles arising in this fashion is likely to play an important \DIFdelbegin \DIFdel{r\^ole }\DIFdelend \DIFaddbegin \DIFadd{role }\DIFaddend in logarithmic enumerative geometry. 
+%DIFDELCMD < %%%
+\DIFdel{Second, a }\DIFdelend \DIFaddbegin \DIFadd{A }\DIFaddend key step in our recursion is a description of the locus of maps with higher than prescribed tangency, which was identified by Gathmann. We realise the locus as the vanishing locus of a section of a line bundle that comes from tropical geometry — from a piecewise linear function on the fan. The systematic understanding of logarithmic line bundles arising in this fashion is likely to play an important \DIFdelbegin \DIFdel{r\^ole }\DIFdelend \DIFaddbegin \DIFadd{role }\DIFaddend in logarithmic enumerative geometry. 
 
 \DIFdelbegin \DIFdel{We rephrase }\DIFdelend \DIFaddbegin \DIFadd{Although the geometric ideas in }\DIFaddend Gathmann's \DIFdelbegin \DIFdel{idea of increasing the tangency requirement within the framework of logarithmic stable maps(where maximal tangency is always assumed) by introducing }\emph{\DIFdel{fictitious markings}}%DIFAUXCMD
 \DIFdel{, and identifying the }\DIFdelend \DIFaddbegin \DIFadd{recursion are clear, they are implemented within the }\DIFaddend space of \DIFdelbegin \DIFdel{maps with higher contact order with a boundary stratum inside that of lower contact order and more (fictitious) markings}\DIFdelend \DIFaddbegin \DIFadd{ordinary stable maps, and do not formally fit within the formalism of logarithmic Gromov--Witten theory. On the way to our main results, we reinterpret Gathmann's idea of increasing tangency within logarithmic mapping spaces. %DIF > This is done by the introduction of \emph{fictitious markings}, and an identification of the space of maps with higher contact order with a boundary stratum inside that of lower contact order and more (fictitious) markings. 
@@ -510,7 +525,7 @@ Finally, \DIFdelbegin \DIFdel{we note that our methods require us to encounter s
 . %DIF > We will return to these questions in future work. 
 }\DIFaddend 
 
-\subsection*{Acknowledgements} We have benefited from fruitful conversations with friends and colleagues, including Pierrick Bousseau, Francesca Carocci, Cristina Manolache, Davesh Maulik, Keli Santos-Parker, and Jonathan Wise. The \DIFaddbegin \DIFadd{comments of an anonymous referee have proved very valuable. The }\DIFaddend authors worked on this project during visits to MPIM-Bonn, MIT, University of Cambridge, and the University of Glasgow, and thank these institutions for ideal working conditions and support. L.B. and N.N. would in addition like to thank Imperial College London, the LSGNT, the Royal Society, 3CinG, and the MSRI program ''Enumerative Geometry beyond Numbers''. \DIFaddbegin \DIFadd{N.N. was partially supported by EPSRC grant EP/R009325/1.
+\subsection*{Acknowledgements} We have benefited from fruitful conversations with friends and colleagues, including Pierrick Bousseau, Francesca Carocci, Cristina Manolache, Davesh Maulik, Keli Santos-Parker, and Jonathan Wise. The \DIFaddbegin \DIFadd{comments of an anonymous referee have proved very valuable. The }\DIFaddend authors worked on this project during visits to MPIM-Bonn, MIT, University of Cambridge, and the University of Glasgow, and thank these institutions for ideal working conditions and support. L.B. and N.N. would in addition like to thank Imperial College London, the LSGNT, the Royal Society, 3CinG, and the MSRI program ''Enumerative Geometry beyond Numbers''. \DIFaddbegin \DIFadd{N.N. was partially supported by EPSRC grant EP/R009325/1.  L.B. is supported by the Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) under Germany’s Excellence Strategy EXC-2181/1 - 390900948 (the Heidelberg STRUCTURES Cluster of Excellence).
 }\DIFaddend 
 
 %\part{ The moduli space and its deformation theory}
@@ -522,11 +537,11 @@ Finally, \DIFdelbegin \DIFdel{we note that our methods require us to encounter s
 . The following paragraphs are meant only as a reminder. 
 }
 
-\subsection*{\DIFadd{Curves and tropical curves}} \DIFadd{A nodal curve $C$ over $\spec \mathbb C$ has an associated dual graph $\Gamma(C)$. Given a toric monoid $P$, there is a logarithmic point $\spec \CC_P$ which may be thought of as remembering the information of an embedding of a closed point into the toric variety $\spec \mathbb C[P]$. For a logarithmically smooth curve $C$ over $\spec \CC_P$, the dual graph $\Gamma(C)$ is enhanced: given an edge $e$ of $\Gamma(C)$, the logarithmic structure keeps track of a generalized ``edge length'' $\ell_e$, which is an element of $P$. These data can be repackaged into a cone complex $\plC$ together with a map to the dual cone $\sigma_P$
+\DIFaddend \subsection{\DIFdelbegin \DIFdel{The absolute case}\DIFdelend \DIFaddbegin \DIFadd{Curves and tropical curves}\DIFaddend } \DIFaddbegin \DIFadd{A nodal curve $C$ over $\spec \mathbb C$ has an associated dual graph $\Gamma(C)$. Given a toric monoid $P$, there is a logarithmic point $\spec \CC_P$ which may be thought of as remembering the information of the embedding of the torus-fixed closed point into the toric variety $\spec \mathbb C[P]$. For a logarithmically smooth curve $C$ over $\spec \CC_P$, the dual graph $\Gamma(C)$ is enhanced: given an edge $e$ of $\Gamma(C)$, the logarithmic structure keeps track of a generalized ``edge length'' $\ell_e$, which is an element of $P$. These data can be repackaged into a cone complex $\plC$ together with a map to the dual cone $\sigma_P$
 }\[
 \DIFadd{\pi: \plC\to \sigma_P.
 }\]
-\DIFadd{A fiber of this map $\pi$ is a metric space enhancing the topological space $\Gamma(C)$, with edges given lengths in $\RR_{\geq 0}$. Over the interior of the cone $\sigma_P$ these edge lengths are nonzero, and the fibers are homoemorphic to $\Gamma(C)$. Over the faces of $\sigma_P$, the fibers can be identified with edge collapses. 
+\DIFadd{A fiber of this map $\pi$ is a metric space enhancing the topological space $\Gamma(C)$, with edges given lengths in $\RR_{\geq 0}$. Over the interior of the cone $\sigma_P$ these edge lengths are nonzero, and the fibers are homoemorphic to $\Gamma(C)$. Over the faces of $\sigma_P$, the fibers can be identified with edge contractions. 
 }
 
 \DIFadd{The discussion is globalized in~\mbox{%DIFAUXCMD
@@ -535,42 +550,91 @@ Finally, \DIFdelbegin \DIFdel{we note that our methods require us to encounter s
 }\[
 \DIFadd{\plC\to \mathfrak M_{g,n}^{\mathrm{trop}}.
 }\]
-\DIFadd{The reader is encourage to think of $\mathfrak M_{g,n}^{\mathrm{trop}}$ as playing the same role for $\mathfrak M_{g,n}$ as a fan plays for a toric variety. In particular, two constructions are relevant:
+\DIFadd{The reader is encouraged to think of $\mathfrak M_{g,n}^{\mathrm{trop}}$ as playing the same role for $\mathfrak M_{g,n}$ as a fan plays for a toric variety. In particular, two constructions are relevant:
 } \begin{enumerate} 
 \item \DIFadd{A subdivision of $\mathfrak M_{g,n}^{\mathrm{trop}}$ gives rise to a birational modification of $\mathfrak M_{g,n}$.
 }\item \DIFadd{A piecewise linear function on $\mathfrak M_{g,n}^{\mathrm{trop}}$ gives rise to a Cartier divisor on $\mathfrak M_{g,n}$.
 } \end{enumerate} 
 
-\subsection*{\DIFadd{Maps and tropical maps}}\DIFadd{The discussion carries over to the setting of logarithmic maps. Specifically, given a logarithmic curve $C$ and a logarithmic map to a smooth pair $(X,Y)$ over a logarithmic scheme $S$. For simplicity, assume that $S$ is a $P$-logarithmic point, as above. There is an associated }\textbf{\DIFadd{tropicalization}}\DIFadd{, i.e. a family of tropical curves $\plC$ over $\sigma_P$, together with a map of cone complexes
+\subsection{\DIFadd{Maps and tropical maps}}\DIFadd{The discussion carries over to the setting of logarithmic maps. Specifically, given a logarithmic curve $C$ and a logarithmic map to a smooth pair $(X,Y)$ over a logarithmic scheme $S$. For simplicity, assume that $S$ is a $P$-logarithmic point, as above. There is an associated }\textbf{\DIFadd{tropicalization}}\DIFadd{, i.e. a family of tropical curves $\plC$ over $\sigma_P$, together with a map of cone complexes
 }\[
 \DIFadd{\plC\to \RR_{\geq 0}.
 }\]
 \DIFadd{Each fiber over $\sigma_P$ encodes a metric enhancement of the dual graph, together with a piecewise linear map to $\RR_{\geq 0}$. There is once again a cone stack representing the moduli problem of tropical maps; the technical details are only cosmetically different than those presented in~\mbox{%DIFAUXCMD
 \cite{CavalieriChanUlirschWise}}%DIFAUXCMD
-, and we leave these details to the reader. 
+, and we leave these details to the reader. See also \mbox{%DIFAUXCMD
+\cite{GrossSiebertLog}}%DIFAUXCMD
+.
 }
 
 \subsection{\DIFadd{Maps from curves and elliptic singularities}} \DIFadd{We provide a brief intuitive picture that underlies the work in~\mbox{%DIFAUXCMD
 \cite{RSPW,RSPW2}}%DIFAUXCMD
-. If $C$ is a Gorenstein curve and $f:C\to \mathbb P^N$ is a morphism, the ampleness of the the tangent bundle of $\mathbb P^N$ ensures that if no subcurve of arithmetic genus $1$ is contracted, the deformations of $f$ are unobstructed. In fact, the deformations }\textit{\DIFadd{over the stack of curves}} \DIFadd{are also unobstructed. The moduli space of Gorenstein genus $1$ is not smooth. However, a more sophisticated moduli problem, consisting of nodal curves together with a }\textit{\DIFadd{chosen contraction}} \DIFadd{to a Gorenstein curve, might be expected to resolve these singularities. The formation of such a moduli problem requires logarithmic geometry, and is achieved in~\mbox{%DIFAUXCMD
+. If $C$ is a Gorenstein curve and $f:C\to \mathbb P^N$ is a morphism, the ampleness of the the tangent bundle of $\mathbb P^N$ ensures that if no subcurve of arithmetic genus $1$ is contracted, the deformations of $f$ are unobstructed. In fact, the deformations }\textit{\DIFadd{over the stack of curves}} \DIFadd{are also unobstructed. The moduli space of Gorenstein genus $1$ curves is not smooth. However, a more sophisticated moduli problem, consisting of nodal curves together with a }\textit{\DIFadd{chosen contraction}} \DIFadd{to a Gorenstein curve, might be expected to resolve these singularities. The formation of such a moduli problem requires logarithmic geometry, and is achieved in~\mbox{%DIFAUXCMD
 \cite[Section~3]{RSPW}}%DIFAUXCMD
-. Once constructed, the corresponding moduli of stable maps out of a Gorenstein curve is also resolved. Note that maps from nodal genus $1$ curves may have stable limits that contract genus $1$ subcurves, but the allowance of Gorenstein singularities ensures that properness despite disallowing contracted genus $1$ components. 
+. Once constructed, the corresponding moduli of stable maps out of a Gorenstein curve is also resolved. Note that maps from nodal genus $1$ curves may have stable limits that contract genus $1$ subcurves, but the allowance of Gorenstein singularities ensures properness despite disallowing contracted genus $1$ components. 
 }
 
-\DIFadd{When working with logarithmic geometries such as $(\mathbb P^N,H)$ as we do here, similar ideas may be expected to apply, but the deformation theory of maps becomes more delicate. Indeed, the logarithmic Euler sequence for this pair shows that the logarithmic tangent bundle is a quotient of $\mathcal O\oplus\mathcal O(1)^{\oplus 1}$, and additional obstructions appear. In simple terms, there exist logarithmic maps to the pair $(\mathbb P^N,H)$ with obstructed logarithmic deformations, whose underlying ordinary stable map is unobstructed. 
+\DIFadd{When working with logarithmic geometries such as $(\mathbb P^N,H)$, as we do here, similar ideas may be expected to apply, but the deformation theory of maps becomes more delicate. Indeed, the logarithmic Euler sequence for this pair shows that the logarithmic tangent bundle is a quotient of $\mathcal O\oplus\mathcal O(1)^{\oplus N}$, and additional obstructions appear. In simple terms, there exist logarithmic maps to the pair $(\mathbb P^N,H)$ with obstructed logarithmic deformations, whose underlying ordinary stable map is unobstructed. 
 }
 
-\DIFaddend \subsection{\DIFdelbegin \DIFdel{The absolute case}\DIFdelend \DIFaddbegin \DIFadd{Absolute geometry: reminders}\DIFaddend } Let $\mathfrak M_{1,n}$ be the logarithmic algebraic stack of $n$-pointed prestable curves of genus one. We begin by recalling the logarithmic moduli spaces of genus one curves constructed in~\cite[\S 2 \& \S 4]{RSPW}. 
+\subsection{\DIFadd{Singularities and moduli of attachments}}\label{S:ellsing} \DIFadd{Isolated Gorenstein singularities of genus $1$ were classified by Smyth in \mbox{%DIFAUXCMD
+\cite{SMY1}}%DIFAUXCMD
+: for every fixed number of branches $m$, there is only one isomorphism type of curve germs with such characteristics. For $m=1,2$ we find the cusp ($A_2$) and tacnode ($A_3$) respectively; for $m\geq 3$ we find the union of $m$ general lines through the origin of $\Aaff^{m-1}$ - Smyth calls them }\emph{\DIFadd{elliptic $m$-fold points}}\DIFadd{.
+}
+
+\DIFadd{The problem of constructing an elliptic singularity from its pointed normalisation is more delicate; it was widely studied in van der Wyck's thesis \mbox{%DIFAUXCMD
+\cite{vdW}}%DIFAUXCMD
+. Recall that the seminormalisation $C^\text{sn}$ of a curve $C$ has the same underlying topological space, but its singularities consist of rational $m$-fold points only, i.e. they are locally isomorphic to the union of the axes in $\Aaff^m$.
+}
+
+\begin{lemma}\label{lem:pushout}
+ \DIFadd{The seminormalisation $\nu\colon C^\text{sn}\to C$ of an elliptic $m$-fold point is the collapse of a general tangent vector $v$ at the rational $m$-fold point.
+}\end{lemma}
+
+\DIFadd{This is equivalent to \mbox{%DIFAUXCMD
+\cite[Lemma 2.2]{SMY1}}%DIFAUXCMD
+, where he describes the seminormalisation of an elliptic singularity as the data of a hyperplane in the Zariski cotangent space, not containing the coordinate lines. We call }\emph{\DIFadd{moduli of attaching data}} \DIFadd{\mbox{%DIFAUXCMD
+\cite[\S 2.2]{SMY2} }%DIFAUXCMD
+(or }\emph{\DIFadd{crimping space}}\DIFadd{) the extra data needed to produce a singularity from its pointed normalisation.
+}
+
+\begin{cor}
+ \DIFadd{The moduli of attachments of an elliptic $m$-fold point is isomorphic to $\mathbb G_{\text{m}}^m$.
+}\end{cor}
+\DIFadd{One way to compactify it is by allowing }\emph{\DIFadd{sprouting}} \DIFadd{on the boundary, i.e. replacing a branch $R_i$ of the singularity with a strictly semistable component $\PP^1$ with the singularity at $0$ and the branch $R_i$ glued nodally at $\infty$.
+}
+
+\DIFadd{There are other ways to look at these data; we recall a construction from linear algebra. Let $V=\sum_{i=1}^mL_i$ be the presentation of a vector space as the direct sum of $m$ lines. It is equivalent to give compatible isomorphisms $\theta_{i,j}\colon L_i\simeq L_j$ and a general line $\ell$ in $V$ (or a hyperplane in the dual vector space $V^\vee$). Indeed, given a general line $\ell$, a vector $v\in\ell$ can be written as:
+}\[\DIFadd{v=a_1e_1+\ldots+a_me_m,\qquad a_i\neq 0\ \forall i=1,\ldots,m,}\]
+\DIFadd{for a fixed basis $\{e_i\in L_i\}$ of $V$. We can then define $\theta_{i,j}$ by:
+}\[\DIFadd{\theta_{i,j}(e_i)=\frac{a_j}{a_i}e_j;}\]
+\DIFadd{it is easy to see that it does not depend on any choice made. On the other hand, given the $\theta_{i,j}$, the line $\ell$ can be taken to be the graph of the morphism:
+}\[\DIFadd{(\theta_{1,2},\ldots,\theta_{1,m})\colon L_1\to L_2\oplus\ldots\oplus L_m.}\]
+
+\DIFadd{Lemma \ref{lem:pushout} provides a valuable characterisation of maps from an elliptic singularity $C$, that we are going to exploit in \S \ref{section reduced splitting}:
+}\begin{cor}\label{cor:maps_from_elliptic_sing}
+ \DIFadd{A map $C\to X$ is the same as a map $C^\text{sn}\to X$ such that its differential sends $v$ to $0$.
+}\end{cor}
+
+\DIFadd{Line bundles on an elliptic $m$-fold point admit a similar description, see e.g. \mbox{%DIFAUXCMD
+\cite[Lemma 7.5.12]{LiuQ}}%DIFAUXCMD
+.
+}\begin{lemma}\label{lem:PicE}
+ \DIFadd{Let $C$ be a curve of arithmetic genus $1$ containing an elliptic $m$-fold point. Then $\operatorname{Pic}^0(C)\simeq\mathbb G_{\text{a}}$.
+}\end{lemma}
+
+
+\subsection{\DIFadd{Absolute geometry: reminders}} \DIFaddend Let $\mathfrak M_{1,n}$ be the logarithmic algebraic stack of $n$-pointed prestable curves of genus one. We begin by recalling the logarithmic moduli spaces of genus one curves constructed in~\cite[\S 2 \& \S 4]{RSPW}. 
 \DIFdelbegin \DIFdel{Given }\DIFdelend \DIFaddbegin 
 
-\DIFadd{Consider }\DIFaddend a logarithmically smooth curve $C$ over a logarithmic geometric point $S$ \DIFdelbegin \DIFdel{, let $\plC$ }\DIFdelend \DIFaddbegin \DIFadd{with monoid $P$ and let $\pi: \plC\to \sigma_P$ }\DIFaddend denote its tropicalization\DIFdelbegin \DIFdel{, and let $\lambda \in \overline{M}_{S}$ be the piecewise-linear function giving the distance from each vertex of $\sqC$ to the minimal genus one subcurve. 
-}\DIFdelend \DIFaddbegin \DIFadd{. Given a point $t$ in $\sigma_P$ we obtain a metric graph as explained above. Since the curve in question has genus $1$, there is a minimal genus $1$ subgraph -- either a vertex of genus $1$ or a cycle in the graph. We will refer to this as the }\textbf{\DIFadd{core}}\DIFadd{. Given a point $s$ with $\pi(s)$ equal to $t$, there is a well-defined distance in the metric graph $\pi^{-1}(t)$ from $s$ to the core. 
+\DIFadd{Consider }\DIFaddend a logarithmically smooth curve $C$ over a logarithmic geometric point $S$ \DIFdelbegin \DIFdel{, let $\plC$ }\DIFdelend \DIFaddbegin \DIFadd{with monoid $P$ and let $\pi\colon \plC\to \sigma_P$ }\DIFaddend denote its tropicalization\DIFdelbegin \DIFdel{, and let $\lambda \in \overline{M}_{S}$ be the piecewise-linear function giving the distance from each vertex of $\sqC$ to the minimal genus one subcurve. }\DIFdelend \DIFaddbegin \DIFadd{. Given a point $t$ in $\sigma_P$ we obtain a metric graph as explained above. Since the curve in question has genus $1$, there is a minimal genus $1$ subgraph -- either a vertex of genus $1$ or a cycle in the graph. We will refer to this as the }\textbf{\DIFadd{core}}\DIFadd{, denoted by $\plE$ below.
 }
 
-\DIFadd{In particular, for each vertex $v$ of the dual graph $\Gamma(C)$, i.e. each component of $C$, there is a well-defined function $\lambda(v): \sigma_P\to \RR_{\geq 0}$, defined on the base of the tropical family. Given any other piecewise linear function $\delta$ on $\sigma_P$, say that $\delta$ is }\textbf{\DIFadd{comparable}} \DIFadd{to $\lambda(v)$ if there is a global order relation, either $\lambda(v)\leq \delta$ or $\lambda(v)\geq \delta$, that holds at all points of $\sigma_P$. 
+\DIFadd{Given a point $s$ with $\pi(s)$ equal to $t$, there is a well-defined distance in the metric graph $\pi^{-1}(t)$ from $s$ to the core. 
+In particular, for each vertex $v$ of the dual graph $\Gamma(C)$, i.e. each component of $C$, there is a well-defined function $\lambda(v): \sigma_P\to \RR_{\geq 0}$, defined on the base of the tropical family. We may as well think of $\boldsymbol{\lambda}$ as a piecewise linear function $\lambda\colon\plC\to\RR_{\geq 0}\times\sigma_P$, see Figure \ref{fig:lambdaexample}. Given any other linear function $\delta$ on $\sigma_P$, say that $\delta$ is }\textbf{\DIFadd{comparable}} \DIFadd{to $\lambda(v)$ if there is a global order relation, either $\lambda(v)\leq \delta$ or $\lambda(v)\geq \delta$, that holds at all points of $\sigma_P$. 
 }
 
-\DIFadd{Piecewise linear functions on $\sigma_P$ are naturally identified with global sections of the characteristic sheaf $\overline M_S$. Given an arbitrary logarithmically smooth curve $C/S$, conditions involving the comparability of piecewise linear functions can be imposed geometric point-by-point. This leads to the following definition. 
+\DIFadd{Piecewise linear functions on $\plC$ are naturally identified with global sections of the characteristic sheaf $\overline M_C$; linear functions on $\sigma_P$ are naturally identified with global sections of the characteristic sheaf $\overline M_S$, and can be pulled back to $C$. Given an arbitrary logarithmically smooth curve $C/S$, conditions involving the comparability of piecewise linear functions can be imposed at the level of geometric points; they determine subdivisions of $\sigma_P$, and, in turn, logarithmic modifications of $S$. %DIF > This leads to the following definition. 
 }
 
 \DIFaddend \begin{definition}
@@ -582,14 +646,45 @@ A \textbf{centrally aligned curve} is a pair $(C/S,\delta)$, where $\delta\in\ov
 \end{definition}
 In \DIFdelbegin \DIFdel{essence, this says that the }\DIFdelend \DIFaddbegin \DIFadd{other words, for the tropical }\DIFaddend curve $\sqC$\DIFdelbegin \DIFdel{is such that }\DIFdelend \DIFaddbegin \DIFadd{, }\DIFaddend all vertices are either inside, outside, or on the circle of radius $\delta$ \DIFdelbegin \DIFdel{, and that }\DIFdelend \DIFaddbegin \DIFadd{regardless of the point on the base; }\DIFaddend the collection of vertices inside the circle is totally ordered \DIFaddbegin \DIFadd{by their distance to the core}\DIFaddend .
 
-The moduli stack $\mathfrak M_{1,n}^{\mathrm{cen}}$  of centrally aligned curves is a logarithmic algebraic stack in the smooth topology, and $\mathfrak M_{1,n}^{\mathrm{cen}}\to\mathfrak M_{1,n}$ is a logarithmic modification. The main construction of~\cite{RSPW} canonically associates to any centrally aligned family of curves $\mathcal C_S$ a partial destabilisation $\widetilde{\mathcal C}_S$\DIFaddbegin \DIFadd{, introducing $2$-pointed components, }\DIFaddend and a contraction
+\DIFaddbegin \begin{figure}
+ \begin{tikzpicture} 
+  \tikzset{cross/.style={cross out, draw=black, fill=none, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt}, cross/.default={3pt}}
+
+  \foreach \x in {(.5,2.5),(3.3,2.5),(3.65,2.5),(3.7,2.5),(4.4,2.5),(4.65,2.5),(-1.7,2.5)}
+  \draw \x node[cross,rotate=45] {};
+
+  \foreach \x in {(-1,1),(3.5,1.5),(3.2,2),(-2.5,2.5),(-.5,1.5),(1.5,3.5),(4.8,3),(5.8,3.5),(7,0),(-2,2.8),(4,3.2)}
+  \draw[fill=black] \x circle (2pt);
+
+  \draw[gray] (0,0) node[left]{$\plE$} -- (1,.2) -- (2,0) -- (1,-.2) -- (0,0); %core
+
+  \draw (0,0) -- (-2.5,2.5) -- (-2.7,4) (-2.5,2.5) -- (-2.3,4) (-1,1)--(1.5,3.5)--(1.3,4) (1.5,3.5)--(1.7,4) (-.5,1.5) -- (-1.7,2.5) -- (-2,2.8) --(-2.2,4) (-2,2.8) --(-1.8,4);
+  \draw (1,.2) -- (4,3.2) -- (3.9,4) (4,3.2) -- (4.1,4);
+  \draw (1,-.2) -- (3.2,2) -- (5,4) (3.2,2) -- (5.2,4);
+  \draw (2,0) -- (3.5,1.5) -- (4.8,3) -- (5.4,4) (4.8,3) -- (5.6,4) (3.5,1.5) -- (5.8,3.5) -- (5.8,4) (5.8,3.5) -- (6,4);
+
+  \draw[->] (7,0) -- (7,4); %real axis
+  \draw[dashed] (-2.7,1) -- (7.2,1) (-2.7,1.5) -- (7.2,1.5) (-2.7,2) -- (7.2,2); %heights
+  \draw[blue,dashed]  (-2.7,2.5) -- (7.2,2.5) node[right]{$\delta$};
+  \draw [->] (6,1.55) --node[above]{$\lambda$} (6.8,1.55); %arrow-lambda
+
+  \foreach \x in {(0,0),(1,.2),(1,-.2),(2,0)}
+  \draw[fill=gray] \x circle (2pt);
+ \end{tikzpicture}
+\caption{\DIFaddFL{The function $\lambda$ (distance from the core) and its cutoff value $\delta$.}}
+\label{fig:lambdaexample}
+\end{figure}
+
+
+
+\DIFaddend The moduli stack $\mathfrak M_{1,n}^{\mathrm{cen}}$  of centrally aligned curves is a logarithmic algebraic stack in the smooth topology, and $\mathfrak M_{1,n}^{\mathrm{cen}}\to\mathfrak M_{1,n}$ is a logarithmic modification. The main construction of~\cite{RSPW} canonically associates to any centrally aligned family of curves $\mathcal C_S$ a partial destabilisation $\widetilde{\mathcal C}_S$\DIFaddbegin \DIFadd{, introducing $2$-pointed components, }\DIFaddend and a contraction
 \[
 \widetilde{\mathcal C}_S\to \overline{\mathcal C}_S,
 \]
-where $\overline{\mathcal C}_S$ may contain a Gorenstein elliptic singularity \cite{SMY1}. \DIFdelbegin \DIFdel{The number of branches }\DIFdelend \DIFaddbegin \DIFadd{Given a family of tropical curves, the function $\delta$ provides a non-negative real number for each point on the base. We may therefore consider the ``circle'' of points on each fiber whose distance from the minimal genus $1$ subgraph }\DIFaddend is equal to \DIFdelbegin \DIFdel{the sum of }\DIFdelend \DIFaddbegin \DIFadd{$\delta$. The partial destabilization, or ``bubbling'', introduces $2$-pointed rational curves into the curve by adding vertices to the dual graph at the points that lie on this circle. The number of branches is equal to }\DIFaddend the number of vertices of $\widetilde{\sqC}$ which lie on the circle of radius $\delta$. \DIFdelbegin \DIFdel{This data uniquely determines the singularity.
-}\DIFdelend %DIF > This data uniquely determines the singularity.
+where $\overline{\mathcal C}_S$ may contain a Gorenstein elliptic singularity \cite{SMY1}. \DIFdelbegin \DIFdel{The number of branches }\DIFdelend \DIFaddbegin \DIFadd{Given a family of tropical curves, the function $\delta$ provides a non-negative real number for each point on the base. We may therefore consider the ``}\textbf{\DIFadd{circle}}\DIFadd{'' of points on each fiber whose distance from the core }\DIFaddend is equal to \DIFdelbegin \DIFdel{the sum of }\DIFdelend \DIFaddbegin \DIFadd{$\delta$. A partial destabilization, or ``bubbling'', introduces $2$-pointed rational curves into the curve by adding vertices to the dual graph at the points that lie on this circle (the crosses at height $\delta$ in Figure \ref{fig:lambdaexample}); we denote this new tropical curve by $\widetilde{\plC}$. The open disc of radius $\delta$, i.e. the locus where $\lambda<\delta$, is then contracted to a Gorenstein singularity in $\overline{\mathcal C}_S$. The number of branches is equal to }\DIFaddend the number of vertices of $\widetilde{\sqC}$ which lie on the circle\DIFdelbegin \DIFdel{of radius $\delta$. This data uniquely determines the singularity. }\DIFdelend \DIFaddbegin \DIFadd{. %DIF > This data uniquely determines the singularity.
+}\DIFaddend 
 
-The space of stable maps $\widetilde\VZ_{1,n}(\PP^N,d)$ from the universal nodal curve $\mathcal C$ over the stack $\mathfrak M_{1,n}^{\mathrm{cen}}$ is proper and algebraic, with projective coarse moduli space. A compatibility condition between the alignment and the map is required, namely that the circle of radius $\delta$ passes through at least one component of positive degree. A stable map in this space is said to satisfy the \textbf{factorisation condition} if the map $\mathcal C\to \mathbb P^N$ factors through the contraction $\widetilde{\mathcal C}\to \overline{\mathcal C}$. \DIFaddbegin \DIFadd{For ease of language, maps from nodal curves that are not constant on any subcurve of genus $1$ are taken to satisfy this condition. 
+The space of stable maps $\widetilde\VZ_{1,n}(\PP^N,d)$ from the universal nodal curve $\mathcal C$ over the stack $\mathfrak M_{1,n}^{\mathrm{cen}}$ is \DIFdelbegin \DIFdel{proper and algebraic}\DIFdelend \DIFaddbegin \DIFadd{Deligne-Mumford and proper}\DIFaddend , with projective coarse moduli space. A compatibility condition between the alignment and the map is required, namely that the circle of radius $\delta$ passes through \DIFdelbegin \DIFdel{at least one component of positive degree}\DIFdelend \DIFaddbegin \emph{\DIFadd{at least one component of positive degree}}\DIFaddend . A stable map in this space is said to satisfy the \textbf{factorisation condition} if the map \DIFdelbegin \DIFdel{$\mathcal C\to \mathbb P^N$ }\DIFdelend \DIFaddbegin \DIFadd{$\widetilde{\mathcal C}\to \mathcal C\to \mathbb P^N$ }\DIFaddend factors through the contraction $\widetilde{\mathcal C}\to \overline{\mathcal C}$. \DIFaddbegin \DIFadd{Maps that are not constant on any genus $1$ subcurve of $\mathcal C$ automatically satisfy this condition; indeed, the contraction is an isomorphism in this case.
  }\DIFaddend 
 
 \begin{thm}[{\cite[Theorem B]{RSPW}}]
@@ -597,12 +692,12 @@ The substack $\VZ_{1,n}(\mathbb P^N,d)$ of $\widetilde\VZ_{1,n}(\PP^N,d)$ parame
 \end{thm}
 
 \DIFaddbegin \begin{remark}[Constant maps]\label{rem: constant-maps}
-\DIFadd{When the degree of the map is $1$, maps from smooth genus $1$ curves to $\PP^N$ are constant. The interior of the moduli space of stable maps in this case is empty, though the compactification by stable maps is non-empty. The space of maps satisfying the factorization condition is also empty. Only non-empty cases are considered. 
+\DIFadd{When the degree of the map is $1$, maps from smooth genus $1$ curves to $\PP^N$ are constant. The interior of the moduli space of stable maps in this case is empty, though the compactification by stable maps is non-empty. The space of maps satisfying the factorisation condition is also empty. We do not indulge on this any further. 
 }\end{remark}
 
 \DIFaddend The remainder of this section lifts this construction to the category of relative maps to \DIFdelbegin \DIFdel{the pair }\DIFdelend $(\mathbb P^N,H)$. The core \DIFdelbegin \DIFdel{of the result is identifying the necessary factorisation conditions that }\DIFdelend \DIFaddbegin \DIFadd{result shows that two factorisation conditions }\DIFaddend remove the obstructions. 
 
-\subsection{Relative geometry: compactification} Fix a hyperplane $H\subseteq \mathbb P^N$. Let $\alpha$ be a partition of the degree $d>0$. Consider the moduli space $\mathcal M_{1,\alpha}^\circ(\mathbb P^N|H,d)$ of maps from smooth elliptic curves $C\to \mathbb P^N$ that meet $H$ at finitely many marked points with vanishing orders given by the partition $\alpha$. This is a smooth, but non-proper Deligne--Mumford stack. 
+\subsection{Relative geometry: compactification} Fix a hyperplane $H\subseteq \mathbb P^N$. Let $\alpha$ be a partition of the degree $d>0$. Consider the moduli space $\mathcal M_{1,\alpha}^\circ(\mathbb P^N|H,d)$ of maps from smooth \DIFdelbegin \DIFdel{elliptic }\DIFdelend \DIFaddbegin \DIFadd{genus $1$ }\DIFaddend curves $C\to \mathbb P^N$ that meet $H$ at finitely many marked points with vanishing orders given by the partition $\alpha$. This is a smooth, but non-proper Deligne--Mumford stack. 
 
 We \DIFdelbegin \DIFdel{will first }\DIFdelend compactify the space described above, and then desingularise it. For the compactification, we begin with Abramovich--Chen--Gross--Siebert's space of logarithmic stable maps, though we will \DIFdelbegin \DIFdel{typically work with various subcategories and }\DIFdelend \DIFaddbegin \DIFadd{work with }\DIFaddend variants~\cite{AbramovichChenLog,ChenLog,GrossSiebertLog,KimLog}.
 
@@ -627,22 +722,23 @@ which we refer to as the \textbf{moduli space of centrally aligned maps to $(\PP
 
 \begin{comment}Our next task is to pick out a non-singular principal component in $\widetilde{\VZ}_{1,\alpha}(\mathbb P^N|H,d)$. The principal component of this space, consisting of the closure of the space of maps from nonsingular curves, maps into the principal component of $\widetilde\VZ_{1,n}(\PP^N,d)$. Indeed, smoothable logarithmic maps are, in particular, smoothable as ordinary maps. An additional condition is required to isolate the principal component of the space of logarithmic maps. \end{comment}
 
-In order make the obstruction theory more geometric, we expand the target. To elucidate the connection with the static target, consider a logarithmic stable map $[C\to (\mathbb P^N,H)]$ over $\mathrm{Spec} \ (\mathbb N\to \mathbb C)$. At the level of tropicalizations, there is a map of fans
-\[
+In order \DIFaddbegin \DIFadd{to }\DIFaddend make the obstruction theory more geometric, we expand the target. To elucidate the connection with the static target, consider a logarithmic stable map $[C\to (\mathbb P^N,H)]$ over $\mathrm{Spec} \ (\mathbb N\to \mathbb C)$. At the level of tropicalizations, there is a map of \DIFdelbegin \DIFdel{fans
+}\DIFdelend \DIFaddbegin \DIFadd{cone complexes:
+}\DIFaddend \[
 \plC\to \mathbb R_{\geq 0}.
 \]
-Choose a subdivision of $\mathbb R_{\geq 0}$ whose vertices \DIFdelbegin \DIFdel{consist of }\DIFdelend \DIFaddbegin \DIFadd{are }\DIFaddend the images of vertices of $\plC$. Pull this subdivision back to $\plC$ by \DIFdelbegin \DIFdel{marking all }\DIFdelend \DIFaddbegin \DIFadd{subdividing }\DIFaddend preimages of the vertices of $\mathbb R_{\geq 0}$. Denote the resulting map $\widetilde \plC \to \widetilde{\mathbb R}_{\geq 0}$. \DIFdelbegin %DIFDELCMD < 
+Choose a subdivision of $\mathbb R_{\geq 0}$ whose vertices \DIFdelbegin \DIFdel{consist of }\DIFdelend \DIFaddbegin \DIFadd{are }\DIFaddend the images of vertices of $\plC$. Pull this subdivision back to $\plC$ by \DIFdelbegin \DIFdel{marking all preimages }\DIFdelend \DIFaddbegin \DIFadd{subdividing it along the preimage }\DIFaddend of the vertices of $\mathbb R_{\geq 0}$. Denote the resulting map $\widetilde \plC \to \widetilde{\mathbb R}_{\geq 0}$. \DIFdelbegin %DIFDELCMD < 
 
 %DIFDELCMD < %%%
-\DIFdelend These subdivisions induce logarithmic modifications
-\[
+\DIFdelend These subdivisions induce logarithmic modifications\DIFaddbegin \DIFadd{:
+}\DIFaddend \[
 \widetilde C\to \mathbb P^N[s],
 \]
 see~\cite{AW}. Here the latter is the $s$-times iterated deformation to the normal cone of $H$ in $\mathbb P^N$. The irreducible components of the target are in bijection with the vertices in $\widetilde{\mathbb R}_{\geq 0}$. The curve is modified by adding rational components \DIFdelbegin \DIFdel{corresponding to }\DIFdelend \DIFaddbegin \DIFadd{for }\DIFaddend the newly introduced vertices.
 
 The result is a logarithmic stable map to an expanded target $\mathbb P^N[s]$, together with a contraction to the main target component $\mathbb P^N[s]\to\mathbb P^N$. Two maps are considered equivalent if they differ by $\Gm$-scaling the target at higher level. This is the logarithmic enhancement of the classical theory of relative stable maps, due to Li \cite{Li1,Li2}.
 
-Globally, Kim constructs a moduli space of logarithmic \DIFdelbegin \DIFdel{stable }\DIFdelend maps to expanded degenerations, which on logarithmic points, reduces to the above construction~\cite{KimLog}. \DIFdelbegin \DIFdel{Indeed, by the above description, }\DIFdelend Kim's space is identified with a subcategory of the Abramovich--Chen--Gross--Siebert space, and its dual minimal monoids are cones in a subdivision of the dual minimal cones of the unexpanded space\DIFdelbegin \DIFdel{. This process is outlined in complete generality in}\DIFdelend \DIFaddbegin \DIFadd{, see}\DIFaddend ~\cite[\S~2]{R19}. 
+Globally, Kim constructs a moduli space of logarithmic \DIFdelbegin \DIFdel{stable }\DIFdelend maps to expanded degenerations, which on logarithmic points, reduces to the above construction~\cite{KimLog}. \DIFdelbegin \DIFdel{Indeed, by the above description, }\DIFdelend Kim's space is identified with a subcategory of the Abramovich--Chen--Gross--Siebert space \DIFaddbegin \DIFadd{(as stacks over logarithmic schemes)}\DIFaddend , and its dual minimal monoids are cones in a subdivision of the dual minimal cones of the unexpanded space\DIFdelbegin \DIFdel{. This process is outlined in complete generality in}\DIFdelend \DIFaddbegin \DIFadd{, see}\DIFaddend ~\cite[\S~2]{R19}. 
 
 \DIFdelbegin \DIFdel{Since we will work mostly with expansions , we will }\DIFdelend \DIFaddbegin \DIFadd{We typically work with expansions for convenience, and }\DIFaddend use the notation
 $\ol\Mcal_{1,\alpha}(\PP^N|H,d)$
@@ -655,32 +751,47 @@ which we refer to as the \textbf{moduli space of centrally aligned maps} to $(\P
 obtained by forgetting the logarithmic structure on the target and collapsing the map.
 
 
-\subsection{Relative geometry: factorisation}\label{subsection factorisation} Let $[C\to \mathbb P^N[s]\to \mathbb P^N]$ be a centrally aligned logarithmic map. Recall that $\mathbb P^N[s]$ consists of a union of $\mathbb P^N$ with $s$ copies of the projective bundle $\mathbb{P} = \mathbb P(\mathcal O_H\oplus \mathcal O_H(1))$. We refer to these latter components as \textbf{the higher levels}. Thus, we will say that a subcurve $D\subseteq C$ maps to \textbf{higher level} if the \DIFdelbegin \DIFdel{collapsed map
+\subsection{Relative geometry: factorisation}\label{subsection factorisation} Let $[C\to \mathbb P^N[s]\to \mathbb P^N]$ be a centrally aligned logarithmic map. Recall that $\mathbb P^N[s]$ consists of a union of $\mathbb P^N$ with $s$ copies of the projective bundle $\mathbb{P} = \mathbb P(\mathcal O_H\oplus \mathcal O_H(1))$. We refer to these latter components as \textbf{the higher levels}. Thus, we will say that a subcurve $D\subseteq C$ \DIFdelbegin \DIFdel{maps to }\DIFdelend \textbf{\DIFaddbegin \DIFadd{maps to }\DIFaddend higher level} if the \DIFdelbegin \DIFdel{collapsed map
 }\[
 \DIFdel{C\to \mathbb P^N
 }\]
 %DIFAUXCMD
 \DIFdelend \DIFaddbegin \DIFadd{composite $C\to \mathbb P^N$ }\DIFaddend maps $D$ into $H\subset \mathbb P^N$. 
 
-Let $D_F\subseteq C$ be the maximal genus one subcurve which is mapped to a higher level and contracted by the map $C\to \mathbb P^N[s]$. Let $\delta_F$ denote the distance from the core to the nearest component of $C \setminus D_F$. Similarly let $D_B\subseteq C$ be the maximal genus one subcurve that is contracted by the collapsed map to $\mathbb P^N$ and let $\delta_B$ be the associated radius. This coincides with the radius of the underlying map to $\mathbb P^N$. Of course, $\delta_F\leq \delta_B$, so $(C,\delta_F)$ is centrally aligned\DIFdelbegin \DIFdel{also}\DIFdelend .
+Let $D_F\subseteq C$ be the maximal genus \DIFdelbegin \DIFdel{one }\DIFdelend \DIFaddbegin \DIFadd{$1$ }\DIFaddend subcurve which is mapped to a higher level and contracted by the map $C\to \mathbb P^N[s]$. Let $\delta_F$ denote the distance from the core to the nearest component of $C \setminus D_F$. Similarly let $D_B\subseteq C$ be the maximal genus \DIFdelbegin \DIFdel{one }\DIFdelend \DIFaddbegin \DIFadd{$1$ }\DIFaddend subcurve that is contracted by the collapsed map to $\mathbb P^N$\DIFaddbegin \DIFadd{, }\DIFaddend and let $\delta_B$ be the associated radius. This coincides with the radius of the underlying map to $\mathbb P^N$. Of course, $\delta_F\leq \delta_B$, so $(C,\delta_F)$ is centrally aligned \DIFdelbegin \DIFdel{also}\DIFdelend \DIFaddbegin \DIFadd{as well}\DIFaddend .
 
 The datum $(\delta_F,\delta_B)$ determines a destabilisation $\widetilde C$ of $C$ together with successive contractions $\widetilde C\to \overline C_F\to\overline C_B$. The contractions are constructed \DIFdelbegin \DIFdel{directly from}\DIFdelend \DIFaddbegin \DIFadd{by}\DIFaddend ~\cite[Section~3]{RSPW}.
 
-\DIFaddbegin \DIFadd{A Gorenstein elliptic singularity has a number of }\textbf{\DIFadd{branches}}\DIFadd{. Given a curve $\overline C$ of genus $1$ with such a singularity, define a branch of $\overline C$ to be an irreducible component containing a branch of the singularity. If the curve $C$ is nodal, then its branches will be understood to be the components of its minimal arithmetic genus $1$ subcurve, i.e. its core. }\DIFaddend The following condition identifies the locus of smoothable maps. 
+%DIF > A Gorenstein elliptic singularity has a number of \textbf{branches}. Given a curve $\overline C$ of genus $1$ with such a singularity, define a branch of $\overline C$ to be an irreducible component containing a branch of the singularity. If the curve $C$ is nodal, then its branches will be understood to be the components of its minimal arithmetic genus $1$ subcurve, i.e. its core.
+\DIFaddbegin \DIFadd{Recall that we name }\emph{\DIFadd{core}} \DIFadd{the minimal genus $1$ subcurve of a Gorenstein curve of arithmetic genus $1$, so the latter decomposes into the nodal union of the core and a (possibly empty) rational forest. If the curve contains an elliptic $m$-fold point, we say a map is non-constant on the core if at least one branch of the singularity is not contracted.
+}\DIFaddend The following condition identifies the locus of smoothable maps. 
 
 \begin{definition}
-The map $[C\to \mathbb P^N[s]\to \mathbb P^N]$ \textbf{factorises completely} if 
+The map \DIFdelbegin \DIFdel{$[C\to \mathbb P^N[s]\to \mathbb P^N]$ }\DIFdelend \DIFaddbegin \DIFadd{$f\colon C\to \mathbb P^N[s]$ }\DIFaddend \textbf{\DIFdelbegin \DIFdel{factorises }\DIFdelend \DIFaddbegin \DIFadd{factors }\DIFaddend completely} if 
  \begin{enumerate} 
-\item the map $C\to \mathbb P^N[s]$ factors through $\overline C_F$ such that \DIFaddbegin \DIFadd{$F$ is non-constant on }\DIFaddend at least one branch of $\overline C_F$\DIFdelbegin \DIFdel{has positive degree in the fibre direction; 
-}\DIFdelend \DIFaddbegin \DIFadd{,
-}\DIFaddend \item the collapsed map to $\mathbb P^N$ factorises through $\overline C_B$ such that at least one branch of $\overline C_B$ has positive degree.
+\item \DIFdelbegin \DIFdel{the map $C\to \mathbb P^N[s]$ }\DIFdelend \DIFaddbegin \DIFadd{$f$ }\DIFaddend factors through $\overline C_F$ \DIFdelbegin \DIFdel{such that at least one branch of $\overline C_F$ has positive degree in the fibre direction; 
+}%DIFDELCMD < \item %%%
+\item%DIFAUXCMD
+\DIFdel{the collapsed map to $\mathbb P^N$ factorises }\DIFdelend \DIFaddbegin \DIFadd{and it is non-constant on its core,
+}\item \DIFadd{letting $f_B\colon C\to\PP^N$ denote the composite of $f$ with the collapsing map $\mathbb P^N[s]\to\mathbb P^N$, the map $f_B$ factors }\DIFaddend through $\overline C_B$ \DIFdelbegin \DIFdel{such that at least one branch of $\overline C_B$ has positive degree}\DIFdelend \DIFaddbegin \DIFadd{and it is non-constant on its core}\DIFaddend .
  \end{enumerate} 
-\DIFaddbegin \DIFadd{The factorisation conditions are understood to be satisfied when $C\to \mathbb P^N[s]$ (resp. $C\to \mathbb P^N$) does not contract a genus $1$ subcurve. 
-}\DIFaddend \end{definition}
+\end{definition}
 
-\DIFdelbegin \DIFdel{In particular, if }\DIFdelend \DIFaddbegin \DIFadd{If }\DIFaddend $[C\to \mathbb P^N[s]\to \mathbb P^N]$ is a family of centrally aligned maps over $S$ that factorises completely, there is a \DIFdelbegin \DIFdel{forgetful }\DIFdelend moduli map $S\to \VZ_{1,n}(\mathbb P^N,d)$, to the principal component of the space of absolute maps. Let
-\begin{equation*} \VZ_{1,\alpha}(\mathbb P^N|H,d) \subseteq \widetilde\VZ_{1,\alpha}(\PP^N|H,d) \end{equation*}
-be the stack of maps from centrally aligned curves to expansions \DIFdelbegin \DIFdel{of $\mathbb P^N$ }\DIFdelend that factorise completely.
+\DIFdelbegin \DIFdel{In particular, if }\DIFdelend \DIFaddbegin \begin{rem}
+ \DIFadd{The factorisation conditions are understood to be satisfied when $C\to \mathbb P^N[s]$ (resp. $C\to \mathbb P^N$) does not contract a genus $1$ subcurve. 
+}\end{rem}
+
+\DIFadd{Let
+}\begin{equation*} \DIFadd{\VZ_{1,\alpha}(\mathbb P^N|H,d) \subseteq \widetilde\VZ_{1,\alpha}(\PP^N|H,d) }\end{equation*}
+\DIFadd{be the stack of maps from centrally aligned curves to expansions that factor completely.
+}
+
+\DIFadd{If }\DIFaddend $[C\to \mathbb P^N[s]\to \mathbb P^N]$ is a family of centrally aligned maps over $S$ that \DIFdelbegin \DIFdel{factorises }\DIFdelend \DIFaddbegin \DIFadd{factors }\DIFaddend completely, there is a \DIFdelbegin \DIFdel{forgetful }\DIFdelend moduli map $S\to \VZ_{1,n}(\mathbb P^N,d)$, to the principal component of the space of absolute maps. 
+\DIFdelbegin \DIFdel{Let
+}\begin{displaymath} \DIFdel{\VZ_{1,\alpha}(\mathbb P^N|H,d) \subseteq \widetilde\VZ_{1,\alpha}(\PP^N|H,d) }\end{displaymath}
+%DIFAUXCMD
+\DIFdel{be the stack of maps from centrally aligned curves to expansions of $\mathbb P^N$ that factorise completely.
+}\DIFdelend 
 
 \begin{thm}\label{thm: log-smoothness}
 The stack $\VZ_{1,\alpha}(\mathbb P^N|H,d)$ is \DIFdelbegin \DIFdel{proper and logarithmically smooth over $\mathrm{Spec} \ \mathbb C$}\DIFdelend \DIFaddbegin \DIFadd{logarithmically smooth and proper of the expected dimension}\DIFaddend .
@@ -691,10 +802,18 @@ The stack $\VZ_{1,\alpha}(\mathbb P^N|H,d)$ is \DIFdelbegin \DIFdel{proper and l
 
 \DIFaddend \begin{proof}
 We \DIFdelbegin \DIFdel{prove the results via }\DIFdelend \DIFaddbegin \DIFadd{examine the geometry of the space of maps to $(\PP^N|H)$ by utilising }\DIFaddend the forgetful morphism
-$$
-\nu: \VZ_{1,\alpha}(\mathbb P^N|H,d)\to \VZ_{1,n}(\mathbb P^N,d),
-$$
-which remembers only the stabilisation of the collapsed map. \DIFdelbegin \DIFdel{The }\DIFdelend \DIFaddbegin \DIFadd{To see that the such a forgetful morphism exists, observe for a map $[C\to \mathbb P^N[s]\to \mathbb P^N]$, the stabilised composite }\DIFaddend map is certainly centrally aligned, and \DIFdelbegin \DIFdel{we have already argued above that }\DIFdelend it satisfies the \DIFdelbegin \DIFdel{factorisation property for $\mathbb P^N$ after composition}\DIFdelend \DIFaddbegin \DIFadd{factorization property by construction}\DIFaddend . The moduli space $\VZ_{1,\alpha}(\mathbb P^N|H,d)$ is proper. Indeed, the verification of the valuative criterion follows \DIFdelbegin \DIFdel{exactly as in }\DIFdelend \DIFaddbegin \DIFadd{from }\DIFaddend Vakil's Lemma~\cite[Lemma~5.9]{Vre}. A direct proof that the factorisation property is a closed condition may be found in~\cite[Theorem~4.3]{RSPW}.
+\DIFdelbegin \begin{displaymath}
+\DIFdel{\nu: \VZ_{1,\alpha}(\mathbb P^N|H,d)\to \VZ_{1,n}(\mathbb P^N,d),
+}\end{displaymath}
+%DIFAUXCMD
+\DIFdelend \DIFaddbegin \[
+\DIFadd{\nu\colon \VZ_{1,\alpha}(\mathbb P^N|H,d)\to \VZ_{1,n}(\mathbb P^N,d),
+}\]
+\DIFaddend which remembers only the stabilisation of the collapsed map. \DIFdelbegin \DIFdel{The }\DIFdelend \DIFaddbegin \DIFadd{To see that such a forgetful morphism exists, we have already observed that, for a map $[C\to \mathbb P^N[s]\to \mathbb P^N]$, the stabilised composite }\DIFaddend map is certainly centrally aligned\DIFdelbegin \DIFdel{, and we have already argued above that }\DIFdelend \DIFaddbegin \DIFadd{; moreover, }\DIFaddend it satisfies the factorisation \DIFdelbegin \DIFdel{property for $\mathbb P^N$ after composition.
+}\DIFdelend \DIFaddbegin \DIFadd{condition by assumption.
+}
+
+\DIFaddend The moduli space $\VZ_{1,\alpha}(\mathbb P^N|H,d)$ is proper. Indeed, the verification of the valuative criterion follows \DIFdelbegin \DIFdel{exactly as in }\DIFdelend \DIFaddbegin \DIFadd{from }\DIFaddend Vakil's Lemma~\cite[Lemma~5.9]{Vre}. A direct proof that the factorisation property is a closed condition may be found in~\cite[Theorem~4.3]{RSPW}.
 
 We come to logarithmic smoothness. If the elliptic curve does not map into higher level, then \DIFdelbegin \DIFdel{unobstructedness proceeds }\DIFdelend \DIFaddbegin \DIFadd{deformations of the map are unobstructed }\DIFaddend exactly as in~\cite[Section~4.5]{RSPW}.
 
@@ -703,50 +822,89 @@ Assume now that the elliptic curve maps into higher level. Note that the relativ
 C \ar[r] & \overline{C}_F \ar[r] \ar[d] & \overline{C}_B \ar[d] \\
 & \mathbb P^N[s] \ar[r] & \mathbb P^N
 \ecd
-factorising completely. Let $f_B$ and $f$ be the maps from $C$ to the base and total space respectively. Examining the morphism $\nu$, we see that there is a map
+\DIFdelbegin \DIFdel{factorising }\DIFdelend \DIFaddbegin \DIFadd{factoring }\DIFaddend completely. Let $f_B$ and $f$ be the maps from $C$ to the \DIFdelbegin \DIFdel{base and total space }\DIFdelend \DIFaddbegin \DIFadd{collapsed and expanded target }\DIFaddend respectively. Examining the morphism $\nu$, we see that there is a map
 \[
 \mathrm{Def}(C,f_B)\to \mathrm{Obs}(f/(C,f_B)) = H^1(\overline{C}_F,\mathcal O_{\overline{C}_F}),
 \]
-where the former is the space of \DIFaddbegin \DIFadd{logarithmic }\DIFaddend deformations of the curve and map to the base, as a factorised centrally aligned map. \DIFdelbegin \DIFdel{The latter is the space of obstructions to lifting a map to the base into the total space. The }\DIFdelend \DIFaddbegin \DIFadd{More precisely, consider a strict square zero extension of $S$ and a deformation of the map $(C,f_B)$ satisfying the factorisation property. Since the deformation is strict, there is a canonically induced deformation of the expansion $\mathbb P^N[s]$. The corresponding element in $\mathrm{Obs}(f/(C,f_B))$ is the obstruction to lifting the deformation of $(C,f_B)$ to this canonical deformation of $\mathbb P^N[s]$ over $\mathbb P^N$. By comparing the cotangent complexes of the source, target, and fiber of the morphism $\nu$, we see that the }\DIFaddend cokernel of this map are the absolute \DIFdelbegin \DIFdel{obstructions, which we will show vanishes}\DIFdelend \DIFaddbegin \DIFadd{logarithmic obstructions for the map. We will show these vanish}\DIFaddend , proving logarithmic smoothness.
+where the former is the space of \DIFaddbegin \DIFadd{logarithmic }\DIFaddend deformations of the curve and map to the \DIFdelbegin \DIFdel{base}\DIFdelend \DIFaddbegin \DIFadd{collapsed target}\DIFaddend , as a \DIFdelbegin \DIFdel{factorised }\DIFdelend centrally aligned map \DIFdelbegin \DIFdel{. The latter is the space of obstructions to lifting a map to the base into the total space. The }\DIFdelend \DIFaddbegin \DIFadd{satisfying simple factorisation.
+}
 
-\DIFdelbegin \DIFdel{We note }\DIFdelend \DIFaddbegin \DIFadd{Consider }\DIFaddend the manner in which \DIFdelbegin \DIFdel{the group }\DIFdelend $H^1(\overline{C}_F,\mathcal O_{\overline{C}_F})$ functions as the obstruction group for the lifting. \DIFdelbegin \DIFdel{It suffices to work near }\DIFdelend \DIFaddbegin \DIFadd{Near }\DIFaddend the minimal genus one subcurve $D_F$ of $C$, \DIFdelbegin \DIFdel{since the rest of the curve is rational. This lifting is given by }\DIFdelend \DIFaddbegin \DIFadd{in order to lift the map from $\mathbb P^N$ to the expansion, we must provide }\DIFaddend a rational function \DIFdelbegin \DIFdel{with prescribed orders of poles given by the slopes of the tropicalizationmap. That is, }\DIFdelend \DIFaddbegin \DIFadd{on $D_F$ with poles bounded the divisor associated to the tropicalization, i.e. }\DIFaddend if $\alpha$ \DIFdelbegin \DIFdel{be }\DIFdelend \DIFaddbegin \DIFadd{is }\DIFaddend the piecewise linear function giving this tropical map, \DIFdelbegin \DIFdel{then }\DIFdelend the lifting is described by a section of the associated bundle $\mathcal O_{C}(-\alpha)$.
+\DIFadd{More precisely, consider a strict square-zero extension of $S$, and a deformation of the map $(C,f_B)$ satisfying the factorisation condition. Since the deformation is strict, there is a canonically induced deformation of the expansion $\mathbb P^N[s]$. The corresponding element in $\mathrm{Obs}(f/(C,f_B))$ is the obstruction to lifting the deformation of $(C,f_B)$ to this canonical deformation of $\mathbb P^N[s]$ over $\mathbb P^N$. By comparing the cotangent complexes of the source, target, and fiber of the morphism $\nu$, we see that the }\DIFaddend cokernel of this map are the absolute \DIFdelbegin \DIFdel{obstructions, which we will show vanishes}\DIFdelend \DIFaddbegin \DIFadd{logarithmic obstructions for the map. We will show these vanish}\DIFaddend , proving logarithmic smoothness.
+
+\DIFdelbegin \DIFdel{We note }\DIFdelend \DIFaddbegin \DIFadd{Consider }\DIFaddend the manner in which \DIFdelbegin \DIFdel{the group }\DIFdelend $H^1(\overline{C}_F,\mathcal O_{\overline{C}_F})$ functions as the obstruction group for the lifting. \DIFdelbegin \DIFdel{It suffices to work near }\DIFdelend \DIFaddbegin \DIFadd{Near }\DIFaddend the minimal genus one subcurve $D_F$ of $C$, \DIFdelbegin \DIFdel{since the rest of the curve is rational. This lifting is given by }\DIFdelend \DIFaddbegin \DIFadd{in order to lift the map from $\mathbb P^N$ to the expansion, we must provide }\DIFaddend a rational function \DIFdelbegin \DIFdel{with prescribed orders of poles given by the slopes of the tropicalizationmap. That is, }\DIFdelend \DIFaddbegin \DIFadd{on $D_F$ with poles bounded by the divisor associated to the tropicalization, i.e. }\DIFaddend if $\alpha$ \DIFdelbegin \DIFdel{be }\DIFdelend \DIFaddbegin \DIFadd{is }\DIFaddend the piecewise linear function giving this tropical map, \DIFdelbegin \DIFdel{then }\DIFdelend the lifting is described by a section of the associated bundle $\mathcal O_{C}(-\alpha)$.
 
 Given a strict square-zero extension $S'$ of $S$, the piecewise linear function $\alpha$ extends uniquely by strictness to any deformation of the curve. The resulting deformation of $\mathcal O_{C}(-\alpha)$ produces an infinitesimal deformation of the trivial bundle in the Picard group, whose class in $H^1(\overline{C}_F,\mathcal O_{\overline{C}_F})$, is the obstruction to deformation. We will show that it is possible to choose a deformation of $(C,f_B)$ that cancels out the obstruction to lifting to $f$, and thus the map to the obstruction space above is surjective. 
 
-\DIFdelbegin \DIFdel{The }\DIFdelend \DIFaddbegin \DIFadd{On restricting to the minimal genus $1$ subcurve $D_F$, the }\DIFaddend line bundle $\mathcal O_{C}(-\alpha)$ is equivalent to the divisor $\sum a_i x_i$ where $x_i$ are the points connecting $D_F$ to the rest of the curve, and $a_i$ are the slopes of $\alpha$ along the edges corresponding to the $x_i$. Infinitesimally moving the point $x_i$ \DIFdelbegin \DIFdel{is a }\DIFdelend \DIFaddbegin \DIFadd{produces a nontrivial }\DIFaddend deformation of the \DIFdelbegin \DIFdel{curve that is unobstructed by the map $f_B$, since the map is constant on the interior of the circle of radius $\delta_B$. By deforming the $x_i$, at least one of which has nonzero $a_i$, we produce a one-dimensional space of obstructions}\DIFdelend \DIFaddbegin \DIFadd{line bundle $\mathcal O_{C}(-\alpha)$. The moduli space $\VZ_{1,n}(\mathbb P^N,d)$ is a logarithmically fibration over the universal Picard stack over the stack of $n$-pointed genus $1$ curves~\mbox{%DIFAUXCMD
+\DIFdelbegin \DIFdel{The }\DIFdelend \DIFaddbegin \DIFadd{On restricting to the minimal genus $1$ subcurve $D_F$, the }\DIFaddend line bundle $\mathcal O_{C}(-\alpha)$ is equivalent to the divisor $\sum a_i x_i$ where $x_i$ are the points connecting $D_F$ to the rest of the curve, and $a_i$ are the slopes of $\alpha$ along the edges corresponding to the $x_i$. Infinitesimally moving the point $x_i$ \DIFdelbegin \DIFdel{is a }\DIFdelend \DIFaddbegin \DIFadd{produces a nontrivial deformation of the line bundle $\mathcal O_{C}(-\alpha)$. The moduli space $\VZ_{1,n}(\mathbb P^N,d)$ is a logarithmically smooth fibration over the universal Picard stack over the stack of centrally aligned $n$-pointed genus $1$ curves~\mbox{%DIFAUXCMD
 \cite[Remark~4.5.3]{RSPW}}%DIFAUXCMD
-. As a consequence, it is possible to find a logarithmic deformation of the map $(C,f_B)$ that induces the deformation of the line bundle that is given by infinitesimal motion. The obstruction group is $1$-dimensional, and we have produced a logarithmic deformation of the collapsed map that produces a nontrivial deformation of the line bundle $\mathcal O_{C}(-\alpha)$. Therefore, logarithmic deformations surject onto the obstruction space above}\DIFaddend . The absolute obstructions\DIFaddbegin \DIFadd{, which are the cokernel of this map }\DIFaddend therefore vanish, \DIFdelbegin \DIFdel{so }\DIFdelend \DIFaddbegin \DIFadd{and }\DIFaddend the result follows.  
-%Consider an $S$-family of expanded maps $[F: C\to \mathbb P^N[s]$. Choose $N$ generic hyperplanes in and let $\Delta = \{H\}\cup\{H_1,\ldots,H_N}$ be this set of hyperplanes. There is a morphism of logarithmic schemes $(\mathbb P^N,\Delta)\to (\mathbb P^N,H)$. This induces a new expansion $\mathbb P^N[\Delta,s]$. Moreover, by the genericity of the $H_i$, they each intersect the image of $C$ in finitely many reduced points. Pulling back the logarithmic structure, we obtain a new logarithmic map 
+. As a consequence, it is possible to find a logarithmic }\DIFaddend deformation of the \DIFdelbegin \DIFdel{curve that is unobstructed by the map $f_B$, since the }\DIFdelend map \DIFdelbegin \DIFdel{is constant on the interior of the circle of radius $\delta_B$. By deforming the $x_i$, at least one of which has nonzero $a_i$, we produce a one-dimensional space of obstructions. The absolute obstructions therefore vanish, so the result follows. }\DIFdelend \DIFaddbegin \DIFadd{$(C,f_B)$ that induces the deformation of the line bundle that is given by infinitesimal motion. The obstruction group is $1$-dimensional, and we have produced a logarithmic deformation of the collapsed map that produces a nontrivial deformation of the line bundle $\mathcal O_{C}(-\alpha)$. Therefore, logarithmic deformations surject onto the obstruction space above. The absolute obstructions, which are the cokernel of this map therefore vanish, and the result follows.  
+}\DIFaddend %Consider an $S$-family of expanded maps $[F: C\to \mathbb P^N[s]$. Choose $N$ generic hyperplanes in and let $\Delta = \{H\}\cup\{H_1,\ldots,H_N}$ be this set of hyperplanes. There is a morphism of logarithmic schemes $(\mathbb P^N,\Delta)\to (\mathbb P^N,H)$. This induces a new expansion $\mathbb P^N[\Delta,s]$. Moreover, by the genericity of the $H_i$, they each intersect the image of $C$ in finitely many reduced points. Pulling back the logarithmic structure, we obtain a new logarithmic map 
 %\[
 %F': C'\to \mathbb P^N[\Delta,s].
 %\]
 %We make two observations. First, since the logarithmic structure on $C'$ is strict away from $H$, unobstructedness of deformations for $F'$ is equivalent to unobstructedness for $F$. Second, the target degeneration is now a toric degeneration, and the logarithmic tangent bundle is trivial.
-\end{proof}
+\DIFaddbegin \DIFadd{\textcolor{red}{luca's rewrite of log smoothness}
+}
 
-The \DIFdelbegin \DIFdel{above }\DIFdelend theorem guarantees that the singularities of the space of totally factorised maps to expansions is logarithmically smooth. \DIFdelbegin \DIFdel{In fact, one }\DIFdelend \DIFaddbegin \DIFadd{One }\DIFaddend can say more in this case.
+\DIFadd{The proof is analogous to that of \mbox{%DIFAUXCMD
+\cite[Theorem 3.5.1]{RSPW2}}%DIFAUXCMD
+. There is a forgetful morphism
+}\[
+\DIFadd{\nu\colon \VZ_{1,\alpha}(\mathbb P^N|H,d)\to \VZ_{1,n}(\mathbb P^N,d),
+}\]
+\DIFadd{remembering only the stabilisation of the composite $f_B\colon C\to\PP^N[s]\to\PP^N$. A priori, this is in $\overline{\pazocal M}_1(\PP^N,d)$, but in fact by assumption $(C,\delta_B)$ is centrally aligned, and $f_B$ factors through $\overline C_B$, as we have already remarked.
+}
+
+\DIFadd{The expanded target $\PP^N[s]$ is logarithmically \'etale over $\PP^N$ with the divisorial log structure associated to $H$, so it is equivalent to study the deformation theory of the unexpanded map to $(\PP^N,H)$. The logarithmic morphism $(\PP^N,H)\to \PP^N$ induces an exact sequence of log tangent bundles:
+}\[\DIFadd{0\to T_{\PP^N}(-\operatorname{log}H)\to T_{\PP^N}\to\OO_H(H)\to 0,}\]
+\DIFadd{relating the absolute and relative obstruction theories. This shows that $\nu$ can be obstructed only when a genus one subcurve is mapped to higher level in such a way that it is contracted by the collapsed map $f_B$. In this case, let $C_0$ denote the core, and let $E$ be the connected component of $f_B^{-1}(f_B(C_0))$ of arithmetic genus one.
+}
+
+\DIFadd{Let $f\colon C\to\PP^N[s]$ over the base $S$ be a possibly obstructed map to the expansion that factors completely, and let $S^\prime$ be a strict square-zero extension of the base.  The deformation problem is local, so we may as well suppose that $\overline M_S^{\text{gp}}$ is a constant sheaf of monoids with stalk $\overline M_{S,s}^{\text{gp}}=:Q$, for a geometric point $s\in S$. Note that sections of $M_S$ such as $\delta_B$ and $\delta_F$ extend automatically due to strictness. Moreover, it is equivalent to deform $f$ or $f_F\colon\overline C_F\to\PP^N_S$, where $\overline C_F$ is given the trivial logarithmic structure around the elliptic singularity.
+}
+
+\DIFadd{The map $f_F\colon \overline C_F\to\PP^N[s]$ induces a tropical map $\alpha\colon\plC_F\to\RR_{\geq 0}\times\sigma_Q$, that we want to think of as a section $\alpha\in H^0(\overline C_F,\overline M_C^{\text{gp}})$. With notation as above, we obtain a trivialisation of the line bundle $\OO_{\overline C_F}(-\alpha)$ upon restriction to $E$. By \mbox{%DIFAUXCMD
+\cite[Proposition 2.4.1]{RSPW}}%DIFAUXCMD
+, the latter is isomorphic to $\OO_E(\sum\mu_i x_i)$, where $\mu_i$ is the slope/expansion factor of $\alpha$ along the edge $e_i$ of $\plC_F$, and $x_i$ the node corresponding to $e_i$ thought of as a smooth marking on $E$. 
+}
+
+\DIFadd{The deformation problem for $f_F$ relative to $(C^\prime,\delta_B,f_B^\prime)$ reduces to the problem of extending $\alpha$ as a trivialisation of $\OO_E(\sum\mu_i x_i)$. This gives an interpretation of $\operatorname{Obs}(f/(C,\delta_B,f_B))$ as $H^1(\overline C_F,\OO)$. The latter is a vector space of dimension $1$. Associated to the forgetful morphism $\nu$ at the level of perfect obstruction theories, we find a map:
+}\begin{equation}\DIFadd{\label{eqn:def-obs}\operatorname{Def}(C,\delta_B,f_B)\to \operatorname{Obs}(f/(C,\delta_B,f_B)).}\end{equation}
+\DIFadd{The left-hand side contains in particular the space $\operatorname{Def}(E,\mathbf{x})=\operatorname{Ext}^1(\Omega_E(\mathbf x),\OO_E)$, since $E$ is contracted by $f_B$. Since by assumption at least one of the $\mu_i$ is non-zero, $\operatorname{Ext}^1(\Omega_E(\mathbf x),\OO_E)$ surjects onto $H^1(\overline C_F,\OO)$ by \mbox{%DIFAUXCMD
+\cite[Corollary 3.5.3]{RSPW2}}%DIFAUXCMD
+. Looking back at }\eqref{eqn:def-obs}\DIFadd{, we see that obstructions to deforming $f$ can be killed by an appropriate choice of lift $(C^\prime,\delta_B,f_B^\prime)$.
+}
+
+
+\DIFaddend \end{proof}
+
+The \DIFdelbegin \DIFdel{above }\DIFdelend theorem guarantees that the singularities of the space of \DIFdelbegin \DIFdel{totally factorised }\DIFdelend \DIFaddbegin \DIFadd{completely factoring }\DIFaddend maps to expansions is logarithmically smooth. \DIFdelbegin \DIFdel{In fact, one }\DIFdelend \DIFaddbegin \DIFadd{One }\DIFaddend can say more in this case.
 
 \begin{cor}
 The logarithmically smooth stack $\VZ_{1,\alpha}(\mathbb P^N|H,d)$ has at worst orbifold singularities, i.e. admits a non-representable cover by a smooth Deligne--Mumford stack.
 \end{cor}
 
-\begin{proof}
+\DIFaddbegin \DIFadd{\textcolor{red}{Luca's rewrite of the Corollary: Up to a generalised root construction, $\VZ_{1,\alpha}(\mathbb P^N|H,d)$ is a smooth Deligne-Mumford stack.}
+}
+
+\DIFaddend \begin{proof}
 Since $\VZ_{1,\alpha}(\mathbb P^N|H,d)$ is logarithmically smooth, it will suffice to show that the cones of its tropicalization are simplicial. To see this, consider a logarithmic stable map to an expansion $C\to \mathbb P^N[s]$ without a central alignment. The tropical moduli cone obtained as the dual of the minimal base monoid can be identified with $\mathbb R_{\geq 0}^{s}$, see for instance~\cite[Section~2.2]{ChenDegeneration}. The alignment procedure is an iterated barycentric subdivision at the level of tropical moduli spaces, as explained in~\cite[Section 4.6]{RSPW}, and such subdivisions preserve the property of being simplicial. We conclude from this that the blowup $\widetilde{\VZ}^{\mathrm{exp}}_{1,\alpha}(\mathbb P^N|H,d)$ obtained by centrally aligning Kim's spaces has simplicial cones. \DIFdelbegin \DIFdel{Finally, the }\DIFdelend \DIFaddbegin \DIFadd{The }\DIFaddend morphism $\VZ_{1,\alpha}(\mathbb P^N|H,d)\to \widetilde{\VZ}^{\mathrm{exp}}_{1,\alpha}(\mathbb P^N|H,d)$ is strict, so the cones of $\VZ_{1,\alpha}(\mathbb P^N|H,d)$ are simplicial, as claimed.
 \end{proof}
 
-\subsection{Rubber variants}\label{subsection rubber} \DIFdelbegin \DIFdel{In our implementation of the relative theory, we will need the }\DIFdelend \DIFaddbegin \DIFadd{We require a }\DIFaddend ``rubber'' variant of the space of maps $
-\VZ_{1,\alpha}(\mathbb P^N|H,d)$, where the \DIFdelbegin \DIFdel{entire curve is mapped into }\DIFdelend \DIFaddbegin \DIFadd{curve is contained in the }\DIFaddend higher levels.
+\subsection{Rubber variants}\label{subsection rubber} \DIFdelbegin \DIFdel{In our implementation of the relative theory, we will need the }\DIFdelend \DIFaddbegin \DIFadd{We require a }\DIFaddend ``rubber'' variant of the space of maps \DIFdelbegin \DIFdel{$
+\VZ_{1,\alpha}(\mathbb P^N|H,d)$}\DIFdelend \DIFaddbegin \DIFadd{$\VZ_{1,\alpha}(\mathbb P^N|H,d)$}\DIFaddend , where the \DIFdelbegin \DIFdel{entire curve is mapped into }\DIFdelend \DIFaddbegin \DIFadd{curve is contained in the }\DIFaddend higher levels.
 
-\DIFdelbegin \DIFdel{Specifically, let }\DIFdelend \DIFaddbegin \DIFadd{Let }\DIFaddend $\mathbb P$ denote the projective bundle $\mathbb P(\mathcal O(1)\oplus\mathcal O)$ on $\mathbb P^{N-1}$. Equip this space with the logarithmic structure coming from the $0$ and $\infty$ sections of the bundle. Consider the moduli space $\VZ^{\leftrightarrow}_{1,\alpha}(\mathbb P|H_0+H_\infty,d)$ of logarithmic maps
+\DIFdelbegin \DIFdel{Specifically, let }\DIFdelend \DIFaddbegin \DIFadd{Let }\DIFaddend $\mathbb P$ denote the projective bundle $\mathbb P(\mathcal O(1)\oplus\mathcal O)$ on \DIFdelbegin \DIFdel{$\mathbb P^{N-1}$}\DIFdelend \DIFaddbegin \DIFadd{$H\simeq\mathbb P^{N-1}$}\DIFaddend . Equip this space with the logarithmic structure coming from the $0$ and $\infty$ sections of the bundle. Consider the moduli space $\VZ^{\leftrightarrow}_{1,\alpha}(\mathbb P|H_0+H_\infty,d)$ of logarithmic maps
 \[
 C\to \mathbb P[s]\to \mathbb P^{N-1},
 \]
-which factorise completely, and where automorphisms are \DIFdelbegin \DIFdel{considered over the space of maps }\DIFdelend \DIFaddbegin \DIFadd{taken to cover the identity on the map }\DIFaddend to $\mathbb P^{N-1}$\DIFdelbegin \DIFdel{. Specifically, }\DIFdelend \DIFaddbegin \DIFadd{; }\DIFaddend two maps that differ by a $\mathbb G_{\operatorname{m}}$ translate in the fibre direction are considered equivalent. \DIFdelbegin \DIFdel{Total factorisation, similar to the previous case, means that }\DIFdelend \DIFaddbegin \DIFadd{As previously, }\DIFaddend the map to the bundle and the map to the base $\mathbb P^{N-1}$ both factorise through possibly different singularities. 
+which \DIFdelbegin \DIFdel{factorise }\DIFdelend \DIFaddbegin \DIFadd{factor }\DIFaddend completely, and where automorphisms are \DIFdelbegin \DIFdel{considered over the space of maps }\DIFdelend \DIFaddbegin \DIFadd{taken to cover the identity on the map }\DIFaddend to $\mathbb P^{N-1}$\DIFdelbegin \DIFdel{. Specifically, }\DIFdelend \DIFaddbegin \DIFadd{; }\DIFaddend two maps that differ by a $\mathbb G_{\operatorname{m}}$ translate in the fibre direction are considered equivalent. \DIFdelbegin \DIFdel{Total factorisation, similar to the previous case, means that }\DIFdelend \DIFaddbegin \DIFadd{As previously, }\DIFaddend the map to the bundle and the map to the base $\mathbb P^{N-1}$ both \DIFdelbegin \DIFdel{factorise }\DIFdelend \DIFaddbegin \DIFadd{factor }\DIFaddend through possibly different singularities. 
 
 \begin{thm}\label{thm rubber log smooth}
 The stack $\VZ^{\leftrightarrow}_{1,\alpha}(\mathbb P|H_0+H_\infty,d)$ is logarithmically smooth \DIFaddbegin \DIFadd{and proper of the expected dimension}\DIFaddend .
 \end{thm}
 
-The main point in the proof \DIFdelbegin \DIFdel{of this statement }\DIFdelend is that on the space of non-degenerate maps with smooth domains, the map from $\VZ^\circ_{1,\alpha}(\mathbb P|H_0+H_\infty,d)\to \VZ^{\leftrightarrow,\circ}_{1,\alpha}(\mathbb P|H_0+H_\infty,d)$ is a $\mathbb G_{\operatorname{m}}$-torsor. \DIFdelbegin \DIFdel{Correspondingly, }\DIFdelend \DIFaddbegin \DIFadd{One expects that }\DIFaddend the map on compact moduli spaces is a nodal curve fibration. To prove this, it is convenient to work with the logarithmic multiplicative group and its torsors. Recall that the \textbf{logarithmic multiplicative group} $\mathbb G_{\mathrm{log}}$ is the functor on logarithmic schemes whose value on a logarithmic scheme $S$ is the group of global sections $H^0(S,M_S^{\mathrm{gp}})$; it is a proper group functor, and it contains $\Gm$ as a subfunctor. This functor is representable only after a logarithmically \'etale cover\DIFdelbegin \DIFdel{. Background may be found in}\DIFdelend \DIFaddbegin \DIFadd{, see for instance}\DIFaddend ~\cite{MW17,RW19}.
+The main point in the proof \DIFdelbegin \DIFdel{of this statement }\DIFdelend is that on the space of non-degenerate maps with smooth domains, the map from $\VZ^\circ_{1,\alpha}(\mathbb P|H_0+H_\infty,d)\to \VZ^{\leftrightarrow,\circ}_{1,\alpha}(\mathbb P|H_0+H_\infty,d)$ is a $\mathbb G_{\operatorname{m}}$-torsor. \DIFdelbegin \DIFdel{Correspondingly, }\DIFdelend \DIFaddbegin \DIFadd{One expects that }\DIFaddend the map on compact moduli spaces is a nodal curve fibration. To prove this, it is convenient to work with the logarithmic multiplicative group and its torsors. Recall that the \textbf{logarithmic multiplicative group} $\mathbb G_{\mathrm{log}}$ is the functor on logarithmic schemes whose value on a logarithmic scheme $S$ is the group of global sections $H^0(S,M_S^{\mathrm{gp}})$; it is a proper group functor, and it contains $\Gm$ as a subfunctor \DIFaddbegin \DIFadd{(from $\OO^\times_S\subseteq M_S^{\mathrm{gp}}$)}\DIFaddend . This functor is representable only after a logarithmically \'etale cover\DIFdelbegin \DIFdel{. Background may be found in}\DIFdelend \DIFaddbegin \DIFadd{, see for instance}\DIFaddend ~\cite{MW17,RW19}.
 
 Each fibre of the bundle $\mathbb P \to \mathbb P^{N-1}$ admits a natural log \'etale morphism to $\mathbb G_{\mathrm{log}}$. Replacing these fibres by $\mathbb G_{\mathrm{log}}$, we obtain a non-representable functor on logarithmic schemes $\mathbb P_{\mathrm{log}}$ and a logarithmically \'etale modification
 \[
@@ -764,9 +922,9 @@ The bundle $\mathbb P\to \mathbb P^{N-1}$ gives rise to a $\mathbb G_{\operatorn
 %%%%%%%%%%%%%%
 
 \begin{proof}[Proof of Theorem \ref{thm rubber log smooth}]
-Consider the stack over logarithmic schemes $\VZ_{1,\alpha}(\mathbb P_{\mathrm{log}},d)$ of stable logarithmic maps that factorise completely. Here, stability for the map coincides with stability for the projection to $\mathbb P^{N-1}$. The arguments in the previous section show that maps to $\mathbb P$ that factorise completely are unobstructed. Since this space is a logarithmically \'etale cover of $\VZ_{1,\alpha}(\mathbb P_{\mathrm{log}},d)$, logarithmic smoothness of the latter follows.
+Consider the stack over logarithmic schemes $\VZ_{1,\alpha}(\mathbb P_{\mathrm{log}},d)$ of stable logarithmic maps that \DIFdelbegin \DIFdel{factorise }\DIFdelend \DIFaddbegin \DIFadd{factor }\DIFaddend completely. Here, stability for the map coincides with stability for the projection to $\mathbb P^{N-1}$. The arguments in the previous section show that maps to $\mathbb P$ that \DIFdelbegin \DIFdel{factorise }\DIFdelend \DIFaddbegin \DIFadd{factor }\DIFaddend completely are unobstructed. Since this space is a logarithmically \'etale cover of $\VZ_{1,\alpha}(\mathbb P_{\mathrm{log}},d)$, logarithmic smoothness of the latter follows.
 
-The logarithmic multiplicative group $\mathbb G_{\mathrm{log}}$ acts on $\VZ_{1,\alpha}(\mathbb P_{\mathrm{log}},d)$ by translation. Tautologically, $\VZ_{1,\alpha}(\mathbb P_{\mathrm{log}},d)$ is a $\mathbb G_{\mathrm{log}}$-torsor over the moduli problem of maps up to this $\mathbb G_{\mathrm{log}}$ translation. It is representable after a logarithmically \'etale modification by a family of nodal curves. It follows that the space $\VZ^{\leftrightarrow}_{1,\alpha}(\mathbb P_{\mathrm{log}},d)$ of maps up to $\Glog$-translation that factorise completely is logarithmically smooth. 
+The logarithmic multiplicative group $\mathbb G_{\mathrm{log}}$ acts on $\VZ_{1,\alpha}(\mathbb P_{\mathrm{log}},d)$ by translation. Tautologically, $\VZ_{1,\alpha}(\mathbb P_{\mathrm{log}},d)$ is a $\mathbb G_{\mathrm{log}}$-torsor over the moduli problem of maps up to this $\mathbb G_{\mathrm{log}}$ translation. It is representable after a logarithmically \'etale modification by a family of nodal curves. It follows that the space $\VZ^{\leftrightarrow}_{1,\alpha}(\mathbb P_{\mathrm{log}},d)$ of maps up to $\Glog$-translation that \DIFdelbegin \DIFdel{factorise }\DIFdelend \DIFaddbegin \DIFadd{factor }\DIFaddend completely is logarithmically smooth. 
 
 To conclude the \DIFdelbegin \DIFdel{main }\DIFdelend result, we compare \DIFdelbegin \DIFdel{the stacks }\DIFdelend $\VZ^{\leftrightarrow}_{1,\alpha}(\mathbb P_{\mathrm{log}},d)$ and  $\VZ^{\leftrightarrow}_{1,\alpha}(\mathbb P|H_0+H_\infty,d)$. Since a map to $(\mathbb P,H_0+H_\infty)$ gives rise immediately to a map to $\mathbb P_{\mathrm{log}}$, there is a morphism
 \[
@@ -778,7 +936,7 @@ To conclude the \DIFdelbegin \DIFdel{main }\DIFdelend result, we compare \DIFdel
 \subsection{\DIFdelbegin \DIFdel{Virtual construction for very ample }\DIFdelend \DIFaddbegin \DIFadd{Hypersurface }\DIFaddend pairs}\label{subsection virtual}
 \DIFdelbegin \DIFdel{Now let }\DIFdelend \DIFaddbegin \DIFadd{Let }\DIFaddend $(X,Y)$ be a smooth pair with $Y$ very ample. The definition \DIFdelbegin \DIFdel{given }\DIFdelend in \S \ref{subsection factorisation} applies in this setting \DIFdelbegin \DIFdel{, producing }\DIFdelend \DIFaddbegin \DIFadd{and yields }\DIFaddend a moduli space $\VZ_{1,\alpha}(X|Y,\beta)$ \DIFdelbegin \DIFdel{together }\DIFdelend with a morphism
 \begin{equation*} \VZ_{1,\alpha}(X|Y,\beta) \to \ol\Mcal^{\operatorname{log}}_{1,\alpha}(X|Y,\beta)\end{equation*}
-obtained by performing a logarithmic modification and \DIFdelbegin \DIFdel{then }\DIFdelend passing to a closed substack \DIFaddbegin \DIFadd{where the factorization property is satisfied}\DIFaddend . This moduli space will \DIFdelbegin \DIFdel{not in general be logarithmically smooth}\DIFdelend \DIFaddbegin \DIFadd{typically be non-equidimensional}\DIFaddend , but we \DIFdelbegin \DIFdel{may }\DIFdelend equip it with a virtual class as follows. The \DIFdelbegin \DIFdel{complete linear system $|\OO_X(Y)|$ }\DIFdelend \DIFaddbegin \DIFadd{divisor $Y$ }\DIFaddend defines an embedding $X \hookrightarrow \PP^N$ with $Y=X\cap H$ for $H$ \DIFdelbegin \DIFdel{some }\DIFdelend \DIFaddbegin \DIFadd{a }\DIFaddend hyperplane.
+obtained by performing a logarithmic modification and \DIFdelbegin \DIFdel{then }\DIFdelend passing to a closed substack \DIFaddbegin \DIFadd{where the factorisation property is satisfied}\DIFaddend . This moduli space will \DIFdelbegin \DIFdel{not in general be logarithmically smooth}\DIFdelend \DIFaddbegin \DIFadd{typically be non-equidimensional}\DIFaddend , but we \DIFdelbegin \DIFdel{may }\DIFdelend equip it with a virtual class as follows. The \DIFdelbegin \DIFdel{complete linear system $|\OO_X(Y)|$ }\DIFdelend \DIFaddbegin \DIFadd{divisor $Y$ }\DIFaddend defines an embedding $X \hookrightarrow \PP^N$\DIFaddbegin \DIFadd{, }\DIFaddend with $Y=X\cap H$ for \DIFdelbegin \DIFdel{$H$ some hyperplane }\DIFdelend \DIFaddbegin \DIFadd{some hyperplane $H$}\DIFaddend .
 
 \begin{lemma} The following square is cartesian \DIFdelbegin \DIFdel{(}\DIFdelend in the category of ordinary stacks\DIFdelbegin \DIFdel{)}\DIFdelend :
 \bcd
@@ -788,9 +946,13 @@ obtained by performing a logarithmic modification and \DIFdelbegin \DIFdel{then 
 \end{lemma}
 \begin{proof} It is clear from the modular description that this square is cartesian in the category of fs logarithmic stacks\DIFdelbegin \DIFdel{. But the morphism }\DIFdelend \DIFaddbegin \DIFadd{, and since }\DIFaddend $i$ is strict, \DIFdelbegin \DIFdel{which implies that the square }\DIFdelend \DIFaddbegin \DIFadd{it }\DIFaddend is also cartesian in \DIFdelbegin \DIFdel{the category of coherent logarithmic stacks.Since fibre products in the latter category are compatible with the functor forgetting logarithmic structures, the claim follows.}\DIFdelend \DIFaddbegin \DIFadd{ordinary stacks.}\DIFaddend \end{proof}
 
-Since $\VZ_{1,n}(\PP^N,d)$ is smooth and $\VZ_{1,n}(X,\beta)$ carries a natural virtual class \cite[Theorem 4.4.1]{RSPW}\DIFdelbegin \DIFdel{there is a diagonal pull-back morphism}\DIFdelend \DIFaddbegin \DIFadd{, the diagonal of $\VZ_{1,n}(\PP^N,d)$ defines a pullback}\DIFaddend ~\cite[Appendix C]{BattistellaNabijou}, \DIFdelbegin \DIFdel{which we use to define }\DIFdelend \DIFaddbegin \DIFadd{and therefore }\DIFaddend the virtual class on the space of maps to $(X,Y)$:
+Since $\VZ_{1,n}(\PP^N,d)$ is smooth and $\VZ_{1,n}(X,\beta)$ carries a natural virtual class \cite[Theorem 4.4.1]{RSPW}\DIFdelbegin \DIFdel{there is a diagonal pull-back morphism~\mbox{%DIFAUXCMD
+\cite[Appendix C]{BattistellaNabijou}}%DIFAUXCMD
+, which we use to define }\DIFdelend \DIFaddbegin \DIFadd{, the diagonal of $\VZ_{1,n}(\PP^N,d)$ defines a pullback~\mbox{%DIFAUXCMD
+\cite[Appendix A]{BattistellaNabijou}}%DIFAUXCMD
+, and therefore }\DIFaddend the virtual class on the space of maps to $(X,Y)$:
 \begin{equation*} \virt{\VZ_{1,\alpha}(X|Y,\beta)} := i_\Delta^! [\VZ_{1,\alpha}(\PP^N|H,d)]. \end{equation*}
-\DIFdelbegin \DIFdel{Since }\DIFdelend \DIFaddbegin \DIFadd{Note that this parallel to the virtual formalism in~\mbox{%DIFAUXCMD
+\DIFdelbegin \DIFdel{Since }\DIFdelend \DIFaddbegin \DIFadd{Note that this is parallel to the virtual formalism in~\mbox{%DIFAUXCMD
 \cite{Ga}}%DIFAUXCMD
 . As }\DIFaddend $\VZ_{1,\alpha}(X|Y,\beta)$ \DIFdelbegin \DIFdel{comes }\DIFdelend \DIFaddbegin \DIFadd{is }\DIFaddend equipped with evaluation maps and cotangent \DIFdelbegin \DIFdel{line classes, we immediately }\DIFdelend \DIFaddbegin \DIFadd{lines on the universal curve, we }\DIFaddend arrive at a definition of reduced Gromov--Witten invariants for the pair $(X,Y)$ \DIFdelbegin \DIFdel{. This is the same manner in which Gathmann defines his virtual classes~\mbox{%DIFAUXCMD
 \cite{Ga}}%DIFAUXCMD
@@ -798,25 +960,54 @@ Since $\VZ_{1,n}(\PP^N,d)$ is smooth and $\VZ_{1,n}(X,\beta)$ carries a natural 
 
 \section{Stratification and tropicalization}
 
-\noindent The logarithmic \DIFdelbegin \DIFdel{smoothness established in }\DIFdelend \DIFaddbegin \DIFadd{smoothnessof }\DIFaddend Theorem~\ref{thm: log-smoothness} implies that $\VZ_{1,\alpha}(\mathbb P^N|H,d)$ is an orbifold toroidal embedding. \DIFdelbegin \DIFdel{Consequently, the }\DIFdelend \DIFaddbegin \DIFadd{The }\DIFaddend irreducible components of its boundary \DIFdelbegin \DIFdel{and their intersections form a stratification of the space. This stratification will be important in the sequel}\DIFdelend \DIFaddbegin \DIFadd{stratify the space, as we now describe}\DIFaddend .
+\noindent The logarithmic smoothness \DIFdelbegin \DIFdel{established in }\DIFdelend \DIFaddbegin \DIFadd{of }\DIFaddend Theorem~\ref{thm: log-smoothness} implies that $\VZ_{1,\alpha}(\mathbb P^N|H,d)$ is an orbifold toroidal embedding. \DIFdelbegin \DIFdel{Consequently, the }\DIFdelend \DIFaddbegin \DIFadd{The }\DIFaddend irreducible components of its boundary \DIFdelbegin \DIFdel{and their intersections form a stratification of the space. This stratification will be important in the sequel}\DIFdelend \DIFaddbegin \DIFadd{stratify the space, as we now describe}\DIFaddend .
 
-The tropicalizations of logarithmic maps that factorise completely \DIFdelbegin \DIFdel{satisfy a natural combinatorial }\DIFdelend \DIFaddbegin \DIFadd{are combinatoriall constrained by a }\DIFaddend condition known as \DIFdelbegin \DIFdel{well-spacedness}\DIFdelend \DIFaddbegin \textbf{\DIFadd{well-spacedness}}\DIFaddend . The version we use here is essentially identical to~
+The tropicalizations of logarithmic maps that \DIFdelbegin \DIFdel{factorise completely satisfy a natural combinatorial }\DIFdelend \DIFaddbegin \DIFadd{factor completely are combinatoriall constrained by a }\DIFaddend condition known as \DIFdelbegin \DIFdel{well-spacedness}\DIFdelend \DIFaddbegin \textbf{\DIFadd{well-spacedness}}\DIFaddend . The version we use here is essentially identical to~
 \cite{RSPW2}. 
 
 \begin{definition}
-Let $\plC$ be a tropical curve of genus one and let $\plC_0$ be its minimal subcurve of genus one. A tropical map $F: \plC\to \mathbb R_{\geq 0}$ is said to be \textbf{well-spaced} if one of the following two conditions are satisfied:
+Let $\plC$ be a tropical curve of genus one and let \DIFdelbegin \DIFdel{$\plC_0$ }\DIFdelend \DIFaddbegin \DIFadd{$\plE$ }\DIFaddend be its minimal subcurve of genus one. A tropical map $F: \plC\to \mathbb R_{\geq 0}$ is said to be \textbf{well-spaced} if one of the following two conditions are satisfied:
  \begin{enumerate} 
-    \item no open neighbourhood of $\plC_0$ is contracted to a point in $\mathbb R_{>0}$, or
-    \item if an open neighbourhood of $\plC_0$ is contracted and $t_1,\ldots,t_k$ are the flags whose vertex is mapped to $F(\plC_0)$, but along which $F$ has nonzero slope; then, the minimum of the distances from $\plC_0$ to $t_i$ occurs for at least two indices $i$.
+    \item no open neighbourhood of \DIFdelbegin \DIFdel{$\plC_0$ }\DIFdelend \DIFaddbegin \DIFadd{$\plE$ }\DIFaddend is contracted to a point in $\mathbb R_{>0}$, or
+    \item\DIFaddbegin \label{pt:well-spaced2} \DIFaddend if an open neighbourhood of \DIFdelbegin \DIFdel{$\plC_0$ }\DIFdelend \DIFaddbegin \DIFadd{$\plE$ }\DIFaddend is contracted and $t_1,\ldots,t_k$ are the flags whose vertex is mapped to \DIFdelbegin \DIFdel{$F(\plC_0)$}\DIFdelend \DIFaddbegin \DIFadd{$F(\plE)$}\DIFaddend , but along which $F$ has nonzero slope; then, the minimum of the distances from \DIFdelbegin \DIFdel{$\plC_0$ to }\DIFdelend \DIFaddbegin \DIFadd{$\plE$ to a vertex supporting }\DIFaddend $t_i$ occurs for at least two indices $i$.
  \end{enumerate} 
 \end{definition}
 
-\begin{prop}\label{prop: well-spaced}
-Let $[C\to \mathbb P^N]$ be a logarithmic stable map from a centrally aligned curve to an expansion, that factorises completely. Then the tropicalization $\plC\to \mathbb R_{\geq 0}$ is well-spaced.
+\DIFaddbegin \begin{figure}
+ \begin{tikzpicture}
+  %source curve
+  \draw[gray] (0,-1) to[out=150, in=210, edge node={node [left] {$\plE$}}] (0,1);
+  \draw[gray] (0,-1) to[out=30, in=-30] (0,1);
+  \draw (0,1) --node[right]{$\ell_1$} (0,2) --node[above]{$t_1$} (-4,2) (0,2) --node[above]{$t_2$} (4,2);
+  \draw[dotted] (-4.5,2) -- (-4,2) (4,2) -- (4.5,2);
+  \draw (0,-1) --node[right]{$\ell_2$} (0,-2) --node[above]{$t_3$} (-4,-2) (0,-2) --node[above]{$t_4$} (4,-2);
+  \draw[dotted] (-4.5,-2) -- (-4,-2) (4,-2) -- (4.5,-2);
+  \foreach \x in {(0,2), (0,-2)}
+  \draw[fill=black] \x circle (2pt);
+  \foreach \x in {(0,1), (0,-1)}
+  \draw[fill=gray] \x circle (2pt);
+  %arrow
+  \draw[->] (0,-2.5)--node[left]{$F$}(0,-3.5);
+  %target line
+  \draw (-4,-4)--(4,-4);
+  \draw[dotted] (-4.5,-4) -- (-4,-4) (4,-4) -- (4.5,-4);
+  \draw[fill=black] (0,-4) node[below]{$F(\plE)$} circle (2pt);
+
+ \end{tikzpicture}
+\caption{\DIFaddFL{An example of well-spacedness: condition }\eqref{pt:well-spaced2} \DIFaddFL{becomes $\ell_1=\ell_2$.}}
+\label{fig:exa_well-spaced}
+\end{figure}
+
+\begin{rem}
+\DIFadd{Condition }\eqref{pt:well-spaced2} \DIFadd{is not relevant as far as rays of the tropical moduli space (i.e. divisors) are concerned, since there are always at least two parameters involved, namely $F(\plE)$ - or the distance from $F(\plE)$ to the origin of $\RR_{\geq 0}$ - and the distance from $\plE$ to the first flag of non-zero slope within $\plC$. As we mostly concentrate on divisors starting from \S \ref{Section Gathmann line bundle}, it will not play much of a role in the rest of the paper.
+}\end{rem}
+
+\DIFaddend \begin{prop}\label{prop: well-spaced}
+Let $[C\to \mathbb P^N]$ be a logarithmic stable map from a centrally aligned curve to an expansion, that \DIFdelbegin \DIFdel{factorises }\DIFdelend \DIFaddbegin \DIFadd{factors }\DIFaddend completely. Then the tropicalization $\plC\to \mathbb R_{\geq 0}$ is well-spaced.
 \end{prop}
 
 \begin{proof}
-The required result is essentially contained in~\cite[Section 4]{RSPW2}, so we explain how to deduce the requisite result from the one in loc. cit. We may focus on a single component of the expansion $\mathbb P^N[s]$ that contains the image of a contracted genus one subcurve, as this is the only relevant case. We may thus replace the target with the projective bundle $\mathbb P(\mathcal O(1)\oplus \mathcal O)$ over $\mathbb P^{N-1}$ equipped with the divisorial logarithmic structure from the $0$ and $\infty$ sections. Let $p$ be the point to which the genus one subcurve is contracted. Passing to an open neighbourhood of $p$, the map to the bundle is given by a rational function $f$ on an open curve $C^\circ$, determined by the the subgraph formed by $\plC_0$ and the flags $t_i$ described in the definition above. To describe the tropical map to $\mathbb R_{>0}$, we observe that $\plC_0$ is contracted to a fixed point $q\in\mathbb R_{>0}$. The flags at $t_i$ correspond to nodes or markings of $C$. The pole orders of $f$ at these distinguished points determine the slopes of the tropical map. We are now exactly in the situation considered in~\cite[Second Paragraph of \S~4.6]{RSPW2}, and Lemma~4.6.1 of loc. cit. guarantees the well-spacedness\DIFdelbegin \DIFdel{as required}\DIFdelend .
+The required result is essentially contained in~\cite[Section 4]{RSPW2}, so we explain how to deduce \DIFdelbegin \DIFdel{the requisite result }\DIFdelend \DIFaddbegin \DIFadd{it }\DIFaddend from the one in loc. cit. We may focus on a single component of the expansion $\mathbb P^N[s]$ that contains the image of a contracted genus one subcurve, as this is the only relevant case. We may thus replace the target with the projective bundle $\mathbb P(\mathcal O(1)\oplus \mathcal O)$ over $\mathbb P^{N-1}$ equipped with the divisorial logarithmic structure from the $0$ and $\infty$ sections. Let $p$ be the point to which the genus one subcurve is contracted. Passing to an open neighbourhood of $p$, the map to the bundle is given by a rational function $f$ on an open curve $C^\circ$, determined by the the subgraph formed by \DIFdelbegin \DIFdel{$\plC_0$ }\DIFdelend \DIFaddbegin \DIFadd{$\plE$ }\DIFaddend and the flags $t_i$ described in the definition above. To describe the tropical map to $\mathbb R_{>0}$, we observe that \DIFdelbegin \DIFdel{$\plC_0$ }\DIFdelend \DIFaddbegin \DIFadd{$\plE$ }\DIFaddend is contracted to a fixed point $q\in\mathbb R_{>0}$. The flags at $t_i$ correspond to nodes or markings of $C$. The pole orders of $f$ at these distinguished points determine the slopes of the tropical map. We are now exactly in the situation considered in~\cite[Second Paragraph of \S~4.6]{RSPW2}, and Lemma~4.6.1 of loc. cit. guarantees the well-spacedness\DIFdelbegin \DIFdel{as required}\DIFdelend .
 \end{proof}
 
 \subsection{The cone complex} To understand the stratification via combinatorial data, we will build the stratification from known objects. \\
@@ -865,7 +1056,14 @@ The corresponding cone $\sigma \in \Sigma^{\operatorname{Kim}}$ is then given by
 In \S \ref{section reduced splitting} we will perform this analysis in the case $k=1$.
 
 
-\section{Degeneration of contact order}\label{Section Gathmann line bundle} Consider \DIFdelbegin \DIFdel{a reduced relative }\DIFdelend \DIFaddbegin \DIFadd{the moduli }\DIFaddend space $\VZ_{1,\alpha}(\PP^N|H,d)$ \DIFaddbegin \DIFadd{of relative maps that factorize completely}\DIFaddend . For each marking $x_k$\DIFdelbegin \DIFdel{we }\DIFdelend \DIFaddbegin \DIFadd{, }\DIFaddend consider the locus $\Dcal_{1,\alpha,k}(\PP^N|H,d) \subseteq \VZ_{1,\alpha}(\PP^N|H,d)$ where $x_k$ belongs to an \DIFdelbegin \DIFdel{internal component }\DIFdelend \DIFaddbegin \textbf{\DIFadd{internal component}} \DIFaddend of the collapsed map\DIFaddbegin \DIFadd{, i.e. a component of the curve that is mapped into $H$}\DIFaddend . In this section, we use the logarithmic structure on $\VZ_{1,\alpha}(\PP^N|H,d)$ to construct a line bundle $\Lcal_k$ \DIFdelbegin \DIFdel{together with a }\DIFdelend \DIFaddbegin \DIFadd{and }\DIFaddend section $s_k$ which vanishes precisely along $\Dcal_{1,\alpha,k}(\PP^N|H,d)$. We use the correspondence with tropical geometry to identify $\cchern_1(\Lcal_k)$ in terms of tautological classes on $\VZ_{1,\alpha}(\PP^N|H,d)$, and to compute the vanishing order of $s_k$ along the components of $\Dcal_{1,\alpha,k}(\PP^N|H,d)$. Combined with the relative splitting \DIFdelbegin \DIFdel{axioms established }\DIFdelend \DIFaddbegin \DIFadd{formulas from }\DIFaddend in the next section, we obtain a recursion relation inside $\VZ_{1,\alpha}(\PP^N|H,d)$
+\section{Degeneration of contact order}\label{Section Gathmann line bundle} Consider \DIFdelbegin \DIFdel{a reduced relative }\DIFdelend \DIFaddbegin \DIFadd{the moduli }\DIFaddend space $\VZ_{1,\alpha}(\PP^N|H,d)$ \DIFdelbegin \DIFdel{. }\DIFdelend \DIFaddbegin \DIFadd{of relative maps that factor completely.
+}\begin{dfn}
+ \DIFaddend For each marking $x_k$\DIFdelbegin \DIFdel{we }\DIFdelend \DIFaddbegin \DIFadd{, }\DIFaddend consider the locus $\Dcal_{1,\alpha,k}(\PP^N|H,d) \subseteq \VZ_{1,\alpha}(\PP^N|H,d)$ where $x_k$ belongs to an \DIFdelbegin \DIFdel{internal component }\DIFdelend \DIFaddbegin \textbf{\DIFadd{internal component}} \DIFaddend of the collapsed map\DIFaddbegin \DIFadd{, i.e. a component of the curve that is mapped into $H$}\DIFaddend .
+\DIFaddbegin \end{dfn}
+\noindent \DIFadd{Equivalently, for the expanded map, $x_k$ does not belong to a }\emph{\DIFadd{trivial bubble}} \DIFadd{component.
+}
+
+ \DIFaddend In this section, we use the logarithmic structure on $\VZ_{1,\alpha}(\PP^N|H,d)$ to construct a line bundle $\Lcal_k$ \DIFdelbegin \DIFdel{together with a }\DIFdelend \DIFaddbegin \DIFadd{and }\DIFaddend section $s_k$ which vanishes precisely along $\Dcal_{1,\alpha,k}(\PP^N|H,d)$. We use the correspondence with tropical geometry to identify $\cchern_1(\Lcal_k)$ in terms of tautological classes on $\VZ_{1,\alpha}(\PP^N|H,d)$, and to compute the vanishing order of $s_k$ along the components of $\Dcal_{1,\alpha,k}(\PP^N|H,d)$. Combined with the relative splitting \DIFdelbegin \DIFdel{axioms established in }\DIFdelend \DIFaddbegin \DIFadd{formulas from }\DIFaddend the next section, we obtain a recursion relation inside $\VZ_{1,\alpha}(\PP^N|H,d)$
 
 The pair $(\Lcal_k,s_k)$ is most naturally constructed on the moduli space $\MLog_{1,\alpha}(\PP^N|H,d)$ of non-expanded logarithmic maps; the corresponding pair on $\VZ_{1,\alpha}(\PP^N|H,d)$ will be obtained via pull-back. Consider therefore the tropicalization $\Sigma^{\log}$ of $\MLog_{1,\alpha}(\PP^N|H,d)$, identified as usual with the moduli space of tropical maps to $\RR_{\geq 0}$. We have a universal family
 \bcd
@@ -900,10 +1098,12 @@ The sum is over irreducible components of the divisor $\Dcal_{1,\alpha,k}(\PP^N|
 
 \section{Splitting the boundary}\label{section reduced splitting}
 
-A basic phenomenon is responsible for the nature of the forthcoming analysis. In contrast with nodal singularities, the functions on an elliptic singularity are not simply \DIFdelbegin \DIFdel{given as }\DIFdelend collections of functions on the normalisation \DIFdelbegin \DIFdel{subject to topological gluing conditions. As a consequence, in }\DIFdelend \DIFaddbegin \DIFadd{that agree at the gluing point. In }\DIFaddend order to compute integrals, it is necessary to give a tautological description of this additional \DIFdelbegin \DIFdel{factorisation condition }\DIFdelend \DIFaddbegin \DIFadd{condition that captures which functions (or maps) descend from the normalization to the singularity}\DIFaddend . 
+A basic phenomenon is responsible for the nature of the forthcoming analysis. In contrast with nodal singularities, the functions on an elliptic singularity are not simply \DIFdelbegin \DIFdel{given as }\DIFdelend collections of functions on the normalisation \DIFdelbegin \DIFdel{subject to topological gluing conditions. As a consequence, in }\DIFdelend \DIFaddbegin \DIFadd{that agree at the gluing point. Rather, the contraction map $C\to\overline C$ corresponds to a linear combination of tangent vectors at the pointed normalisation, whose kernel represents the functions descending to the elliptic singularity - see \S \ref{S:ellsing}. In }\DIFaddend order to compute integrals, it is necessary to give a tautological description of this additional \DIFdelbegin \DIFdel{factorisation condition. }\DIFdelend \DIFaddbegin \DIFadd{condition. %DIF >  that captures which functions (or maps) descend from the normalization to the singularity. 
+}\DIFaddend 
 
-\DIFdelbegin \DIFdel{In what follows, we }\DIFdelend \DIFaddbegin \DIFadd{We }\DIFaddend provide an explicit description of the terms appearing in the right-hand side of \eqref{equation recursion}.  For each term, we provide a combinatorial formula for the vanishing order $\lambda_\Dcal$, and a recursive description of the stratum $\Dcal$. 
-in terms of fibre products of moduli spaces with smaller numerical data. The tautological description of the factorisation condition then leads to a recursive structure for calculating integrals. This \DIFdelbegin \DIFdel{last }\DIFdelend step is the heart of the analysis. 
+\DIFdelbegin \DIFdel{In what follows, we }\DIFdelend \DIFaddbegin \DIFadd{We }\DIFaddend provide an explicit description of the terms appearing in the right-hand side of \eqref{equation recursion}.  For each term, we provide a combinatorial formula for the vanishing order $\lambda_\Dcal$, and a recursive description of the stratum $\Dcal$ 
+\DIFdelbegin \DIFdel{. 
+}\DIFdelend in terms of fibre products of moduli spaces with smaller numerical data. The tautological description of the factorisation condition then leads to a recursive structure for calculating integrals. This \DIFdelbegin \DIFdel{last }\DIFdelend step is the heart of the analysis. 
 
 \begin{remark}
 \DIFdelbegin \DIFdel{We remark that for the reduced relative }\DIFdelend \DIFaddbegin \DIFadd{The reduced relative Gromov--Witten }\DIFaddend theory of $(\mathbb P^N,H)$ with only primary \DIFdelbegin \DIFdel{fields, }\DIFdelend \DIFaddbegin \DIFadd{insertions, i.e. where all cohomological insertions in the invariants are pulled back along evaluation maps, computations can be carried out without }\DIFaddend an analysis of the factorisation condition\DIFdelbegin \DIFdel{can be avoided by dimension considerations . This }\DIFdelend \DIFaddbegin \DIFadd{; this follows from dimension considerations and }\DIFaddend leads to the main results in~\cite{Vre}. In order to add descendant \DIFdelbegin \DIFdel{fields}\DIFdelend \DIFaddbegin \DIFadd{insertions}\DIFaddend , study with more general pairs, or indeed work cycle theoretically, an analysis of these tautological classes is crucial. 
@@ -951,9 +1151,11 @@ The birational map $\widetilde{\Dcal} \to \Ecal$ induces a morphism $\Dcal \to \
         \Ycgraph
         \caption{III}
     \end{minipage}
-\end{figure}
+   \DIFaddbeginFL 
 
-\noindent The degrees of vertices, expansions factors, and remaining markings are distributed arbitrarily, subject to the following constraints:
+\DIFaddendFL \end{figure}
+
+\noindent \DIFaddbegin \DIFadd{where black vertices represent rational components, white vertices represent genus one. }\DIFaddend The degrees of vertices, expansions factors, and remaining markings are distributed arbitrarily, subject to the following constraints:
  \begin{enumerate} 
 \item the vertices $\sqC_1,\ldots,\sqC_r$ have positive degree;
 \item the core has positive degree;
@@ -1029,41 +1231,113 @@ We summarise that the contribution of each term $\lambda_\Dcal [\Dcal]$ is given
 
 \subsection{Recursive description of the divisors: type $\dag$}\label{subsection C0 splitting} The treatment of the type I, II and III cases above is a fairly straightforward extension of the ideas of Vakil and Gathmann (albeit updated with logarithmic and tropical technology, which streamlines the presentation and simplifies the proofs). The remaining type $\dag$ case, however, is entirely new. In this section we provide a recursive description of these boundary divisors. This constitutes the technical heart of the paper.
 
-\subsubsection{Possible combinatorial types} A boundary divisor $\Dcal \subseteq \Dcal_{1,\alpha,k}(\PP^N|H,d)$ is said to have \textbf{type $\dag$} if the core is assigned degree zero by the combinatorial type. Divisors of this type occur as principal components in compactified torus bundles over strata in the space of relative maps. As a result, their combinatorial types exhibit very degenerate behaviour. Precisely, over the generic point of such a divisor, the target may expand multiple times, and the source tropical curve need not be bipartite with a single interior vertex. We stress once again that such degenerate contributions are at the heart of the reduced theory and cannot be removed.  We begin with the following lemma:
-\begin{lemma} \label{lemma type C0 combinatorial types}
-Let $\Dcal$ be a locus of type $\dag$ with combinatorial type $\Delta$ which contributes nontrivially to the Gromov--Witten invariant. For every nonzero vertex $\diamond$ of the tropical target, the fibre of the tropical map over $\diamond$ contains exactly one stable vertex, which either is the core, or lies on the circle. Moreover, the maximal contact order at the core is $m>1$.
-\end{lemma}
+\subsubsection{Possible combinatorial types}\DIFaddbegin \label{S:combinatorialdescription} \DIFaddend A boundary divisor $\Dcal \subseteq \Dcal_{1,\alpha,k}(\PP^N|H,d)$ is said to have \textbf{type $\dag$} if the core is assigned degree zero by the combinatorial type. Divisors of this type occur as principal components in compactified torus bundles over strata in the space of relative maps. As a result, their combinatorial types exhibit very degenerate behaviour. Precisely, over the generic point of such a divisor, the target may expand multiple times, and the source tropical curve need not be bipartite with a single interior vertex\DIFaddbegin \DIFadd{; see the left-hand side of Figure \ref{fig:off_we_go} for a concrete example}\DIFaddend . We stress once again that such degenerate contributions are at the heart of the reduced theory and cannot be removed.
+\DIFaddbegin 
 
-\begin{proof}
-Stability guarantees that at least one stable vertex lies over each vertex of the target. If there is more than one stable vertex, as in the proof of Lemma \ref{lem:combs}, the corresponding locus $\Fcal$ in the moduli space of unexpanded maps has high codimension. As both insertions and the factorisation property for the collapsed map to $\mathbb P^N$ are pulled back from the moduli space of maps without expansions, the contribution vanishes by the projection formula.
+\DIFaddend We begin with \DIFdelbegin \DIFdel{the following lemma:
+}%DIFDELCMD < \begin{lemma} %DIFDELCMD < \label{lemma type C0 combinatorial types}%%%
+%DIFDELCMD < %%%
+\DIFdel{Let }\DIFdelend \DIFaddbegin \DIFadd{a series of lemmas describing the combinatorial types of rays associated to divisorial loci }\DIFaddend $\Dcal$ \DIFdelbegin \DIFdel{be a locus }\DIFdelend of type $\dag$ \DIFdelbegin \DIFdel{with combinatorial type $\Delta$ which contributes }\DIFdelend \DIFaddbegin \DIFadd{contributing }\DIFaddend nontrivially to the Gromov--Witten \DIFdelbegin \DIFdel{invariant.
+}\DIFdelend \DIFaddbegin \DIFadd{invariants.
+}\begin{lemma} \label{lemma type C0 combinatorial types}
+ \DIFaddend For every nonzero vertex $\diamond$ of the tropical target, the fibre of the tropical map over $\diamond$ contains exactly one stable vertex, which either is the core, or lies on the circle.
+\DIFdelbegin \DIFdel{Moreover, the maximal contact order at the core is $m>1$}\DIFdelend \DIFaddbegin \end{lemma}
 
-For each vertex of the target there must always be at least one vertex in the preimage which lies on the circle. This is implied by the fact that the cone $\tau$ corresponding to $\Dcal$ is a ray. If the vertex on the circle is strictly semistable -- so that in particular the collapsed map $f_B$ is constant along the corresponding component -- it can be seen that the factorisation condition is unaffected by $\Gm$-scaling the coordinate corresponding to that vertex in the moduli space of attaching data, so the map $\Dcal\to\Ecal$ has generic fibre of positive dimension and the contribution vanishes.
+\begin{lemma}\label{lem:stable_vertices} \DIFadd{All the vertices on the circle are stable (as opposed to semistable  vertices introduced by subdivision)}\DIFaddend . \end{lemma}
 
-In particular, notice that vertices lying on the circle and tropically mapped to $0\in\mathbb R_{\geq0}$ all have the same contact order at the core, because by the previous paragraph we may assume that only strictly semistable vertices are encountered on the paths from these vertices to the core. For the same reason, this contact order $m$ is maximal among those of the edges adjacent to the core.
+\DIFdelbegin %DIFDELCMD < \begin{proof}
+%DIFDELCMD < %%%
+\DIFdel{Stability }\DIFdelend %DIF > \begin{lemma}\label{lem:corecontact}
+%DIF >  Among all the flags supported at the core, at least one must have expansion factor strictly greater than $1$.
+%DIF > \end{lemma}
+\DIFaddbegin 
 
-Finally, in case the maximal contact order is $m=1$, the image tangent vectors must be linearly dependent, in which case we can deduce as above that factorisation will be satisfied independently of the choice of alignment.
+
+\begin{proof}[Proof of Lemma \ref{lemma type C0 combinatorial types}]
+\DIFadd{Stability of maps to an expansion }\DIFaddend guarantees that at least one stable vertex lies over each vertex of the target. If there is more than one stable vertex, \DIFaddbegin \DIFadd{then we can show }\DIFaddend as in the proof of Lemma \ref{lem:combs} \DIFdelbegin \DIFdel{, }\DIFdelend \DIFaddbegin \DIFadd{that }\DIFaddend the corresponding locus $\Fcal$ in the moduli space of unexpanded maps has high codimension\DIFaddbegin \DIFadd{, i.e. the collapsing map has fibres of positive dimension}\DIFaddend . As both insertions and the factorisation property for the collapsed map to $\mathbb P^N$ are pulled back from the moduli space of maps without expansions, the contribution vanishes by the projection formula.
+\DIFdelbegin %DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{For each }\DIFdelend \DIFaddbegin \end{proof}
+\begin{proof}[Proof of Lemma \ref{lem:stable_vertices}]
+\DIFadd{Since we are looking at a one-parameter family of tropical maps, for every }\DIFaddend vertex of the target there must \DIFdelbegin \DIFdel{always }\DIFdelend be at least one vertex \DIFdelbegin \DIFdel{in the preimage }\DIFdelend \DIFaddbegin \DIFadd{above it }\DIFaddend which lies on the circle. \DIFdelbegin \DIFdel{This is implied by the fact that the cone $\tau$ corresponding to $\Dcal$ is a ray. }\DIFdelend If the vertex on the circle is strictly semistable -- so that in particular the collapsed map $f_B$ is constant along the corresponding component -- \DIFdelbegin \DIFdel{it can be seen that }\DIFdelend the factorisation condition \DIFaddbegin \DIFadd{for $f_B$ }\DIFaddend is unaffected by $\Gm$-scaling the coordinate corresponding to that vertex in the moduli space of attaching data \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\cite[\S 2.2]{SMY2}}%DIFAUXCMD
+}\DIFaddend , so the map $\Dcal\to\Ecal$ has generic fibre of positive dimension and the contribution vanishes.
+\DIFaddbegin \end{proof}
+\begin{comment}
+\DIFaddend 
+
+\DIFdelbegin \DIFdel{In particular, notice that vertices lying }\DIFdelend \DIFaddbegin \begin{proof}[Proof of Lemma \ref{lem:corecontact}]
+\DIFadd{Consider the vertices that lie above $0\in\mathbb R_{\geq0}$ }\DIFaddend on the circle \DIFdelbegin \DIFdel{and tropically mapped to $0\in\mathbb R_{\geq0}$ all have the same contact order at }\DIFdelend \DIFaddbegin \DIFadd{of radius $\delta$: the edges departing from them go directly (up to bubbling) to }\DIFaddend the core, \DIFdelbegin \DIFdel{because by the previous paragraph we may assume that only strictly semistable vertices are encountered on the paths from these vertices to the core. For the same reason, this contact order }\DIFdelend \DIFaddbegin \DIFadd{since there cannot be stable vertices inside the open disc  when we have only one tropical parameter. In particular, all these edges have the same expansion factor }\DIFaddend $m$ \DIFaddbegin \DIFadd{(see again Figure \ref{fig:off_we_go}), which }\DIFaddend is maximal among those of the edges adjacent to the core. \DIFaddbegin \DIFadd{Indeed, all the edges from the core to the circle have the same length $\delta$, so the ones having maximal contact order are those that reach further from the core, and at least one must reach $0\in\mathbb R_{\geq0}$, for otherwise there would be an extra tropical parameter.
+}\DIFaddend 
+
+Finally, in case the maximal contact order is $m=1$, \DIFdelbegin \DIFdel{the image tangent vectors }\DIFdelend \DIFaddbegin \DIFadd{in order for $f_B$ to factor, the image of the tangent vectors at the components lying on the circle }\DIFaddend must be linearly dependent \DIFdelbegin \DIFdel{, }\DIFdelend \DIFaddbegin \DIFadd{in $T_{\PP^N,x}$, where $x$ denotes the image of the core under $f_B$.}\DIFaddend in which case we can deduce as above that factorisation will be satisfied independently of the choice of alignment.
 \end{proof}
-For the remainder of this section we use the following notation for the combinatorial type $\Delta$; we let $\sqC_0$ denotes the vertex of dual graph corresponding to the core, $\sqC_1,\ldots,\sqC_r$ the other stable vertices (genus zero and lying on the circle, by the previous lemma) and $q_1,\ldots,q_r$ the corresponding splitting nodes.
+\DIFaddbegin 
+
+\DIFaddend For the remainder of this section we use the following notation for the combinatorial type $\Delta$; we let $\sqC_0$ denotes the vertex of dual graph corresponding to the core, $\sqC_1,\ldots,\sqC_r$ the other stable vertices (genus zero and lying on the circle, by the previous lemma) and $q_1,\ldots,q_r$ the corresponding splitting nodes.
+
+\DIFaddbegin \end{comment}
+\subsubsection{\DIFadd{Lines}}\label{S:lines}
+\DIFadd{We begin with a description of the boundary divisor corresponding to a comb whose teeth all have degree $1$. This is at the same time more concrete and peculiar, since the teeth are generically transverse (not just dimensionally) to the hyperplane $H$. For simplicity, we assume that the contact order is $(d)$, concentrated at a marking $x_1$ supported on the elliptic curve $E$ contracted to $H$. The combinatorial type looks as in Figure \ref{fig:comb111}.
+}
+
+\begin{figure}
+ \begin{tikzpicture}
+ \tikzset{cross/.style={cross out, draw=black, fill=none, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt}, cross/.default={3pt}}
+  \foreach \x in {(0,2),(0,1),(0,-1),(0,-2)}
+  \draw[fill=black] \x circle (2pt);
+  \foreach \x in {(0,2),(0,1),(0,-1)}
+  \draw \x --node[below]{\color{blue} $1$} (4,0);
+  \draw (0,0) node{$\ldots$};
+  \draw (4,0) --node[below]{\color{blue} $d$} (8,0);
+  \draw[->] (0,-2)--(8,-2);
+  \draw[fill=white] (4,0) circle (2pt);
+  \draw (4,-2) node[cross]{};
+  \draw [red] plot [smooth cycle] coordinates {(0,2) (0,1) (0,-1) (2,-1.5) (7,0) (2,2.5)};
+ \end{tikzpicture}
+ \caption{\DIFaddFL{The combinatorial type of a comb with degree $1$ teeth.}}
+ \label{fig:comb111}
+\end{figure}
 
 
-\subsubsection{Recursive description of $\Ecal$} Recall that we have maps
+\DIFadd{Start from the moduli space of logarithmic maps. There is a finite splitting morphism:
+}\[\DIFadd{\Ecal \to \left(\M{0}{(1)}{\PP^N}{1}^{\times N}\times_{H^N}H\right)\times \Mcal^{\leftrightarrow}_{1,(-1,\ldots,-1,d)},}\]
+\DIFadd{where the latter is the moduli space of genus one curves satisfying the }\emph{\DIFadd{double ramification}} \DIFadd{condition. As for $\widetilde{\Dcal}$, the latter should be replaced by $\VZ^{\leftrightarrow}_{1,(-1,\ldots,-1,d)}$, see \S \ref{subsection rubber}.
+}
+
+\DIFadd{The left-hand factor can be described very concretely as the choice of a point $p$ of $H$, and $d$ lines through it. A very important observation is that, at least generically, the vertices lying on the circle of radius $\delta$ over $0\in\mathbb R_{\geq 0}$ are automatically aligned. Indeed, if $R_i$ denotes the $i$-th tail of the curve, glued to $E$ at the node $q_i$, then the stable maps provide us with identifications:
+}\[\DIFadd{\operatorname{d}\! f_{i,q_i}\colon T_{R_i,q_i}\simeq N_{H/\PP^N,p}}\]
+\DIFadd{that can be combined into the $\theta_{i,j}$ of \S \ref{S:ellsing}. So, without further ado, we may produce a contraction $C\to\overline C$ to an elliptic $d$-fold point.
+}
+
+\DIFadd{Assume for example that $d\leq N$. Then, for the absolute factorisation to hold, the $d$ lines $f_i(R_i)$ have better to span a $(d-1)$-dimensional subspace of $T_{\PP^N,p}$. The dimension of the moduli space $\widetilde\Dcal$ is then $dN+d-2$. Without loss of generality, we may assume that $H$ is the hyperplane $\{z_0=0\}$, $p$ is the point $[0:\ldots:0:1]$, and that the $d$ lines span the subspace $\{z_{d-1}=\ldots=z_{N-1}=0\}$. The sections $z_i,\ i=d-1,\ldots,N,$ vanish identically near $E$, so they descend automatically to the singularity. The section $z_0$ does so by the construction of $\overline C$. Finally, the sections $z_i,\ i=1,\ldots,d-2,$ impose independent conditions to descend to $\overline C$. All in all, we find that $\Dcal$ has dimension $dN$, making it into a divisor in $\VZ_{1,(d)}(\PP^N|H,d)$.
+}
+
+\DIFadd{We can express the factorisation condition tautologically by combining the isomorphisms $\theta_{i,j}$ above, and the differential of $f$. It correponds to the vanishing of the following vector bundle map:
+}\[\DIFadd{T_{R_1,q_1}\xrightarrow{(1,\theta_{1,2}\ldots,\theta_{1,d})}\bigoplus_{i=1}^d T_{R_i,q_i}\xrightarrow{\sum\circ\operatorname{d}\!f=\operatorname{d}\!z_1+\ldots\operatorname{d}\!z_{d-2}}N_{H\cap\PP^{d-1}/\PP^{d-1},p}.}\]
+
+\DIFadd{In general, we shall see that the automatic alignment only involves the components corresponding to vertices on the circle that lie over $0$. The internal components on the circle must be aligned by hand. This means that $\widetilde\Dcal$ is a compactified torus bundle over $\Ecal$, see \ref{S:ellsing}. On the other hand, for higher contact order, the vector bundle map $\sum\circ\operatorname{d}\!f$ to $T_{\PP^N,p}$ factors naturally through $T_{H,p}$.
+}
+
+\DIFaddend \subsubsection{Recursive description of $\Ecal$} Recall that we have maps
 \[
 \VZ_{1,\alpha}(\PP^N|H,d)\hookrightarrow \widetilde{\VZ}_{1,\alpha}(\PP^N|H,d)\to \overline\Mcal_{1,\alpha}(\PP^N|H,d).
 \]
 The first morphism is a closed embedding cut out by the two factorisation properties. The second morphism is a logarithmic modification. Let $\tau \in \Sigma_{1,\alpha}(\PP^N|H,d)$ be the ray corresponding to $\Dcal \subseteq \VZ_{1,\alpha}(\PP^N|H,d)$, and to the virtual divisor $\widetilde \Dcal \subseteq \widetilde{\VZ}_{1,\alpha}(\PP^N|H,d)$. 
 
-Let $\sigma \in \Sigma^{\Kim}$ be the minimal cone containing the image of $\tau$. The dimension of this cone could be large -- its dimension is equal to the the number of levels of the target expansion in the type $\Delta$. The cone $\sigma$ determines a stratum $\Ecal \subseteq \ol\Mcal_{1,\alpha}(\PP^N|H,d)$, and the morphism above restricts to 
+Let $\sigma \in \Sigma^{\Kim}$ be the minimal cone containing the image of $\tau$. The dimension of this cone could be large \DIFaddbegin \DIFadd{(see again the left-hand side of Figure \ref{fig:off_we_go}) }\DIFaddend -- its dimension is equal to the \DIFdelbegin \DIFdel{the }\DIFdelend number of levels of the target expansion in the type $\Delta$. The cone $\sigma$ determines a stratum $\Ecal \subseteq \ol\Mcal_{1,\alpha}(\PP^N|H,d)$, and the morphism above restricts to 
 \[
 \Dcal \to \Ecal.
 \] 
 
 \noindent
-{\bf Splitting in the ordinary geometry.} The locus $\Ecal$ has the following description. Let $\Lambda_0$ for the collection of stable vertices of the combinatorial type which are mapped to $0\in \RR_{\geq 0}$, and $\Lambda_{>0}$ for the stable vertices which are mapped to $\RR_{>0}$. Each vertex $v$ has associated discrete data $\Gamma_v$. The vertices over $0$ determine moduli spaces of ordinary relative stable maps, while the higher level vertices determine maps to rubber.  Then $\Ecal$ admits a finite and surjective splitting morphism
+{\bf Splitting in the ordinary geometry.} The locus $\Ecal$ has the following description. Let $\Lambda_0$ \DIFdelbegin \DIFdel{for }\DIFdelend \DIFaddbegin \DIFadd{denote }\DIFaddend the collection of stable vertices of the combinatorial type which are mapped to $0\in \RR_{\geq 0}$, and \DIFaddbegin \DIFadd{use }\DIFaddend $\Lambda_{>0}$ for the stable vertices which are mapped to $\RR_{>0}$. Each vertex $v$ has associated discrete data $\Gamma_v$ \DIFaddbegin \DIFadd{(genus, degree, contact order)}\DIFaddend . The vertices over $0$ determine moduli spaces of ordinary relative stable maps, while the higher level vertices determine maps to rubber.  Then $\Ecal$ admits a finite \DIFdelbegin \DIFdel{and surjective }\DIFdelend splitting morphism
 \begin{equation}\label{IIIa fibre product} \Ecal \xrightarrow{\rho} \left( \prod_{v \in \Lambda_0} \ol\Mcal_{\Gamma_v}(\PP^N|H) \times \prod_{v \in \Lambda_{>0}} \ol\Mcal^{\leftrightarrow}_{\Gamma_v}(\mathbb{P}|H_0+H_\infty) \right) \times_{H^{2\epsilon}} H^{\epsilon} \end{equation}
 where $\epsilon$ is the number of edges of the stabilised dual graph, and the fibre product is taken over the appropriate evaluation maps. Splitting the diagonal of $H^{2\epsilon}$ we see that tautological integrals over $\Ecal$ are completely determined in terms of integrals over moduli spaces with ``smaller'' combinatorial data.\medskip
 
 \noindent
-{\bf Exportation to the ordinary geometry.}  Observe that we have a virtual divisor $\widetilde\Dcal \subseteq \widetilde\VZ_{1,\alpha}(\PP^N|H,d)$ such that 
+{\bf Exportation to the \DIFdelbegin \DIFdel{ordinary }\DIFdelend \DIFaddbegin \DIFadd{reduced }\DIFaddend geometry.}  Observe that we have a virtual divisor $\widetilde\Dcal \subseteq \widetilde\VZ_{1,\alpha}(\PP^N|H,d)$ such that 
 \[
 \Dcal = \widetilde\Dcal \cap \VZ_{1,\alpha}(\PP^N|H,d).
 \]
@@ -1091,14 +1365,14 @@ to the locus $\widetilde\Dcal$. Toroidal geometry gives a construction of $\wide
 %DIF > In toric geometry, the means of studying this restriction is as follows. The fan of $\widetilde\Dcal$ (respectively, $\Ecal$) is obtained by projecting the star of the ray $\tau$ (respectively, the star of the cone $\sigma$) onto the quotient lattice. The map $\widetilde\Dcal \to \Ecal$ is then the toric morphism induced by the obvious map of fans. In order to describe this morphism more explicitly, we first subdivide the fan of $\Ecal$ by taking the images of cones in the fan of $\widetilde\Dcal$. This induces a toric blowup of $\Ecal$ which we denote by $\widetilde\Ecal$. The morphism $\widetilde\Dcal \to \Ecal$ naturally factors through a morphism $\widetilde\Dcal \to \widetilde\Ecal$ which is now flat (in contrast to $\widetilde\Dcal \to \Ecal$), and  $\widetilde\Dcal$ may now be described as a compactification of a torus bundle over $\widetilde\Ecal$, with strata determined by the combinatorics of the fan.
 
 \noindent
-{\bf Logarithmic structures on strata.} Let $W\subseteq X$ be an irreducible stratum in a toroidal embedding $X$. The stratum \DIFdelbegin \DIFdel{itself is toroidal, and hence }\DIFdelend \DIFaddbegin \DIFadd{$W$ is itself toroidal, or equivalently, when equipped with the divisorial logarithmic structure coming from intersecting with the toroidal boundary divisors of $X$, the resulting structure makes $W$ }\DIFaddend logarithmically smooth. \DIFaddbegin \DIFadd{Note that this differs from the logarithmic structure pulled back from $X$ along the inclusion of $W$ into $X$. 
+{\bf Logarithmic structures on strata.} Let $W\subseteq X$ be an irreducible stratum in a toroidal embedding $X$. The stratum \DIFdelbegin \DIFdel{itself is toroidal, and hence }\DIFdelend \DIFaddbegin \DIFadd{$W$ is itself toroidal, or, equivalently, when equipped with the divisorial logarithmic structure coming from intersecting with the toroidal boundary of $X$, the resulting structure makes $W$ }\DIFaddend logarithmically smooth. \DIFaddbegin \DIFadd{Note that this differs from the logarithmic structure pulled back from $X$ along the inclusion of $W$ into $X$. 
 }
 
 \DIFaddend If $X$ and $W$ are merely logarithmic and not toroidal, there is \DIFdelbegin \DIFdel{nonetheless }\DIFdelend \DIFaddbegin \DIFadd{an analogue of this. There exists }\DIFaddend a strict map
 \[
 X\to \mathcal A_X,
 \]
-where $ \mathcal A_X$ is the Artin fan of $X$, which is \DIFdelbegin \DIFdel{a toroidal Artin stack. If $W\subseteq X$ maps to a }\DIFdelend \DIFaddbegin \DIFadd{logarithmically \'etale over a point. The logarithmic structure of $\mathcal A_X$ is divisorial in the smooth topology. The Artin fan $\mathcal A_X$ possesses closed strata. Fix an irreducible }\DIFaddend stratum $\mathcal A_W$\DIFdelbegin \DIFdel{under this map, the pullback of the logarithmic structure from }\DIFdelend \DIFaddbegin \DIFadd{. In identical fashion to the paragraph above, this stack }\DIFaddend $\mathcal A_W$ \DIFdelbegin \DIFdel{to $W$ endows the stratum }\DIFdelend \DIFaddbegin \DIFadd{possesses a logarithmic structure by restricting the divisors on $\mathcal A_X$ and taking the induced logarithmic structure. This equips a logarithmic stratum $W\hookrightarrow X$ }\DIFaddend with a logarithmic structure \DIFdelbegin \DIFdel{. }\DIFdelend \DIFaddbegin \DIFadd{by pullback, mirroring the construction for toroidal embeddings above. 
+where $ \mathcal A_X$ is the Artin fan of $X$, which is \DIFdelbegin \DIFdel{a toroidal Artin stack. If $W\subseteq X$ maps to a }\DIFdelend \DIFaddbegin \DIFadd{logarithmically \'etale over a point. The logarithmic structure of $\mathcal A_X$ is divisorial in the smooth topology. The Artin fan $\mathcal A_X$ possesses closed strata. Fix an irreducible }\DIFaddend stratum $\mathcal A_W$\DIFdelbegin \DIFdel{under this map, the pullback of the logarithmic structure from }\DIFdelend \DIFaddbegin \DIFadd{. In identical fashion to the paragraph above, this stack }\DIFaddend $\mathcal A_W$ \DIFdelbegin \DIFdel{to $W$ endows the stratum }\DIFdelend \DIFaddbegin \DIFadd{possesses a logarithmic structure by restricting the divisors on $\mathcal A_X$ and taking the induced logarithmic structure. This equips a logarithmic stratum $W\hookrightarrow X$ }\DIFaddend with a logarithmic structure \DIFdelbegin \DIFdel{. }\DIFdelend \DIFaddbegin \DIFadd{by pullback from the Artin fan, mirroring the construction for toroidal embeddings above. 
 }
 
 \begin{remark}
@@ -1117,13 +1391,43 @@ is a logarithmic morphism. The generic fibre of this morphism is a toric variety
 \noindent
 {\bf Flattening the map to $\Ecal$.} The morphism $\widetilde \Dcal\to \Ecal$ is not flat. In order to push integrals forward, it will be convenient to flatten the map by blowing up $\Ecal$. This can be done in a universal manner, following~\cite{AK,Mol16}. 
 
-The combinatorics of the flattening can be described explicitly. Consider the map on tropicalizations
+\DIFaddbegin \begin{figure}
+ \begin{tikzpicture}
+ \tikzset{cross/.style={cross out, draw=black, fill=none, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt}, cross/.default={3pt}}
+
+ %combinatorial type
+  \draw[fill=black] (1,1) circle (2 pt);
+  \draw[fill=black] (0,-1) circle (2 pt);
+  \draw (1,1)--node[below,blue]{$m_1$} (2,0) (0,-1)--node[below,blue]{$m_1$} (2,0) (2,0)--node[below,blue]{$m_1+m_2$} (4,0);
+  \draw (1,-.5) node[cross]{};
+  \draw[fill=white] (2,0) circle (2 pt);
+
+  \draw[->] (2,-1) -- (2,-1.8);
+
+  \draw[fill=black] (0,-2) circle (2 pt);
+  \draw[->] (0,-2)--node[below=.5cm]{$\Delta_\tau$} (4,-2);
+   \draw (1,-2) node[cross]{};
+   \draw (2,-2) node[cross]{};
+
+  \draw [red] plot [smooth cycle] coordinates {(1,1) (0,-1) (3.5,0)};
+
+ %subdivision 
+  \draw[->] (6,-2) --node[below=.5cm]{$\sigma$} (10,-2) node[right]{$\ell_1$};
+  \draw[->] (6,-2) -- (6,2) node[above]{$\ell_2$};
+  \draw[gray] (6,-2) -- (10,1) node[right]{$(m_2,m_1)=\operatorname{Im}(\tau)$};
+ \end{tikzpicture}
+\caption{\DIFaddFL{From $\Ecal$ to $\widetilde{\Ecal}$. Typical subdivision of a two-dimensional cone $\sigma$ along the image of a ray $\tau$.}}
+\label{fig:Etilde}
+\end{figure}
+
+
+\DIFaddend The combinatorics of the flattening can be described explicitly. Consider the map on tropicalizations
 \[
 \widetilde{\Dcal}^{\operatorname{trop}} \to \Ecal^{\operatorname{trop}}.
 \]
-The tropical curves on the left inherit a central alignment from $\widetilde{\VZ}_{1,\alpha}(\PP^N|H,d)$, which orders a certain subset of the edge lengths. The polyhedral criterion for equidimensionality is that every cone of the source maps surjectively onto a cone of the target. There is a universal logarithmic modification $\widetilde\Ecal \to \Ecal$ such that $\widetilde\Dcal \to \widetilde\Ecal$ is flat, constructed by taking the minimal subdivision of $\Ecal^{\operatorname{trop}}$ such that cones map surjectively to cones.
+The tropical curves on the left inherit a central alignment from $\widetilde{\VZ}_{1,\alpha}(\PP^N|H,d)$, which orders a certain subset of the edge lengths. The polyhedral criterion for equidimensionality is that every cone of the source maps surjectively onto a cone of the target. There is a universal logarithmic modification $\widetilde\Ecal \to \Ecal$ such that $\widetilde\Dcal \to \widetilde\Ecal$ is flat, constructed by taking the minimal subdivision of $\Ecal^{\operatorname{trop}}$ such that cones map surjectively to cones \DIFaddbegin \DIFadd{(see Figure \ref{fig:Etilde})}\DIFaddend .
 
-This subdivision is best described using the formalism of extended tropicalizations \cite{Thuillier,ACP}. The subdividing cones are obtained from cones in the star of $\tau$ under the limit $e_1=\cdots=e_r=\infty$. The cones in the star of $\tau$ are given by (in)equalities relating distances of pairs of vertices, and there are three cases to consider:
+This subdivision is best described using the formalism of extended tropicalizations \cite{Thuillier,ACP}. The subdividing cones are obtained from cones in the star of $\tau$ under the limit $e_1=\cdots=e_r=\infty$\DIFaddbegin \sidenote{Was $r$ called $\epsilon$ before?}\DIFaddend . The cones in the star of $\tau$ are given by (in)equalities relating distances of pairs of vertices, and there are three cases to consider:
  \begin{enumerate} 
 \item both vertices are components of the subgraph $\sqC \setminus \sqC_0$;
 \item both vertices are components of the subgraph $\sqC_0$;
@@ -1142,50 +1446,311 @@ with the radially aligned rubber space:
  \end{enumerate} 
 This procedure induces a logarithmic modification $\widetilde\Ecal \to \Ecal$ which admits a modular description as a fibre product of genus zero centrally aligned maps coming from the vertices $\sqC_1,\ldots,\sqC_r$, and genus one aligned rubber maps satisfying fibre-direction factorisation from the vertex $\sqC_0$.
 
-By construction, we have a map $\widetilde\Dcal \to \widetilde\Ecal$ which is a compactification of a torus bundle over $\widetilde\Ecal$. The strata of $\widetilde\Dcal$ can be read off from its tropicalization, and in particular we have the information of how (polynomials in) the classes of boundary strata push forward to $\widetilde\Ecal$.
+\DIFdelbegin \DIFdel{By construction, we have a map $\widetilde\Dcal \to \widetilde\Ecal$ which is a compactification of a torus bundle over $\widetilde\Ecal$. The strata of $\widetilde\Dcal$ can be read off from its tropicalization, and in particular we have the information of how (polynomials in) the classes of boundary strata push forward to $\widetilde\Ecal$.
+}\DIFdelend %DIF > By construction, we have a map $\widetilde\Dcal \to \widetilde\Ecal$ which is a compactification of a torus bundle over $\widetilde\Ecal$. The strata of $\widetilde\Dcal$ can be read off from its tropicalization, and in particular we have the information of how (polynomials in) the classes of boundary strata push forward to $\widetilde\Ecal$.
 
 We have produced a factorisation
 \begin{equation*}\widetilde\Dcal\to\widetilde \Ecal\to\Ecal,
 \end{equation*}
 where the first map is flat and the second map is a logarithmic modification. $\widetilde\Dcal$ is a compactification of a torus bundle over $\widetilde\Ecal$ whose strata can be read off from the tropicalization; in particular, we have the information of how (polynomials in) the classes of boundary strata push forward to $\widetilde\Ecal$. In fact, we can say more and describe the generic fibre of $\widetilde\Dcal \to \widetilde\Ecal$:
 \begin{lemma}\label{lem:generic_proj_bundle}
-Generically over $\Ecal$, the morphism $\widetilde \Dcal\to\widetilde\Ecal$ is the projectivisation of a tautological vector bundle.
+Generically over $\Ecal$, the morphism \DIFdelbegin \DIFdel{$\widetilde \Dcal\to\widetilde\Ecal$ }\DIFdelend \DIFaddbegin \DIFadd{$\widetilde \Dcal\to\Ecal$ }\DIFaddend is the projectivisation of a tautological vector bundle.
 \end{lemma}
 
 \begin{proof}
-Let us assume that the curve does not degenerate, so that the dual graph is as prescribed by $\Delta$. In particular there are components $\sqC_1,\ldots,\sqC_r$ generically lying on the circle of radius $\delta$. The moduli space of attaching data for the elliptic singularity is the complement of the coordinate hyperplanes in
-$$\PP\left(\bigoplus_{i=1}^rT_{q_i}C_i\right)\DIFdelbegin \DIFdel{.}\DIFdelend \DIFaddbegin \DIFadd{,}\DIFaddend $$
-\DIFaddbegin \DIFadd{see~\mbox{%DIFAUXCMD
-\cite[Section~2.2]{SMY2}}%DIFAUXCMD
-. A point in this space parameterizes a particular map from the rational multiple point singularity to the elliptic multiple point singularity. }\DIFaddend On the boundary, the circle is allowed to miss some of the $\sqC_i$ -- but not all of them! --  cutting the edge between them and the core (correspondingly, there is a destabilisation of the curve, and an elliptic singularity containing strictly semistable branches). Tropically, pushing some of the vertices off the circle creates new finite-length edges with coordinates $\ell_i\in\RR_{\geq_0}$ (see Figure \ref{fig:off_we_go}). Since not all of them can be strictly positive, this represents the fan of a projective space.
+Let us assume that the curve does not degenerate, so that the dual graph is as prescribed by $\Delta$. In particular there are \DIFdelbegin \DIFdel{components $\sqC_1,\ldots,\sqC_r$ }\DIFdelend \DIFaddbegin \DIFadd{vertices $\plC_1,\ldots,\plC_r$ }\DIFaddend generically lying on the circle of radius $\delta$. The moduli space of attaching data for the elliptic singularity is the complement of the coordinate hyperplanes in
+\DIFdelbegin \begin{displaymath}\DIFdel{\PP\left(\bigoplus_{i=1}^rT_{q_i}C_i\right).}\end{displaymath}
+%DIFAUXCMD
+\DIFdel{On the boundary, the circle is allowed to miss }\DIFdelend \DIFaddbegin \begin{equation}\DIFadd{\label{eqn:projectivebundle}
+ \PP\left(\bigoplus_{i=1}^rT_{q_i}C_i\right);
+}\end{equation}
 
-A slight modification of the argument above is required to account for the fact that all vertices that lie on the circle and are mapped to $0\in\mathbb R_{\geq0}$ by the tropical map are generically aligned on $\Ecal$: indeed, by Lemma \ref{lemma type C0 combinatorial types}, they all have the same contact order $m$, therefore their $T_{q_i}C_i^{\otimes m}$ can be identified via the target tangent line on the fibre product \eqref{IIIa fibre product}, and, after saturation, the $T_{q_i}C_i$ themselves are canonically isomorphic on $\Ecal$. Thus, only one summand should be taken to represent all of them in the projective bundle above.
+\DIFadd{this can also be thought of as parametrising compatible identifications $\theta_{i,j}\colon T_{C_i,q_i}\simeq T_{C_j,q_j}$, see \S \ref{S:ellsing}. A point in this space determines in particular a map from the rational $r$-fold singularity to the elliptic $r$-fold singularity. That this coincides with the fibre of the aligned moduli space of curves over the ordinary one is well explained in \mbox{%DIFAUXCMD
+\cite[\S 3.4]{RSPW}}%DIFAUXCMD
+.  Along the boundary, }\DIFaddend some of the \DIFdelbegin \DIFdel{$\sqC_i$ }\DIFdelend \DIFaddbegin \DIFadd{$\plC_i$ }\DIFaddend -- but not all of them! --  \DIFdelbegin \DIFdel{cutting }\DIFdelend \DIFaddbegin \DIFadd{are allowed to move off from the circle, so that the latter cuts }\DIFaddend the edge between them and the core\DIFdelbegin \DIFdel{(correspondingly}\DIFdelend \DIFaddbegin \DIFadd{. Correspondingly}\DIFaddend , there is a destabilisation of the curve \DIFdelbegin \DIFdel{, and }\DIFdelend \DIFaddbegin \DIFadd{(semistable components are represented by crosses in our figures), and we obtain }\DIFaddend an elliptic singularity containing strictly semistable branches \DIFdelbegin \DIFdel{). }\DIFdelend \DIFaddbegin \DIFadd{(}\emph{\DIFadd{sprouting}}\DIFadd{). This was already identified by Smyth as a compactification of the moduli space of attaching data carrying a Gorenstein universal curve \mbox{%DIFAUXCMD
+\cite[\S 2.2]{SMY2}}%DIFAUXCMD
+.
+}
+
+\DIFaddend Tropically, pushing some of the \DIFdelbegin \DIFdel{vertices }\DIFdelend \DIFaddbegin \DIFadd{$\plC_i$ }\DIFaddend off the circle creates new finite-length edges with coordinates $\ell_i\in\RR_{\geq_0}$ (see \DIFaddbegin \DIFadd{the right-hand side of }\DIFaddend Figure \ref{fig:off_we_go}). Since not all of them can be strictly positive, \DIFdelbegin \DIFdel{this represents the fan }\DIFdelend \DIFaddbegin \DIFadd{the resulting fan is that }\DIFaddend of a projective space. \DIFaddbegin \DIFadd{This gives us a fibrewise description of $\widetilde\Dcal\to\Ecal$ over the generic point.
+}\DIFaddend 
+
+A slight modification of the argument above is required to account for the fact that all vertices that lie on the circle and are mapped to $0\in\mathbb R_{\geq0}$ by the tropical map are generically aligned on $\Ecal$\DIFdelbegin \DIFdel{: indeed, by Lemma \ref{lemma type C0 combinatorial types}, they all }\DIFdelend \DIFaddbegin \DIFadd{. Indeed, by the combinatorial description of rays in \S \ref{S:combinatorialdescription}, there are no stable vertices inside the circle, so all the edges going from a vertex of $\Lambda_0$ to the core }\DIFaddend have the same \DIFdelbegin \DIFdel{contact order }\DIFdelend \DIFaddbegin \DIFadd{expansion factor }\DIFaddend $m$ \DIFdelbegin \DIFdel{, therefore their }\DIFdelend \DIFaddbegin \DIFadd{(maximal among the contact orders at the core). Therefore, for all $i$ such that $\plC_i\in\Lambda_0$, the }\DIFaddend $T_{q_i}C_i^{\otimes m}$ can be identified \DIFdelbegin \DIFdel{via }\DIFdelend \DIFaddbegin \DIFadd{to }\DIFaddend the target tangent line on the fibre product \eqref{IIIa fibre product}, and, after saturation, the $T_{q_i}C_i$ themselves are canonically isomorphic on $\Ecal$. Thus, only one summand should be taken to represent all of them in the projective bundle \DIFdelbegin \DIFdel{above}\DIFdelend \DIFaddbegin \eqref{eqn:projectivebundle}\DIFaddend .
 \end{proof}
 
 \begin{figure}
-\includegraphics[scale=.3]{off_we_go}
-\caption{Moving vertices off the circle creates new tropical parameters.}\label{fig:off_we_go}
+\DIFdelbeginFL %DIFDELCMD < \includegraphics[scale=.3]{off_we_go}
+%DIFDELCMD < %%%
+\DIFdelendFL %DIF > \includegraphics[scale=.3]{off_we_go}
+\DIFaddbeginFL \begin{tikzpicture}[ipe import]
+  %\useasboundingbox (0, 0) rectangle (595, 842);
+  \draw
+    (64, 672)
+     -- (128, 688)
+     -- (64, 704)
+     -- (64, 704);
+  \draw
+    (128, 688)
+     -- (64, 736)
+     -- (64, 736);
+  \draw[red]
+    (128, 688) circle[radius=65.9697];
+  \draw
+    (128, 688)
+     -- (112, 752)
+     -- (64, 768)
+     -- (64, 768);
+  \draw
+    (112, 752)
+     -- (64, 784)
+     -- (64, 784);
+  \pic
+     at (64, 672) {ipe disk};
+  \pic
+     at (64, 704) {ipe disk};
+  \pic
+     at (64, 736) {ipe disk};
+  \pic
+     at (64, 768) {ipe disk};
+  \pic
+     at (64, 784) {ipe disk};
+  \pic
+     at (112, 752) {ipe disk};
+  \pic
+     at (75.2242, 727.582) {ipe cross};
+  \pic
+     at (112, 700) {ipe cross};
+  \pic
+     at (112, 692) {ipe cross};
+  \pic
+     at (112, 684) {ipe cross};
+  \pic
+     at (75.8121, 701.047) {ipe cross};
+  \pic
+     at (75.0704, 674.4388) {ipe cross};
+  \filldraw[fill=white]
+    (64, 608)
+     -- (208, 608)
+     -- (208, 608);
+  \pic
+     at (64, 608) {ipe disk};
+  \draw
+    (128, 688)
+     -- (208, 688)
+     -- (208, 688);
+  \pic
+     at (73.6978, 608) {ipe cross};
+  \pic
+     at (111.876, 608) {ipe cross};
+  \pic
+     at (127.674, 608) {ipe cross};
+
+  \node[ipe node]
+     at (86.863, 690.301) {$m$};
+  \node[ipe node]
+     at (87.521, 671.212) {$m$};
+  \draw
+    (128, 688)
+     -- (91, 741.643);
+  \draw
+    (128, 688)
+     -- (160.586, 745.593)
+     -- (160.586, 745.593);
+  \pic
+     at (91, 741.643) {ipe disk};
+   \pic
+     at (91, 715.5) {ipe cross};
+     \pic
+     at (91, 697) {ipe cross};
+     \pic
+     at (91, 678.5) {ipe cross};
+     \pic
+     at (91, 608) {ipe cross};
+  \pic
+     at (160.486, 745.417) {ipe disk};
+     \pic
+     at (160.486, 688) {ipe cross};
+      \pic
+     at (160.486, 608) {ipe cross};
+
+  \draw[shift={(91.47, 741.051)}, xscale=0.95, yscale=0.6996]
+    (0, 0)
+     -- (-26.9879, 7.241)
+     -- (-26.9879, 7.241);
+  \draw
+    (160.486, 745.417)
+     -- (64.4824, 799.569);
+  \draw
+    (160.486, 745.417)
+     -- (208.637, 745.593);
+  \draw
+    (92.1286, 740.985)
+     -- (64.4824, 754.15);
+  \pic
+     at (64.4824, 746.909) {ipe disk};
+  \pic
+     at (64.4824, 798.91) {ipe disk};
+  \pic
+     at (64.4824, 753.492) {ipe disk};
+     \pic[fill=white]
+     at (128, 688) {ipe fdisk};
+  \draw
+    (289.118, 672.0005)
+     -- (353.118, 688.0005)
+     -- (289.118, 704.0005)
+     -- (289.118, 704.0005);
+  \draw
+    (353.118, 688.0005)
+     -- (289.118, 736.0005)
+     -- (289.118, 736.0005);
+  \draw[red]
+    (353.118, 688.0005) circle[radius=65.9697];
+  \draw
+    (353.118, 688.0005)
+     -- (337.118, 752.0005)
+     -- (289.118, 768.0005)
+     -- (289.118, 768.0005);
+  \draw
+    (337.118, 752.0005)
+     -- (289.118, 784.0005)
+     -- (289.118, 784.0005);
+  \pic
+     at (289.118, 672.0005) {ipe disk};
+  \pic
+     at (289.118, 704.0005) {ipe disk};
+  \pic
+     at (289.118, 736.0005) {ipe disk};
+  \pic
+     at (289.118, 768.0005) {ipe disk};
+  \pic
+     at (289.118, 784.0005) {ipe disk};
+  \pic
+     at (337.118, 752.0005) {ipe disk};
+  \pic
+     at (300.3422, 727.5825) {ipe cross};
+  \pic
+     at (337.118, 700.0005) {ipe cross};
+  \pic
+     at (337.118, 692.0005) {ipe cross};
+  \pic
+     at (337.118, 684.0005) {ipe cross};
+  \pic
+     at (300.9301, 701.0475) {ipe cross};
+  \pic
+     at (300.1889, 674.4392) {ipe cross};
+  \filldraw[fill=white]
+    (289.118, 608.0005)
+     -- (433.118, 608.0005)
+     -- (433.118, 608.0005);
+  \pic
+     at (289.118, 608.0005) {ipe disk};
+  \draw
+    (353.118, 688.0005)
+     -- (433.118, 688.0005)
+     -- (433.118, 688.0005);
+  \pic
+     at (298.8158, 608.0205) {ipe cross};
+  \pic
+     at (336.994, 608.0207) {ipe cross};
+  \pic
+     at (352.792, 608.0209) {ipe cross};
+
+  \node[ipe node]
+     at (311.98, 690.301) {$m$};
+  \node[ipe node]
+     at (312.639, 671.212) {$m$};
+  \draw[shift={(353.118, 687.999)}, xscale=1.1287, yscale=1.1615]
+    (0, 0)
+     -- (-36.5297, 53.643);
+  \draw[shift={(353.119, 687.997)}, xscale=1.4269, yscale=1.3567]
+    (0, 0)
+     -- (32.586, 57.593);
+  \pic
+     at (310, 751.5171) {ipe disk};
+  \pic
+     at (400.086, 767.1394) {ipe disk};
+
+           \pic
+     at (387, 688) {ipe cross};
+      \pic
+     at (387, 608) {ipe cross};
+
+  \draw[shift={(311.745, 750.197)}, xscale=0.8205, yscale=-0.5452,]
+    (0, 0)
+     -- (-26.9879, 7.241);
+  \draw[shift={(399.543, 767.54)}, xscale=1.1319, yscale=0.5704]
+    (0, 0)
+     -- (-96.0036, 54.152);
+  \draw[shift={(400.744, 767.146)}, xscale=0.6446, yscale=-1.3688]
+    (0, 0)
+     -- (48.151, 0.176);
+  \draw[shift={(311.717, 751.113)}, xscale=0.8, yscale=0.1453]
+    (0, 0)
+     -- (-27.6462, 13.165);
+  \pic
+     at (289.6004, 746.9095) {ipe disk};
+  \pic
+     at (289.6004, 798.9105) {ipe disk};
+  \pic
+     at (289.6004, 753.4925) {ipe disk};
+  \pic
+     at (387.02, 744.935) {ipe cross};
+  \pic
+     at (317.246, 742.961) {ipe cross};
+      \pic
+     at (317, 715.5) {ipe cross};
+     \pic
+     at (317, 697) {ipe cross};
+     \pic
+     at (317, 678.5) {ipe cross};
+     \pic
+     at (317, 608) {ipe cross};
+  \node[ipe node]
+     at (315.273, 748.884) {$\ell_{1}$};
+  \node[ipe node]
+     at (397.553, 752.175) {$\ell_{2}$};
+     %thickenings of l1 and l2
+  \draw[line width=.5mm] (317,743.5)--(310,751.5);
+  \draw[line width=.5mm] (387,744)--(400,767);
+
+  \pic[fill=white]
+     at (353.118, 688.0005) {ipe fdisk};
+\end{tikzpicture}
+\DIFaddendFL \caption{Moving vertices off the circle creates new tropical parameters.}\label{fig:off_we_go}
 \end{figure}
 
-\subsubsection{$\Dcal$ from $\widetilde\Dcal$: first way}\label{subsection D from Dtilde} On $\widetilde\Dcal$ there is a tautological line bundle arising from the modular description of $\widetilde\VZ_{1,\alpha}(\PP^N|H,d)$, namely $\OO(\delta)$. \DIFaddbegin \DIFadd{Recall that the piecewise linear function $\delta$ may be viewed as a global section of the characteristic sheaf of the logarithmic structure on $\widetilde\VZ_{1,\alpha}(\PP^N|H,d)$. The toric geometry dictionary gives rise to an associated Cartier divisor. Alternatively, for any logarithmic stack $X$, the natural coboundary map induced by }$$\DIFadd{0\to \mathcal O_X^\star\to M_X\to \overline M_X\to 0}$$ \DIFadd{associates a $\mathcal O_X^\star$-torsor to a global section of the characteristic sheaf. 
+\subsubsection{$\Dcal$ from $\widetilde\Dcal$: first way}\label{subsection D from Dtilde} On $\widetilde\Dcal$ there is a tautological line bundle arising from the modular description of $\widetilde\VZ_{1,\alpha}(\PP^N|H,d)$, namely $\OO(\delta)$. \DIFaddbegin \DIFadd{Recall that the piecewise linear function $\delta$ may be viewed as a global section of the characteristic sheaf of the logarithmic structure on $\widetilde\VZ_{1,\alpha}(\PP^N|H,d)$. The toric geometry dictionary gives rise to an associated Cartier divisor. Alternatively}\sidenote{worth moving to the preliminary section?}\DIFadd{, for any logarithmic stack $X$, the natural coboundary map induced by }$$\DIFadd{0\to \mathcal O_X^\star\to M_X^\text{gp}\to \overline M_X^\text{gp}\to 0}$$ \DIFadd{associates a $\mathcal O_X^\star$-torsor to a global section of the characteristic sheaf. 
 }\DIFaddend 
 
 
 \begin{lemma}\label{lemma fibres of Odelta}
 The fibre of $\OO(\delta)$ over a moduli point is naturally isomorphic to
-\begin{equation*} T_{p}C^\prime \otimes T C_0\end{equation*}
-where $C^\prime$ is any component of $C$ which lies on the circle, $p$ is the adjacent node which points towards the core, and $T C_0$ is the universal tangent line bundle on the moduli space for $\sqC_0$.
+%\begin{equation*} T_{p}C^\prime \otimes \DIFaddbegin \DIFadd{\mathbb }\DIFaddend T \DIFdelbegin \DIFdel{C_0}\DIFdelend \end{equation*}
+where $C^\prime$ is any component of $C$ which lies on the circle \DIFaddbegin \DIFadd{of radius $\delta$}\DIFaddend , $p$ is the \DIFdelbegin \DIFdel{adjacent node which points towards }\DIFdelend \DIFaddbegin \DIFadd{node separating it from }\DIFaddend the core, and \DIFdelbegin \DIFdel{$T C_0$ }\DIFdelend \DIFaddbegin \DIFadd{$\mathbb T$ }\DIFaddend is the universal tangent line bundle on the moduli space for $\sqC_0$.
 \end{lemma}
 
-\begin{proof}
-Choose a component $C^\prime$ of the curve which lies on the circle. Then $\OO(\delta)$ is equal to the tensor product of tangent line bundles along the path of edges connecting $C^\prime$ to the core. However, this tensor product of line bundles is telescoping: any vertex which appears in the middle of the path will have an incoming and outgoing node, and since the vertex corresponds to a smooth rational curve these tangent spaces are naturally dual to each other~\cite[\S 2.2]{VZ}. Thus these factors cancel, and the result follows.
+\DIFaddbegin \DIFadd{The moduli space of radially aligned curves of genus one $\VZ_{1,n}^\text{rad}$ coincides with the Vakil-Zinger blow-up of  $\overline \Mcal_{1,n}$ \mbox{%DIFAUXCMD
+\cite[\S 2.3]{VZ}}%DIFAUXCMD
+. In particular, up to twisting by exceptional divisors, the tangent line bundles at two marking $\widetilde{\mathbb T}_i$ and $\widetilde{\mathbb T}_j$ are identified (via the dual Hodge bundle $\mathbb E^\vee$), extending the identification on the smooth locus provided by regarding the elliptic curve as an algebraic group. The pullback of this to $\VZ^\leftrightarrow_{\Gamma_{\sqsubset_0}}$ is what we mean by  the universal tangent line bundle $\mathbb T$.
+}
+
+\DIFaddend \begin{proof}
+Choose a component $C^\prime$ of the curve which lies on the circle. Then $\OO(\delta)$ is equal to the tensor product of tangent line bundles along the path of edges connecting $C^\prime$ to the core. However, this tensor product of line bundles is telescoping: any vertex which appears in the middle of the path will have an incoming and outgoing node \DIFaddbegin \DIFadd{(and possibly other nodes that are irrelevant for this product)}\DIFaddend , and since the vertex corresponds to a smooth rational curve these tangent spaces are naturally dual to each other~\cite[\S 2.2]{VZ}. Thus these factors cancel, and the result follows.
 %Note that the final term on the right hand side is not given by $\TT_{q_i} C_0$ (where $q_i$ is the appropriate splitting node) but rather the tangent space to the core. 
 \end{proof}
-The content of Lemma \ref{lemma fibres of Odelta} is that the choice of point in the fibre of $\widetilde\Dcal \to \widetilde\Ecal$ provides a natural identification between the inward-pointing tangent spaces on the circle. This identification amounts to a specific linear dependence relation between the tangent vectors, which gives a point in the moduli space of attaching data for the corresponding elliptic singularity \cite[\S 2.2]{SMY2}. We may therefore express the factorisation condition in terms of the following natural morphism of vector bundles on $\widetilde\Dcal$:
-\begin{equation*} \Sigma \operatorname{d}\!f \colon \OO(\delta)\otimes TC_0^\vee \to \ev_q^\st T H. \end{equation*}
-Here $\Sigma \operatorname{d}\!f$ is defined by summing the images of the tangent vectors at the inward-pointing nodes on the circle, using the natural identification of each of these tangent spaces with $\OO(\delta)\otimes TC_0^\vee$ established above. By Lemma \ref{lemma type C0 combinatorial types} we have that it takes values in $TH$, rather than $T\PP^N$. This gives a section of the vector bundle
-\begin{equation*} V = (\ev_q^\st TH) \otimes (TC_0) \otimes \OO(-\delta) \end{equation*}
-which is transverse and whose vanishing locus coincides with $\Dcal$. Thus we obtain:
+The content of Lemma \DIFdelbegin \DIFdel{\ref{lemma fibres of Odelta} }\DIFdelend \DIFaddbegin \DIFadd{\ref{lem:generic_proj_bundle} }\DIFaddend is that the choice of \DIFaddbegin \DIFadd{a }\DIFaddend point in the fibre of \DIFdelbegin \DIFdel{$\widetilde\Dcal \to \widetilde\Ecal$ }\DIFdelend \DIFaddbegin \DIFadd{$\widetilde\Dcal \to \Ecal$ }\DIFaddend provides a natural identification between the inward-pointing tangent \DIFdelbegin \DIFdel{spaces }\DIFdelend \DIFaddbegin \DIFadd{lines }\DIFaddend on the circle. \DIFdelbegin \DIFdel{This identification amounts to a specific linear dependence relation between the tangent vectors, which gives a point in the moduli space of attaching data for the corresponding elliptic singularity \mbox{%DIFAUXCMD
+\cite[\S 2.2]{SMY2}}%DIFAUXCMD
+. We may }\DIFdelend \DIFaddbegin \DIFadd{According to Lemma \ref{lemma fibres of Odelta}, they can further be identified with the line bundle $\OO(\delta)\otimes \mathbb T^\vee$ on $\widetilde\Dcal$. %DIF > This identification amounts to a specific linear dependence relation between the tangent vectors, which gives a point in the moduli space of attaching data for the corresponding elliptic singularity \cite[\S 2.2]{SMY2}.
+After Corollary \ref{cor:maps_from_elliptic_sing}, we can }\DIFaddend therefore express the factorisation condition in terms of \DIFaddbegin \DIFadd{degeneracy of }\DIFaddend the following natural morphism of vector bundles on $\widetilde\Dcal$:
+\begin{equation*} \Sigma \operatorname{d}\!f \colon \OO(\delta)\otimes \DIFdelbegin \DIFdel{TC_0}\DIFdelend \DIFaddbegin \DIFadd{\mathbb T}\DIFaddend ^\vee \to \ev_q^\st T H. \end{equation*}
+Here $\Sigma \operatorname{d}\!f$ is defined by summing the images of the tangent vectors at the inward-pointing nodes on the circle, using the natural identification of each of these tangent spaces with \DIFdelbegin \DIFdel{$\OO(\delta)\otimes TC_0^\vee$ }\DIFdelend \DIFaddbegin \DIFadd{$\OO(\delta)\otimes \mathbb T^\vee$ }\DIFaddend established above. \DIFdelbegin \DIFdel{By Lemma \ref{lemma type C0 combinatorial types} we have that it }\DIFdelend \DIFaddbegin \DIFadd{Apart from the case dealt with in \S \ref{S:lines}, the composite:
+}\[\DIFadd{\operatorname{pr}\circ\Sigma \operatorname{d}\!f \colon \OO(\delta)\otimes \mathbb T^\vee \to \ev_q^\st T \PP^N\to \ev_q^* N_{H/\PP^N}}\]
+ \DIFadd{vanishes, because the contact order of the exterior components with $H$ is strictly higher than $1$. So, $\Sigma \operatorname{d}\!f$ }\DIFaddend takes values in $TH$, rather than $T\PP^N$. 
+ \DIFaddbegin 
+
+ \DIFaddend This gives a section of the vector bundle
+\begin{equation*} V = (\ev_q^\st TH) \otimes \DIFdelbegin \DIFdel{(TC_0) }\DIFdelend \DIFaddbegin \DIFadd{\mathbb T }\DIFaddend \otimes \OO(-\delta) \end{equation*}
+which is transverse and whose vanishing locus coincides with $\Dcal$. \DIFaddbegin \DIFadd{Transversality follows from the construction, because any stratum of the boundary on which $\Sigma \operatorname{d}\!f$ may have vanished has been (blown up and) included into $\mathbb T \otimes \OO(-\delta)$ as a twist. In other words, the circle of radius $\delta$ always passes through at least one component which is not contracted by the map to the expansion. Now, if the vanishing locus of $\Sigma \operatorname{d}\!f$ does not contain any stratum of the boundary, then it is the closure of its intersection with the open stratum, which can be seen to be transverse. }\DIFaddend Thus we obtain:
 \begin{prop} \label{class of D} $[\Dcal] = \operatorname{e}(V) \cap [\widetilde\Dcal]$.\end{prop}
 We claim that the class $\operatorname{e}(V)$ is tautological and computable. The only part which needs justification is $\OO(\delta)$. We claim that this can be obtained by pulling back a line bundle from $\Ecal$ and twisting by exceptional divisors.
 \begin{lemma} For $i\in \{1,\ldots,r\}$ consider the line bundle
@@ -1193,7 +1758,7 @@ We claim that the class $\operatorname{e}(V)$ is tautological and computable. Th
 on $\Ecal$, where $q_i$ is the splitting node. Then $\OO(\delta)$ is isomorphic to the pull-back of $T_i$ to $\widetilde\Dcal$ twisted by all exceptional divisors.\end{lemma}
 We illustrate this lemma in the following example, which brings out the interplay between logarithmic moduli and \DIFdelbegin \DIFdel{blow-ups}\DIFdelend \DIFaddbegin \DIFadd{blowups}\DIFaddend .
 \begin{example}
-Consider the locus $\Ecal$ given by $\sigma$ below, and the exceptional divisor $\widetilde\Dcal_\rho \subseteq \widetilde\Dcal$ given by $\rho$:
+Consider the locus $\Ecal$ given by $\sigma$ below, and the \DIFdelbegin \DIFdel{exceptional divisor $\widetilde\Dcal_\rho \subseteq \widetilde\Dcal$ given by }\DIFdelend \DIFaddbegin \DIFadd{codimension one locus $\widetilde\Dcal_\rho \subseteq \widetilde\Dcal_\sigma$ given by the two-dimensional (due to the alignment) cone }\DIFaddend $\rho$:
 \begin{figure}[!htbp]
 \begin{minipage}{0.3\textwidth}
 \centering
@@ -1310,7 +1875,11 @@ e:=e_1 = e_2, \qquad f:=f_1 = f_2 = 2f_3, \qquad g:=g_1 = g_2 = 2g_3
 together with the equation imposed by the choice of alignment:
 \begin{align*} e_1 + f_1 = e_2 + f_3 + g_3 \qquad (\Longleftrightarrow f = g).
 \end{align*}
-From now on we use the same symbol to denote an edge length and the corresponding node on $\widetilde\Dcal_\rho$. On this locus we have line bundles pulled back from $\Ecal$
+\DIFaddbegin 
+
+\DIFadd{In this example we have:
+}\[\DIFadd{\lambda(\plC^0_1)=\lambda(\plC^0_2)=e,\quad \lambda(\plC^1_1)=\lambda(\plC^2_1)=\lambda(\plC^2_2)=e+f=\delta,\quad \lambda(\plC^3_1)=\lambda(\plC^4_1)=e+2f.}\]
+\DIFaddend From now on we use the same symbol to denote an edge length and the corresponding node on $\widetilde\Dcal_\rho$. On this locus we have line bundles pulled back from $\Ecal$
 \begin{align*} T_1 & = T_{e_1} C_1^0 \otimes T_{e_1} C_0 \\
 T_2 & = T_{e_2} C_2^0 \otimes T_{e_2} C_0\end{align*}
 as well as the logarithmic line bundle
@@ -1329,36 +1898,169 @@ where we have used the same telescoping trick. Thus we have proven \eqref{Odelta
 \end{example}
 
 
-\subsubsection{$\Dcal$ from $\widetilde\Dcal$: second way} To establish a more direct connection with the geometry of the fibre product \eqref{IIIa fibre product}, recall that $\widetilde\Ecal$ is built as an explicit modification of a finite cover of \eqref{IIIa fibre product}. For $i \in\{1,\ldots,r\}$ (with the convention established at the end of Lemma \ref{lem:generic_proj_bundle}), it makes sense on $\widetilde\Ecal$ to consider the line bundle $\OO(\delta_i)$ associated to a shortest path from the core to the circle in the $\sqC_i$-direction. Construct
-\begin{equation*}\mathcal P=\PP_{\widetilde\Ecal}\left(\bigoplus_{i=1}^r\OO(\delta_i)\right).\end{equation*}
-Since $\sqC_1,\ldots,\sqC_r$ are always ordered on $\widetilde \Dcal$ (they may lie on the circle, be the first component off the circle, or degenerate and lie in the strict interior), there is a morphism $\widetilde \Dcal\to\mathcal P$ lifting $\widetilde \Dcal\to\widetilde\Ecal$. Consider the map of vector bundles on $\mathcal P$:
-\begin{equation*}  \OO_{\mathcal P}(-1)\to p^*\left(\bigoplus_{i=1}^r\OO(\delta_i)\right)\xrightarrow{\sum\operatorname{d}\!f}\ev_q^*TH.\end{equation*}
-The composite, regarded as a section $s$ of $W=\OO_{\mathcal P}(1)\otimes \operatorname{ev}_q^*(TH)$, vanishes precisely where $f$ factors through the elliptic singularity determined by the point in the fibre of $p$. Generically on $\widetilde\Ecal$, this is exactly what we are after (compare with Lemma \ref{lem:generic_proj_bundle}). On the boundary, though, it may happen that a simultaneous degeneration in the base and the fibre makes this factorisation trivial, in the sense that the map $\bar f$ is constant on all the branches of the elliptic singularity.
+\subsubsection{$\Dcal$ from $\widetilde\Dcal$: second way} \DIFdelbegin \DIFdel{To establish }\DIFdelend %DIF > To establish a more direct connection with the geometry of the fibre product \eqref{IIIa fibre product}, recall that $\widetilde\Ecal$ is built as an explicit modification of a finite cover of \eqref{IIIa fibre product}. For $i \in\{1,\ldots,r\}$ (with the convention established at the end of Lemma \ref{lem:generic_proj_bundle}), it makes sense on $\widetilde\Ecal$ to consider the line bundle $\OO(\delta_i)$ associated to a shortest path from the core to the circle in the $\sqC_i$-direction. 
+\DIFaddbegin \DIFadd{We analyse the degeneracy locus of $\Sigma\operatorname{d}\!f$, in order to have }\DIFaddend a more direct \DIFdelbegin \DIFdel{connection with the geometry of }\DIFdelend \DIFaddbegin \DIFadd{construction of $\Dcal$ from }\DIFaddend the fibre product \eqref{IIIa fibre product}\DIFdelbegin \DIFdel{, recall that $\widetilde\Ecal$ is built as an explicit modification of a finite cover of }%DIFDELCMD < \eqref{IIIa fibre product}%%%
+\DIFdel{. For $i \in\{1,\ldots,r\}$ (with the convention established at the end of Lemma \ref{lem:generic_proj_bundle}), it makes sense on $\widetilde\Ecal$ to consider the }\DIFdelend \DIFaddbegin \DIFadd{. On $\Ecal$ consider the piecewise linear function $\delta_i$ ($i=1,\ldots,r$), defined as the minimal distance from a component of (i.e. generising to) the core $\plC_0$ to a non-contracted component of the $i$-th tail $\plC_i$, and the associated }\DIFaddend line bundle $\OO(\delta_i)$\DIFdelbegin \DIFdel{associated to a shortest path }\DIFdelend \DIFaddbegin \DIFadd{.
+Construct
+}\begin{equation*}\DIFadd{\mathcal P=\PP_{\Ecal}\left(\bigoplus_{i=1}^r\OO(\delta_i)\right)\xrightarrow{p}\Ecal.}\end{equation*}
+\DIFadd{When all fibre coordinates are non-zero, a point of $\mathcal P$ induces compatible isomorphisms $\OO(\delta_i)\simeq\OO(\delta_j)$ for all $i,j$. We think of this as saying that all the $\plC_i$ are at the same distance }\DIFaddend from the core\DIFdelbegin \DIFdel{to the circle in the $\sqC_i$-direction. Construct
+}\begin{displaymath}\DIFdel{\mathcal P=\PP_{\widetilde\Ecal}\left(\bigoplus_{i=1}^r\OO(\delta_i)\right).}\end{displaymath}
+%DIFAUXCMD
+\DIFdel{Since $\sqC_1,\ldots,\sqC_r$ are always ordered on $\widetilde \Dcal$ (they may lie on the circle, be the first component off the circle, or degenerate and lie in the strict interior),
+}\DIFdelend \DIFaddbegin \DIFadd{. When some of the coordinates are $0$, the corresponding tail is further from the core. This corresponds to an alignment of $\plC_1,\ldots,\plC_r$ with respect to the radius $\delta$, that is the distance of the closest of them from the core. Therefore, by the universal property,
+%DIF > Since $\sqC_1,\ldots,\sqC_r$ are always ordered on $\widetilde \Dcal$ (they may lie on the circle, be the first component off the circle, or degenerate and lie in the strict interior),
+}\DIFaddend there is a morphism $\widetilde \Dcal\to\mathcal P$ lifting \DIFdelbegin \DIFdel{$\widetilde \Dcal\to\widetilde\Ecal$. 
+Consider }\DIFdelend \DIFaddbegin \DIFadd{$\widetilde \Dcal\to \Ecal$. 
+}
 
-\begin{lemma}
- For every $\Lambda_B\subseteq \{\sqC_1,\ldots,\sqC_r\}$ and $\Lambda_F=\{\sqC_1,\ldots,\sqC_r\}\setminus \Lambda_B$, $s$ vanishes along the loci where the factors corresponding to $\Lambda_B$ in $\widetilde \Ecal$ degenerate so that $f_i\colon C_i\to\PP^N$ is constant in a neighbourhood of $q_i$, and the fibre coordinates $(\lambda_j)_{j\in\Lambda_F}$ along $p\colon\mathcal P\to\widetilde \Ecal$ are set to be $0$.
-\end{lemma}
-Call these loci $\Xi_\Lambda$ for $\Lambda=(\Lambda_B,\Lambda_F)$ (compare with \cite[\S 3.2]{VZ} for an analogous phenomenon in the non-relative case); clearly, they may be in excess with respect to the expected codimension of $V(s)$, that is $N-1$. These loci are logarithmic substrata; therefore, there exists a logarithmic \DIFdelbegin \DIFdel{blow-up }\DIFdelend \DIFaddbegin \DIFadd{blowup }\DIFaddend that principalises them. We claim which $\widetilde\Dcal$ is (possibly a refinement of) such a \DIFdelbegin \DIFdel{blow-up}\DIFdelend \DIFaddbegin \DIFadd{blowup}\DIFaddend . 
+\DIFadd{In order to express factorisation, consider }\DIFaddend the map of vector bundles on $\mathcal P$:
+\begin{equation*}  \OO_{\mathcal P}(-1)\to p^*\left(\bigoplus_{i=1}^r\OO(\delta_i)\right)\xrightarrow{\sum\operatorname{d}\!f}\ev_q^*TH.\end{equation*}
+The composite, regarded as a section $s$ of $W=\OO_{\mathcal P}(1)\otimes \operatorname{ev}_q^*(TH)$, vanishes precisely where $f$ factors through the elliptic singularity determined by the point in the fibre of $p$. Generically on $\widetilde\Ecal$, this is exactly what we are after (compare with Lemma \ref{lem:generic_proj_bundle}). On the boundary, though, it may happen that a simultaneous degeneration in the base and the fibre makes this factorisation trivial, in the sense that the map $\bar f$ is constant on all the branches of the elliptic singularity. \DIFdelbegin %DIFDELCMD < 
+
+%DIFDELCMD < \begin{lemma}
+%DIFDELCMD <  %%%
+\DIFdel{For every }\DIFdelend \DIFaddbegin \DIFadd{These loci may be identified explicitly: let $\Lambda=(\Lambda_B,\Lambda_F)$ with }\DIFaddend $\Lambda_B\subseteq \{\sqC_1,\ldots,\sqC_r\}$ and $\Lambda_F=\{\sqC_1,\ldots,\sqC_r\}\setminus \Lambda_B$, \DIFdelbegin \DIFdel{$s$ vanishes along the loci where}\DIFdelend \DIFaddbegin \DIFadd{and let $\Xi_\Lambda$ be the locus in $\mathcal P$ where:
+} \begin{itemize} 
+ \item[(B)] \DIFadd{$\forall i\in\Lambda_B$, the $i$-th component of the fibre product }\eqref{IIIa fibre product}\DIFadd{, namely the map $f_i\colon C_i\to(\PP^N|H)$, degenerates so that it is constant near the attaching point to the core.
+ }\item[(F)] \DIFadd{$\forall j\in\Lambda_F$, }\DIFaddend the \DIFdelbegin \DIFdel{factors corresponding to $\Lambda_B$ in $\widetilde \Ecal$ degenerate so that $f_i\colon C_i\to\PP^N$ is constant in a neighbourhood of $q_i$, and the fibre coordinates $(\lambda_j)_{j\in\Lambda_F}$ along $p\colon\mathcal P\to\widetilde \Ecal$ are set to be }\DIFdelend \DIFaddbegin \DIFadd{$j$-th coordinate in the fibre of $p\colon\mathcal P\to\Ecal$ vanishes.
+} \end{itemize} 
+\DIFadd{It should be noted that the degeneracy loci of (B) are themselves Gathmann's comb loci \mbox{%DIFAUXCMD
+\cite{Ga}}%DIFAUXCMD
+, similar to the loci $\pazocal D$ that we are considering, only this time in genus }\DIFaddend $0$\DIFdelbegin \DIFdel{.
+}%DIFDELCMD < \end{lemma}
+%DIFDELCMD < %%%
+\DIFdel{Call these loci }\DIFdelend \DIFaddbegin \DIFadd{, and therefore recursively computable.
+}\begin{lemma} 
+ \DIFadd{The }\DIFaddend $\Xi_\Lambda$ \DIFdelbegin \DIFdel{for $\Lambda=(\Lambda_B,\Lambda_F)$ (compare }\DIFdelend \DIFaddbegin \DIFadd{are precisely the boundary loci on which $s$ vanishes.
+}\end{lemma}
+
+\DIFadd{Compare }\DIFaddend with \cite[\S 3.2]{VZ} for an analogous phenomenon in the non-relative case\DIFdelbegin \DIFdel{); clearly, they }\DIFdelend \DIFaddbegin \DIFadd{. Clearly, these loci }\DIFaddend may be in excess with respect to the expected codimension of $V(s)$, that is $N-1$. These loci are logarithmic substrata; therefore, there exists a logarithmic \DIFdelbegin \DIFdel{blow-up }\DIFdelend \DIFaddbegin \DIFadd{blowup }\DIFaddend that principalises them. We claim \DIFdelbegin \DIFdel{which }\DIFdelend \DIFaddbegin \DIFadd{that }\DIFaddend $\widetilde\Dcal$ is \DIFdelbegin \DIFdel{(possibly a refinement of) such a blow-up}\DIFdelend \DIFaddbegin \DIFadd{one}\DIFaddend . 
 \begin{lemma}
  The pullback of $\Xi_\Lambda$ is principal in $\widetilde\Dcal$.
 \end{lemma}
 \begin{proof}We analyse the ideal of $\Xi_\Lambda$: it is generated by
   \begin{enumerate} 
-  \item equations on $\widetilde\Ecal$ cutting the locus where $C_i$ degenerates so that $f_i$ is constant on a neighbourhood of $q_i$ for $i\in \Lambda_B$: these correspond to the tropical functions $\delta_i-\lambda(q_i)$ where $\lambda$ is the distance function to the core;
+  \item equations on \DIFdelbegin \DIFdel{$\widetilde\Ecal$ }\DIFdelend \DIFaddbegin \DIFadd{$\Ecal$ }\DIFaddend cutting the locus where $C_i$ degenerates so that $f_i$ is constant on a neighbourhood of $q_i$ for $i\in \Lambda_B$: these correspond to the tropical functions $\delta_i-\lambda(q_i)$ where $\lambda$ is the distance function to the core;
   \item equations on the fibre of $p$ for the linear subspace corresponding to $i\in \Lambda_F$: tropically, these correspond to the $\ell_i$ discussed in Lemma \ref{lem:generic_proj_bundle}.
   \end{enumerate} 
-By construction, on $\widetilde \Dcal$ it is always possible to tell which of these tropical lengths is the shortest (the circle we have drawn on $\Xi_\Lambda$ is degenerate -- it passes through no vertex of positive horizontal degree -- therefore we need to decide for a strictly larger circle in order to lift to $\widetilde D$), which corresponds to principalising the ideal (see Figure \ref{fig:principalisation}).
+By construction, on $\widetilde \Dcal$ it is always possible to tell which of these tropical lengths is the shortest\DIFdelbegin \DIFdel{(}\DIFdelend \DIFaddbegin \DIFadd{. Figure \ref{fig:principalisation} represents the situation: }\DIFaddend the circle we have drawn on $\Xi_\Lambda$ is degenerate \DIFdelbegin \DIFdel{-- }\DIFdelend \DIFaddbegin \DIFadd{- }\DIFaddend it passes through no \DIFdelbegin \DIFdel{vertex of positive horizontal degree -- }\DIFdelend \DIFaddbegin \DIFadd{non-contracted vertex - }\DIFaddend therefore we need to decide for a strictly larger circle in order to lift to $\widetilde D$\DIFdelbegin \DIFdel{), which corresponds to principalising the ideal (see Figure \ref{fig:principalisation})}\DIFdelend \DIFaddbegin \DIFadd{. This shows that the ideal is principalised on $\widetilde \Dcal$}\DIFaddend .
 \end{proof}
 
-\begin{figure}
-\includegraphics[scale=.5]{principalisation}
-\caption{On the left, a generic point of $\mathcal P$. On the right, a point of $\Xi$. The dotted circle is the one we draw on $\mathcal P$. The continuous circle represents one of the possible choices of $\delta$ enlarging the dotted one (a stratum of $\widetilde\Dcal$).}\label{fig:principalisation}
+\DIFdelbegin %DIFDELCMD < \begin{figure}
+%DIFDELCMD < \includegraphics[scale=.5]{principalisation}
+%DIFDELCMD < %%%
+\DIFdelendFL \DIFaddbeginFL \begin{figure}[hbt]
+\begin{tikzpicture}[ipe import]
+  %\useasboundingbox (0, 0) rectangle (595, 842);
+
+ %%%%%%%%%%%%%%%% left
+  \draw
+    (64, 720)node[left]{$\plC_2$}
+     -- (112, 736)node[above]{$\plC_0$}
+     -- (96, 752)node[left]{$\plC_1$};
+  \draw[->]
+    (64, 704)
+     -- (128, 704);
+  \pic
+     at (64, 704) {ipe disk} ;
+  \pic
+     at (64, 720) {ipe disk};
+  \pic
+     at (96, 752) {ipe disk};
+  \draw[red, dotted]
+    (60.6969, 708.808)
+     arc[start angle=-161.5651, end angle=-71.5651, x radius=53.2078, y radius=-65.2105];
+
+     
+   %%%%%%%%%%%%%%%%% right  
+ \draw[red]
+    (188.9249, 712.0225) node[right]{$\delta$}
+     arc[start angle=-156.5092, end angle=-115.3692, x radius=85.088, y radius=-96.462];
+
+  \draw
+    (192, 720) node[left]{$\plC_2$}
+     -- (240, 736)node[above]{$\plC_0$}
+     -- (224, 752)node[above]{$\plC_1^0$};
+  \draw[->]
+    (192, 704)
+     -- (256, 704);
+
+  \pic
+     at (192, 704) {ipe disk};
+  \pic
+     at (192, 720) {ipe disk};
+  \pic
+     at (224, 752) {ipe disk};
+
+  \draw
+    (112, 736)
+     -- (128, 736);
+  \draw
+    (240, 736)
+     -- (256, 736);
+  \draw
+    (208, 743) node[left]{$\plC_1^2$}
+     -- (224, 752);
+  \draw
+    (208, 759) node[left]{$\plC_1^1$}
+     -- (224, 752);
+  \pic
+     at (208, 743) {ipe disk};
+  \pic
+     at (208, 759) {ipe disk};
+  \pic
+     at (208, 704) {ipe cross};
+  \pic
+     at (224, 704) {ipe cross};
+  \pic
+     at (240, 704) {ipe cross};
+  \pic
+     at (96, 704) {ipe cross};
+  \pic
+     at (112, 704) {ipe cross};
+  \draw[red, dotted]
+    (231.0126, 755.9018)
+     { [rotate=-17.595] arc[start angle=135, end angle=225, x radius=21.7093, y radius=22.6274] };
+
+  \pic
+     at (220, 729) {ipe cross}; 
+
+    \pic[fill=white]
+     at (112, 736) {ipe fdisk};  
+     \pic[fill=white]
+     at (240, 736) {ipe fdisk};
+
+\end{tikzpicture}
+%DIF > \includegraphics[scale=.5]{principalisation}
+\DIFaddendFL \caption{On the left, a generic point of $\mathcal P$. On the right, a point of $\Xi$. The dotted circle is the one we draw on $\mathcal P$. The continuous circle represents \DIFdelbeginFL \DIFdelFL{one of the possible choices of }\DIFdelendFL $\delta$ enlarging the dotted one (a stratum of $\widetilde\Dcal$).}\label{fig:principalisation}
 \end{figure}
 
-Finally, on $\widetilde\Dcal$ (or, in fact, on an intermediate \DIFdelbegin \DIFdel{blow-up }\DIFdelend \DIFaddbegin \DIFadd{blowup }\DIFaddend $\widetilde{\mathcal P}\to\mathcal P$) there are exceptional divisors $\widetilde \Xi_\Lambda$ corresponding to $\Xi_\Lambda$ in $\mathcal P$. Since the $\Xi_\Lambda$ exhaust all the excess-dimensional components of the vanishing locus of $s\in H^0(\mathcal P,W)$, the latter induces a section $\tilde s\in H^0(\widetilde\Dcal,W(-\Sigma_\Lambda \widetilde\Xi_\Lambda))$ by pullback and twisting, whose vanishing locus is dimensionally transverse to the boundary, and whose open part coincides with the generic point of $\Dcal$, therefore $V(\tilde s)=\Dcal$.
+Finally, on $\widetilde\Dcal$ \DIFdelbegin \DIFdel{(or, in fact, on an intermediate blow-up $\widetilde{\mathcal P}\to\mathcal P$) }\DIFdelend %DIF > (or, in fact, on an intermediate blowup $\widetilde{\mathcal P}\to\mathcal P$)
+there are exceptional divisors $\widetilde \Xi_\Lambda$ corresponding to $\Xi_\Lambda$ in $\mathcal P$. Since the $\Xi_\Lambda$ exhaust all the excess-dimensional components of the vanishing locus of $s\in H^0(\mathcal P,W)$, the latter induces a section $\tilde s\in H^0(\widetilde\Dcal,W(-\Sigma_\Lambda \widetilde\Xi_\Lambda))$ by pullback and twisting, whose vanishing locus is dimensionally transverse to the boundary, and whose open part coincides with the generic point of $\Dcal$, therefore $V(\tilde s)=\Dcal$.
 
-Expressing the pushforward of the Chern classes of $\OO_W(1)$ and $\OO(\widetilde\Xi_\Lambda)$ in terms of tautological classes on the fibre product underlying $\Ecal$, we get:
-\begin{cor}
+\DIFdelbegin \DIFdel{Expressing the pushforward of the Chern classes of $\OO_W(1)$ and $\OO(\widetilde\Xi_\Lambda)$ }\DIFdelend \DIFaddbegin \begin{prop}
+ \[ [\DIFadd{\Dcal}]\DIFadd{=e(W(-\Sigma_\Lambda \widetilde\Xi_\Lambda))\cap[\widetilde{\mathcal P}]}\]
+ \DIFadd{where $\widetilde{\mathcal P}$ denotes the blow-up of $\mathcal P$ in the $\Xi_\Lambda$.
+}\end{prop}
+
+\DIFadd{Applying \mbox{%DIFAUXCMD
+\cite[Corollary 4.2.2]{FUL}}%DIFAUXCMD
+, we get:
+}\begin{cor} \DIFadd{In $A_*(\mathcal P)$ the following formula holds:
+ }\[ [\DIFadd{\Dcal}]\DIFadd{=\sum_{\Lambda}\sum_i s_i(\Xi_\Lambda,\mathcal P)c_{N-1-i}(\ev_q^*TH\otimes\OO_\mathcal P(1))}\]
+\end{cor}
+
+\DIFadd{It is possible to push the formula further down to $\Ecal$, and applying \mbox{%DIFAUXCMD
+\cite[\S3.1]{FUL} }%DIFAUXCMD
+we obtain an expression for $[\Dcal]$ }\DIFaddend in terms of\DIFdelbegin \DIFdel{tautological classeson the fibre product underlying $\Ecal$, we get:
+}\DIFdelend \DIFaddbegin \DIFadd{:
+} \begin{itemize} 
+ \item \DIFadd{evaluation classes, such as $\ev_q^*TH$;
+ }\item \DIFadd{Chern classes of the logarithmic line bundles $\OO(\delta_i)$;
+ }\item \DIFadd{Segre classes of Gathmann's comb loci indexed by $\Lambda_B$.
+} \end{itemize} 
+
+\DIFaddend \begin{cor}
  After pushforward to $\Ecal$, the contribution of $\Dcal$ to the invariants can be computed in terms of tautological integrals on moduli spaces of maps with lower numerics.
 \end{cor}
 
@@ -1790,12 +2492,14 @@ which contributes a nonzero multiple of the invariant $I$ we are trying to compu
 \bigskip\bigskip
 
 \noindent Luca Battistella\\
-Max-Planck-Institut f\"ur Mathematik, Bonn \\
-\href{mailto:battistella@mpim-bonn.mpg.de}{battistella@mpim-bonn.mpg.de}\\
+\DIFdelbegin \DIFdel{Max-Planck-Institut f\"ur Mathematik, Bonn }\DIFdelend \DIFaddbegin \DIFadd{Mathematisches Institut, Universit\"at Heidelberg }\DIFaddend \\
+\DIFdelbegin %DIFDELCMD < \href{mailto:battistella@mpim-bonn.mpg.de}{battistella@mpim-bonn.mpg.de}%%%
+\DIFdelend \DIFaddbegin \href{mailto:lbattistella@mathi.uni-heidelberg.de}{lbattistella@mathi.uni-heidelberg.de}\DIFaddend \\
 
 \noindent Navid Nabijou \\
-School of Mathematics and Statistics, University of Glasgow \\
-\href{mailto:Navid.Nabijou@glasgow.ac.uk}{navid.nabijou@glasgow.ac.uk}\\
+\DIFdelbegin \DIFdel{School of Mathematics and }\DIFdelend \DIFaddbegin \DIFadd{Department of Pure Mathematics and Mathematical }\DIFaddend Statistics, University of \DIFdelbegin \DIFdel{Glasgow }\DIFdelend \DIFaddbegin \DIFadd{Cambridge }\DIFaddend \\
+\DIFdelbegin %DIFDELCMD < \href{mailto:Navid.Nabijou@glasgow.ac.uk}{navid.nabijou@glasgow.ac.uk}%%%
+\DIFdelend \DIFaddbegin \href{mailto:nn333@cam.ac.uk}{nn333@cam.ac.uk}\DIFaddend \\
 
 \noindent Dhruv Ranganathan \\
 Department of Pure Mathematics and Mathematical Statistics, University of Cambridge \\
