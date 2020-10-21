@@ -1202,7 +1202,7 @@ The combinatorics of the flattening can be described explicitly. Consider the ma
 \]
 The tropical curves on the left inherit a central alignment from $\widetilde{\VZ}_{1,\alpha}(\PP^N|H,d)$, which orders a certain subset of the edge lengths. The polyhedral criterion for equidimensionality is that every cone of the source maps surjectively onto a cone of the target. There is a universal logarithmic modification $\widetilde\Ecal \to \Ecal$ such that $\widetilde\Dcal \to \widetilde\Ecal$ is flat, constructed by taking the minimal subdivision of $\Ecal^{\operatorname{trop}}$ such that cones map surjectively to cones (see Figure \ref{fig:Etilde}).
 
-This subdivision is best described using the formalism of extended tropicalizations \cite{Thuillier,ACP}. The subdividing cones are obtained from cones in the star of $\tau$ under the limit $e_1=\cdots=e_r=\infty$\marginpar{Was $r$ called $\epsilon$ before?}. The cones in the star of $\tau$ are given by (in)equalities relating distances of pairs of vertices, and there are three cases to consider:
+This subdivision is best described using the formalism of extended tropicalizations \cite{Thuillier,ACP}. The subdividing cones are obtained from cones in the star of $\tau$ under the limit $e_1=\cdots=e_r=\infty$\sidenote{Was $r$ called $\epsilon$ before?}. The cones in the star of $\tau$ are given by (in)equalities relating distances of pairs of vertices, and there are three cases to consider:
 \begin{enumerate}
 \item both vertices are components of the subgraph $\sqC \setminus \sqC_0$;
 \item both vertices are components of the subgraph $\sqC_0$;
@@ -1483,7 +1483,7 @@ A slight modification of the argument above is required to account for the fact 
 \caption{Moving vertices off the circle creates new tropical parameters.}\label{fig:off_we_go}
 \end{figure}
 
-\subsubsection{$\Dcal$ from $\widetilde\Dcal$: first way}\label{subsection D from Dtilde} On $\widetilde\Dcal$ there is a tautological line bundle arising from the modular description of $\widetilde\VZ_{1,\alpha}(\PP^N|H,d)$, namely $\OO(\delta)$. Recall that the piecewise linear function $\delta$ may be viewed as a global section of the characteristic sheaf of the logarithmic structure on $\widetilde\VZ_{1,\alpha}(\PP^N|H,d)$. The toric geometry dictionary gives rise to an associated Cartier divisor. Alternatively\marginpar{worth moving to the preliminary section?}, for any logarithmic stack $X$, the natural coboundary map induced by $$0\to \mathcal O_X^\star\to M_X^\text{gp}\to \overline M_X^\text{gp}\to 0$$ associates a $\mathcal O_X^\star$-torsor to a global section of the characteristic sheaf. 
+\subsubsection{$\Dcal$ from $\widetilde\Dcal$: first way}\label{subsection D from Dtilde} On $\widetilde\Dcal$ there is a tautological line bundle arising from the modular description of $\widetilde\VZ_{1,\alpha}(\PP^N|H,d)$, namely $\OO(\delta)$. Recall that the piecewise linear function $\delta$ may be viewed as a global section of the characteristic sheaf of the logarithmic structure on $\widetilde\VZ_{1,\alpha}(\PP^N|H,d)$. The toric geometry dictionary gives rise to an associated Cartier divisor. Alternatively\sidenote{worth moving to the preliminary section?}, for any logarithmic stack $X$, the natural coboundary map induced by $$0\to \mathcal O_X^\star\to M_X^\text{gp}\to \overline M_X^\text{gp}\to 0$$ associates a $\mathcal O_X^\star$-torsor to a global section of the characteristic sheaf. 
 
 
 \begin{lemma}\label{lemma fibres of Odelta}
@@ -1654,35 +1654,144 @@ where we have used the same telescoping trick. Thus we have proven \eqref{Odelta
 \end{example}
 
 
-\subsubsection{$\Dcal$ from $\widetilde\Dcal$: second way} To establish a more direct connection with the geometry of the fibre product \eqref{IIIa fibre product}, recall that $\widetilde\Ecal$ is built as an explicit modification of a finite cover of \eqref{IIIa fibre product}. For $i \in\{1,\ldots,r\}$ (with the convention established at the end of Lemma \ref{lem:generic_proj_bundle}), it makes sense on $\widetilde\Ecal$ to consider the line bundle $\OO(\delta_i)$ associated to a shortest path from the core to the circle in the $\sqC_i$-direction. Construct
-\begin{equation*}\mathcal P=\PP_{\widetilde\Ecal}\left(\bigoplus_{i=1}^r\OO(\delta_i)\right).\end{equation*}
-Since $\sqC_1,\ldots,\sqC_r$ are always ordered on $\widetilde \Dcal$ (they may lie on the circle, be the first component off the circle, or degenerate and lie in the strict interior), there is a morphism $\widetilde \Dcal\to\mathcal P$ lifting $\widetilde \Dcal\to\widetilde\Ecal$. Consider the map of vector bundles on $\mathcal P$:
-\begin{equation*}  \OO_{\mathcal P}(-1)\to p^*\left(\bigoplus_{i=1}^r\OO(\delta_i)\right)\xrightarrow{\sum\operatorname{d}\!f}\ev_q^*TH.\end{equation*}
-The composite, regarded as a section $s$ of $W=\OO_{\mathcal P}(1)\otimes \operatorname{ev}_q^*(TH)$, vanishes precisely where $f$ factors through the elliptic singularity determined by the point in the fibre of $p$. Generically on $\widetilde\Ecal$, this is exactly what we are after (compare with Lemma \ref{lem:generic_proj_bundle}). On the boundary, though, it may happen that a simultaneous degeneration in the base and the fibre makes this factorisation trivial, in the sense that the map $\bar f$ is constant on all the branches of the elliptic singularity.
+\subsubsection{$\Dcal$ from $\widetilde\Dcal$: second way} %To establish a more direct connection with the geometry of the fibre product \eqref{IIIa fibre product}, recall that $\widetilde\Ecal$ is built as an explicit modification of a finite cover of \eqref{IIIa fibre product}. For $i \in\{1,\ldots,r\}$ (with the convention established at the end of Lemma \ref{lem:generic_proj_bundle}), it makes sense on $\widetilde\Ecal$ to consider the line bundle $\OO(\delta_i)$ associated to a shortest path from the core to the circle in the $\sqC_i$-direction. 
+We analyse the degeneracy locus of $\Sigma\operatorname{d}\!f$, in order to have a more direct construction of $\Dcal$ from the fibre product \eqref{IIIa fibre product}. On $\Ecal$ consider the piecewise linear function $\delta_i$ ($i=1,\ldots,r$), defined as the minimal distance from a component of (i.e. generising to) the core $\plC_0$ to a non-contracted component of the $i$-th tail $\plC_i$, and the associated line bundle $\OO(\delta_i)$.
+Construct
+\begin{equation*}\mathcal P=\PP_{\Ecal}\left(\bigoplus_{i=1}^r\OO(\delta_i)\right)\xrightarrow{p}\Ecal.\end{equation*}
+When all fibre coordinates are non-zero, a point of $\mathcal P$ induces compatible isomorphisms $\OO(\delta_i)\simeq\OO(\delta_j)$ for all $i,j$. We think of this as saying that all the $\plC_i$ are at the same distance from the core. When some of the coordinates are $0$, the corresponding tail is further from the core. This corresponds to an alignment of $\plC_1,\ldots,\plC_r$ with respect to the radius $\delta$, that is the distance of the closest of them from the core. Therefore, by the universal property,
+%Since $\sqC_1,\ldots,\sqC_r$ are always ordered on $\widetilde \Dcal$ (they may lie on the circle, be the first component off the circle, or degenerate and lie in the strict interior),
+there is a morphism $\widetilde \Dcal\to\mathcal P$ lifting $\widetilde \Dcal\to \Ecal$. 
 
-\begin{lemma}
- For every $\Lambda_B\subseteq \{\sqC_1,\ldots,\sqC_r\}$ and $\Lambda_F=\{\sqC_1,\ldots,\sqC_r\}\setminus \Lambda_B$, $s$ vanishes along the loci where the factors corresponding to $\Lambda_B$ in $\widetilde \Ecal$ degenerate so that $f_i\colon C_i\to\PP^N$ is constant in a neighbourhood of $q_i$, and the fibre coordinates $(\lambda_j)_{j\in\Lambda_F}$ along $p\colon\mathcal P\to\widetilde \Ecal$ are set to be $0$.
+In order to express factorisation, consider the map of vector bundles on $\mathcal P$:
+\begin{equation*}  \OO_{\mathcal P}(-1)\to p^*\left(\bigoplus_{i=1}^r\OO(\delta_i)\right)\xrightarrow{\sum\operatorname{d}\!f}\ev_q^*TH.\end{equation*}
+The composite, regarded as a section $s$ of $W=\OO_{\mathcal P}(1)\otimes \operatorname{ev}_q^*(TH)$, vanishes precisely where $f$ factors through the elliptic singularity determined by the point in the fibre of $p$. Generically on $\widetilde\Ecal$, this is exactly what we are after (compare with Lemma \ref{lem:generic_proj_bundle}). On the boundary, though, it may happen that a simultaneous degeneration in the base and the fibre makes this factorisation trivial, in the sense that the map $\bar f$ is constant on all the branches of the elliptic singularity. These loci may be identified explicitly: let $\Lambda=(\Lambda_B,\Lambda_F)$ with $\Lambda_B\subseteq \{\sqC_1,\ldots,\sqC_r\}$ and $\Lambda_F=\{\sqC_1,\ldots,\sqC_r\}\setminus \Lambda_B$, and let $\Xi_\Lambda$ be the locus in $\mathcal P$ where:
+\begin{itemize}
+ \item[(B)] $\forall i\in\Lambda_B$, the $i$-th component of the fibre product \eqref{IIIa fibre product}, namely the map $f_i\colon C_i\to(\PP^N|H)$, degenerates so that it is constant near the attaching point to the core.
+ \item[(F)] $\forall j\in\Lambda_F$, the $j$-th coordinate in the fibre of $p\colon\mathcal P\to\Ecal$ vanishes.
+\end{itemize}
+It should be noted that the degeneracy loci of (B) are themselves Gathmann's comb loci \cite{Ga}, similar to the loci $\pazocal D$ that we are considering, only this time in genus $0$, and therefore recursively computable.
+\begin{lemma} 
+ The $\Xi_\Lambda$ are precisely the boundary loci on which $s$ vanishes.
 \end{lemma}
-Call these loci $\Xi_\Lambda$ for $\Lambda=(\Lambda_B,\Lambda_F)$ (compare with \cite[\S 3.2]{VZ} for an analogous phenomenon in the non-relative case); clearly, they may be in excess with respect to the expected codimension of $V(s)$, that is $N-1$. These loci are logarithmic substrata; therefore, there exists a logarithmic blowup that principalises them. We claim which $\widetilde\Dcal$ is (possibly a refinement of) such a blowup. 
+
+Compare with \cite[\S 3.2]{VZ} for an analogous phenomenon in the non-relative case. Clearly, these loci may be in excess with respect to the expected codimension of $V(s)$, that is $N-1$. These loci are logarithmic substrata; therefore, there exists a logarithmic blowup that principalises them. We claim that $\widetilde\Dcal$ is one. 
 \begin{lemma}
  The pullback of $\Xi_\Lambda$ is principal in $\widetilde\Dcal$.
 \end{lemma}
 \begin{proof}We analyse the ideal of $\Xi_\Lambda$: it is generated by
  \begin{enumerate}
-  \item equations on $\widetilde\Ecal$ cutting the locus where $C_i$ degenerates so that $f_i$ is constant on a neighbourhood of $q_i$ for $i\in \Lambda_B$: these correspond to the tropical functions $\delta_i-\lambda(q_i)$ where $\lambda$ is the distance function to the core;
+  \item equations on $\Ecal$ cutting the locus where $C_i$ degenerates so that $f_i$ is constant on a neighbourhood of $q_i$ for $i\in \Lambda_B$: these correspond to the tropical functions $\delta_i-\lambda(q_i)$ where $\lambda$ is the distance function to the core;
   \item equations on the fibre of $p$ for the linear subspace corresponding to $i\in \Lambda_F$: tropically, these correspond to the $\ell_i$ discussed in Lemma \ref{lem:generic_proj_bundle}.
  \end{enumerate}
-By construction, on $\widetilde \Dcal$ it is always possible to tell which of these tropical lengths is the shortest (the circle we have drawn on $\Xi_\Lambda$ is degenerate -- it passes through no vertex of positive horizontal degree -- therefore we need to decide for a strictly larger circle in order to lift to $\widetilde D$), which corresponds to principalising the ideal (see Figure \ref{fig:principalisation}).
+By construction, on $\widetilde \Dcal$ it is always possible to tell which of these tropical lengths is the shortest. Figure \ref{fig:principalisation} represents the situation: the circle we have drawn on $\Xi_\Lambda$ is degenerate - it passes through no non-contracted vertex - therefore we need to decide for a strictly larger circle in order to lift to $\widetilde D$. This shows that the ideal is principalised on $\widetilde \Dcal$.
 \end{proof}
 
-\begin{figure}
-\includegraphics[scale=.5]{principalisation}
-\caption{On the left, a generic point of $\mathcal P$. On the right, a point of $\Xi$. The dotted circle is the one we draw on $\mathcal P$. The continuous circle represents one of the possible choices of $\delta$ enlarging the dotted one (a stratum of $\widetilde\Dcal$).}\label{fig:principalisation}
+\begin{figure}[hbt]
+\begin{tikzpicture}[ipe import]
+  %\useasboundingbox (0, 0) rectangle (595, 842);
+  
+ %%%%%%%%%%%%%%%% left
+  \draw
+    (64, 720)node[left]{$\plC_2$}
+     -- (112, 736)node[above]{$\plC_0$}
+     -- (96, 752)node[left]{$\plC_1$};
+  \draw[->]
+    (64, 704)
+     -- (128, 704);
+  \pic
+     at (64, 704) {ipe disk} ;
+  \pic
+     at (64, 720) {ipe disk};
+  \pic
+     at (96, 752) {ipe disk};
+  \draw[red, dotted]
+    (60.6969, 708.808)
+     arc[start angle=-161.5651, end angle=-71.5651, x radius=53.2078, y radius=-65.2105];
+ 
+     
+   %%%%%%%%%%%%%%%%% right  
+ \draw[red]
+    (188.9249, 712.0225) node[right]{$\delta$}
+     arc[start angle=-156.5092, end angle=-115.3692, x radius=85.088, y radius=-96.462];
+ 
+  \draw
+    (192, 720) node[left]{$\plC_2$}
+     -- (240, 736)node[above]{$\plC_0$}
+     -- (224, 752)node[above]{$\plC_1^0$};
+  \draw[->]
+    (192, 704)
+     -- (256, 704);
+     
+  \pic
+     at (192, 704) {ipe disk};
+  \pic
+     at (192, 720) {ipe disk};
+  \pic
+     at (224, 752) {ipe disk};
+ 
+  \draw
+    (112, 736)
+     -- (128, 736);
+  \draw
+    (240, 736)
+     -- (256, 736);
+  \draw
+    (208, 743) node[left]{$\plC_1^2$}
+     -- (224, 752);
+  \draw
+    (208, 759) node[left]{$\plC_1^1$}
+     -- (224, 752);
+  \pic
+     at (208, 743) {ipe disk};
+  \pic
+     at (208, 759) {ipe disk};
+  \pic
+     at (208, 704) {ipe cross};
+  \pic
+     at (224, 704) {ipe cross};
+  \pic
+     at (240, 704) {ipe cross};
+  \pic
+     at (96, 704) {ipe cross};
+  \pic
+     at (112, 704) {ipe cross};
+  \draw[red, dotted]
+    (231.0126, 755.9018)
+     { [rotate=-17.595] arc[start angle=135, end angle=225, x radius=21.7093, y radius=22.6274] };
+  
+  \pic
+     at (220, 729) {ipe cross}; 
+  
+    \pic[fill=white]
+     at (112, 736) {ipe fdisk};  
+     \pic[fill=white]
+     at (240, 736) {ipe fdisk};
+ 
+\end{tikzpicture}
+%\includegraphics[scale=.5]{principalisation}
+\caption{On the left, a generic point of $\mathcal P$. On the right, a point of $\Xi$. The dotted circle is the one we draw on $\mathcal P$. The continuous circle represents $\delta$ enlarging the dotted one (a stratum of $\widetilde\Dcal$).}\label{fig:principalisation}
 \end{figure}
 
-Finally, on $\widetilde\Dcal$ (or, in fact, on an intermediate blowup $\widetilde{\mathcal P}\to\mathcal P$) there are exceptional divisors $\widetilde \Xi_\Lambda$ corresponding to $\Xi_\Lambda$ in $\mathcal P$. Since the $\Xi_\Lambda$ exhaust all the excess-dimensional components of the vanishing locus of $s\in H^0(\mathcal P,W)$, the latter induces a section $\tilde s\in H^0(\widetilde\Dcal,W(-\Sigma_\Lambda \widetilde\Xi_\Lambda))$ by pullback and twisting, whose vanishing locus is dimensionally transverse to the boundary, and whose open part coincides with the generic point of $\Dcal$, therefore $V(\tilde s)=\Dcal$.
+Finally, on $\widetilde\Dcal$ %(or, in fact, on an intermediate blowup $\widetilde{\mathcal P}\to\mathcal P$)
+there are exceptional divisors $\widetilde \Xi_\Lambda$ corresponding to $\Xi_\Lambda$ in $\mathcal P$. Since the $\Xi_\Lambda$ exhaust all the excess-dimensional components of the vanishing locus of $s\in H^0(\mathcal P,W)$, the latter induces a section $\tilde s\in H^0(\widetilde\Dcal,W(-\Sigma_\Lambda \widetilde\Xi_\Lambda))$ by pullback and twisting, whose vanishing locus is dimensionally transverse to the boundary, and whose open part coincides with the generic point of $\Dcal$, therefore $V(\tilde s)=\Dcal$.
 
-Expressing the pushforward of the Chern classes of $\OO_W(1)$ and $\OO(\widetilde\Xi_\Lambda)$ in terms of tautological classes on the fibre product underlying $\Ecal$, we get:
+\begin{prop}
+ \[ [\Dcal]=e(W(-\Sigma_\Lambda \widetilde\Xi_\Lambda))\cap[\widetilde{\mathcal P}]\]
+ where $\widetilde{\mathcal P}$ denotes the blow-up of $\mathcal P$ in the $\Xi_\Lambda$.
+\end{prop}
+
+Applying \cite[Corollary 4.2.2]{FUL}, we get:
+\begin{cor} In $A_*(\mathcal P)$ the following formula holds:
+ \[ [\Dcal]=\sum_{\Lambda}\sum_i s_i(\Xi_\Lambda,\mathcal P)c_{N-1-i}(\ev_q^*TH\otimes\OO_\mathcal P(1))\]
+\end{cor}
+
+It is possible to push the formula further down to $\Ecal$, and applying \cite[\S3.1]{FUL} we obtain an expression for $[\Dcal]$ in terms of:
+\begin{itemize}
+ \item evaluation classes, such as $\ev_q^*TH$;
+ \item Chern classes of the logarithmic line bundles $\OO(\delta_i)$;
+ \item Segre classes of Gathmann's comb loci indexed by $\Lambda_B$.
+\end{itemize}
+
 \begin{cor}
  After pushforward to $\Ecal$, the contribution of $\Dcal$ to the invariants can be computed in terms of tautological integrals on moduli spaces of maps with lower numerics.
 \end{cor}
