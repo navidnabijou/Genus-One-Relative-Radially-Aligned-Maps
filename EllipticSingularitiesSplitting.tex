@@ -1,6 +1,6 @@
 \documentclass[11pt]{amsart}
 %\linespread{1.25}
-\usepackage[margin=3.5cm]{geometry}
+\usepackage[margin=2.75cm]{geometry}
 
 \usepackage[noend,boxruled]{algorithm2e}
 %Customize appearance using line below:
@@ -73,8 +73,8 @@
 \usepackage{xcolor}
 \usepackage{xfrac}
 \usepackage{tikz,tikz-cd}
-\usetikzlibrary{ipe,decorations.pathmorphing,decorations.pathreplacing,patterns,arrows.meta,shapes.misc}
-
+\usetikzlibrary{decorations.pathmorphing,decorations.pathreplacing,patterns,arrows.meta,shapes.misc}
+\usetikzlibrary{ipe}
 
 \definecolor{red}{rgb}{1,0,0}
 
@@ -2217,6 +2217,8 @@ Denote the piece of the curve carrying all of the genus and degree by $C^\prime\
 \end{tikzpicture}
 \end{center}
 which contributes a nonzero multiple of the invariant $I$ we are trying to compute. For the other possibilities, first note that, unless every component at the top level contains a single positive-tangency marking and a single node (together with possibly some tangency-zero markings), then $C^\prime$ has fewer than $n$ relative markings and hence the contribution is known recursively. On the other hand, if any non-relative marking other than $y$ is mapped to the top level, $C^\prime$ has $\leq n$ relative markings and less than $m$ non-relative markings, and hence again the contribution is known recursively. The only remaining possibilities are when $x_1$ is replaced by another positive-tangency marking $x_k$ in the above picture; but then the contribution can be calculated by applying the projection formula to $\fgt_{1}$. We therefore conclude that the only contribution to the right-hand side of \eqref{step 4 recursion} which is not known recursively is a nonzero multiple of the invariant we were trying to compute. This completes the recursion step.
+
+\footnotesize
 
 \bibliographystyle{alpha}
 \bibliography{Bibliography}
