@@ -1935,7 +1935,7 @@ We first examine the left-hand side. The class $\psi_1$ differs from $\fgt_y^\st
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 with all other marked points contained on $\sqC_1$. This is isomorphic to $\VZ_{1,\alpha}(X|Y,\beta)$ and when we restrict $\tilde\gamma$ to this locus we obtain precisely the class $\gamma$ which we started with. Thus \eqref{step 1 recursion} may be written as
 \begin{equation} \label{step 1 recursion 2} (\alpha_1-1) I + \fgt_y^\st \left( (\alpha_1-1)\psi_1 + \ev_1^\st Y\right)  \tilde\gamma \cap [\VZ_{1,(\alpha-e_1)\cup(1)}(X|Y,\beta)] = \tilde\gamma \cap [\Dcal(1)]. \end{equation}
-where $I$ is the invariant we are trying to compute. We will now show that the other terms have already been computed earlier in the recursion.
+where $I$ is the invariant we are trying to compute. We will now show that the other terms may be expressed in terms of invariants computed earlier in the recursion.
 
 The second term on the left-hand side is a forgetful relative invariant with the same degree and number of true markings (since $y$ is fictitious), and strictly smaller true tangency; hence it has been computed at an earlier step in the recursion. We now examine the right-hand side of \eqref{step 1 recursion 2}. Recall that all of the genus zero data has already been computed, so we only need to focus on the genus one pieces. First consider the type I loci. The genus one piece has strictly smaller degree (and so has already been computed) except in the following situation (with some stable distribution of the remaining markings):
 \begin{center}
@@ -1959,17 +1959,15 @@ The second term on the left-hand side is a forgetful relative invariant with the
 \end{center}
 In this situation, $C_1$ contains at most $n+1$ true markings. We consider three possible cases:
 \begin{enumerate}
-\item If $C_1$ has $n-1$ or fewer true markings, then it has already been computed earlier in the recursion.
+\item If $C_1$ has $n-1$ or fewer true markings, then its contribution has already been computed earlier in the recursion.
 \item If $C_1$ has exactly $n$ true markings, then $C_0$ contains exactly one true marking besides $x_1$ (which itself may be true or fictitious). In this situation we must have $y \in C_1$, since otherwise we would have a moduli space for $C_0$ given by $\ol\Mcal_{0,k}$ with $k \geq 4$, and applying the projection formula with $\fgt_y$ we would conclude that the contribution is zero. Thus we have $y \in C_1$, and so the genus one contribution is a forgetful relative invariant with $n$ true markings, and so has already been computed.
 \item Finally, if $C_1$ contains exactly $n+1$ true markings, then the only additional markings on $C_0$ are fictitious, and by the same argument as in the previous paragraph there can only be one. Thus for each fictitious marked point we obtain a locus isomorphic to $\VZ_{1,\alpha}(X|Y,\beta)$ and $\tilde\gamma$ restricts to $\gamma$ here (from the point of view of computing invariants, the fictitious marked points are indistinguishable, meaning that the contributions are all the same). Thus for each fictitious marked point (of which there is at least one, namely $y$) we get a contribution of $\alpha_1 I$ to the right-hand side of \eqref{step 1 recursion 2}, where as before $I$ is the invariant we are trying to compute.
 \end{enumerate}\medskip
-The contributions of the type II loci only involve genus zero data and so can be computed algorithmically following \cite{Ga}.
-
-The contributions of the type $\dag$ loci are determined by genus zero data and tautological integrals on Deligne--Mumford space, and so can also be computed algorithmically.
+The contributions of the type II loci only involve genus zero data and so can be computed algorithmically following \cite{Ga}. The contributions of the type $\dag$ loci are determined by genus zero data and tautological integrals on genus one Deligne--Mumford spaces, which can also be computed algorithmically using the string and dilaton equations.
 
 It remains to consider type III loci. If the degree of the genus one piece is less than $d$ then we have a rubber invariant of strictly smaller degree. The only other possibility is that the entire curve is mapped into the divisor. In this case we may apply the projection formula with $\fgt_y$ to identify this with an integral over $\VZ_{1,m}(Y,\beta)$ for some (possibly large) number $m$ of marked points. But by assumption there is another marked point $x_0$ with all of the insertions pulled back along $\fgt_{x_0}$, so a further application of the projection formula shows that this contribution vanishes. To conclude, we may rearrange \eqref{step 1 recursion 2} to obtain an expression of the form
-\begin{equation*} \lambda I = \text{previously computed terms} \end{equation*}
-where $\lambda$ is an explicit scalar which is always nonzero; we have thus determined $I$, which completes Step 1.
+\begin{equation*} \lambda I = \text{polynomial in previously computed invariants} \end{equation*}
+where $\lambda$ is an explicit scalar which is always nonzero; we have thus determined the forgetful relative invariant $I$, which completes Step 1.
 
 \subsection*{Step 2} Consider now the absolute space $\VZ_{1,n}(Y,\beta)$ with an insertion $\gamma$, and suppose inductively that we have computed all forgetful relative invariants with $(d^\prime,n^\prime) \leq (d,n+1)$, all relative invariants and absolute invariants with $(d^\prime,n^\prime) < (d,n)$, and all rubber invariants with $d^\prime < d$. \medskip
 
@@ -1979,7 +1977,7 @@ Let $x_0$ denote the relative marking and consider the integrand $\tilde\gamma= 
 \begin{equation}\label{step 2 recursion} \ev_1^\st Y \cdot \tilde\gamma \cap [\VZ_{1,(d,0,\ldots,0)}(X|Y,\beta)] = \tilde\gamma\cap[\Dcal(1)].\end{equation}
 The left-hand side is a forgetful relative invariant of degree $d$ and $\leq n+1$ true markings, and so has already been computed.
 
-On the right-hand side, similar arguments to those in Step~1 show that the contributions of type~II and type~$\dag$ loci have already been computed. Similarly, the contributions of type III loci have already been computed, except for the locus where the entire curve is mapped into the divisor. On this locus we apply the projection formula to $\fgt_{x_0}$ to identify the contribution with
+On the right-hand side, similar arguments to those in Step~1 show that the contributions of type~II and type~$\dag$ loci can be expressed in terms of invariants computed earlier in the recursion. Similarly, the contributions of type III loci have already been computed, except for the locus where the entire curve is mapped into the divisor. On this locus we apply the projection formula to $\fgt_{x_0}$ to identify the contribution with
 \begin{equation*} d^2 \cdot \gamma \cap [\VZ_{1,n}(Y,\beta)] = d^2 \cdot I \end{equation*}
 where $I$ is the invariant we are trying to compute. 
 
@@ -2022,7 +2020,7 @@ Finally, consider loci of type I. The genus one contributions from each locus ha
 which gives a contribution of
 \begin{equation*} d\cdot \gamma \cap [\VZ_{1,(d,\underbrace{0,\ldots,0}_{n-1})}(X|Y,\beta)]\end{equation*}
 to the right-hand side of \eqref{step 2 recursion}. Here $\gamma$ is the insertion we started with; the difference is that we are now considering relative maps to $(X,Y)$ with maximal tangency at $x_1$, rather than absolute maps to $Y$. Putting this all together, we obtain from \eqref{step 2 recursion}
-\begin{equation}\label{step 2 recursion 2} I = (-\gamma/d) \cap [\VZ_{1,(d,\underbrace{0,\ldots,0}_{n-1})}(X|Y,\beta)] + \text{previously computed terms} \end{equation}
+\begin{equation}\label{step 2 recursion 2} I = (-\gamma/d) \cap [\VZ_{1,(d,\underbrace{0,\ldots,0}_{n-1})}(X|Y,\beta)] + \text{polynomial in previously computed invariants} \end{equation}
 where on the right-hand side there are $n-1$ non-relative markings $x_2,\ldots,x_n$, and a relative marking $x_1$.\medskip
 
 \noindent \emph{Step 2b.} We now apply the recursion to the right-hand side of \eqref{step 2 recursion 2}. Consider the space
@@ -2152,20 +2150,25 @@ We deal with these cases individually:
 \item In Case 2, we first note that there cannot be any more markings on $C_0$ (since otherwise applying the projection formula with $\fgt_y$ shows that the contribution vanishes). We thus obtain a single locus, which contributes precisely:
 \begin{equation*} d\cdot(-\gamma/d) \cap [\VZ_{1,(d,\underbrace{0,\ldots,0}_{n-1})}(X|Y,\beta)] = -\gamma\cap[\VZ_{1,(d,\underbrace{0,\ldots,0}_{n-1})}(X|Y,\beta)].\end{equation*}
 \end{itemize}
-As in Step~1 we see that the type II and type $\dag$ contributions have already been computed. Finally, the only type III contribution which has not been computed occurs when the entire curve is mapped into the divisor. In this case we apply the projection formula with $\fgt_y$ to calculate the contribution as:
+As in Step~1, we see that the type II and type $\dag$ contributions have already been computed earlier in the algorithm. The only type III locus whose contribution has not previously been computed is when the entire curve is mapped into the divisor. In this case we apply the projection formula with $\fgt_y$ to calculate its contribution as:
 \begin{equation*} (-\gamma/d) \cap [\VZ_{1,n}(Y,\beta)] = -I/d.\end{equation*}
 Thus \eqref{step 2 recursion 3} gives:
-\begin{equation*} -(\gamma/d) \cap [\VZ_{1,(d,\underbrace{0,\ldots,0}_{n-1})}(X|Y,\beta)] = I/d + \text{previously computed terms}.\end{equation*}
+\begin{equation*} -(\gamma/d) \cap [\VZ_{1,(d,\underbrace{0,\ldots,0}_{n-1})}(X|Y,\beta)] = I/d + \text{polynomial in previously computed invariants}.\end{equation*}
 Substituting into \eqref{step 2 recursion 2}, we obtain
-\begin{equation*} I\cdot(1-d^{-1}) = \text{previously computed terms} \end{equation*}
+\begin{equation*} I\cdot(1-d^{-1}) = \text{polynomial in previously computed invariants} \end{equation*}
 which completes the recursion step as long as $d \neq 1$. But since $\VZ_{1,n}(H,1)=\emptyset$ as noted in Remark~\ref{rem: constant-maps}, it follows that $\VZ_{1,n}(Y,\beta)=\emptyset$ if $d=Y\cdot\beta=1$, so we may assume $d \geq 2$ in this step.
 
-\subsection*{Step 3} Now suppose we are given a relative space $\VZ_{1,\alpha}(X|Y,\beta)$ with an insertion $\gamma$, and suppose inductively that we have computed all forgetful relative invariants with $(d^\prime,n^\prime) \leq (d,n+1)$, all absolute invariants with $(d^\prime,n^\prime) \leq (d,n)$, all relative invariants with $(d^\prime,n^\prime,t^\prime)<(d,n,t)$ and all rubber invariants with $d^\prime < d$. Choose a true marking $x_1$ with $\alpha_1 \geq 1$ and consider the moduli space
-\begin{equation*} \VZ_{1,(\alpha-e_1)\cup(1)}(X|Y,\beta) \end{equation*}
-where $y$ is the newly-introduced marking. As usual consider the insertion $\tilde\gamma$ obtained from $\gamma$ by introducing $\fgt_y$ everywhere. Recursing at $x_1$ we obtain:
-\begin{equation*} \left( (\alpha_1-1)\psi_1 + \ev_1^\st H\right) \tilde\gamma \cap [\VZ_{1,(\alpha-e_1)\cup(1)}(X|Y,\beta)] = \tilde\gamma \cap [\Dcal(1)].\end{equation*}
-The left-hand side is a relative invariant with the same degree and number of true markings, but smaller true tangency: hence it is recursively known. On the right-hand side, the type I contributions are recursively known except for those of the following form
+We have thus computed the reduced absolute invariant of $Y$ of degree $d$ and $n$ markings, which completes Step 2.
 
+\subsection*{Step 3} Now suppose we are given a relative space $\VZ_{1,\alpha}(X|Y,\beta)$ with an insertion $\gamma$, and suppose inductively that we have computed all forgetful relative invariants with $(d^\prime,n^\prime) \leq (d,n+1)$, all absolute invariants with $(d^\prime,n^\prime) \leq (d,n)$, all relative invariants with $(d^\prime,n^\prime,t^\prime)<(d,n,t)$ and all rubber invariants with $d^\prime < d$.
+
+Choose a true marking $x_1$ with $\alpha_1 \geq 1$ and consider the moduli space
+\begin{equation*} \VZ_{1,(\alpha-e_1)\cup(1)}(X|Y,\beta) \end{equation*}
+where $y$ is the newly-introduced marking. As usual consider the insertion $\tilde\gamma=\fgt_y^\star \gamma$. Recursing at $x_1$ we obtain:
+\begin{equation}\label{step 3} \left( (\alpha_1-1)\psi_1 + \ev_1^\st H\right) \tilde\gamma \cap [\VZ_{1,(\alpha-e_1)\cup(1)}(X|Y,\beta)] = \tilde\gamma \cap [\Dcal(1)].\end{equation}
+The left-hand side is a relative invariant with the same degree and number of true markings, but smaller true tangency; hence it has already been computed in the recursion.
+
+On the right-hand side, the type I contributions have already been computed except for those of the following form
 \begin{center}
 \begin{tikzpicture}[scale=1]
 \draw (0,0) to (2,0);
@@ -2187,29 +2190,44 @@ The left-hand side is a relative invariant with the same degree and number of tr
 \draw [color=blue] (2,-1) node[right]{\small$\Sigma(X|Y)$};
 \end{tikzpicture}
 \end{center}
-where $C_0$ contains a single fictitious marking (if it had multiple fictitious markings then the contribution would vanish by projection formula) and all the other markings are on $C_1$. Thus for each fictitious marking we get a contribution of $\alpha_1 I$ where $I$ is the invariant we are trying to compute. Note that $\alpha_1 \neq 0$, and that this term appears at least once since $y$ is a fictitious marking; so we get a nonzero multiple of $I$.
+where $C_0$ contains a single fictitious marking (if it had multiple fictitious markings then the contribution would vanish by projection formula) and all the other markings are on $C_1$. There is one such locus for each fictitious marking, and each contributes $\alpha_1 I$ where $I$ is the invariant we are trying to compute. Note that $\alpha_1 \neq 0$, and that this term appears at least once since $y$ is a fictitious marking; so we obtain a nonzero multiple of $I$.
 
-As usual the type II and $\dag$ contributions are recursively known. The type III contributions are determined by lower-degree rubber invariants, except for when the whole curve is mapped into $Y$; however in this case we may apply $\fgt_y$ to identify the contribution with an absolute invariant of $Y$ with degree $d$ and $n$ markings, which is also recursively known. Thus we have determined the invariant $I$.
+Using the same arguments as in Step~1, we see that the type II and $\dag$ contributions have already been computed. The type III contributions are determined by lower-degree rubber invariants, except for when the whole curve is mapped into $Y$; however in this case we may apply the projection formula with $\fgt_y$ to identify the contribution with an absolute invariant of $Y$ with degree $d$ and $n$ markings, which has also been computed earlier (in Step 2). We therefore see that \eqref{step 3} may be rearranged to give:
+\begin{equation*} I = \text{polynomial in previously computed invariants}.\end{equation*}
+We have thus computed the reduced relative invariant of $(X,Y)$ with degree $d$, $n$ true markings and true tangency $t$, which completes Step 3.
 
-\subsection*{Step 4} Finally, consider a rubber space $\VZ^{\leftrightarrow}_{1,\alpha}(\mathbb P|Y_0+Y_\infty,\beta)$ with insertion $\gamma$. Suppose inductively that we have computed all absolute and relative invariants with $d^\prime \leq d$ and all rubber invariants with $(d^\prime,n^\prime,m^\prime) < (d,n,m)$.
+\subsection*{Step 4} For the final step, consider a rubber space $\VZ^{\leftrightarrow}_{1,\alpha}(\mathbb P|Y_0+Y_\infty,\beta)$ with insertion $\gamma$. Suppose inductively that we have computed all absolute and relative invariants with $d^\prime \leq d$ and all rubber invariants with $(d^\prime,n^\prime,m^\prime) < (d,n,m)$.
 
-We first note the following important reduction: if there exists a relative marking $x_k$ such that all insertions are pulled back along $\fgt_{k}$, then we may apply the projection formula, together with the fact that
+We first note the following important reduction: if there exists a relative marking $x_k$ such that all insertions are pulled back along $\fgt_{k}$, then we may apply the projection formula, together with the following identity (arising from the torsion in the Jacobian of an elliptic curve)
 \begin{equation*} (\fgt_{k})_\st [\VZ^{\leftrightarrow}_{1,\alpha}(\mathbb P|Y_0+Y_\infty,\beta)] = \alpha_k^2 \cdot [\VZ_{1,n+m-1}(Y,\beta)] \end{equation*}
-to identify the rubber invariant with a multiple of a reduced invariant of $Y$, which has the same degree and hence is known recursively.
+to identify the rubber invariant with a multiple of a reduced invariant of $Y$, which has the same degree and hence has been computed earlier.
 
 We will deal with the general case by reducing to the one above. Consider the moduli space
 \begin{equation*}\label{step 4 recursion space} \VZ^{\leftrightarrow}_{1,\alpha\cup (0)}(\mathbb P|Y_0+Y_\infty,\beta)\end{equation*}
-obtained by introducing a marked point $y$ with no tangency. Let $x_1$ be a positive-tangency marking (such a marking always exists since $d \geq 2$) and let $\tilde\gamma$ be the insertion obtained from $\gamma$ by replacing $\ev_1$ and $\psi_1$ by $\ev_y$ and $\psi_y$, and then introducing $\fgt_{1}^\st$ everywhere.
+obtained by introducing a marked point $y$ with no tangency. Let $x_1$ be a positive-tangency marking (such a marking always exists since $d \geq 2$) and let $\tilde\gamma$ be the insertion obtained from $\gamma$ by replacing $\ev_1$ and $\psi_1$ by $\ev_y$ and $\psi_y$, and then pulling back along $\fgt_1$.
 
-We will make use of a recursion formula for rubber spaces analogous to the recursion formula for relative spaces used in Steps 1--3. Following \cite{EKatz}, there is a line bundle $L_y^{\not\in \operatorname{bot}}$ on $\VZ^{\leftrightarrow}_{1,\alpha\cup (0)}(\mathbb P|Y_0+Y_\infty,\beta)$, together with a section $s_y^{\not\in\operatorname{bot}}$ whose vanishing locus consists of the locus $\Dcal(y)$ of rubber maps where $y$ is not mapped into the bottom level of the expanded target. As in \S \ref{Section Gathmann line bundle}, we can give a logarithmic interpretation of this: it corresponds to the piecewise-linear function on the tropical moduli space which associates, to every rubber tropical map, the distance between $\varphi(\sqC_y)$ and the leftmost vertex of the tropical target, where $\sqC_y$ is the vertex of the source curve containing the flag corresponding to $y$. Using this tropical description, we may easily calculate the vanishing orders of $s_y^{\not\in\operatorname{bot}}$ along the various components of $\Dcal(y)$, and show that $\cchern_1(L_y^{\not\in\operatorname{bot}}) = \Psi_0 - \ev_y^\st Y$ (see also \cite{EKatzLB}, where similar results in the non-reduced setting are obtained, using different methods). From this, we obtain a rubber recursion formula
-\begin{equation}\label{step 4 recursion} (\Psi_0 - \ev_y^\st Y) \tilde\gamma \cap [\VZ^{\leftrightarrow}_{1,\alpha\cup(0)}(\mathbb P|Y_0+Y_\infty,\beta)] = \tilde\gamma \cap [\Dcal(y)]\end{equation}
-where the fundamental class $[\Dcal(y)]$ is weighted by vanishing orders on the components. We will first show that the left-hand side is recursively known. By construction the class $\tilde\gamma$ is pulled back via $\fgt_{1}^\st$, and the same is true for $\ev_y^\st Y$. It remains to examine $\Psi_0$. If there exists a negative-tangency marking $x_2$, then we have \cite[Construction 5.1.17]{GathmannThesis}
+We will make use of a recursion formula for rubber spaces analogous to the recursion formula for relative spaces used in Steps 1--3. Following \cite{EKatz}, there is a line bundle
+\begin{equation*} L_y^{\not\in \operatorname{bot}} \text{ on } \VZ^{\leftrightarrow}_{1,\alpha\cup (0)}(\mathbb P|Y_0+Y_\infty,\beta)\end{equation*}
+together with a section $s_y^{\not\in\operatorname{bot}}$ whose vanishing locus consists of the locus $\Dcal(y)$ of rubber maps where $y$ is not mapped into the bottom level of the expanded target. As in \S \ref{Section Gathmann line bundle}, we can give a logarithmic interpretation of this: it corresponds to the piecewise-linear function on the tropical moduli space which associates, to every rubber tropical map, the distance between $\varphi(\sqC_y)$ and the leftmost vertex of the tropical target, where $\sqC_y$ is the vertex of the source curve containing the flag corresponding to $y$. Using this tropical description, we may easily calculate the vanishing orders of $s_y^{\not\in\operatorname{bot}}$ along the various components of $\Dcal(y)$, and show that
+\begin{equation*}\cchern_1(L_y^{\not\in\operatorname{bot}}) = \Psi_0 - \ev_y^\st Y\end{equation*}
+where $\Psi_0$ is a target psi class (see also \cite{EKatzLB}, where similar results in the non-reduced setting are obtained, using different methods). From this, we obtain a rubber recursion formula
+\begin{equation}\label{step 4 recursion} (\Psi_0 - \ev_y^\st Y)\cdot \tilde\gamma \cap [\VZ^{\leftrightarrow}_{1,\alpha\cup(0)}(\mathbb P|Y_0+Y_\infty,\beta)] = \tilde\gamma \cap [\Dcal(y)]\end{equation}
+where the fundamental class $[\Dcal(y)]$ is weighted by vanishing orders on the components.\medskip
+
+\noindent \emph{Step 4a.} We will first show that the left-hand side can be expressed in terms of previously computed invariants. By construction the classes $\tilde\gamma$ and $\ev_y^\star Y$ are both pulled back along $\fgt_{1}$. It remains to examine $\Psi_0$. If there exists a negative-tangency marking $x_2$, then we have \cite[Construction 5.1.17]{GathmannThesis}
 \begin{equation*}\label{Psi0 formula} \Psi_0 = -\alpha_2 \hat\psi_2 - \ev_2^\st Y \end{equation*}
-where $\hat\psi_2$ is a \textbf{non-collapsed} psi class. (If there are no negative-tangency markings, then the construction given in \cite[\S 1.5.2]{MaulikPandharipande} shows that $\Psi_0=0$.) Now, $\hat\psi_2 - \psi_2$ is given by the loci where $x_2$ belongs to a trivial bubble. This entails a splitting of the curve into pieces, each of which contributes a rubber integral. Typically each of these pieces will have $(g^\prime,d^\prime,n^\prime,m^\prime) < (1,d,n,m)$ and hence be recursively known. The one exception is when all of the genus and degree is concentrated on the top level of the expansion, with the bottom level containing only a single non-relative marking in addition to all the negative-tangency markings. But in this case the contribution is a rubber invariant where all of the insertions are pulled back via $\fgt_1^\st$, and hence we may apply the projection formula to identify this with an absolute invariant of $Y$ which is recursively known. We conclude that, up to recursively known terms, we may replace $\hat\psi_2$ by $\psi_2$ in the left-hand side of \eqref{step 4 recursion}. If we now compare $\psi_2$ with $\fgt_1^\st \psi_2$ we see that the difference is given by the locus where $x_1$ and $x_2$ belong to a collapsed rational piece. The contribution of this locus consists of rubber invariant with strictly fewer relative markings, and hence is recursively known. So up to recursively-known terms \eqref{step 4 recursion} becomes
-\begin{equation*} \fgt_1^\st (-\alpha_2\psi_2 - \ev_y^\st Y)\tilde\gamma \cap [\VZ^{\leftrightarrow}_{1,\alpha\cup(0)}(\mathbb P|Y_0+Y_\infty,\beta)] = \tilde\gamma\cap[\Dcal(y)]\end{equation*}
-and now the left-hand side is also recursively known, by the projection formula. Let us now examine the right-hand side. The components of $\Dcal(y)$ are indexed by splittings of the curve, and certainly the contributions are recursively known unless there is a piece of the curve carrying all of the genus and degree, so we may restrict to examining these contributions.
+where $\hat\psi_2$ is a \textbf{non-collapsed} psi class. (If there are no negative-tangency markings, then the construction given in \cite[\S 1.5.2]{MaulikPandharipande} shows that $\Psi_0=0$.)
 
-Denote the piece of the curve carrying all of the genus and degree by $C^\prime\subseteq C$. If $C^\prime$ is mapped to top level, then either it contains $x_1$, in which case we apply $\fgt_1$ to compute the contribution, or it does not contains $x_1$, in which case it has fewer than $n$ relative markings and is known recursively.  If on the other hand $C^\prime$ is not mapped to top level, then generically it is mapped to the bottom level (since generically the core is not contracted on this locus, so the desingularisation process does nothing). One possible contribution is given by the following locus
+Now, $\hat\psi_2 - \psi_2$ is given by the locus where $x_2$ belongs to a trivial bubble. This entails a splitting of the curve into pieces, each of which contributes a rubber integral. Typically each such piece will have $(g^\prime,d^\prime,n^\prime,m^\prime) < (1,d,n,m)$ and hence has previously been computed. The one exception is when all of the genus and degree is concentrated on the top level of the expansion, with the bottom level containing only a single non-relative marking in addition to all the negative-tangency markings. But in this case the contribution is a rubber invariant where all of the insertions are pulled back along $\fgt_1$, and hence we may apply our fundamental reduction, using the projection formula to identify the rubber invariant with (a multiple of) an absolute invariant of $Y$, which has previously been computed. We conclude that, up to previously computed terms, we may replace $\hat\psi_2$ by $\psi_2$ in the left-hand side of \eqref{step 4 recursion}.
+
+If we now compare $\psi_2$ with $\fgt_1^\st \psi_2$ we see that the difference is given by the locus where $x_1$ and $x_2$ belong to a collapsed rational piece. The contribution of this locus consists of rubber invariants with strictly fewer relative markings, and hence is recursively known. So up to previously computed invariants, \eqref{step 4 recursion} becomes
+\begin{equation}\label{step 4 recursion 2} \fgt_1^\st (-\alpha_2\psi_2 - \ev_y^\st Y)\tilde\gamma \cap [\VZ^{\leftrightarrow}_{1,\alpha\cup(0)}(\mathbb P|Y_0+Y_\infty,\beta)] = \tilde\gamma\cap[\Dcal(y)]\end{equation}
+and now the left-hand side can also be expressed in terms of previously computed invariants, via the projection formula. \medskip
+
+\noindent \emph{Step 4b.} Let us now examine the right-hand side of \eqref{step 4 recursion 2}. The components of $\Dcal(y)$ are indexed by splittings of the curve, and the contributions can be expressed in terms of previously computed invariants unless there is a piece of the curve carrying all of the genus and degree. We therefore restrict to considering these cases. Denote the piece of the curve carrying all of the genus and degree by $C^\prime\subseteq C$.
+\begin{enumerate}
+\item If $C^\prime$ is mapped to top level, then either it contains $x_1$, in which case we apply $\fgt_1$ to compute the contribution, or it does not contains $x_1$, in which case it has fewer than $n$ relative markings and is known recursively. 
+\item  If on the other hand $C^\prime$ is not mapped to top level, then generically it is mapped to the bottom level (since generically the core is not contracted on this locus, so the desingularisation process does nothing). One possible contribution is given by the following locus
 \begin{center}
 \begin{tikzpicture}[scale=1]
 %edge
@@ -2245,7 +2263,11 @@ Denote the piece of the curve carrying all of the genus and degree by $C^\prime\
 \draw [color=blue,->] (0,-1) -- (-1,-1);
 \end{tikzpicture}
 \end{center}
-which contributes a nonzero multiple of the invariant $I$ we are trying to compute. For the other possibilities, first note that, unless every component at the top level contains a single positive-tangency marking and a single node (together with possibly some tangency-zero markings), then $C^\prime$ has fewer than $n$ relative markings and hence the contribution is known recursively. On the other hand, if any non-relative marking other than $y$ is mapped to the top level, $C^\prime$ has $\leq n$ relative markings and less than $m$ non-relative markings, and hence again the contribution is known recursively. The only remaining possibilities are when $x_1$ is replaced by another positive-tangency marking $x_k$ in the above picture; but then the contribution can be calculated by applying the projection formula to $\fgt_{1}$. We therefore conclude that the only contribution to the right-hand side of \eqref{step 4 recursion} which is not known recursively is a nonzero multiple of the invariant we were trying to compute. This completes the recursion step.
+with all other markings located on the genus one vertex. This contributes a nonzero multiple of the invariant $I$ we are trying to compute.
+
+For the other possibilities, first note that, unless every component at the top level contains a single positive-tangency marking and a single node (together with possibly some tangency-zero markings), then $C^\prime$ has fewer than $n$ relative markings and hence the contribution is known recursively. On the other hand, if any non-relative marking other than $y$ is mapped to the top level, $C^\prime$ has $\leq n$ relative markings and less than $m$ non-relative markings, and hence again the contribution is known recursively. The only remaining possibilities are when $x_1$ is replaced by another positive-tangency marking $x_k$ in the above picture; but then the contribution can be calculated by applying the projection formula with $\fgt_{1}$.
+\end{enumerate}
+We therefore conclude that the only contribution to the right-hand side of \eqref{step 4 recursion 2} which cannot be expressed in terms of previously computed invariants is a nonzero multiple of the invariant we were trying to compute. We thus compute the reduced rubber invariant of $\PP$ with degree $d$, $n$ relative markings and $m$ non-relative markings, which completes Step 4 and the recursion.
 
 \footnotesize
 
