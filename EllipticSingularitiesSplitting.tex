@@ -474,7 +474,7 @@ The problem of constructing an elliptic singularity from its pointed normalisati
 There are other ways to look at these data; we recall a construction from linear algebra. Let $V=\sum_{i=1}^mL_i$ be a presentation of a vector space as the direct sum of $m$ lines. Then the data of a general line $\ell$ in $V$ (or a general hyperplane in $V^\vee$) is equivalent to the data of compatible isomorphisms $\theta_{ij} \colon L_i \cong L_j$. Indeed, given a general line $\ell$, a vector $v\in\ell$ can be written as:
 \[v=a_1e_1+\ldots+a_me_m,\qquad \text{with $a_i\neq 0$ for all $i$}\]
 for a fixed basis $\{e_i\in L_i\}$ of $V$. We can then define $\theta_{ij}$ by
-\[\theta_{i,j}(e_i)=(a_j/a_i)\cdot e_j\]
+\[\theta_{ij}(e_i)=(a_j/a_i)\cdot e_j\]
 and it is easy to see that it does not depend on any of the choices. On the other hand, given the $\theta_{ij}$, the line $\ell$ can be taken to be the graph of the morphism:
 \[(\theta_{12},\ldots,\theta_{1m})\colon L_1\to L_2\oplus\ldots\oplus L_m.\]
 Thus the attaching data can be viewed as specifying an identification of tangent spaces of the pointed normalisation at the singularity.
@@ -1065,7 +1065,7 @@ For the remainder of this section we use the following notation for the combinat
  
 \end{comment}
 \subsubsection{Lines}\label{S:lines}
-We begin with a description of the boundary divisor corresponding to a comb whose teeth all have degree $1$. This is a concrete but atypical case, since the teeth are generically transverse (not just dimensionally) to the hyperplane $H$. For simplicity, we assume that the contact order is $(d)$, concentrated at a marking $x_1$ supported on the elliptic curve $E$ contracted to $H$. The combinatorial type looks as in Figure \ref{fig:comb111}.
+We begin with a description of the boundary divisor corresponding to a comb whose teeth all have degree $1$. This is a concrete but atypical case, since the teeth are generically transverse (not just dimensionally) to the hyperplane $H$. For simplicity, we assume that the contact order is $(d)$, concentrated at a marking $x_1$ supported on the elliptic curve $E$ contracted to $H$. The combinatorial type is as in Figure \ref{fig:comb111}.
 
 \begin{figure}
  \begin{tikzpicture}
@@ -1074,33 +1074,34 @@ We begin with a description of the boundary divisor corresponding to a comb whos
   \draw[fill=black] \x circle (2pt);
   \draw[fill=blue] (0,-2) circle (2pt);
   \foreach \x in {(0,2),(0,1),(0,-1)}
-  \draw \x --node[below]{\color{blue} $1$} (4,0);
-  \draw (0,0) node{$\vdots$};
-  \draw[->] (4,0) --node[above]{\color{blue} $d$} (6,0);
+  \draw \x --node[below,blue]{\SMALL$1$} (4,0);
+  \draw (1,0) node{$\vdots$};
+  \draw[->] (4,0) --node[below]{\color{blue} $d$} (6,0);
   \draw[blue,->] (0,-2)--(6,-2);
   \draw[fill=white] (4,0) circle (2pt);
-  \draw[fill=blue,blue] (4,-2) node[cross]{};
+  \draw[fill=blue,blue] (4,-2) node[blue]{$\times$};
   \draw [red] plot [smooth cycle] coordinates {(0,2) (0,1) (0,-1) (2,-1.5) (7,0) (2,2.5)};
  \end{tikzpicture}
  \caption{The combinatorial type of a comb with degree $1$ teeth.}
  \label{fig:comb111}
 \end{figure}
+Start with the moduli space of logarithmic stable maps. There is a finite splitting morphism:
+\[\Ecal \to \left(\M{0}{(1)}{\PP^m|H}{1}^{\times m}\times_{H^m}H\right)\times \overline{\Mcal}^{\leftrightarrow}_{1,(-1,\ldots,-1,d)}(\PP^1|0+\infty,d),\]
+where the latter is the moduli space of genus one rubber maps. To obtain $\widetilde{\Dcal}$ from $\Ecal$ we replace the final factor by $\VZ^{\leftrightarrow}_{1,(-1,\ldots,-1,d)}(\PP^1|0+\infty,d)$ (see \S \ref{subsection rubber}).
 
-
-Start from the moduli space of logarithmic maps. There is a finite splitting morphism:
-\[\Ecal \to \left(\M{0}{(1)}{\PP^m}{1}^{\times N}\times_{H^N}H\right)\times \Mcal^{\leftrightarrow}_{1,(-1,\ldots,-1,d)},\]
-where the latter is the moduli space of genus one curves satisfying the \emph{double ramification} condition. As for $\widetilde{\Dcal}$, the latter should be replaced by $\VZ^{\leftrightarrow}_{1,(-1,\ldots,-1,d)}$, see \S \ref{subsection rubber}.
-
-The left-hand factor can be described very concretely as the choice of a point $p$ of $H$, and $d$ lines through it. A very important observation is that, at least generically, the vertices lying on the circle of radius $\delta$ over $0\in\mathbb R_{\geq 0}$ are automatically aligned. Indeed, if $R_i$ denotes the $i$-th tail of the curve, glued to $E$ at the node $q_i$, then the stable maps provide us with identifications:
+The first  factor can be described very concretely as the choice of a point $p$ of $H$, and $d$ lines through it. A very important observation is that, at least generically, the vertices which lie on the circle of radius $\delta$ and map to $0\in\mathbb R_{\geq 0}$ are automatically aligned. Indeed, if $R_i$ denotes the $i$-th tail of the curve, glued to $E$ at the node $q_i$, then the stable map provides us with identifications:
 \[\operatorname{d}\! f_{i,q_i}\colon T_{R_i,q_i}\cong N_{H/\PP^m,p}\]
-that can be combined into the $\theta_{i,j}$ of \S \ref{S:ellsing}. So, without further ado, we may produce a contraction $C\to\overline C$ to an elliptic $d$-fold point.
+which we may compose to obtain attaching data $\theta_{ij}$  (see \S \ref{S:ellsing}). This produces a contraction $C\to\overline C$ to an elliptic $d$-fold point. The dimension of $\widetilde\Dcal$ coincides with the dimension of $\Ecal$, which is $dm + m - 1$.
 
-Assume for example that $d\leq N$. Then, for the absolute factorisation to hold, the $d$ lines $f_i(R_i)$ have better to span a $(d-1)$-dimensional subspace of $T_{\PP^m,p}$. The dimension of the moduli space $\widetilde\Dcal$ is then $dN+d-2$. Without loss of generality, we may assume that $H$ is the hyperplane $\{z_0=0\}$, $p$ is the point $[0:\ldots:0:1]$, and that the $d$ lines span the subspace $\{z_{d-1}=\ldots=z_{N-1}=0\}$. The sections $z_i,\ i=d-1,\ldots,N,$ vanish identically near $E$, so they descend automatically to the singularity. The section $z_0$ does so by the construction of $\overline C$. Finally, the sections $z_i,\ i=1,\ldots,d-2,$ impose independent conditions to descend to $\overline C$. All in all, we find that $\Dcal$ has dimension $dN$, making it into a divisor in $\VZ_{1,(d)}(\PP^m|H,d)$.
+Assume for simplicity that $d\leq m$. For the absolute factorisation to hold, the $d$ lines $f_i(R_i)$ must span a subspace of $T_{\PP^m,p}$ of dimension at most $d-1$. The locus of maps satisfying this condition has dimension:
+\begin{equation*} (dm+m-1) - (m-d+1) = dm + d -2.\end{equation*}
+Without loss of generality, we may assume that $H=\{z_0=0\}$, $p=[0,\ldots,0,1]$, and that the $d$ lines span the subspace $\{z_{d-1}=\ldots=z_{m-1}=0\}$. The sections $z_i$ for $i=d-1,\ldots,m$ vanish identically near $E$, so descend automatically to the singularity. On the other hand the section $z_0$ descends to the singularity by the construction of $\overline C$. Finally, the sections $z_i$ for $i=1,\ldots,d-2$ impose independent conditions to descend to $\overline C$. Imposing these conditions, we find that $\Dcal$ has dimension 
+\begin{equation*} (dm+d-2)-(d-2) = dm \end{equation*}
+making it into a divisor in $\VZ_{1,(d)}(\PP^m|H,d)$.\sidenote{What about d>m?}
 
-We can express the factorisation condition tautologically by combining the isomorphisms $\theta_{i,j}$ above, and the differential of $f$. It correponds to the vanishing of the following vector bundle map:
-\[T_{R_1,q_1}\xrightarrow{(1,\theta_{1,2}\ldots,\theta_{1,d})}\bigoplus_{i=1}^d T_{R_i,q_i}\xrightarrow{\sum\circ\operatorname{d}\!f=\operatorname{d}\!z_1+\ldots\operatorname{d}\!z_{d-2}}N_{H\cap\PP^{d-1}/\PP^{d-1},p}.\]
-
-In general, we shall see that the automatic alignment only involves the components corresponding to vertices on the circle that lie over $0$. The internal components on the circle must be aligned by hand. This means that $\widetilde\Dcal$ is a compactified torus bundle over $\Ecal$, see \ref{S:ellsing}. On the other hand, for higher contact order, the vector bundle map $\sum\circ\operatorname{d}\!f$ to $T_{\PP^m,p}$ factors naturally through $T_{H,p}$.
+We can express the factorisation condition tautologically by combining the isomorphisms $\theta_{ij}$ above with the differential of $f$. We see that factorisation amounts to the vanishing of the following vector bundle map:
+\[T_{R_1,q_1}\xrightarrow{(1,\theta_{12}\ldots,\theta_{1d})}\bigoplus_{i=1}^d T_{R_i,q_i}\xrightarrow{\sum\circ\operatorname{d}\!f=\operatorname{d}\!z_1+\ldots\operatorname{d}\!z_{d-2}} {N_{H\cap\PP^{d-1}|\PP^{d-1}}}|_p.\]
+For strata with higher tangency, we will see that the automatic alignment only occurs for vertices on the circle which map to $0\in\RR_{\geq 0}$. For internal components which lie on the circle, the alignment must be imposed separately. This means that $\widetilde\Dcal$ is a compactified torus bundle over $\Ecal$ (see \S\ref{S:ellsing}). On the other hand, for higher contact order,s the vector bundle map $\Sigma\circ\operatorname{d}\!f$ to $T_{\PP^m,p}$ factors naturally through $T_{H,p}$. This is discussed in detail in \S\S \ref{subsection D from Dtilde} and \ref{section D from Dtilde second}.
 
 \subsubsection{Recursive description of $\Ecal$} Recall that we have maps
 \[
@@ -1108,13 +1109,13 @@ In general, we shall see that the automatic alignment only involves the componen
 \]
 The first morphism is a closed embedding cut out by the two factorisation properties. The second morphism is a logarithmic modification. Let $\tau \in \Sigma_{1,\alpha}(\PP^m|H,d)$ be the ray corresponding to $\Dcal \subseteq \VZ_{1,\alpha}(\PP^m|H,d)$, and to the virtual divisor $\widetilde \Dcal \subseteq \widetilde{\VZ}_{1,\alpha}(\PP^m|H,d)$. 
 
-Let $\sigma \in \Sigma^{\Kim}$ be the minimal cone containing the image of $\tau$. The dimension of this cone could be large (see again the left-hand side of Figure \ref{fig:off_we_go}) -- its dimension is equal to the number of levels of the target expansion in the type $\Delta$. The cone $\sigma$ determines a stratum $\Ecal \subseteq \ol\Mcal_{1,\alpha}(\PP^m|H,d)$, and the morphism above restricts to 
+Let $\sigma \in \Sigma^{\Kim}$ be the minimal cone containing the image of $\tau$. The dimension of this cone could be large (see again the left-hand side of Figure \ref{fig:off_we_go}) -- its dimension is equal to the number of levels of the target expansion in the type $\Delta$. The cone $\sigma$ determines a stratum $\Ecal \subseteq \ol\Mcal_{1,\alpha}(\PP^m|H,d)$, and the morphism above restricts to a morphism
 \[
 \Dcal \to \Ecal.
 \] 
 
 \noindent
-{\bf Splitting in the ordinary geometry.} The locus $\Ecal$ has the following description. Let $\Lambda_0$ denote the collection of stable vertices of the combinatorial type which are mapped to $0\in \RR_{\geq 0}$, and use $\Lambda_{>0}$ for the stable vertices which are mapped to $\RR_{>0}$. Each vertex $v$ has associated discrete data $\Gamma_v$ (genus, degree, contact order). The vertices over $0$ determine moduli spaces of ordinary relative stable maps, while the higher level vertices determine maps to rubber.  Then $\Ecal$ admits a finite splitting morphism
+{\bf Splitting in the ordinary geometry.} The locus $\Ecal$ has the following description. Let $\Lambda_0$ denote the collection of stable vertices of the combinatorial type which are mapped to $0\in \RR_{\geq 0}$, and use $\Lambda_{>0}$ for the stable vertices which are mapped to $\RR_{>0}$. Each vertex $v$ has associated discrete data $\Gamma_v$ (genus, degree, contact order). The vertices over $0$ determine moduli spaces of relative stable maps, while the higher level vertices determine maps to rubber.  The stratum $\Ecal$ admits a finite splitting morphism
 \begin{equation}\label{IIIa fibre product} \Ecal \xrightarrow{\rho} \left( \prod_{v \in \Lambda_0} \ol\Mcal_{\Gamma_v}(\PP^m|H) \times \prod_{v \in \Lambda_{>0}} \ol\Mcal^{\leftrightarrow}_{\Gamma_v}(\mathbb{P}|H_0+H_\infty) \right) \times_{H^{2\epsilon}} H^{\epsilon} \end{equation}
 where $\epsilon$ is the number of edges of the stabilised dual graph, and the fibre product is taken over the appropriate evaluation maps. Splitting the diagonal of $H^{2\epsilon}$ we see that tautological integrals over $\Ecal$ are completely determined in terms of integrals over moduli spaces with ``smaller'' combinatorial data.\medskip
 
@@ -1157,11 +1158,11 @@ where $ \mathcal A_X$ is the Artin fan of $X$, which is logarithmically \'etale 
 Note that the inclusion of a stratum $W\hookrightarrow X$ is \textit{not} a logarithmic morphism. The pullback logarithmic structure on a closed stratum includes residual information about the (virtual) normal bundle directions; the construction above effectively removes these directions. Using the equivalence of Artin fans with cone complexes~\cite{CavalieriChanUlirschWise}, the above construction can be combinatorialised. Given a cone $\sigma$ in a cone stack $\Sigma$, its \textbf{star} consists of all cones of $\Sigma$ that contain $\sigma$; these naturally form a new cone complex. The associated Artin fan gives rise to the logarithmic structure on $W$ above.
 \end{remark}
 
-Equipped with the strata logarithmic structures, the morphism
+Equipped with the strata logarithmic structures, there is a logarithmic morphism
 \[
 \widetilde \Dcal\to \Ecal
 \]
-is a logarithmic morphism. The generic fibre of this morphism is a toric variety.  \medskip
+whose generic fibre is a toric variety.  \medskip
 
 \noindent
 {\bf Flattening the map to $\Ecal$.} The morphism $\widetilde \Dcal\to \Ecal$ is not flat. In order to push integrals forward, it will be convenient to flatten the map by blowing up $\Ecal$. This can be done in a universal manner, following~\cite{AK,Mol16}. 
@@ -1173,22 +1174,22 @@ is a logarithmic morphism. The generic fibre of this morphism is a toric variety
  %combinatorial type
   \draw[fill=black] (1,1) circle (2 pt);
   \draw[fill=black] (0,-1) circle (2 pt);
-  \draw[->] (1,1)--node[below,blue]{$m_1$} (2,0) (0,-1)--node[below,blue]{$m_1$} (2,0) (2,0)--node[below,blue]{$m_1+m_2$} (4,0);
+  \draw[->] (1,1)--node[below,blue]{$m_1$} (2,0) (0,-1)--node[below,blue]{$m_2$} (2,0) (2,0)--node[below,blue]{$m_1+m_2$} (4,0);
   \draw (1,-.5) node[cross]{};
   \draw[fill=white] (2,0) circle (2 pt);
   
   \draw[->] (2,-1) -- (2,-1.8);
   
-  \draw[fill=black] (0,-2) circle (2 pt);
-  \draw[->] (0,-2)--node[below=.5cm]{$\Delta_\tau$} (4,-2);
-   \draw (1,-2) node[cross]{};
-   \draw (2,-2) node[cross]{};
+  \draw[fill=blue] (0,-2) circle (2 pt);
+  \draw[blue,->] (0,-2)--node[below=.5cm]{$\Delta_\tau$} (4,-2);
+   \draw[blue] (1,-2) node[blue]{$\times$};
+   \draw[blue] (2,-2) node[blue]{$\times$};
   
   \draw [red] plot [smooth cycle] coordinates {(1,1) (0,-1) (3.5,0)};
   
  %subdivision 
-  \draw[->] (6,-2) --node[below=.5cm]{$\sigma$} (10,-2) node[right]{$\ell_1$};
-  \draw[->] (6,-2) -- (6,2) node[above]{$\ell_2$};
+  \draw[->] (6,-2) --node[below=.5cm]{$\sigma$} (10,-2) node[right]{$e_1$};
+  \draw[->] (6,-2) -- (6,2) node[above]{$e_2$};
   \draw[gray] (6,-2) -- (10,1) node[right]{$(m_2,m_1)=\operatorname{Im}(\tau)$};
  \end{tikzpicture}
 \caption{From $\Ecal$ to $\widetilde{\Ecal}$. Typical subdivision of a two-dimensional cone $\sigma$ along the image of a ray $\tau$.}
@@ -1198,9 +1199,9 @@ is a logarithmic morphism. The generic fibre of this morphism is a toric variety
 
 The combinatorics of the flattening can be described explicitly. Consider the map on tropicalizations
 \[
-\widetilde{\Dcal}^{\operatorname{trop}} \to \Ecal^{\operatorname{trop}}.
+\tau=\widetilde{\Dcal}^{\operatorname{trop}} \to \Ecal^{\operatorname{trop}}=\sigma.
 \]
-The tropical curves on the left inherit a central alignment from $\widetilde{\VZ}_{1,\alpha}(\PP^m|H,d)$, which orders a certain subset of the edge lengths. The polyhedral criterion for equidimensionality is that every cone of the source maps surjectively onto a cone of the target. There is a universal logarithmic modification $\widetilde\Ecal \to \Ecal$ such that $\widetilde\Dcal \to \widetilde\Ecal$ is flat, constructed by taking the minimal subdivision of $\Ecal^{\operatorname{trop}}$ such that cones map surjectively to cones (see Figure \ref{fig:Etilde}).
+The tropical curves parametrised on the left inherit a central alignment from $\widetilde{\VZ}_{1,\alpha}(\PP^m|H,d)$, which orders a certain subset of the edge lengths. The polyhedral criterion for equidimensionality is that every cone of the source maps surjectively onto a cone of the target. There is a universal logarithmic modification $\widetilde\Ecal \to \Ecal$ such that $\widetilde\Dcal \to \widetilde\Ecal$ is flat, constructed by taking the minimal subdivision of $\Ecal^{\operatorname{trop}}$ such that cones map surjectively to cones (see Figure \ref{fig:Etilde}).
 
 This subdivision may be described explicitly. For this, it is convenient to employ the formalism of extended tropicalizations \cite{Thuillier,ACP}. The subdividing cones are obtained from cones in the star of $\tau$ under the limit $e_1=\cdots=e_r=\infty$\sidenote{Was $r$ called $\epsilon$ before?}. The cones in the star of $\tau$ are given by (in)equalities relating distances of pairs of vertices, and there are three cases to consider:
 \begin{enumerate}
@@ -1491,22 +1492,19 @@ The fibre of $\OO(\delta)$ over a moduli point is naturally isomorphic to
 where $C^\prime$ is any component of $C$ which lies on the circle of radius $\delta$, $p$ is the node separating it from the core, and $\mathbb T$ is the universal tangent line bundle on the moduli space for $\sqC_0$.
 \end{lemma}
 
-The moduli space of radially aligned curves of genus one $\VZ_{1,n}^\text{rad}$ coincides with the Vakil-Zinger blow-up of  $\overline \Mcal_{1,n}$ \cite[\S 2.3]{VZ}. In particular, up to twisting by exceptional divisors, the tangent line bundles at two marking $\widetilde{\mathbb T}_i$ and $\widetilde{\mathbb T}_j$ are identified (via the dual Hodge bundle $\mathbb E^\vee$), extending the identification on the smooth locus provided by regarding the elliptic curve as an algebraic group. The pullback of this to $\VZ^\leftrightarrow_{\Gamma_{\sqsubset_0}}$ is what we mean by  the universal tangent line bundle $\mathbb T$.
-
+Here we explain the meaning of $\mathbb{T}$. Isolating the subcurve $C_0 \subseteq C$ gives rise to a morphism from $\widetilde\Dcal$ to the moduli space of radially aligned curves of genus one:
+\begin{equation*} \widetilde\Dcal \to \VZ^{\text{rad}}_{1,n}.\end{equation*}
+The latter space coincides with the Vakil--Zinger blow-up of $\overline \Mcal_{1,n}$ \cite[\S 2.3]{VZ}. In particular, after twisting by exceptional divisors, the tangent line bundles at two marking $\widetilde{\mathbb T}_i$ and $\widetilde{\mathbb T}_j$ are identified (via the dual Hodge bundle $\mathbb E^\vee$), extending the identification on the smooth locus provided by regarding the elliptic curve as an algebraic group. This gives rise to a single line bundle -- the ``universal tangent line bundle'' -- on $\VZ^{\text{rad}}_{1,n}$; we let $\mathbb{T}$ denote its pullback to $\widetilde\Dcal$.
 \begin{proof}
 Choose a component $C^\prime$ of the curve which lies on the circle. Then $\OO(\delta)$ is equal to the tensor product of tangent line bundles along the path of edges connecting $C^\prime$ to the core. However, this tensor product of line bundles is telescoping: any vertex which appears in the middle of the path will have an incoming and outgoing node (and possibly other nodes that are irrelevant for this product), and since the vertex corresponds to a smooth rational curve these tangent spaces are naturally dual to each other~\cite[\S 2.2]{VZ}. Thus these factors cancel, and the result follows.
 %Note that the final term on the right hand side is not given by $\TT_{q_i} C_0$ (where $q_i$ is the appropriate splitting node) but rather the tangent space to the core. 
 \end{proof}
 The content of Lemma \ref{lem:generic_proj_bundle} is that the choice of a point in the fibre of $\widetilde\Dcal \to \Ecal$ provides a natural identification between the inward-pointing tangent lines on the circle. According to Lemma \ref{lemma fibres of Odelta}, they can further be identified with the line bundle $\OO(\delta)\otimes \mathbb T^\vee$ on $\widetilde\Dcal$. %This identification amounts to a specific linear dependence relation between the tangent vectors, which gives a point in the moduli space of attaching data for the corresponding elliptic singularity \cite[\S 2.2]{SMY2}.
-After Corollary \ref{cor:maps_from_elliptic_sing}, we can therefore express the factorisation condition in terms of degeneracy of the following natural morphism of vector bundles on $\widetilde\Dcal$:
+After Corollary \ref{cor:maps_from_elliptic_sing}, we can therefore express the factorisation condition as the degeneracy of the following natural morphism of vector bundles on $\widetilde\Dcal$:
 \begin{equation*} \Sigma \operatorname{d}\!f \colon \OO(\delta)\otimes \mathbb T^\vee \to \ev_q^\st T H. \end{equation*}
-Here $\Sigma \operatorname{d}\!f$ is defined by summing the images of the tangent vectors at the inward-pointing nodes on the circle, using the natural identification of each of these tangent spaces with $\OO(\delta)\otimes \mathbb T^\vee$ established above. Apart from the case dealt with in \S \ref{S:lines}, the composite:
-\[\operatorname{pr}\circ\Sigma \operatorname{d}\!f \colon \OO(\delta)\otimes \mathbb T^\vee \to \ev_q^\st T \PP^m\to \ev_q^* N_{H/\PP^m}\]
- vanishes, because the contact order of the exterior components with $H$ is strictly higher than $1$. So, $\Sigma \operatorname{d}\!f$ takes values in $TH$, rather than $T\PP^m$. 
- 
- This gives a section of the vector bundle
+Here $\Sigma \operatorname{d}\!f$ is defined by summing the images of the tangent vectors at the inward-pointing nodes on the circle, using the natural identification of each of these tangent spaces with $\OO(\delta)\otimes \mathbb T^\vee$ established above. This morphism takes values in $\ev_q^\star TH$ rather than $\ev_q^\star T\PP^m$ because the contact order of the exterior components with $H$ is strictly larger than $1$ (except for the case of lines, dealt with separately in \S \ref{S:lines}). This gives a section of the vector bundle
 \begin{equation*} V = (\ev_q^\st TH) \otimes \mathbb T \otimes \OO(-\delta) \end{equation*}
-which is transverse and whose vanishing locus coincides with $\Dcal$. Transversality follows from the construction, because any stratum of the boundary on which $\Sigma \operatorname{d}\!f$ may have vanished has been (blown up and) included into $\mathbb T \otimes \OO(-\delta)$ as a twist. In other words, the circle of radius $\delta$ always passes through at least one component which is not contracted by the map to the expansion. Now, if the vanishing locus of $\Sigma \operatorname{d}\!f$ does not contain any stratum of the boundary, then it is the closure of its intersection with the open stratum, which can be seen to be transverse. Thus we obtain:
+which is transverse and whose vanishing locus coincides with $\Dcal$. Transversality follows by construction, because any stratum of the boundary on which $\Sigma \operatorname{d}\!f$ vanishes has been (blown up and) included into $\mathbb T \otimes \OO(-\delta)$ as a twist; in other words, the circle of radius $\delta$ always passes through at least one component which is not contracted by the map to the expansion. Now, if the vanishing locus of $\Sigma \operatorname{d}\!f$ does not contain any stratum of the boundary, then it is the closure of its intersection with the open stratum, which can be seen to be transverse. Thus we obtain:
 \begin{prop} \label{class of D} $[\Dcal] = \operatorname{e}(V) \cap [\widetilde\Dcal]$.\end{prop}
 We claim that the class $\operatorname{e}(V)$ is tautological and computable. The only part which needs justification is $\OO(\delta)$. We claim that this can be obtained by pulling back a line bundle from $\Ecal$ and twisting by exceptional divisors.
 \begin{lemma} For $i\in \{1,\ldots,r\}$ consider the line bundle
@@ -1653,7 +1651,7 @@ where we have used the same telescoping trick. Thus we have proven \eqref{Odelta
 \end{example}
 
 
-\subsubsection{$\Dcal$ from $\widetilde\Dcal$: second way} %To establish a more direct connection with the geometry of the fibre product \eqref{IIIa fibre product}, recall that $\widetilde\Ecal$ is built as an explicit modification of a finite cover of \eqref{IIIa fibre product}. For $i \in\{1,\ldots,r\}$ (with the convention established at the end of Lemma \ref{lem:generic_proj_bundle}), it makes sense on $\widetilde\Ecal$ to consider the line bundle $\OO(\delta_i)$ associated to a shortest path from the core to the circle in the $\sqC_i$-direction. 
+\subsubsection{$\Dcal$ from $\widetilde\Dcal$: second way} \label{section D from Dtilde second} %To establish a more direct connection with the geometry of the fibre product \eqref{IIIa fibre product}, recall that $\widetilde\Ecal$ is built as an explicit modification of a finite cover of \eqref{IIIa fibre product}. For $i \in\{1,\ldots,r\}$ (with the convention established at the end of Lemma \ref{lem:generic_proj_bundle}), it makes sense on $\widetilde\Ecal$ to consider the line bundle $\OO(\delta_i)$ associated to a shortest path from the core to the circle in the $\sqC_i$-direction. 
 We analyse the degeneracy locus of $\Sigma\operatorname{d}\!f$, in order to have a more direct construction of $\Dcal$ from the fibre product \eqref{IIIa fibre product}. On $\Ecal$ consider the piecewise linear function $\delta_i$ ($i=1,\ldots,r$), defined as the minimal distance from a component of (i.e. generising to) the core $\plC_0$ to a non-contracted component of the $i$-th tail $\plC_i$, and the associated line bundle $\OO(\delta_i)$.
 Construct
 \begin{equation*}\mathcal P=\PP_{\Ecal}\left(\bigoplus_{i=1}^r\OO(\delta_i)\right)\xrightarrow{p}\Ecal.\end{equation*}
@@ -1809,9 +1807,9 @@ This construction of the virtual fundamental class means that once we have estab
 \end{enumerate}
 
 \subsection{Reduced absolute, relative and rubber invariants} To be precise: by a reduced invariant of $Y$ we mean an integral over $\VZ_{1,n}(Y,\beta)$ of a product of evaluation classes and pullbacks of psi classes along morphisms forgetting subsets of the marked points:
-\begin{equation*} \int_{[\VZ_{1,n}(Y,\, \beta)]} \prod_{i=1}^n \fgt_{S_i}^\star \psi_i^{k_i} \cdot \ev_i^\star \gamma_i.\end{equation*}
+\begin{equation*} \int_{\virt{[\VZ_{1,n}(Y,\, \beta)]}} \prod_{i=1}^n \fgt_{S_i}^\star \psi_i^{k_i} \cdot \ev_i^\star \gamma_i.\end{equation*}
 (Here $S_i \subseteq \{1,\ldots,n\}$ with $i \not\in S_i$ for all $i$; taking $S=\emptyset$ gives the ordinary  psi classes.). The evaluation maps are viewed as mapping into $X$ (hence the adjective ``restricted''). Reduced relative invariants of $(X,Y)$ are defined in the same way
-\begin{equation*} \int_{[\VZ_{1,\alpha}(X|Y,\, \beta)]} \prod_{i=1}^n \fgt_{S_i}^\star \psi_i^{k_i} \cdot \ev_i^\star \gamma_i\end{equation*}
+\begin{equation*} \int_{\virt{[\VZ_{1,\alpha}(X|Y,\, \beta)]}} \prod_{i=1}^n \fgt_{S_i}^\star \psi_i^{k_i} \cdot \ev_i^\star \gamma_i\end{equation*}
 except now the forgetful morphism maps into a space of absolute stable maps:
 \begin{equation*} \fgt_S \colon \VZ_{1,\alpha}(X|Y,\beta) \to \VZ_{1,n-\#S}(X,\beta).\end{equation*}
 Note that even the case $S=\emptyset$ entails a nontrivial forgetful morphism. In particular, all the psi classes which we consider are \textbf{collapsed psi classes}, meaning that they are relative cotangent line classes for the corresponding collapsed stable map. Note that, unlike in the absolute case, in the relative case it may well be that the entire insertion is pulled back along a single forgetful map $\fgt_S$. The reduced rubber invariants of $\mathbb{P}$ are defined similarly (again using collapsed psi classes).
