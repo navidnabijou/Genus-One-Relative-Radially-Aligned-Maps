@@ -411,7 +411,7 @@ For the second step, we are forced to contend with the interaction of the relati
 
 We pass through general techniques that we expect will be useful in logarithmic Gromov--Witten theory more broadly. We explain how to describe degenerate moduli spaces in terms of simpler spaces of maps. This is substantially more delicate than the standard situation, where the strata are simply fibre products. First, one must understand the interaction of the relative geometry with elliptic singularities, which involves a study of the factorisation condition in terms of tautological bundles. Second, the degenerate strata of moduli spaces are not simply fibre products of spaces with smaller numerical invariants, but compactified torus bundles over these strata, due to the introduction of logarithmic blowups. This geometry is at the heart of recent work on the degeneration formula~\cite{R19}. The main text provides a first systematic procedure that uses tropical geometry to calculate with these torus bundles. 
 
-A key step in our recursion is a description of the locus of maps with higher than prescribed tangency, which was identified by Gathmann. We realise the locus as the vanishing locus of a section of a line bundle that comes from tropical geometry — from a piecewise linear function on the fan. The systematic understanding of logarithmic line bundles arising in this fashion is likely to play an important role in logarithmic enumerative geometry. 
+A key step in our recursion is a description of the locus of maps with higher than prescribed tangency, which was identified by Gathmann. We realise the locus as the vanishing locus of a section of a line bundle that comes from tropical geometry — from a piecewise linear function on the fan/tropicalization. The systematic understanding of logarithmic line bundles arising in this fashion is expected to play an important role in logarithmic enumerative geometry. 
 
 Although the geometric ideas in Gathmann's recursion are clear, they are implemented within the space of ordinary stable maps, and do not formally fit within the formalism of logarithmic Gromov--Witten theory. On the way to our main results, we reinterpret Gathmann's idea of increasing tangency within logarithmic mapping spaces. %This is done by the introduction of \emph{fictitious markings}, and an identification of the space of maps with higher contact order with a boundary stratum inside that of lower contact order and more (fictitious) markings. 
 
@@ -419,7 +419,7 @@ Although the geometric ideas in Gathmann's recursion are clear, they are impleme
 
 \subsection{Future directions} The results of~\cite{RSPW} also suggest the existence of a reduced higher genus Gromov--Witten theory formed by replacing contracted elliptic components with singularities. We have been informed by Jonathan Wise that his Ph.D. candidate Sebastian Bozlee has constructed these higher genus reduced Gromov--Witten invariants. A manuscript is in preparation. The discussion here is expected to carry over to this setting. 
 
-Our analysis leads naturally to the study of the main component of the double ramification cycle for target manifolds in genus one. The virtual geometry of this was studied in recent work of Janda, Pandharipande, Pixton, and Zvonkine~\cite{DRCBundle}. Even in genus one, an understanding of the main component contributions of the double ramification cycle for target manifolds seems to be lacking. Our main algorithm subverts the use of this class, but it would be more natural to use it. 
+Our analysis leads naturally to the study of the main component of the double ramification cycle for target manifolds in genus one. The virtual geometry of this was studied in recent work of Janda, Pandharipande, Pixton, and Zvonkine~\cite{DRCBundle}. Even in genus one, an understanding of the main component contributions of the double ramification cycle for target manifolds seems to be lacking. Our main algorithm provides a method for calculating integrals over this class, but it would be more natural to have a formula for it.
 
 Finally, it would be natural to generalise the method of degenerating tangency conditions to targets with higher rank logarithmic structures. The extreme case when the target is a toric variety with its toric boundary, is intimately tied with the enumerative geometry of well-spaced tropical curves~\cite{LR18,RSPW2,Speyer}. %We will return to these questions in future work. 
 
@@ -542,7 +542,9 @@ The moduli stack $\mathfrak M_{1,n}^{\mathrm{cen}}$  of centrally aligned curves
 \[
 \widetilde{\mathcal C}_S\to \overline{\mathcal C}_S,
 \]
-where $\overline{\mathcal C}_S$ may contain a Gorenstein elliptic singularity \cite{SMY1}. Given a family of tropical curves, the function $\delta$ provides a non-negative real number for each point on the base. We may therefore consider the ``\textbf{circle}'' of points on each fibre whose distance from the core is equal to $\delta$. A partial destabilization, or ``bubbling'', introduces $2$-pointed rational curves into the curve by adding vertices to the dual graph at the points that lie on this circle (the crosses at height $\delta$ in Figure \ref{fig:lambdaexample}); we denote this new tropical curve by $\widetilde{\plC}$. The open disc of radius $\delta$, i.e. the locus where $\lambda<\delta$, is then contracted to a Gorenstein singularity in $\overline{\mathcal C}_S$. The number of branches is equal to the number of vertices of $\widetilde{\sqC}$ which lie on the circle. %This data uniquely determines the singularity.
+where $\overline{\mathcal C}_S$ may contain a Gorenstein elliptic singularity \cite{SMY1}. Intuitively, this is achieved by interpreting the exceptional directions of $\mathfrak M_{1,n}^{\mathrm{cen}}\to\mathfrak M_{1,n}$ as moduli of attaching data.
+
+Formally, given a family of tropical curves, the function $\delta$ provides a non-negative real number for each point on the base. We may therefore consider the ``\textbf{circle}'' of points on each fibre whose distance from the core is equal to $\delta$. A partial destabilization, or ``bubbling'', introduces $2$-pointed rational curves into the curve by adding vertices to the dual graph at the points that lie on this circle (the crosses at height $\delta$ in Figure \ref{fig:lambdaexample}); we denote this new tropical curve by $\widetilde{\plC}$. The open disc of radius $\delta$, i.e. the locus where $\lambda<\delta$, is then contracted to a Gorenstein singularity in $\overline{\mathcal C}_S$. The number of branches is equal to the number of vertices of $\widetilde{\sqC}$ which lie on the circle. %This data uniquely determines the singularity.
 
 The space of stable maps $\widetilde\VZ_{1,n}(\PP^m,d)$ from the universal nodal curve $\mathcal C$ over the stack $\mathfrak M_{1,n}^{\mathrm{cen}}$ is Deligne-Mumford and proper, with projective coarse moduli space. A compatibility condition between the alignment and the map is required, namely that the circle of radius $\delta$ passes through \emph{at least one component of positive degree}. A stable map in this space is said to satisfy the \textbf{factorisation condition} if the map $\widetilde{\mathcal C}\to \mathcal C\to \mathbb P^m$ factors through the contraction $\widetilde{\mathcal C}\to \overline{\mathcal C}$. Maps that are not constant on any genus one subcurve of $\mathcal C$ automatically satisfy this condition; indeed, the contraction is an isomorphism in this case.
  
@@ -1089,15 +1091,15 @@ Start with the moduli space of logarithmic stable maps. There is a finite splitt
 \[\Ecal \to \left(\M{0}{(1)}{\PP^m|H}{1}^{\times m}\times_{H^m}H\right)\times \overline{\Mcal}^{\leftrightarrow}_{1,(-1,\ldots,-1,d)}(\PP^1|0+\infty,d),\]
 where the latter is the moduli space of genus one rubber maps. To obtain $\widetilde{\Dcal}$ from $\Ecal$ we replace the final factor by $\VZ^{\leftrightarrow}_{1,(-1,\ldots,-1,d)}(\PP^1|0+\infty,d)$ (see \S \ref{subsection rubber}).
 
-The first  factor can be described very concretely as the choice of a point $p$ of $H$, and $d$ lines through it. A very important observation is that, at least generically, the vertices which lie on the circle of radius $\delta$ and map to $0\in\mathbb R_{\geq 0}$ are automatically aligned. Indeed, if $R_i$ denotes the $i$-th tail of the curve, glued to $E$ at the node $q_i$, then the stable map provides us with identifications:
+The first  factor can be described very concretely as the choice of a point $p$ of $H$, and $d$ lines through it. A very important observation is that, at least generically, the vertices which lie on the circle of radius $\delta$ and map to $0\in\mathbb R_{\geq 0}$ are automatically aligned. Indeed, if $R_i$ denotes the $i$th tail of the curve, glued to $E$ at the node $q_i$, then the stable map provides us with identifications:
 \[\operatorname{d}\! f_{i,q_i}\colon T_{R_i,q_i}\cong N_{H/\PP^m,p}\]
 which we may compose to obtain attaching data $\theta_{ij}$  (see \S \ref{S:ellsing}). This produces a contraction $C\to\overline C$ to an elliptic $d$-fold point. The dimension of $\widetilde\Dcal$ coincides with the dimension of $\Ecal$, which is $dm + m - 1$.
 
-Assume for simplicity that $d\leq m$. For the absolute factorisation to hold, the $d$ lines $f_i(R_i)$ must span a subspace of $T_{\PP^m,p}$ of dimension at most $d-1$. The locus of maps satisfying this condition has dimension:
+Assume first that $d\leq m$. For the absolute factorisation to hold, it is necessary (but not sufficient) for the $d$ lines $f_i(R_i)$ to span a subspace of $T_{\PP^m,p}$ of dimension at most $d-1$. The locus of maps satisfying this condition has dimension:
 \begin{equation*} (dm+m-1) - (m-d+1) = dm + d -2.\end{equation*}
 Without loss of generality, we may assume that $H=\{z_0=0\}$, $p=[0,\ldots,0,1]$, and that the $d$ lines span the subspace $\{z_{d-1}=\ldots=z_{m-1}=0\}$. The sections $z_i$ for $i=d-1,\ldots,m$ vanish identically near $E$, so descend automatically to the singularity. On the other hand the section $z_0$ descends to the singularity by the construction of $\overline C$. Finally, the sections $z_i$ for $i=1,\ldots,d-2$ impose independent conditions to descend to $\overline C$. Imposing these conditions, we find that $\Dcal$ has dimension 
 \begin{equation*} (dm+d-2)-(d-2) = dm \end{equation*}
-making it into a divisor in $\VZ_{1,(d)}(\PP^m|H,d)$.\sidenote{What about d>m?}
+making it into a divisor in $\VZ_{1,(d)}(\PP^m|H,d)$. The case $d>m$ is similar, except that the lines $f_i(R_i)$ are automatically linearly dependent and so this condition does not need to be imposed.
 
 We can express the factorisation condition tautologically by combining the isomorphisms $\theta_{ij}$ above with the differential of $f$. We see that factorisation amounts to the vanishing of the following vector bundle map:
 \[T_{R_1,q_1}\xrightarrow{(1,\theta_{12}\ldots,\theta_{1d})}\bigoplus_{i=1}^d T_{R_i,q_i}\xrightarrow{\sum\circ\operatorname{d}\!f=\operatorname{d}\!z_1+\ldots\operatorname{d}\!z_{d-2}} {N_{H\cap\PP^{d-1}|\PP^{d-1}}}|_p.\]
@@ -1229,7 +1231,7 @@ We have produced a factorisation
 \end{equation*}
 where the first map is flat and the second map is a logarithmic modification. $\widetilde\Dcal$ is a compactification of a torus bundle over $\widetilde\Ecal$ whose strata can be read off from the tropicalization; in particular, we have the information of how (polynomials in) the classes of boundary strata push forward to $\widetilde\Ecal$. In fact, we can say more and describe the generic fibre of $\widetilde\Dcal \to \widetilde\Ecal$:
 \begin{lemma}\label{lem:generic_proj_bundle}
-Generically over $\Ecal$, the morphism $\widetilde \Dcal\to\Ecal$ is the projectivisation of a tautological vector bundle.
+Generically over $\widetilde\Ecal$, the morphism $\widetilde \Dcal\to\widetilde\Ecal$ is the projectivisation of a tautological vector bundle.
 \end{lemma}
 
 \begin{proof}
@@ -1239,9 +1241,9 @@ Let us assume that the curve does not degenerate, so that the dual graph is as p
 \end{equation}
 This can also be thought of as parametrising compatible identifications $\theta_{ij}\colon T_{C_i,q_i}\cong T_{C_j,q_j}$ (see \S \ref{S:ellsing}). A point in this space determines a map from the rational $r$-fold singularity to the elliptic $r$-fold singularity (this coincides with the fibre of the space of aligned curves over the space of nodal curves; see \cite[\S 3.4]{RSPW}). Along the boundary, some of the $\plC_i$ (though not all of them) may move off from the circle, so that the latter subdivides the edge between them and the core. Correspondingly, there is a destabilisation of the curve (semistable components are represented by crosses in our figures), and we obtain an elliptic singularity containing strictly semistable branches (\emph{sprouting}). This was already identified by Smyth as a compactification of the moduli space of attaching data carrying a Gorenstein universal curve \cite[\S 2.2]{SMY2}.
 
-Tropically, pushing some of the $\plC_i$ off the circle creates new finite-length edges with coordinates $\ell_i\in\RR_{\geq_0}$ (see the right-hand side of Figure \ref{fig:off_we_go}). Since not all of them can be strictly positive, the resulting fan is that of a projective space. This gives us a fibrewise description of $\widetilde\Dcal\to\Ecal$ over the generic point.
+Tropically, pushing some of the $\plC_i$ off the circle creates new finite-length edges with coordinates $\ell_i\in\RR_{\geq_0}$ (see the right-hand side of Figure \ref{fig:off_we_go}). Since not all of them can be strictly positive, the resulting fan is that of a projective space. This gives us a fibrewise description of $\widetilde\Dcal\to\widetilde\Ecal$ over the generic point.
 
-A slight modification of the argument above is required to account for the fact that all vertices that lie on the circle and are mapped to $0\in\mathbb R_{\geq0}$ by the tropical map are generically aligned on $\Ecal$. Indeed, by the combinatorial description of rays in \S \ref{S:combinatorialdescription}, there are no stable vertices inside the circle, so all the edges going from a vertex of $\Lambda_0$ to the core have the same expansion factor $m$ (maximal among the contact orders at the core). Therefore, for all $i$ such that $\plC_i\in\Lambda_0$, the $T_{q_i}C_i^{\otimes m}$ can be identified to the target tangent line on the fibre product \eqref{IIIa fibre product}, and, after saturation, the $T_{q_i}C_i$ themselves are canonically isomorphic on $\Ecal$. Thus, only one summand should be taken to represent all of them in the projective bundle \eqref{eqn:projectivebundle}.
+A slight modification of the argument above is required to account for the fact that all vertices that lie on the circle and are mapped to $0\in\mathbb R_{\geq0}$ by the tropical map are already generically aligned on $\widetilde\Ecal$. Indeed, by the combinatorial description of rays in \S \ref{S:combinatorialdescription}, there are no stable vertices inside the circle, so all the edges going from a vertex of $\Lambda_0$ to the core have the same expansion factor $m$ (maximal among the contact orders at the core). Therefore, for all $i$ such that $\plC_i\in\Lambda_0$, the $T_{q_i}C_i^{\otimes m}$ can be identified to the target tangent line on the fibre product \eqref{IIIa fibre product}, and, after saturation, the $T_{q_i}C_i$ themselves are canonically isomorphic on $\widetilde\Ecal$. Thus, only one summand should be taken to represent all of them in the projective bundle \eqref{eqn:projectivebundle}.
 \end{proof}
 
 \begin{figure}
@@ -1512,7 +1514,7 @@ We claim that the class $\operatorname{e}(V)$ is tautological and computable. Th
 on $\Ecal$, where $q_i$ is the splitting node. Then $\OO(\delta)$ is isomorphic to the pull-back of $T_i$ to $\widetilde\Dcal$ twisted by all exceptional divisors.\end{lemma}
 We illustrate this lemma in the following example, which brings out the interplay between logarithmic moduli and blowups.
 \begin{example}
-Consider the locus $\Ecal$ given by $\sigma$ below, and the codimension one locus $\widetilde\Dcal_\rho \subseteq \widetilde\Dcal_\sigma$ given by the two-dimensional (due to the alignment) cone $\rho$:
+Consider the locus $\Ecal$ given by $\sigma$ below, and the codimension-one locus $\widetilde\Dcal_\rho \subseteq \widetilde\Dcal_\sigma$ given by the two-dimensional (due to the alignment) cone $\rho$:
 \begin{figure}[!htbp]
 \begin{minipage}{0.3\textwidth}
 \centering
@@ -1684,7 +1686,7 @@ By construction, on $\widetilde \Dcal$ it is always possible to tell which of th
 \end{proof}
 
 \begin{figure}[hbt]
-\begin{tikzpicture}[ipe import]
+\begin{tikzpicture}[ipe import,scale=1.5]
   %\useasboundingbox (0, 0) rectangle (595, 842);
   
  %%%%%%%%%%%%%%%% left
@@ -1766,7 +1768,7 @@ By construction, on $\widetilde \Dcal$ it is always possible to tell which of th
  
 \end{tikzpicture}
 %\includegraphics[scale=.5]{principalisation}
-\caption{On the left, a generic point of $\mathcal P$. On the right, a point of $\Xi$. The dotted circle is the one we draw on $\mathcal P$. The continuous circle represents $\delta$ enlarging the dotted one (a stratum of $\widetilde\Dcal$).}\label{fig:principalisation}
+\caption{On the left, a generic point of $\mathcal P$. On the right, a point of $\Xi$. The dotted circle is the one we draw on $\mathcal P$. The solid circle represents a radius $\delta$ enlarging the dotted one (a stratum of $\widetilde\Dcal$).}\label{fig:principalisation}
 \end{figure}
 
 Finally, on $\widetilde\Dcal$ %(or, in fact, on an intermediate blowup $\widetilde{\mathcal P}\to\mathcal P$)
