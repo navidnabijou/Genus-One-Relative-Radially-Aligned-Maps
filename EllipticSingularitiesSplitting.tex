@@ -643,6 +643,7 @@ The stack $\VZ_{1,\alpha}(\mathbb P^m|H,d)$ is logarithmically smooth and proper
 As noted in Remark~\ref{rem: constant-maps}, maps from elliptic curves to $\PP^m$ will always be taken to have degree at least $2$, ensuring that the main component is non-empty. 
 
 \begin{proof}
+\begin{comment}
 We examine the geometry of the space of maps to $(\PP^m|H)$ by utilising the forgetful morphism
 \[
 \nu\colon \VZ_{1,\alpha}(\mathbb P^m|H,d)\to \VZ_{1,n}(\mathbb P^m,d),
@@ -671,12 +672,13 @@ Consider the manner in which $H^1(\overline{C}_F,\mathcal O_{\overline{C}_F})$ f
 Given a strict square-zero extension $S'$ of $S$, the piecewise linear function $\alpha$ extends uniquely by strictness to any deformation of the curve. The resulting deformation of $\mathcal O_{C}(-\alpha)$ produces an infinitesimal deformation of the trivial bundle in the Picard group, whose class in $H^1(\overline{C}_F,\mathcal O_{\overline{C}_F})$, is the obstruction to deformation. We will show that it is possible to choose a deformation of $(C,f_B)$ that cancels out the obstruction to lifting to $f$, and thus the map to the obstruction space above is surjective. 
 
 On restricting to the minimal genus one subcurve $D_F$, the line bundle $\mathcal O_{C}(-\alpha)$ is equivalent to the divisor $\sum a_i x_i$ where $x_i$ are the points connecting $D_F$ to the rest of the curve, and $a_i$ are the slopes of $\alpha$ along the edges corresponding to the $x_i$. Infinitesimally moving the point $x_i$ produces a nontrivial deformation of the line bundle $\mathcal O_{C}(-\alpha)$. The moduli space $\VZ_{1,n}(\mathbb P^m,d)$ is a logarithmically smooth fibration over the universal Picard stack over the stack of centrally aligned $n$-pointed genus one curves~\cite[Remark~4.5.3]{RSPW}. As a consequence, it is possible to find a logarithmic deformation of the map $(C,f_B)$ that induces the deformation of the line bundle that is given by infinitesimal motion. The obstruction group is $1$-dimensional, and we have produced a logarithmic deformation of the collapsed map that produces a nontrivial deformation of the line bundle $\mathcal O_{C}(-\alpha)$. Therefore, logarithmic deformations surject onto the obstruction space above. The absolute obstructions, which are the cokernel of this map therefore vanish, and the result follows.  
+\end{comment}
 %Consider an $S$-family of expanded maps $[F: C\to \mathbb P^m[s]$. Choose $N$ generic hyperplanes in and let $\Delta = \{H\}\cup\{H_1,\ldots,H_N}$ be this set of hyperplanes. There is a morphism of logarithmic schemes $(\mathbb P^m,\Delta)\to (\mathbb P^m,H)$. This induces a new expansion $\mathbb P^m[\Delta,s]$. Moreover, by the genericity of the $H_i$, they each intersect the image of $C$ in finitely many reduced points. Pulling back the logarithmic structure, we obtain a new logarithmic map 
 %\[
 %F': C'\to \mathbb P^m[\Delta,s].
 %\]
 %We make two observations. First, since the logarithmic structure on $C'$ is strict away from $H$, unobstructedness of deformations for $F'$ is equivalent to unobstructedness for $F$. Second, the target degeneration is now a toric degeneration, and the logarithmic tangent bundle is trivial.
-\textcolor{red}{luca's rewrite of log smoothness}
+%\textcolor{red}{luca's rewrite of log smoothness}
 
 The proof is analogous to that of \cite[Theorem 3.5.1]{RSPW2}. There is a forgetful morphism
 \[
@@ -1103,7 +1105,7 @@ making it into a divisor in $\VZ_{1,(d)}(\PP^m|H,d)$. The case $d>m$ is similar,
 
 We can express the factorisation condition tautologically by combining the isomorphisms $\theta_{ij}$ above with the differential of $f$. We see that factorisation amounts to the vanishing of the following vector bundle map:
 \[T_{R_1,q_1}\xrightarrow{(1,\theta_{12}\ldots,\theta_{1d})}\bigoplus_{i=1}^d T_{R_i,q_i}\xrightarrow{\sum\circ\operatorname{d}\!f=\operatorname{d}\!z_1+\ldots\operatorname{d}\!z_{d-2}} {N_{H\cap\PP^{d-1}|\PP^{d-1}}}|_p.\]
-For strata with higher tangency, we will see that the automatic alignment only occurs for vertices on the circle which map to $0\in\RR_{\geq 0}$. For internal components which lie on the circle, the alignment must be imposed separately. This means that $\widetilde\Dcal$ is a compactified torus bundle over $\Ecal$ (see \S\ref{S:ellsing}). On the other hand, for higher contact order,s the vector bundle map $\Sigma\circ\operatorname{d}\!f$ to $T_{\PP^m,p}$ factors naturally through $T_{H,p}$. This is discussed in detail in \S\S \ref{subsection D from Dtilde} and \ref{section D from Dtilde second}.
+For strata with higher tangency, we will see that the automatic alignment only occurs for vertices on the circle which map to $0\in\RR_{\geq 0}$. For internal components which lie on the circle, the alignment must be imposed separately. This means that $\widetilde\Dcal$ is a compactified torus bundle over $\Ecal$ (see \S\ref{S:ellsing}). On the other hand, for higher contact orders, the vector bundle map $\Sigma\circ\operatorname{d}\!f$ to $T_{\PP^m,p}$ factors naturally through $T_{H,p}$. This is discussed in detail in \S\S \ref{subsection D from Dtilde} and \ref{section D from Dtilde second}.
 
 \subsubsection{Recursive description of $\Ecal$} Recall that we have maps
 \[

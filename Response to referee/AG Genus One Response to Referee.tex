@@ -83,6 +83,11 @@
 \DeclareMathOperator{\Achow}{A}
 \DeclareMathOperator{\pt}{pt}
 
+\DeclareRobustCommand{\plE}{\text{\reflectbox{$\exists$}}}
+\newcommand{\plC}{\scalebox{0.8}[1.3]{$\sqsubset$}}
+\newcommand{\sidenote}[1]{\marginpar{\textbf{\color{red}#1}}}
+\newcommand{\lcm}{\operatorname{lcm}}
+
 \newcommand{\virt}[1]{[#1]^{\operatorname{virt}}}
 \newcommand{\M}[4]{\overline{\mathcal{M}}_{#1,#2}(#3,#4)}
 \newcommand{\Q}[4]{\overline{\mathcal{Q}}_{#1,#2}(#3,#4)}
@@ -176,7 +181,8 @@
 We have made many improvements to the paper which directly address the referee's comments. Following their suggestion, we have also gone through and made additional changes, in order to improve the readability and appeal to a wider audience. Major such changes include:
 \begin{enumerate}
 	\item An improved introduction (see \S\S 1.1--1.5), explicating the connection between logarithmic structures and moduli of Gorenstein singularities which is a key geometric ingredient in the paper.
-	\item More details in the proof of Theorem 1.9 (logarithmic smoothness of the moduli space), including a careful analysis of the various relative deformation/obstruction theories. 
+	\item More details in the proof of Theorem 1.9 (logarithmic smoothness of the moduli space), including a careful analysis of the various relative deformation/obstruction theories.
+	\item The arguments of \S 4.3 have been expanded and streamlined.
 \end{enumerate}
 
 
@@ -184,6 +190,30 @@ We have made many improvements to the paper which directly address the referee's
 
 \subsection*{Response to specific comments}
 \begin{enumerate}
+\item[(1)] The statement of Theorem A now refers explicitly to logarithmic maps not contracting the minimal genus one subcurve.
+\item[(2)] Theorem B: We have clarified that the relative genus one invariants are not required as an input.
+\item[(3)] \S 1.5 now contains the relevant definitions. We hope that Figure 1 will help the reader as well.
+\item[(4)] When the minimal genus one subcurve of $C$ is not contracted, the map is automatically included in the stack $\mathcal{V\!Z}$, with no need for any Gorenstein contraction $\overline{C}$.
+\item[(5)] We have phrased the definition (now 1.8) more carefully: there are two maps from curves with Gorenstein singularities, $\overline C_F\to\PP^m[s]$ to the expansion, and $\overline C_B\to\PP^m$ to the collapsed target, and both are required not to contract the minimal genus one subcurve.
+\item[(6)] The case of degree $1$ is discussed in Remark 1.7. The proof of the theorem has been rewritten.
+\item[(7)] The minimal genus one subcurve is now denoted by $\plE$. Since an open neighbourhood of $\plE$ is contracted, but the flags $t_1,\ldots,t_k$ are not, they cannot be supported on $\plE$. Instead, they are supported on $F^{-1}F(\plE)$; they are, so to say, the first bits of the curve that move off from $F^{-1}F(\plE)$. Hopefully Figure 2 will clarify the mysterious condition.
+\item[(8)] The core is now defined at the beginning of \S 1.5 (it is the minimal subcurve of genus one). The core is the centre of the circle of radius $\delta$.
+\item[(9)] An internal component is one that is entirely mapped into $H$. See Definition 3.1.
+\item[(10)] Primary insertions.
+\item[(11)] White circles represent components of genus one, black circles rational components. We now say it in the statement of Lemma 4.3.
+\item[(12)] Lemma 4.10 has been split into two. Moreover, a section called ``Lines'' (including Fig. 6) has been added, addressing the combinatorial type of a comb with degree $1$ teeth. This case is both peculiar (because it is not true that the tangent lines of the tails at the nodes are mapped to $0$ in $N_{H/\PP^m}$ by $\operatorname{d}\!f$) and simpler (because, generically, the tails are automatically aligned), so we thought it worth of mention in order to familiarise the reader with the line of argument of the rest of section \S 4.
+\item[(13)] We point to Figure 8 for such an example.
+\item[(14)] We clarified the distinction between the substratum log structure and the intrinsic one.
+\item[(15)] Figure 7 exhibits the simplest modular example.
+\item[(16)] Moduli of attachments are described in \S 1.4, which is a reinterpretation of work of D. Smyth. He already described a compactification of them, which is isomorphic to projective space, and whose boundary strata parametrise ``sprouted'' curves: in our language this corresponds to the partial destabilisation $\widetilde C$. Figure 8 explains tropically how to see the fan of projective space (fibrewise).
+\item[(17)] At the beginning of Section 4.3.5 we remind the reader of the correspondence between piecewise-linear functions on the tropicalization and line bundles on the space.
+\item[(18)] We point out how other nodes are irrelevant.
+\item[(19)] By construction, the vanishing locus is the closure of its open part (since all the intersections with boundary strata have been blown up and put in the vector bundle as a twist). Transversality follows.
+\item[(20)] We do not make an indexing set explicit; on the other hand, it can be deduced from the combinatorics of the tropicalization.
+\item[(21)] We have made the various identifications more explicit.
+\item[(22)] $\mathcal P$ can be thought of as a moduli space of partial alignments (among the tails specified along the circle, notwithstanding their possible degenerations), or a stratum of a logarithmic blowup of the moduli space. $\widetilde D$ is nothing but a further blowup of this.
+\item[(23)] We meant the factors in the product (3), which are themselves moduli spaces of maps (relative, genus zero; or rubber, genus one).
+\item[(24)] We left the final statement as vague as it was, but we put some effort in clarifying it through the discussion of Proposition 4.21 and Corollary 4.22.
 \item[(25)] At the start of Section 5.1 we have added formulae to clarify the definition of the invariants.
 \item[(26)] In Section 5.2 we define ``true tangency'' and ``true markings''; we have including more motivation for considering true and fictitious markings. In Section 5.3 we have added (following the table) a more detailed explanation of the recursion algorithm, which clarifies why all the base cases have degree zero. We have moreover discussed these cases in more depth (see Remark 5.4), clarifying the role played by ``tangency'' in this degenerate setting.
 \item[(27)] We have clarified the meaning of $\alpha-e_1$. Here true markings can have $\alpha_1=1$, as long as all insertions are not pulled back along forgetting $x_1$; we have added a remark to this effect in Section 5.2. The term ``reduced relative'' is potentially confusing and has been removed.
