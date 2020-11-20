@@ -365,7 +365,7 @@ We construct and study the reduced, relative, genus one Gromov--Witten theory of
 
 \noindent The Kontsevich space of stable maps from genus zero curves to projective space exhibits remarkable geometry -- it is a smooth orbifold with a ``self-similar'' normal crossings boundary. A combination of these facts yields a very satisfactory understanding of Gromov--Witten theory in genus zero. 
 
-The higher genus situation is more delicate, and substantial theory has been developed in recent years to treat the genus one case, both for its intrinsic geometry, and for higher genus insights. This began over a decade ago with pioneering work of Li, Vakil, and Zinger~\cite{redgone,VZ,LZ,lz2,zingerstvsred,zingred}, and was recently reinvigorated using ideas from singularity theory~\cite{BCM18,HL,SMY1,VISC} and logarithmic geometry~\cite{RSPW,RSPW2,BC20}. The result is a \textbf{reduced} Gromov--Witten theory, which removes degenerate contributions from the ordinary theory. Fundamental ingredients in Gromov--Witten theory are torus localisation, relative stable maps, and degeneration formulas. While the Atiyah--Bott localisation for the reduced invariants was used to great effect by Zinger in his proof of the BCOV conjectures, the remaining components -- relative invariants and the degeneration formula -- have not been developed in this setting. Our work provides these as new {structural} tools in reduced genus one Gromov--Witten theory\footnote{Further motivation to consider the genus one case specifically comes simply from the fact that for Calabi--Yau geometries in dimension larger than $3$, Gromov--Witten theory vanishes in genera greater than one.}. 
+The higher genus situation is more delicate, and substantial theory has been developed in recent years to treat the genus one case, both for its intrinsic geometry, and for higher genus insights. This began over a decade ago with pioneering work of Li, Vakil, and Zinger~\cite{redgone,VZ,LZ,lz2,zingerstvsred,zingred,HLN}, and was recently reinvigorated using ideas from singularity theory~\cite{BCM18,HL,SMY1,VISC} and logarithmic geometry~\cite{RSPW,RSPW2,BC20}. The result is a \textbf{reduced} Gromov--Witten theory, which removes degenerate contributions from the ordinary theory. Fundamental ingredients in Gromov--Witten theory are torus localisation, relative stable maps, and degeneration formulas. While the Atiyah--Bott localisation for the reduced invariants was used to great effect by Zinger in his proof of the BCOV conjectures, the remaining components -- relative invariants and the degeneration formula -- have not been developed in this setting. Our work provides these as new {structural} tools in reduced genus one Gromov--Witten theory\footnote{Further motivation to consider the genus one case specifically comes simply from the fact that for Calabi--Yau geometries in dimension larger than $3$, Gromov--Witten theory vanishes in genera greater than one.}. 
 
 The essential starting point for our relative theory is the early work on relative Gromov--Witten theory by Gathmann. However, modern tools are required in our setting. The conceptual framework and the degeneration formalism itself are obtained by combining tropical geometry and logarithmic Gromov--Witten theory, as developed by Abramovich--Chen--Gross--Siebert, with the recent understanding of elliptic singularities and their interactions with logarithmic structures. The latter sections of this paper are devoted to demonstrating that the new ingredients can be combined in a concrete fashion, using tautological vector bundles and their Chern classes. 
 
@@ -423,7 +423,7 @@ The geometric ideas in Gathmann's recursion are clear, but are implemented in th
 
 %Our analysis leads naturally to the study of the main component of the double ramification cycle for target manifolds in genus one. The virtual geometry of this was studied in recent work of Janda, Pandharipande, Pixton, and Zvonkine~\cite{DRCBundle}. Even in genus one, an understanding of the main component contributions of the double ramification cycle for target manifolds seems to be lacking. Our main algorithm provides a method for calculating integrals over this class, but it would be more natural to have a formula for it.
 
-On the target side, it would be natural to generalise the method of degenerating tangency conditions to higher rank logarithmic structures. When the target is a toric pair the problem is tied in with the enumerative geometry of well-spaced tropical curves~\cite{LR18,RSPW2,Speyer}. %We will return to these questions in future work. 
+On the target side, it would be natural to generalise the method of degenerating tangency conditions to higher rank logarithmic structures. The techniques developed in \cite{MaximalContacts} are expected to play a role. When the target is a toric pair the problem is tied in with the enumerative geometry of well-spaced tropical curves~\cite{LR18,RSPW2,Speyer}. %We will return to these questions in future work. 
 
 \subsection*{Acknowledgements} We have benefited from fruitful conversations with friends and colleagues, including Pierrick Bousseau, Francesca Carocci, Cristina Manolache, Davesh Maulik, Keli Santos-Parker, and Jonathan Wise. The authors worked on this project during visits to MPIM-Bonn, MIT, University of Cambridge, and the University of Glasgow, and thank these institutions for ideal working conditions and support. The text has been improved substantially by the careful reading and comments of a referee, to whom we are very grateful. 
 
@@ -1079,7 +1079,7 @@ We begin with a description of the boundary divisor corresponding to a comb whos
   \foreach \x in {(0,2),(0,1),(0,-1)}
   \draw \x --node[below,blue]{\SMALL$1$} (4,0);
   \draw (1,0) node{$\vdots$};
-  \draw[->] (4,0) --node[below]{\color{blue} $d$} (6,0);
+  \draw[->] (4,0) --node[above]{\color{blue} \SMALL$d$} (6,0);
   \draw[blue,->] (0,-2)--(6,-2);
   \draw[fill=white] (4,0) circle (2pt);
   \draw[fill=blue,blue] (4,-2) node[blue]{$\times$};
@@ -1810,9 +1810,9 @@ This construction of the virtual fundamental class means that once we have estab
 \end{enumerate}
 
 \subsection{Reduced absolute, relative and rubber invariants} To be precise: by a reduced invariant of $Y$ we mean an integral over $\VZ_{1,n}(Y,\beta)$ of a product of evaluation classes and pullbacks of psi classes along morphisms forgetting subsets of the marked points:
-\begin{equation*} \int_{\virt{[\VZ_{1,n}(Y,\, \beta)]}} \prod_{i=1}^n \fgt_{S_i}^\star \psi_i^{k_i} \cdot \ev_i^\star \gamma_i.\end{equation*}
-(Here $S_i \subseteq \{1,\ldots,n\}$ with $i \not\in S_i$ for all $i$; taking $S=\emptyset$ gives the ordinary  psi classes.). The evaluation maps are viewed as mapping into $X$ (hence the adjective ``restricted''). Reduced relative invariants of $(X,Y)$ are defined in the same way
-\begin{equation*} \int_{\virt{[\VZ_{1,\alpha}(X|Y,\, \beta)]}} \prod_{i=1}^n \fgt_{S_i}^\star \psi_i^{k_i} \cdot \ev_i^\star \gamma_i\end{equation*}
+\begin{equation*} \int_{\virt{\VZ_{1,n}(Y,\, \beta)}} \prod_{i=1}^n \fgt_{S_i}^\star \psi_i^{k_i} \cdot \ev_i^\star \gamma_i.\end{equation*}
+Here $S_i \subseteq \{1,\ldots,n\}$ with $i \not\in S_i$ for all $i$; taking $S=\emptyset$ gives the ordinary  psi classes. The evaluation maps are viewed as mapping into $X$ (hence the adjective ``restricted''). Reduced relative invariants of $(X,Y)$ are defined in the same way
+\begin{equation*} \int_{\virt{\VZ_{1,\alpha}(X|Y,\, \beta)}} \prod_{i=1}^n \fgt_{S_i}^\star \psi_i^{k_i} \cdot \ev_i^\star \gamma_i\end{equation*}
 except now the forgetful morphism maps into a space of absolute stable maps:
 \begin{equation*} \fgt_S \colon \VZ_{1,\alpha}(X|Y,\beta) \to \VZ_{1,n-\#S}(X,\beta).\end{equation*}
 Note that even the case $S=\emptyset$ entails a nontrivial forgetful morphism. In particular, all the psi classes which we consider are \textbf{collapsed psi classes}, meaning that they are relative cotangent line classes for the corresponding collapsed stable map. Note that, unlike in the absolute case, in the relative case it may well be that the entire insertion is pulled back along a single forgetful map $\fgt_S$. The reduced rubber invariants of $\mathbb{P}$ are defined similarly, using collapsed psi classes.
@@ -2168,9 +2168,7 @@ Thus \eqref{step 2 recursion 3} gives:
 \begin{equation*} -(\gamma/d) \cap [\VZ_{1,(d,\underbrace{0,\ldots,0}_{n-1})}(X|Y,\beta)] = I/d + \text{polynomial in previously computed invariants}.\end{equation*}
 Substituting into \eqref{step 2 recursion 2}, we obtain
 \begin{equation*} I\cdot(1-d^{-1}) = \text{polynomial in previously computed invariants} \end{equation*}
-which completes the recursion step as long as $d \neq 1$. But since $\VZ_{1,n}(H,1)=\emptyset$ as noted in Remark~\ref{rem: constant-maps}, it follows that $\VZ_{1,n}(Y,\beta)=\emptyset$ if $d=Y\cdot\beta=1$, so we may assume $d \geq 2$ in this step.
-
-Step 2, computing the reduced absolute invariant of $Y$ of degree $d$ and $n$ markings, is complete.
+which completes the recursion step as long as $d \neq 1$. But since $\VZ_{1,n}(H,1)=\emptyset$ as noted in Remark~\ref{rem: constant-maps}, it follows that $\VZ_{1,n}(Y,\beta)=\emptyset$ if $d=Y\cdot\beta=1$, so we may assume $d \geq 2$ in this step. Step 2, computing the reduced absolute invariant of $Y$ of degree $d$ and $n$ markings, is complete.
 
 \subsection*{Step 3} Now suppose we are given a relative space $\VZ_{1,\alpha}(X|Y,\beta)$ with an insertion $\gamma$, and suppose inductively that we have computed all forgetful relative invariants with $(d^\prime,n^\prime) \leq (d,n+1)$, all absolute invariants with $(d^\prime,n^\prime) \leq (d,n)$, all relative invariants with $(d^\prime,n^\prime,t^\prime)<(d,n,t)$ and all rubber invariants with $d^\prime < d$.
 
@@ -2299,4 +2297,4 @@ Department of Pure Mathematics and Mathematical Statistics, University of Cambri
 Department of Pure Mathematics and Mathematical Statistics, University of Cambridge \\
 \href{mailto:dr508@cam.ac.uk}{dr508@cam.ac.uk}
 
-\end{document}w
+\end{document}w	
